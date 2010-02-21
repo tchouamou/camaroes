@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>tchouamou/camaroes @ GitHub</title>
+	
+	<style type="text/css">
+		body {
+  		margin-top: 1.0em;
+  		background-color: #8c9aed;
+		  font-family: "Helvetica,Arial,FreeSans"; 
+  		color: #000000;
+    }
+    #container {
+      margin: 0 auto;
+      width: 700px;
+    }
+		h1 { font-size: 3.8em; color: #736512; margin-bottom: 3px; }
+		h1 .small { font-size: 0.4em; }
+		h1 a { text-decoration: none }
+		h2 { font-size: 1.5em; color: #736512; }
+    h3 { text-align: center; color: #736512; }
+    a { color: #736512; }
+    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+    .download { float: right; }
+		pre { background: #000; color: #fff; padding: 15px;}
+    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+    .footer { text-align:center; padding-top:30px; font-style: italic; }
+	</style>
+	
+</head>
+
+<body>
+  <a href="http://github.com/tchouamou/camaroes"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
+  
+  <div id="container">
+
+    <div class="download">
+      <a href="http://github.com/tchouamou/camaroes/zipball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
+      <a href="http://github.com/tchouamou/camaroes/tarball/master">
+        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
+    </div>
+      
+    <h1><a href="http://github.com/tchouamou/camaroes">camaroes</a> 
+      <span class="small">by <a href="http://github.com/tchouamou">tchouamou</a></span></h1>
+
+    <div class="description">
+      Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM).
+    </div>
+
+    <p>Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM). Camaroes Include: Database tool, File manager, Calendar, Webmail, a generator of module class button. Use a dynamique web interface.</p><h2>Dependencies</h2>
+<p>php, mysql</p>
+<h2>Install</h2>
+<p>REQUIREMENTS
+------------
+
+First you must have the base environment for Camaroes.
+We have thoroughly tested Camaroes! on: Linux, Free BSD, Mac OS X and Windows.
+Linux or one of the BSD's are recommended, but anything else that can run the
+3 pieces of software listed below should do it.
+
+Apache	-> http://www.apache.org
+MySQL	-> http://www.mysql.com
+PHP	-> http://www.php.net
+
+for install goto:
+http://your_server/camaroes/index.php?cmr_mode=install
+
+after install
+
+- login at [admin]
+- run generator by going to the [Admin]menu and [generator]
+- Choose this:
+   Database Type: mysql
+   Database source : From server
+   model source : From server
+   Output: In application auto folders
+   ....etc  -> don't change
+   Tabella Prefix : cmr_
+      ....etc  -> don't change
+   Tabella Of [ camaroes_db ] -> select all
+   Models Group : [ php ] -> select all
+      ....etc  -> don't change
+   Click on [generate] 
+  To complete at all the install procedure
+
+
+   
+
+SERVER CONFIGURATION
+--------------------
+
+You MUST ensure that PHP has been compiled with support for MySQL
+
+this is the general static configuration file ./conf.d/conf.ini
+	
+the first configuration file is ./config.inc.php
+the general dynamic configuration file is ./conf.d/conf.ini
+the group configuration file is ./home/groups/{group_name}/config.ini
+the user configuration file is ./home/groups/{user_name}/config.ini
+	
+	
+to configure the interface (module windows position) for all user, see ./page/page.ini or ./themes/themes.ini or ./css/camaroes.css
+to configure the interface (module windows position) for a group, see ./home/{group_name}/page.ini or ./home/{user_name}/page.ini
+	
+the language file is ./language.ini or ./language/lang_to_use/language.ini
+the default windows themes configuration file ./themes/themes.ini or ./themes/{themes_folder}/themes.ini
+
+the database connection configuation can_be ./conf.d/conf.ini or ./config.inc.php or ./conf.d/conf.ini or ./home/{group_name}/login_rc.php  or ./home/{group_name}/config.ini  or ./home/{user_name}/config.ini (the default one is in ./conf.d/conf.ini )
+
+ the database connection configuation is  (the default one is in config.inc.php, ./conf.d/conf.ini )
+
+
+While we have reports that Camaroes! works on IIS server we recommend Apache
+for running Camaroes! on Windows.
+
+</p>
+<h2>License</h2>
+<p>Copyright (c) 2009, Tchouamou Eric Herve <tchouamou@gmail.com>
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+1. Redistributions of source code must retain the above copyright
+ notice, this list of conditions and the following disclaimer.
+2. Redistributions in binary form must reproduce the above copyright
+ notice, this list of conditions and the following disclaimer in the
+ documentation and/or other materials provided with the distribution.
+3. The names of the authors may not be used to endorse or promote products
+ derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+This code cannot simply be copied and put under the GNU Public License or
+any other GPL-like (LGPL, GPL2) License.</p>
+<h2>Authors</h2>
+<p>Tchouamou Eric Herve</p>
+<h2>Contact</h2>
+<p> (tchouamou@gmail.com)<br/>      </p>
+
+
+    <h2>Download</h2>
+    <p>
+      You can download this project in either
+      <a href="http://github.com/tchouamou/camaroes/zipball/master">zip</a> or
+      <a href="http://github.com/tchouamou/camaroes/tarball/master">tar</a> formats.
+    </p>
+    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
+      by running:
+      <pre>$ git clone git://github.com/tchouamou/camaroes</pre>
+    </p>
+      
+    <div class="footer">
+      get the source code on GitHub : <a href="http://github.com/tchouamou/camaroes">tchouamou/camaroes</a>
+    </div>
+    
+  </div>
+
+  
+</body>
+</html>
