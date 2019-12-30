@@ -1,0 +1,1047 @@
+<project version="Crimson Editor 3.60">
+	<category name="index" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\ajax.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\camaroes_class.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\cli.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\common_begin.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\common_end.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\config.inc.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\control.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\event.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\forget_account.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\front_page.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\index.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\index.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\inscription.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\login.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\logout.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\validation.php" />
+	</category>
+	<category name="modules" expanded="yes">
+		<category name="guest" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\about.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\application_bar.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\calendar.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\chess.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\color.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\desktop.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\download.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\faq.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\page_footer.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\page_header.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\security.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\site_map.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\task_bar.php" />
+		</category>
+		<category name="auto" expanded="no">
+		</category>
+		<category name="database" expanded="yes">
+			<category name="get_data" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_databases.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_export_table.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_import_table.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_login_db.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_query_db.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_report_table.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_view_table.php" />
+			</category>
+			<category name="languages" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\languages\lang_table.ini" />
+			</category>
+			<category name="templates" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_columns.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_databases.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_export_table.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_import_table.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_login_db.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_preview_table.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_report_table.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_search_table.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_tables.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_update_column.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_update_table.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_view_table.html" />
+			</category>
+			<category name="conf.d" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\conf.d\conf_table.ini" />
+			</category>
+			<category name="class" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\class\class_table.php" />
+			</category>
+			<category name="function" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\function\func_table.php" />
+			</category>
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\columns.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\databases.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\export_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\import_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\index.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\login_db.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\menu_db_all.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\menu_tree_db.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\new_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\preview_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\preview_table_report.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\query_db.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\report_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\result_sql.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\search_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\tables.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\update_column.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\update_table.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\view_table.php" />
+		</category>
+		<category name="monitor" expanded="no">
+		</category>
+		<category name="nessus" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\config_nessus.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\index.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\index1.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\index2.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\index3.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\make_report_nessus.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\nessus_suid.cgi" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\rm_suid.cgi" />
+		</category>
+		<category name="admin" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\administrate.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_email.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_groups.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_pw.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_type.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_uid.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_user.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_all.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_conf.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_lang.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_page.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_theme.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_front_page.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_imap.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_menu.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_policy.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_template.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_conf.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_lang.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_page.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_tab.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_theme.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\explore.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\form_generator.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\generators.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\index.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\monitor.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\new_groups.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\new_user.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\preview_sql.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\query.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\replace.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\test.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\update_groups.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\update_user.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\view_logs.php" />
+		</category>
+		<category name="share" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\menu_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\new_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\preview_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\report_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\search_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\update_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\view_core.php" />
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\calendario.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\close_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\commands.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\email_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\email_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\escalate_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\index.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\load_configure.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\login_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\login_new.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_admin.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_client.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_config.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_default.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_delete.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_head.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_install.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_left.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_list.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_new.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_preview.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_report.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_search.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tools.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_auto.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_head.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_left.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_update.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_view.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\message_from_model.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\module.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\modules_map.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\my_account.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\my_groups.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_comment.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_module.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_policy.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_asset.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_date.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_groups.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_report.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_user.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\reply_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report_compare.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report_periodic.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\search.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\search_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\take_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\ticket_from_model.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_module.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\upload.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_all_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_all_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_closed_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_current_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_date_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_event.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_expired_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_job_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_message_tab.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_model_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_model_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_my_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_my_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_new_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_pending_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_received_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_search.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_sended_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_ticket_tab.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_unread_email.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_unread_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_unread_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_update_ticket.php" />
+	</category>
+	<category name="class" expanded="no">
+		<category name="auto" expanded="no">
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_database.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_form_generator.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_generators.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_graph.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_module.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_module_link.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_pdf.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_phpexplorator.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_windows.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\index.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\class\phpexplorator.class.php" />
+	</category>
+	<category name="function" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_base.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_base_link.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_database.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_downloads.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_form_generator.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_generators.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_image.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_input.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_language.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_output.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_pdf.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_php_mailer.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_security.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_sessions.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_windows.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_zip.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\function\index.html" />
+	</category>
+	<category name="get_data" expanded="no">
+		<category name="admin" expanded="no">
+		</category>
+		<category name="guest" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\guest\get_default_data.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login_imap.php" />
+		</category>
+		<category name="auto" expanded="no">
+		</category>
+		<category name="share" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_new_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_report_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_search_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_update_core.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_view_core.php" />
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_administrate.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_email.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_groups.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_pw.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_type.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_uid.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_user.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_close_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_commands.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_comment.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_comment_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_front_page.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_menu.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_policy.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_email_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_escalate_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_export_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_forget_account.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_form_generator.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_inscription.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_make_report_nessus.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_module.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_comment.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_groups.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_policy.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_user.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_query.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_replace.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_report_compare.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_report_periodic.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_search.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_search_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_search_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_take_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_groups.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_message.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_user.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_upload.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_validation.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_event.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_groups.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_imap.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_user.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\index.html" />
+	</category>
+	<category name="conf.d" expanded="no">
+		<category name="auto" expanded="no">
+		</category>
+		<category name="modules" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\modules\conf_form_generator.ini" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\modules\conf_generators.ini" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\modules\conf_ticket.ini" />
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_compagny.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_database.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_login.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_security.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_smtp.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\index.html" />
+	</category>
+	<category name="system" expanded="no">
+		<category name="generate" expanded="yes">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\email.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\generator_get.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\generator_mod.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\graph.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\image.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\pdf.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\tips.php" />
+		</category>
+		<category name="loader" expanded="yes">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\iframe.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\load_config.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_class.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_function.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_get.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_layer.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_module.php" />
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\system\control_session.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\system\load_guest_mode.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\system\load_user_data.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\system\run_result.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\system\select_mode.php" />
+	</category>
+	<category name="css" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\css\camaroes.css" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\css\index.html" />
+	</category>
+	<category name="javascript" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\javascript\camaroes.js" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\javascript\tinymce_conf.js" />
+	</category>
+	<category name="install" expanded="no">
+		<category name="sed" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sed\final_sed_good.txt" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sed\sed_command.cgi" />
+		</category>
+		<category name="sql" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_ansi.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_db2.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_maxdb.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_mssql.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_mysql323.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_mysql4.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_none.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_oracle.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_posgresql.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\camaroes_db_traditional.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\tstm_scheme.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\tstm_scheme_create.sql" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql\tstm_scheme_insert.sql" />
+		</category>
+		<category name="cgi" expanded="no">
+		</category>
+		<category name="database" expanded="no">
+		</category>
+		<category name="migration" expanded="no">
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\.htaccess" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\camaroes.cgi" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme_create.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme_insert.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme_insert1.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\conf.ini" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\generate.txt" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\index.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\install.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\install.txt" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\install_begin.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\install_end.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\install_need.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\licence.txt" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\migration.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\migration_v1.0_to_v1.1.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\migration_v1.1_to_v1.0.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\migration_v2.0_to_v1.0.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\package.xml" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\pre_migration.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\sql_default_format.sql" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\install\update.php" />
+	</category>
+	<category name="cgi" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\cgi\.htaccess" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\cgi\camaroes.cgi" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\cgi\index.html" />
+	</category>
+	<category name="templates" expanded="no">
+		<category name="modules" expanded="no">
+			<category name="auto" expanded="no">
+			</category>
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_config_all.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_config_template.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_desktop.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_foot1.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_form_generator.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_groups.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_imap.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_login_imap.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_login_new.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_menu_tree_head.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_message.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_module.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_my_account.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_new_imap.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_page_footer.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_page_header.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_page_logo.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_asset.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_groups.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_message.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_report.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_ticket.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_user.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_replace.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_run_result.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_ticket.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_user.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_view_event.html" />
+		</category>
+		<category name="notify" expanded="no">
+			<category name="auto" expanded="no">
+			</category>
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\notify\format_notify.xml" />
+		</category>
+		<category name="origin" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_activation.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_forget_account.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_iframe.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_index.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_inscription.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_login.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_login_personal.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_logout.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\templates\origin\template_validation.html" />
+		</category>
+		<category name="email" expanded="no">
+		</category>
+		<category name="ticket" expanded="no">
+		</category>
+		<category name="report" expanded="no">
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_forget_account.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_front_page.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_iframe.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_index.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_index_frame.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_inscription.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_install_begin.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_install_end.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_install_need.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_load_config.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_login.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_logout.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_run_result.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_update.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_validation.html" />
+	</category>
+	<category name="page" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\page\.htaccess" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\page\index.html" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\page\page.ini" />
+	</category>
+	<category name="themes" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\themes\themes.ini" />
+	</category>
+	<category name="home" expanded="no">
+		<category name="groups" expanded="no">
+			<category name="admin" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\groups\admin\config.ini" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\groups\admin\index.html" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\groups\admin\login_rc.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\groups\admin\page.ini" />
+			</category>
+			<category name="operator" expanded="no">
+			</category>
+			<category name="guest" expanded="no">
+			</category>
+		</category>
+		<category name="users" expanded="no">
+			<category name="admin" expanded="no">
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\users\admin\config.ini" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\users\admin\login_rc.php" />
+				<localfile path="C:\Users\Eric\Desktop\camaroes\home\users\admin\page.ini" />
+			</category>
+			<category name="operator" expanded="no">
+			</category>
+			<category name="guest" expanded="no">
+			</category>
+		</category>
+	</category>
+	<category name="doc" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\doc\next.txt" />
+	</category>
+	<category name="model" expanded="no">
+		<category name="php" expanded="no">
+			<category name="extra" expanded="no">
+			</category>
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\class_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\conf_model.ini" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_new_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_report_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_search_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_update_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_view_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\index.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\lang_model.ini" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\menu_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\new_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\notify_model.xml" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\preview_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\report_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\search_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_menu_model.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_model.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_preview_model.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_report_model.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_search_model.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_view_model.html" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\update_model.php" />
+			<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\view_model.php" />
+		</category>
+	</category>
+	<category name="languages" expanded="no">
+		<category name="french" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\languages\french\language.ini" />
+		</category>
+		<category name="italian" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\languages\italian\language.ini" />
+		</category>
+		<category name="english" expanded="no">
+			<localfile path="C:\Users\Eric\Desktop\camaroes\languages\english\language.ini" />
+		</category>
+		<localfile path="C:\Users\Eric\Desktop\camaroes\languages\language.ini" />
+	</category>
+	<category name="help" expanded="no">
+		<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\help_model_extra.html" />
+	</category>
+</project>
+
+<workspace version="Crimson Editor 3.60">
+	<localfile path="C:\Users\Eric\Desktop\camaroes\camaroes_class.php" linenum="341" placement="0:1:-1:-1:-8:-30:0:0:880:267" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\camaroes.prj" linenum="3" placement="0:1:-1:-1:-8:-30:22:29:716:221" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_database.php" linenum="45" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_view_model.html" linenum="73" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\view_model.php" linenum="27" placement="0:1:-1:-1:-8:-30:44:58:736:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\update_model.php" linenum="29" placement="0:1:-1:-1:-8:-30:66:87:758:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\search_model.php" linenum="30" placement="0:1:-1:-1:-8:-30:88:116:780:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\preview_model.php" linenum="29" placement="0:1:-1:-1:-8:-30:110:145:802:492" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\report_model.php" linenum="28" placement="0:1:-1:-1:-8:-30:0:0:692:347" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\menu_model.php" linenum="24" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\new_model.php" linenum="30" placement="0:1:-1:-1:-8:-30:44:58:736:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_new_model.php" linenum="22" placement="0:1:-1:-1:-8:-30:66:87:758:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_search_model.php" linenum="41" placement="0:1:-1:-1:-8:-30:88:116:780:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_update_model.php" linenum="36" placement="0:1:-1:-1:-8:-30:0:0:692:347" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_view_model.php" linenum="24" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\class_model.php" linenum="203" placement="0:1:-1:-1:-8:-30:44:58:736:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\button_model.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:758:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\get_administrate_model.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:780:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\administrate_model.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:802:492" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\class_one_model.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:692:347" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\help_model_extra.html" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\notify_administrate_model.xml" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:736:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\template_administrate_model.html" linenum="14" placement="0:1:-1:-1:-8:-30:66:87:758:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_module.php" linenum="68" placement="0:1:-1:-1:-8:-30:88:116:780:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_module.php" linenum="76" placement="0:1:-1:-1:-8:-30:110:145:802:492" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_database.php" linenum="2343" placement="0:1:-1:-1:-8:-30:0:0:692:347" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_base.php" linenum="687" placement="0:1:-1:-1:-8:-30:44:58:736:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_ticket.php" linenum="92" placement="0:1:-1:-1:-8:-30:0:0:670:352" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\conf_model.ini" linenum="23" placement="0:1:-1:-1:-8:-30:44:58:714:410" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_base_link.php" linenum="531" placement="0:1:-1:-1:-8:-30:132:174:802:526" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_form_generator.php" linenum="148" placement="0:1:-1:-1:-8:-30:0:0:670:353" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_form_generator.php" linenum="1183" placement="0:1:-1:-1:-8:-30:22:29:692:382" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\generators.php" linenum="123" placement="0:1:-1:-1:-8:-30:44:58:736:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_downloads.php" linenum="195" placement="0:1:-1:-1:-8:-30:66:87:761:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_ticket.php" linenum="275" placement="0:1:-1:-1:-8:-30:88:116:783:492" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_groups.php" linenum="348" placement="0:1:-1:-1:-8:-30:110:145:805:521" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_user.php" linenum="384" placement="0:1:-1:-1:-8:-30:0:0:695:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\new_table.php" linenum="173" placement="0:1:-1:-1:-8:-30:66:87:761:429" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\report_table.php" linenum="211" placement="0:1:-1:-1:-8:-30:88:116:783:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\view_table.php" linenum="243" placement="0:1:-1:-1:-8:-30:110:145:805:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_report_table.php" linenum="94" placement="0:1:-1:-1:-8:-30:0:0:695:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\get_report_model.php" linenum="34" placement="0:1:-1:-1:-8:-30:22:29:717:371" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_view_table.html" linenum="37" placement="0:1:-1:-1:-8:-30:66:87:712:429" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\update_table.php" linenum="153" placement="0:1:-1:-1:-8:-30:88:116:734:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\update_column.php" linenum="17" placement="0:1:-1:-1:-8:-30:110:145:756:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\query_db.php" linenum="109" placement="0:1:-1:-1:-8:-30:0:0:646:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\preview_table_report.php" linenum="146" placement="0:1:-1:-1:-8:-30:22:29:668:371" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\export_table.php" linenum="182" placement="0:1:-1:-1:-8:-30:44:58:690:400" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\preview_table.php" linenum="181" placement="0:1:-1:-1:-8:-30:88:116:734:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\columns.php" linenum="188" placement="0:1:-1:-1:-8:-30:110:145:756:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\databases.php" linenum="106" placement="0:1:-1:-1:-8:-30:0:0:646:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\menu_tree_db.php" linenum="132" placement="0:1:-1:-1:-8:-30:88:116:734:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\import_table.php" linenum="189" placement="0:1:-1:-1:-8:-30:110:145:756:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\login_db.php" linenum="110" placement="0:1:-1:-1:-8:-30:0:0:646:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\menu_db_all.php" linenum="140" placement="0:1:-1:-1:-8:-30:22:29:668:371" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_view_table.php" linenum="115" placement="0:1:-1:-1:-8:-30:44:58:690:400" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\function\func_table.php" linenum="960" placement="2:3:-1:-1:-8:-30:66:87:712:429" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\common_begin.php" linenum="146" placement="0:1:-1:-1:-8:-30:88:116:734:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\ticket.php" linenum="278" placement="0:1:-1:-1:-8:-30:66:87:712:429" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\load_user_data.php" linenum="504" placement="0:1:-1:-1:-8:-30:88:116:789:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_comment.php" linenum="99" placement="0:1:-1:-1:-8:-30:110:145:811:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_front_page.php" linenum="16" placement="0:1:-1:-1:-8:-30:0:0:701:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_comment_ticket.php" linenum="125" placement="0:1:-1:-1:-8:-30:22:29:723:371" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_ticket.php" linenum="351" placement="0:1:-1:-1:-8:-30:44:58:745:400" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_user.html" linenum="59" placement="0:1:-1:-1:-8:-30:66:87:722:429" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_user.html" linenum="70" placement="0:1:-1:-1:-8:-30:88:116:744:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_security.php" linenum="623" placement="0:1:-1:-1:-8:-30:110:145:766:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\update_user.php" linenum="245" placement="0:1:-1:-1:-8:-30:0:0:656:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\update_groups.php" linenum="250" placement="0:1:-1:-1:-8:-30:22:29:678:371" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_groups.html" linenum="50" placement="0:1:-1:-1:-8:-30:44:58:700:400" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\guest\get_default_data.php" linenum="481" placement="0:1:-1:-1:-8:-30:88:116:744:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_search_model.html" linenum="92" placement="0:1:-1:-1:-8:-30:110:145:766:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_search.html" linenum="32" placement="0:1:-1:-1:-8:-30:0:0:656:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\search.php" linenum="103" placement="0:1:-1:-1:-8:-30:22:29:678:371" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_report_model.html" linenum="24" placement="0:1:-1:-1:-8:-30:44:58:700:400" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_search.php" linenum="149" placement="0:1:-1:-1:-8:-30:88:116:744:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_template.php" linenum="284" placement="0:1:-1:-1:-8:-30:110:145:749:521" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_menu.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:639:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:661:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_front_page.php" linenum="145" placement="0:1:-1:-1:-8:-30:44:58:683:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_theme.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:705:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_tab.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:727:492" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_page.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:749:521" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_lang.php" linenum="174" placement="0:1:-1:-1:-8:-30:0:0:639:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\configure_conf.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:661:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_policy.php" linenum="122" placement="0:1:-1:-1:-8:-30:44:58:683:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_theme.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:705:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_page.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:727:492" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_get.php" linenum="176" placement="0:1:-1:-1:-8:-30:110:145:749:521" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_module.php" linenum="197" placement="0:1:-1:-1:-8:-30:0:0:639:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:750:405" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:772:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\load_guest_mode.php" linenum="147" placement="0:1:-1:-1:-8:-30:66:87:794:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_user.php" linenum="153" placement="0:1:-1:-1:-8:-30:88:116:776:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_groups.php" linenum="269" placement="0:1:-1:-1:-8:-30:110:145:798:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_type.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:688:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_groups.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:710:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_groups.php" linenum="125" placement="0:1:-1:-1:-8:-30:44:58:732:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_user.php" linenum="155" placement="0:1:-1:-1:-8:-30:66:87:754:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_security.ini" linenum="25" placement="0:1:-1:-1:-8:-30:88:116:776:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\commands.php" linenum="52" placement="0:1:-1:-1:-8:-30:110:145:798:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_commands.php" linenum="76" placement="0:1:-1:-1:-8:-30:0:0:688:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_user.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:710:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_administrate.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:732:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_head.php" linenum="128" placement="0:1:-1:-1:-8:-30:66:87:754:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_head.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:776:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_search.php" linenum="92" placement="0:1:-1:-1:-8:-30:110:145:798:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme_create.sql" linenum="7" placement="0:1:-1:-1:-8:-30:0:0:689:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme_insert.sql" linenum="4" placement="0:1:-1:-1:-8:-30:22:29:711:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf.ini" linenum="72" placement="0:1:-1:-1:-8:-30:44:58:733:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\languages\english\language.ini" linenum="292" placement="0:1:-1:-1:-8:-30:66:87:755:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\languages\language.ini" linenum="292" placement="0:1:-1:-1:-8:-30:88:116:777:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\languages\default\language.ini" linenum="50" placement="0:1:-1:-1:-8:-30:110:145:799:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\languages\french\language.ini" linenum="303" placement="0:1:-1:-1:-8:-30:0:0:689:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_databases.php" linenum="176" placement="0:1:-1:-1:-8:-30:22:29:711:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_query_db.php" linenum="102" placement="0:1:-1:-1:-8:-30:66:87:755:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_export_table.php" linenum="32" placement="0:1:-1:-1:-8:-30:110:145:799:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_import_table.php" linenum="233" placement="0:1:-1:-1:-8:-30:0:0:689:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_login_db.php" linenum="62" placement="0:1:-1:-1:-8:-30:44:58:733:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\class\class_table.php" linenum="360" placement="0:1:-1:-1:-8:-30:88:116:777:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_output.php" linenum="189" placement="0:1:-1:-1:-8:-30:0:0:689:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\load_config.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:711:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_load_config.html" linenum="17" placement="0:1:-1:-1:-8:-30:44:58:733:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\run_result.php" linenum="156" placement="0:1:-1:-1:-8:-30:66:87:755:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_all.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:733:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_config_all.html" linenum="40" placement="0:1:-1:-1:-8:-30:66:87:755:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_compagny.ini" linenum="25" placement="0:1:-1:-1:-8:-30:88:116:777:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_form_generator.php" linenum="61" placement="0:1:-1:-1:-8:-30:110:145:799:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\generator_mod.php" linenum="61" placement="0:1:-1:-1:-8:-30:0:0:689:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\generator_get.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:711:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_layer.php" linenum="67" placement="0:1:-1:-1:-8:-30:44:58:733:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\new_core.php" linenum="113" placement="0:1:-1:-1:-8:-30:66:87:755:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\view_core.php" linenum="287" placement="0:1:-1:-1:-8:-30:88:116:777:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\preview_core.php" linenum="115" placement="0:1:-1:-1:-8:-30:110:145:799:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\update_core.php" linenum="89" placement="0:1:-1:-1:-8:-30:0:0:689:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\search_core.php" linenum="166" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_input.php" linenum="159" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\report_core.php" linenum="108" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_search_core.php" linenum="62" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_report_core.php" linenum="39" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_current_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_all_message.php" linenum="73" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_preview_model.html" linenum="51" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\share\menu_core.php" linenum="72" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\page\page.ini" linenum="211" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_message.php" linenum="381" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_date.php" linenum="412" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_asset.php" linenum="332" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_report.php" linenum="140" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\preview_imap.php" linenum="200" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\message.php" linenum="823" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_message.php" linenum="62" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_ticket.html" linenum="166" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_new_core.php" linenum="54" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_update_core.php" linenum="69" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\share\get_view_core.php" linenum="210" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\control_session.php" linenum="104" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\select_mode.php" linenum="104" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\forget_account.php" linenum="21" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\inscription.php" linenum="154" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\common_end.php" linenum="51" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\front_page.php" linenum="187" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\event.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\logout.php" linenum="52" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\login.php" linenum="280" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\validation.php" linenum="135" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_email.php" linenum="153" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config.php" linenum="87" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_menu.php" linenum="93" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_email_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_escalate_ticket.php" linenum="59" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_export_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_forget_account.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_inscription.php" linenum="106" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_make_report_nessus.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_validation.php" linenum="144" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_user.php" linenum="54" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php" linenum="34" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login_imap.php" linenum="262" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_comment.php" linenum="65" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\install.php" linenum="65" placement="0:1:-1:-1:-8:-30:88:116:777:490" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\new_groups.php" linenum="188" placement="0:1:-1:-1:-8:-30:110:145:799:519" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_groups.html" linenum="172" placement="0:1:-1:-1:-8:-30:0:0:689:374" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_language.php" linenum="89" placement="0:1:-1:-1:-8:-30:22:29:722:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\get_data\get_search_table.php" linenum="122" placement="0:1:-1:-1:-8:-30:0:0:700:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_login.ini" linenum="84" placement="0:1:-1:-1:-8:-30:88:116:788:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_form_generator.html" linenum="5" placement="0:1:-1:-1:-8:-30:110:145:810:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_login.html" linenum="131" placement="0:1:-1:-1:-8:-30:0:0:700:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\javascript\camaroes.js" linenum="95" placement="0:1:-1:-1:-8:-30:22:29:722:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\index.html" linenum="235" placement="0:1:-1:-1:-8:-30:44:58:744:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme.sql" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:766:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\form_generator.php" linenum="102" placement="0:1:-1:-1:-8:-30:110:145:810:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_change_account.html" linenum="125" placement="0:1:-1:-1:-8:-30:110:145:735:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_groups.php" linenum="15" placement="0:1:-1:-1:-8:-30:0:0:625:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_account.php" linenum="103" placement="0:1:-1:-1:-8:-30:22:29:647:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_my_account.html" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:669:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_pw.php" linenum="109" placement="0:1:-1:-1:-8:-30:66:87:691:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_type.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:713:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_uid.php" linenum="194" placement="0:1:-1:-1:-8:-30:110:145:735:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_email.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:625:375" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\my_account.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:647:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\about.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:669:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\color.php" linenum="569" placement="0:1:-1:-1:-8:-30:66:87:691:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\desktop.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:713:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\monitor.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:735:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_columns.html" linenum="277" placement="0:1:-1:-1:-8:-30:0:0:711:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\table.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:733:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_tables.html" linenum="201" placement="0:1:-1:-1:-8:-30:44:58:695:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_databases.html" linenum="156" placement="0:1:-1:-1:-8:-30:66:87:717:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\result_sql.php" linenum="185" placement="0:1:-1:-1:-8:-30:88:116:739:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\query.php" linenum="83" placement="0:1:-1:-1:-8:-30:110:145:761:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\preview_sql.php" linenum="45" placement="0:1:-1:-1:-8:-30:22:29:673:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\administrate.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:695:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\conf_model_extra.ini" linenum="23" placement="0:1:-1:-1:-8:-30:66:87:717:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\lang_model_extra.ini" linenum="27" placement="0:1:-1:-1:-8:-30:110:145:761:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\control.php" linenum="3" placement="0:1:-1:-1:-8:-30:0:0:840:339" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_graph.php" linenum="84" placement="0:1:-1:-1:-8:-30:92:92:1013:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\graph.php" linenum="51" placement="0:1:-1:-1:-8:-30:138:138:1059:480" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function.php" linenum="33" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_login_new.html" linenum="51" placement="0:1:-1:-1:-8:-30:0:0:844:343" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_login_imap.html" linenum="54" placement="0:1:-1:-1:-8:-30:23:23:867:366" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_search_table.html" linenum="1" placement="0:1:-1:-1:-8:-30:92:92:1013:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_update_table.html" linenum="21" placement="0:1:-1:-1:-8:-30:115:115:1036:457" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_update_column.html" linenum="82" placement="0:1:-1:-1:-8:-30:138:138:1059:480" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_comment.html" linenum="1" placement="0:1:-1:-1:-8:-30:92:92:1013:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_model.html" linenum="59" placement="0:1:-1:-1:-8:-30:0:0:921:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\template_menu_model.html" linenum="1" placement="0:1:-1:-1:-8:-30:69:69:990:411" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_forget_account.html" linenum="1" placement="0:1:-1:-1:-8:-30:92:92:1013:434" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_inscription.html" linenum="141" placement="0:1:-1:-1:-8:-30:138:138:1059:480" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_install_begin.html" linenum="112" placement="0:1:-1:-1:-8:-30:0:0:921:342" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_validation.html" linenum="1" placement="0:1:-1:-1:-8:-30:46:46:967:388" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\css\camaroes.css" linenum="43" placement="0:1:-1:-1:-8:-30:69:69:990:411" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_config_template.html" linenum="81" placement="0:1:-1:-1:-8:-30:115:115:1036:458" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_imap.html" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:924:343" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_module.html" linenum="1" placement="0:1:-1:-1:-8:-30:23:23:947:366" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_new_imap.html" linenum="1" placement="0:1:-1:-1:-8:-30:69:69:993:412" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_page_logo.html" linenum="1" placement="0:1:-1:-1:-8:-30:92:92:1016:435" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_view_event.html" linenum="1" placement="0:1:-1:-1:-8:-30:138:138:1062:481" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_replace.html" linenum="39" placement="0:1:-1:-1:-8:-30:0:0:924:343" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\tables.php" linenum="219" placement="0:1:-1:-1:-8:-30:138:138:1062:481" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\page_footer.php" linenum="87" placement="0:1:-1:-1:-8:-30:22:29:720:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\javascript\tinymce_conf.js" linenum="58" placement="0:1:-1:-1:-8:-30:44:58:742:433" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_message.php" linenum="287" placement="0:1:-1:-1:-8:-30:22:29:717:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\cmr_scheme_insert1.sql" linenum="498" placement="0:1:-1:-1:-8:-30:22:29:711:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\login_to.php" linenum="137" placement="0:1:-1:-1:-8:-30:88:116:784:468" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_module.php" linenum="133" placement="0:1:-1:-1:-8:-30:110:145:806:497" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\email.php" linenum="63" placement="0:1:-1:-1:-8:-30:132:174:828:526" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_pw.php" linenum="48" placement="0:1:-1:-1:-8:-30:0:0:699:352" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\image.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:788:468" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\pdf.php" linenum="116" placement="0:1:-1:-1:-8:-30:110:145:810:497" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\generate\tips.php" linenum="1" placement="0:1:-1:-1:-8:-30:132:174:832:526" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_imap.php" linenum="293" placement="0:1:-1:-1:-8:-30:44:58:744:410" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\install_begin.php" linenum="332" placement="0:1:-1:-1:-8:-30:66:87:735:439" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\install_end.php" linenum="64" placement="0:1:-1:-1:-8:-30:88:116:757:468" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\install_need.php" linenum="197" placement="0:1:-1:-1:-8:-30:132:174:801:526" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\page_header.php" linenum="174" placement="0:1:-1:-1:-8:-30:22:29:691:381" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\new_user.php" linenum="253" placement="0:1:-1:-1:-8:-30:88:116:757:468" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\languages\italian\language.ini" linenum="299" placement="0:1:-1:-1:-8:-30:66:87:735:439" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_pending_ticket.php" linenum="64" placement="0:1:-1:-1:-8:-30:88:116:985:603" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_event.php" linenum="54" placement="0:1:-1:-1:-8:-30:22:29:921:516" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_imap.php" linenum="84" placement="0:1:-1:-1:-8:-30:0:0:669:352" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_imap.php" linenum="42" placement="0:1:-1:-1:-8:-30:22:29:691:381" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_admin.php" linenum="145" placement="0:1:-1:-1:-8:-30:44:58:713:410" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_unread_email.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:779:497" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_imap.php" linenum="177" placement="0:1:-1:-1:-8:-30:132:174:801:526" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:669:352" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_replace.php" linenum="85" placement="0:1:-1:-1:-8:-30:66:87:735:439" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\upload.php" linenum="200" placement="0:1:-1:-1:-8:-30:110:145:779:497" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_delete.php" linenum="158" placement="0:1:-1:-1:-8:-30:132:174:801:526" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\download.php" linenum="121" placement="0:1:-1:-1:-8:-30:44:58:713:410" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_lang.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:735:439" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_ticket.php" linenum="92" placement="0:1:-1:-1:-8:-30:66:87:965:574" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_close_ticket.php" linenum="329" placement="0:1:-1:-1:-8:-30:110:145:1009:632" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_date_message.php" linenum="79" placement="0:1:-1:-1:-8:-30:132:174:1031:661" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_expired_ticket.php" linenum="4" placement="0:1:-1:-1:-8:-30:154:203:1053:690" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_report_periodic.php" linenum="119" placement="0:1:-1:-1:-8:-30:176:232:1075:719" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_report_compare.php" linenum="443" placement="0:1:-1:-1:-8:-30:0:0:899:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_event.php" linenum="66" placement="0:1:-1:-1:-8:-30:22:29:921:516" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_comment.php" linenum="75" placement="0:1:-1:-1:-8:-30:0:0:709:348" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_policy.php" linenum="133" placement="0:1:-1:-1:-8:-30:22:29:731:377" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_my_ticket.php" linenum="81" placement="0:1:-1:-1:-8:-30:0:0:709:348" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_policy.php" linenum="71" placement="0:1:-1:-1:-8:-30:44:58:753:406" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_take_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:692:347" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\notify\auto\notify_account.xml" linenum="132" placement="0:1:-1:-1:-8:-30:22:29:714:376" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_message_tab.php" linenum="71" placement="0:1:-1:-1:-8:-30:44:58:753:406" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_model_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:775:435" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_model_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:797:464" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_received_message.php" linenum="4" placement="0:1:-1:-1:-8:-30:110:145:819:493" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_sended_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:709:348" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_unread_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:731:377" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_list.php" linenum="176" placement="0:1:-1:-1:-8:-30:44:58:753:406" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\modules_map.php" linenum="158" placement="0:1:-1:-1:-8:-30:66:87:778:435" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_client.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:800:464" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_config.php" linenum="154" placement="0:1:-1:-1:-8:-30:110:145:822:493" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_default.php" linenum="125" placement="0:1:-1:-1:-8:-30:0:0:712:348" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_left.php" linenum="112" placement="0:1:-1:-1:-8:-30:44:58:756:406" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_new.php" linenum="159" placement="0:1:-1:-1:-8:-30:66:87:778:435" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_preview.php" linenum="160" placement="0:1:-1:-1:-8:-30:88:116:800:464" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_report.php" linenum="161" placement="0:1:-1:-1:-8:-30:110:145:822:493" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_search.php" linenum="162" placement="0:1:-1:-1:-8:-30:0:0:712:348" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree.php" linenum="305" placement="0:1:-1:-1:-8:-30:22:29:734:377" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_auto.php" linenum="220" placement="0:1:-1:-1:-8:-30:44:58:756:406" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_left.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:800:464" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_update.php" linenum="179" placement="0:1:-1:-1:-8:-30:110:145:822:493" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_view.php" linenum="172" placement="0:1:-1:-1:-8:-30:0:0:712:348" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_query.php" linenum="1" placement="0:1:-1:-1:-8:-30:176:232:1078:719" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_imap.php" linenum="120" placement="0:1:-1:-1:-8:-30:132:174:1034:661" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_upload.php" linenum="1" placement="0:1:-1:-1:-8:-30:176:232:1078:719" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_update_message.php" linenum="311" placement="0:1:-1:-1:-8:-30:0:0:902:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_search_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:924:516" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_new_message.php" linenum="254" placement="0:1:-1:-1:-8:-30:44:58:946:545" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_module.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:968:574" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_policy.php" linenum="197" placement="0:1:-1:-1:-8:-30:0:0:902:487" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_change_uid.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:1012:632" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_search_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:946:545" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_phpexplorator.php" linenum="30" placement="0:1:-1:-1:-8:-30:88:116:992:603" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\search_table.php" linenum="72" placement="0:1:-1:-1:-8:-30:44:58:948:543" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_database.ini" linenum="9" placement="0:1:-1:-1:-8:-30:110:145:1014:630" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_sessions.php" linenum="147" placement="0:1:-1:-1:-8:-30:132:174:1036:659" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\doc\index.html" linenum="291" placement="0:1:-1:-1:-8:-30:0:0:711:374" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\lang_model.ini" linenum="23" placement="0:1:-1:-1:-8:-30:22:29:733:403" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_run_result.html" linenum="4" placement="0:1:-1:-1:-8:-30:66:87:777:461" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\notify_model.xml" linenum="78" placement="0:1:-1:-1:-8:-30:22:29:733:393" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\php\extra\index.html" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:777:451" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_generators.php" linenum="24" placement="0:1:-1:-1:-8:-30:22:29:734:392" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_groups.php" linenum="54" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\take_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\escalate_ticket.php" linenum="183" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_pdf.php" linenum="105" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_class.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\conf.d\conf_table.ini" linenum="439" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_ticket.html" linenum="140" placement="0:1:-1:-1:-8:-30:66:87:778:451" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\calendar.php" linenum="278" placement="0:1:-1:-1:-8:-30:110:145:800:509" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\calendario.php" linenum="59" placement="0:1:-1:-1:-8:-30:0:0:691:364" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report_imap.php" linenum="44" placement="0:1:-1:-1:-8:-30:44:58:735:422" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\application_bar.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:757:451" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\faq.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:779:480" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\site_map.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:801:509" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\security.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:691:364" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\chess.php" linenum="98" placement="0:1:-1:-1:-8:-30:22:29:713:393" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_image.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:779:480" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:801:509" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_php_mailer.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:691:364" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_windows.php" linenum="15" placement="0:1:-1:-1:-8:-30:22:29:713:393" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_zip.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:735:422" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_asset.html" linenum="82" placement="0:1:-1:-1:-8:-30:66:87:719:451" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_message.html" linenum="262" placement="0:1:-1:-1:-8:-30:88:116:741:480" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_preview_report.html" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:763:509" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_message.html" linenum="189" placement="0:1:-1:-1:-8:-30:0:0:653:364" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\update.php" linenum="122" placement="0:1:-1:-1:-8:-30:110:145:800:509" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_ticket_tab.php" linenum="77" placement="0:1:-1:-1:-8:-30:0:0:690:364" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_desktop.html" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:924:591" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_front_page.html" linenum="124" placement="0:1:-1:-1:-8:-30:88:116:968:649" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_iframe.html" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:990:678" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_index.html" linenum="1" placement="0:1:-1:-1:-8:-30:132:174:1012:707" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_index_frame.html" linenum="1" placement="0:1:-1:-1:-8:-30:154:203:1034:736" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_install_end.html" linenum="44" placement="0:1:-1:-1:-8:-30:22:29:902:562" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_install_need.html" linenum="78" placement="0:1:-1:-1:-8:-30:44:58:924:591" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_logout.html" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:968:649" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\template_update.html" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:990:678" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_foot1.html" linenum="1" placement="0:1:-1:-1:-8:-30:176:232:1056:765" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_menu_tree_head.html" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:924:591" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_page_footer.html" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:990:678" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_page_header.html" linenum="1" placement="0:1:-1:-1:-8:-30:132:174:1012:707" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\templates\modules\template_policy.html" linenum="1" placement="0:1:-1:-1:-8:-30:176:232:1056:765" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\index.html" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:924:591" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_export_table.html" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:990:678" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_import_table.html" linenum="1" placement="0:1:-1:-1:-8:-30:132:174:1012:707" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_login_db.html" linenum="66" placement="0:1:-1:-1:-8:-30:154:203:1034:736" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_preview_table.html" linenum="10" placement="0:1:-1:-1:-8:-30:176:232:1056:765" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\templates\template_report_table.html" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:880:533" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\login_new.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:765:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\config_nessus.php" linenum="121" placement="0:1:-1:-1:-8:-30:88:116:788:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\config.inc.php" linenum="82" placement="0:1:-1:-1:-8:-30:110:145:810:520" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\index.php" linenum="3" placement="0:1:-1:-1:-8:-30:22:29:722:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\change_user.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:722:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\phplayersmenu\lib\layersmenu.inc.php" linenum="987" placement="0:1:-1:-1:-8:-30:138:138:1010:532" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\PEAR\PEAR.php" linenum="540" placement="0:1:-1:-1:-8:-30:161:161:1033:555" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\PEAR\DB.php" linenum="1126" placement="0:1:-1:-1:-8:-30:184:184:1056:578" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\phpmailer\class.phpmailer.php" linenum="593" placement="0:1:-1:-1:-8:-30:0:0:872:394" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\conf.d\conf_smtp.ini" linenum="25" placement="0:1:-1:-1:-8:-30:23:23:895:417" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\auto\search_rss.php" linenum="1" placement="0:1:-1:-1:-8:-30:46:46:918:440" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\auto\get_search_notify.php" linenum="1" placement="0:1:-1:-1:-8:-30:69:69:941:463" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\auto\update_monitor.php" linenum="14" placement="0:1:-1:-1:-8:-30:92:92:965:486" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\login_imap.php" linenum="42" placement="0:1:-1:-1:-8:-30:46:46:890:389" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\ajax.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:798:494" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install\install.txt" linenum="67" placement="0:1:-1:-1:-8:-30:0:0:688:344" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\install.txt" linenum="51" placement="0:1:-1:-1:-8:-30:22:29:710:365" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\copyrigth.txt" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:732:394" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\contributors.txt" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:754:423" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\readme.txt" linenum="67" placement="0:1:-1:-1:-8:-30:88:116:776:452" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\licence.txt" linenum="15" placement="0:1:-1:-1:-8:-30:110:145:798:481" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_message.php" linenum="20" placement="0:1:-1:-1:-8:-30:0:0:688:336" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\model\page.ini" linenum="16" placement="0:1:-1:-1:-8:-30:22:29:722:404" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\themes\themes.ini" linenum="3" placement="0:1:-1:-1:-8:-30:66:87:766:462" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_function.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:788:491" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_module_link.php" linenum="46" placement="0:1:-1:-1:-8:-30:0:0:651:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_pdf.php" linenum="390" placement="0:1:-1:-1:-8:-30:22:29:673:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_windows.php" linenum="290" placement="0:1:-1:-1:-8:-30:44:58:695:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\phpexplorator.class.php" linenum="213" placement="0:1:-1:-1:-8:-30:66:87:717:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\close_ticket.php" linenum="28" placement="0:1:-1:-1:-8:-30:88:116:770:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\email_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:792:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\email_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:682:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\load_configure.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:704:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_install.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:726:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tools.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:748:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\menu_tree_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:770:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\message_from_model.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:792:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\module.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:682:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\my_groups.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:704:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\new_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:726:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\reply_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:748:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:770:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report_compare.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:792:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\report_periodic.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:682:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\search_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:704:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\ticket_from_model.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:726:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\update_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:748:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_all_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:770:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_closed_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:792:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_job_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:682:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_my_message.php" linenum="1" placement="0:1:-1:-1:-8:-30:22:29:704:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_new_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:726:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_unread_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:748:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_update_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:770:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\view_working_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:792:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\config_default_conf.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:682:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\explore.php" linenum="36" placement="0:1:-1:-1:-8:-30:22:29:704:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\replace.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:726:431" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\test.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:748:460" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\admin\view_logs.php" linenum="1" placement="0:1:-1:-1:-8:-30:88:116:770:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\nessus\make_report_nessus.php" linenum="1" placement="0:1:-1:-1:-8:-30:110:145:792:518" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\guest\task_bar.php" linenum="70" placement="0:1:-1:-1:-8:-30:0:0:682:373" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\class\class_generators.php" linenum="18" placement="0:1:-1:-1:-8:-30:22:29:704:402" />
+	<localfile path="C:\Users\Eric\Desktop\hardisk\camaroes\function\func_mysql.php" linenum="1" placement="0:1:-1:-1:-8:-30:175:175:1105:589" />
+</workspace>
+

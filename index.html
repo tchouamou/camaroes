@@ -1,176 +1,253 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<?xml version="1.0" encoding="iso-8859-1"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="it" xml:lang="it" >
+<!--
+<html lang="it">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//IT" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+-->
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="text/html; charset=ISO-8859-1" http-equiv="content-type" />
+    <meta name="keywords" content="Camaroes, Tchouamou eric herve, Custumer Relationship Manager, cmr, trouble ticketing, ticket manager, message manager, security" />
+    <meta name="description" content="Camaroes tecnology solutions for help desk company." />
+    <meta name="author" content="Tchouamou Eric Herve (tchouamou@gmail.com)" />
+    <meta name="date" content="23/10/2005" />
+    <meta name="distribution" content="global" />
 
-	<title>tchouamou/camaroes @ GitHub</title>
-	
-	<style type="text/css">
-		body {
-  		margin-top: 1.0em;
-  		background-color: #8c9aed;
-		  font-family: "Helvetica,Arial,FreeSans"; 
-  		color: #000000;
-    }
-    #container {
-      margin: 0 auto;
-      width: 700px;
-    }
-		h1 { font-size: 3.8em; color: #736512; margin-bottom: 3px; }
-		h1 .small { font-size: 0.4em; }
-		h1 a { text-decoration: none }
-		h2 { font-size: 1.5em; color: #736512; }
-    h3 { text-align: center; color: #736512; }
-    a { color: #736512; }
-    .description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
-    .download { float: right; }
-		pre { background: #000; color: #fff; padding: 15px;}
-    hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
-    .footer { text-align:center; padding-top:30px; font-style: italic; }
-	</style>
-	
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <link rel="shortcut icon" href="images/icon/camaroes.ico" />
+    <link rel="stylesheet" href="css/camaroes.css" type="text/css" />
+    <script type="text/javascript" src="javascrip/camaroes.js" ></script>
+<title> Camaroes</title>
 </head>
-
-<body>
-  <a href="http://github.com/tchouamou/camaroes"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub" /></a>
-  
-  <div id="container">
-
-    <div class="download">
-      <a href="http://github.com/tchouamou/camaroes/zipball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/zip.png"></a>
-      <a href="http://github.com/tchouamou/camaroes/tarball/master">
-        <img border="0" width="90" src="http://github.com/images/modules/download/tar.png"></a>
-    </div>
-      
-    <h1><a href="http://github.com/tchouamou/camaroes">camaroes</a> 
-      <span class="small">by <a href="http://github.com/tchouamou">tchouamou</a></span></h1>
-
-    <div class="description">
-      Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM).
-    </div>
-
-    <p>Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM). Camaroes Include: Database tool, File manager, Calendar, Webmail, a generator of module class button. Use a dynamique web interface.</p><h2>Dependencies</h2>
-<p>php, mysql</p>
-<h2>Install</h2>
-<p>REQUIREMENTS
-------------
-
-First you must have the base environment for Camaroes.
-We have thoroughly tested Camaroes! on: Linux, Free BSD, Mac OS X and Windows.
-Linux or one of the BSD's are recommended, but anything else that can run the
-3 pieces of software listed below should do it.
-
-Apache	-> http://www.apache.org
-MySQL	-> http://www.mysql.com
-PHP	-> http://www.php.net
-
-for install goto:
-http://your_server/camaroes/index.php?cmr_mode=install
-
-after install
-
-- login at [admin]
-- run generator by going to the [Admin]menu and [generator]
-- Choose this:
-   Database Type: mysql
-   Database source : From server
-   model source : From server
-   Output: In application auto folders
-   ....etc  -> don't change
-   Tabella Prefix : cmr_
-      ....etc  -> don't change
-   Tabella Of [ camaroes_db ] -> select all
-   Models Group : [ php ] -> select all
-      ....etc  -> don't change
-   Click on [generate] 
-  To complete at all the install procedure
+<body bgcolor="#DDDDDD" background="images/background.png" >
+<!--body  align="html_general_align" onload="runclock()"  bgcolor="#DDDDDD" background="images/bg_cmr.jpg" -->
 
 
-   
+<noscript>Browser is not using Javascript, enable javascript to work best</noscript>
 
-SERVER CONFIGURATION
---------------------
+<div id="div_id_Login" class="div_class_Login">
+<table border="0" width="100%" cellspacing="0" cellpadding="0">
 
-You MUST ensure that PHP has been compiled with support for MySQL
+<tr>
+<td>
 
-this is the general static configuration file ./conf.d/conf.ini
-	
-the first configuration file is ./config.inc.php
-the general dynamic configuration file is ./conf.d/conf.ini
-the group configuration file is ./home/groups/{group_name}/config.ini
-the user configuration file is ./home/groups/{user_name}/config.ini
-	
-	
-to configure the interface (module windows position) for all user, see ./page/page.ini or ./themes/themes.ini or ./css/camaroes.css
-to configure the interface (module windows position) for a group, see ./home/{group_name}/page.ini or ./home/{user_name}/page.ini
-	
-the language file is ./language.ini or ./language/lang_to_use/language.ini
-the default windows themes configuration file ./themes/themes.ini or ./themes/{themes_folder}/themes.ini
+<table   width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr bgcolor="#008888">
+<td width="50" style="background-image:url(images/icon/table_left.gif);font-size: 11px;" >&nbsp;&nbsp;</td>
+<td align="center" style="color:#FFFFFF;background-image:url(images/table_middle.png); font-size: 11px; font-weight: bold;height: 25px;"onmouseover="this.style.color='#00EEEE'" onmouseout="this.style.color='#FFFFFF'"  ondblclick="zoom_id('div_id_Login');" >
+<img alt="^" id="me1_id_Login" src="images/icon/go_up_icon.png" onclick="hide('div1_id_Login');hide('me1_id_Login');show('me2_id_Login');" />
+<img alt="v" id="me2_id_Login" src="images/icon/go_down_icon.png" onclick="show('div1_id_Login');hide('me2_id_Login');show('me1_id_Login');" style="visibility:hidden; display:none;"/>Camaroes (Version 3.0)</td>
+<td width="50" style="background-image:url(images/table_right.png);" ><a href="">
+<img onclick="print_id('div1_id_Login');" width="10" alt="p" src="images/icon/print_icon.png" border="0"  title="Print" /></a><a href="index.php?cmr_mode=logout">
+<img width="10" alt="_" src="images/icon/remove_icon.png" border="0"  title="Riduct" /></a><a href="index.php">
+<img width="10" alt="o" src="images/icon/fullscreen_icon.png" border="0" title="Zoom"  /></a><a href="index.php?cmr_mode=logout">
+<img width="10" alt="x" src="images/icon/stop_icon.png" border="0"  title="Close" /></a></td>
+</tr>
+</table>
+</td>
+</tr>
+<tr><td>  
 
-the database connection configuation can_be ./conf.d/conf.ini or ./config.inc.php or ./conf.d/conf.ini or ./home/{group_name}/login_rc.php  or ./home/{group_name}/config.ini  or ./home/{user_name}/config.ini (the default one is in ./conf.d/conf.ini )
+<div id="div1_id_Login" title="Login">
+<table width="100%"  border="1" bgcolor="#E0E0E0" cellspacing="0" cellpadding="0" >
+<tr>
+<td class="title" style="font-size: 13px;background-image:url(images/background.png);" >
+ <div id="head1_div"> 
+<table border="0" width="100%" > 
+<tr> 
 
- the database connection configuation is  (the default one is in config.inc.php, ./conf.d/conf.ini )
+<td valign="middle" class="title" width="20%" >  
+<img alt="|Camaroes|" class="cmr_logo" src="images/camaroes.png" height="70" width="85" />
+</td> 
 
-
-While we have reports that Camaroes! works on IIS server we recommend Apache
-for running Camaroes! on Windows.
-
+<td valign="middle" align="center" width="60%" > <p align="center"  class="big_title" >CAMAROES Version 3.0.3  <br />
 </p>
-<h2>License</h2>
-<p>Copyright (c) 2009, Tchouamou Eric Herve <tchouamou@gmail.com>
-All rights reserved.
+</td> 
 
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
+<td valign="middle" class="title">  
+<img alt="|Camaroes Progect Sourceforge|" class="cmr_logo" src="images/camaroes.png" height="70" width="85" /> 
+</td>
 
-1. Redistributions of source code must retain the above copyright
- notice, this list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright
- notice, this list of conditions and the following disclaimer in the
- documentation and/or other materials provided with the distribution.
-3. The names of the authors may not be used to endorse or promote products
- derived from this software without specific prior written permission.
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+<tr>
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS AS IS AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-
-This code cannot simply be copied and put under the GNU Public License or
-any other GPL-like (LGPL, GPL2) License.</p>
-<h2>Authors</h2>
-<p>Tchouamou Eric Herve</p>
-<h2>Contact</h2>
-<p> (tchouamou@gmail.com)<br/>      </p>
+<td valign="top" align="center" style="font-size: 13px;background-image:url(images/background.png);">
+<fieldset class="bubble"><legend>Select Application</legend>
+<table border="0" align="center">
+<tr><td>
+<!-- ================================================================ -->
+<!-- ================================================================ -->
+<div id="index_div">
 
 
-    <h2>Download</h2>
-    <p>
-      You can download this project in either
-      <a href="http://github.com/tchouamou/camaroes/zipball/master">zip</a> or
-      <a href="http://github.com/tchouamou/camaroes/tarball/master">tar</a> formats.
-    </p>
-    <p>You can also clone the project with <a href="http://git-scm.com">Git</a>
-      by running:
-      <pre>$ git clone git://github.com/tchouamou/camaroes</pre>
-    </p>
-      
-    <div class="footer">
-      get the source code on GitHub : <a href="http://github.com/tchouamou/camaroes">tchouamou/camaroes</a>
-    </div>
-    
-  </div>
 
-  
+
+
+
+
+<fieldset class="bubble"><legend>Click </legend>
+<h3>
+<table border="0" nowrap="nowrap">
+
+<tr><td> 
+<ul>
+
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=all">All Application</a>
+</li>
+</ul>
+
+
+<ul>
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=ticket">TSTM ticketing</a>
+</li>
+
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=admin">Back end</a>
+</li>
+
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=ticket">Front end</a>
+</li>
+
+</ul>
+
+
+<ul>
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=file_explorator">Files Explorator</a>
+</li>
+
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=script_generator"> Generator</a>
+</li>
+
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=replace">Find Replace</a>
+</li>
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=database">Database</a>
+</li>
+
+
+
+</ul>
+
+
+<ul>
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=email">Imap</a>
+</li>
+
+<li> 
+<a href="index.php?cmr_mode=login&amp;force_login=yes&amp;login_to=message"> Message</a>
+</li>
+
+</ul>
+
+
+<ul>
+<li> 
+<a href="doc/" style="text-decoration: blink;">Documentation</a>
+</li>
+<li> 
+<a href="http://sourceforge.net/projects/camaroes/">Web Site</a>
+</li>
+<li> 
+<a href="http://sourceforge.net/project/project_donations.php?group_id=181945">Donate</a>
+</li>
+<li> 
+<a href="mail://tchouamou@gmail.com">Contact </a>
+</li>
+</ul>
+
+</td>
+</tr>
+
+
+</table>
+</h3>
+
+
+</fieldset>
+
+
+
+
+</div>
+
+</td>
+</tr>
+
+<!-- ================================================================ -->
+<!-- ================================================================ -->
+
+
+
+</tbody>
+</table>
+</fieldset>
+</td>
+</tr>
+
+
+
+</tbody>
+</table>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</td></tr>
+</table>
+</fieldset>
+</div>
+
+</td>
+</tr>
+</table>
+</div></td>
+</tr>
+</table>
+</div>
+<div id="page_footer_div">
+
+<p align="center">
+<h6> &copy Camaroes Progect Sourceforge - All rights reserved <br /> Via Dora baltea 25 , 10038 Verolengo</h6>
+</p>
+
+<p align="center">
+<a href="http://sourceforge.net/donate/index.php?group_id=181945">
+<img src="http://images.sourceforge.net/images/project-support.jpg" alt="Support This Project" border="0" height="32" width="88" /> 
+</a>
+</p>
+
+
+</div>
 </body>
 </html>

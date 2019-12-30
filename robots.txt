@@ -1,0 +1,18 @@
+User-agent: * 
+Disallow: /phpmailer/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /tools/
+Disallow: /function/
+Disallow: /database/
+Disallow: /class/
+Disallow: /language/
+Disallow: /conf.d/
+Disallow: /lib/
+Disallow: /session/
+Disallow: /log/
+Disallow: /cgi/
+Disallow: /modules/
+Disallow: /install/
+
+ 
