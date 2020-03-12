@@ -1,0 +1,81 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="preview_@_table_@_div">
+<p align="center">
+<b>{match_@_table_@_title1}</b>
+</p>
+<p class="normal_text">
+{match_@_table_@_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+<fieldset class="bubble"><legend>
+{match_legend_@_table_@}
+</legend>
+
+<ul class="normal_text" >
+    £_foreach_column_£
+    <li><b>{match_label_@_column_@}:</b>{match_value_@_column_@}</li>
+    ££_foreach_column_££
+</ul>
+
+</fieldset>
+
+ <form action="{match_www_path}index.php?cmr_mode=pdf&ext=.pdf" method="post" id="form_@_table_@_pdf">
+ <!--input type="hidden" value="cmr_mode" name="pdf" />
+ <input type="hidden" name="ext" value=".pdf" /-->
+ <input type="hidden" name="title"     id="pdf_@_table_@_title"    value="{match_pdf_title}" />
+ <input type="hidden" name="author"    id="pdf_@_table_@_author"   value="{match_pdf_author}" />
+ <input type="hidden" name="file"      id="pdf_@_table_@_file"     value="{match_pdf_file}" />
+ <input type="hidden" name="links"     id="pdf_@_table_@_links"    value="{match_pdf_links}" />
+ <input type="hidden" name="data_type" id="pdf_@_table_@_data_type" value="{match_pdf_data_type}" />
+ <input type="hidden" name="dim_col"   id="pdf_@_table_@_dim_col"  value="{match_pdf_dim_col}" />
+ <input type="hidden" name="header"    id="pdf_@_table_@_header"   value="{match_pdf_header}" />
+ <textarea  class="hidded" name="data" id="pdf_@_table_@_data"  >{match_pdf_data}</textarea>
+<p align="center">
+ <input class="submit" type="submit" value="pdf" />
+</p>
+</form>
+
+
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+<form action="{match_www_path}index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_table_name}
+{match_input_hidden_line_id}
+<select name="check_action" >
+<option value="comment">{match_lang_comment}</option>
+<option value="print">{match_lang_view}</option>
+<option value="delete">{match_lang_delete}</option>
+<option value="policy">{match_lang_policy}</option>
+</select>
+<input type="submit" value="{match_submit_action}" />
+</form>
+
+</p>
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("cmr_modules_path") ."modules/view_comment.php");-->
+{match_include2}
+<!--include($cmr->get_conf("cmr_modules_path") ."modules/view_policy.php");-->
+
+</template>

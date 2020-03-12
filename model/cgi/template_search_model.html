@@ -1,0 +1,118 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="search_@_table_@_div">
+<p align="center">
+<b>{match_@_table_@_title1}</b>
+</p>
+
+<!--p class="normal_text">
+{match_@_table_@_title2}
+</p-->
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+
+<form  action="index.php" method="post">
+<!--match_input_hidden_module>
+<match_input_hidden_get-->
+{match_input_hidden_conf}
+{match_extend_inputs}
+<p align="center">
+{match_list_link} <input type="text" name="search_text" size="30" />
+<input class="submit" type="submit" value="{match_submit}"/>
+</p>
+</form>
+
+</fieldset>
+<br />
+
+
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<table border="0" align="left" >
+	<tr>
+		<td align="left"><b>{match_detail}</b></td>
+		<td align="left" >
+		<div id="hide_search_@_table_@" ><a onclick="show('extra_search_@_table_@');hide('hide_search_@_table_@');show('show_search_@_table_@');"><b>+</b></a></div>
+		<div id="show_search_@_table_@" class="hidded" ><a onclick="hide('extra_search_@_table_@');hide('show_search_@_table_@');show('hide_search_@_table_@');"><b>-</b></a></div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" colspan="2">
+		<div id="extra_search_@_table_@" >
+<!--
+//==============================================================
+//==============================================================
+?-->
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post"  id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<br />
+
+
+
+
+<fieldset class="bubble"><legend>{match_legend_@_table_@}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+£_foreach_column_£
+ <tr>
+  <td class='normal_text' align='rigth'>
+ {match_label_@_column_@}
+  </td>
+   <td class='normal_text' align='rigth'>
+	{match_function_@_column_@}
+   </td>
+  <td class='normal_text' align='left'>
+ {match_input_@_column_@}
+  </td>
+ </tr>
+££_foreach_column_££
+</table>
+</p>
+</fieldset>
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+<input class="submit" type="submit" value="{match_submit}" />
+</p>
+</form>
+{match_script_calendar}
+
+
+
+<!--
+
+//==============================================================
+//==============================================================
+?-->
+		
+		</div>
+		</td>
+	</tr>
+</table>
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<script language="javascript" type="text/javascript">
+hide("extra_search_@_table_@");
+</script>
+
+
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>
