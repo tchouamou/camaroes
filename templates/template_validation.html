@@ -1,0 +1,179 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<?xml version="1.0" encoding="{match_encoding}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{match_language}" xml:lang="{match_language}" >
+<head>
+    <meta http-equiv="Content-Type" content="{match_content_type}" />
+    <meta name="keywords" content="{match_keyword}" />
+    <meta name="description" content="{match_description}" />
+    <meta name="author" content="{match_author}" />
+    <meta name="date" content="{match_date}" />
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="{match_refresh}" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    
+<link rel="stylesheet" href="css/layersmenu.css" type="text/css"></link>
+    <script type="text/javascript" src="{match_javascript}" ></script>
+    <link rel="shortcut icon" href="{match_logo_icon}" />
+    <link rel="stylesheet" href="{match_style}" type="text/css" />
+    <title>{match_title}</title>
+</head>
+<!--end head -->
+
+
+
+<!--begin body -->
+<body background="{match_background}" onload="{match_onload};" >
+<script language="javascript" type="text/javascript">
+    document.onmousemove = pos_mouse;
+    document.oncontextmenu = menu_open;
+</script>
+    <!--document.onclick = menu_close;-->
+<noscript>{match_noscript}</noscript>
+</template1>
+{match_include1}
+<!-- include($cmr->get_conf("class_modules_path"). "modules/page_logo}-->
+
+<template2>
+
+{match_open_windows}
+{match_message_validation}
+</template2>
+{match_include2}
+<!-- include($cmr->get_path("get_data") . "get_data/get_validation.php");-->
+<template3>
+<form action="index.php?cmr_mode=validation" method="post">
+<input type="hidden" value="new_user" name="class_module" />
+
+
+<fieldset class="bubble"><legend>{match_legend_validation}</legend>
+<br />
+<b>{match_title1}</b>
+<br />
+<p>
+{match_title2}
+</p>
+<br />
+
+<table border="0"  align="center">
+<tr>
+<td align='rigth'>
+
+ 
+<table border="0"  align="center">
+ 
+<tr>
+ <th align='rigth'>
+  <label for="email"><b>{match_label_email}</b></label>
+ </th>
+  <td align='left'>
+   <input size="20" type="text" value=""  id="email" name="email" onclick="large_id('email')">
+  </td>
+ </tr>
+
+<tr>
+ <th align='rigth'>
+  <label for="code2"><b>{match_label_code}</b></label>
+ </th>
+  <td align='left'>
+   <input size="10" type="text" value=""  id="code2" name="code2" onclick="large_id('code2')" />
+  </td>
+ </tr>
+<tr><td>
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td>
+<td>
+<input type="password" name="auth_code" value="" size="8" />
+</td>
+
+
+</tr>
+</table>
+
+ 
+</td>
+<td align='rigth'>
+ Or 
+</td>
+<td align='rigth'>
+
+<table border="0"  align="center">
+<tr>
+ <th align='rigth'>
+  <label for="uid"><b>{match_label_uid}</b></label>
+ </th>
+  <td align='left'>
+   <input size="20" type="text" value=""  id="uid" name="uid" onclick="large_id('uid')">
+  </td>
+ </tr>
+
+<tr>
+ <th align='rigth'>
+  <label for="code1"><b>{match_label_code}</b></label>
+ </th>
+  <td align='left'>
+   <input size="10" type="text" value=""  id="code1" name="code1" onclick="large_id('code1')" />
+  </td>
+ </tr>
+ 
+<tr>
+<td>
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td>
+<td>
+<input type="password" name="auth_code" value="" size="8" />
+</td>
+</tr>
+</table>
+ 
+
+
+
+
+ </td>
+ </tr>
+ </table>
+
+ 
+ 
+ 
+ 
+</fieldset>
+ 
+ 
+ <table border="0"  align="center">
+ <tr align="center" >
+  <td align="center" colspan="4">
+<input class="submit" type="submit" value="{match_submit}" onclick="{match_reset_form}" />
+<input class="submit" type="reset" value="Reset" onclick="{match_reset_form}"/> 
+  </td>
+ </tr>
+</table>
+</fieldset>
+
+
+</form>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_link_login}-
+{match_link_inscription}-
+{match_link_forget_account}-
+{match_link_validation}- 
+{match_link_logout}
+</fieldset>
+<br />
+{match_close_windows}
+</template3>
+{match_include3}
+<!-- include($cmr->get_conf("class_modules_path"). "modules/foot1}-->
+<template4>
+</body>
+</html>
+</template4>
+</template>

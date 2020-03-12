@@ -1,0 +1,16 @@
+(.*<to_email>(?P<to_email>
+([[:space:]]*<headers_severity>(?P<headers_severity>.*)</headers_severity>)?
+([[:space:]]*<headers_to>(?P<headers_to>.*)</headers_to>)?
+([[:space:]]*<headers_from>(?P<headers_from>.*)</headers_from>)?
+([[:space:]]*<headers_cc>(?P<headers_cc>.*)</headers_cc>)?
+([[:space:]]*<headers_bcc>(?P<headers_bcc>.*)</headers_bcc>)?
+([[:space:]]*<subject>(?P<subject>.*)</subject>)?
+([[:space:]]*<message>(?P<message>.*)</message>)?
+([[:space:]]*)</to_email>))?
+([[:space:]]*<to_page>(?P<to_page>.*)</to_page>)?
+([[:space:]]*<to_log>(?P<to_log>.*)</to_log>)?
+([[:space:]]*<to_db>(?P<to_db>.*)</to_db>)?
+([[:space:]]*<to_sms>(?P<to_sms>.*)</to_sms>)?
+([[:space:]]*<to_flux>(?P<to_flux>.*)</to_flux>)?
+([[:space:]]*<to_rss>(?P<to_rss>.*)</to_rss>)?
+([[:space:]]*<to_other>(?P<to_other>.*)</to_other>)?

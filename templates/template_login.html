@@ -1,0 +1,360 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<?xml version="1.0" encoding="{match_encoding}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{match_encoding}" xml:lang="{match_encoding}" >
+<head>
+    <meta http-equiv="Content-Type" content="{match_content_type}" />
+    <meta name="keywords" content="{match_keyword}" />
+    <meta name="description" content="{match_description}" />
+    <meta name="author" content="{match_author}" />
+    <meta name="date" content="{match_date}" />
+    <meta name="distribution" content="global" />
+
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="{match_refresh}" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+
+    <link rel="shortcut icon" href="{match_logo_icon}" />
+    <link rel="stylesheet" href="{match_style}" type="text/css" />
+    <title>{match_title}</title>
+
+    <script type="text/javascript" src="{match_javascript}" ></script>
+</head>
+<!--end head -->
+
+
+
+<!--begin body -->
+<body background="{match_background}" onload="{match_onload}" >
+
+<script language="javascript" type="text/javascript">
+    document.onmousemove = pos_mouse;
+    document.oncontextmenu = menu_open;
+</script>
+    <!--document.onclick = menu_close;-->
+<noscript>{match_noscript}</noscript>
+</template1>
+{match_include1}
+<!-- include_once($cmr->get_conf("class_modules_path") . "modules/page_header}-->
+<template2>
+{match_open_windows}
+<div id="login_div">
+{match_module_message}
+<h1>{match_login_failled}</h1>
+<fieldset class="bubble"><legend>{match_login}</legend>
+<form action="index.php?cod=2" autocomplete="off" method="post">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+<td valign="top" align="center">
+<br />
+<img alt="Secure Login"  src="{cmr_wwwpath}images/icon/lock_screen_icon.png" />
+
+
+<!-- ================================================================ -->
+<!-- ================================================================ -->
+<input type="hidden" value="index" name="login" />
+<table align="left" border="0" nowrap="nowrap" >
+</template2>
+
+
+<template3>
+<tr>
+
+<th>
+<label for="login_to">{match_label_login_to}</label>
+</th>
+
+<td>
+<select name="login_to" id="login_to" 
+ onchange="
+ hide_group_value('login_to','!database','cmr_login_normal','cmr_login_db');
+ hide_group_value('login_to','database','cmr_login_db','cmr_login_normal');
+ ">
+<option>{match_default_login_to}</option>
+{match_option_login_to}
+<option value="all">{match_all}</option>
+</select>
+</td>
+
+</tr>
+
+<!-- <tr><td> <br /></td><td></td></tr> 
+hide_group_value('login_to','all','cmr_login_db,cmr_login_normal','');
+ hide_group_value('login_to','','cmr_login_normal','');
+-->
+<!-- <tr><td></td><td><b>{match_login}>
+{match_login}
+</b>
+</td>
+</tr>
+<!-- <tr><td> <br /></td><td></td></tr>
+<br />
+<br /-->
+
+<tr>
+<td colspan="2"><b>{match_label_normal}</b>
+<input type="radio" name="auth_mode" value="normal" checked/>&nbsp
+{match_label_cert}<input type="radio" name="auth_mode" value="cert"/>&nbsp
+{match_label_demo}<input type="radio" name="auth_mode" value="demo"/>&nbsp
+{match_label_read_only}<input type="radio" name="auth_mode" value="read_only" />
+</td>
+</tr>
+</template3>
+
+<template4>
+<tr>
+<th>
+<label for="auth_cert">{match_label_certificate}</label>
+</th>
+<td>
+<input class="submit" type="file" name="auth_cert" value="{match_cookie_auth_cert}" /> 
+</td>
+</tr>
+</template4>
+
+<template5>
+<tr>
+<td colspan="2">
+<br />
+<br />
+<div id="cmr_login_normal">
+<fieldset class="bubble">
+<legend>{match_user_name}</legend>
+
+<table align="left" border="0" nowrap="nowrap" >
+<tr>
+<th align="left"><label for="auth_user">{match_label_uid}</label></th>
+<td><input type="text" name="auth_user" value="{match_cookie_auth_user}" />
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="auth_pw">{match_label_password}</label></th>
+<td><input type="password" name="auth_pw" value="{match_cookie_auth_pw}" /><a href="doc/" >?</a>
+</td>
+</tr>
+
+<tr>
+<td>.</td>
+<td>
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td>
+</tr>
+
+
+<tr>
+<td>
+<label for="auth_code">{match_label_image_code}</label>
+</td>
+<td>
+<input type="password" name="auth_code" value="" size="8" />
+</td>
+</tr>
+
+
+<tr>
+<td></td>
+<td align="left">
+<input class="submit" type="submit" value="{match_label_login}" />
+<input class="submit" type="reset" value="Reset" /> 
+</td>
+</tr>
+
+<tr>
+<td align="left"><label for="save_cookies">{match_label_save_cookies}</label>
+</td>
+<td align="left">
+<!--input class="submit" type="checkbox" name="save_cookies" value="yes" checked /-->
+
+<select name="save_cookies">
+<option value="{match_save_cookies}" >{match_save_cookies}</option>
+<option value="" >No cookies</option>
+<option value="300" >5 Minute </option>
+<option value="900" >15 Minute </option>
+<option value="1800" >30 Minute </option>
+<option value="3600" >1 Hours </option>
+<option value="43200" >12 Hours </option>
+<option value="86400" >24 Hours(1 Day) </option>
+<option value="604800" >1 Week(7 Day) </option>
+<option value="2592000" >1 Month(30 Day) </option>
+</select>
+</td></tr>
+
+</table>
+</fieldset>
+</div>
+</td></tr>
+</template5>
+
+<template6>
+<!--tr>
+<td colspan="2">
+<div id="cmr_login_pw">
+<fieldset class="bubble"><legend><match_label_info></legend>
+<table align="left" border="0" nowrap="nowrap" >
+
+
+<tr><td><hr /><match_label_admin_user></td><td align="left"><hr />admin</td></tr>
+<tr><td><match_label_admin_pw><hr /></td><td align="left">admin<hr /></td></tr>
+<tr><td><match_label_operator_user></td><td align="left">operator</td></tr>
+<tr><td><match_label_operator_pw><hr /></td><td align="left">operator<hr /></td></tr>
+<tr><td><match_label_guest_user></td><td align="left">guest</td></tr>
+<tr><td><match_label_guest_pw><hr /></td><td align="left">guest<hr /></td></tr>
+
+</table>
+</fieldset>
+</div>
+</td>
+</tr-->
+</template6>
+
+<template7>
+<tr>
+<td colspan="2">
+<div id="cmr_login_db">
+<fieldset class="bubble"><legend>{match_label_database}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+
+<tr>
+<td colspan="2" >
+<hr />
+</td>
+</tr>
+
+
+<tr>
+<th align="left"><label for="db_type">{match_label_db_type}</label></th>
+<td>
+<select name="db_type">
+<option>{match_cookie_db_type}</option>
+{match_option_db_type}
+</select>
+</td>
+</tr>
+
+
+<tr>
+<th align="left"><label for="db_host">{match_label_db_host}</label></th>
+<td>
+<input type="text" name="db_host" value="{match_cookie_db_host}" /> 
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_name">{match_label_db_name}</label></th>
+<td>
+<input type="text" name="db_name" value="{match_cookie_db_name}" />
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_user">{match_label_db_user}</label></th>
+<td>
+<input type="text" name="db_user" value="{match_cookie_db_user}" /> 
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_pw">{match_label_db_pw}</label></th>
+<td>
+<input type="password" name="db_pw" value="{match_cookie_db_pw}" /> 
+</td>
+</tr>
+
+</table>
+</fieldset>
+</div>
+</td>
+</tr>
+</template7>
+
+<template8>
+<tr>
+<td colspan="2">
+<div id="cmr_login_option">
+<fieldset class="bubble"><legend>{match_label_other}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+<tr>
+
+<th align="left"><label for="cmr_lang">{match_label_cmr_lang}</label></th>
+<td>
+<select name="cmr_lang">
+<option>{match_cookie_cmr_lang}</option>
+<option>{match_cmr_default_lang}</option>
+{match_options_language}
+</select>
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="cmr_theme">{match_label_themes}</label></th>
+<td>
+<select name="cmr_theme">
+<option>{match_cookie_cmr_theme}</option>
+<option>{match_cmr_default_theme}</option>
+{match_options_theme}
+</select>
+</td>
+</tr>
+
+</table>
+</fieldset>
+</div>
+</td>
+</tr>
+</template8>
+
+<template9>
+<tr>
+<td></td>
+<td align="left">
+<input class="submit" type="submit" value="{match_label_login}" />
+<input class="submit" type="reset" value="Reset" /> 
+</td>
+</tr>
+
+
+<tr>
+<td colspan="2">
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_link_login}-
+{match_link_inscription}-
+{match_link_forget_account}-
+{match_link_validation}- 
+{match_link_logout}
+</fieldset>
+</td>
+</tr>
+
+
+</table>
+</td>
+</tr>
+
+
+</table>
+</form>
+</fieldset>
+</div>
+
+{match_close_windows}
+</template9>
+
+{match_include2}
+<!-- include($cmr->get_conf("class_modules_path"). "modules/page_footer}-->
+<template10>
+<script language="javascript" type="text/javascript">
+ hide_group_value('login_to','database','cmr_login_db','cmr_login_normal');
+ hide_group_value('login_to','!database','cmr_login_normal','cmr_login_db');
+</script>
+
+</body>
+</html>
+</template10>
+</template>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<notify_update_user>
+<to_email>
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}}:{{lang_An update of the user}}</subject>
+<message>
+{{lang_An update of the user was runned by}}: {{user_auth_email}}
+
+
+{{lang_id}}:{{get_id}}
+
+{{lang_uid}}:{{get_uid}}
+
+{{lang_name}}:{{get_name}}
+
+{{lang_last_name}}:{{get_last_name}}
+
+{{lang_nickname}}:{{get_nickname}}
+
+{{lang_sexe}}:{{get_sexe}}
+
+{{lang_role}}:{{get_role}}
+
+{{lang_sla}}:{{get_sla}}
+
+{{lang_pw}}:{{get_pw}}
+
+{{lang_email}}:{{get_email}}
+
+{{lang_email_sign}}:{{get_email_sign}}
+
+{{lang_tel}}:{{get_tel}}
+
+{{lang_cel}}:{{get_cel}}
+
+{{lang_home}}:{{get_home}}
+
+{{lang_adress}}:{{get_adress}}
+
+{{lang_location}}:{{get_location}}
+
+{{lang_state}}:{{get_state}}
+
+{{lang_type}}:{{get_type}}
+
+{{lang_status}}:{{get_status}}
+
+{{lang_type}}:{{get_type}}
+
+{{lang_lang}}:{{get_lang}}
+
+{{lang_style}}:{{get_style}}
+
+{{lang_login_script}}:{{get_login_script}}
+
+{{lang_certificate}}:{{get_certificate}}
+
+{{lang_photo}}:{{get_photo}}
+
+{{lang_my_master}}:{{get_my_master}}
+
+{{lang_allow_type}}:{{get_allow_type}}
+
+{{lang_allow_email}}:{{get_allow_email}}
+
+{{lang_allow_groups}}:{{get_allow_groups}}
+
+{{lang_comment}}:{{get_comment}}
+
+{{lang_date_time}}:{{get_date_time}}
+
+
+{{lang_thanks}}  
+--
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+
+<to_page>
+<p>
+<b><u>{{lang_user updated successfully}}</u></b>
+<br />
+
+
+<b>{{lang_id}}:</b>{{get_id}}<br />
+
+<b>{{lang_uid}}:</b>{{get_uid}}<br />
+
+<b>{{lang_name}}:</b>{{get_name}}<br />
+
+<b>{{lang_last_name}}:</b>{{get_last_name}}<br />
+
+<b>{{lang_nickname}}:</b>{{get_nickname}}<br />
+
+<b>{{lang_sexe}}:</b>{{get_sexe}}<br />
+
+<b>{{lang_role}}:</b>{{get_role}}<br />
+
+<b>{{lang_sla}}:</b>{{get_sla}}<br />
+
+<b>{{lang_pw}}:</b>{{get_pw}}<br />
+
+<b>{{lang_email}}:</b>{{get_email}}<br />
+
+<b>{{lang_email_sign}}:</b>{{get_email_sign}}<br />
+
+<b>{{lang_tel}}:</b>{{get_tel}}<br />
+
+<b>{{lang_cel}}:</b>{{get_cel}}<br />
+
+<b>{{lang_home}}:</b>{{get_home}}<br />
+
+<b>{{lang_adress}}:</b>{{get_adress}}<br />
+
+<b>{{lang_location}}:</b>{{get_location}}<br />
+
+<b>{{lang_state}}:</b>{{get_state}}<br />
+
+<b>{{lang_type}}:</b>{{get_type}}<br />
+
+<b>{{lang_status}}:</b>{{get_status}}<br />
+
+<b>{{lang_type}}:</b>{{get_type}}<br />
+
+<b>{{lang_lang}}:</b>{{get_lang}}<br />
+
+<b>{{lang_style}}:</b>{{get_style}}<br />
+
+<b>{{lang_login_script}}:</b>{{get_login_script}}<br />
+
+<b>{{lang_certificate}}:</b>{{get_certificate}}<br />
+
+<b>{{lang_photo}}:</b>{{get_photo}}<br />
+
+<b>{{lang_my_master}}:</b>{{get_my_master}}<br />
+
+<b>{{lang_allow_type}}:</b>{{get_allow_type}}<br />
+
+<b>{{lang_allow_email}}:</b>{{get_allow_email}}<br />
+
+<b>{{lang_allow_groups}}:</b>{{get_allow_groups}}<br />
+
+<b>{{lang_comment}}:</b>{{get_comment}}<br />
+
+<b>{{lang_date_time}}:</b>{{get_date_time}}<br />
+
+<br />
+{{lang_thanks}} 
+--
+<br />
+</p>
+</to_page>
+
+<to_log>{{conf_cmr_company_name3}}:{{lang_An update of the user}}</to_log>
+
+
+<to_db>
+</to_db>
+
+
+<to_sms>
+</to_sms>
+
+
+<to_flux>
+</to_flux>
+
+
+<to_rss>
+</to_rss>
+
+
+<to_other>
+</to_other>
+</notify_update_user>

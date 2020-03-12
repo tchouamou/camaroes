@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<title>The PHP Layers Menu - Templates</title>
+<link rel="StyleSheet" href="../layersmenu.css" type="text/css">
+</head>
+<body>
+
+<pre>
+This is a vertical menu template.
+This comment does not appear on the resulting page.
+--
+</pre>
+
+<!-- BEGIN template -->
+
+<table border="0" cellpadding="3" cellspacing="0" class="darkbordertable">
+<tr>
+<td>
+<table border="0" cellpadding="10" cellspacing="0" width="{abscissaStep}">
+<tr>
+<td class="phplmbodytable" align="left">
+<!-- BEGIN vertical_menu_table -->
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<!-- BEGIN vertical_menu_cell -->
+<tr>
+<td>{icontag}</td>
+<td class="phplmbodytable" valign="middle" height="{ordinateStep}" nowrap="nowrap"><a href="{link}"{refid}{onmouseover}{title}{target} class="phplm">{text}</a>{arrow}</td>
+</tr>
+<!-- END vertical_menu_cell -->
+</table>
+<!-- END vertical_menu_table -->
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!-- END template -->
+
+</body>
+</html>

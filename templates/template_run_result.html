@@ -1,0 +1,57 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+
+
+<br />
+
+<div id="run_result_div">
+
+<div class="normal_text">
+{match_execute_query}
+<!--$cmr->db_connection->Execute($cmr->query[$count]);-->
+</div>
+
+<div class="normal_text">
+{match_result_query}
+<!--empty($cmr->db["result"][0]-->
+</div>
+
+<div class="normal_text">
+{match_output_message}
+<!--html_control(wordwrap(substr($cmr->output[0], 0, 10000), 100, "\n"))-->
+</div>
+</template1>
+
+
+
+<template2>
+<div class="normal_text">
+</template2>
+
+
+<template3>
+</div>
+</template3>
+
+
+
+
+{match_include1}
+<!--print(eval($cmr->get_action("form_action_run")));-->
+
+{match_include2}
+<!--include($cmr->get_path("index") . "system/generate/email.php")-->
+
+{match_include3}
+<!--include($cmr->get_action("form_action_include"));-->
+
+{match_include4}
+<!--include_once($migration);-->
+
+
+<template4>
+</div>
+{match_close_windows}
+</template4>
+</template>

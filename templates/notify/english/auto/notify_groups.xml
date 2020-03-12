@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<notification>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_delete>
+<to_email><!-- To by use by email -->
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}}:{{lang_Delete in groups}}</subject>
+<message>
+{{lang_The record}}({{get_id_groups}}){{lang_groups was deleted by}}: {{user_auth_email}}
+
+{{lang_thanks}}  
+--
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+<to_page><!-- To by use by page -->
+<p>
+<b><u>{{lang_Record Deleted successfully}}</u></b>
+<br />
+{{lang_The record}}({{get_id_groups}}){{lang_groups was deleted}}
+<br />
+{{lang_thanks}} 
+--
+<br />
+</p>
+</to_page>
+
+
+<!-- To by use by log -->
+<to_log>{{conf_cmr_company_name3}}:{{lang_Delete in groups}}</to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_delete>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_new>
+<to_email><!-- To by use by email -->
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}}:{{lang_A new groups}}</subject>
+<message>
+{{lang_A new  groups was created by}}: {{user_auth_email}}
+
+
+{{lang_id}}:{{get_id}}
+
+{{lang_name}}:{{get_name}}
+
+{{lang_state}}:{{get_state}}
+
+{{lang_type}}:{{get_type}}
+
+{{lang_location}}:{{get_location}}
+
+{{lang_sla}}:{{get_sla}}
+
+{{lang_public_key}}:{{get_public_key}}
+
+{{lang_private_key}}:{{get_private_key}}
+
+{{lang_pass_phrase}}:{{get_pass_phrase}}
+
+{{lang_email_sign}}:{{get_email_sign}}
+
+{{lang_group_email}}:{{get_group_email}}
+
+{{lang_admin_email}}:{{get_admin_email}}
+
+{{lang_home}}:{{get_home}}
+
+{{lang_notify}}:{{get_notify}}
+
+{{lang_web_site}}:{{get_web_site}}
+
+{{lang_login_script}}:{{get_login_script}}
+
+{{lang_adress}}:{{get_adress}}
+
+{{lang_my_master}}:{{get_my_master}}
+
+{{lang_date_time}}:{{get_date_time}}
+
+
+{{lang_thanks}}  
+--
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+
+<to_page>
+<p>
+<b><u>{{lang_groups Created successfully}}</u></b>
+<br />
+
+
+<b>{{lang_id}}:</b>{{get_id}}<br />
+
+<b>{{lang_name}}:</b>{{get_name}}<br />
+
+<b>{{lang_state}}:</b>{{get_state}}<br />
+
+<b>{{lang_type}}:</b>{{get_type}}<br />
+
+<b>{{lang_location}}:</b>{{get_location}}<br />
+
+<b>{{lang_sla}}:</b>{{get_sla}}<br />
+
+<b>{{lang_public_key}}:</b>{{get_public_key}}<br />
+
+<b>{{lang_private_key}}:</b>{{get_private_key}}<br />
+
+<b>{{lang_pass_phrase}}:</b>{{get_pass_phrase}}<br />
+
+<b>{{lang_email_sign}}:</b>{{get_email_sign}}<br />
+
+<b>{{lang_group_email}}:</b>{{get_group_email}}<br />
+
+<b>{{lang_admin_email}}:</b>{{get_admin_email}}<br />
+
+<b>{{lang_home}}:</b>{{get_home}}<br />
+
+<b>{{lang_notify}}:</b>{{get_notify}}<br />
+
+<b>{{lang_web_site}}:</b>{{get_web_site}}<br />
+
+<b>{{lang_login_script}}:</b>{{get_login_script}}<br />
+
+<b>{{lang_adress}}:</b>{{get_adress}}<br />
+
+<b>{{lang_my_master}}:</b>{{get_my_master}}<br />
+
+<b>{{lang_date_time}}:</b>{{get_date_time}}<br />
+
+<br />
+{{lang_thanks}}
+--
+<br />
+</p>
+</to_page>
+
+<to_log>{{conf_cmr_company_name3}}:{{lang_A new groups}}</to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_new>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_update>
+<to_email><!-- To by use by email -->
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}}:{{lang_An update of the groups}}</subject>
+<message>
+{{lang_An update of the groups was runned by}}: {{user_auth_email}}
+
+
+{{lang_id}}:{{get_id}}
+
+{{lang_name}}:{{get_name}}
+
+{{lang_state}}:{{get_state}}
+
+{{lang_type}}:{{get_type}}
+
+{{lang_location}}:{{get_location}}
+
+{{lang_sla}}:{{get_sla}}
+
+{{lang_public_key}}:{{get_public_key}}
+
+{{lang_private_key}}:{{get_private_key}}
+
+{{lang_pass_phrase}}:{{get_pass_phrase}}
+
+{{lang_email_sign}}:{{get_email_sign}}
+
+{{lang_group_email}}:{{get_group_email}}
+
+{{lang_admin_email}}:{{get_admin_email}}
+
+{{lang_home}}:{{get_home}}
+
+{{lang_notify}}:{{get_notify}}
+
+{{lang_web_site}}:{{get_web_site}}
+
+{{lang_login_script}}:{{get_login_script}}
+
+{{lang_adress}}:{{get_adress}}
+
+{{lang_my_master}}:{{get_my_master}}
+
+{{lang_date_time}}:{{get_date_time}}
+
+
+{{lang_thanks}}  
+--
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+
+<to_page>
+<p>
+<b><u>{{lang_groups updated successfully}}</u></b>
+<br />
+
+
+<b>{{lang_id}}:</b>{{get_id}}<br />
+
+<b>{{lang_name}}:</b>{{get_name}}<br />
+
+<b>{{lang_state}}:</b>{{get_state}}<br />
+
+<b>{{lang_type}}:</b>{{get_type}}<br />
+
+<b>{{lang_location}}:</b>{{get_location}}<br />
+
+<b>{{lang_sla}}:</b>{{get_sla}}<br />
+
+<b>{{lang_public_key}}:</b>{{get_public_key}}<br />
+
+<b>{{lang_private_key}}:</b>{{get_private_key}}<br />
+
+<b>{{lang_pass_phrase}}:</b>{{get_pass_phrase}}<br />
+
+<b>{{lang_email_sign}}:</b>{{get_email_sign}}<br />
+
+<b>{{lang_group_email}}:</b>{{get_group_email}}<br />
+
+<b>{{lang_admin_email}}:</b>{{get_admin_email}}<br />
+
+<b>{{lang_home}}:</b>{{get_home}}<br />
+
+<b>{{lang_notify}}:</b>{{get_notify}}<br />
+
+<b>{{lang_web_site}}:</b>{{get_web_site}}<br />
+
+<b>{{lang_login_script}}:</b>{{get_login_script}}<br />
+
+<b>{{lang_adress}}:</b>{{get_adress}}<br />
+
+<b>{{lang_my_master}}:</b>{{get_my_master}}<br />
+
+<b>{{lang_date_time}}:</b>{{get_date_time}}<br />
+
+<br />
+{{lang_thanks}} 
+--
+<br />
+</p>
+</to_page>
+
+<to_log>{{conf_cmr_company_name3}}:{{lang_An update of the groups}}</to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_update>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_report>
+<!-- To by use by email -->
+<to_email></to_email>
+
+
+<!-- To by use by page -->
+<to_page></to_page>
+
+
+<!-- To by use by log -->
+<to_log></to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_report>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_view>
+<to_email><!-- To by use by email -->
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}} {{lang_Action}} {{get_check_action}} {{lang_on groups}}</subject>
+<message>
+{{lang_The action}} {{get_check_action}} {{lang_was run on groups}} ({{glob_list_check}}) by:{{user_auth_email}}
+
+{{lang_thanks}}  
+--
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+
+<to_page>
+<p>
+<b><u>{{lang_Action}} {{get_check_action}} {{lang_on groups}}</u></b>
+<br />
+{{lang_The action}} {{get_check_action}} {{lang_was run on groups}} ({{glob_list_check}}) by:{{user_auth_email}}
+<br />
+{{lang_thanks}}  
+--<br />
+</p>
+</to_page>
+
+
+<to_log>{{conf_cmr_company_name3}} {{lang_Action}} {{get_check_action}} {{lang_on groups}}</to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_view>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_search>
+<!-- To by use by email -->
+<to_email></to_email>
+
+
+<!-- To by use by page -->
+<to_page></to_page>
+
+
+<!-- To by use by log -->
+<to_log></to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_search>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+
+<author>Tchouamou Eric Herve</author>
+<creationDate>2010-Sep-Mon 11:05:27</creationDate>
+<copyright>(C) 2004-2010 Open Source . All rights reserved.</copyright>
+<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+<authorEmail>tchouamou@gmail.com</authorEmail>
+<authorUrl>http://sourceforge.net/users/tchouamoueric/</authorUrl>
+<version>Camaroes Version 3.0</version>
+
+</notification>

@@ -1,0 +1,165 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<?xml version="1.0" encoding="{match_encoding}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{match_language}" xml:lang="{match_language}" >
+<head>
+    <meta http-equiv="Content-Type" content="{match_content_type}" />
+    <meta name="keywords" content="{match_keyword}" />
+    <meta name="description" content="{match_description}" />
+    <meta name="author" content="{match_author}" />
+    <meta name="date" content="{match_date}" />
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="{match_refresh}" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    
+<link rel="stylesheet" href="css/layersmenu.css" type="text/css"></link>
+<style type="text/css">
+<!--
+@import url("css/layerstreemenu.css");
+-->
+</style>
+<script language="JavaScript" type="text/javascript" src="phplayersmenu/libjs/layersmenu-browser_detection.js"></script>
+<script language="JavaScript" type="text/javascript" src="phplayersmenu/libjs/layersmenu-library.js"></script>
+<script language="JavaScript" type="text/javascript" src="phplayersmenu/libjs/layersmenu.js"></script>
+<script language="JavaScript" type="text/javascript" src="phplayersmenu/libjs/layerstreemenu-cookies.js"></script>
+    
+    
+<link rel="stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/skins/aqua/theme.css" title="Aqua" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-blue.css" title="winter" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-blue2.css" title="blue" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-brown.css" title="summer" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-green.css" title="green" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-win2k-1.css" title="win2k-1" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-win2k-2.css" title="win2k-2" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-win2k-cold-1.css" title="win2k-cold-1" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-win2k-cold-2.css" title="win2k-cold-2" />
+<link rel="alternate stylesheet" type="text/css" media="all" href="{match_www_path}jscalendar/calendar-system.css" title="system" />
+<!-- import the calendar script -->
+<script type="text/javascript" src="{match_www_path}jscalendar/calendar.js"></script>
+<!-- import the language module -->
+<script type="text/javascript" src="{match_www_path}jscalendar/lang/calendar-en.js"></script>
+<!-- import the calendar setup script -->
+<script type="text/javascript" src="{match_www_path}jscalendar/calendar-setup.js"></script>
+
+
+
+    <script type="text/javascript" src="{match_javascript}" ></script>
+    <link rel="shortcut icon" href="{match_logo_icon}" />
+    <link rel="stylesheet" href="{match_style}" type="text/css" />
+    <title>{match_title}</title>
+</head>
+<!--end head -->
+
+
+
+
+
+
+<!--begin body -->
+<body background="{match_background}" onload="{match_onload};" >
+    <!--document.onclick = menu_close;-->
+<noscript>{match_noscript}</noscript>
+
+{match_sound}
+<!--begin page -->
+<!-- begin head page -->
+<div id="head_div">
+</template1>
+{match_include1}
+<!-- include($cmr->get_conf("cmr_path") . "system/loader/head.php") -->
+<template2>
+</div>
+<!-- end head page -->
+<!-- begin main page -->
+{match_open_tab}
+<div id="main_div">
+    <table border="0" width="100%" align="center" cellspacing="0" cellpadding="0" >
+     <tr align="left">
+        <!-- begin left page -->
+        <td align="left" valign="top">
+<!-- ============================== -->
+		<div id="left_div">
+</template2>
+{match_include2}
+<!-- include($cmr->get_conf("cmr_path") . "system/loader/left.php") -->
+<template3>
+        </div>
+        </td>
+<!-- ============================== -->
+        <!-- end left page -->
+        <!-- begin middle page -->
+        <td align="left" valign="top">
+        	<div id="middle_div">
+</template3>
+        {match_include3}
+        {match_include4}
+<!-- include($cmr->get_conf("class_modules_path") . "modules/view_event.php") -->
+<!-- include($cmr->get_conf("cmr_path") . "system/loader/middle.php") -->
+<template4>
+        	</div>
+        </td>
+<!-- end middle page -->
+
+<!-- begin rigth page -->
+        <td align="left" valign="top">
+<!-- ============================== -->
+			<div id="right_div">
+</template4>
+{match_include5}
+<!-- include($cmr->get_conf("cmr_path") . "system/loader/right.php") -->
+<template5>
+        	</div>
+        </td>
+<!-- ============================== -->
+<!-- end rigth page -->
+     </tr>
+    </table>
+</div>
+{match_close_tab}
+<!-- end main page -->
+<hr />
+<!-- begin footer page -->
+<div id="foot_div">
+</template5>
+<!-- include($cmr->get_conf(-class_modules_path-) . -modules/task_bar.php-) -->
+{match_include6}
+<!-- include($cmr->get_conf(-cmr_path-) . -system/loader/foot.php-) -->
+{match_include7}
+</div>
+<template6>
+<!-- end footer page -->
+<div id="div_id_menu" class="hidded_menu">
+<ul class="small_list">
+
+<li><a href="index.php?conf=init" >{match_label_home}</a></li>
+<li><a href="index.php?conf=com_action&current_action=expert" >{match_label_mode_expert}</a></li>
+<li><a href="index.php?cmr_mode=forget_account" >{match_label_forget_account}</a></li>
+
+<li><a href="index.php?cmr_mode=login" >{match_label_login_again}</a></li>
+<li><a href="index.php?cmr_mode=logout" >{match_label_logout}</a></li>
+<li><a href="#" onClick="window.close ();">{match_windows_close}</a></li>
+
+<!--li><a href="index.php?conf=save_u" onclick="return confirm('{match_label_sure_save}')" >{match_save_conf_user}</a></li>
+<li><a href="index.php?conf=save_g" onclick="return confirm('{match_save_conf_group_sure}')" >{match_save_conf_group}</a></li>
+<li><a href="index.php?conf=save_d" onclick="return confirm('{match_save_to_user_sure}')" >{match_save_to_user}</a></li-->
+
+<li><a href="index.php?conf=load_u" onclick="return confirm('{match_load_user_sure}')" >{match_load_user}</a></li>
+<li><a href="index.php?conf=load_g" onclick="return confirm('{match_load_group_sure}')" >{match_load_group}</a></li>
+<li><a href="index.php?conf=load_d" onclick="return confirm('{match_load_default_sure}')" >{match_load_default}</a></li>
+
+</ul>
+</div>
+<div>
+<img onclick="show('div_id_menu');" ondblclick="hide('div_id_menu');" src="{match_www_path}images/icon/record_icon_red.png" border="0" />
+</div>
+<!-- end page -->
+</body>
+<!--end body -->
+</html>
+<!--end html -->
+</template6>
+</template>

@@ -1,0 +1,550 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<?xml version="1.0" encoding="{match_encoding}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{match_language}" xml:lang="{match_language}" >
+<head>
+    <meta http-equiv="Content-Type" content="{match_content_type}" />
+    <meta name="keywords" content="{match_keyword}" />
+    <meta name="description" content="{match_description}" />
+    <meta name="author" content="{match_author}" />
+    <meta name="date" content="{match_date}" />
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="{match_refresh}" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    
+<link rel="stylesheet" href="css/layersmenu.css" type="text/css"></link>
+    <script type="text/javascript" src="{match_javascript}" ></script>
+    <link rel="shortcut icon" href="{match_logo_icon}" />
+    <link rel="stylesheet" href="{match_style}" type="text/css" />
+    <title>{match_title}</title>
+</head>
+<!--end head -->
+
+
+
+<!--begin body -->
+<body background="{match_background}" onload="{match_onload};" >
+<script language="javascript" type="text/javascript">
+    document.onmousemove = pos_mouse;
+    document.oncontextmenu = menu_open;
+</script>
+    <!--document.onclick = menu_close;-->
+<noscript>{match_noscript}</noscript>
+</template1>
+{match_include1}
+
+<!-- include($cmr->get_conf("class_modules_path"). "modules/page_header}-->
+
+<template2>
+{match_open_windows}
+<br />
+<b>{match_title1}</b>
+<br />
+<p class="normal_text">
+{match_title2}
+</p>
+<br />
+{match_module_message}
+</template2>
+{match_include2}
+<!-- include($cmr->get_path("get_data") . "get_data/get_inscription.php");-->
+<template3>
+<form action="index.php?cmr_mode=inscription" method="post">
+<input type="hidden" value="new_user" name="class_module" />
+
+
+<fieldset class="bubble"><legend>{match_inscription_request}</legend>
+<table class="normal_text" border="0"  align="center">
+
+
+<tr>
+ <th align="rigth">
+  <span class="alert">*&nbsp;</span> <b><label for="uid">{match_label_uid}</b></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="uid" name="uid" onclick="large_id('uid')">
+  </td>
+ </tr>
+
+ <tr>
+ <th align="rigth">
+  <span class="alert">*&nbsp;</span> <b><label for="pw">{match_label_pw}</b></label>
+ </th>
+  <td align="left">
+   <input size="10" type="password" value="" id="pw" name="pw" onclick="large_id('pw')" />
+  </td>
+ </tr>
+ 
+ 
+<tr>
+ <th align="rigth">
+  <span class="alert">*&nbsp;</span> <b><label for="email">{match_label_email}</b></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="email" name="email" onclick="large_id('email')">
+  </td>
+ </tr>
+
+<tr>
+ <th align="rigth">
+  <span class="alert">*&nbsp;</span> <b><label for="groups">{match_label_groups}</b></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="guest"  id="groups" name="groups" onclick="large_id('groups')">
+  </td>
+ </tr>
+
+
+
+
+<tr>
+ <th align="rigth">
+  <span class="alert">*&nbsp;</span> <b><label for="last_name">{match_label_last_name}</b></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="last_name" name="last_name" onclick="large_id('last_name')">
+  </td>
+ </tr>
+
+<tr>
+ <th align="rigth">
+  <span class="alert">*&nbsp;</span> <b><label for="name">{match_label_name}</b></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="name" name="name" onclick="large_id('name')">
+  </td>
+ </tr>
+ 
+ 
+ 
+<tr>
+<td class="normal_text">
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td>
+<td class="normal_text">
+<input type="password" name="auth_code" value="" size="8" />
+<input class="submit" type="submit" value="{match_submit}" onclick="{match_reset_form}" />
+</td>
+</tr>
+
+
+
+<tr align="center" >
+<td align="center" colspan="2">
+.
+</td>
+</tr>
+
+
+ <tr>
+ <th align="rigth">
+  <label><i><label for="sexe">{match_label_sexe}</label></i></label>
+ </th>
+  <td align="left">
+   <select name="sexe" id="sexe"  onclick="large_id('sexe')">
+		<option value""></option>
+		<option value"f">F</option>
+		<option value"m">M</option>
+   <!--match_option_sexe-->
+   </select>
+  </td>
+ </tr>
+ 
+ 
+<tr>
+ <th align="rigth">
+  <label><i><label for="role">{match_label_role}</label></i></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="role" name="role" onclick="large_id('role')">
+  </td>
+ </tr>
+
+
+<tr>
+ <th align="rigth">
+  <label><i><label for="email_sign">{match_label_email_sign}</label></i></label>
+ </th>
+  <td align="left">
+   <textarea rows="8" cols="40" name="email_sign" id="email_sign" onclick="large_id('email_sign')"></textarea>
+  </td>
+ </tr>
+ 
+ 
+<tr>
+ <th align="rigth">
+  <label><i><label for="tel">{match_label_tel}</label></i></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="tel" name="tel" onclick="large_id('tel')">
+  </td>
+ </tr>
+
+<tr>
+ <th align="rigth">
+  <label><i><label for="cel">{match_label_cel}</label></i></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="cel" name="cel" onclick="large_id('cel')">
+  </td>
+ </tr>
+
+<tr>
+ <th align="rigth">
+  <label><i><label for="adress">{match_label_adress}</label></i></label>
+ </th>
+  <td align="left">
+   <input size="20" type="text" value="" id="adress" name="adress" onclick="large_id('adress')">
+  </td>
+ </tr>
+
+<tr>
+ <th align="rigth">
+  <label><i><label for="location">{match_label_location}</label></i></label>
+ </th>
+  <td align="left">
+<select id="location" name="location" onclick="large_id('location')">
+	<option value""></option>
+	<option value"ALB">{match_albania}</option>
+	<option value"DZA">{match_algeria}</option>
+	<option value"ASM">{match_american_samoa}</option>
+	<option value"AND">{match_andorra}</option>
+	<option value"AGO">{match_angola}</option>
+	<option value"AIA">{match_anguilla}</option>
+	<option value"ATA">{match_antarctica}</option>
+	<option value"ATG">{match_antigua_and_barbuda}</option>
+	<option value"ARG">{match_argentina}</option>
+	<option value"ARM">{match_armenia}</option>
+	<option value"ABW">{match_aruba}</option>
+	<option value"AUS">{match_australia}</option>
+	<option value"AUT">{match_austria}</option>
+	<option value"AZE">{match_azerbaijan}</option>
+	<option value"BHS">{match_bahamas}</option>
+	<option value"BHR">{match_bahrain}</option>
+	<option value"BGD">{match_bangladesh}</option>
+	<option value"BRB">{match_barbados}</option>
+	<option value"BLR">{match_belarus}</option>
+	<option value"BEL">{match_belgium}</option>
+	<option value"BLZ">{match_belize}</option>
+	<option value"BEN">{match_benin}</option>
+	<option value"BMU">{match_bermuda}</option>
+	<option value"BTN">{match_bhutan}</option>
+	<option value"BOL">{match_bolivia}</option>
+	<option value"BIH">{match_bosnia_and_herzegovina}</option>
+	<option value"BWA">{match_botswana}</option>
+	<option value"BVT">{match_bouvet_island}</option>
+	<option value"BRA">{match_brazil}</option>
+	<option value"IOT">{match_british_indian_ocean_territories}</option>
+	<option value"BRN">{match_brunei_darussalam}</option>
+	<option value"BGR">{match_bulgaria}</option>
+	<option value"BFA">{match_burkina_faso}</option>
+	<option value"BDI">{match_burundi}</option>
+	<option value"KHM">{match_cambodia}</option>
+	<option value"cmr">{match_cameroon}</option>
+	<option value"CAN">{match_canada}</option>
+	<option value"CPV">{match_cape_verde}</option>
+	<option value"CYM">{match_cayman_islands}</option>
+	<option value"CAF">{match_central_african_republic}</option>
+	<option value"TCD">{match_chad}</option>
+	<option value"CHL">{match_chile}</option>
+	<option value"CHN">{match_china}</option>
+	<option value"CXR">{match_christmas_island}</option>
+	<option value"CCK">{match_cocos_islands}</option>
+	<option value"COL">{match_colombia}</option>
+	<option value"COM">{match_comoros}</option>
+	<option value"COG">{match_congo}</option>
+	<option value"COD">{match_congo_democratic}</option>
+	<option value"COK">{match_cook_islands}</option>
+	<option value"CRI">{match_costa_rica}</option>
+	<option value"CIV">Cote D'ivoire</option>
+	<option value"HRV">{match_croatia}</option>
+	<option value"CYP">{match_cyprus}</option>
+	<option value"CZE">{match_czech_republic}</option>
+	<option value"DNK">{match_denmark}</option>
+	<option value"DJI">{match_djibouti}</option>
+	<option value"DMA">{match_dominica}</option>
+	<option value"DOM">{match_dominican_republic}</option>
+	<option value"TMP">{match_east_timor}</option>
+	<option value"ECU">{match_ecuador}</option>
+	<option value"EGY">{match_egypt}</option>
+	<option value"SLV">{match_el_salvador}</option>
+	<option value"GNQ">{match_equatorial_guinea}</option>
+	<option value"ERI">{match_eritrea}</option>
+	<option value"EST">{match_estonia}</option>
+	<option value"ETH">{match_ethiopia}</option>
+	<option value"FLK">{match_falkland_islands}</option>
+	<option value"FRO">{match_faroe_islands}</option>
+	<option value"FJI">{match_fiji}</option>
+	<option value"FIN">{match_finland}</option>
+	<option value"FRA">{match_france}</option>
+	<option value"GUF">{match_french_guiana}</option>
+	<option value"PYF">{match_french_polynesia}</option>
+	<option value"ATF">{match_french_southern_territories}</option>
+	<option value"GAB">{match_gabon}</option>
+	<option value"GMB">{match_gambia}</option>
+	<option value"GAZ">{match_gaza_strip}</option>
+	<option value"GEO">{match_georgia}</option>
+	<option value"DEU">{match_germany}</option>
+	<option value"GHA">{match_ghana}</option>
+	<option value"GIB">{match_gibraltar}</option>
+	<option value"GRC">{match_greece}</option>
+	<option value"GRL">{match_greenland}</option>
+	<option value"GRD">{match_grenada}</option>
+	<option value"GLP">{match_guadeloupe}</option>
+	<option value"GUM">{match_guam}</option>
+	<option value"GTM">{match_guatemala}</option>
+	<option value"GIN">{match_guinea}</option>
+	<option value"GNB">Guinea-Bissau</option>
+	<option value"GUY">{match_guyana}</option>
+	<option value"HTI">{match_haiti}</option>
+	<option value"HMD">{match_heard_island_and_mcdonald_islands}</option>
+	<option value"VAT">{match_vatican}</option>
+	<option value"HND">{match_honduras}</option>
+	<option value"HKG">{match_hong_kong}</option>
+	<option value"HUN">{match_hungary}</option>
+	<option value"ISL">{match_iceland}</option>
+	<option value"IND">{match_india}</option>
+	<option value"IDN">{match_indonesia}</option>
+	<option value"IRL">{match_ireland}</option>
+	<option value"ISR">{match_israel}</option>
+	<option value"ITA">{match_italy}</option>
+	<option value"JAM">{match_jamaica}</option>
+	<option value"JPN">{match_japan}</option>
+	<option value"JOR">{match_jordan}</option>
+	<option value"KAZ">{match_kazakhstan}</option>
+	<option value"KEN">{match_kenya}</option>
+	<option value"KIR">{match_kiribati}</option>
+	<option value"KWT">{match_kuwait}</option>
+	<option value"KGZ">{match_kyrgyzstan}</option>
+	<option value"LAO">{match_lao_peoples_democratic_republic}</option>
+	<option value"LVA">{match_latvia}</option>
+	<option value"LBN">{match_lebanon}</option>
+	<option value"LSO">{match_lesotho}</option>
+	<option value"LBR">{match_liberia}</option>
+	<option value"LIE">{match_liechtenstein}</option>
+	<option value"LTU">{match_lithuania}</option>
+	<option value"LUX">{match_luxembourg}</option>
+	<option value"MAC">{match_macau}</option>
+	<option value"MKD">{match_macedonia}</option>
+	<option value"MDG">{match_madagascar}</option>
+	<option value"MWI">{match_malawi}</option>
+	<option value"MYS">{match_malaysia}</option>
+	<option value"MDV">{match_maldives}</option>
+	<option value"MLI">{match_mali}</option>
+	<option value"MLT">{match_malta}</option>
+	<option value"MHL">{match_marshall_islands}</option>
+	<option value"MTQ">{match_martinique}</option>
+	<option value"MRT">{match_mauritania}</option>
+	<option value"MUS">{match_mauritius}</option>
+	<option value"MYT">{match_mayotte}</option>
+	<option value"MEX">{match_mexico}</option>
+	<option value"FSM">{match_micronesia}</option>
+	<option value"MDA">{match_moldova}</option>
+	<option value"MCO">{match_monaco}</option>
+	<option value"MNG">{match_mongolia}</option>
+	<option value"MSR">{match_montserrat}</option>
+	<option value"MAR">{match_morocco}</option>
+	<option value"MOZ">{match_mozambique}</option>
+	<option value"MMR">{match_myanmar}</option>
+	<option value"NAM">{match_namibia}</option>
+	<option value"NRU">{match_nauru}</option>
+	<option value"NPL">{match_nepal}</option>
+	<option value"NLD">{match_netherlands}</option>
+	<option value"ANT">{match_netherlands_antilles}</option>
+	<option value"NCL">{match_new_caledonia}</option>
+	<option value"NZL">{match_new_zealand}</option>
+	<option value"NIC">{match_nicaragua}</option>
+	<option value"NER">{match_niger}</option>
+	<option value"NGA">{match_nigeria}</option>
+	<option value"NIU">{match_niue}</option>
+	<option value"NFK">{match_norfolk_island}</option>
+	<option value"MNP">{match_northern_mariana_islands}</option>
+	<option value"NOR">{match_norway}</option>
+	<option value"OMN">{match_oman}</option>
+	<option value"PAK">{match_pakistan}</option>
+	<option value"PLW">{match_palau}</option>
+	<option value"PSE">{match_palestinian}</option>
+	<option value"PAN">{match_panama}</option>
+	<option value"PNG">{match_papua_new_guinea}</option>
+	<option value"PRY">{match_paraguay}</option>
+	<option value"PER">{match_peru}</option>
+	<option value"PHL">{match_philippines}</option>
+	<option value"PCN">{match_pitcairn}</option>
+	<option value"POL">{match_poland}</option>
+	<option value"PRT">{match_portugal}</option>
+	<option value"PRI">{match_puerto_rico}</option>
+	<option value"QAT">{match_qatar}</option>
+	<option value"KOR">{match_republic_of_korea}</option>
+	<option value"REU">{match_reunion}</option>
+	<option value"ROM">{match_romania}</option>
+	<option value"RUS">{match_russian_federation}</option>
+	<option value"RWA">{match_rwanda}</option>
+	<option value"SHN">{match_saint_helena}</option>
+	<option value"KNA">{match_saint_kitts_and_nevis}</option>
+	<option value"LCA">{match_saint_lucia}</option>
+	<option value"SPM">{match_saint_pierre_and_miquelon}</option>
+	<option value"VCT">{match_saint_vincent_and_the_grenadines}</option>
+	<option value"WSM">{match_samoa}</option>
+	<option value"SMR">{match_san_marino}</option>
+	<option value"STP">{match_sao_tome_and_principe}</option>
+	<option value"SAU">{match_saudi_arabia}</option>
+	<option value"SEN">{match_senegal}</option>
+	<option value"SYC">{match_seychelles}</option>
+	<option value"SLE">{match_sierra_leone}</option>
+	<option value"SGP">{match_singapore}</option>
+	<option value"SVK">{match_slovakia}</option>
+	<option value"SVN">{match_slovenia}</option>
+	<option value"SLB">{match_solomon_islands}</option>
+	<option value"SLM">{match_somalia}</option>
+	<option value"ZAF">{match_south_africa}</option>
+	<option value"SGS">{match_south_georgia_and_sandwich_islands}</option>
+	<option value"ESP">{match_spain}</option>
+	<option value"LKA">{match_sri_lanka}</option>
+	<option value"SUR">{match_suriname}</option>
+	<option value"SJM">{match_svalbard_and_jan_mayen}</option>
+	<option value"SWZ">{match_swaziland}</option>
+	<option value"SWE">{match_sweden}</option>
+	<option value"CHE">{match_switzerland}</option>
+	<option value"TWN">{match_taiwan}</option>
+	<option value"TJK">{match_tajikistan}</option>
+	<option value"TZA">{match_tanzania}</option>
+	<option value"THA">{match_thailand}</option>
+	<option value"TGO">{match_togo}</option>
+	<option value"TKL">{match_tokelau}</option>
+	<option value"TON">{match_tonga}</option>
+	<option value"TTO">{match_trinidad_and_tobago}</option>
+	<option value"TUN">{match_tunisia}</option>
+	<option value"TUR">{match_turkey}</option>
+	<option value"TKM">{match_turkmenistan}</option>
+	<option value"TCA">{match_turks_and_caicos_islands}</option>
+	<option value"TUV">{match_tuvalu}</option>
+	<option value"UGA">{match_uganda}</option>
+	<option value"UKR">{match_ukraine}</option>
+	<option value"ARE">{match_united_arab_emirates}</option>
+	<option value"GBR">{match_united_kingdom}</option>
+	<option value"USA">{match_united_states}</option>
+	<option value"UMI">{match_united_states_minor_outlying_islands}</option>
+	<option value"URY">{match_uruguay}</option>
+	<option value"UZB">{match_uzbekistan}</option>
+	<option value"VUT">{match_vanuatu}</option>
+	<option value"VEN">{match_venezuela}</option>
+	<option value"VNM">{match_viet_nam_british}</option>
+	<option value"VGB">{match_viet_nam_us}</option>
+	<option value"VIR">{match_viet_nam}</option>
+	<option value"WLF">{match_wallis_and_futuna_islands}</option>
+	<option value"WBK">{match_west_bank}</option>
+	<option value"ESH">{match_western_sahara}</option>
+	<option value"YEM">{match_yemen}</option>
+	<option value"YUG">{match_yugoslavia}</option>
+	<option value"ZMB">{match_zambia}</option>
+	<option value"ZWE">{match_zimbabwe}</option>
+</select>
+  </td>
+ </tr>
+
+
+
+<!--tr>
+ <td align="rigth">
+  <label><i>{match_label_type]
+{match_type]
+:</i></label>
+ </td>
+  <td align="left">
+   <select name="type" id="type"  onclick="large_id('type')">
+  <option value="default" >{match_default_lang]</option>";
+{match_option_type]
+<select 
+</select>
+  </td>
+ </tr-->
+
+<tr>
+ <th align="rigth">
+  <label><i><label for="lang">{match_label_lang}</label></i></label>
+ </th>
+  <td align="left">
+  <select name="lang" id="lang" onclick="large_id('lang')" >
+  <option value="default" >{match_default_lang}</option>";
+{match_options_language}
+  </select>&nbsp;&nbsp;
+   <!--input size="20" type="text" value="" id="lang" name="lang" onclick="large_id('lang')"-->
+
+  </td>
+ </tr>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+<tr>
+ <th align="rigth">
+  <label><i>{match_label_style}</i></label>
+ </th>
+  <td align="left">
+    <select name="style" id="style" onclick="large_id('style')" >
+    <option value="default" >{match_default_themes}</option>
+   {match_options_theme}
+    </select>&nbsp;&nbsp;
+   <!--input size="20" type="text" value="" id="style" name="style" onclick="large_id('style')"-->
+  </td>
+ </tr>
+</table>
+</fieldset>
+<!--tr>
+ <td align="rigth">
+  <label><i>{match_label_login_script]
+{match_login_script]
+:</b></label>
+ </td>
+  <td align="left">
+   <textarea rows="8" cols="40" name="login_script" id="login_script" onclick="large_id('login_script')"></textarea>
+  </td>
+ </tr-->
+<table class="normal_text" border="1"  align="center">
+
+ <tr align="center" >
+  <td align="center" colspan="4">
+<input class="submit" type="submit" value="{match_submit}" onclick="{match_reset_form}" />
+<input class="submit" type="reset" value="Reset" onclick="{match_reset_form}"/> 
+  </td>
+ </tr>
+</table>
+
+
+</form>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_link_login}-
+{match_link_inscription}-
+{match_link_forget_account}-
+{match_link_validation}- 
+{match_link_logout}
+</fieldset>
+<br />
+{match_close_windows}
+</template3>
+{match_include3}
+<!-- include($cmr->get_conf("class_modules_path"). "modules/page_footer}-->
+<template4>
+</body>
+</html>
+</template4>
+</template>

@@ -1,0 +1,303 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<?xml version="1.0" encoding="{match_encoding}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{match_language}" xml:lang="{match_language}" >
+<head>
+    <meta http-equiv="Content-Type" content="{match_content_type}" />
+    <meta name="keywords" content="{match_keyword}" />
+    <meta name="description" content="{match_description}" />
+    <meta name="author" content="{match_author}" />
+    <meta name="date" content="{match_date}" />
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="{match_refresh}" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    
+<link rel="stylesheet" href="css/layersmenu.css" type="text/css"></link>
+    <script type="text/javascript" src="{match_javascript}" ></script>
+    <link rel="shortcut icon" href="{match_logo_icon}" />
+    <link rel="stylesheet" href="{match_style}" type="text/css" />
+    <title>{match_title}</title>
+</head>
+<!--end head -->
+
+
+
+<!--begin body -->
+<body background="{match_background}" onload="{match_onload}" >
+
+<script language="javascript" type="text/javascript">
+    document.onmousemove = pos_mouse;
+    document.oncontextmenu = menu_open;
+</script>
+    <!--document.onclick = menu_close;-->
+<noscript>{match_noscript}</noscript>
+</template1>
+{match_include1}
+<!-- include_once($cmr->get_conf("class_modules_path") . "modules/page_header}-->
+<template2>
+
+{match_open_windows}
+
+<div id="install_div">
+<fieldset class="bubble"><legend><b><span class="normal_text">{match_legend_install}</span></b></legend>
+<form action="index.php?cmr_mode=install_all" autocomplete="on" method="post">
+<input type="hidden" value="install" name="class_module">
+<table border="0" nowrap="nowrap" align="center">
+<tr><td>
+<fieldset class="bubble"><legend><b><span class="normal_text">{match_legend_writable}</span></b></legend>
+<table border="0" nowrap="nowrap" align="center">
+<tr><td><span class="{match_class_config_inc}">chown -v www-data:www-data ../camaroes/config.inc.php</span></td></tr>
+<tr><td><span class="{match_class_conf_ini}">chown -v www-data:www-data ../camaroes/conf.d/conf.ini</span></td></tr>
+<tr><td><span class="{match_class_page_ini}">chown -v www-data:www-data ../camaroes/page/page.ini</span></td></tr>
+<tr><td><span class="{match_class_themes_ini}">chown -v www-data:www-data ../camaroes/themes/themes.ini</span></td></tr>
+
+<tr><td><span class="{match_class_home}">chown -Rv www-data:www-data ../camaroes/home/</span></td></tr>
+<tr><td><span class="{match_class_page}">chown -Rv www-data:www-data ../camaroes/page/</span></td></tr>
+<tr><td><span class="{match_class_languages}">chown -Rv www-data:www-data ../camaroes/languages/</span></td></tr>
+<tr><td><span class="{match_class_conf_d}">chown -Rv www-data:www-data ../camaroes/conf.d/</span></td></tr>
+<tr><td><span class="{match_class_themes}">chown -Rv www-data:www-data ../camaroes/themes/</span></td></tr>
+<tr><td><span class="{match_class_log}">chown -Rv www-data:www-data ../camaroes/log/</span></td></tr>
+<tr><td><span class="{match_class_temp}">chown -Rv www-data:www-data ../camaroes/temp/</span></td></tr>
+
+
+<tr><td><span class="{match_class_config_inc}">chmod -cR ug+rw ../camaroes/config.inc.php</span></td></tr>
+<tr><td><span class="{match_class_conf_ini}">chmod -cR ug+rw ../camaroes/conf.d/conf.ini</span></td></tr>
+<tr><td><span class="{match_class_page_ini}">chmod -cR ug+rw ../camaroes/page/page.ini</span></td></tr>
+<tr><td><span class="{match_class_themes_ini}">chmod -cR ug+rw ../camaroes/themes/themes.ini</span></td></tr>
+
+<tr><td><span class="{match_class_home}">chmod -cR ug+rw ../camaroes/home/</span></td></tr>
+<tr><td><span class="{match_class_page}">chmod -cR ug+rw ../camaroes/page/</span></td></tr>
+<tr><td><span class="{match_class_languages}">chmod -cR ug+rw ../camaroes/languages/</span></td></tr>
+<tr><td><span class="{match_class_conf_d}">chmod -cR ug+rw ../camaroes/conf.d/</span></td></tr>
+<tr><td><span class="{match_class_themes}">chmod -cR ug+rw ../camaroes/themes/</span></td></tr>
+<tr><td><span class="{match_class_log}">chmod -cR ug+rw ../camaroes/log/</span></td></tr>
+<tr><td><span class="{match_class_temp}">chmod -cR ug+rw ../camaroes/temp/</span></td></tr>
+
+
+</table>
+</fieldset>
+
+<fieldset class="bubble"><legend><span class="normal_text">{match_legend_cgi}</span><a href="install/camaroes.cgi" ><b>[{match_link_cgi}</b></a>{match_label_cgi}</legend>
+</fieldset>
+
+
+<fieldset class="bubble"><legend>{match_legend_db}</legend>
+<table border="0" nowrap="nowrap" align="center">
+<tr><th align="left"><label for="db_exist"><b>{match_label_db}</b></label></th><td><span class="alert">*&nbsp;</span><input type="checkbox" name="db_exist" value="yes" /> </td></tr>
+<tr><th align="left"><label for="db_name"><b>{match_label_db_name}</b></label></th><td><span class="alert">*&nbsp;</span><input type="text" name="db_name" value="camaroes_db" /> </td></tr>
+<tr><th align="left"><label for="db_user"><b>{match_label_db_user}</b></label></th><td><span class="alert">*&nbsp;</span><input type="text" name="db_user" value="root" /> </td></tr>
+<tr><th align="left"><label for="db_pw"><b>{match_label_db_pw}</b></label></th><td><span class="alert">*&nbsp;</span><input type="password" name="db_pw" value="" /> </td></tr>
+<tr><td></td><td align="left"><input type="submit" value="{match_label_submit}" /><input type="reset" value="Reset" /> </td></tr>
+
+
+
+
+<tr><td colspan="2" ><hr /><hr /></td></tr>
+
+<tr><th align="left"><label for="db_socket"><b>{match_label_db_soket}</b></label></th>
+<td><input type="text" name="db_socket" value="" /> </td></tr>
+
+<tr><th align="left"><label for="db_type">{match_label_db_type}</label></th><td>
+
+<select name="db_type">
+<option value="mysql">{match_label_mysql}</option>
+{match_option_list_db}
+</select>
+</td></tr>
+
+
+<tr><th align="left"><label for="db_host">{match_label_db_host}</label></th><td><input type="text" name="db_host" value="127.0.0.1" /> </td></tr>
+<tr><th align="left"><label for="db_port">{match_label_db_port}</label></th><td><input type="text" name="db_port" value="3306" /> </td></tr>
+<tr><th align="left"><label for="db_table_prefix">{match_label_db_prefix}</label></th><td><input type="text" name="db_table_prefix" value="cmr_" /> </td></tr>
+<tr><th align="left"><label for="cmr_default_table">{match_label_default_table}</label></th><td><input type="text" name="cmr_default_table" value="ticket" /> </td></tr>
+
+</table>
+</fieldset>
+
+
+<fieldset class="bubble"><legend>{match_legend_source}<a href="install/cmr_scheme.sql" ><b>[{match_link_source}]</b></a>{match_label_source}</legend>
+<a href="../index.php">{match_label_how_to}</a>
+<!--
+<center>
+<pre>
+<textarea rows="35" name="install_text" id="install_text" cols="100">
+<install/cmr_scheme.sql>
+</textarea>
+</pre>
+</center>
+-->
+</fieldset>
+
+
+<fieldset class="bubble"><legend>{match_legend_smtp}</legend>
+<table border="0" nowrap="nowrap" align="center">
+<tr><th align="left"><label for="cmr_mail_host">{match_label_smtp_server}(ex:smtp.gmail.com)</label></th><td><input type="text" name="cmr_mail_host" value="localhost" /></td></tr>
+<tr><th align="left"><label for="cmr_mail_port">{match_label_smtp_port}(ex:25)</label></th><td><input type="text" name="cmr_mail_port" value="25" /></td></tr>
+<tr><th align="left"><label for="cmr_mail_username">{match_label_smtp_user}</label></th><td><input type="text" name="cmr_mail_username" value="" /></td></tr>
+<tr><th align="left"><label for="cmr_mail_password">{match_label_smtp_pw}</label></th><td><input type="text" name="cmr_mail_password" value="" /></td></tr>
+</table>
+</fieldset>
+
+<fieldset class="bubble"><legend>{match_legend_user_account}</legend>
+<table border="0" nowrap="nowrap" align="center">
+
+
+<tr><th align="left"><label for="cmr_pw_developer">{match_label_pw_user}<b>[developer]</b></label></th><td><input type="text" name="cmr_pw_developer" value="developer" /> </td></tr>
+<tr><th align="left"><label for="cmr_pw_admin">{match_label_pw_user}<b>[admin]</b></label></th><td><input type="text" name="cmr_pw_admin" value="admin" /> </td></tr>
+<tr><th align="left"><label for="cmr_pw_operator">{match_label_pw_user}<b>[operator]</b></label></th><td><input type="text" name="cmr_pw_operator" value="operator" /> </td></tr>
+<tr><th align="left"><label for="cmr_pw_tecnician">{match_label_pw_user}<b>[tecnician]</b></label></th><td><input type="text" name="cmr_pw_tecnician" value="tecnician" /> </td></tr>
+<tr><th align="left"><label for="cmr_pw_client">{match_label_pw_user}<b>[client]</b></label></th><td><input type="text" name="cmr_pw_client" value="client" /> </td></tr>
+<tr><th align="left"><label for="cmr_pw_demo">{match_label_pw_user}<b>[demo]</b></label></th><td><input type="text" name="cmr_pw_demo" value="demo" /> </td></tr>
+<tr><th align="left"><label for="cmr_pw_guest">{match_label_pw_user}<b>[guest]</b></label></th><td><input type="text" name="cmr_pw_guest" value="guest" /> </td></tr>
+
+</table>
+</fieldset>
+
+<fieldset class="bubble"><legend>{match_legend_contact}</legend>
+<table border="0" nowrap="nowrap" align="center">
+<tr><th align="left"><label for="cmr_admin_group">{match_label_group}(ex:operator)</label></th><td><input type="text" name="cmr_admin_group" value="operator" /><br />.<br /></td></tr>
+<tr><th align="left"><label for="cmr_admin_name">{match_label_user1}</label></th><td><input type="text" name="cmr_admin_name" value="Operation Center" /></td></tr>
+<tr><th align="left"><label for="cmr_admin_email">{match_label_email}</label></th><td><input type="text" name="cmr_admin_email" value="tchouamou@gmail.com" /><br />.<br /></td></tr>
+<tr><th align="left"><label for="cmr_from_name">{match_label_user2}</label></th><td><input type="text" name="cmr_from_name" value="Tchouamou Eric Herve " /></td></tr>
+<tr><th align="left"><label for="cmr_from_email">{match_label_email}</label></th><td><input type="text" name="cmr_from_email" value="tchouamoueric@sourceforge.net" /><br />.<br /></td></tr>
+<tr><th align="left"><label for="cmr_cc_name">{match_label_user3}</label></th><td><input type="text" name="cmr_cc_name" value="Tchouamou Eric Herve " /></td></tr>
+<tr><th align="left"><label for="cmr_cc_email">{match_label_email}</label></th><td><input type="text" name="cmr_cc_email" value="tchouamou@gmail.com" /><br />.<br /></td></tr>
+<tr><th align="left"><label for="cmr_bcc_name">{match_label_user4}</label></th><td><input type="text" name="cmr_bcc_name" value="operator" /></td></tr>
+<tr><th align="left"><label for="cmr_bcc_email">{match_label_email}</label></th><td><input type="text" name="cmr_bcc_email" value="tchouamoueric@yahoo.com" /><br />.<br /></td></tr>
+<tr><th align="left"><label for="cmr_log_name">{match_label_log_user1}</label></th><td><input type="text" name="cmr_log_name" value="" /></td></tr>
+<tr><th align="left"><label for="cmr_log_email">{match_label_email}</label></th><td><input type="text" name="cmr_log_email" value="tchouamou@gmail.com" /><br />.<br /></td></tr>
+<tr><th align="left"><label for="cmr_company_name3">{match_label_log_user2}</label></th><td><input type="text" name="cmr_company_name3" value="CAMAROES" /></td></tr>
+<tr><th align="left"><label for="cmr_log_email1">{match_label_email}</label></th><td><input type="text" name="cmr_log_email1" value="tchouamou@gmail.com" /></td></tr>
+</table>
+</fieldset>
+
+
+<fieldset class="bubble"><legend>{match_legend_company}</legend>
+<table border="0" nowrap="nowrap" align="center">
+<tr><th align="left"><label for="cmr_company_name">{match_label_project_name}(ex:Camaroes Progect Sourceforge)</label></th><td><input type="text" name="cmr_company_name" value="Camaroes Progect Sourceforge" /></td></tr>
+<tr><th align="left"><label for="cmr_company_name1">{match_label_portal_name}(ex:Trouble Shooting Ticket Manager)</label></th><td><input type="text" name="cmr_company_name1" value="Trouble Shooting Ticket Manager Version 3.0.3" /></td></tr>
+<tr><th align="left"><label for="cmr_company_name2">{match_label_portal_title}(ex:PORTAL CAMAROES)</label></th><td><input type="text" name="cmr_company_name2" value="PORTAL CAMAROES" /></td></tr>
+<tr><th align="left"><label for="cmr_company_name3">{match_label_short_name}(ex:Camaroes)</label></th><td><input type="text" name="cmr_company_name3" value="Camaroes" /></td></tr>
+<tr><th align="left"><label for="cmr_company_address">{match_label_adress}(ex:Via Dora Baltea 25)</label></th><td><input type="text" name="cmr_company_address" value="Via Dora Baltea 25 fraz. Borgo revel - 10038 Verolengo, Italia" /></td></tr>
+<tr><th align="left"><label for="cmr_company_tel">{match_label_tel}(ex:0039 0113720145)</label></th><td><input type="text" name="cmr_company_tel" value="0039 0113720145" /></td></tr>
+<tr><th align="left"><label for="cmr_company_fax">{match_label_fax}(ex:0039 0113720145)</label></th><td><input type="text" name="cmr_company_fax" value="0039 0113720145" /></td></tr>
+<tr><th align="left"><label for="cmr_company_cel">{match_label_cell}(ex:0039 3286928649)</label></th><td><input type="text" name="cmr_company_cel" value="0039 3286928649" /></td></tr>
+<tr><th align="left"><label for="cmr_company_website">{match_label_website}(ex:http://camaroes.sourceforge.net" /)</label></th><td><input type="text" name="cmr_company_website" value="http://camaroes.sourceforge.net" /></td></tr>
+</table>
+</fieldset>
+
+
+<fieldset class="bubble"><legend>{match_legend_path}</legend>
+<table border="0" nowrap="nowrap" align="center">
+
+<tr><td>{match_label_path}(ex:c:/my_appliction/)</td><td><br /><br /></td></tr>
+<tr><td></td><td><br /><br /></td></tr>
+
+<tr><th align="left"><label for="cmr_www_path">{match_label_application_url}(ex:http://my_url/)</td>
+<td><input type="text" name="cmr_www_path" value="" /></td></tr>
+<tr><td></td><td><br /><br /></td></tr>
+
+<tr><th align="left"><label for="cmr_path">{match_label_path_main}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_home_path">{match_label_path_home}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_home_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="class_modules_path">{match_label_path_mod}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="class_modules_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_template_path">{match_label_path_templ}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_template_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_func_path">{match_label_path_func}<(ex:/usr/share/camaroes/)/td><td><input type="text" name="cmr_func_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_class_path">{match_label_path_class}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_class_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_conf_path">{match_label_path_conf}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_conf_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_lang_path">{match_label_path_lang}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_lang_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_images_path">{match_label_path_img}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_images_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_db_path">{match_label_path_db}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_db_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_get_data_path">{match_label_path_lib}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_get_data_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_notify_path">{match_label_path_not}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_notify_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_log_path">{match_label_path_log}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_log_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="email2">{match_label_path_model}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_model_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_model_path">{match_label_path_help}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_help_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_themes_path">{match_label_path_theme}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_themes_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_tab_path">{match_label_path_tab}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_tab_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="match_value_realpath">{match_label_path_tmp}</label></th><td><input type="text" name="cmr_font_path" value="{match_value_realpath}" /> </td></tr>
+<tr><th align="left"><label for="cmr_gd_font_path">{match_label_path_font}(ex:./fonts/)</label></th><td><input type="text" name="cmr_gd_font_path" value="{match_value_path_font}" /> </td></tr>
+<tr><th align="left"><label for="cmr_temp_path">{match_label_path_temp}(ex:/usr/share/camaroes/)</label></th><td><input type="text" name="cmr_temp_path" value="{match_value_path_temp}" /> </td></tr>
+<tr><th align="left"><label for="cmr_session_path">{match_label_path_sess}(ex:/temp/)</label></th><td><input type="text" name="cmr_session_path" value="{match_value_path_temp}" /> </td></tr>
+
+</table>
+</fieldset>
+
+
+
+
+
+
+
+<fieldset class="bubble"><legend>{match_legend_other_config}</legend>
+<table border="0" nowrap="nowrap" align="center">
+
+<tr><th align="left"><label for="cmr_lang"><b>{match_label_language}</b> </label></th><td>
+
+<select name="cmr_lang">
+<option value="default">{match_label_default}</option>
+{match_options_language}
+</select>
+</td></tr>
+
+
+<tr><th align="left"><label for="cmr_theme"><b>{match_label_theme}</b> </label></th><td>
+
+<select name="cmr_theme">
+<option value="default">{match_label_default}</option>
+{match_options_theme}
+</select>
+</select>
+</td></tr>
+
+<tr><th align="left"><label for="cmr_main_config"><b>{match_label_config_file}</b> </label></th><td><input type="text" name="cmr_main_config" value="{match_value_config_file}" /> </td></tr>
+<tr><th align="left"><label for="cmr_database_config"><b>{match_label_config_database}</b> </label></th><td><input type="text" name="cmr_database_config" value="{match_value_config_database}" /> </td></tr>
+<tr><th align="left"><label for="cmr_smtp_config"><b>{match_label_config_smtp}</b> </td><th align="left"><label for="email2"><input type="text" name="cmr_smtp_config" value="{match_value_config_smtp}" /> </td></tr>
+<tr><th align="left"><label for="cmr_compagny_config"><b>{match_label_config_compagny}</b> </label></th><td><input type="text" name="cmr_compagny_config" value="{match_value_config_compagny}" /> </td></tr>
+
+
+
+
+
+</table>
+</fieldset>
+</td></tr>
+
+</table>
+
+
+
+<p align="center">
+<span class="alert">*&nbsp;</span>{match_label_needed}
+<input type="submit" value="{match_label_install}" /><input type="reset" value="Reset" />
+</p>
+</form>
+</fieldset>
+
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_link_login}-
+{match_link_inscription}-
+{match_link_forget_account}-
+{match_link_validation}- 
+{match_link_logout}
+</fieldset>
+<br />
+
+
+
+</div>
+{match_close_windows}
+</template2>
+{match_include2}
+
+<!-- include($cmr->get_conf("class_modules_path"). "modules/page_footer}-->
+<template3>
+
+</body>
+</html>
+</template3>
+</template>

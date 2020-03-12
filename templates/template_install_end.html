@@ -1,0 +1,153 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<?xml version="1.0" encoding="{match_encoding}"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{match_language}" xml:lang="{match_language}" >
+<head>
+    <meta http-equiv="Content-Type" content="{match_content_type}" />
+    <meta name="keywords" content="{match_keyword}" />
+    <meta name="description" content="{match_description}" />
+    <meta name="author" content="{match_author}" />
+    <meta name="date" content="{match_date}" />
+    <meta name="distribution" content="global" />
+    <meta name="robots" content="all" />
+    <meta name="rating" content="general" />
+    <meta http-equiv="refresh" content="{match_refresh}" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    
+<link rel="stylesheet" href="css/layersmenu.css" type="text/css"></link>
+    <script type="text/javascript" src="{match_javascript}" ></script>
+    <link rel="shortcut icon" href="{match_logo_icon}" />
+    <link rel="stylesheet" href="{match_style}" type="text/css" />
+    <title>{match_title}</title>
+</head>
+<!--end head -->
+
+
+
+<!--begin body -->
+<body background="{match_background}" onload="{match_onload}" >
+
+<script language="javascript" type="text/javascript">
+    document.onmousemove = pos_mouse;
+    document.oncontextmenu = menu_open;
+</script>
+    <!--document.onclick = menu_close;-->
+<noscript>{match_noscript}</noscript>
+</template1>
+{match_include1}
+<!-- include_once($cmr->get_conf("class_modules_path") . "modules/page_header}-->
+<template2>
+
+{match_open_windows}
+{match_install_run}
+
+<fieldset class="bubble"><legend>{match_legend_end_install}</legend>
+
+<br />
+{match_label_end_install}
+<br />
+<fieldset class="bubble"><legend>{match_legend_run}</legend>
+<ul>
+<li>{match_label_now}<span class="blink"><a href="index.php">{match_link_click_here}</a></span>{match_label_login}</li>
+<li><b>{match_label_affected_rown}</b>{match_value_total}</li>
+</ul>
+</fieldset>
+<br />
+<fieldset class="bubble"><legend>{match_legend_db}</legend>
+<ul>
+<li><b>{match_label_db_type}</b>{match_value_db_type}</li>
+<li><b>{match_label_db_name}</b>{match_value_db_name}</li>
+<li><b>{match_label_db_host}</b>{match_value_db_host}</li>
+<li><b>{match_label_db_port}</b>{match_value_db_port}</li>
+<li><b>{match_label_db_user}</b>{match_value_db_user}</li>
+<li><b>{match_label_db_socket}</b>{match_value_db_socket}</li>
+</ul>
+</fieldset>
+<br />
+<fieldset class="bubble"><legend>{match_legend_smtp}</legend>
+<ul>
+<li><b>{match_label_smtp_server}</b>{match_value_mail_host}</li>
+<li><b>{match_label_smtp_port}</b>{match_value_mail_port}</li>
+<li><b>{match_label_smtp_username}</b>{match_value_mail_username}</li>
+<li><b>{match_label_smtp_password}</b>{match_value_mail_password}</li>
+</ul>
+</fieldset>
+<br />
+<fieldset class="bubble"><legend>{match_legend_account}</legend>
+<ul>
+<li><b>{match_password_for}[developer]: </b>{match_value_pw_developer}</li>
+<li><b>{match_password_for}[admin]: </b>{match_value_pw_admin}</li>
+<li><b>{match_password_for}[operator]: </b>{match_value_pw_operator}</li>
+<li><b>{match_password_for}[tecnician]: </b>{match_value_pw_tecnician}</li>
+<li><b>{match_password_for}[client]: </b>{match_value_pw_client}</li>
+<li><b>{match_password_for}[demo]: </b>{match_value_pw_demo}</li>
+<li><b>{match_password_for}[guest]: </b>{match_value_pw_guest}</li>
+<li><b>{match_label_path_www}</b>{match_value_path_www}</li>
+</ul>
+</fieldset>
+<br />
+<fieldset class="bubble"><legend>{match_legend_path}</legend>
+<ul>
+<li><b>{match_label_path}</b>{match_value_path}</li>
+<li><b>{match_label_path_home}</b>{match_value_path_home}</li>
+<li><b>{match_label_path_mod}</b>{match_value_path_mod}</li>
+<li><b>{match_label_path_session}</b>{match_value_path_session}</li>
+<li><b>{match_label_path_templ}</b>{match_value_path_templ}</li>
+<li><b>{match_label_path_func}</b>{match_value_path_func}</li>
+<li><b>{match_label_path_class}</b>{match_value_path_class}</li>
+<li><b>{match_label_path_conf}</b>{match_value_path_conf}</li>
+<li><b>{match_label_path_lang}</b>{match_value_path_lang}</li>
+<li><b>{match_label_path_images}</b>{match_value_path_images}</li>
+<li><b>{match_label_path_db}</b>{match_value_path_db}</li>
+<li><b>{match_label_path_get_data}</b>{match_value_path_get_data}</li>
+<li><b>{match_label_path_notify}</b>{match_value_path_notify}</li>
+<li><b>{match_label_path_log}</b>{match_value_path_log}</li>
+<li><b>{match_label_path_model}</b>{match_value_path_model}</li>
+<li><b>{match_label_path_help}</b>{match_value_path_help}</li>
+<li><b>{match_label_path_theme}</b>{match_value_path_theme}</li>
+<li><b>{match_label_path_tab}</b>{match_value_path_tab}</li>
+<li><b>{match_label_path_temp}</b>{match_value_path_temp}</li>
+<li><b>{match_label_path_font}</b>{match_value_path_font}</li>
+<li><b>{match_label_path_gd_font}</b>{match_value_path_gd_font}</li>
+</ul>
+</fieldset>
+<br />
+
+<fieldset class="bubble"><legend>{match_legend_restart}</legend>
+<ul>
+<li>{match_label_or}
+<a href="index.php?cmr_mode=install" >
+<span class="alert">{match_label_click_here}</span>
+</a>
+{match_label_restart}</li>
+</li>
+</ul>
+</fieldset>
+<br />
+{match_label_thanks}
+<br />
+</fieldset>
+
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_link_login}-
+{match_link_inscription}-
+{match_link_forget_account}-
+{match_link_validation}- 
+{match_link_logout}
+</fieldset>
+<br />
+
+{match_close_windows}
+</template2>
+{match_include2}
+
+<!-- include($cmr->get_conf("class_modules_path"). "modules/page_footer}-->
+<template3>
+
+</body>
+</html>
+</template3>
+</template>

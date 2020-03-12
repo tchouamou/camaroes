@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-15">
+<title>The PHP Layers Menu - Templates</title>
+<link rel="StyleSheet" href="../layersmenu.css" type="text/css">
+</head>
+<body>
+
+<pre>
+This is a horizontal menu template.
+This comment does not appear on the resulting page.
+--
+</pre>
+
+<!-- BEGIN template -->
+
+<table border="0" cellpadding="2" cellspacing="0" class="_darkbordertable">
+<tr>
+<td>
+<table border="0" cellpadding="3" cellspacing="1">
+<tr valign="baseline">
+<!-- BEGIN horizontal_menu_cell -->
+<td class="_ivorybodytable" align="center">
+<!-- BEGIN cell_link -->
+{icontag}<a href="{link}"{onmouseover}{title}{target} class="phplm">{text}</a>{arrow}
+<!-- END cell_link -->
+</td>
+<!-- END horizontal_menu_cell -->
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!-- END template -->
+
+</body>
+</html>
