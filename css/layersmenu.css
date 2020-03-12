@@ -1,0 +1,127 @@
+/* Styles related to the PHP Layers Menu System begin here */
+
+.treemenudiv	{
+	display: block;
+	white-space: nowrap;
+}
+
+.phplmnormal	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: #000000;
+}
+
+a.phplm:link	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: #004400;
+}
+
+a.phplm:visited	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: #726461;
+}
+
+a.phplm:hover	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: #841212;
+	background-color: #fff0c0;
+}
+
+a.phplm:active	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	color: #ff0000;
+}
+
+.phplmbodytable	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #fffae4;
+}
+
+.darkbordertable	{
+	background-color: #726461;
+}
+
+.ivorybodytable	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #fffff8;
+}
+
+
+
+.blackbordertable	{
+	background-color: #000000;
+}
+
+.greenbordertable	{
+	background-color: #839983;
+}
+
+.darkgreenbordertable	{
+	background-color: #839983;
+}
+
+.redbordertable	{
+	background-color: #aa5859;
+}
+
+.orangebordertable	{
+	background-color: #df9500;
+}
+
+/* Styles related to the PHP Layers Menu System end here */
+
+/* Styles related to the demo page begin here */
+/*
+body	{
+	color: #000000;
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
+
+a:link	{
+	color: #004400;
+}
+
+a:visited	{
+	color: #726461;
+}
+
+a:hover	{
+	color: #841212;
+	background-color: #fff0c0;
+}
+
+a:active	{
+	color: #ff0000;
+}
+.h1bar	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 26px;
+	font-weight: bold;
+	color: #990000;
+}
+
+.topbar	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #ffe2b1;
+}
+
+.bar	{
+	font-family: luxi sans, verdana, geneva, arial, helvetica, sans-serif;
+	font-size: 14px;
+	background-color: #f9f9f0;
+}
+
+.preformatted	{
+	font-family: luxi mono, courier, courier new, monospace, serif;
+	font-size: 14px;
+}
+*/
