@@ -1,0 +1,13 @@
+2010-10-02 08:42:31|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\login.php Line=210 : Nomal form authentification 
+2010-10-02 08:42:44|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\get_data\guest\get_login.php Line=367 : Good login, User [admin] found
+2010-10-02 08:42:45|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=fg01rat9edfnvf95ukvbbquqr1
+2010-10-02 08:42:45|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
+2010-10-02 08:55:42|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\login.php Line=210 : Nomal form authentification 
+2010-10-02 08:55:57|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\get_data\guest\get_login.php Line=367 : Good login, User [admin] found
+2010-10-02 08:55:58|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=fg01rat9edfnvf95ukvbbquqr1
+2010-10-02 08:55:58|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
+2010-10-03 11:28:33|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\login.php Line=210 : Nomal form authentification 
+2010-10-03 11:28:35|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\login.php Line=210 : Nomal form authentification 
+2010-10-03 11:28:48|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\get_data\guest\get_login.php Line=367 : Good login, User [admin] found
+2010-10-03 11:28:49|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=fg01rat9edfnvf95ukvbbquqr1
+2010-10-03 11:28:49|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
