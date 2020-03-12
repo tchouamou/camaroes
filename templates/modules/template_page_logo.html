@@ -1,0 +1,134 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+{match_open_windows}
+<!--($cmr->get_user("authorisation"))--__not in use__-->
+    <!--(isset({match_config_cmr_head_see_lang}) && ({match_config_cmr_head_see_lang}))-->
+<select name="com_lang" id="com_lang" onchange="link_conf('com_lang','current_lang');" >
+<option value="{match_page_language}" >({match_page_language})</option>
+{match_options_language}
+</select>&nbsp;&nbsp;
+    }
+    <!--// =========================================-->
+    <!--(isset({match_config_cmr_head_see_theme}) && ({match_config_cmr_head_see_theme}))-->
+<select name="com_themes" id="com_themes" onchange="link_conf('com_themes','current_themes');" >
+<option value="default" >({match_auth_theme})</option>
+{match_option_auth_theme}
+</select>&nbsp;&nbsp;
+    }
+    <!--// =========================================-->
+    <!--// =========================================-->
+    <!--(isset({match_config_cmr_head_see_refresh}) && ({match_config_cmr_head_see_refresh}))-->
+<select name="com_refresh" id="com_refresh" onchange="link_conf('com_refresh','current_refresh');" >
+<option value="1800" >{match_refresh}({match_page_refresh})</option>
+<option value="1" >{match_1_second}</option>
+<option value="5" >{match_5_second}</option>
+<option value="15" >{match_15_second}</option>
+<option value="30" >{match_30_second}</option>
+<option value="60" >{match_1_minute}</option>
+<option value="300" >{match_5_minute}</option>
+<option value="900" >{match_15_minute}</option>
+<option value="1800" >{match_30_minute}</option>
+<option value="3600" >{match_1_hours}</option>
+<option value="43200" >{match_12_hours}</option>
+<option value="86400" >{match_24_hours_day}</option>
+<option value="infinite" >{match_infinite}</option>
+</select>&nbsp;&nbsp;
+        <!--// =========================================-->
+    <!--}-->
+<label for="layer">{match_label_layer}</label>
+<select name="com_layer" id="com_layer" onchange="link_conf('com_layer','current_layer');" >
+<option value="default" >{match_page_refresh}</option>
+<option value="1" >{match_1_layer}</option>
+<option value="2" >{match_2_layer}</option>
+<option value="3" >{match_3_layer}</option>
+</select>&nbsp;&nbsp;
+    <!--// =========================================-->
+    <!--($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] .= {match_config_cmr_noc_type})-->
+        <!--(isset({match_config_cmr_head_see_tab}) && ({match_config_cmr_head_see_tab}))-->
+    <select name="com_tab" id="com_tab" onchange="link_conf('com_tab','current_tab');" >
+    <option value="default" >({match_current_tab})</option>
+{match_option_current_tab}
+    </select>&nbsp;&nbsp;
+    <!--}-->
+
+        <!--(isset({match_config_cmr_head_see_action}) && ({match_config_cmr_head_see_action}))-->
+    <select name="com_action" id="com_action" onchange="link_conf('com_action','current_action');" >
+    <option value="">{match_action}</option>
+    <option value="site_map">{match_site_map}</option>
+    <option value="command_bar">{match_command_bar}</option>
+    <option value="left_menu">{match_left_menu}</option>
+    <option value="tab_mode">{match_view_tab}</option>
+    <option value="view_task">{match_view_task_bar}</option>
+{match_view_task_bar}
+    <option value="">--</option>
+<option 
+    <option value="login">{match_login}</option>
+    <option value="init">{match_init}</option>
+    <option value="exit">{match_exit}</option>
+<option 
+    <option value="">--</option>
+<option 
+    <option value="expert">{match_mode_expert}</option>
+    <option value="normal">{match_mode_normal}</option>
+    <option value="minim">{match_mode_minim}</option>
+    <option value="debug">{match_mode_debug}</option>
+    <option value="no_debug">{match_mode_no_debug}</option>
+{match_mode_no_debug}
+    <option value="">--</option>
+<option 
+    <option value="save_u">{match_save_config_for_user}</option>
+    <option value="site_g">{match_save_config_for_group}</option>
+{match_save_config_for_group}
+    <option value="">--</option>
+<option 
+    <option value="load_u">{match_load_group_config}</option>
+    <option value="load_g">{match_load_default_config}</option>
+{match_load_default_config}
+    <option value="">--</option>
+<option 
+    <option value="layer_1">{match_1_layer}</option>
+    <option value="layer_2">{match_2_layer }</option>
+    <option value="layer_3">{match_3_layer }</option>
+    <option value="layer_3">{match_layer_normal}</option>
+    </select>
+        }
+    </div>
+    <!--}-->
+    <!--}-->
+
+<!--($cmr->get_user("authorisation"))-->
+{match_config_cmr_portal_short_name}  ({_match_user_auth_email})&nbsp;&nbsp;&nbsp;&nbsp;
+<!-- }else{ -->
+{match_config_cmr_portal_short_name}  (Version" . cmr_version )&nbsp;&nbsp;&nbsp;&nbsp;
+{_match_config_cmr_company_name3}{_match_config_version}
+}
+<div class="{match_class_div}" id="head1_div">
+<table class="{match_class_table}" border="0" width="100%" >
+<tr>
+<td  valign="middle" align="center"> 
+<img alt="|{match_config_cmr_portal_short_name}|" class="cmr_logo" src="{match_config_cmr_images_path} {match_config_cmr_head_image_left1} " height="70" width="85" >
+</td>
+<td  valign="middle" align="center"> 
+<img alt="|{match_config_cmr_company_name}|" class="cmr_logo" src="{match_config_cmr_images_path} {match_config_cmr_head_image_left2} " height="70" width="85">
+</td>
+<td  valign="middle" align="center" width="70%" class="big_title" > 
+
+<!--(isset({match_config_cmr_head_see_time}) && ({match_config_cmr_head_see_time}))-->
+    <input class="{match_class_input}" type="text" onMouseMove="runclock();ajax_event('{match_config_cmr_ajax_engine}?event=');" id="time" class="no_border" size="12" readonly /><br />
+    <!--}-->
+
+<div class="{match_class_div}" id="ajax_div"></div>
+
+{match_config_cmr_portal_name_bis}
+</td>
+<td  valign="middle" align="center"> 
+<img alt="|{match_config_cmr_company_name}|" class="cmr_logo" src="{match_config_cmr_images_path} {match_config_cmr_head_image_right1} " height="70" width="85">
+</td>
+<td  valign="middle" align="center"> 
+<img alt="|{match_config_cmr_portal_short_name}|" class="cmr_logo" src="{match_config_cmr_images_path} {match_config_cmr_head_image_right2} " height="70" width="85">
+</td>
+</tr>
+</table>
+</div>
+{match_close_windows}
+
+</template>

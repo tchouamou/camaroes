@@ -1,0 +1,310 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+</template1>
+{match_include1}
+<template2>
+
+{match_open_windows}
+<!--match_open_tab-->
+<div id="login_div">
+{match_module_message}
+<h1>{match_login_failled}</h1>
+<form action="index.php?cod=2" autocomplete="off" method="post">
+<table align="center" border="0" cellspacing="0" cellpadding="0">
+
+<tr>
+<td class="normal_text" valign="top" align="center">
+{match_label_switch}<select name="com_refresh" id="com_refresh" onchange="link_conf('com_refresh','current_refresh');" >
+<optgroup label="{match_label_view mode}">
+<option value="">{match_label_normal}</option>
+<optgroup label="{match_label_user}">
+{match_option_users}
+</optgroup>
+<optgroup label="{match_label_group}">
+{match_option_groups}
+</optgroup>
+<optgroup label="{match_label_type}">
+{match_option_login_type}
+</optgroup>
+</td>
+</tr>
+
+
+
+<tr>
+<td class="normal_text" valign="top" align="center">
+<fieldset class="bubble"><legend>{match_login}</legend>
+<br />
+<img alt="Secure Login"  src="{cmr_wwwpath}images/icon/lock_screen_icon.png" />
+
+
+<!-- ================================================================ -->
+<!-- ================================================================ -->
+<input type="hidden" value="index" name="login" />
+<table align="left" border="0" nowrap="nowrap" >
+</template2>
+
+
+<template3>
+<tr>
+
+<th class="normal_text">
+<label for="login_to">{match_label_login_to}</label>
+</th>
+
+<td>
+<select name="login_to" >
+{match_option_login_to}
+<option value="All">{match_all}</option>
+</select>
+</td>
+</tr>
+</template3>
+
+<!-- <tr><td> <br /></td><td></td></tr>-->
+<!-- <tr><td></td><td><b>{match_login}>
+{match_login}
+</b>
+</td>
+</tr>
+<!-- <tr><td> <br /></td><td></td></tr>
+<br />
+<br /-->
+
+<template4>
+<tr>
+<td class="normal_text" colspan="2">
+<b>{match_label_normal}</b><input type="radio" name="auth_mode" value="normal" checked></input>&nbsp
+{match_label_cert}<input type="radio" name="auth_mode" value="cert"></input>&nbsp
+{match_label_demo}<input type="radio" name="auth_mode" value="demo"></input>&nbsp
+{match_label_read_only}<input type="radio" name="auth_mode" value="read_only" ></input>
+</td>
+</tr>
+
+<tr>
+<th class="normal_text">
+<label for="auth_cert">{match_label_certificate}</label>
+</th>
+
+<td>
+<input class="submit" type="file" name="auth_cert" value="{match_cookie_auth_cert}" /> 
+</td>
+</tr>
+</template4>
+
+<template5>
+<tr>
+<td class="normal_text" colspan="2">
+<br />
+<br />
+<br />
+<fieldset class="bubble">
+<legend>{match_user_name}</legend>
+
+<table align="left" border="0" nowrap="nowrap" >
+<tr>
+<th class="normal_text"><label for="auth_user">{match_label_uid}</label></th>
+<td><input type="text" name="auth_user" value="{match_cookie_auth_user}" /> </td>
+</tr>
+
+<tr>
+<th class="normal_text"><label for="auth_pw">{match_label_password}</label></th>
+<td><input type="password" name="auth_pw" value="{match_cookie_auth_pw}" /></td>
+</tr>
+
+<tr>
+<td>.</td>
+<td>
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td>
+</tr>
+
+
+<tr>
+<th align="left"><label for="auth_code">{match_label_image_code}</label>
+</th>
+<td>
+<input type="password" name="auth_code" value="" size="8" />
+</td>
+</tr>
+
+
+
+<tr>
+<td></td>
+<td align="left">
+<input class="submit" type="submit" value="{match_label_login}" />
+<input class="submit" type="reset" value="Reset" /> 
+</td>
+</tr>
+
+<tr><td><!--match_link_forget_account--></td>
+<td class="normal_text" align="left">
+</td></tr>
+
+<tr>
+<th align="left"><label for="save_cookies">{match_label_save_cookies}</label></th>
+<td align="left">
+<!--input class="submit" type="checkbox" name="save_cookies" value="yes" checked /-->
+
+<select name="save_cookies">
+<option value="{match_save_cookies}" >{match_save_cookies}</option>
+<option value="" >No cookies</option>
+<option value="300" >5 Minute </option>
+<option value="900" >15 Minute </option>
+<option value="1800" >30 Minute </option>
+<option value="3600" >1 Hours </option>
+<option value="43200" >12 Hours </option>
+<option value="86400" >24 Hours(1 Day) </option>
+<option value="604800" >1 Week(7 Day) </option>
+<option value="2592000" >1 Month(30 Day) </option>
+</select>
+</td></tr>
+
+</table>
+</fieldset>
+</td></tr>
+</template5>
+
+<template6>
+<!--tr>
+<td class="normal_text" colspan="2">
+<fieldset class="bubble"><legend>{match_label_info}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+
+
+<tr><td><hr />{match_label_admin_user}</td><td class="normal_text" align="left"><hr />admin</td></tr>
+<tr><td>{match_label_admin_pw}<hr /></td><td class="normal_text" align="left">admin<hr /></td></tr>
+<tr><td>{match_label_operator_user}</td><td class="normal_text" align="left">operator</td></tr>
+<tr><td>{match_label_operator_pw}<hr /></td><td class="normal_text" align="left">operator<hr /></td></tr>
+<tr><td>{match_label_guest_user}</td><td class="normal_text" align="left">guest</td></tr>
+<tr><td>{match_label_guest_pw}<hr /></td><td class="normal_text" align="left">guest<hr /></td></tr>
+
+</table>
+</fieldset>
+</td>
+</tr-->
+</template6>
+
+<template7>
+<tr>
+<td class="normal_text" colspan="2">
+<fieldset class="bubble"><legend>{match_label_database}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+
+<tr>
+<td class="normal_text" colspan="2" >
+<hr />
+</td>
+</tr>
+
+
+<tr>
+<th align="left"><label for="db_type">match_label_db_type}</label></th>
+<td>
+<select name="db_type">
+<option>{match_cookie_db_type}</option>
+{match_option_db_type}
+</td>
+</tr>
+
+
+<tr>
+<th align="left"><label for="db_host">match_label_db_host}</label></th>
+<td>
+<input type="text" name="db_host" value="{match_cookie_db_host}" /> 
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_name">match_label_db_name}</label></th>
+<td>
+<input type="text" name="db_name" value="{match_cookie_db_name}" />
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_user">match_label_db_user}</label></th>
+<td>
+<input type="text" name="db_user" value="{match_cookie_db_user}" /> 
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_pw">match_label_db_pw}</label></th>
+<td>
+<input type="password" name="db_pw" value="{match_cookie_db_pw}" /> 
+</td>
+</tr>
+
+</table>
+</fieldset>
+</td>
+</tr>
+</template7>
+
+<template8>
+<tr>
+<td class="normal_text" colspan="2">
+
+<fieldset class="bubble"><legend>{match_label_other}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+<tr>
+
+<th align="left"><label for="cmr_lang">match_label_cmr_lang}</label></th>
+<td>
+<select name="cmr_lang">
+<option>{match_cookie_cmr_lang}</option>
+<option value="default">{match_cmr_default_lang}</option>
+{match_options_language}
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="cmr_theme">match_label_themes}</label></th>
+<td>
+<select name="cmr_theme">
+<option>{match_cookie_cmr_theme}</option>
+<option>{match_cmr_default_theme}</option>
+{match_options_theme}
+</td>
+</tr>
+
+</table>
+</fieldset>
+</td>
+</tr>
+
+</template8>
+<template9>
+
+<tr>
+<td></td>
+<td class="normal_text" align="left">
+<input class="submit" type="submit" value="{match_label_login}" />
+<input class="submit" type="reset" value="Reset" /> 
+</td>
+</tr>
+
+</table>
+</fieldset>
+</form>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_link_login}-
+{match_link_inscription}-
+{match_link_forget_account}-
+{match_link_validation}- 
+{match_link_logout}
+</fieldset>
+<br />
+
+</div>
+<!--match_close_tab-->
+{match_close_windows}
+</template9>
+{match_include2}
+<template10>
+</template10>
+</template>

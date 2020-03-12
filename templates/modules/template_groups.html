@@ -1,0 +1,196 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="update_groups_div">
+
+<br />
+<p class="normal_text">
+<b>{match_groups_title1}</b>
+<br />
+<p class="normal_text">
+{match_groups_title2}
+</p>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p class="normal_text">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+
+
+<form action="index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_id}
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_needed}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+
+<tr>
+<th><b><label for="name">{match_label_name}</label><span class="alert">*&nbsp;</span></b></th>
+<td>
+<input value="{match_val_name}" type="text" name="name" />
+</td></tr>
+
+<tr><th><b><label for="state">{match_label_state}</label><span class="alert">*&nbsp;</span></b></th>
+<td>
+<select name="state">
+<option value="{match_default_state}">{match_default_state}</option>
+{match_options_state}
+</select>
+{match_link_state}
+
+</td>
+</tr>
+
+
+
+
+<tr>
+<th><b><label for="type">{match_label_type}</label><span class="alert">*&nbsp;</span></b></th>
+<td>
+
+<select name="type" id="type"  onclick="large_id('type')">
+<option value="{match_default_type}"> {match_default_type}</option>
+{match_options_type}
+<option value="0">{match_label_guest}</option>
+</select>
+{match_link_type}
+</td></tr>
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_usefull}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<tr align="left" >
+<th><b><label for="users">{match_label_users}</label><span class="alert">*&nbsp;</span></b></th>
+
+<td align="left" colspan="5">
+<br />
+<br />
+<br />
+
+{match_list_choose1}
+
+<br />
+<br />
+</td>
+</tr>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<tr align="left" >
+<th><b><label for="fathers_groups">{match_label_fathers_groups}</label><span class="alert">*&nbsp;</span></b></th>
+
+<td align="left" colspan="5">
+<br />
+<br />
+<br />
+{match_list_choose2}
+
+<br />
+<br />
+</td>
+</tr>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_optional}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+
+<tr align="left" >
+<th><b><label for="email_sign">{match_label_email_sign}</label></b></th>
+<td colspan="3"> <textarea rows="2" cols="60" name="email_sign" >{match_val_email_sign}</textarea> </td>
+</tr>
+
+<tr align="left" >
+<th><label for="login_script">{match_label_login_script}</label></th>
+<td colspan="3"> <textarea rows="2" cols="60" name="login_script" >{match_val_login_script}</textarea> </td>
+</tr>
+
+
+
+
+<!--tr>
+<td ><label for="comment">{match_label_comment}</label></td><td>
+<input value="{match_val_comment}" type="text" name="comment" />
+<br />
+</td-->
+<br />
+<br />
+</tr>
+
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_confirm}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+
+<tr><td align="center" colspan="5">
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+ </p>
+
+</td></tr>
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+
+</form>
+
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

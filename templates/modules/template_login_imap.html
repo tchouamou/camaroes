@@ -1,0 +1,122 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<!--match_open_tab-->
+
+<div id="login_imap_div">
+<br />
+<p class="normal_text">
+<b>{match_login_imap_title1}</b>
+<br />
+<p class="normal_text">
+{match_login_imap_title2}
+</p>
+<br />
+<form action="index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<table align="center" border="0" cellspacing="0" cellpadding="0">
+<tr>
+
+
+<td valign="top" align="center">
+<br />
+<img alt="Secure Login"  src="{match_www_path}images/icon/lock_screen_icon.png" />
+<br />
+{match_link_menu_imap}
+<fieldset class="bubble"><legend>{match_label_imap_login}</legend>
+<!-- ================================================================ -->
+<!-- ================================================================ -->
+<table align="left" border="0" nowrap="nowrap" >
+
+
+<tr><td colspan="2">
+<b>[<label for="pop3">{match_label_pop3}</label></b>
+<input type="radio" name="auth_imap" value="pop3"></input>]&nbsp
+
+[<label for="imap">{match_label_imap}</label>
+<input type="radio" name="auth_imap" value="imap" checked></input>]&nbsp
+
+[<label for="imap_ssl">{match_label_imap_ssl}</label>
+<input type="radio" name="auth_imap" value="imap_ssl"></input>]&nbsp
+
+<!--?php echo $cmr->translate("imap_ssl_cert}:<input type="radio" name="auth_imap" value="imap_ssl_cert" ></input-->
+
+[<label for="nntp">{match_label_nntp}</label>
+<input type="radio" name="auth_imap" value="nntp" ></input>]
+</td></tr>
+
+<tr><th><label for="imap_cert">{match_label_certificate}
+</label></th><td><input type="file" name="imap_cert" value="{match_cookie_imap_cert}" /> 
+</td></tr>
+<tr><th><label for="imap_host">{match_label_imap_host}</label></th><td><input type="text" name="imap_host" value="{match_cookie_imap_host}" /> </td></tr>
+
+<tr><td colspan="2">
+<br />
+<br />
+<br />
+<fieldset class="bubble"><legend>{match_user_name}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+<tr><th>
+
+<label for="imap_user">{match_label_uid}</label> </th><td><input type="text" name="imap_user" value="{match_cookie_imap_user}" /> </td></tr>
+
+<tr><th><label for="imap_pw">{match_label_pw}</label> </th><td><input type="password" name="imap_pw" value="{match_cookie_imap_pw}" /></td></tr>
+
+<tr><td><br /></td><td>
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td></tr>
+
+
+<tr><th><label for="image_code">{match_label_image_code}</label> 
+</th><td><input type="password" name="imap_code" value="" size="8" />
+</td></tr>
+
+<tr>
+<th><label for="save_cookies">{match_label_save_cookies}</label> </th>
+<td align="left">
+<!--input class="submit" type="checkbox" name="save_cookies" value="yes" checked /-->
+
+<select name="save_cookies">
+<option value="{match_save_cookies}" >{match_save_cookies}</option>
+<option value="" >No cookies</option>
+<option value="300" >5 Minute </option>
+<option value="900" >15 Minute </option>
+<option value="1800" >30 Minute </option>
+<option value="3600" >1 Hours </option>
+<option value="43200" >12 Hours </option>
+<option value="86400" >24 Hours(1 Day) </option>
+<option value="604800" >1 Week(7 Day) </option>
+<option value="2592000" >1 Month(30 Day) </option>
+</select>
+<!--br />
+[<input type="checkbox" name="save_db" value="yes" />
+{match_label_save to (Database)}]
+<br /-->
+</td></tr>
+
+
+<tr><td></td><td align="left">
+<input class="submit" type="submit" value="{match_submit}" />
+<input class="submit" type="reset" /> </td></tr>
+</td></tr>
+</table>
+</fieldset>
+</td></tr>
+
+
+
+
+
+</td></tr>
+</table>
+</fieldset>
+</form>
+</div>
+<!--match_close_tab-->
+{match_close_windows}
+</template1>
+</template>

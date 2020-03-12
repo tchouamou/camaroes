@@ -1,0 +1,301 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="update_user_div">
+<br />
+<p align="center">
+<b>{match_user_title1}</b>
+<br />
+<p class="normal_text">
+{match_user_title2}
+</p>
+<br />
+<fieldset class="bubble"><legend>{match_link_legend}</legend>
+<p class="normal_text">
+{match_link_list}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_id}
+
+
+
+<b>{match_val_email}</b>
+<br />
+<p class="normal_text">
+{match_label_user}
+</p>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_needed}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+<tr>
+<th align="left" ><b><label for="email">{match_label_email}</label></b></th>
+<td>
+<fieldset class="bubble">
+<input  value="{match_val_email}" type="text" name="email" {match_pw_disabled} /> 
+<!--input type="submit" value="{match_label_update}" onsubmit="return confirm('{match_label_change}')" /-->
+</fieldset>
+</td>
+</tr>
+
+<tr align="left" >
+<th><b><label for="uid">{match_label_uid}</label></b></th>
+<td>
+<fieldset class="bubble">
+<input value="{match_val_uid}" type="text" name="uid" /> 
+<!--input type="submit" value="{match_label_update}" onsubmit="return confirm('{match_label_change}')" /-->
+</fieldset>
+</td>
+</tr>
+
+
+<tr>
+<th><b><label for="pw">{match_label_pw}</label></b></th>
+<td>
+<fieldset class="bubble">
+<input value="{match_value_pw}" type="password" name="pw" {match_pw_disabled} />
+<!--input type="submit" value="{match_label_update}" onsubmit="return confirm('{match_label_change}')" /-->
+</fieldset>
+</td>
+</tr>
+
+
+<tr>
+<th><b><label for="state">{match_label_state}</label></b></th>
+<td>
+
+<select name="state" id="state"  onclick="large_id('state')">
+<option value="{match_default_state}">{match_default_state}</option>
+{match_options_state}
+</select>
+{match_link_state}
+
+
+</td>
+</tr>
+
+
+
+<tr>
+<th><b><label for="type">{match_label_type}</label></b></th>
+<td>
+<select name="type" id="type"  onclick="large_id('type')">
+<option value="{match_default_type}">{match_default_type}</option>
+<option value="0">{match_label_guest}</option>
+{match_options_type}
+</select>
+{match_link_type}
+</td>
+</tr>
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<tr align="left" >
+<th><b><label for="group">{match_label_group}</label><span class="alert">*&nbsp;</span></b></th>
+
+<td align="left" colspan="5">
+<br />
+<br />
+<br />
+{match_list_choose}
+<br />
+<br />
+<br />
+</td>
+</tr>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_usefull}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+
+<tr align="left" >
+<th><b><label for="email_sign">{match_label_email_sign}</label></b></th>
+<td colspan="3"> <textarea rows="2" cols="60" name="email_sign" >{match_val_email_sign}</textarea> </td>
+</tr>
+
+<tr align="left" >
+<th><b><label for="lang">{match_label_lang}</label></b></th>
+<td>
+
+<select name="lang">
+<option value="{match_default_lang}" >{match_default_lang}</option>
+{match_options_lang}
+</select>
+
+ </td>
+</tr>
+
+
+
+<tr>
+<th><b><label for="style">{match_label_style}</label></b></td>
+<td>
+
+<select name="style">
+<option value="{match_default_style}">{match_default_style}</option>
+{match_options_style}
+</select>
+
+ </td>
+</tr>
+
+
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_optional}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+<tr align="left" >
+<th><label for="lastname">{match_label_lastname}</label></th>
+<td><input value="{match_val_name}" type="text" name="name" /> </td>
+</tr>
+
+
+<tr>
+<th><label for="tel">{match_label_name}</label></th>
+<td><input value="{match_val_last_name}" type="text" name="last_name" /> </td>
+</tr>
+
+
+
+<tr align="left" >
+<th><label for="tel">{match_label_tel}</label></th>
+<td><input value="{match_val_tel}" type="text" name="tel" /> </td>
+</tr>
+
+
+<tr>
+<th><label for="cel">{match_label_cel}</label></th>
+<td><input value="{match_val_cel}" type="text" name="cel" /> </td>
+</tr>
+
+
+<tr align="left" >
+<th><label for="adress">{match_label_adress}</label></th>
+<td><input value="{match_val_adress}" type="text" name="adress" /> </td>
+</tr>
+
+
+<tr>
+<th><label for="function">{match_label_function}</label></th>
+<td><input value="{match_val_role}" type="text" name="role" /> </td>
+</tr>
+
+<tr align="left" >
+<th><label for="location">{match_label_location}</label></th>
+<td><input value="{match_val_location}" type="text" name="location" /> </td>
+</tr>
+
+
+<tr>
+<th><label for="sexe">{match_label_sexe}</label></th>
+<td>
+
+<select name="sexe" id="sexe"  onclick="large_id('sexe')">
+<option value="{match_default_sexe}">{match_default_sexe}</option>
+{match_options_sexe}
+</select>
+{match_link_sexe}
+
+
+</td>
+</tr>
+
+
+<!--tr align="left" >
+<td><label for="public_key">{match_label_public_key}</label></td><td-->
+<input type="hidden" value="{match_val_public_key}" name="public_key" />
+<!--/td>
+
+<td><label for="private_key">{match_label_private_key}</label></td><td-->
+<input type="hidden" value="{match_val_private_key}" name="private_key" />
+<!--/td>
+
+<td>{match_label_passphrase}</td><td-->
+<input type="hidden" value="{match_val_pass_phrase}" name="pass_phrase" />
+<!--/td>
+
+
+</tr-->
+
+
+
+
+<tr align="left" >
+<th><label for="login_script">{match_label_login_script}</label></th>
+<td colspan="3"> <textarea rows="2" cols="60" name="login_script" >{match_val_login_script}</textarea> </td>
+</tr>
+
+
+
+
+
+<!--tr align="left" >
+<td><label for="comment">{match_label_comment}</label></td><td colspan="3"> 
+<textarea rows="2" cols="60" name="comment" >{match_val_comment}</textarea> </td>
+</tr-->
+{match_table_login_script}
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_confirm}</legend>
+<table  align="center" border="0" width="100%" class="normal_text" >
+<tr align="left">
+<td align="center" colspan="4">
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+ </p>
+
+</td>
+</tr>
+</table>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+</form>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

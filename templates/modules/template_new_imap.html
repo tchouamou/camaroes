@@ -1,0 +1,677 @@
+<?php
+defined("cmr_online") or die("Application is not online, click <a href=\"index.php?cmr_mode=login\" > Here </a>  to login before continue ");
+/**
+ * imap.php
+ *         --------
+ * begin    : July 2004 - July 2007
+ * copyright   : Camaroes Ver 2.0 (C) 2005-2007 T.E.H
+ * www     : http://sourceforge.net/projects/camaroes/
+ */
+
+/*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
+/*
+Copyright (c) 2006, Tchouamou Eric Herve <tchouamou@gmail.com>
+All rights reserved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+imap.php,  2007-Feb-Tue 0:12:13
+*/
+
+/**
+ * Information about
+ *
+ * This is a modular application, all can be personalise, config file, template file, class, function, module
+ * $division object istance of the class windowss
+ *
+ * @open _windows Class use to make module windows
+ * @code_link() function  who take in input a module name and create and html link to this module
+ */
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*$need_type= $cmr->config["cmr_guest_type"];*/
+include_once("control.php"); //to control access in the module
+/* $cmr->session["pre_match"].="@#@imap.php@:@id@,@[:digit]*@,@30@;@serial@,@.*@,@10000@;@mac_adress@,@.*@,@10000@;@name@,@.*@,@10000@;@location@,@.*@,@10000@;@ip@,@.*@,@10000@;@nat_ip@,@.*@,@10000@;@mask@,@.*@,@10000@;@gateway@,@.*@,@10000@;@dns1@,@.*@,@10000@;@dns2@,@.*@,@10000@;@type@,@.*@,@10000@;@os@,@.*@,@10000@;@state@,@.*@,@10000@;@login_id@,@.*@,@10000@;@login_pw@,@.*@,@10000@;@check_command@,@.*@,@10000@;@comment@,@.*@,@10000@;@date_time@,@.*@,@30@;@";*/
+// !!!!!!!!!!!Security and authorisation!!!!!!!!!!!!!!!
+
+
+
+// $cmr->config["imap_server"] = "mail.securegroup.it";
+// $cmr->config["imap_port"] = "143";
+// $cmr->config["imap_user_name"] = "etchouamou";
+// $cmr->config["imap_password"] = "96cipr";
+// $cmr->config["imap_default_folder"] = "INBOX";
+
+// $cmr->config["pop3_server"] = "popmail.libero.it";
+// $cmr->config["pop3_port"] = "110";
+// $cmr->config["pop3_user_name"] = "tchouamou";
+// $cmr->config["pop3_password"] = "tchouapip";
+// $cmr->config["pop3_default_folder"] = "INBOX";
+
+// $cmr->config["nntp_server"] = "ntp.intranet.securegroup.it";
+// $cmr->config["nntp_port"] = "119";
+// $cmr->config["nntp_user_name"] = "tchouamou";
+// $cmr->config["nntp_password"] = "tchouapip";
+// // $cmr->config["nntp_user_name"] = "";
+// // $cmr->config["nntp_password"] = "";
+// $cmr->config["nntp_group"] = "comp.test";
+// $cmr->config["nntp_default_folder"] = "";
+
+// $cmr->config["imap_ssl_server"] = "pop.gmail.com";
+// $cmr->config["imap_ssl_port"] = "995";
+// $cmr->config["imap_ssl_user_name"] = "tchouamou";
+// $cmr->config["imap_ssl_password"] = "tchouapip";
+// $cmr->config["imap_ssl_default_folder"] = "INBOX";
+
+// $cmr->config["imap_ssl_cert_server"] = "ntp.intranet.securegroup.it";
+// $cmr->config["imap_ssl_cert_port"] = "995";
+// $cmr->config["imap_ssl_cert_user_name"] = "tchouamou";
+// $cmr->config["imap_ssl_cert_password"] = "tchouapip";
+// $cmr->config["imap_ssl_cert_default_folder"] = "INBOX";
+
+// $cmr->config["imap_certificate"] = "";
+
+// $cmr->config["imap_list_folder"] = "*";
+
+// $cmr->config["imap_service"] = "imap";//imap,pop3,imap_ssl,imap_ssl_cert,nntp
+
+switch ($cmr->get_conf("imap_service")) {
+    case "imap":
+        // Pour se connecter à un serveur IMAP fonctionnant sur le port 143 de la
+        // machine locale, faites ceci :
+        $mailbox = "{" . $cmr->config["imap_server"] . ":" . $cmr->config["imap_port"] . "/imap/notls}" . $cmr->config["imap_default_folder"];
+        // $mailbox="{".$cmr->config["imap_server"].":".$cmr->config["imap_port"]."}";
+        $mbox = imap_open($mailbox, $cmr->config["imap_user_name"], $cmr->config["imap_password"]);
+
+        break;
+
+    case "pop3":
+        // Pour se connecter à un serveur POP3 fonctionnant sur le port 110 du
+        // serveur local, faites ceci :
+        $mailbox = "{" . $cmr->config["pop3_server"] . ":" . $cmr->config["pop3_port"] . "/pop3/notls}" . $cmr->config["pop3_default_folder"];
+        // $mailbox="{".$cmr->config["pop3_server"].":".$cmr->config["pop3_port"]."/pop3}INBOX";
+        $mbox = imap_open($mailbox, $cmr->config["pop3_user_name"], $cmr->config["pop3_password"]);
+        break;
+
+    case "imap_ssl":
+        // Pour se connecter à un serveur SSL IMAP ou POP3, ajoutez /ssl
+        // après la spécification du protocole
+        $mailbox = "{" . $cmr->config["imap_ssl_server"] . ":" . $cmr->config["imap_ssl_port"] . "/imap/ssl}" . $cmr->config["imap_ssl_default_folder"];
+        $mbox = imap_open($mailbox, $cmr->config["imap_ssl_user_name"], $cmr->config["imap_ssl_password"]);
+        break;
+
+    case "imap_ssl_cert":
+        // Pour se connecter à un serveur SSL IMAP ou POP3 avec un certificat auto-signé
+        // ajoutez /ssl/novalidate-cert après le protocole :
+        $mailbox = "{" . $cmr->config["imap_ssl_cert_server"] . ":" . $cmr->config["imap_ssl_cert_port"] . "/pop3/ssl/novalidate-cert}" . $cmr->config["imap_ssl_cert_default_folder"];
+        $mbox = imap_open($mailbox, $cmr->config["imap_ssl_cert_user_name"], $cmr->config["imap_ssl_cert_password"]);
+        break;
+
+    case "nntp":
+        // Pour se connecter à un serveur NNTP qui fonctionne sur
+        // le port 119 de la machine locale on peut utiliser la commande:
+        // $mailbox="{".$cmr->config["nntp_server"].":119/nntp}".$cmr->config["nntp_group"];
+        $mailbox = "{" . $cmr->config["nntp_server"] . ":119/nntp}" . $cmr->config["nntp_default_folder"];
+        $mbox = imap_open($mailbox, $cmr->config["nntp_user_name"], $cmr->config["nntp_password"]);
+        break;
+
+    default : // imap
+        $mailbox = "{" . $cmr->config["imap_server"] . ":" . $cmr->config["imap_port"] . "/imap/notls}" . $cmr->config["imap_default_folder"];
+        $mbox = imap_open($mailbox, $cmr->config["imap_user_name"], $cmr->config["imap_password"]);
+        break;
+}
+// -*****************************************
+echo "<h1><?php echo $cmr->translate("Mailboxes");?></h1>\n";
+// $folders = imap_list($mbox, $mailbox, $cmr->config["imap_list_folder"]);
+$folders = imap_getmailboxes($mbox, $mailbox, $cmr->config["imap_list_folder"]);
+
+if (is_array($folders)) {
+    reset($folders);
+    if ($folders == false) {
+        echo "Appel échoué<br />\n";
+    } else {
+        foreach ($folders as $key => $val) {
+            // echo "<b>".$key."</b>:".imap_utf7_decode($val)."<br />\n";
+            // echo "<b>".$key."</b>:<br />";
+            // print_r($val);
+            // echo "<br />\n";
+            echo "($key) ";
+            echo imap_utf7_decode($val->name) . ", ";
+            echo "'" . $val->delimiter . "', ";
+            echo $val->attributes . "<br />\n";
+        }
+    }
+} else {
+    echo "imap_getmailboxes Error : " . imap_last_error() . "\n";
+}
+// ******************************************
+// ******************************************
+echo "<h1>" . $cmr->translate(" INBOX") . "</h1>\n";
+$status = imap_status($mbox, $mailbox, SA_ALL);
+print_r ($status);
+
+$time = microtime();
+
+$cmr->email["headers"] = imap_headers($mbox);
+
+$timediff = microtime() - $time;
+echo "<br />Time taken: " . $timediff;
+
+if ($cmr->email["headers"] == false) {
+    echo "imap_headers Error : " . imap_last_error() . "\n";
+} else {
+    $overview = imap_fetch_overview($mbox, "2,4:6", 0);
+    foreach ($cmr->email["headers"] as $key => $val) {
+        echo "<b>" . $key . "</b>:" . $val . "<br />\n";
+        echo "<b>" . $key . "</b>:";
+
+        echo "<br /><pre>\n";
+        $messg = imap_fetch_overview($mbox, $key + 1);
+        print_r ($messg);
+        // print_r (imap_headerinfo($mbox, $key +1));
+        // //        echo "<hr /><pre>".imap_body($mbox, $key + 1 )."</pre><hr />";
+        // echo "<br />*******************************\n";
+        // print_r (imap_fetchstructure($mbox, $key + 1));
+        echo imap_fetchbody($mbox, $msg, $messg["uid"] , '0');
+        echo imap_fetchbody($mbox, $msg, $messg["uid"] , '1');
+        echo "</pre>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
+
+        if ($key > 10) {
+            break;
+        }
+    }
+}
+// ******************************************
+// //******************************************
+// echo "<h1>". $cmr->translate("imap check ") . "</h1>\n";
+// $check = imap_check($mbox);
+// echo "Nombre de message avant ajout : ". $check->Nmsgs . "\n";
+// //  imap_append($mbox, "{".$cmr->config["imap_server"]."}INBOX.forlin"
+// //                    , "From: etchouamou@securegroup.it\r\n"
+// //                    . "To:tchouamou@gmail.com\r\n"
+// //                    . "Subject: test\r\n"
+// //                    . "\r\n"
+// //                    . "Ceci est un message de test. Ignorez le\r\n"
+// //                  );
+// $check = imap_check($mbox);
+// echo "Nombre de messages après ajout : ". $check->Nmsgs . "\n";
+// //******************************************
+imap_close($mbox);
+// ******************************************
+// echo `which php`;
+// // si cela ne marche pas, essayez
+// echo PHP_BIN;
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php
+// =============================
+// $mbox = imap_open("{pop3.intranet.securegroup.it:143}INBOX", "".$inf['helpdesk_email']."", "w3e4rf");
+// imap_mail($cmr->email["headersto"], $cmr->email["subject"], $cmr->email["body"], $cmr->email["headerscc"], $cmr->email["headers"]);
+// imap_close($mbox);
+// $sh = socket_create(AF_INET,SOCK_STREAM,SOL_TCP);
+// socket_connect($sh,  '127.0.0.1', 25);
+// $buf = "helo\r\n";
+// $buf .= "helo\r\n";
+// $buf .= "mail from:<tchouamoueric@yahoo.com>\r\n";
+// $buf .= "rcpt to:<etchouamou@securegroup.it>\r\n";
+// $buf .= "rcpt cc:<tchoumoueric@hotmal.com>\r\n";
+// $buf .= "rcpt bcc:<tchouamou@yahoo.com>\r\n";
+// $buf .= "data\r\n";
+// $buf .= "$cmr->email["body"]\r\n";
+// $buf .= ".\r\n";
+// $buf .= "from:<tchouamoueric@yahoo.com>\r\n";
+// $buf .= "to:<etchouamou@securegroup.it>\r\n";
+// $buf .= "cc:<tchouamou@gmail.com>\\r\n";
+// $buf .= "bcc:<tchouamou@yahoo.com>\r\n";
+// $buf .= "$cmr->email["subject"]\r\n";
+// $buf .= "quit\r\n";
+// socket_write($sh, $buf, strlen($buf));
+// socket_close($sh);
+// $dn = array();  // use defaults
+// $res_privkey = openssl_pkey_new();
+// $res_csr = openssl_csr_new($dn, $res_privkey);
+// $res_cert = openssl_csr_sign($res_csr, null, $res_privkey, $ndays);
+// openssl_x509_export($res_cert, $str_cert);
+// $res_pubkey = openssl_pkey_get_public($str_cert);
+// ///////////////////////////
+// Encrypt using public key, decrypt using private key.
+// Use this to store stuff in your database: Unless someone
+// has your private key, the database contents are useless.
+// Also, use this for sending to a specific individual:  Get
+// their public key, encrypt the message, only they can use
+// their private key to decode it.
+?>
+<?php
+// echo "Source: $source";
+// $fp=fopen("/path/to/certificate.crt", "r");
+// $pub_key=fread($fp,8192);
+// fclose($fp);
+// openssl_get_publickey($pub_key);
+// /*
+// * NOTE:  Here you use the $pub_key value (converted, I guess)
+// */
+// openssl_public_encrypt($source, $crypttext, $pub_key);
+// echo "String crypted: $crypttext";
+?>
+<?php
+// $fp=fopen("/path/to/private.key", "r");
+// $priv_key=fread($fp,8192);
+// fclose($fp);
+// // $passphrase is required if your key is encoded (suggested)
+// $res = openssl_get_privatekey($priv_key, $passphrase);
+// /*
+// * NOTE:  Here you use the returned resource value
+// */
+// openssl_private_decrypt($crypttext, $newsource, $res);
+// echo "String decrypt : $newsource";
+?>
+<?php // -------------------
+// // On suppose que $data contient les données à signer
+// // lecture de la clé publique pour chaque destinataire
+// $fp = fopen("/src/openssl-0.9.6/demos/sign/key.pem", "r");
+// $priv_key = fread($fp, 8192);
+// fclose($fp);
+// $pkeyid = openssl_get_privatekey($priv_key);
+// // calcule de la signature
+// openssl_sign($data, $signature, $pkeyid);
+// // libère les clés de la mémoire
+// openssl_free_key($pkeyid);
+//
+?>
+<?php // -------------------
+// // On suppose que $data et $signature contiennent les données à signer et
+// // la signature
+// // lecture de la clé publique depuis le certificat
+// $fp = fopen("/src/openssl-0.9.6/demos/sign/cert.pem", "r");
+// $cert = fread($fp, 8192);
+// fclose($fp);
+// $pubkeyid = openssl_get_publickey($cert);
+// // indique si la signature est correcte
+// $ok = openssl_verify($data, $signature, $pubkeyid);
+// if ($ok == 1) {
+// echo 'Signature valide';
+// } elseif ($ok == 0) {
+// echo 'Signature erronée';
+// } else {
+// echo 'Erreur de vérification de la signature';
+// }
+// // libère les clés de la mémoire
+// openssl_free_key($pubkeyid);
+?>
+<?php // -------------------
+// // On suppose que $data contient les données à sceller
+// // lecture de la clé publique pour chaque destinataire
+// $fp = fopen("/src/openssl-0.9.6/demos/maurice/cert.pem", "r");
+// $cert = fread($fp, 8192);
+// fclose($fp);
+// $pk1 = openssl_get_publickey($cert);
+// // pour le deuxième destinataire
+// $fp = fopen("/src/openssl-0.9.6/demos/sign/cert.pem", "r");
+// $cert = fread($fp, 8192);
+// fclose($fp);
+// $pk2 = openssl_get_publickey($cert);
+// // scelle le message : seuls, les possesseurs de $pk1 et $pk2 peuvent déchiffrer
+// // le message $sealed avec les clés $ekeys[0] et $ekeys[1] (respectivement).
+// openssl_seal($data, $sealed, $ekeys, array($pk1, $pk2));
+// // libère les clés de la mémoire
+// openssl_free_key($pk1);
+// openssl_free_key($pk2);
+?>
+<?php
+// // On suppose que $sealed et $env_key contiennent les données scellées
+// // et la clé d'enveloppe, fournies par l'expéditeur
+// // lecture de la clé privée dans un fichier
+// $fp = fopen("/src/openssl-0.9.6/demos/sign/key.pem", "r");
+// $priv_key = fread($fp, 8192);
+// fclose($fp);
+// $pkeyid = openssl_get_privatekey($priv_key);
+// // déchiffrage des données : elles sont placées dans $open
+// if (openssl_open($sealed, $open, $env_key, $pkeyid)) {
+// echo "Voici les données déchiffrées : ", $open;
+// } else {
+// echo "Impossible de déchiffrer les données";
+// }
+// // libération des ressources
+// openssl_free_key($pkeyid);
+?>
+<?php
+// Class   	 Tree   	 Deprecated   	 Index   	 Help
+//
+// PREV CLASS   NEXT CLASS 	FRAMES    NO FRAMES
+// SUMMARY:  INNER | FIELD | CONSTR | METHOD 	DETAIL:  FIELD | CONSTR | METHOD
+// Class phpmailer
+// phpmailer
+// public class phpmailer
+// phpmailer - PHP email transport class
+// Field Summary
+// string 	$AltBody
+// Sets the text-only body of the message.
+// string 	$cmr->email["body"]
+// Sets the Body of the message.
+// string 	$CharSet
+// Sets the CharSet of the message.
+// string 	$ConfirmReadingTo
+// Sets the email address that a reading confirmation will be sent.
+// string 	$ContentType
+// Sets the Content-type of the message.
+// string 	$Encoding
+// Sets the Encoding of the message.
+// string 	$ErrorInfo
+// Holds the most recent mailer error message.
+// string 	$From
+// Sets the From email address for the message.
+// string 	$FromName
+// Sets the From name of the message.
+// string 	$Helo
+// Sets the SMTP HELO of the message.
+// string 	$Host
+// Sets the SMTP hosts.
+// string 	$LE
+// Sets the line endings of the message.
+// string 	$Mailer
+// Method to send mail: ("mail", "sendmail", or "smtp").
+// string 	$Password
+// Sets SMTP password.
+// string 	$PluginDir
+// Path to phpmailer plugins.
+// int 	$Port
+// Sets the default SMTP server port.
+// int 	$Priority
+// Email priority (1 = High, 3 = Normal, 5 = low).
+// string 	$Sender
+// Sets the Sender email of the message.
+// string 	$Sendmail
+// Sets the path of the sendmail program.
+// bool 	$SMTPAuth
+// Sets SMTP authentication.
+// string 	$Subject
+// Sets the Subject of the message.
+// bool 	$UseMSMailHeaders
+// Turns Microsoft mail client headers on and off.
+// string 	$Username
+// Sets SMTP username.
+// string 	$Version
+// Holds phpmailer version.
+// int 	$WordWrap
+// Sets word wrapping on the body of the message to a given number of characters.
+//
+// Constructor Summary
+// phpmailer()
+//
+//
+// Method Summary
+// void 	AddAddress(var $address, var $name)
+// Adds a "To" address.
+// bool 	AddAttachment(var $path, var $name, var $encoding, var $type)
+// Adds an attachment from a path on the filesystem.
+// void 	AddBCC(var $address, var $name)
+// Adds a "Bcc" address.
+// void 	AddCC(var $address, var $name)
+// Adds a "Cc" address.
+// void 	AddCustomHeader(,var $custom_header)
+// Adds a custom header.
+// bool 	AddEmbeddedImage(var $path, var $cid, var $name, var $encoding, var $type)
+// Adds an embedded attachment.
+// void 	AddReplyTo(var $address, var $name)
+// Adds a "Reply-to" address.
+// void 	AddStringAttachment(var $string, var $filename, var $encoding, var $type)
+// Adds a string or binary attachment (non-filesystem) to the list.
+// void 	ClearAddresses()
+// Clears all recipients assigned in the TO array.
+// void 	ClearAllRecipients()
+// Clears all recipients assigned in the TO, CC and BCC array.
+// void 	ClearAttachments()
+// Clears all previously set filesystem, string, and binary attachments.
+// void 	ClearBCCs()
+// Clears all recipients assigned in the BCC array.
+// void 	ClearCCs()
+// Clears all recipients assigned in the CC array.
+// void 	ClearCustomHeaders()
+// Clears all custom headers.
+// void 	ClearReplyTos()
+// Clears all recipients assigned in the ReplyTo array.
+// void 	IsHTML(var $bool)
+// Sets message type to HTML.
+// void 	IsMail()
+// Sets Mailer to send message using PHP mail() function.
+// void 	IsQmail()
+// Sets Mailer to send message using the qmail MTA.
+// void 	IsSendmail()
+// Sets Mailer to send message using the $Sendmail program.
+// void 	IsSMTP()
+// Sets Mailer to send message using SMTP.
+// bool 	Send()
+// Creates message and assigns Mailer.
+// string 	SendToQueue(var $queue_path, var $send_time)
+// Sends mail message to an assigned queue directory.
+//
+// Field Detail
+// $Priority
+// public int $Priority
+// Email priority (1 = High, 3 = Normal, 5 = low). Default value is 3.
+// $CharSet
+// public string $CharSet
+// Sets the CharSet of the message. Default value is "iso-8859-1".
+// $ContentType
+// public string $ContentType
+// Sets the Content-type of the message. Default value is "text/plain".
+// $Encoding
+// public string $Encoding
+// Sets the Encoding of the message. Options for this are "8bit" (default), "7bit", "binary", "base64", and "quoted-printable".
+// $ErrorInfo
+// public string $ErrorInfo
+// Holds the most recent mailer error message. Default value is "".
+// $From
+// public string $From
+// Sets the From email address for the message. Default value is "root@localhost".
+// $FromName
+// public string $FromName
+// Sets the From name of the message. Default value is "Root User".
+// $Sender
+// public string $Sender
+// Sets the Sender email of the message. If not empty, will be sent via -f to sendmail or as 'MAIL FROM' in smtp mode. Default value is "".
+// $Subject
+// public string $Subject
+// Sets the Subject of the message. Default value is "".
+// $cmr->email["body"]
+// public string $cmr->email["body"]
+// Sets the Body of the message. This can be either an HTML or text body. If HTML then run IsHTML(true). Default value is "".
+// $AltBody
+// public string $AltBody
+// Sets the text-only body of the message. This automatically sets the email to multipart/alternative. This body can be read by mail clients that do not have HTML email capability such as mutt. Clients that can read HTML will view the normal Body. Default value is "".
+// $WordWrap
+// public int $WordWrap
+// Sets word wrapping on the body of the message to a given number of characters. Default value is 0 (off).
+// $Mailer
+// public string $Mailer
+// Method to send mail: ("mail", "sendmail", or "smtp"). Default value is "mail".
+// $Sendmail
+// public string $Sendmail
+// Sets the path of the sendmail program. Default value is "/usr/sbin/sendmail".
+// $UseMSMailHeaders
+// public bool $UseMSMailHeaders
+// Turns Microsoft mail client headers on and off. Useful mostly for older clients. Default value is false (off).
+// $PluginDir
+// public string $PluginDir
+// Path to phpmailer plugins. This is now only useful if the SMTP class is in a different directory than the PHP include path. Default is empty ("").
+// $Version
+// public string $Version
+// Holds phpmailer version.
+// $ConfirmReadingTo
+// public string $ConfirmReadingTo
+// Sets the email address that a reading confirmation will be sent. Default value is "".
+// $LE
+// public string $LE
+// Sets the line endings of the message. Default is "\n";
+// $Host
+// public string $Host
+// Sets the SMTP hosts. All hosts must be separated by a semicolon. You can also specify a different port for each host by using this format: [hostname:port] (e.g. "smtp1.domain.com:25;smtp2.domain.com"). Hosts will be tried in order. Default value is "localhost".
+// $Port
+// public int $Port
+// Sets the default SMTP server port. Default value is 25.
+// $Helo
+// public string $Helo
+// Sets the SMTP HELO of the message. Default value is "localhost.localdomain".
+// $SMTPAuth
+// public bool $SMTPAuth
+// Sets SMTP authentication. Utilizes the Username and Password variables. Default value is false (off).
+// $Username
+// public string $Username
+// Sets SMTP username. Default value is "".
+// $Password
+// public string $Password
+// Sets SMTP password. Default value is "".
+// Constructor Detail
+// phpmailer
+// public phpmailer()
+// Method Detail
+// IsHTML
+// public void IsHTML(var $bool)
+// Sets message type to HTML. Returns void.
+// IsSMTP
+// public void IsSMTP()
+// Sets Mailer to send message using SMTP. Returns void.
+// IsMail
+// public void IsMail()
+// Sets Mailer to send message using PHP mail() function. Returns void.
+// IsSendmail
+// public void IsSendmail()
+// Sets Mailer to send message using the $Sendmail program. Returns void.
+// IsQmail
+// public void IsQmail()
+// Sets Mailer to send message using the qmail MTA. Returns void.
+// AddAddress
+// public void AddAddress(var $address,
+// var $name)
+// Adds a "To" address. Returns void.
+// Parameters:
+// $name - Default Value: ""
+// AddCC
+// public void AddCC(var $address,
+// var $name)
+// Adds a "Cc" address. Note: this function works with the SMTP mailer on win32, not with the "mail" mailer. This is a PHP bug that has been submitted on http: * functions correctly. Returns void.
+// Parameters:
+// $name - Default Value: ""
+// AddBCC
+// public void AddBCC(var $address,
+// var $name)
+// Adds a "Bcc" address. Note: this function works with the SMTP mailer on win32, not with the "mail" mailer. This is a PHP bug that has been submitted on http: * functions correctly. Returns void.
+// Parameters:
+// $name - Default Value: ""
+// AddReplyTo
+// public void AddReplyTo(var $address,
+// var $name)
+// Adds a "Reply-to" address. Returns void.
+// Parameters:
+// $name - Default Value: ""
+// Send
+// public bool Send()
+// Creates message and assigns Mailer. If the message is not sent successfully then it returns false. Use the ErrorInfo variable to view description of the error. Returns bool.
+// SendToQueue
+// public string SendToQueue(var $queue_path,
+// var $send_time)
+// Sends mail message to an assigned queue directory. Has an optional sendTime argument. This is used when the user wants the message to be sent from the queue at a predetermined time. The data must be a valid timestamp like that returned from the time() or strtotime() functions. Returns false on failure or the message file name if success.
+// Parameters:
+// $send_time - Default Value: 0
+// AddAttachment
+// public bool AddAttachment(var $path,
+// var $name,
+// var $encoding,
+// var $type)
+// Adds an attachment from a path on the filesystem. Checks if attachment is valid and then adds the attachment to the list. Returns false if the file could not be found or accessed.
+// Parameters:
+// $name - Default Value: ""
+// $encoding - Default Value: "base64"
+// $type - Default Value: "application/octet-stream"
+// AddStringAttachment
+// public void AddStringAttachment(var $string,
+// var $filename,
+// var $encoding,
+// var $type)
+// Adds a string or binary attachment (non-filesystem) to the list. This method can be used to attach ascii or binary data, such as a BLOB record from a database.
+// Parameters:
+// $encoding - Default Value: "base64"
+// $type - Default Value: "application/octet-stream"
+// AddEmbeddedImage
+// public bool AddEmbeddedImage(var $path,
+// var $cid,
+// var $name,
+// var $encoding,
+// var $type)
+// Adds an embedded attachment. This can include images, sounds, and just about any other document.
+// Parameters:
+// cid - this is the Content Id of the attachment. Use this to identify the Id for accessing the image in an HTML form.
+// $name - Default Value: ""
+// $encoding - Default Value: "base64"
+// $type - Default Value: "application/octet-stream"
+// ClearAddresses
+// public void ClearAddresses()
+// Clears all recipients assigned in the TO array. Returns void.
+// ClearCCs
+// public void ClearCCs()
+// Clears all recipients assigned in the CC array. Returns void.
+// ClearBCCs
+// public void ClearBCCs()
+// Clears all recipients assigned in the BCC array. Returns void.
+// ClearReplyTos
+// public void ClearReplyTos()
+// Clears all recipients assigned in the ReplyTo array. Returns void.
+// ClearAllRecipients
+// public void ClearAllRecipients()
+// Clears all recipients assigned in the TO, CC and BCC array. Returns void.
+// ClearAttachments
+// public void ClearAttachments()
+// Clears all previously set filesystem, string, and binary attachments. Returns void.
+// ClearCustomHeaders
+// public void ClearCustomHeaders()
+// Clears all custom headers. Returns void.
+// AddCustomHeader
+// public void AddCustomHeader(,var $custom_header)
+// Adds a custom header. Returns void.
+//
+?>
+
+

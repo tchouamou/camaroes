@@ -1,0 +1,1107 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<!--if(!empty({match_ticket_tiny_editor}]))-->
+<link href="{match_www_path}tinymce/docs/css/screen.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="{match_www_path}tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script language="javascript" type="text/javascript" src="{match_www_path}javascript/tinymce_conf.js"></script>
+<!--
+//===========================================================
+//===========================================================
+//===================open window=============================
+//===========================================================
+//===========================================================
+-->
+</template1>
+<template2>
+<script language="javascript" type="text/javascript">
+var message =  new Array();
+message[1] = '{match_label_ticket_alert1}';
+message[2] = '{match_label_ticket_alert2}';
+message[3] = '{match_label_ticket_alert3}';
+message[4] = '{match_label_ticket_alert4}';
+message[5] = '{match_label_ticket_alert5}';
+message[6] = '{match_label_ticket_alert6}';
+message[7] = '{match_label_ticket_alert7}';
+message[8] = '{match_label_ticket_alert8}';
+message[9] = '{match_label_ticket_alert9}';
+message[10] = '{match_label_ticket_alert10}';
+message[11] = '{match_label_ticket_alert11}';
+message[12] = '{match_label_ticket_alert12}';
+message[13] = '{match_label_ticket_alert13}';
+message[14] = '{match_label_ticket_alert14}';
+message[15] = '{match_label_ticket_alert15}';
+message[16] = '{match_label_ticket_alert16}';
+message[17] = '{match_label_ticket_alert17}';
+message[18] = '{match_label_ticket_alert19}';
+message[10] = '{match_label_ticket_alert10}';
+message[21] = '{match_label_ticket_alert21}';
+message[22] = '{match_label_ticket_alert22}';
+message[23] = '{match_label_ticket_alert23}';
+message[24] = '{match_label_ticket_alert24}';
+message[25] = '{match_label_ticket_alert25}';
+message[26] = '{match_label_ticket_alert26}';
+message[27] = '{match_label_ticket_alert27}';
+message[28] = '{match_label_ticket_alert28}';
+message[29] = '{match_label_ticket_alert29}';
+</script>
+{match_open_windows}
+{match_open_tab}
+<!--
+//==============================================================
+//==============================================================
+//=======================title==================================
+//==============================================================
+//==============================================================
+?-->
+<br />
+<p align="center">
+<b>{match_ticket_title1}</b>
+<br />
+<p align="center">
+{match_ticket_title2}
+</p>
+<br />
+
+<!--
+//========================================================
+//===================form header=========================
+//========================================================
+-->
+
+<!--div id="new_ticket_div">
+
+<form action="index.php" method="post">
+<input type="hidden" value="search" name="class_module" />
+<input type="text" name="alt_text" size="30" />
+<input type="hidden" value="cmr_ticket" name="table" id="ticket_table" />
+<input type="hidden" value="all" name="column" id="ticket_column" />
+<input type="submit" value="{match_value_label_search_model}" />
+</form>
+?-->
+
+<!--
+//==============================================================
+//==============================================================
+//==========================links===============================
+//==============================================================
+//==============================================================
+?-->
+<br />
+<b>{match_link_list}</b>
+<fieldset class="bubble"><legend>{match_link_legend}</legend>
+<p align="center">
+<br />
+{match_link_list1}
+</p>
+</fieldset>
+<br />
+
+
+
+<!--
+//==============================================================
+//==============================================================
+//===============end links======================================
+//==============================================================
+//==============================================================
+-->
+<br />
+<br />
+
+<form name="ticket_form" action="index.php" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_id_ticket}
+
+<input type="hidden" value="{match_value_model_id}" name="model_id" id="id" />
+<input type="hidden" value="{match_value_my_master}" name="my_master" id="my_master" />
+<!--input type="hidden" value="<match_value_allow_email>" name="allow_email" />
+<input type="hidden" value="<match_value_allow_groups>" name="allow_groups" />
+<input type="hidden" value="<match_value_allow_type>" name="allow_type" /-->
+<input type="hidden" value="{match_value_pre_text}" name="pre_text" id="pre_text" />
+<input type="hidden" value="{match_value_pre_email}" name="pre_email" id="pre_email" />
+
+{match_id_input}
+
+
+<table  border="0" class="normal_text" align="center">
+
+<tr><td  colspan="4"  align="left" >
+<div align="left" id="model_extra"  class="hidded" >
+<!--br/>
+Model <label for="number">{match_label_number}</label>
+<input type="text" value="{match_value_model_number}" name="model_number" id="model_number" />
+-
+Model <label for="title">{match_label_title}</label>
+<input type="text" size="30" value="{match_value_model_title}" name="model_title" id="model_title" />
+<br/-->
+</div>
+
+</td></tr>
+
+<tr align="left">
+<td align="left"></td>
+<td  colspan="3"  align="left" >
+<div id="hide_attach" ><a onclick="show('extra_attach');hide('hide_attach');show('show_attach');">+ {match_label_attach}</a></div>
+<div id="show_attach" class="hidded" ><a onclick="hide('extra_attach');hide('show_attach');show('hide_attach');">- {match_label_attach}</a></div>
+</td></tr>
+
+
+<tr align="left"><td  align="left" colspan="4" >
+
+<div id="extra_attach" >
+
+<fieldset class="bubble">
+<legend>{match_label_attach}</legend>
+<table class="normal_text" border="0" align="left" >
+
+ <tr align="left">
+ 
+ <td>
+ <label for="attach">{match_label_attach}</label>
+ <input type="file" name="attach"  id="attach" />
+ </td>
+ 
+ <td align="left">
+ <label for="attach1">{match_label_attach1}</label>
+ <input type="file" name="attach1"  id="attach1" />
+ </td>
+
+ <td>
+ <label for="attach2">{match_label_attach2}</label>
+ <input type="file" name="attach2"  id="attach2" />
+ </td>
+ </tr>
+
+ <tr>
+ <td>
+ <label for="attach3">{match_label_attach3}</label>
+ <input type="file" name="attach3"  id="attach3" />
+ </td>
+ 
+ </tr>
+
+
+</table>
+</fieldset>
+</div>
+<br />
+
+
+
+
+</td>
+</tr>
+
+
+<!--
+//==============================================================
+//==============================================================
+//===============select model===================================
+//==============================================================
+//==============================================================
+?-->
+
+<tr align="left" >
+<td>
+<label for="model">{match_label_model}</label></td>
+<td colspan="3" >
+<!--input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<select name="model"  id="ticket_model" class="background2" onchange="load_model(this.form,'ticket_model', 'ticket_');" >
+<option value=""></option>
+{match_options_model}
+</select>
+{match_link_model}
+<!--
+//==============================================================
+//==============================================================
+//===============end select model===============================
+//==============================================================
+//==============================================================
+?-->
+
+</td>
+</tr>
+
+
+<!--
+//==============================================================
+//==============================================================
+//========================state=================================
+//==============================================================
+//==============================================================
+?-->
+
+
+<tr><td colspan="4"></td></tr>
+<tr align="left">
+<td align="left"><br/></td>
+<td  colspan="3"  align="left" >
+<div id="hide_type" onclick="show('type_zone');hide('hide_type');show('show_type');" class="hidded" ><a>+ {match_label_property}</a></div>
+<div id="show_type" onclick="hide('type_zone');hide('show_type');show('hide_type');"><a>- {match_label_property}</a></div>
+</td>
+</tr>
+
+<tr align="left" >
+<td colspan="4">
+{match_hidden_input}
+{match_hidden_model}
+
+<div id="type_zone">
+<fieldset class="bubble">
+<legend>{match_label_property}</legend>
+<table  class="normal_text" width="100%" >
+
+<!--
+//==============================================================
+//==============================================================
+//===============custumer group=================================
+//==============================================================
+//==============================================================
+-->
+
+<!--if($cmr->user["authorisation"] >= {match_noc_type}])-->
+</template2>
+<template3>
+
+<tr align="left" >
+<td><b><label for="call_log_group">{match_label_call_log_group}</label></b></td>
+<td>
+<select class="select1" name="call_log_group" id="call_log_group" onchange="call_log_group_changed(this.form);" >
+
+{match_options_call_log_group}
+
+
+
+</select>
+{match_link_call_log_group}
+
+</td>
+</tr>
+<!--
+//==============================================================
+//==============================================================
+//===============call log user==================================
+//==============================================================
+//==============================================================
+-->
+
+
+<tr  align="left" ><td ><b><label for="call_log_user">{match_label_call_log_user}</label></b></td><td colspan="3">
+
+
+<select name="call_log_user"  class="select1" id="call_log_user"  onchange="call_log_user_changed(this.form);" >
+{match_options_call_log_user}
+
+</select>
+
+{match_link_call_log_user}
+<br /><br />
+ </td></tr>
+
+<!--
+//==============================================================
+//==============================================================
+//=========================type=================================
+//==============================================================
+//==============================================================
+-->
+
+
+<tr align="left" >
+<td><label for="type">{match_label_type}</label></td><td>
+<select name="type"  class="select1" id="type"  onchange="changetext(this.form);" >
+{match_options_type}
+
+</select>
+
+{match_link_type}
+</td>
+</tr>
+
+
+<tr><td><label for="state">{match_label_state}</label></td><td>
+<select name="state"  id="state" onchange="changetext(this.form);" >
+{match_options_state}
+
+</select>
+{match_link_state}
+</td>
+</tr>
+
+
+
+
+
+
+
+<!--
+//==============================================================
+//==============================================================
+//====================severity==================================
+//==============================================================
+//==============================================================
+?-->
+
+<tr align="left" ><td><label for="severity">{match_label_severity}</label></td><td>
+<select name="severity" id="severity">
+{match_options_severity}
+
+</select>
+{match_link_severity}
+
+
+</td>
+</tr>
+
+
+
+
+<tr align="left" >
+
+<!--
+//=============================================================
+//==============================================================
+//=======================assign to==============================
+//==============================================================
+//==============================================================-->
+
+
+
+<td><label for="assign_to">{match_label_assign_to}</label></td><td>
+<select name="assign_to"  id="assign_to" onchange="assign_to_changed(this.form);" >
+
+{match_options_assign_to}
+
+
+</select>
+{match_link_assign_to}
+
+</td>
+</tr>
+
+
+</template3>
+<template4>
+<!--}else{-->
+
+<tr align="left" >
+<td>
+<!--============================================================
+//==============================================================
+//===============custumer group=================================
+//==============================================================
+//==============================================================-->
+<input value="{match_value_auth_group}" type="hidden" name="call_log_group"  id="call_log_group1" />
+
+
+<select name="call_log_group" id="call_log_group" style="visibility :hidden; display:none ">
+{match_auth_group}
+</select>
+{match_link_call_log_group}
+
+</template4>
+<template5>
+
+
+
+
+
+</td>
+</tr>
+<!--//==========================================================
+//==============================================================
+//===============end insert lang===============================
+//==============================================================
+//==============================================================-->
+
+
+<tr align="left" >
+<td>
+
+<label for="lang">{match_label_lang}</label></td><td>
+
+<select name="lang" id="lang">
+<option value="{match_default_lang}">{match_default_lang}</option>
+{match_options_lang}
+
+<!--//==========================================================
+//==============================================================
+//===============end insert lang===============================
+//==============================================================
+//==============================================================
+?-->
+</select>
+
+</td>
+</tr>
+</table>
+</fieldset>
+</div>
+
+</td>
+</tr>
+
+
+
+
+<!--==============================================================
+//==============================================================
+//===============custumer group==================================
+//==============================================================
+//==============================================================-->
+
+
+
+
+
+
+<tr><td colspan="4"></td></tr>
+<td align="left"><div id="sla_text"></div></td>
+<td colspan="3"  align="left">
+<div id="hide_sla" onclick="show('extra_sla');hide('hide_sla');show('show_sla');"><a>+ {match_label_sla}</a></div>
+<div id="show_sla" onclick="hide('extra_sla');hide('show_sla');show('hide_sla');" class="hidded" ><a>- {match_label_sla}</a></div>
+</td></tr>
+
+<tr><td colspan="4" >
+<div id="extra_sla" name="extra_sla" >
+<fieldset class="bubble">
+<legend>{match_label_sla}</legend>
+<table class="normal_text" >
+
+
+
+<tr  align="left" ><td><label for="call_method">{match_label_call_method}</label></td><td>
+<select name="call_method" id="call_method" />
+{match_options_call_method}
+
+</select>
+{match_link_call_method}
+
+</td>
+</tr>
+
+
+<tr>
+<td>
+<!--==============================================================
+//==============================================================
+//===============sla============================================
+//==============================================================
+//==============================================================-->
+
+
+
+
+<label for="sla">{match_label_sla}</label></td><td>
+
+<input type="text" size="20" value="{match_value_sla}" name="sla" id="sla" />
+<input type="button" value="^"  id="button_sla" />
+
+<!--select name="intervale_type" >
+<option value="DAY">{match_label_day}</option>
+<option value="MICROSECOND">{match_label_microsecond}</option>
+<option value="SECOND">{match_label_second}</option>
+<option value="MINUTE">{match_label_minute}</option>
+<option value="HOUR">{match_label_hour}</option>
+<option value="WEEK">{match_label_week}</option>
+<option value="MONTH">{match_label_month}</option>
+<option value="QUARTER">{match_label_quarter}</option>
+<option value="YEAR">{match_label_year}</option>
+<option value="SECOND_MICROSECOND">{match_label_second_microsecond}</option>
+<option value="MINUTE_MICROSECOND">{match_label_minute_microsecond}</option>
+<option value="MINUTE_SECOND">{match_label_minute_second}</option>
+<option value="HOUR_MICROSECOND">{match_label_hour_microsecond}</option>
+<option value="HOUR_SECOND">{match_label_hour_second}</option>
+<option value="HOUR_MINUTE">{match_label_hour_minute}</option>
+<option value="DAY_MICROSECOND">{match_label_day_microsecond}</option>
+<option value="DAY_SECOND">{match_label_day_second}</option>
+<option value="DAY_MINUTE">{match_label_day_minute}</option>
+<option value="DAY_HOUR">{match_label_day_hour}</option>
+<option value="YEAR_MONTH">{match_label_year_month}</option>
+</select-->
+
+<!--==============================================================
+//==============================================================
+//===============custumer user impact=============================
+//==============================================================
+//==============================================================-->
+
+
+</td></tr>
+<!--===============================================================
+//=================================================================
+//===============call method=======================================
+//=================================================================
+//==============================================================-->
+<tr  align="left" ><td><label for="list_user_impact">{match_label_list_user_impact}</label></td><td colspan="3">
+<!--<input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<input value="{match_value_list_user_impact}" type="text" size="80" name="list_user_impact"  id="list_user_impact" />
+{match_link_list_user_impact}
+ </td></tr>
+<!--=============================================================
+//==============================================================
+//===============custumer group impact==========================
+//==============================================================
+//==============================================================-->
+
+
+<tr  align="left" ><td><label for="list_group_impact">{match_label_list_group_impact}</label></td><td colspan="3">
+<!--input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<input value="{match_value_list_group_impact}" type="text" size="80" name="list_group_impact" id="list_group_impact" />
+{match_link_list_group_impact}
+</td></tr>
+<!--============================================================
+//==============================================================
+//===============custumer asset impact==========================
+//==============================================================
+//==============================================================-->
+
+
+<tr  align="left" ><td><label for="list_asset_impact">{match_label_list_asset_impact}</label></td><td colspan="3">
+<!--input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<input value="{match_value_list_asset_impact}" type="text" size="80" name="list_asset_impact"  id="list_asset_impact" />
+{match_link_list_asset_impact}
+</td></tr>
+
+</table>
+</fieldset>
+</div>
+</td></tr>
+
+
+</template5>
+<template6>
+
+<!--if($cmr->user["authorisation"] >= {match_noc_type}]) -->
+<tr><td colspan="4"></td></tr>
+<tr><td align="left"></td>
+<td colspan="3"  align="left">
+<div id="hide_header" onclick="show('header_zone');hide('hide_header');show('show_header');" class="hidded" ><a>+ {match_label_header}</a></div>
+<div id="show_header" onclick="hide('header_zone');hide('show_header');show('hide_header');"><a>- {match_label_header}</a></div>
+</td></tr>
+
+
+<tr><td colspan="4" >
+<div id="header_zone" >
+<fieldset class="bubble">
+<legend>{match_label_header}</legend>
+<table class="normal_text" >
+
+<!--============================================================
+//==============================================================
+//===============mail from======================================
+//==============================================================
+//==============================================================-->
+
+
+<tr  align="left" ><td><label for="mail_from">{match_label_mail_from}</label></td><td colspan="3">
+<!--input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<input value="{match_value_mail_from}" type="text" size="85" name="mail_from"  id="mail_from" />
+{match_link_mail_from}
+</td></tr>
+<!--============================================================
+//==============================================================
+//===============mail to========================================
+//==============================================================
+//==============================================================-->
+
+
+<tr  align="left" ><td><label for="mail_to">{match_label_mail_to}</label></td><td colspan="3">
+<!--input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<input type="text" value="{match_value_mail_to}" size="85" name="mail_to"  id="mail_to" />
+{match_link_mail_to}
+ </td></tr>
+<!--=============================================================
+//==============================================================
+//===============mail cc========================================
+//==============================================================
+//==============================================================-->
+
+
+<tr align="left" ><td><label for="mail_cc">{match_label_mail_cc}</label></td><td colspan="3">
+<input value="{match_value_mail_cc}" type="text" size="85" name="mail_cc"  id="mail_cc" />
+{match_link_mail_cc}</td></tr>
+<!--============================================================
+//==============================================================
+//===============mail bcc=======================================
+//==============================================================
+//==============================================================-->
+
+
+<tr align="left" ><td><label for="mail_bcc">{match_label_mail_bcc}</label></td><td colspan="3">
+<input value="{match_value_mail_bcc}" type="text" size="85" name="mail_bcc"  id="mail_bcc" />
+{match_link_mail_bcc}
+</td></tr>
+
+
+</table>
+</fieldset>
+</div>
+</td></tr>
+
+</template6>
+<template7>
+<!--==============================================================
+//================================================================
+//===============custumer mail from, to, cc, bcc==================
+//================================================================
+//==============================================================-->
+{match_hidden_assign_to}
+{match_hidden_from}
+{match_hidden_to}
+{match_hidden_cc}
+{match_hidden_bcc}
+
+
+</template7>
+<template8>
+<!--==============================================================
+//================================================================
+//===============number===========================================
+//================================================================
+//==============================================================-->
+<tr><td colspan="4"></td></tr>
+
+<tr><td colspan="4">
+<div id="number_zone">
+<table  class="normal_text" width="100%" >
+<tr><td>
+
+<!--input value="No Number" name="number_temp" id="number_temp" type="hidden" />
+<input value="<_?php echo $temp_numero ?_>" name="dump_number" id="dump_number" type="hidden" /-->
+
+
+<tr align="left" ><td><label for="number">{match_label_number}</label>
+<input value="{match_value_number}" id="number1" type="text" size="15" name="number" readonly /></td>
+<td><!--_{match_label_No_number}-->
+<!--input type="checkbox" onclick="truc_number(this.form)" name="check_number" id="check_number" /--></td>
+<td></td>
+</tr></table></div>
+
+
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============title===========================================
+//==============================================================
+//==============================================================
+?-->
+<tr><td colspan="4">
+</td></tr>
+<tr><td colspan="4">
+
+<fieldset class="bubble">
+<legend>{match_label_text}</legend>
+
+<div id="title_zone">
+<table  class="normal_text" width="100%" >
+
+<!--tr align="left" ><td>{match_label_model_title});
+
+?>:</td><td>
+<input value="" size="60" type="text" name="model_title"  id="model_title" />
+</td></tr-->
+
+
+
+<tr align="left" ><td><label for="title">{match_label_title}</label></td><td colspan="3">
+<input class="background2" value="{match_value_title}" type="text" size="90" name="title"  id="title" />
+</td></tr>
+
+<!--?php
+//==============================================================
+//==============================================================
+//===================     action ===============================
+//==============================================================
+//==============================================================
+?-->
+<tr><td colspan="4" align="center">
+{match_label_action}
+<!--// cmr_request_mode-->
+:
+<select name="action" onchange="only_email('action_id');"  id="action_id" >
+<option value="normal" >{match_label_normal}</option>
+<option value="only_db" >{match_label_db}</option>
+<option value="only_email" >{match_label_email}</option>
+{match_options_mode}
+</select>
+</td>
+</tr>
+
+
+
+<tr>
+<td align="center" colspan="4">
+
+<br />
+<br />
+<!--?php
+//==============================================================
+//==============================================================
+//===============problem=========================================
+//==============================================================
+//==============================================================
+?-->
+<div id="ticket_zone"  >
+<!--?php
+//==============================================================
+//==============================================================
+//===============print text======================================
+//==============================================================
+//==============================================================
+?-->
+
+<b>{match_problem}:</b>{{ticket_text}}
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+<input type="button" value="{match_label_print}" onclick="print_val('text')"  />
+
+<br />
+
+
+<textarea rows="15" name="text" id="text" cols="100">
+{match_value_text}
+
+</textarea>
+</div>
+
+
+
+<br />
+
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============insert code zone===============================
+//==============================================================
+//==============================================================
+?-->
+
+<tr align="left"><td colspan="4" align="left" ></td></tr>
+<tr>
+<td></td>
+<td align="left" colspan="3">
+<div id="hide_code" onclick="show('extra_code');hide('hide_code');show('show_code');"><a>+ {match_label_code}</a></div>
+<div id="show_code" onclick="hide('extra_code');hide('show_code');show('hide_code');" class="hidded" ><a>- {match_label_code}</a></div>
+</td></tr>
+
+
+<tr><td colspan="4" align="left">
+
+
+<div id="extra_code"  align="left"  class="hidded" >
+<fieldset class="bubble">
+<legend>{match_label_code}</legend>
+<table class="normal_text" border="0" align="center">
+<tr><td>
+
+
+
+<small>{match_label_code_insert}</small>:
+
+<select name="select_insert" id="select_insert" >
+{match_options_code_insert}
+
+</select>
+
+{match_link_code_insert}
+
+
+<input  type="button" value="^(insert in text)" onclick="insert_text(this.form,'select_insert','text');" />
+<input  type="button" value="v(insert in mail)" onclick="insert_text(this.form,'select_insert','mail_text');" />
+
+</td>
+</tr>
+</table>
+</fieldset>
+</div>
+</td>
+</tr>
+
+
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============email==========================================
+//==============================================================
+//==============================================================
+?-->
+<tr align="left"><td colspan="4" align="left" ></td></tr>
+<tr>
+<td></td>
+<td  align="left" colspan="3">
+<div id="hide_email" onclick="show('extra_email');hide('hide_email');show('show_email');"><a>+ {match_label_email}</a></div>
+<div id="show_email" onclick="hide('extra_email');hide('show_email');show('hide_email');" class="hidded" ><a>- {match_label_email}</a></div>
+</td></tr>
+
+<br />
+
+
+<tr><td colspan="4" align="left">
+
+<table  class="normal_text" width="100%" align="l">
+<tr align="left">
+<td align="left">
+<div id="extra_email"  align="left">
+<fieldset class="bubble">
+<legend>{match_label_email}</legend>
+<table class="normal_text" border="0" align="center">
+
+
+
+
+<tr align="left" ><td><label for="mail_title">{match_label_mail_title}</label></td><td colspan="3">
+<input class="background2" value="{match_value_mail_title}" type="text" size="90" name="mail_title"  id="mail_title" />
+</td></tr>
+
+
+
+<tr><td colspan="4">
+<!--?php
+//===============================================================
+//===============================================================
+//===============email extend mode===============================
+//==============================================================
+//==============================================================
+?-->
+
+<input type="hidden" name="back_text" id="back_text" />
+&nbsp;&nbsp;
+<!--?php
+//==============================================================
+//==============================================================
+//===============print email=====================================
+//==============================================================
+//==============================================================
+?-->
+
+<input type="button" value="{match_label_print}" onclick="print_val('mail_text')" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<b>{match_label_mail_text}</b>
+<select name="text_area_type" id="extend_id" onchange="show_extend('extend_id' , 'email_zone', 'html_zone');" >
+<option value="normal" >{match_label_normal}</option>
+<option value="extend" >{match_label_extend}</option>
+</select>
+
+
+
+
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============email zone=====================================
+//==============================================================
+//==============================================================
+?-->
+
+
+<div id="email_zone"  >
+<textarea  name="mail_text" id="mail_text"  rows="25" cols="115">
+{match_value_mail_text}
+</textarea>
+</div>
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============end email zone=================================
+//==============================================================
+//==============================================================
+?-->
+
+
+
+
+
+<!--?php
+//=============================================================
+//=============================================================
+//===============html email extend zone========================
+//=============================================================
+//=============================================================
+?-->
+<div id="html_zone" class="hidded" >
+<textarea rows="35" name="html_text" id="html_text" cols="100">
+{match_value_mail_text}
+</textarea>
+</div>
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============html end email extend zone=====================
+//==============================================================
+//==============================================================
+?-->
+
+
+
+
+
+
+
+
+</td></tr>
+</table>
+</fieldset>
+</div>
+
+</td></tr>
+<tr><td colspan="4">
+
+</td></tr>
+</table>
+<br />
+
+</td></tr>
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============   comment zone   =============================
+//==============================================================
+//==============================================================
+?-->
+
+<tr align="left"><td colspan="4" align="left" ></td></tr>
+<tr>
+<td></td>
+<td align="left" colspan="3">
+<div id="hide_comment" onclick="show('extra_comment');hide('hide_comment');show('show_comment');"><a>+ {match_label_comment}</a></div>
+<div id="show_comment" onclick="hide('extra_comment');hide('show_comment');show('hide_comment');" class="hidded" ><a>- {match_label_comment}</a></div>
+</td></tr>
+
+
+<tr><td colspan="4" align="left">
+
+
+<div id="extra_comment"  align="left"  class="hidded" >
+<fieldset class="bubble">
+<legend>{match_label_comment}</legend>
+<table class="normal_text" border="0" align="center">
+<tr><td>
+
+
+<textarea   name="comment" id="comment1"  rows="3" cols="115">
+{match_value_comment}
+</textarea>
+
+
+
+
+</td>
+</tr>
+</table>
+</fieldset>
+<br />
+</div>
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+</table>
+<br />
+
+
+
+
+<!--?php
+//==============================================================
+//==============================================================
+//===============reset and send button==========================
+//==============================================================
+//==============================================================
+?-->
+
+<table  class="normal_text" align="center">
+<tr><td>
+<input  onclick="return confirm('{match_label_delete}')"  type="reset" />
+</td><td>
+
+
+<input class="submit" id="submit1" type="submit" value="{match_submit_text}" onsubmit="return confirm('OK ?')" />
+<input id="submit2" class="hidded_submit" type="button" value="{match_submit_text}"  onclick="submit_form(this.form, message);" />
+
+
+</td></tr>
+</table>
+</div>
+<!--
+//==============================================================
+//==============================================================
+//===============script for show and hidden=====================
+//==============================================================
+//==============================================================
+-->
+<script language="javascript" type="text/javascript">
+hide("submit1");
+show( "submit2");
+
+show( "header_zone");
+hide("extra_sla");
+hide("extra_email");
+hide("extra_attach");
+
+// hide("insert_email");
+// show( "insert_text");
+</script>
+
+{match_load_script}
+
+
+<fieldset class="bubble">
+<legend>{match_solution_title}</legend>
+<p align="left">
+{match_solution}
+</p>
+</fieldset>
+<!-- state_now=updated1
+// state_now=updated2
+// state_now=updated3
+// state_now=closed1
+// state_now=closed2
+// state_now=closed3
+!-->
+</form>
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "sla",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",   // the date format
+      button      : "button_sla"       // ID of the button
+    }
+  );
+</script>  
+
+
+
+<br />
+{match_close_tab}
+{match_close_windows}
+</template8>
+</template>

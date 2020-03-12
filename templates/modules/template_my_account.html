@@ -1,0 +1,122 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+
+<div id="my_account_div">
+<br />
+<p class="normal_text">
+<b>{match_my_account_title1}</b>
+<br />
+<p class="normal_text">
+{match_my_account_title2}
+</p>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p class="normal_text">
+{match_list_link}
+</p>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_needed}</legend>
+<ul class="normal_text" >
+<li><b><label for="email">{match_label_email}</label></b>{match_val_email}</li>
+<li><b><label for="uid">{match_label_uid}</label></b>{match_val_uid}</li>
+<li><b><label for="pw">{match_label_pw}</label></b>*******</li>
+<li><b><label for="type">{match_label_type}</label></b>{match_val_type}</li>
+<li><b><label for="state">{match_label_state}</label></b>{match_val_state}</li>
+<li><b><label for="type">{match_label_type}</label></b>{match_val_type}</li>
+<li><b><label for="group">{match_label_group}</label></b>{match_val_group}</li>
+</ul>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_optional}</legend>
+<ul class="normal_text" >
+<li><b><label for="name">{match_label_name}</label></b>{match_val_name}</li>
+<li><b><label for="last_name">{match_label_last_name}</label></b>{match_val_last_name}</li>
+<li><b><label for="sexe">{match_label_sexe}</label></b>{match_val_sexe}</li>
+<li><b><label for="lang">{match_label_lang}</label></b>{match_val_lang}</li>
+<li><b><label for="style">{match_label_style}</label></b>{match_val_style}</li>
+<li><b><label for="email_sign">{match_label_email_sign}</label></b><pre>{match_val_email_sign}</pre></li>
+</ul>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_optional}</legend>
+<ul class="normal_text" >
+<li><b><label for="function">{match_label_function}</label></b>{match_val_function}</li>
+<li><b><label for="sla">{match_label_sla}</label></b>{match_val_sla}</li>
+<li><b><label for="tel">{match_label_tel}</label></b>{match_val_tel}</li>
+<li><b><label for="cel">{match_label_cel}</label></b>{match_val_cel}</li>
+<li><b><label for="adress">{match_label_adress}</label></b>{match_val_adress}</li>
+<li><b><label for="location">{match_label_location}</label></b><pre>{match_val_location}</pre></li>
+<li><b><label for="status">{match_label_status}</label></b>{match_val_status}</li>
+<li><b><label for="comment">{match_label_comment}</label></b>{match_val_comment}</li>
+</ul>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+<br />
+{match_close_tab}
+{match_close_windows}
+{match_open_windows_groups}
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<br />
+<fieldset class="bubble"><legend>{match_legend_group}</legend>
+<ul align="left" class="normal_text">
+<li><b><u><label for="name">{match_label_name}</label> </b></u><b>{match_val_name}</b></li>
+<li><u><b>{match_label_my_domain_group}</b></u></li>
+<b><label for="group_list">{match_label_group_list}</label> </b>{match_auth_list_group}</li>
+</ul>
+</fieldset>
+<br />
+{match_close_windows_groups}
+
+{match_include1}
+<!--include($cmr->get_conf("class_modules_path") ."modules/preview_groups.php");-->
+
+{match_open_windows_all_groups}
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("class_modules_path") ."modules/view_user_groups.php");-->
+<template2>
+
+
+{match_close_windows_all_groups}
+{match_open_windows_user_groups}
+</template2>
+{match_include2}
+<!--include($cmr->get_conf("class_modules_path") ."modules/view_user.php");-->
+<template3>
+
+
+
+</div>
+{match_close_windows_user_groups}
+</template3>
+</template>

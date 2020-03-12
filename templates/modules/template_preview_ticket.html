@@ -1,0 +1,278 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="preview_ticket_div">
+<p align="center">
+<b>{match_preview_ticket_title1}</b>
+</p>
+<p class="normal_text">
+{match_preview_ticket_title2}
+</p>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<br />
+<b>{match_list_link}</b>
+<br />
+<p class="normal_text">
+{match_list_link1}
+</p>
+</fieldset>
+<br />
+
+<table  align="center" border="0" width="100%" class="normal_text" >
+<tr>
+<td align="left" valign="top" width="70%" >
+<fieldset class="bubble"><legend>{match_legend_ticket}</legend>
+
+<ul class="normal_text" >
+
+    <br />
+    <fieldset class="bubble"><legend>{match_legend_info}</legend>
+    
+    <li><b><label for="title">{match_label_title}</label></b>{match_value_title}</li>
+    
+    <li><b><label for="date_time">{match_label_date_time}</label></b>{match_value_date_time}</li>
+    
+    <li><b><label for="number">{match_label_number}</label></b>{match_value_number}</li>
+    
+    <li><b><label for="call_log_group">{match_label_call_log_group}</label></b>{match_value_call_log_group}</li>
+    
+    <li><b><label for="call_log_user">{match_label_call_log_user}</label></b>{match_value_call_log_user}</li>
+    
+    </fieldset>
+    
+        
+   <br \>
+   <fieldset class="bubble"><legend>{match_label_text}</legend>
+   <li class="normal_text" >
+   <pre>{match_value_text}</pre>
+   </li>
+   </fieldset>
+   <br \>
+    
+   <fieldset class="bubble"><legend>{match_label_attach}</legend>
+   <li class="normal_text" >
+   {match_value_attach}
+   </li>
+	</fieldset>
+
+        <br />
+    
+    <fieldset class="bubble"><legend>{match_label_comment}</legend>
+    <li class="normal_text" >
+    <pre>{match_value_comment}</pre>
+
+    <p align="center">
+    <form action="index.php" method="post" >
+    {match_comment_hidden}
+    {match_comment_hidden_id}
+    <br />
+    <input type="file" name="attach1"  id="attach1" />
+    <br />
+    <textarea name="new_comment"  rows="2" cols="70">
+    </textarea>
+    <br />
+    <input type="submit" value="{match_comment_submit}" />
+    </form></p>
+    </li>
+    </fieldset>
+
+    <br />
+
+    
+</td>
+<td align="left" valign="top" width="30%" >
+
+    
+    <fieldset class="bubble"><legend>{match_legend_state}</legend>
+    <li><b><label for="id">{match_label_id}</label></b>{match_value_id}</li>
+    
+    <li><b><label for="type">{match_label_type}</label></b>{match_value_type}</li>
+    
+    <li><b><label for="call_method">{match_label_call_method}</label></b>{match_value_call_method}</li>
+    
+    <li><b><label for="lang">{match_label_lang}</label></b>{match_value_lang}</li>
+    
+    <li><b><label for="state">{match_label_state}</label></b>{match_value_state}</li>
+    
+    <li><b><label for="state_now">{match_label_state_now}</label></b>{match_value_state_now}</li>
+    
+    <li><b><label for="severity">{match_label_severity}</label></b>{match_value_severity}</li>
+    
+    <li><b><label for="sla">{match_label_sla}</label></b>{match_value_sla}</li>
+    
+    <li><b><label for="work_by">{match_label_work_by}</label></b>{match_value_work_by}</li>
+    
+    <li><b><label for="assign_to">{match_label_assign_to}</label></b>{match_value_assign_to}</li>
+    
+    <li><b><label for="my_master">{match_label_my_master}</label></b>{match_value_my_master}</li>
+    
+    </fieldset>
+    
+    <br />
+    
+    <fieldset class="bubble"><legend>{match_legend_impact}</legend>
+    <li><b><label for="list_user_impact">{match_label_list_user_impact}</label></b>{match_value_list_user_impact}</li>
+    
+    <li><b><label for="list_group_impact">{match_label_list_group_impact}</label></b>{match_value_list_group_impact}</li>
+    
+    <li><b><label for="list_asset_impact">{match_label_list_asset_impact}</label></b>{match_value_list_asset_impact}</li>
+    </fieldset>
+    
+</template1>
+
+<!-- if($cmr->user["authorisation"] >= $cmr->config["cmr_noc_type"]) -->
+
+<template2>
+    <br />
+<!--fieldset class="bubble"><legend>{match_legend_allow}</legend>
+    
+<
+//==============================================================
+//==============================================================
+//===============  list_allow ===================================
+//==============================================================
+//==============================================================
+?-->
+<!--table border="0" align="left" >
+	<tr>
+		<td align="left"><b>(match_legend_allow):</b></td>
+		<td align="left" >
+		<div id="hide_list_allow" ><a onclick="show('extra_list_allow');hide('hide_list_allow');show('show_list_allow');"><b>+</b></a></div>
+		<div id="show_list_allow" class="hidded" ><a onclick="hide('extra_list_allow');hide('show_list_allow');show('hide_list_allow');"><b>-</b></a></div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" colspan="2">
+		<div id="extra_list_allow" >
+		    
+		    <li><b>(match_label_allow_type):</b>(match_value_allow_type)</li>
+		    
+		    <li><b>(match_label_allow_email):</b>(match_value_allow_email)</li>
+		    
+		    <li><b>(match_label_allow_groups):</b>(match_value_allow_groups)</li>
+    
+		</div>
+		</td>
+	</tr>
+</table>
+</fieldset-->
+<!--
+//==============================================================
+//==============================================================
+//===============  list_allow ===================================
+//==============================================================
+//==============================================================
+?-->
+    
+    
+</template2>
+
+
+
+
+<template3>
+   <br \>
+
+    
+</td>
+</tr>
+<td align="left" colspan="2">
+
+
+   <fieldset class="bubble"><legend>{match_label_mail_text}</legend>
+   
+    <li><b><label for="mail_title">{match_label_mail_title}</label></b>{match_value_mail_title}</li>
+    
+    <li><b><label for="mail_from">{match_label_mail_from}</label></b>{match_value_mail_from}</li>
+    
+    <li><b><label for="mail_to">{match_label_mail_to}</label></b>{match_value_mail_to}</li>
+    
+    <li><b><label for="mail_cc">{match_label_mail_cc}</label></b>{match_value_mail_cc}</li>
+    
+    <li><b><label for="mail_bcc">{match_label_mail_bcc}</label></b>{match_value_mail_bcc}</li>
+
+<!--
+//==============================================================
+//==============================================================
+//===============  mail_text ===================================
+//==============================================================
+//==============================================================
+?-->
+<li>
+<table border="0" align="left" >
+	<tr>
+		<td align="left"><b><label for="mail_text">{match_label_mail_text}</label></b></td>
+		<td align="left" >
+		<div id="hide_mail_text" ><a onclick="show('extra_mail_text');hide('hide_mail_text');show('show_mail_text');"><b>+</b></a></div>
+		<div id="show_mail_text" class="hidded" ><a onclick="hide('extra_mail_text');hide('show_mail_text');show('hide_mail_text');"><b>-</b></a></div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" colspan="2">
+		<div id="extra_mail_text" >
+		   <pre>{match_value_mail_text}</pre>
+		</div>
+		</td>
+	</tr>
+</table>
+</li>
+<!--
+//==============================================================
+//==============================================================
+//===============  mail_text ===================================
+//==============================================================
+//==============================================================
+?-->
+   
+   
+   
+   
+   </fieldset>
+</ul>
+
+ <form action="{match_www_path}index.php?cmr_mode=pdf&ext=.pdf" method="post" id="form_ticket_pdf">
+ <!--input type="hidden" value="cmr_mode" name="pdf" />
+ <input type="hidden" name="ext" value=".pdf" /-->
+ <input type="hidden" name="title"     id="pdf_ticket_title"     value="{match_pdf_title}" />
+ <input type="hidden" name="author"    id="pdf_ticket_author"    value="{match_pdf_author}" />
+ <input type="hidden" name="file"      id="pdf_ticket_file"      value="{match_pdf_file}" />
+ <input type="hidden" name="links"     id="pdf_ticket_links"     value="{match_pdf_links}" />
+ <input type="hidden" name="data_type" id="pdf_ticket_data_type" value="{match_pdf_data_type}" />
+ <input type="hidden" name="dim_col"   id="pdf_ticket_dim_col"   value="{match_pdf_dim_col}" />
+ <input type="hidden" name="header"    id="pdf_ticket_header"    value="{match_pdf_header}" />
+ <textarea  class="hidded" name="data" id="pdf_ticket_data"  >{match_pdf_data}</textarea>
+<p align="center">
+ <input class="submit" type="submit" value="pdf" onclick="return confirm('confirm')" />
+</p>
+</form>
+
+
+</fieldset>
+
+</td>
+</tr>
+</table>
+
+</div>
+<fieldset class="bubble"><legend><b>{ticket_story}</b></legend>
+</fieldset>
+
+
+
+<script language="javascript" type="text/javascript">
+hide("extra_mail_text");
+hide("extra_list_allow");
+</script>
+{match_close_tab}
+{match_close_windows}
+</template3>
+{match_include1}
+<!-- include("module/view_ticket.php"); -->
+<!-- {match_include2}
+include("module/admin/preview_sql.php"); -->
+
+</template>

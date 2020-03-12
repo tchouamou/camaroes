@@ -1,0 +1,1042 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+
+<div id="form_generator">
+<br />
+<p class="normal_text">
+<b>{match_user_title1}</b>
+<br />
+<p class="normal_text">
+{match_user_title2}
+</p>
+<br />
+<fieldset class="bubble"><legend>{match_link_legend}</legend>
+<p class="normal_text">
+{match_link_list}
+</p>
+</fieldset>
+<br />
+
+
+<form action="index.php" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_id}
+
+
+
+<fieldset class="bubble"><legend><label for="main">{match_label_main}</label></legend>
+<div id="source">
+<table class="normal_text" border="1"  align="center">
+
+<tr>
+<th align="left"><label for="db_type">{match_label_db_type}</label></th><td>
+<select name="db_type" id="db_type" 
+onchange="
+link_conf('model_group,the_db_name,model_source,db_source,output_type,db_type','model_group,the_db_name,model_source,db_source,output_type,db_type');
+">
+<option value="{match_db_type}">
+{match_db_type}
+</option>
+{match_select_db_type}
+
+</td>
+</tr>
+
+<tr><th align="left"><label for="db_source">{match_label_db_source}</label></th><td>
+<select name="db_source" id="db_source" 
+ onchange="
+ hide_group_value('db_source','server','database_servs,num_files','database_file,database_remote,db_sql_text');
+ hide_group_value('db_source','default,local_file,local_zip','database_file','database_servs,database_remote,num_files,db_sql_text');
+ hide_group_value('db_source','remote_file,remote_zip','database_remote','database_servs,database_file,num_files,db_sql_text');
+ hide_group_value('db_source','text','db_sql_text','database_servs,database_remote,num_files,database_file');
+ hide_group_value('db_source','none','','database_servs,database_remote,num_files,database_file,db_sql_text');
+
+ " >
+<option value="{match_db_source}">{match_db_source}</option>
+<option value="default">{match_label_default}</option>
+<option value="text">{match_label_text}</option>
+<option value="none">{match_label_none}</option>
+<option value="local_file">{match_label_local_source}</option>
+<option value="local_zip">{match_label_local_zip}</option>
+<option value="server">--[{match_label_server}]--</option>
+<option value="remote_file">{match_label_remote_source}</option>
+<option value="remote_zip">{match_label_remote_zip}</option>
+</td>
+</tr>
+
+
+<tr><th align="left"><label for="model_source">{match_label_model_source}</label></th><td>
+<select name="model_source" id="model_source" onchange="
+ hide_group_value('model_source','default,local_file,local_zip','local_model','remote_model,model_group,server_model,num_files,models_text,button_generator');
+ hide_group_value('model_source','server','server_model,model_group,num_files','local_model,remote_model,models_text,button_generator');
+ hide_group_value('model_source','remote_file,remote_zip,remote_folder','remote_model','local_model,model_group,server_model,num_files,models_text,button_generator');
+ hide_group_value('model_source','text','models_text','remote_model,model_group,server_model,num_files,local_model,button_generator');
+ hide_group_value('model_source','button_generator','models_text,button_generator','remote_model,model_group,server_model,num_files,local_model,database_servs,database_remote,num_files,database_file,db_sql_text');" >
+<option value="{match_model_source}">{match_model_source}</option>
+<option value="default">{match_label_default}</option>
+<option value="button_generator">{match_label_button_generator}</option>
+<option value="text">{match_label_text}</option>
+<option value="server">--[{match_label_from_server}]--</option>
+<option value="local_file">{match_label_local_source}</option>
+<option value="local_zip">{match_label_local_zip}</option>
+<option value="remote_file">{match_label_remote_source}</option>
+<option value="remote_folder">{match_label_remote_folder}</option>
+<option value="remote_zip">{match_label_remote_zip}</option>
+</td>
+</tr>
+
+
+
+
+<tr>
+<th align="left">
+<label for="output">{match_label_output}</label>
+</th>
+<td>
+<select name="output_type" id="output_type" onchange="
+ hide_group_value('output_type','default,download,download_zip','','destination,backup,check_other_model');
+ hide_group_value('output_type','application_auto,application_temp,application_update','check_other_model,backup','destination');
+ hide_group_value('output_type','remote_file,remote_zip,remote_folder,remote_file,','destination,backup','check_other_model');
+ " >
+<option value="{match_output_type}">{match_output_type}</option>
+<option value="default">{match_label_default}</option>
+<option value="download">{match_label_download}</option>
+<option value="download_zip">{match_label_download_zip}</option>
+<option value="application_auto">--[{match_label_auto_folders}]--</option>
+<option value="application_temp">{match_label_temporary_folders}</option>
+<option value="application_update">{match_label_update_files}</option>
+<option value="remote_folder">{match_label_remote_folder}</option>
+<option value="remote_zip">{match_label_remote_zip}</option>
+<option value="remote_file">{match_label_remote_file}</option>
+</td>
+</tr>
+
+
+<tr>
+<th align="left">
+<label for="cmr_core">{match_label_output}</label>{match_label_core_files}
+</th>
+<td align="left">
+<input type="checkbox" name="cmr_core" value="checked"  id="cmr_core" />
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="db_core">{match_label_output}</label>
+{match_label_core_tables}
+</th>
+<td align="left">
+    <input type="checkbox" name="db_core" id="db_core" value="checked"  
+       onclick="check_hide('db_core', 'db_core_table_prefix', 'normal');" />
+
+    <label for="db_core_table_prefix">{match_label_prefix}</label>
+    <input type="text" size="7" name="db_core_table_prefix" id="db_core_table_prefix" value=""  />
+</td>
+</tr>
+
+
+
+</table>
+</div>
+</fieldset>
+
+
+
+<br />
+
+
+
+<fieldset class="bubble">
+<legend>{match_label_options}</legend>
+<table class="normal_text" border="1" align="center">
+<tr><th align="left"><label for="model_group">{match_label_model_group}</label></th><td>
+
+<select name="model_group" id="model_group"  
+onchange="
+link_conf('model_group,the_db_name,model_source,db_source,output_type,db_type','model_group,the_db_name,model_source,db_source,output_type,db_type');
+" >
+<option value="{match_model_group}">{match_model_group}</option>
+<option value="default">{match_label_default}</option>
+{match_select_model_group}
+</td>
+</tr>
+
+
+<tr>
+<th align="left"><label for="db_core">
+<br />
+{match_label_db_source}
+<br /></label>
+</th>
+<td>
+<input type="file" id="database_file" name="remote_file_db" value="" />
+<input type="text" id="database_remote" name="remote_file" value="" />
+   <textarea rows="5" cols="50" name="db_sql_text" id="db_sql_text" >
+CREATE TABLE IF NOT EXISTS `cmr_download` (
+  `id` int(11) NOT NULL auto_increment,
+  `url` varchar(254) NOT NULL default '',
+  `path` varchar(254) default NULL,
+  `file_name` varchar(254) default NULL,
+  `file_type` varchar(254) default NULL,
+  `file_size` varchar(254) default NULL,
+  `state` enum('active','disable') NOT NULL default 'active',
+  `allow_type` varchar(254) NOT NULL default '5_noc,5_soc,5_operator,6_admin,7_developer',
+  `allow_email` varchar(254) NOT NULL default 'noc@localhost,soc@localhost,operator@localhost,admin@localhost,developer@localhost',
+  `allow_groups` varchar(254) NOT NULL default 'noc,soc,operator,admin,developer',
+  `comment` text,
+  `date_time` timestamp NOT NULL,
+  PRIMARY KEY  (`id`)
+) TYPE=MyISAM COMMENT='Table of file to download' AUTO_INCREMENT=1;
+   </textarea>
+</td>
+</tr>
+
+
+
+<tr>
+<th align="left">
+<label for="model_source">{match_label_model_source}</label>
+</th>
+<td>
+<input type="text" name="remote_file_model" id="remote_model" value="" /> 
+<input type="file"  id="local_model" name="model_file" value="" />
+   <textarea rows="5" cols="50" name="models_text" id="models_text" >
+___@___
+___?___
+___%___
+___+___
+___*___
+___!___
+__PACE__
+__UPDATE__
+__SEARCH__
+__DELETE__
+__REPORT__
+__IMPORT__
+__EXPORT__
+__CONFIG__
+__VIEW_ALL__
+__VIEW_INFO__
+__PREVIEW__
+_@_DATE_TIME_@_
+   </textarea>
+   <br />
+   <div id="button_generator">
+		<fieldset class="bubble"><legend><label for="button_options">{match_label_button_options}</label></legend>
+		<table class="normal_text" border="1"  align="center">
+		<tr><th align="left"><label for="button_color">{match_label_button_color}</label></th><td>
+			<select name="button_color" id="button_color">
+			<option value="{match_col1}{match_col2}{match_col3}">{match_default} - (#{match_col1}{match_col2}{match_col3})</option>
+			<option value="fffafa">{match_snow} - (#fffafa)</option>
+			<option value="f8f8ff">{match_ghostwhite} - (#f8f8ff)</option>
+			<option value="f5f5f5">{match_whitesmoke} - (#f5f5f5)</option>
+			<option value="dcdcdc">{match_gainsboro} - (#dcdcdc)</option>
+			<option value="fffaf0">{match_floralwhite} - (#fffaf0)</option>
+			<option value="fdf5e6">{match_oldlace} - (#fdf5e6)</option>
+			<option value="faf0e6">{match_linen} - (#faf0e6)</option>
+			<option value="faebd7">{match_antiquewhite} - (#faebd7)</option>
+			<option value="ffefd5">{match_papayawhip} - (#ffefd5)</option>
+			<option value="ffebcd">{match_blanchedalmond} - (#ffebcd)</option>
+			<option value="ffe4c4">{match_bisque} - (#ffe4c4)</option>
+			<option value="ffdab9">{match_peachpuff} - (#ffdab9)</option>
+			<option value="ffdead">{match_navajowhite} - (#ffdead)</option>
+			<option value="ffe4b5">{match_moccasin} - (#ffe4b5)</option>
+			<option value="fff8dc">{match_cornsilk} - (#fff8dc)</option>
+			<option value="fffff0">{match_ivory} - (#fffff0)</option>
+			<option value="fffacd">{match_lemonchiffon} - (#fffacd)</option>
+			<option value="fff5ee">{match_seashell} - (#fff5ee)</option>
+			<option value="f0fff0">{match_honeydew} - (#f0fff0)</option>
+			<option value="f5fffa">{match_mintcream} - (#f5fffa)</option>
+			<option value="f0ffff">{match_azure} - (#f0ffff)</option>
+			<option value="f0f8ff">{match_aliceblue} - (#f0f8ff)</option>
+			<option value="e6e6fa">{match_lavender} - (#e6e6fa)</option>
+			<option value="fff0f5">{match_lavenderblush} - (#fff0f5)</option>
+			<option value="ffe4e1">{match_mistyrose} - (#ffe4e1)</option>
+			<option value="ffffff">{match_white} - (#ffffff)</option>
+			<option value="000000">{match_black} - (#000000)</option>
+			<option value="2f4f4f">{match_darkslategray} - (#2f4f4f)</option>
+			<option value="696969">{match_dimgray} - (#696969)</option>
+			<option value="708090">{match_slategray} - (#708090)</option>
+			<option value="778899">{match_lightslategray} - (#778899)</option>
+			<option value="bebebe">{match_gray} - (#bebebe)</option>
+			<option value="d3d3d3">{match_lightgray} - (#d3d3d3)</option>
+			<option value="191970">{match_midnightblue} - (#191970)</option>
+			<option value="000080">{match_navyblue} - (#000080)</option>
+			<option value="6495ed">{match_cornflowerblue} - (#6495ed)</option>
+			<option value="483d8b">{match_darkslateblue} - (#483d8b)</option>
+			<option value="6a5acd">{match_slateblue} - (#6a5acd)</option>
+			<option value="7b68ee">{match_mediumslateblue} - (#7b68ee)</option>
+			<option value="8470ff">{match_lightslateblue} - (#8470ff)</option>
+			<option value="0000cd">{match_mediumblue} - (#0000cd)</option>
+			<option value="4169e1">{match_royalblue} - (#4169e1)</option>
+			<option value="0000ff">{match_blue} - (#0000ff)</option>
+			<option value="1e90ff">{match_dodgerblue} - (#1e90ff)</option>
+			<option value="00bfff">{match_deepskyblue} - (#00bfff)</option>
+			<option value="87ceeb">{match_skyblue} - (#87ceeb)</option>
+			<option value="87cefa">{match_lightskyblue} - (#87cefa)</option>
+			<option value="4682b4">{match_steelblue} - (#4682b4)</option>
+			<option value="b0c4de">{match_lightsteelblue} - (#b0c4de)</option>
+			<option value="add8e6">{match_lightblue} - (#add8e6)</option>
+			<option value="b0e0e6">{match_powderblue} - (#b0e0e6)</option>
+			<option value="afeeee">{match_paleturquoise} - (#afeeee)</option>
+			<option value="00ced1">{match_darkturquoise} - (#00ced1)</option>
+			<option value="48d1cc">{match_mediumturquoise} - (#48d1cc)</option>
+			<option value="40e0d0">{match_turquoise} - (#40e0d0)</option>
+			<option value="00ffff">{match_cyan} - (#00ffff)</option>
+			<option value="e0ffff">{match_lightcyan} - (#e0ffff)</option>
+			<option value="5f9ea0">{match_cadetblue} - (#5f9ea0)</option>
+			<option value="66cdaa">{match_mediumaquamarine} - (#66cdaa)</option>
+			<option value="7fffd4">{match_aquamarine} - (#7fffd4)</option>
+			<option value="006400">{match_darkgreen} - (#006400)</option>
+			<option value="556b2f">{match_darkolivegreen} - (#556b2f)</option>
+			<option value="8fbc8f">{match_darkseagreen} - (#8fbc8f)</option>
+			<option value="2e8b57">{match_seagreen} - (#2e8b57)</option>
+			<option value="3cb371">{match_mediumseagreen} - (#3cb371)</option>
+			<option value="20b2aa">{match_lightseagreen} - (#20b2aa)</option>
+			<option value="98fb98">{match_palegreen} - (#98fb98)</option>
+			<option value="00ff7f">{match_springgreen} - (#00ff7f)</option>
+			<option value="7cfc00">{match_lawngreen} - (#7cfc00)</option>
+			<option value="00ff00">{match_green} - (#00ff00)</option>
+			<option value="7fff00">{match_chartreuse} - (#7fff00)</option>
+			<option value="00fa9a">{match_medspringgreen} - (#00fa9a)</option>
+			<option value="adff2f">{match_greenyellow} - (#adff2f)</option>
+			<option value="32cd32">{match_limegreen} - (#32cd32)</option>
+			<option value="9acd32">{match_yellowgreen} - (#9acd32)</option>
+			<option value="228b22">{match_forestgreen} - (#228b22)</option>
+			<option value="6b8e23">{match_olivedrab} - (#6b8e23)</option>
+			<option value="bdb76b">{match_darkkhaki} - (#bdb76b)</option>
+			<option value="eee8aa">{match_palegoldenrod} - (#eee8aa)</option>
+			<option value="fafad2">{match_ltgoldenrodyello} - (#fafad2)</option>
+			<option value="ffffe0">{match_lightyellow} - (#ffffe0)</option>
+			<option value="ffff00">{match_yellow} - (#ffff00)</option>
+			<option value="ffd700">{match_gold} - (#ffd700)</option>
+			<option value="eedd82">{match_lightgoldenrod} - (#eedd82)</option>
+			<option value="daa520">{match_goldenrod} - (#daa520)</option>
+			<option value="b8860b">{match_darkgoldenrod} - (#b8860b)</option>
+			<option value="bc8f8f">{match_rosybrown} - (#bc8f8f)</option>
+			<option value="cd5c5c">{match_indianred} - (#cd5c5c)</option>
+			<option value="8b4513">{match_saddlebrown} - (#8b4513)</option>
+			<option value="a0522d">{match_sienna} - (#a0522d)</option>
+			<option value="cd853f">{match_peru} - (#cd853f)</option>
+			<option value="deb887">{match_burlywood} - (#deb887)</option>
+			<option value="f5f5dc">{match_beige} - (#f5f5dc)</option>
+			<option value="f5deb3">{match_wheat} - (#f5deb3)</option>
+			<option value="f4a460">{match_sandybrown} - (#f4a460)</option>
+			<option value="d2b48c">{match_tan} - (#d2b48c)</option>
+			<option value="d2691e">{match_chocolate} - (#d2691e)</option>
+			<option value="b22222">{match_firebrick} - (#b22222)</option>
+			<option value="a52a2a">{match_brown} - (#a52a2a)</option>
+			<option value="e9967a">{match_darksalmon} - (#e9967a)</option>
+			<option value="fa8072">{match_salmon} - (#fa8072)</option>
+			<option value="ffa07a">{match_lightsalmon} - (#ffa07a)</option>
+			<option value="ffa500">{match_orange} - (#ffa500)</option>
+			<option value="ff8c00">{match_darkorange} - (#ff8c00)</option>
+			<option value="ff7f50">{match_coral} - (#ff7f50)</option>
+			<option value="f08080">{match_lightcoral} - (#f08080)</option>
+			<option value="ff6347">{match_tomato} - (#ff6347)</option>
+			<option value="ff4500">{match_orangered} - (#ff4500)</option>
+			<option value="ff0000">{match_red} - (#ff0000)</option>
+			<option value="ff69b4">{match_hotpink} - (#ff69b4)</option>
+			<option value="ff1493">{match_deeppink} - (#ff1493)</option>
+			<option value="ffc0cb">{match_pink} - (#ffc0cb)</option>
+			<option value="ffb6c1">{match_lightpink} - (#ffb6c1)</option>
+			<option value="db7093">{match_palevioletred} - (#db7093)</option>
+			<option value="b03060">{match_maroon} - (#b03060)</option>
+			<option value="c71585">{match_mediumvioletred} - (#c71585)</option>
+			<option value="d02090">{match_violetred} - (#d02090)</option>
+			<option value="ff00ff">{match_magenta} - (#ff00ff)</option>
+			<option value="ee82ee">{match_violet} - (#ee82ee)</option>
+			<option value="dda0dd">{match_plum} - (#dda0dd)</option>
+			<option value="da70d6">{match_orchid} - (#da70d6)</option>
+			<option value="ba55d3">{match_mediumorchid} - (#ba55d3)</option>
+			<option value="9932cc">{match_darkorchid} - (#9932cc)</option>
+			<option value="9400d3">{match_darkviolet} - (#9400d3)</option>
+			<option value="8a2be2">{match_blueviolet} - (#8a2be2)</option>
+			<option value="a020f0">{match_purple} - (#a020f0)</option>
+			<option value="9370db">{match_mediumpurple} - (#9370db)</option>
+			<option value="d8bfd8">{match_thistle} - (#d8bfd8)</option>
+			<option value="fffafa">{match_snow1} - (#fffafa)</option>
+			<option value="eee9e9">{match_snow2} - (#eee9e9)</option>
+			<option value="cdc9c9">{match_snow3} - (#cdc9c9)</option>
+			<option value="8b8989">{match_snow4} - (#8b8989)</option>
+			<option value="fff5ee">{match_seashell1} - (#fff5ee)</option>
+			<option value="eee5de">{match_seashell2} - (#eee5de)</option>
+			<option value="cdc5bf">{match_seashell3} - (#cdc5bf)</option>
+			<option value="8b8682">{match_seashell4} - (#8b8682)</option>
+			<option value="ffefdb">{match_antiquewhite1} - (#ffefdb)</option>
+			<option value="eedfcc">{match_antiquewhite2} - (#eedfcc)</option>
+			<option value="cdc0b0">{match_antiquewhite3} - (#cdc0b0)</option>
+			<option value="8b8378">{match_antiquewhite4} - (#8b8378)</option>
+			<option value="ffe4c4">{match_bisque1} - (#ffe4c4)</option>
+			<option value="eed5b7">{match_bisque2} - (#eed5b7)</option>
+			<option value="cdb79e">{match_bisque3} - (#cdb79e)</option>
+			<option value="8b7d6b">{match_bisque4} - (#8b7d6b)</option>
+			<option value="ffdab9">{match_peachpuff1} - (#ffdab9)</option>
+			<option value="eecbad">{match_peachpuff2} - (#eecbad)</option>
+			<option value="cdaf95">{match_peachpuff3} - (#cdaf95)</option>
+			<option value="8b7765">{match_peachpuff4} - (#8b7765)</option>
+			<option value="ffdead">{match_navajowhite1} - (#ffdead)</option>
+			<option value="eecfa1">{match_navajowhite2} - (#eecfa1)</option>
+			<option value="cdb38b">{match_navajowhite3} - (#cdb38b)</option>
+			<option value="8b795e">{match_navajowhite4} - (#8b795e)</option>
+			<option value="fffacd">{match_lemonchiffon1} - (#fffacd)</option>
+			<option value="eee9bf">{match_lemonchiffon2} - (#eee9bf)</option>
+			<option value="cdc9a5">{match_lemonchiffon3} - (#cdc9a5)</option>
+			<option value="8b8970">{match_lemonchiffon4} - (#8b8970)</option>
+			<option value="fff8dc">{match_cornsilk1} - (#fff8dc)</option>
+			<option value="eee8cd">{match_cornsilk2} - (#eee8cd)</option>
+			<option value="cdc8b1">{match_cornsilk3} - (#cdc8b1)</option>
+			<option value="8b8878">{match_cornsilk4} - (#8b8878)</option>
+			<option value="fffff0">{match_ivory1} - (#fffff0)</option>
+			<option value="eeeee0">{match_ivory2} - (#eeeee0)</option>
+			<option value="cdcdc1">{match_ivory3} - (#cdcdc1)</option>
+			<option value="8b8b83">{match_ivory4} - (#8b8b83)</option>
+			<option value="f0fff0">{match_honeydew1} - (#f0fff0)</option>
+			<option value="e0eee0">{match_honeydew2} - (#e0eee0)</option>
+			<option value="c1cdc1">{match_honeydew3} - (#c1cdc1)</option>
+			<option value="838b83">{match_honeydew4} - (#838b83)</option>
+			<option value="fff0f5">{match_lavenderblush1} - (#fff0f5)</option>
+			<option value="eee0e5">{match_lavenderblush2} - (#eee0e5)</option>
+			<option value="cdc1c5">{match_lavenderblush3} - (#cdc1c5)</option>
+			<option value="8b8386">{match_lavenderblush4} - (#8b8386)</option>
+			<option value="ffe4e1">{match_mistyrose1} - (#ffe4e1)</option>
+			<option value="eed5d2">{match_mistyrose2} - (#eed5d2)</option>
+			<option value="cdb7b5">{match_mistyrose3} - (#cdb7b5)</option>
+			<option value="8b7d7b">{match_mistyrose4} - (#8b7d7b)</option>
+			<option value="f0ffff">{match_azure1} - (#f0ffff)</option>
+			<option value="e0eeee">{match_azure2} - (#e0eeee)</option>
+			<option value="c1cdcd">{match_azure3} - (#c1cdcd)</option>
+			<option value="838b8b">{match_azure4} - (#838b8b)</option>
+			<option value="836fff">{match_slateblue1} - (#836fff)</option>
+			<option value="7a67ee">{match_slateblue2} - (#7a67ee)</option>
+			<option value="6959cd">{match_slateblue3} - (#6959cd)</option>
+			<option value="473c8b">{match_slateblue4} - (#473c8b)</option>
+			<option value="4876ff">{match_royalblue1} - (#4876ff)</option>
+			<option value="436eee">{match_royalblue2} - (#436eee)</option>
+			<option value="3a5fcd">{match_royalblue3} - (#3a5fcd)</option>
+			<option value="27408b">{match_royalblue4} - (#27408b)</option>
+			<option value="0000ff">{match_blue1} - (#0000ff)</option>
+			<option value="0000ee">{match_blue2} - (#0000ee)</option>
+			<option value="0000cd">{match_blue3} - (#0000cd)</option>
+			<option value="00008b">{match_blue4} - (#00008b)</option>
+			<option value="1e90ff">{match_dodgerblue1} - (#1e90ff)</option>
+			<option value="1c86ee">{match_dodgerblue2} - (#1c86ee)</option>
+			<option value="1874cd">{match_dodgerblue3} - (#1874cd)</option>
+			<option value="104e8b">{match_dodgerblue4} - (#104e8b)</option>
+			<option value="63b8ff">{match_steelblue1} - (#63b8ff)</option>
+			<option value="5cacee">{match_steelblue2} - (#5cacee)</option>
+			<option value="4f94cd">{match_steelblue3} - (#4f94cd)</option>
+			<option value="36648b">{match_steelblue4} - (#36648b)</option>
+			<option value="00bfff">{match_deepskyblue1} - (#00bfff)</option>
+			<option value="00b2ee">{match_deepskyblue2} - (#00b2ee)</option>
+			<option value="009acd">{match_deepskyblue3} - (#009acd)</option>
+			<option value="00688b">{match_deepskyblue4} - (#00688b)</option>
+			<option value="87ceff">{match_skyblue1} - (#87ceff)</option>
+			<option value="7ec0ee">{match_skyblue2} - (#7ec0ee)</option>
+			<option value="6ca6cd">{match_skyblue3} - (#6ca6cd)</option>
+			<option value="4a708b">{match_skyblue4} - (#4a708b)</option>
+			<option value="b0e2ff">{match_lightskyblue1} - (#b0e2ff)</option>
+			<option value="a4d3ee">{match_lightskyblue2} - (#a4d3ee)</option>
+			<option value="8db6cd">{match_lightskyblue3} - (#8db6cd)</option>
+			<option value="607b8b">{match_lightskyblue4} - (#607b8b)</option>
+			<option value="c6e2ff">{match_slategray1} - (#c6e2ff)</option>
+			<option value="b9d3ee">{match_slategray2} - (#b9d3ee)</option>
+			<option value="9fb6cd">{match_slategray3} - (#9fb6cd)</option>
+			<option value="6c7b8b">{match_slategray4} - (#6c7b8b)</option>
+			<option value="cae1ff">{match_lightsteelblue1} - (#cae1ff)</option>
+			<option value="bcd2ee">{match_lightsteelblue2} - (#bcd2ee)</option>
+			<option value="a2b5cd">{match_lightsteelblue3} - (#a2b5cd)</option>
+			<option value="6e7b8b">{match_lightsteelblue4} - (#6e7b8b)</option>
+			<option value="bfefff">{match_lightblue1} - (#bfefff)</option>
+			<option value="b2dfee">{match_lightblue2} - (#b2dfee)</option>
+			<option value="9ac0cd">{match_lightblue3} - (#9ac0cd)</option>
+			<option value="68838b">{match_lightblue4} - (#68838b)</option>
+			<option value="e0ffff">{match_lightcyan1} - (#e0ffff)</option>
+			<option value="d1eeee">{match_lightcyan2} - (#d1eeee)</option>
+			<option value="b4cdcd">{match_lightcyan3} - (#b4cdcd)</option>
+			<option value="7a8b8b">{match_lightcyan4} - (#7a8b8b)</option>
+			<option value="bbffff">{match_paleturquoise1} - (#bbffff)</option>
+			<option value="aeeeee">{match_paleturquoise2} - (#aeeeee)</option>
+			<option value="96cdcd">{match_paleturquoise3} - (#96cdcd)</option>
+			<option value="668b8b">{match_paleturquoise4} - (#668b8b)</option>
+			<option value="98f5ff">{match_cadetblue1} - (#98f5ff)</option>
+			<option value="8ee5ee">{match_cadetblue2} - (#8ee5ee)</option>
+			<option value="7ac5cd">{match_cadetblue3} - (#7ac5cd)</option>
+			<option value="53868b">{match_cadetblue4} - (#53868b)</option>
+			<option value="00f5ff">{match_turquoise1} - (#00f5ff)</option>
+			<option value="00e5ee">{match_turquoise2} - (#00e5ee)</option>
+			<option value="00c5cd">{match_turquoise3} - (#00c5cd)</option>
+			<option value="00868b">{match_turquoise4} - (#00868b)</option>
+			<option value="00ffff">{match_cyan1} - (#00ffff)</option>
+			<option value="00eeee">{match_cyan2} - (#00eeee)</option>
+			<option value="00cdcd">{match_cyan3} - (#00cdcd)</option>
+			<option value="008b8b">{match_cyan4} - (#008b8b)</option>
+			<option value="97ffff">{match_darkslategray1} - (#97ffff)</option>
+			<option value="8deeee">{match_darkslategray2} - (#8deeee)</option>
+			<option value="79cdcd">{match_darkslategray3} - (#79cdcd)</option>
+			<option value="528b8b">{match_darkslategray4} - (#528b8b)</option>
+			<option value="7fffd4">{match_aquamarine1} - (#7fffd4)</option>
+			<option value="76eec6">{match_aquamarine2} - (#76eec6)</option>
+			<option value="66cdaa">{match_aquamarine3} - (#66cdaa)</option>
+			<option value="458b74">{match_aquamarine4} - (#458b74)</option>
+			<option value="c1ffc1">{match_darkseagreen1} - (#c1ffc1)</option>
+			<option value="b4eeb4">{match_darkseagreen2} - (#b4eeb4)</option>
+			<option value="9bcd9b">{match_darkseagreen3} - (#9bcd9b)</option>
+			<option value="698b69">{match_darkseagreen4} - (#698b69)</option>
+			<option value="54ff9f">{match_seagreen1} - (#54ff9f)</font></option>
+			<option value="4eee94">{match_seagreen2} - (#4eee94)</option>
+			<option value="43cd80">{match_seagreen3} - (#43cd80)</option>
+			<option value="2e8b57">{match_seagreen4} - (#2e8b57)</option>
+			<option value="9aff9a">{match_palegreen1} - (#9aff9a)</option>
+			<option value="90ee90">{match_palegreen2} - (#90ee90)</option>
+			<option value="7ccd7c">{match_palegreen3} - (#7ccd7c)</option>
+			<option value="548b54">{match_palegreen4} - (#548b54)</option>
+			<option value="00ff7f">{match_springgreen1} - (#00ff7f)</option>
+			<option value="00ee76">{match_springgreen2} - (#00ee76)</option>
+			<option value="00cd66">{match_springgreen3} - (#00cd66)</option>
+			<option value="008b45">{match_springgreen4} - (#008b45)</option>
+			<option value="00ff00">{match_green1} - (#00ff00)</option>
+			<option value="00ee00">{match_green2} - (#00ee00)</option>
+			<option value="00cd00">{match_green3} - (#00cd00)</option>
+			<option value="008b00">{match_green4} - (#008b00)</option>
+			<option value="7fff00">{match_chartreuse1} - (#7fff00)</option>
+			<option value="76ee00">{match_chartreuse2} - (#76ee00)</option>
+			<option value="66cd00">{match_chartreuse3} - (#66cd00)</option>
+			<option value="458b00">{match_chartreuse4} - (#458b00)</option>
+			<option value="c0ff3e">{match_olivedrab1} - (#c0ff3e)</option>
+			<option value="b3ee3a">{match_olivedrab2} - (#b3ee3a)</option>
+			<option value="9acd32">{match_olivedrab3} - (#9acd32)</option>
+			<option value="698b22">{match_olivedrab4} - (#698b22)</option>
+			<option value="caff70">{match_darkolivegreen1} - (#caff70)</option>
+			<option value="bcee68">{match_darkolivegreen2} - (#bcee68)</option>
+			<option value="a2cd5a">{match_darkolivegreen3} - (#a2cd5a)</option>
+			<option value="6e8b3d">{match_darkolivegreen4} - (#6e8b3d)</option>
+			<option value="fff68f">{match_khaki1} - (#fff68f)</option>
+			<option value="eee685">{match_khaki2} - (#eee685)</option>
+			<option value="cdc673">{match_khaki3} - (#cdc673)</option>
+			<option value="8b864e">{match_khaki4} - (#8b864e)</option>
+			<option value="ffec8b">{match_lightgoldenrod1} - (#ffec8b)</option>
+			<option value="eedc82">{match_lightgoldenrod2} - (#eedc82)</option>
+			<option value="cdbe70">{match_lightgoldenrod3} - (#cdbe70)</option>
+			<option value="8b814c">{match_lightgoldenrod4} - (#8b814c)</option>
+			<option value="ffffe0">{match_lightyellow1} - (#ffffe0)</option>
+			<option value="eeeed1">{match_lightyellow2} - (#eeeed1)</option>
+			<option value="cdcdb4">{match_lightyellow3} - (#cdcdb4)</option>
+			<option value="8b8b7a">{match_lightyellow4} - (#8b8b7a)</option>
+			<option value="ffff00">{match_yellow1} - (#ffff00)</option>
+			<option value="eeee00">{match_yellow2} - (#eeee00)</option>
+			<option value="cdcd00">{match_yellow3} - (#cdcd00)</option>
+			<option value="8b8b00">{match_yellow4} - (#8b8b00)</option>
+			<option value="ffd700">{match_gold1} - (#ffd700)</option>
+			<option value="eec900">{match_gold2} - (#eec900)</option>
+			<option value="cdad00">{match_gold3} - (#cdad00)</option>
+			<option value="8b7500">{match_gold4} - (#8b7500)</option>
+			<option value="ffc125">{match_goldenrod1} - (#ffc125)</option>
+			<option value="eeb422">{match_goldenrod2} - (#eeb422)</option>
+			<option value="cd9b1d">{match_goldenrod3} - (#cd9b1d)</option>
+			<option value="8b6914">{match_goldenrod4} - (#8b6914)</option>
+			<option value="ffb90f">{match_darkgoldenrod1} - (#ffb90f)</option>
+			<option value="eead0e">{match_darkgoldenrod2} - (#eead0e)</option>
+			<option value="cd950c">{match_darkgoldenrod3} - (#cd950c)</option>
+			<option value="8b6508">{match_darkgoldenrod4} - (#8b6508)</option>
+			<option value="ffc1c1">{match_rosybrown1} - (#ffc1c1)</option>
+			<option value="eeb4b4">{match_rosybrown2} - (#eeb4b4)</option>
+			<option value="cd9b9b">{match_rosybrown3} - (#cd9b9b)</option>
+			<option value="8b6969">{match_rosybrown4} - (#8b6969)</option>
+			<option value="ff6a6a">{match_indianred1} - (#ff6a6a)</option>
+			<option value="ee6363">{match_indianred2} - (#ee6363)</option>
+			<option value="cd5555">{match_indianred3} - (#cd5555)</option>
+			<option value="8b3a3a">{match_indianred4} - (#8b3a3a)</option>
+			<option value="ff8247">{match_sienna1} - (#ff8247)</option>
+			<option value="ee7942">{match_sienna2} - (#ee7942)</option>
+			<option value="cd6839">{match_sienna3} - (#cd6839)</option>
+			<option value="8b4726">{match_sienna4} - (#8b4726)</option>
+			<option value="ffd39b">{match_burlywood1} - (#ffd39b)</option>
+			<option value="eec591">{match_burlywood2} - (#eec591)</option>
+			<option value="cdaa7d">{match_burlywood3} - (#cdaa7d)</option>
+			<option value="8b7355">{match_burlywood4} - (#8b7355)</option>
+			<option value="ffe7ba">{match_wheat1} - (#ffe7ba)</option>
+			<option value="eed8ae">{match_wheat2} - (#eed8ae)</option>
+			<option value="cdba96">{match_wheat3} - (#cdba96)</option>
+			<option value="8b7e66">{match_wheat4} - (#8b7e66)</option>
+			<option value="ffa54f">{match_tan1} - (#ffa54f)</option>
+			<option value="ee9a49">{match_tan2} - (#ee9a49)</option>
+			<option value="cd853f">{match_tan3} - (#cd853f)</option>
+			<option value="8b5a2b">{match_tan4} - (#8b5a2b)</option>
+			<option value="ff7f24">{match_chocolate1} - (#ff7f24)</option>
+			<option value="ee7621">{match_chocolate2} - (#ee7621)</option>
+			<option value="cd661d">{match_chocolate3} - (#cd661d)</option>
+			<option value="8b4513">{match_chocolate4} - (#8b4513)</option>
+			<option value="ff3030">{match_firebrick1} - (#ff3030)</option>
+			<option value="ee2c2c">{match_firebrick2} - (#ee2c2c)</option>
+			<option value="cd2626">{match_firebrick3} - (#cd2626)</option>
+			<option value="8b1a1a">{match_firebrick4} - (#8b1a1a)</option>
+			<option value="ff4040">{match_brown1} - (#ff4040)</option>
+			<option value="ee3b3b">{match_brown2} - (#ee3b3b)</option>
+			<option value="cd3333">{match_brown3} - (#cd3333)</option>
+			<option value="8b2323">{match_brown4} - (#8b2323)</option>
+			<option value="ff8c69">{match_salmon1} - (#ff8c69)</option>
+			<option value="ee8262">{match_salmon2} - (#ee8262)</option>
+			<option value="cd7054">{match_salmon3} - (#cd7054)</option>
+			<option value="8b4c39">{match_salmon4} - (#8b4c39)</option>
+			<option value="ffa07a">{match_lightsalmon1} - (#ffa07a)</option>
+			<option value="ee9572">{match_lightsalmon2} - (#ee9572)</option>
+			<option value="cd8162">{match_lightsalmon3} - (#cd8162)</option>
+			<option value="8b5742">{match_lightsalmon4} - (#8b5742)</option>
+			<option value="ffa500">{match_orange1} - (#ffa500)</option>
+			<option value="ee9a00">{match_orange2} - (#ee9a00)</option>
+			<option value="cd8500">{match_orange3} - (#cd8500)</option>
+			<option value="8b5a00">{match_orange4} - (#8b5a00)</option>
+			<option value="ff7f00">{match_darkorange1} - (#ff7f00)</option>
+			<option value="ee7600">{match_darkorange2} - (#ee7600)</option>
+			<option value="cd6600">{match_darkorange3} - (#cd6600)</option>
+			<option value="8b4500">{match_darkorange4} - (#8b4500)</option>
+			<option value="ff7256">{match_coral1} - (#ff7256)</option>
+			<option value="ee6a50">{match_coral2} - (#ee6a50)</option>
+			<option value="cd5b45">{match_coral3} - (#cd5b45)</option>
+			<option value="8b3e2f">{match_coral4} - (#8b3e2f)</option>
+			<option value="ff6347">{match_tomato1} - (#ff6347)</option>
+			<option value="ee5c42">{match_tomato2} - (#ee5c42)</option>
+			<option value="cd4f39">{match_tomato3} - (#cd4f39)</option>
+			<option value="8b3626">{match_tomato4} - (#8b3626)</option>
+			<option value="ff4500">{match_orangered1} - (#ff4500)</option>
+			<option value="ee4000">{match_orangered2} - (#ee4000)</option>
+			<option value="cd3700">{match_orangered3} - (#cd3700)</option>
+			<option value="8b2500">{match_orangered4} - (#8b2500)</option>
+			<option value="ff0000">{match_red1} - (#ff0000)</option>
+			<option value="ee0000">{match_red2} - (#ee0000)</option>
+			<option value="cd0000">{match_red3} - (#cd0000)</option>
+			<option value="8b0000">{match_red4} - (#8b0000)</option>
+			<option value="ff1493">{match_deeppink1} - (#ff1493)</option>
+			<option value="ee1289">{match_deeppink2} - (#ee1289)</option>
+			<option value="cd1076">{match_deeppink3} - (#cd1076)</option>
+			<option value="8b0a50">{match_deeppink4} - (#8b0a50)</option>
+			<option value="ff6eb4">{match_hotpink1} - (#ff6eb4)</option>
+			<option value="ee6aa7">{match_hotpink2} - (#ee6aa7)</option>
+			<option value="cd6090">{match_hotpink3} - (#cd6090)</option>
+			<option value="8b3a62">{match_hotpink4} - (#8b3a62)</option>
+			<option value="ffb5c5">{match_pink1} - (#ffb5c5)</option>
+			<option value="eea9b8">{match_pink2} - (#eea9b8)</option>
+			<option value="cd919e">{match_pink3} - (#cd919e)</option>
+			<option value="8b636c">{match_pink4} - (#8b636c)</option>
+			<option value="ffaeb9">{match_lightpink1} - (#ffaeb9)</option>
+			<option value="eea2ad">{match_lightpink2} - (#eea2ad)</option>
+			<option value="cd8c95">{match_lightpink3} - (#cd8c95)</option>
+			<option value="8b5f65">{match_lightpink4} - (#8b5f65)</option>
+			<option value="ff82ab">{match_palevioletred1} - (#ff82ab)</option>
+			<option value="ee799f">{match_palevioletred2} - (#ee799f)</option>
+			<option value="cd6889">{match_palevioletred3} - (#cd6889)</option>
+			<option value="8b475d">{match_palevioletred4} - (#8b475d)</option>
+			<option value="ff34b3">{match_maroon1} - (#ff34b3)</option>
+			<option value="ee30a7">{match_maroon2} - (#ee30a7)</option>
+			<option value="cd2990">{match_maroon3} - (#cd2990)</option>
+			<option value="8b1c62">{match_maroon4} - (#8b1c62)</option>
+			<option value="ff3e96">{match_violetred1} - (#ff3e96)</option>
+			<option value="ee3a8c">{match_violetred2} - (#ee3a8c)</option>
+			<option value="cd3278">{match_violetred3} - (#cd3278)</option>
+			<option value="8b2252">{match_violetred4} - (#8b2252)</option>
+			<option value="ff00ff">{match_magenta1} - (#ff00ff)</option>
+			<option value="ee00ee">{match_magenta2} - (#ee00ee)</option>
+			<option value="cd00cd">{match_magenta3} - (#cd00cd)</option>
+			<option value="8b008b">{match_magenta4} - (#8b008b)</option>
+			<option value="ff83fa">{match_orchid1} - (#ff83fa)</option>
+			<option value="ee7ae9">{match_orchid2} - (#ee7ae9)</option>
+			<option value="cd69c9">{match_orchid3} - (#cd69c9)</option>
+			<option value="8b4789">{match_orchid4} - (#8b4789)</option>
+			<option value="ffbbff">{match_plum1} - (#ffbbff)</option>
+			<option value="eeaeee">{match_plum2} - (#eeaeee)</option>
+			<option value="cd96cd">{match_plum3} - (#cd96cd)</option>
+			<option value="8b668b">{match_plum4} - (#8b668b)</option>
+			<option value="e066ff">{match_mediumorchid1} - (#e066ff)</option>
+			<option value="d15fee">{match_mediumorchid2} - (#d15fee)</option>
+			<option value="b452cd">{match_mediumorchid3} - (#b452cd)</option>
+			<option value="7a378b">{match_mediumorchid4} - (#7a378b)</option>
+			<option value="bf3eff">{match_darkorchid1} - (#bf3eff)</option>
+			<option value="b23aee">{match_darkorchid2} - (#b23aee)</option>
+			<option value="9a32cd">{match_darkorchid3} - (#9a32cd)</option>
+			<option value="68228b">{match_darkorchid4} - (#68228b)</option>
+			<option value="9b30ff">{match_purple1} - (#9b30ff)</option>
+			<option value="912cee">{match_purple2} - (#912cee)</option>
+			<option value="7d26cd">{match_purple3} - (#7d26cd)</option>
+			<option value="551a8b">{match_purple4} - (#551a8b)</option>
+			<option value="ab82ff">{match_mediumpurple1} - (#ab82ff)</option>
+			<option value="9f79ee">{match_mediumpurple2} - (#9f79ee)</option>
+			<option value="8968cd">{match_mediumpurple3} - (#8968cd)</option>
+			<option value="5d478b">{match_mediumpurple4} - (#5d478b)</option>
+			<option value="ffe1ff">{match_thistle1} - (#ffe1ff)</option>
+			<option value="eed2ee">{match_thistle2} - (#eed2ee)</option>
+			<option value="cdb5cd">{match_thistle3} - (#cdb5cd)</option>
+			<option value="8b7b8b">{match_thistle4} - (#8b7b8b)</option>
+			<option value="1c1c1c">{match_gray11} - (#1c1c1c)</option>
+			<option value="363636">{match_gray21} - (#363636)</option>
+			<option value="4f4f4f">{match_gray31} - (#4f4f4f)</option>
+			<option value="696969">{match_gray41} - (#696969)</option>
+			<option value="828282">{match_gray51} - (#828282)</option>
+			<option value="9c9c9c">{match_gray61} - (#9c9c9c)</option>
+			<option value="b5b5b5">{match_gray71} - (#b5b5b5)</option>
+			<option value="cfcfcf">{match_gray81} - (#cfcfcf)</option>
+			<option value="e8e8e8">{match_gray91} - (#e8e8e8)</option>
+			<option value="a9a9a9">{match_darkgray} - (#a9a9a9)</option>
+			<option value="00008b">{match_darkblue} - (#00008b)</option>
+			<option value="008b8b">{match_darkcyan} - (#008b8b)</option>
+			<option value="8b008b">{match_darkmagenta} - (#8b008b)</option>
+			<option value="8b0000">{match_darkred} - (#8b0000)</option>
+			<option value="90ee90">{match_lightgreen} - (#90ee90)</option>
+			</select>		
+		</td></tr>
+		
+		<tr><th align="left"><label for="text_font">{match_label_text_font}</label></th>
+		<td>
+				<select name="text_font" id="text_font">
+				<option value="{match_font}">{match_font}</option>
+				<option value="1">Internal Font Dim(1)</option>
+				<option value="2">Internal Font Dim(2)</option>
+				<option value="3">Internal Font Dim(3)</option>
+				<option value="4">Internal Font Dim(4)</option>
+				<option value="5">Internal Font Dim(5)</option>
+				{match_select_text_font}
+				<option value=""></option>
+				</select>
+		</td></tr>
+		<tr><th align="left"><label for="text_size">{match_label_text_size}</label></th><td>
+			<select name="text_size" id="text_size">
+			<option value="{match_size}">{match_size}</option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">--5--</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			</select>
+		</td></tr>
+		<tr><th align="left"><label for="button_x_pos">{match_label_button_x_pos}</label></th><td>
+			<input type="text" name="button_x_pos" id="button_x_pos" value="{match_x_pos}" /> 
+		</td></tr>
+		<tr><th align="left"><label for="button_y_pos">{match_label_button_y_pos}</label></th><td>
+			<input type="text" name="button_y_pos" id="button_y_pos" value="{match_y_pos}" /> 
+		</td></tr>
+		<tr><th align="left"><label for="button_model">{match_label_button_model}</label> <br />[{match_button_model}]</td><td>
+			<select name="button_model" id="button_model">
+			<option value="{match_button_model_value}" selected="selected">{match_button_model}</option>
+			{match_select_button_model}
+			</select>
+			<input type="file" name="button_model1" id="button_model1" /> 
+
+		</td></tr>
+		</table>
+		</fieldset>
+   </div>
+</td>
+</tr>
+
+
+
+<tr>
+<th align="left">
+<label for="destination">{match_label_output_dest}</label>
+</th>
+<td>
+<input type="text" name="destination" id="destination" value="{match_temp_path}" /> </td>
+</tr>
+
+
+
+<tr>
+<th align="rigth">
+<label for="check_backup">{match_label_backup}</label>
+
+</th>
+<td align="left">
+<div id="backup">
+<input type="checkbox" name="check_backup" id="check_backup" value="checked" checked 
+ onclick="check_hide('check_backup', 'backup_extention', 'normal');" />
+<input size="7" type="text" name="backup_extention" id="backup_extention" value=".bak"  />
+</div>
+</td>
+</tr>
+
+
+
+<tr>
+<th align="rigth">
+<label for="check_other_model">{match_label_extra}</label>
+
+</th>
+<td align="left">
+<!--input type="checkbox" name="for_incomplete_module" value="checked"  id="for_incomplete_module" /-->
+<input type="checkbox" name="check_other_model" value="yes"  id="check_other_model" />
+</td>
+</tr>
+
+</table>
+</fieldset>
+
+
+
+<br />
+
+
+
+<fieldset class="bubble"><legend><label for="server_db">{match_label_server_db}</label></legend>
+<div id="database_servs">
+<table class="normal_text" border="1"  align="center">
+
+
+<tr><th align="left"><label for="db_host">{match_label_db_host}</label></th>
+<td><input type="text" name="db_host" value="{match_cookie_db_host}" /> </td></tr>
+<tr><th align="left"><label for="db_port">{match_label_db_port}</label></th>
+<td><input type="text" name="db_port" value="{match_cookie_db_port}" /> </td></tr>
+<tr><th align="left"><label for="the_db_name">{match_label_db_name}</label></th><td>
+
+<select name="the_db_name" id="the_db_name" 
+onchange="
+link_conf('model_group,the_db_name,model_source,db_source,output_type,db_type','model_group,the_db_name,model_source,db_source,output_type,db_type');
+" >
+<option value="{match_the_db_name}">{match_the_db_name}</option>
+<option value="">{match_label_manual_insert}</option>
+{match_select_db_name}
+<option>
+{match_db_name}
+</option>
+
+</td>
+</tr>
+
+
+
+<tr>
+<td>
+<label for="db_name">{match_label_db_name}</label></th>
+<td><input type="text" name="db_name" value="{match_cookie_db_name}" /> 
+</td>
+</tr>
+
+<tr><th align="left"><label for="db_user">{match_label_db_user}</label></th>
+<td><input type="text" name="db_user" value="{match_cookie_db_user}" /> 
+</td></tr>
+<tr><th align="left"><label for="db_pw">{match_label_db_pw}</label></th>
+<td><input type="password" name="db_pw" value="{match_cookie_db_pw}" /> 
+</td></tr>
+
+<tr><th align="left">
+<label for="table_prefix">{match_label_table_prefix}</label></th><td>
+<input type="text" name="table_prefix" value="{match_table_prefix}" /> 
+</td>
+</tr>
+
+</table>
+
+
+
+<br />
+
+
+
+
+<fieldset class="bubble"><legend>
+{match_label_tables}
+ [
+{match_the_db_name}
+]</legend>
+<div id="database_tables">
+<table class="normal_text" border="1"  align="center">
+
+
+<tr>
+<th align="rigth">
+<label for="table_prefix">{match_label_select_table}</label>
+</th>
+
+
+<td align="left">
+<input type="checkbox"  id="check_tables" checked onclick="check_uncheck_div('check_tables');" />
+<select multiple name="select_tables[]" id="select_tables"  onclick="set_select_all('check_tables', 'select_tables');" >
+{match_select_table_p}
+</select>
+</td>
+
+
+</tr>
+</table>
+</div>
+</fieldset>
+</div>
+</fieldset>
+
+
+
+<br />
+
+
+
+
+
+<fieldset class="bubble"><legend>{match_label_models}</legend>
+
+<div id="server_model">
+<fieldset class="bubble"><legend>{match_label_models_group} [{match_model_group}]</legend>
+
+<table class="normal_text" border="1"  align="center">
+<tr>
+<th align="left">
+<label for="table_prefix">{match_label_select_list_model}</label>
+</th>
+
+<td align="left">
+<input type="checkbox" value="checked"  id="check_models" checked  onclick="check_uncheck_div('check_models');" />
+<select multiple name="select_models[]" id="select_models" onclick="set_select_all('check_models', 'select_models');" >
+{match_select_list_model}
+
+</select>
+</td>
+</tr>
+
+</table>
+</fieldset>
+</div>
+
+
+
+
+
+
+<!--fieldset class="bubble"><legend><-php print($cmr->translate("other model"));->:</legend>
+<div id="remote_other">
+<table class="normal_text" border="1"  align="center">
+<tr><td><-php print($cmr->translate("generate for others models") );->: 
+<input type="checkbox"  value="checked"  id="check_all_other" <-php print(@ $_cookie["check_all_other"]);->  />
+</td>
+
+
+
+<td>
+<select multiple name="check_all_other" >
+</select>
+</td>
+
+
+</tr>
+</table>
+
+
+
+
+
+
+
+
+
+<br />
+<table class="normal_text" border="1"  align="center">
+
+<tr>
+<td align="rigth">
+Button :
+</td>
+<td align="left">
+   <input type="checkbox" name="check_button" value="checked"  <_php print(@ $_cookie["check_button"]);_>  />
+</td>
+</tr>
+
+
+<tr>
+<td align="rigth">
+Class :
+</td>
+<td align="left">
+   <input type="checkbox" name="check_class" value="checked"  <_php print(@ $_cookie["check_class"]);_>  />
+</td>
+</tr>
+
+<tr>
+<td align="rigth">
+Administrate.php:
+</td>
+<td align="left">
+   <input type="checkbox" name="check_administrate" value="checked"  <_php print(@ $_cookie["check_administrate"]);_> />
+</td>
+</tr>
+
+<tr>
+<td align="rigth">
+<_php print($cmr->translate("generate") . " extra");
+_>
+</td>
+<td align="left">
+<input type="checkbox" name="check_extra" value="checked"  id="check_extra" <_php print(@ $_cookie["check_extra"]);_> />
+</td>
+</tr>
+
+<tr>
+<td align="rigth">
+<-php print($cmr->translate("generate for other model") . "");->
+</td>
+<td align="left">
+<input type="checkbox" name="check_extra_model" value="checked"  id="check_extra_model" <-php print(@ $_cookie["check_extra_model"]);-> />
+</td>
+</tr>
+
+</table>
+</div>
+
+</fieldset-->
+
+</fieldset>
+
+
+<script language="javascript" type="text/javascript">
+ hide_group_value('db_source','server','database_servs,num_files','database_file,database_remote,db_sql_text');
+ hide_group_value('db_source','default,local_file,local_zip','database_file','database_servs,database_remote,num_files,db_sql_text');
+ hide_group_value('db_source','remote_file,remote_zip','database_remote','database_servs,database_file,num_files,db_sql_text');
+ hide_group_value('db_source','text','db_sql_text','database_servs,database_remote,num_files,database_file');
+ hide_group_value('db_source','none','','database_servs,database_remote,num_files,database_file,db_sql_text');
+ hide_group_value('model_source','default,local_file,local_zip','local_model','remote_model,model_group,server_model,num_files,models_text,button_generator');
+ hide_group_value('model_source','server','server_model,model_group,num_files','local_model,remote_model,models_text,button_generator');
+ hide_group_value('model_source','remote_file,remote_zip,remote_folder','remote_model','local_model,model_group,server_model,num_files,models_text,button_generator');
+ hide_group_value('model_source','text','models_text','remote_model,model_group,server_model,num_files,local_model,button_generator');
+ hide_group_value('model_source','button_generator','models_text,button_generator','remote_model,model_group,server_model,num_files,local_model,database_servs,database_remote,num_files,database_file,db_sql_text');
+ hide_group_value('output_type','default,download,download_zip','','destination,backup,check_other_model');
+ hide_group_value('output_type','application_auto,application_temp,application_update','check_other_model,backup','destination');
+ hide_group_value('output_type','remote_file,remote_zip,remote_folder,remote_file,','destination,backup','check_other_model');
+check_hide('check_backup', 'backup_extention', 'normal');
+check_hide('db_core', 'db_core_table_prefix', 'normal');
+</script>
+
+
+<br />
+
+<div id="num_files" class="hidded">
+({match_label_num_tab}) >= {match_label_files}
+</div>
+
+<br />
+
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+ </p>
+
+
+
+</form>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

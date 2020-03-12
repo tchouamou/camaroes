@@ -1,0 +1,43 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+
+<div id="template_menu_tree_head_div">
+<table width="100%">
+<tr>
+<td valign="top">
+{match_menu_tree}
+</td>
+
+
+<td valign="top">
+<form  action="index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+
+<select name="com_action" id="com_action">
+<option value="search">{match_label_search}</option>
+<option value="cmr">Cmr</option>
+<option value="google">Google</option>
+<option value="yahoo">Yahoo</option>
+<option value="html">Html</option>
+
+{match_option_com_action}
+</select>
+
+
+<input type="text" name="com_text" />
+
+
+
+<input class="submit" type="submit" value=">" />
+</form>
+</td></tr>
+</table>
+
+</div>
+{match_close_windows}
+</template1>
+</template>

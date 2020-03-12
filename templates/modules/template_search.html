@@ -1,0 +1,60 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+
+
+<div id="search_div">
+
+<form  action="index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_hidden_inputs}
+<p align="center">
+<label for="text">{match_label_text}</label><input type="text" name="search_text" size="30" />
+{match_extend_inputs}
+</p>
+
+
+<div id="table_search" class="hidded">
+<fieldset class="bubble"><legend>{match_label_options}</legend>
+<p align="center">
+[{match_label_like}<input type="radio" name="cmr_action" value="like" checked />]&nbsp
+
+[{match_label_any}<input type="radio" name="cmr_action" value="any" />]&nbsp
+
+[{match_label_all}<input type="radio" name="cmr_action" value="all" />]&nbsp
+
+[{match_label_regexp}<input type="radio" name="cmr_action" value="regexp" />]
+<br />
+
+<select name="table" id="table_search1" onchange="add_option(this.form)" >
+<option value="{match_value_default_table}"></option>
+<option value="all">{match_label_all}</option>
+<option value="{match_val_user}">{match_label_user}</option>
+<option value="{match_val_groups}">{match_label_groups}</option>
+<option value="{match_val_user_groups}">{match_label_user_groups}</option>
+<option value="{match_val_father_groups}">{match_label_father_groups}</option>
+{match_select_table}
+
+</select>
+
+<select name="column" id="column_search1" >
+<option value="all">{match_label_all}</option>
+</select>
+</p>
+</fieldset>
+
+</div>
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+</p>
+
+</form>
+
+</div>
+{match_close_windows}
+</template1>
+</template>

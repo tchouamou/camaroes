@@ -1,0 +1,287 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="replace_div">
+<!--br />
+<p class="normal_text">
+<b>{match_user_title1}</b>
+<br /-->
+<p class="normal_text">
+{match_user_title2}
+</p>
+<br />
+<fieldset class="bubble"><legend>{match_link_legend}</legend>
+<p class="normal_text">
+{match_link_list}
+</p>
+</fieldset>
+<br />
+
+
+<br />
+<form action="index.php" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_id}
+<fieldset class="bubble"><legend>{match_label_replace}</legend>
+
+<input size="20" type="checkbox" value="yes"  id="sensitive" name="sensitive" />
+<label for="sensitive">{match_label_sensitive}</label>
+
+
+
+<input size="20" type="checkbox" value="yes"  id="regular" name="regular" checked />
+<label for="regular">{match_label_regular_expression}</label>
+   
+
+
+
+
+<input size="20" type="checkbox" value="yes"  id="recursive" name="recursive" />
+<label for="recursive">{match_label_recursive}</label>
+   
+
+
+
+
+<input size="20" type="checkbox" value="find_only"  id="destination_action" name="destination_action" 
+      onclick="check_hide('destination_action', 'replace_text', 'inverse');
+   " />
+<label for="destination_action">{match_label_find_only}</label>
+
+
+
+
+   
+<table class="normal_text" border="1"  align="center">
+
+<tr>
+ <td colspan="4">
+<fieldset class="bubble"><legend>
+{match_label_code}
+
+:</legend>
+<ul>
+<li />      [[:alnum:]]  - [A-Za-z0-9]     
+{match_label_alphanumeric}
+
+
+<li />      [[:alpha:]]  - [A-Za-z]        
+{match_label_alphabetic}
+
+
+<li />      [[:blank:]]  - [ \x09]         
+{match_label_space_tab}
+
+
+<li />      [[:cntrl:]]  - [\x00-\x19\x7F] 
+{match_label_control}
+
+
+<li />      [[:digit:]]  - [0-9]           
+{match_label_numeric}
+
+
+<li />      [[:graph:]]  - [!-~]           
+{match_label_printable}
+
+
+<li />      [[:lower:]]  - [a-z]           
+{match_label_lower_case}
+
+
+<li />      [[:print:]]  - [ -~]           
+{match_label_printable_control}
+
+
+<li />      [[:punct:]]  - [!-/:-@[-`{-~]  
+{match_label_punctuation}
+
+
+<li />      [[:space:]]  - [ \t\v\f]       
+{match_label_all_whitespace}
+
+
+<li />      [[:upper:]]  - [A-Z]           
+
+{match_label_upper_case}
+
+
+<li />      [[:xdigit:]] - [0-9a-fA-F]     
+{match_label_hexadecimal}
+
+
+</ul>
+</fieldset>
+ </td>
+</tr>
+
+<tr>
+ <td colspan="2">
+   
+{match_label_match}
+
+
+ </td>
+ <td colspan="2">
+   
+ 
+{match_label_replace}
+
+
+ </td>
+</tr>
+
+
+<tr>
+ <td colspan="2">
+   <input size="20" type="checkbox" value="php"  id="source_action" name="source_action" />
+   
+ 
+
+<label for="with_backup">{match_label_php_code}</label>
+
+
+ </td>
+ <td>
+   <input size="20" type="checkbox" value="yes"  id="with_backup" name="with_backup" checked 
+   onclick="check_hide('with_backup', 'with_estension', 'normal');
+   " />
+   
+
+<label for="with_estension">{match_label_backup}</label>
+
+
+ </td>
+ 
+ <td>
+   <input size="5" type="text" value=".bak"  id="with_estension" name="with_estension" />
+ </td>
+</tr>
+
+<tr>
+
+
+<td>
+<label for="source_type">{match_label_input}</label>
+
+
+
+ <select name="source_type" id="source_type" onchange="
+ hide_group_value('source_type','remote_folder,remote_zip,remote_file','remote_file_source','local_file_source');
+ hide_group_value('source_type','local_file,local_zip','local_file_source','remote_file_source');
+ ">
+ <option value="local_file">
+--{match_label_local_file}--
+
+</option>
+ <option value="local_zip">
+{match_label_local_zip}
+
+</option>
+ <option value="remote_file">
+{match_label_remote_file}
+
+</option>
+ <option value="remote_zip">
+{match_label_remote_zip}
+
+</option>
+ <option value="remote_folder">
+{match_label_remote_folder}
+
+</option>
+ </select>
+ </td>
+ 
+ <td>
+  <input size="20" type="text" value=""  id="remote_file_source" name="remote_file_source" />
+   <input type="file" value="/temp"  id="local_file_source" name="local_file_source" /><br />
+ </td>
+ 
+<td align="left">
+<label for="destination_type">{match_label_output}</label>
+
+
+
+ <select name="destination_type" id="destination_type" onchange="
+ hide_group_value('destination_type','!remote_folder,remote_zip','destination_replace','');
+ ">
+ <option value="download">
+{match_label_download}
+
+</option>
+ <option value="remote_folder">
+{match_label_remote_folder}
+
+</option>
+ <option value="remote_zip">
+{match_label_remote_zip}
+
+</option>
+ <option value="print">
+--{match_label_print}--
+
+</option>
+ </select>
+ </td>
+ 
+ <td>
+   <input size="20" type="text" value=""  id="destination_replace" name="destination_replace" />
+   <!--php print($cmr->translate("download:"));-><input size="1" type="checkbox" value=""  id="destination_download" name="destination_download" /> <br /-->
+ </td>
+</tr>
+
+<tr>
+ <td colspan="2">
+<label for="match_text">{match_label_match_text}</label>
+
+
+<br />
+   <textarea rows="4" cols="40" name="match_text" id="match_text" >
+</textarea>
+ </td>
+ <td colspan="2">
+{match_label_replace_text}
+<br />
+   <textarea rows="4" cols="40" name="replace_text" id="replace_text" ></textarea>
+ </td>
+</tr>
+
+
+
+
+</table>
+</fieldset>
+
+
+
+
+<br />
+
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+ </p>
+
+
+
+</form>
+
+
+</div>
+<script language="javascript" type="text/javascript">
+ hide_group_value('source_type','remote_folder,remote_zip,remote_file','remote_file_source','local_file_source');
+ hide_group_value('source_type','local_file,local_zip','local_file_source','remote_file_source');
+ hide_group_value('destination_type','!remote_folder,remote_zip','destination_replace','');
+</script>
+
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

@@ -1,0 +1,89 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<div id="event_div">
+<b>
+ | 
+{match_link_num_message}
+<a href="index.php?win_event={match_event_key}&event_action=close">
+<img width="10" src="{cmr_image_path}images/icon/stop_icon.png" alt="x" border="0" />
+</a> 
+-
+{match_link_num_ticket}
+<a href="index.php?win_event={match_event_key}&event_action=close">
+<img width="10" src="{cmr_image_path}images/icon/stop_icon.png" alt="x" border="0" />
+</a> 
+-
+{match_link_num_email}
+<a href="index.php?win_event={match_event_key}&event_action=close">
+<img width="10" src="{cmr_image_path}images/icon/stop_icon.png" alt="x" border="0" />
+</a> 
+ | 
+</b>
+&nbsp
+&nbsp
+&nbsp
+&nbsp
+&nbsp
+&nbsp
+&nbsp
+&nbsp
+{match_link_my_account}
+-
+<a name="exit" href="index.php?conf=exit" >
+{match_label_exit}
+</a>
+-
+<a name="init" href="index.php?conf=init" >
+{match_label_home}
+</a>
+</template1>
+
+<template2>
+		<form action="{match_www_path}index.php{match_form_param}" method="post" id="{match_form_id}">
+		{match_input_hidden_module}
+		{match_input_hidden_get}
+		{match_input_hidden_list_email}
+            <table border="1" width="100%" class="normal_text"  cellspacing="3" cellpadding="3" >
+            <tr>
+            <th colspan="9" align="center">{match_legend}</th>
+            </tr>
+            
+            <tr>
+            <td><b></b></td>
+            <td><b>{match_uid}</b></td>
+            <td><b>{match_email}</b></td>
+            <td><b>{match_group}</b></td>
+            <td><b>{match_type}</b></td>
+            <td><b>{match_unlock}</b></td>
+            <td><b>{match_link}</b></td>
+            <td><b>{match_date_time}</b></td>
+            </tr>
+
+	{match_list_user_groups}           
+            
+            
+    <tr>
+    <td colspan="9" align="center">
+	<p align="center">
+	   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+	   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+	</p>
+    </td>
+    </tr>
+	</table>
+	</form>
+</template2>
+
+<template3>
+<script language="JavaScript" type="text/javascript" >
+alert('{match_alert_text}');
+</script>
+</template3>
+
+<template4>
+</div>
+{match_close_windows}
+</template4>
+
+</template>

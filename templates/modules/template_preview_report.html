@@ -1,0 +1,64 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+<!-- if(empty($cmr->report[$cmr->post_var["report_table"]])) -->
+	{match_show_data1}
+	<fieldset class="bubble">
+	<legend>{match_show_graph_legend1}</legend>
+	{match_show_graph_bar1}
+	<br />
+	{match_show_graph_pie1}
+    </fieldset>
+	<br />
+	
+	{match_show_data2}
+	<fieldset class="bubble">
+	<legend>{match_show_graph_legend2}</legend>
+	{match_show_graph_bar2}
+	<br />
+	{match_show_graph_pie2}
+    </fieldset>
+	<br />
+
+	{match_show_data3}
+	<fieldset class="bubble">
+	<legend>{match_show_graph_legend3}</legend>
+	{match_show_graph_bar3}
+	<br />
+	{match_show_graph_pie3}
+    </fieldset>
+	<br />
+
+	{match_show_data4}
+	<fieldset class="bubble">
+	<legend>{match_show_graph_legend4}</legend>
+	{match_show_graph_bar4}
+	<br />
+	{match_show_graph_pie4}
+    </fieldset>
+	<br />
+
+	{match_show_data5}
+	<fieldset class="bubble">
+	<legend>{match_show_graph_legend5}</legend>
+	{match_show_graph_bar5}
+	<br />
+	{match_show_graph_pie5}
+    </fieldset>
+	<br />
+</template1>
+<template2>
+
+<!-- if(!empty($cmr->report[$cmr->post_var["report_table"]])) -->
+<!-- foreach($cmr->report[$cmr->post_var["report_table"]] as $key => $value) -->
+
+	{match_show_data}
+	<fieldset class="bubble">
+	<legend>{match_show_graph_legend}</legend>
+	{match_show_graph_bar}
+	{match_show_graph_line}
+	{match_show_graph_pie}
+	{match_show_graph_barcode}	
+    </fieldset>
+	<br />
+</template2>
+</template>

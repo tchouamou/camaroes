@@ -1,0 +1,762 @@
+<template1><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<!--if(!empty({match_module_tiny_editor}]))-->
+<link href="tinymce/docs/css/screen.css" rel="stylesheet" type="text/css" />
+<script language="javascript" type="text/javascript" src="tinymce/jscripts/tiny_mce/tiny_mce.js"></script>
+<script language="javascript" type="text/javascript" src="javascript/tinymce_conf.js"></script>
+<!--//==========================================================
+//==============================================================
+//===============open window====================================
+//==============================================================
+//==============================================================-->
+</template1>
+<template2>
+<script language="javascript" type="text/javascript">
+module =  new Array();
+module[1] = '{match_label_module_alert1}';
+module[2] = '{match_label_module_alert2}';
+module[3] = '{match_label_module_alert3}';
+module[4] = '{match_label_module_alert4}';
+module[5] = '{match_label_module_alert5}';
+module[6] = '{match_label_module_alert6}';
+module[7] = '{match_label_module_alert7}';
+module[8] = '{match_label_module_alert8}';
+module[9] = '{match_label_module_alert9}';
+module[10] = '{match_label_module_alert10}';
+module[11] = '{match_label_module_alert11}';
+module[12] = '{match_label_module_alert12}';
+module[13] = '{match_label_module_alert13}';
+module[14] = '{match_label_module_alert14}';
+module[15] = '{match_label_module_alert15}';
+module[16] = '{match_label_module_alert16}';
+module[17] = '{match_label_module_alert17}';
+module[18] = '{match_label_module_alert19}';
+module[10] = '{match_label_module_alert10}';
+module[21] = '{match_label_module_alert21}';
+module[22] = '{match_label_module_alert22}';
+module[23] = '{match_label_module_alert23}';
+module[24] = '{match_label_module_alert24}';
+module[25] = '{match_label_module_alert25}';
+</script>
+{match_open_windows}
+<!--
+//==============================================================
+//==============================================================
+//===============title==========================================
+//==============================================================
+//==============================================================
+?-->
+<br />
+<div id="new_module_div">
+<br />
+<p align="center">
+<b>{match_module_title1}</b>
+<br />
+<p align="center">
+{match_module_title2}
+</p>
+<br />
+<br />
+
+
+<!--//====================================================
+//=================form header===========================
+//========================================================-->
+
+<!--div id="new_module_div">
+
+<form action="index.php" method="post">
+<input type="hidden" value="search" name="class_module" />
+<input type="text" name="alt_text" size="30" />
+<input type="hidden" value="class_module" name="table" id="module_table" />
+<input type="hidden" value="all" name="column" id="module_column" />
+<input type="submit" value="{match_label_search_model}" />
+</form>
+?-->
+
+<hr />
+<hr />
+<!--//==============================================================
+//==============================================================
+//===============links=====================
+//==============================================================
+//==============================================================
+?-->
+<br />
+<fieldset class="bubble"><legend>{match_link_legend}</legend>
+<p align="center">
+<b>{match_link_list}</b>
+<br />
+{match_link_list1}
+</p>
+</fieldset>
+<br />
+
+
+
+<!--==============================================================
+//==============================================================
+//===============end links=====================
+//==============================================================
+//==============================================================
+-->
+
+<form name="module_form" action="index.php" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_module_file}
+
+<input type="hidden" value="{match_value_model_id}" name="model_id" id="id" />
+<input type="hidden" value="{match_value_my_master}" name="my_master" />
+<input type="hidden" value="{match_value_allow_email}" name="allow_email" />
+<input type="hidden" value="{match_value_allow_groups}" name="allow_groups" />
+<input type="hidden" value="{match_value_allow_type}" name="allow_type" />
+<input type="hidden" value="{match_value_pre_text}" name="pre_text" id="pre_text" />
+<input type="hidden" value="{match_value_pre_email}" name="pre_email" id="pre_email" />
+
+{match_id_input}
+
+
+
+<fieldset class="bubble"><legend>{match_label_module}</legend>
+<p>
+<table class="normal_text" border="1"  align="center">
+<tr align="left" >
+<td>
+<label for="model">{match_label_model}</label></td>
+<td colspan="3" >
+<!--input type="button" value=">" onclick="insert_email('assign_to');" /-->
+<select name="model"  id="module_model" class="background2" onchange="load_model(this.form,'module_model', 'module_');" >
+<!--option value="normal" >{match_label_normal}</option-->
+{match_options_model}
+</select>
+{match_link_model}
+
+</td>
+</tr>
+<!--
+//==============================================================
+//==============================================================
+//===============end select model===============================
+//==============================================================
+//==============================================================
+?-->
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_sender}</b></label>
+ </td>
+  <td align="left">
+   <input size="20" type="text" value="{match_value_sender}"  id="sender" name="sender" onclick="large_id('module,sender')">
+  </td>
+ </tr>
+ <tr>
+
+
+<tr align="left">
+<td align="left">{match_label_attach}</td>
+<td  colspan="3"  align="left" >
+
+
+<div id="hide_attach" ><a onclick="show('extra_attach');hide('hide_attach');show('show_attach');">+</a></div>
+<div id="show_attach" class="hidded" >
+<a onclick="hide('extra_attach');hide('show_attach');show('hide_attach');">-</a></div>
+</td></tr>
+
+
+<tr align="left"><td  align="left" colspan="4" >
+
+<div id="extra_attach" class="hidded">
+
+<table class="normal_text" border="0" align="left" >
+
+ <tr align="left">
+ <td align="left">
+ {match_label_attach1}
+ <input type="file" name="attach1"  id="attach1" />
+ </td>
+
+ <td>
+ {match_label_attach2}
+ <input type="file" name="attach2"  id="attach2" />
+ </td>
+ </tr>
+
+
+
+</table>
+</div>
+</td>
+</tr>
+</table>
+<br />
+
+<table class="normal_text" border="1"  align="center">
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_groups_dest}</b></label>
+ </td>
+  <td align="left">
+   <select name="groups_dest">
+	<option value="{match_value_groups_dest}" >{match_value_groups_dest}</option>
+	{match_options_groups_dest}
+   </select>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_users_dest}</b></label>
+ </td>
+  <td align="left">
+   <select name="users_dest">
+	<option value="{match_value_users_dest}" >{match_value_users_dest}</option>
+	{match_options_users_dest}
+   </select>
+  </td>
+ </tr>
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_title}</b></label>
+ </td>
+  <td align="left">
+  
+   <input size="40" type="text" value="{match_value_title}"  id="title" name="title" onclick="large_id('module,title')">
+</td>
+ </tr>
+
+
+
+
+<tr>
+ <td align="rigth">
+ <input type="button" value="{match_label_print}" onclick="print_val('text')" />
+ </td>
+ <td align="left">
+ <input type="hidden" name="back_text" id="back_text" />
+ </td>
+</tr>
+<!--extra_attach,show_attach,hide_attach
+extra_code,show_code,hide_code
+extra_dest,show_dest,hide_dest
+extra_property,show_property,hide_property
+extra_timing,show_timing,hide_timing
+extra_owner,show_owner,hide_owner
+extra_comment,show_comment,hide_comment-->
+
+<tr>
+  <td align="left">
+	<select name="action" id="action"  onchange="
+ hide_group_value('action','normal','show_dest','extra_dest,hide_dest');
+ hide_group_value('action','only_db','show_dest','extra_dest,hide_dest');
+ hide_group_value('action','only_email','extra_dest,hide_dest','show_dest');
+ hide_group_value('action','new_model,update_model','show_dest','extra_dest,hide_dest');" >
+		<option value="normal" >{match_label_normal}</option>
+		<option value="only_db" >{match_label_db}</option>
+		<option value="only_email" >{match_label_email}</option>
+		{match_options_action}
+	</select><a id="b_action" target ="camaroes" ondblclick="zoom_id('module,action');" >+</a>
+	<br />
+  <label><b>{match_label_module}</b></label>
+  </td>
+
+
+  <td align="left">
+   <textarea rows="15" cols="60" name="text" id="text" onclick="large_id('module,text')">
+   {match_value_text}
+   </textarea>
+   </td>
+ </tr>
+ 
+ 
+ 
+<!--?php
+//==============================================================
+//==============================================================
+//===============insert code zone===============================
+//==============================================================
+//==============================================================
+?-->
+
+<tr>
+<td>{match_label_code}</td>
+<td align="left" colspan="3">
+<div id="hide_code" onclick="show('extra_code');hide('hide_code');show('show_code');"><a>+</a></div>
+<div id="show_code" onclick="hide('extra_code');hide('show_code');show('hide_code');" class="hidded" ><a>-</a></div>
+</td></tr>
+
+
+<tr><td colspan="4" align="left">
+
+
+<div id="extra_code"  align="left"  class="hidded" >
+<table  class="normal_text" border="0" align="center" >
+<tr><td>
+
+
+
+<small>{match_label_code_insert}</small>:
+
+<select name="select_insert" id="select_insert" >
+{match_options_code_insert}
+</select>
+
+{match_link_code_insert}
+
+
+<input  type="button" value="^(insert in text)" onclick="insert_text(this.form,'select_insert','text');" />
+
+</td>
+</tr>
+</table>
+<br />
+</div>
+</td>
+</tr>
+ 
+ 
+ 
+ 
+</table>
+<br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table class="normal_text" border="1"  align="center">
+<tr align="left">
+<td align="left">{match_label_extra_destination}</td>
+<td  colspan="3"  align="left" >
+<div id="hide_dest" ><a onclick="show('extra_dest');hide('hide_dest');show('show_dest');">+</a></div>
+<div id="show_dest" class="hidded" ><a onclick="hide('extra_dest');hide('show_dest');show('hide_dest');">-</a></div>
+</td></tr>
+
+
+<tr align="left"><td  align="left" colspan="4" >
+<div id="extra_dest" class="hidded" >
+<table class="normal_text" border="0" align="left" >
+
+
+ 
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_modules_dest}</b></label>
+ </td>
+  <td align="left">
+<select name="modules_dest" id="modules_dest">
+<option value="{match_value_modules_dest}" >{match_value_modules_dest}</option>
+{match_options_modules_dest}
+</select>
+  </td>
+ </tr>
+ 
+ 
+ 
+ 
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_mail_to}</b></label>
+ </td>
+  <td align="left">
+   <select name="mail_to" id="mail_to"  onclick="large_id('module,mail_to')">
+	<option value="{match_value_mail_to}" >{match_value_mail_to}</option>
+   {match_options_mail_to}
+   </select>
+   <a id="b_mail_to" target ="camaroes" ondblclick="zoom_id('module,mail_to');" >+</a>
+  </td>
+ </tr>
+ 
+ 
+ 
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_mail_cc}</b></label>
+ </td>
+  <td align="left">
+   <select name="mail_cc" id="mail_cc"  onclick="large_id('module,mail_cc')">
+	<option value="{match_value_mail_cc}" >{match_value_mail_cc}</option>
+   {match_options_mail_cc}
+   </select>
+   <a id="b_mail_cc" target ="camaroes" ondblclick="zoom_id('module,mail_cc');" >+</a>
+  </td>
+ </tr>
+ 
+ 
+ 
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_mail_bcc}</b></label>
+ </td>
+  <td align="left">
+   <select name="mail_bcc" id="mail_bcc"  onclick="large_id('module,mail_bcc')">
+	<option value="{match_value_mail_bcc}" >{match_value_mail_bcc}</option>
+   {match_options_mail_bcc}
+   </select>
+   <a id="b_mail_bcc" target ="camaroes" ondblclick="zoom_id('module,mail_bcc');" >+</a>
+  </td>
+ </tr>
+ 
+ 
+ 
+ 
+ 
+</table>
+</div>
+</td>
+</tr>
+
+
+ 
+<tr align="left">
+<td align="left">{match_label_property}</td>
+<td  colspan="3"  align="left" >
+<div id="hide_property" ><a onclick="show('extra_property');hide('hide_property');show('show_property');">+</a></div>
+<div id="show_property" class="hidded" ><a onclick="hide('extra_property');hide('show_property');show('hide_property');">-</a></div>
+</td></tr>
+
+
+<tr align="left"><td  align="left" colspan="4" >
+<div id="extra_property" class="hidded" >
+<table class="normal_text" border="0" align="left" >
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_priority}</b></label>
+ </td>
+  <td align="left">
+   <input size="8" type="text" value="3"  id="priority" name="priority" onclick="large_id('module,priority')">
+{match_link_priority}
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_type}</b></label>
+ </td>
+  <td align="left">
+   <select name="type" id="type"  onclick="large_id('module,type')">
+	<option value="{match_value_type}" >{match_value_type}</option>
+   {match_options_type}
+   </select>
+   <a id="b_type" target ="camaroes" ondblclick="zoom_id('module,type');" >+</a>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_state}</b></label>
+ </td>
+  <td align="left">
+   <select name="state" id="state"  onclick="large_id('module,state')">
+	<option value="{match_value_state}" >{match_value_state}</option>
+   {match_options_state}
+   </select>
+   <a id="b_state" target ="camaroes" ondblclick="zoom_id('module,state');" >+</a>
+  </td>
+ </tr>
+ 
+
+</table>
+</div>
+</td>
+</tr>
+
+
+ 
+ 
+<tr align="left">
+<td align="left">{match_label_timing}</td>
+<td  colspan="3"  align="left" >
+<div id="hide_timing" ><a onclick="show('extra_timing');hide('hide_timing');show('show_timing');">+</a></div>
+<div id="show_timing" class="hidded" ><a onclick="hide('extra_timing');hide('show_timing');show('hide_timing');">-</a></div>
+</td></tr>
+
+
+<tr align="left"><td  align="left" colspan="4" >
+<div id="extra_timing" class="hidded" >
+<table class="normal_text" border="0" align="left" >
+
+
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_begin_time}</b></label>
+ </td>
+  <td align="left">
+   <input type="text" value="{match_begin_time}" id="date_time_begin_time"  name="begin_time" onclick="large_id('module,begin_time')" /><button id="button_date_time_begin_time">...</button>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_intervale}</b></label>
+ </td>
+<td align="left">
+<select name="ripetitive"  id="ripetitive"  onchange="mode_change(this.form);">
+<option value="{match_value_ripetitive}" >{match_value_ripetitive}</option>
+<option value="0">{match_label_only}</option>
+<option value="1">{match_label_every}</option>
+</select>
+<input size="6" type="text" value="{match_value_intervale}"  id="intervale" name="intervale" onclick="large_id('module,intervale')">
+<select name="intervale_type" >
+<option value="{match_intervale}" >{match_intervale}</option>
+<option value="DAY">{match_label_day}</option>
+<option value="MICROSECOND">{match_label_microsecond}</option>
+<option value="SECOND">{match_label_second}</option>
+<option value="MINUTE">{match_label_minute}</option>
+<option value="HOUR">{match_label_hour}</option>
+<option value="WEEK">{match_label_week}</option>
+<option value="MONTH">{match_label_month}</option>
+<option value="QUARTER">{match_label_quarter}</option>
+<option value="YEAR">{match_label_year}</option>
+<option value="SECOND_MICROSECOND">{match_label_second_microsecond}</option>
+<option value="MINUTE_MICROSECOND">{match_label_minute_microsecond}</option>
+<option value="MINUTE_SECOND">{match_label_minute_second}</option>
+<option value="HOUR_MICROSECOND">{match_label_hour_microsecond}</option>
+<option value="HOUR_SECOND">{match_label_hour_second}</option>
+<option value="HOUR_MINUTE">{match_label_hour_minute}</option>
+<option value="DAY_MICROSECOND">{match_label_day_microsecond}</option>
+<option value="DAY_SECOND">{match_label_day_second}</option>
+<option value="DAY_MINUTE">{match_label_day_minute}</option>
+<option value="DAY_HOUR">{match_label_day_hour}</option>
+<option value="YEAR_MONTH">{match_label_year_month}</option>
+</select>
+
+</td>
+</tr>
+
+<tr>
+  <td align="rigth">
+  <label><b>{match_label_end_time}</b></label>
+  </td>
+   <td align="left">
+   <input type="text" value="{match_end_time}" id="date_time_end_time"  name="end_time" onclick="large_id('module,end_time')" />
+   <button id="button_date_time_end_time">...</button>
+  </td>
+</tr>
+
+
+
+</table>
+</div>
+</td>
+</tr>
+
+
+
+ 
+<tr align="left">
+<td align="left">{match_label_owner}</td>
+<td  colspan="3" align="left" >
+<div id="hide_owner" >
+<a onclick="show('extra_owner');hide('hide_owner');show('show_owner');">+</a>
+</div>
+<div id="show_owner" class="hidded" >
+<a onclick="hide('extra_owner');hide('show_owner');show('hide_owner');">-</a>
+</div>
+</td>
+</tr>
+
+
+<tr align="left">
+<td  align="left" colspan="4" >
+<div id="extra_owner" class="hidded" >
+<table class="normal_text" border="0" align="left" >
+
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_my_master}</b></label>
+ </td>
+  <td align="left">
+   <select name="my_master" id="my_master"  onclick="large_id('module,my_master')">
+	<option value="{match_value_my_master}" >{match_value_my_master}</option>
+   {match_options_my_master}
+   </select><a id="b_my_master" target ="camaroes" ondblclick="zoom_id('module,my_master');" >+</a>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_allow_type}</b></label>
+ </td>
+  <td align="left">
+   <select name="allow_type" id="allow_type"  onclick="large_id('module,allow_type')">
+	<option value="{match_value_allow_type}" >{match_value_allow_type}</option>
+   {match_options_allow_type}
+   </select>
+   <a id="b_allow_type" target ="camaroes" ondblclick="zoom_id('module,allow_type');" >+</a>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_allow_email}</b></label>
+ </td>
+  <td align="left">
+   <select name="allow_email" id="allow_email"  onclick="large_id('module,allow_email')">
+	<option value="{match_value_allow_email}" >{match_value_allow_email}</option>
+   {match_options_allow_email}
+   </select>
+   <a id="b_allow_email" target ="camaroes" ondblclick="zoom_id('module,allow_email');" >+</a>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_allow_groups}</b></label>
+ </td>
+  <td align="left">
+   <select name="allow_groups" id="allow_groups"  onclick="large_id('module,allow_groups')">
+	<option value="{match_value_allow_groups}" >{match_value_allow_groups}</option>
+   {match_options_allow_groups}</select>
+   <a id="b_allow_groups" target ="camaroes" ondblclick="zoom_id('module,allow_groups');" >+</a>
+  </td>
+ </tr>
+
+</table>
+</div>
+</td>
+</tr>
+
+
+
+<tr align="left">
+<td align="left">{match_label_comment}</td>
+<td  colspan="3" align="left" >
+<div id="hide_comment" >
+<a onclick="show('extra_comment');hide('hide_comment');show('show_comment');">+</a>
+</div>
+<div id="show_comment" class="hidded" >
+<a onclick="hide('extra_comment');hide('show_comment');show('hide_comment');">-</a>
+</div>
+</td>
+</tr>
+
+
+<tr align="left">
+<td  align="left" colspan="4" >
+<div id="extra_comment" class="hidded" >
+<table class="normal_text" border="0" align="left" >
+
+<tr>
+ <td align="rigth">
+  <label><b>{match_label_comment}</b></label>
+ </td>
+  <td align="left">
+   <textarea rows="8" cols="40" name="comment" id="comment" onclick="large_id('module,comment')">
+   {match_value_comment}
+   </textarea>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  
+ </td>
+   <td align="rigth">
+   </td>
+  <td align="left">
+   
+  </td>
+ </tr>
+
+</table>
+</div>
+</td>
+</tr>
+
+
+ 
+ 
+ 
+ 
+ 
+</table>
+</p>
+</fieldset>
+
+
+<br />
+
+<p align="center">
+<input class="submit" id="submit1" type="submit" value="{match_submit_text}" onsubmit="return confirm('OK ?')" />
+<input id="submit2" class="hidded_submit" type="button" value="{match_submit_text}"  onclick="submit_form(this.form, module);" />
+
+<input type="reset" />
+</p>
+</div>
+<!--
+//==============================================================
+//==============================================================
+//===============script for show and hidden=====================
+//==============================================================
+//==============================================================
+-->
+<script language="javascript" type="text/javascript">
+hide("submit1");
+show( "submit2");
+
+show("extra_header");
+hide("extra_email");
+hide("extra_attach");
+
+// hide("insert_email");
+// show( "insert_text");
+</script>
+
+{match_load_script}
+<br />
+
+<!-- state_now=updated1
+// state_now=updated2
+// state_now=updated3
+// state_now=closed1
+// state_now=closed2
+// state_now=closed3
+!-->
+<br />
+{match_hidden_model}
+</form>
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "date_time_begin_time",         // ID of the input field
+      ifFormat    : "%d-%m-%Y %H:%M",    // the date format
+      button      : "button_date_time_begin_time"       // ID of the button
+    }
+  );
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "date_time_end_time",         // ID of the input field
+      ifFormat    : "%d-%m-%Y %H:%M",    // the date format
+      button      : "button_date_time_end_time"       // ID of the button
+    }
+  );
+</script>  
+
+
+
+
+
+<br />
+{match_close_windows}
+</template2>
+<template3>
+</template3>
+</template>

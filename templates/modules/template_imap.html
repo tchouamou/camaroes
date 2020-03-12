@@ -1,0 +1,187 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div  id="mail_div">
+<br />
+<b>{match_mail_title1}</b>
+<br />
+<p class="normal_text">
+{match_mail_title2}
+</p>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p class="normal_text">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{cmr_wwwpath}index.php{match_form_param}" method="post" id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+
+<fieldset class="bubble"><legend><label for="imap">{match_label_imap}</label></legend>
+<p>
+<table class="normal_text" border="1"  align="center">
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="encoding">{match_label_encoding}</label></b></label>
+ </td>
+  <td align="left">
+   <input size="40" type="text" value="{match_value_encoding}"  id="encoding" name="encoding" onclick="large_id('imap,encoding')">
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="lang">{match_label_lang}</label></b></label>
+  <td align="left">
+   <input size="40" type="text" value="{match_value_lang}"  id="encoding" name="encoding" onclick="large_id('imap,encoding')">
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="header">{match_label_header}</label></b></label>
+ </td>
+  <td align="left">
+   <textarea rows="8" cols="40" name="header" id="header" onclick="large_id('imap,header')">{match_value_header}</textarea>
+  </td>
+ </tr>
+
+<tr>
+<tr>
+   <td align="rigth">
+  <label><b><label for="mail_from">{match_label_mail_from}</label></b></label>
+   </td>
+  <td align="left">
+   <input size="60" type="text" value="{match_value_mail_from}"  id="mail_from" name="mail_from" onclick="large_id('imap,mail_from')">
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="mail_to">{match_label_mail_to}</label></b></label>
+  <td align="left">
+   <input size="60" type="text" value="{match_value_mail_to}"  id="mail_to" name="mail_to" onclick="large_id('imap,mail_to')">
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="mail_cc">{match_label_mail_cc}</label></b></label>
+ </td>
+  <td align="left">
+   <input size="60" type="text" value="{match_value_mail_cc}"  id="mail_cc" name="mail_cc" onclick="large_id('imap,mail_cc')">
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="mail_bcc">{match_label_mail_bcc}</label></b></label>
+ </td>
+  <td align="left">
+   <input size="60" type="text" value="{match_value_mail_bcc}"  id="mail_bcc" name="mail_bcc" onclick="large_id('imap,mail_bcc')">
+  </td>
+ </tr>
+
+ <td align="rigth">
+  <label><b><label for="mail_title">{match_label_mail_title}</label></b></label>
+ </td>
+  <td align="left">
+   <input size="80" type="text" value="{match_value_mail_title}"  id="mail_title" name="mail_title" onclick="large_id('imap,mail_title')">
+  </td>
+ </tr>
+
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="text">{match_label_text}</label></b></label>
+ </td>
+  <td align="left">
+   <textarea rows="20" cols="90" name="text" id="text" onclick="large_id('imap,text')">{match_value_text}</textarea>
+  </td>
+ </tr>
+
+<tr>
+ <td align="rigth">
+  <label><b><label for="attach">{match_label_attach}</label></b></label>
+ </td>
+  <td align="left">
+<tr align="left">
+<td align="left"><label for="attach">{match_label_attach}</label></td>
+<td  colspan="3"  align="left" >
+<div id="hide_attach" ><a onclick="show('extra_attach');hide('hide_attach);show('show_attach}">+</a></div>
+<div id="show_attach" class="hidded" ><a onclick="hide('extra_attach');hide('show_attach);show('hide_attach}">-</a></div>
+</td></tr>
+
+
+<tr align="left"><td  align="left" colspan="4" >
+
+<div id="extra_attach" >
+
+<table class="normal_text" border="0" align="left" >
+
+ <tr align="left">
+ <td align="left">
+ {match_label_attach1}
+
+ <input type="file" name="attach1"  id="attach1" />
+ </td>
+
+ <td>
+ {match_label_attach2}
+
+ <input type="file" name="attach2"  id="attach2" />
+ </td>
+ </tr>
+
+ <tr>
+ <td>
+ {match_label_attach3}
+
+ <input type="file" name="attach3"  id="attach3" />
+ </td>
+ <td>
+ {match_label_attach4}
+
+ <input type="file" name="attach4"  id="attach4" />
+ </td>
+ </tr>
+
+
+</table>
+</div>
+<br />
+
+
+
+
+</td></tr>
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+
+
+
+
+<p class="normal_text">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+</p>
+</form>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>
+

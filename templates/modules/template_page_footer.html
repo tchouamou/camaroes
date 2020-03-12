@@ -1,0 +1,29 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<div id="page_footer_div">
+<p align="center" class="small_note">
+<!--Number of anchors in this document:-->
+<!--script type="text/javascript">
+document.write(document.anchors.length)
+</script-->
+<!--script type="text/javascript">
+document.write("This document contains: " + document.forms.length + " forms.")
+</script-->
+<!--if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] .= $cmr->config["cmr_admin"])) -->
+<br />[{match_your_ip}:{match_remote_addr}:{match_remote_port}]
+[{match_browser}:{match_user_agent}]
+<br />[{match_server}:{match_software}-{match_protocol}:{match_port}]
+
+[{match_current_user}:{match_user_email}]
+[<label for="from">{match_label_from}</label>{match_connect_from}]<br />
+<!--[_match_last_connection]:
+[_match_connected_user]:-->
+<!--};-->
+
+</p>
+
+<p align="center" class="small_note">
+ &copy <a href="{match_company_website}">{match_company_name}</a> - {match_all_rights} <br /> {match_company_address}
+</p>
+
+</div>
+</template>
