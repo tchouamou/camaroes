@@ -1,0 +1,180 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<div id="columns_div">
+<table align="left" border="1">
+<tr><td width="30" valign="top">{match_menu_db}</td><td>
+
+
+<td valign="top" width="100%">
+{match_open_tab}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<p align="center">
+<b>{match_table_title1}</b>
+</p>
+<p class="normal_text">
+{match_table_title2}
+</p>
+<br />
+
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+{match_input_hidden_column}
+
+</template1>
+
+
+
+<div id="columns_{match_name_name}">
+<template2>
+<fieldset class="bubble">
+<legend>{match_column_title}</legend>
+<table>
+<tbody>
+<tr>
+
+<th align="left"><label for="{match_name_name}">{match_label_field}</label></th>
+
+<td>
+<input name="{match_name_name}" maxlength="64" title="Campo" size="40" value="{match_value_name}" type="text">
+</td>
+    </tr>
+    <tr>    
+        <th align="left"><label for="{match_name_type}">{match_label_type}</label></th>
+        <td>
+        <select name="{match_name_type}">
+        <option value="{match_value_type}" selected="selected">{match_value_type}</option>
+		<option value="{match_default_column_type}">{match_default_column_type}</option>
+		{match_options_column_type}
+		</select>
+        </td>
+        
+            </tr><tr>    
+            <th align="left"><label for="{match_name_length}">{match_label_length}<!--sup>1</sup-->
+            </th>
+            <td><input name="{match_name_length}" size="40" value="{match_value_length}" type="text"></td>
+            </tr><tr>    
+            <th align="left"><label for="{match_name_default_type}">{match_label_default}</label></th>
+            <td>
+            <select name="{match_name_default_type}">
+            <option value="{match_value_default_type}" selected="selected">{match_value_default_type}</option>
+			<option value="NONE">{match_label_none}</option>
+            <option value="USER_DEFINED">{match_label_default}</option>
+            <option value="NULL">NULL</option>
+            <option value="CURRENT_TIMESTAMP">CURRENT_TIMESTAMP</option>
+            </select>
+            <br />
+            <input name="{match_name_default_value}" size="40" value="{match_value_default_value}" type="text"></td>
+            </tr><tr>
+<th align="left"><label for="{match_name_collation}">{match_label_collation}</label></th>
+
+<td>
+<select xml:lang="en" dir="ltr" name="{match_name_collation}">
+<option value="{match_value_collation}" selected="selected">{match_value_collation}</option>
+<option value="{match_default_collation}">{match_default_collation}</option>
+{match_options_db_collation}
+</select>
+
+
+</td>
+</tr>
+
+<tr>
+<th align="left"><label for="{match_name_attribute}">{match_label_attrib}</label></th>
+
+<td><select name="{match_name_attribute}">
+<option value="{match_value_attrib}" selected="selected">{match_value_attrib}</option>
+<option value="BINARY">BINARY</option>
+<option value="UNSIGNED">UNSIGNED</option>
+<option value="UNSIGNED ZEROFILL">UNSIGNED ZEROFILL</option>
+<option value="on update CURRENT_TIMESTAMP">UPDATE CURRENT_TIMESTAMP</option>
+</select>
+</td>
+</tr>
+
+<tr>    
+<th align="left"><label for="{match_name_null}">Null</label></th>
+<td>
+<input name="{match_name_null}" value="{match_value_null}" type="checkbox" {match_check_null}>
+</td>
+</tr>
+
+<tr>    
+<th align="left"><label for="{match_name_extra}">{match_label_auto_increment}</label></th>
+<td>
+<input name="{match_name_extra}" value="{match_value_extra}T" type="checkbox" {match_check_extra}>
+</td>
+</tr><tr>    
+
+<th align="left"><label for="{match_name_comments}">{match_label_comment}</label></th>
+<td>
+<input name="{match_name_comments}" size="40" value="{match_value_comments}" type="text">
+</td>
+</tr>
+
+</tbody>
+</table>
+</fieldset>
+</template2>
+
+</div>
+
+
+
+
+<template3>
+
+<br />
+
+<fieldset class="bubble">
+<legend>{match_value_save}</legend>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_value_save}" onsubmit="return confirm('{match_submit_java}')" />
+   <!--input name="do_save_data" value="{match_value_save}" onclick="return checkTableEditForm(this.form, 1)" type="submit"-->
+</fieldset>
+
+
+
+</form>
+
+
+<div id="div_table_addfield">
+<fieldset class="bubble">
+<legend>add Column </legend>
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input name="db_action" value="add_field" type="hidden">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+{match_input_hidden_column}
+
+<input name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" type="text">
+
+
+<input value="run" class="submit" type="submit">
+</form>
+</fieldset>
+</div>
+
+{match_close_tab}
+</td></tr>
+</table>
+
+</div>
+{match_close_windows}
+</template3>
+</template>

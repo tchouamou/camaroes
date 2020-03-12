@@ -1,0 +1,393 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<div id="databases_div">
+<table align="left" border="1">
+<tr><td width="30" valign="top">{match_menu_db}</td><td>
+
+
+<td valign="top" width="100%">
+{match_open_tab}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+{match_table_title}
+
+
+
+
+
+
+
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input type="hidden" name="db_action" value="list_db">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_dbms}
+
+
+<table align="center" valign="top" border="1" cellspacing="0" cellpadding="0">
+<tr>
+	<th colspan="4" >
+	{match_table_title3}
+	</th>
+</tr>
+</template1>
+
+
+<template2>
+<!--foreach($data_object[0] as $key => $val) table -->
+
+<tr>
+ <td class="rown3">
+ {match_table_key}
+ </td>
+
+ <td class="rown1">
+	<input type="checkbox" name="check_{match_table_key}" id="check_{match_table_key}" value="yes" />
+ </td>
+ 
+ <td>
+ {match_table_link}
+ </td>
+
+ <td class="rown1">
+ {match_action_links}
+ </td>
+ 
+</tr>
+<!--foreach-->
+</template2>
+
+
+<template3>
+</table>
+
+
+<p align="center" >
+<select name="submit_mult">
+    <option value="" selected="selected">{match_label_after_select}</option>
+    <option value="empty">{match_value_empty}</option>
+    <option value="delete">{match_value_delete}</option>
+    <option value="print">{match_label_print}</option>
+</select>
+<input type="submit" value="{match_value_run}" class="submit" />
+</form>
+</p>
+
+
+
+<hr />
+
+// variables
+// status
+// processlist
+// privileges
+// version
+// date
+// flush_status
+// show_engines
+// show_character
+// show_warnings
+
+// show_databases
+// show_create_database
+// create_database
+// drop_databases
+// show_create_table
+
+// create_user
+// drop_user
+// rename_user
+// set_password
+// grant
+// revoke
+// revoke_all
+
+
+db_collation
+
+
+<table align="center" valign="top" border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="4" >
+<table border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<form method="post" action="index.php">
+<input type="hidden" name="db_action" value="db_collation">
+	{match_input_hidden_module}
+	{match_input_hidden_get}
+	{match_input_hidden_conf}
+	
+	{match_input_hidden_dbms}
+	{match_input_hidden_database}
+	
+	
+	<fieldset class="bubble">
+	    <legend>
+	    <label for="select_db_collation">{match_label_collation}</label>
+	    </legend>
+	    
+	    
+	    
+	<select xml:lang="en" dir="ltr" name="db_collation">
+	<option value="{match_default_collation}">{match_default_collation}</option>
+	{match_options_db_collation}
+	</select>
+	
+	<input name="submitcollation" value="{match_value_run}" type="submit" class="submit" />
+	</fieldset>
+</form>
+
+
+<fieldset class="bubble">
+<legend>{match_label_database}</legend>
+
+
+
+
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input type="hidden" name="db_action" value="create_database">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_dbms}
+
+
+<fieldset class="bubble">
+<legend>{match_label_new_database}</legend>
+<label for="text_create_db">{match_label_db_name}</label>&nbsp;
+<input name="new_db" value="" maxlength="64" type="text">
+
+<select xml:lang="en" dir="ltr" name="db_collation">
+<option value="">{match_label_collation}</option>
+<option value="{match_default_collation}">{match_default_collation}</option>
+{match_options_db_collation}
+</select>
+<input class="submit" type="submit" value="{match_value_run}" onsubmit="return confirm('{match_submit_java}')" />
+</fieldset>
+</form>
+
+
+
+
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input type="hidden" name="db_action" value="rename_db">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_dbms}
+
+<fieldset class="bubble">
+<legend>{match_label_rename_database}</legend>
+<select xml:lang="en" dir="ltr" name="db_name">
+<option value="">{match_label_db_name}</option>
+{match_options_list_db}
+</select>
+=>
+<input name="new_db" value="" maxlength="64" type="text">
+<input class="submit" type="submit" value="{match_value_run}" onsubmit="return confirm('{match_submit_java}')" />
+</fieldset>
+</form>
+
+
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input type="hidden" name="db_action" value="copy_db">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_dbms}
+
+<fieldset class="bubble">
+<legend>{match_label_copy_database}</legend>
+<select xml:lang="en" dir="ltr" name="db_name">
+<option value="">{match_label_db_name}</option>
+{match_options_list_db}
+</select>
+=>
+<input name="new_db" value="" maxlength="64" type="text">
+<input class="submit" type="submit" value="{match_value_run}" onsubmit="return confirm('{match_submit_java}')" />
+</fieldset>
+</form>
+
+</fieldset>
+
+
+
+
+
+
+
+</td>
+</tr>
+</table>
+
+</td></tr>
+</table>
+
+
+
+<hr />
+
+
+<table align="center" valign="top" border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td colspan="4" >
+<table border="1" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+
+
+<form method="post" onsubmit="return checkAddUser(this);">
+<input type="hidden" name="db_action" value="create_user">
+<fieldset class="bubble">
+<legend>{match_legend_db_user}</legend>
+<div id="privileges_div">
+
+<div class="item">
+<label for="select_pred_username">{match_label_username}</label>
+<input type="text" name="username" maxlength="16" title="{match_label_username}" onchange="username">
+</div>
+
+<div class="item">
+<label for="hostname">{match_label_host}</label>
+<input type="text" name="hostname" value="localhost" title="{match_label_host}" onchange="hostname">
+</div>
+
+<div class="item">
+<label for="database_pw">{match_label_pw}</label>
+<input type="password" id="database_pw" name="database_pw" title="{match_label_pw}" onchange="password">
+</div>
+
+<p align="center">
+  <input value="{match_value_run}" type="submit" class="submit" />
+</p>
+
+<fieldset class="bubble">
+<legend>{match_label_db_user}</legend>
+<input type="radio" name="createdb" id="createdb" value="0" checked="checked">
+<label for="createdb_0">{match_label_none}</label><br>
+<input type="radio" name="createdb" id="createdb" value="1">
+<label for="createdb_1">{match_label_db_same_priv}</label><br>
+<input type="radio" name="createdb" id="createdb" value="2">
+<label for="createdb_2">{match_label_all_priv_at} (username\_%)</label><br>
+</fieldset>
+<input type="hidden" name="grant_count" value="27">
+<fieldset class="bubble">
+    <legend>
+        {match_legend_global}
+    </legend>
+<select multiple name="grant_list[]" id="grant_list" align="center">
+    <optgroup label="{match_legend_data}">
+        <option value="select">select</option>
+        <option value="insert">insert</option>
+        <option value="update">update</option>
+        <option value="delete">delete</option>
+        <option value="file">file</option>
+    </optgroup>
+    <optgroup label="{match_label_struct}">
+        <option value="create">create</option>
+        <option value="alter">alter</option>
+        <option value="index">index</option>
+        <option value="drop">drop</option>
+        <option value="create temporary tables">create temporary tables</option>
+        <option value="show view">show view</option>
+        <option value="create routine">create routine</option>
+        <option value="alter routine">alter routine</option>
+        <option value="execute">execute</option>
+        <option value="create view">create view</option>
+        <option value="event">event</option>
+        <option value="trigger">trigger</option>
+    </optgroup>
+    <optgroup label="{match_label_administate}">
+        <option value="grant">grant</option>
+        <option value="super">super</option>
+        <option value="process">process</option>
+        <option value="reload">reload</option>
+        <option value="shutdown">shutdown</option>
+        <option value="show databases">show databases</option>
+        <option value="lock tables">lock tables</option>
+        <option value="references">references</option>
+        <option value="replication client">replication client</option>
+        <option value="replication slave">replication slave</option>
+        <option value="create user">create user</option>
+    </optgroup>
+    </select>
+    </fieldset>
+<fieldset class="bubble">
+    <legend>
+        {match_label_limit}
+    </legend>
+        <p><small><i>N.B.: 0 (zero) {match_label_no_limit}.</i></small></p>
+        <div class="item">
+            <label for="text_max_questions">
+            MAX QUERIES PER HOUR</label>
+            <input type="text" name="max_questions" id="max_questions" value="0" size="11" maxlength="11" title="Limita il numero di query che un utente può mandare al server in un'ora.">
+        </div>
+        <div class="item">
+            <label for="text_max_updates">
+            MAX UPDATES PER HOUR</label>
+            <input type="text" name="max_updates" id="max_updates" value="0" size="11" maxlength="11" title="Limita il numero di comandi che possono cambiare una tabella o un database che un utente può eseguire in un'ora.">
+        </div>
+        <div class="item">
+            <label for="text_max_connections">
+            MAX CONNECTIONS PER HOUR</label>
+            <input type="text" name="max_connections" id="max_connections" value="0" size="11" maxlength="11" title="Limita il numero di nuove connessioni che un utente può aprire in un'ora.">
+        </div>
+        <div class="item">
+            <label for="text_max_user_connections">
+            MAX USER_CONNECTIONS</label>
+            <input type="text" name="max_user_connections" id="max_user_connections" value="0" size="11" maxlength="11" title="Limite di connessioni simultanee che un utente può fare.">
+        </div>
+    </fieldset>
+    
+<p align="center">
+        <input value="{match_value_run}" type="submit" class="submit" />
+</p>
+
+</form>
+</fieldset>
+</div>
+
+</td></tr>
+</table>
+
+
+
+
+
+</td></tr>
+</table>
+
+
+
+<!--
+{CREATE DATABASE `camaroes_db1` DEFAULT CHARACTER SET big5 COLLATE big5_chinese_ci;}
+-->
+
+
+</div>
+
+
+
+
+
+
+{match_close_tab}
+</td></tr>
+</table>
+</div>
+{match_close_windows}
+</template3>
+</template>

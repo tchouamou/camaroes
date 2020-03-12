@@ -1,0 +1,63 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<div id="preview_table_div">
+<table align="left" border="1">
+<tr><td width="30" valign="top">{match_menu_db}</td><td>
+
+
+<td valign="top">
+{match_open_tab}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<p align="center">
+<b>{match_table_title1}</b>
+</p>
+<p class="normal_text">
+{match_table_title2}
+</p>
+<br />
+
+<fieldset class="bubble"><legend>
+{match_legend_table}
+</legend>
+
+<ul class="normal_text" >
+	{match_value_column}
+</ul>
+
+</fieldset>
+
+ <form action="{match_www_path}index.php?cmr_mode=pdf&ext=.pdf" method="post" id="form_table_pdf">
+ <!--input type="hidden" value="cmr_mode" name="pdf" />
+ <input type="hidden" name="ext" value=".pdf" /-->
+ <input type="hidden" name="title"     id="pdf_table_title"    value="{match_pdf_title}" />
+ <input type="hidden" name="author"    id="pdf_table_author"   value="{match_pdf_author}" />
+ <input type="hidden" name="file"      id="pdf_table_file"     value="{match_pdf_file}" />
+ <input type="hidden" name="links"     id="pdf_table_links"    value="{match_pdf_links}" />
+ <input type="hidden" name="data_type" id="pdf_table_data_type" value="{match_pdf_data_type}" />
+ <input type="hidden" name="dim_col"   id="pdf_table_dim_col"  value="{match_pdf_dim_col}" />
+ <input type="hidden" name="header"    id="pdf_table_header"   value="{match_pdf_header}" />
+ <textarea  class="hidded" name="data" id="pdf_table_data"  >{match_pdf_data}</textarea>
+<p align="center">
+ <input class="submit" type="submit" value="pdf" onclick="return confirm('confirm')" />
+</p>
+</form>
+
+
+<br />
+</fieldset>
+<br />
+{match_close_tab}
+</td></tr>
+</table>
+</div>
+{match_close_windows}
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("class_modules_path") ."modules/view_comment.php");-->
+{match_include2}
+<!--include($cmr->get_conf("class_modules_path") ."modules/preview_sql.php");-->
+
+</template>

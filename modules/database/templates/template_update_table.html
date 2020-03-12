@@ -1,0 +1,61 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<div id="update_table_div">
+<table align="left" border="1">
+<tr><td width="30" valign="top">{match_menu_db}</td><td>
+
+
+<td valign="top">
+{match_open_tab}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<p align="center">
+<b>{match_table_title1}</b>
+</p>
+<p class="normal_text">
+{match_table_title2}
+</p>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_table}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_table}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+
+ {match_update_column}
+
+ </table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.class_module.value=update_table;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.class_module.value=new_table;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+</td></tr>
+</table>
+</div>
+{match_close_windows}
+</template1>
+</template>

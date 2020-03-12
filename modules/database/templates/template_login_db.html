@@ -1,0 +1,109 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<!--match_open_tab-->
+
+<div id="login_db_div">
+<table align="left" border="1">
+<tr><td width="30" valign="top">{match_menu_db}</td><td>
+
+
+<td valign="top">
+<fieldset class="bubble">
+<!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<p class="normal_text">
+<b>{match_login_db_title1}</b>
+<br />
+<p class="normal_text">
+<!--match_login_db_title2-->
+</p>
+<br />
+<form action="index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+
+<fieldset class="bubble"><legend>
+<img alt="Secure Login"  src="{match_www_path}images/icon/lock_screen_icon.png" />
+{match_label_db_login}</legend>
+<!-- ================================================================ -->
+<!-- ================================================================ -->
+<table align="left" border="0" nowrap="nowrap" >
+<tr><th><label for="db_type">{match_label_db_type}</label> </th><td>
+
+<select name="db_type">
+<option>{match_cookie_db_type}</option>
+
+{match_option_db_type}
+</td></tr>
+
+
+<tr><th><label for="db_host">{match_label_db_host}</label> </th><td><input type="text" name="db_host" value="{match_cookie_db_host}" /> </td></tr>
+<tr><th><label for="db_name">{match_label_db_name}</label> </th><td><input type="text" name="db_name" value="{match_cookie_db_name}" /> </td></tr>
+
+<tr><td colspan="2">
+<br />
+<br />
+<br />
+<fieldset class="bubble"><legend>{match_user_name}</legend>
+<table align="left" border="0" nowrap="nowrap" >
+<tr><th>
+
+<label>{match_label_uid}</label> </th><td><input type="text" name="db_user" value="{match_cookie_db_user}" /> </td></tr>
+
+<tr><th><label>{match_label_pw}</label> </th><td><input type="password" name="db_pw" value="{match_cookie_db_pw}" /></td></tr>
+
+<tr><td><br /></td><td>
+<input type="hidden" name="cmr_code" value="{match_value_image_code}" />
+<img src="?cmr_mode=image&cmr_imgtext={match_image_code}" alt="{match_alt_code}" />
+</td></tr>
+
+
+<tr><th><label for="image_code">{match_label_image_code}</label>
+</th><td><input type="password" name="db_code" value="" size="8" />
+
+<tr><td></td><td>
+{match_label_save_cookies}
+<select name="save_cookies">
+<option value="{match_save_cookies}" >{match_save_cookies}</option>
+<option value="" >No cookies</option>
+<option value="300" >5 Minute </option>
+<option value="900" >15 Minute </option>
+<option value="1800" >30 Minute </option>
+<option value="3600" >1 Hours </option>
+<option value="43200" >12 Hours </option>
+<option value="86400" >24 Hours(1 Day) </option>
+<option value="604800" >1 Week(7 Day) </option>
+<option value="2592000" >1 Month(30 Day) </option>
+</td></tr>
+
+
+
+<tr><td></td><td align="left">
+<input class="submit" type="submit" value="{match_submit}" />
+<input class="submit" type="reset" /> </td></tr>
+</td></tr>
+</table>
+</fieldset>
+</td></tr>
+
+
+
+
+
+</td></tr>
+</table>
+</fieldset>
+
+
+</form>
+</td></tr>
+</table>
+</div>
+<!--match_close_tab-->
+{match_close_windows}
+</template1>
+</template>

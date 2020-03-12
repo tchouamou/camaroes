@@ -1,0 +1,382 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+<div id="columns_div">
+<table align="left" border="1">
+<tr><td width="30" valign="top">{match_menu_db}</td><td>
+
+
+<td valign="top" width="100%">
+{match_open_tab}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<p align="center">
+<b>{match_table_title1}</b>
+</p>
+<p class="normal_text">
+{match_table_title2}
+</p>
+<br />
+
+
+// add_field
+// add_key
+// add_unique
+// show_columns
+// show_rows
+// drop_field
+// change_field_type
+// new_default
+// change_default
+
+// insert
+// replace
+// update
+// delete
+// alter_select
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input type="hidden" name="db_action" value="add_colomns">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+
+<table align="center" valign="top" border="1" cellspacing="0" cellpadding="0">
+
+
+<tr>
+	<th colspan="4" >
+		{match_table_title3}
+	</th>
+</tr>
+
+</template1>
+
+
+<template2>
+<!--foreach($data_object[0] as $key => $val) columns -->
+<tr>
+ <td class="rown3">
+ {match_table_key}
+ </td>
+
+ <td class="rown1">
+	<input type="checkbox" name="check_{match_table_key}" id="check_{match_table_key}" value="yes" />
+ </td>
+ 
+ <td>
+ {match_table_link}
+ </td>
+
+ <td class="rown1">
+ {match_action_links}
+ </td>
+ 
+</tr>
+
+<!--foreach columns -->
+</template2>
+
+
+<template3>
+</table>
+<p align="center" >
+<select name="submit_mult">
+    <option value="" selected="selected">{match_label_after_select}</option>
+    <option value="empty">{match_value_empty}</option>
+    <option value="delete">{match_value_update}</option>
+    <option value="delete">{match_value_delete}</option>
+    <option value="print">{match_label_print}</option>
+</select>
+<input type="submit" value="{match_value_run}" class="submit" />
+</form>
+</p>
+
+
+
+<table align="center" valign="top"  border="1" cellspacing="0" cellpadding="0">
+
+<tr>
+<td colspan="4">
+
+<div id="div_table_addfield">
+<fieldset class="bubble">
+    <legend>{match_label_add_column}</legend>
+<form method="post" action="index.php">
+<input type="hidden" name="db_action" value="add_field">
+{match_input_hidden_module1}
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+
+<input name="num_fields" size="2" maxlength="2" value="1" onfocus="this.select()" type="text">
+
+{match_label_column}
+<input name="field_where" id="field_where_last" value="last" checked="checked" type="radio">
+
+<label for="field_where_last">{match_label_at_end}</label>
+<input name="field_where" id="field_where_first" value="first" type="radio">
+<label for="field_where_first">{match_label_at_begin}</label>
+<input name="field_where" id="field_where_after" value="after" type="radio">
+
+<label for="field_where_after">{match_label_after}</label>
+<select name="after_field" onclick="this.form.field_where[2].checked=true" onchange="this.form.field_where[2].checked=true">
+   <option value="{match_options_column}">{match_options_list_column}</option>
+</select>
+
+<input value="{match_value_run}" type="submit" class="submit" />
+</form>
+</fieldset>
+</div>
+
+</td></tr>
+
+
+
+
+
+<tr>
+<td colspan="4">
+
+<div id="div_table_altera">
+<form method="post" action="index.php">
+<input type="hidden" name="db_action" value="db_collation">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+
+<fieldset class="bubble">
+    <legend>{match_legend_table}</legend>
+    
+<select name="list_column">
+   <option value="{match_options_column}">{match_options_list_column}</option>
+</select>
+
+{match_label_order}
+
+<select name="order_order">
+        <option value="asc">{match_label_asc}</option>
+        <option value="desc">{match_label_desc}</option>
+</select>
+
+<input name="submitorderby" value="{match_value_run}" type="submit" class="submit" />
+
+</fieldset>
+</form>
+</div>
+
+
+
+
+<!-- Table options -->
+<div id="div_table_options">
+<form method="post" action="index.php">
+<input type="hidden" name="db_action" value="db_collation">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+<fieldset class="bubble">
+    <legend>{match_legend_table_option}</legend>
+
+    <table>
+    <!-- Change table name -->
+
+    <tbody>
+
+    <!-- Table comments -->
+    <tr><td>{match_label_coment_table}</td>
+        <td><input name="comment" maxlength="60" size="30" value="{match_value_comment}" onfocus="this.select()" type="text">
+        </td>
+    </tr>
+
+    <!-- Storage engine -->
+    <tr><td>{match_label_engine}          
+    </td>
+        <td>
+        <select name="new_tbl_type">
+		<option value="{match_value_collation}">{match_value_engine}</option>
+		{match_options_engine}
+		</select>
+
+    </td>
+    </tr>
+
+    <!-- Table character set -->
+    <tr><td>{match_label_collation}</td>
+    
+    <td>
+<select xml:lang="en" dir="ltr" name="tbl_collation">
+<option value="{match_value_collation}">{match_value_collation}</option>
+<option value=""></option>
+{match_options_db_collation}
+</select>
+
+</td>
+</tr>
+    
+    
+    
+    <tr>
+        <td><label for="new_pack_keys">{match_label_pack_keys}</label></td>
+        <td><select name="new_pack_keys">
+				<option value="{match_value_pack_keys}">{match_value_pack_keys}</option>
+                <option value="DEFAULT" selected="selected">DEFAULT</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </td>
+    </tr>
+    
+    
+    
+    <tr><td><label for="new_checksum">{match_label_checksum}</label></td>
+        <td>
+        <input name="new_checksum" value="1" type="checkbox" {match_check_checksum}>
+        </td>
+    </tr>
+
+    <tr><td><label for="new_delay_key_write">{match_label_delay_key_write}</label></td>
+        <td>
+        <input name="new_delay_key_write" value="1" type="checkbox" {match_check_delay_key_write}>
+        </td>
+    </tr>
+
+    <tr><td><label for="auto_increment_opt">{match_label_auto_increment}</label></td>
+        <td><input name="new_auto_increment" value="{match_value_auto_increment}" type="text">
+        </td>
+    </tr>
+    
+    <tr><td><label for="row_format">{match_label_row_format}</label></td>
+    <td>
+    <select name="row_format">
+	<option value="{match_value_row_format}">{match_value_row_format}</option>
+    <option value="FIXED">FIXED</option>
+	<option value="DYNAMIC" selected="selected">DYNAMIC</option>
+	</select>
+	</td>
+	</tr>
+	</tbody></table>
+<p>
+        <input name="submitoptions" value="{match_value_run}" type="submit" class="submit" />
+</p>
+</fieldset>
+
+</form>
+</div>
+
+<!-- Copy table -->
+<div id="div_table_copy">
+<form method="post" action="index.php.php" >
+<input type="hidden" name="db_action" value="db_collation">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+<fieldset class="bubble">
+    <legend>{match_legend_copy_table_to_db}</legend>
+
+<select name="target_db">
+<option value="list_database">{match_options_list_db}</option>
+</select>
+
+&nbsp;<strong>.</strong>&nbsp;
+<input size="20" name="new_name" onfocus="this.select()" type="text" value="{match_table_name}">
+<br />
+<input name="what" value="structure" type="radio">
+<label for="what_structure">{match_label_struct_only}</label><br />
+<input name="what" value="data" checked="checked" type="radio">
+<label for="what_data">{match_label_struct_and_data}</label><br />
+
+<input name="what" value="dataonly" type="radio">
+<label for="what_dataonly">{match_label_data_only}</label><br />
+
+    <input name="drop_if_exists" value="true" type="checkbox">
+    <label for="checkbox_drop">{match_label_with_drop}</label><br />
+    <input name="sql_auto_increment" value="1" type="checkbox">
+    <label for="checkbox_auto_increment_cp">{match_label_auto_increment}</label><br />
+    <input name="switch_to_new" value="true" type="checkbox">
+    <label for="checkbox_switch">{match_label_go_to_table}</label>
+<p>
+    <input name="submit_copy" value="{match_value_run}" type="submit" class="submit" />
+</p>
+</fieldset>
+
+
+</form>
+</div>
+
+<br>
+
+
+
+
+
+<div id="div_table_maintenance">
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+<input type="hidden" name="db_action" value="db_collation">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_dbms}
+{match_input_hidden_database}
+{match_input_hidden_table}
+<fieldset class="bubble">
+<legend>{match_legend_admin_table}</legend>
+<select name="target_db">
+	<option value="check_table">{match_label_check_table}</option>
+	<option value="analyze_table">{match_label_analyze_table}</option>
+	<option value="repair_table">{match_label_repair_table}</option>
+	<option value="optimize_table">{match_label_optimize_table}</option>
+	<option value="flush_table">{match_label_flush_table}</option>
+</select>
+<input name="submit_copy" value="{match_value_run}" type="submit" class="submit" />
+
+</fieldset>
+</form>
+
+</div>
+</td></tr>
+
+
+
+
+
+
+
+</td></tr>
+</table>
+
+</div>
+
+
+
+{match_close_tab}
+</td></tr>
+</table>
+</div>
+{match_close_windows}
+</template3>
+</template>
