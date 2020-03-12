@@ -1,0 +1,62 @@
+<template><!-- By {tchouamou@gmail.com} (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="delete_@_table_@_div">
+<p align="center">
+<b>{match_@_table_@_title1}</b>
+</p>
+<p class="normal_text">
+{match_@_table_@_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+
+<p class="normal_text">
+<table border="1" class="normal_text" align="center">
+ <tr>
+  <td class="normal_text" colspan="2">
+   <b>{match_label_delete}</b>
+  </td>
+ </tr>
+ 
+ 
+ <tr>
+ <td class="normal_text">
+ {match_@_table_@_@_column_unique1_@}:
+ </td>
+ <td class="normal_text">
+   <select class="{match_class_select}" name="id_@_table_@[]" multiple >
+	{match_select_option}
+   </select>
+	{match_select_link}
+  </td>
+ </tr>
+</table>
+</p>
+
+
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onclick="return confirm('{match_submit_java}')" />
+</p>
+</form>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

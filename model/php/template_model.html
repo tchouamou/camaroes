@@ -1,0 +1,66 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="update_@_table_@_div">
+<p align="center">
+<b>{match_@_table_@_title1}</b>
+</p>
+<p class="normal_text">
+{match_@_table_@_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_@_table_@}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_@_table_@}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+£_foreach_column_£
+ <tr>
+  <th align='rigth'>
+ 	@_form_label_html_@
+  </th>
+   <td align='rigth'>
+    @_form_function_html_@
+   </td>
+  <td align='left'>
+ 	@_form_box_html_upd_@
+  </td>
+ </tr>
+££_foreach_column_££
+</table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.class_module.value=update_@_table_@;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.class_module.value=new_@_table_@;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+{match_close_windows}
+</div>
+</template1>
+</template>

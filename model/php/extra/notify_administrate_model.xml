@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<@_form_name_@>
+<to_email>
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}} {{lang_Admin action runned}} </subject>
+<message>
+{{lang_An admin action was runned by}}: {{user_auth_email}}
+
+{{glob_query}}
+
+{{lang_thanks}} 
+--
+
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+
+<to_page>
+<p>
+<b>{{lang_Action runned successfully}} </b>
+<br />
+{{glob_query}}
+<br />
+{{lang_thanks}} 
+--<br />
+</p>
+</to_page>
+
+<to_log>{{conf_cmr_company_name3}} {{lang_Admin action runned}} </to_log>
+
+
+<to_db>
+</to_db>
+
+
+<to_sms>
+</to_sms>
+
+
+<to_flux>
+</to_flux>
+
+
+<to_rss>
+</to_rss>
+
+
+<to_other>
+</to_other>
+</@_form_name_@>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<notification>
+<to_email>
+</to_email>
+
+
+
+
+<to_page>
+</to_page>
+
+<to_log>
+</to_log>
+
+
+<to_db>
+</to_db>
+
+
+<to_sms>
+</to_sms>
+
+
+<to_flux>
+</to_flux>
+
+
+<to_rss>
+</to_rss>
+
+
+<to_other>
+</to_other>
+
+<author>Tchouamou Eric Herve</author>
+<creationDate>@_date_time_@</creationDate>
+<copyright>(C) 2004-2010 Open Source . All rights reserved.</copyright>
+<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+<authorEmail>tchouamou@gmail.com</authorEmail>
+<authorUrl>http://sourceforge.net/users/tchouamoueric/</authorUrl>
+<version>Camaroes Version 3.0</version>
+
+</notification>

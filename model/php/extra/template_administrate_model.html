@@ -1,0 +1,102 @@
+<template>
+<template1>
+{match_open_windows}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<br />
+<b>{match_administrate_title1}</b>
+<br />
+<p class="normal_text">
+{match_administrate_title2}
+</p>
+<br />
+<div class="form" id="administrate_div">
+
+<br />
+
+
+
+
+<form action="{cmr_wwwpath}index.php?{match_form_param}" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<fieldset class="bubble"><legend>{match_legend_action}</legend>
+
+<p align="center">
+[{match_action_view}:<input class="submit" type="radio" name="action" value="view" checked />]&nbsp&nbsp
+[{match_action_search}:<input class="submit" type="radio" name="action" value="search" />&nbsp&nbsp
+[{match_action_report}:<input class="submit" type="radio" name="action" value="report" />&nbsp&nbsp
+[{match_action_new}:<input class="submit" type="radio" name="action" value="new" />]&nbsp&nbsp
+[{match_action_update}:<input class="submit" type="radio" name="action" value="update" />]&nbsp&nbsp
+[{match_action_delete}:<input class="submit" type="radio" name="action" value="delete" />]&nbsp&nbsp
+<br />
+</fieldset>
+
+</p>
+
+
+
+<b>{match_select_dest}</b><br />
+<table class="normal_text" border="0" align="center" >
+
+
+
+
+
+£_foreach_table_£
+<tr>
+	<td class="normal_text" align='left'>
+		<input type='radio' name='on' value='@_table_@' id='@_table_@' />
+		{match_@_table_@}:
+	</td>
+	<td class="normal_text" align='left'>
+		<select class="{match_class_select}" class='select_class' name='@_table_@' width='200' onclick=radio_select('@_table_@')>
+			<option>?</option>
+			<option>{match_all}:</option>
+			{match_option_@_table_@}
+		</select>
+		{match_select_@_table_@_link}
+	</td>
+</tr>
+££_foreach_table_££
+
+
+
+
+</table>
+
+<br />
+</template1>
+<!--if($cmr->user["authorisation"] >= $cmr->config["cmr_admin_type"])-->
+<template2>
+<p class="normal_text" align="center">
+<fieldset class="bubble"><legend>{match_sql}:</legend>
+<select name="show" id="show" width="200" onchange="add_to_textarea('sql', 'show')">
+<option>?</option>
+{match_option_query}
+</select>
+<br />
+
+<input class="submit" type="radio" name="on" value="sql" id="sql_on" /><big class="{match_class_big}">
+{match_sql_query}
+</big><br />
+<textarea  onclick="radio_select('sql_on')" name="sql" id="sql" cols="60" rows="4">
+SHOW TABLE STATUS;
+</textarea>
+</fieldset>
+</template2>
+<!---->
+<template3>
+<hr />
+
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+   <input class="submit" type="submit" value="{match_submit}" onsubmit="return confirm('{match_submit_java}')" />
+</p>
+</form>
+{match_close_windows}
+</div>
+</template3>
+</template>
