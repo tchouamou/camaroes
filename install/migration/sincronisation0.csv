@@ -1,0 +1,868 @@
+$sin1["cmr_table"][]="cmr_account";      $sin2["cmr_table"][]="cmr_account";
+$sin1[cmr_account][]="id";      $sin2[cmr_account][]="id";
+$sin1[cmr_account][]="url";      $sin2[cmr_account][]="url";
+$sin1[cmr_account][]="user_email";      $sin2[cmr_account][]="user_email";
+$sin1[cmr_account][]="uid";      $sin2[cmr_account][]="uid";
+$sin1[cmr_account][]="pw";      $sin2[cmr_account][]="pw";
+$sin1[cmr_account][]="server";      $sin2[cmr_account][]="server";
+$sin1[cmr_account][]="service";      $sin2[cmr_account][]="service";
+$sin1[cmr_account][]="port";      $sin2[cmr_account][]="port";
+$sin1[cmr_account][]="protocol";      $sin2[cmr_account][]="protocol";
+$sin1[cmr_account][]="allow_level";      $sin2[cmr_account][]="allow_level";
+$sin1[cmr_account][]="allow_email";      $sin2[cmr_account][]="allow_email";
+$sin1[cmr_account][]="allow_groups";      $sin2[cmr_account][]="allow_groups";
+$sin1[cmr_account][]="comment";      $sin2[cmr_account][]="comment";
+$sin1[cmr_account][]="date_time";      $sin2[cmr_account][]="date_time";
+
+
+
+$sin1["cmr_table"][]="cmr_asset";      $sin2["cmr_table"][]="cmr_asset";
+$sin1[cmr_asset][]="id";      $sin2[cmr_asset][]="id";
+$sin1[cmr_asset][]="serial";      $sin2[cmr_asset][]="serial";
+$sin1[cmr_asset][]="mac_adress";      $sin2[cmr_asset][]="mac_adress";
+$sin1[cmr_asset][]="name";      $sin2[cmr_asset][]="name";
+$sin1[cmr_asset][]="location";      $sin2[cmr_asset][]="location";
+$sin1[cmr_asset][]="ip";      $sin2[cmr_asset][]="ip";
+$sin1[cmr_asset][]="nat_ip";      $sin2[cmr_asset][]="nat_ip";
+$sin1[cmr_asset][]="mask";      $sin2[cmr_asset][]="mask";
+$sin1[cmr_asset][]="gateway";      $sin2[cmr_asset][]="gateway";
+$sin1[cmr_asset][]="dns1";      $sin2[cmr_asset][]="dns1";
+$sin1[cmr_asset][]="dns2";      $sin2[cmr_asset][]="dns2";
+$sin1[cmr_asset][]="type";      $sin2[cmr_asset][]="type";
+$sin1[cmr_asset][]="os";      $sin2[cmr_asset][]="os";
+$sin1[cmr_asset][]="state";      $sin2[cmr_asset][]="state";
+$sin1[cmr_asset][]="login_id";      $sin2[cmr_asset][]="login_id";
+$sin1[cmr_asset][]="login_pw";      $sin2[cmr_asset][]="login_pw";
+$sin1[cmr_asset][]="check_command";      $sin2[cmr_asset][]="check_command";
+$sin1[cmr_asset][]="certificate";      $sin2[cmr_asset][]="certificate";
+$sin1[cmr_asset][]="my_master";      $sin2[cmr_asset][]="my_master";
+$sin1[cmr_asset][]="allow_level";      $sin2[cmr_asset][]="allow_level";
+$sin1[cmr_asset][]="allow_email";      $sin2[cmr_asset][]="allow_email";
+$sin1[cmr_asset][]="allow_groups";      $sin2[cmr_asset][]="allow_groups";
+$sin1[cmr_asset][]="my_software";      $sin2[cmr_asset][]="my_software";
+$sin1[cmr_asset][]="my_service";      $sin2[cmr_asset][]="my_service";
+$sin1[cmr_asset][]="comment";      $sin2[cmr_asset][]="comment";
+$sin1[cmr_asset][]="date_time";      $sin2[cmr_asset][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_certificate";      $sin2["cmr_table"][]="cmr_certificate";
+$sin1[cmr_certificate][]="id";      $sin2[cmr_certificate][]="id";
+$sin1[cmr_certificate][]="serial";      $sin2[cmr_certificate][]="serial";
+$sin1[cmr_certificate][]="user_email";      $sin2[cmr_certificate][]="user_email";
+$sin1[cmr_certificate][]="version";      $sin2[cmr_certificate][]="version";
+$sin1[cmr_certificate][]="to_cn";      $sin2[cmr_certificate][]="to_cn";
+$sin1[cmr_certificate][]="to_o";      $sin2[cmr_certificate][]="to_o";
+$sin1[cmr_certificate][]="to_ou";      $sin2[cmr_certificate][]="to_ou";
+$sin1[cmr_certificate][]="from_cn";      $sin2[cmr_certificate][]="from_cn";
+$sin1[cmr_certificate][]="from_o";      $sin2[cmr_certificate][]="from_o";
+$sin1[cmr_certificate][]="from_ou";      $sin2[cmr_certificate][]="from_ou";
+$sin1[cmr_certificate][]="valid_from";      $sin2[cmr_certificate][]="valid_from";
+$sin1[cmr_certificate][]="valid_to";      $sin2[cmr_certificate][]="valid_to";
+$sin1[cmr_certificate][]="state";      $sin2[cmr_certificate][]="state";
+$sin1[cmr_certificate][]="cert_pkcs";      $sin2[cmr_certificate][]="cert_pkcs";
+$sin1[cmr_certificate][]="pub_key_pkcs";      $sin2[cmr_certificate][]="pub_key_pkcs";
+$sin1[cmr_certificate][]="status";      $sin2[cmr_certificate][]="status";
+$sin1[cmr_certificate][]="type";      $sin2[cmr_certificate][]="type";
+$sin1[cmr_certificate][]="login_script";      $sin2[cmr_certificate][]="login_script";
+$sin1[cmr_certificate][]="public_key";      $sin2[cmr_certificate][]="public_key";
+$sin1[cmr_certificate][]="private_key";      $sin2[cmr_certificate][]="private_key";
+$sin1[cmr_certificate][]="pass_phrase";      $sin2[cmr_certificate][]="pass_phrase";
+$sin1[cmr_certificate][]="my_master";      $sin2[cmr_certificate][]="my_master";
+$sin1[cmr_certificate][]="my_slave";      $sin2[cmr_certificate][]="my_slave";
+$sin1[cmr_certificate][]="allow_level";      $sin2[cmr_certificate][]="allow_level";
+$sin1[cmr_certificate][]="allow_email";      $sin2[cmr_certificate][]="allow_email";
+$sin1[cmr_certificate][]="allow_groups";      $sin2[cmr_certificate][]="allow_groups";
+$sin1[cmr_certificate][]="comment";      $sin2[cmr_certificate][]="comment";
+$sin1[cmr_certificate][]="date_time";      $sin2[cmr_certificate][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_code";      $sin2["cmr_table"][]="cmr_code";
+$sin1[cmr_code][]="id";      $sin2[cmr_code][]="id";
+$sin1[cmr_code][]="code";      $sin2[cmr_code][]="code";
+$sin1[cmr_code][]="script";      $sin2[cmr_code][]="script";
+$sin1[cmr_code][]="state";      $sin2[cmr_code][]="state";
+$sin1[cmr_code][]="allow_level";      $sin2[cmr_code][]="allow_level";
+$sin1[cmr_code][]="allow_email";      $sin2[cmr_code][]="allow_email";
+$sin1[cmr_code][]="allow_groups";      $sin2[cmr_code][]="allow_groups";
+$sin1[cmr_code][]="comment";      $sin2[cmr_code][]="comment";
+$sin1[cmr_code][]="date_time";      $sin2[cmr_code][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_command";      $sin2["cmr_table"][]="cmr_command";
+$sin1[cmr_command][]="id";      $sin2[cmr_command][]="id";
+$sin1[cmr_command][]="command_name";      $sin2[cmr_command][]="command_name";
+$sin1[cmr_command][]="command_line";      $sin2[cmr_command][]="command_line";
+$sin1[cmr_command][]="state";      $sin2[cmr_command][]="state";
+$sin1[cmr_command][]="allow_level";      $sin2[cmr_command][]="allow_level";
+$sin1[cmr_command][]="allow_email";      $sin2[cmr_command][]="allow_email";
+$sin1[cmr_command][]="allow_groups";      $sin2[cmr_command][]="allow_groups";
+$sin1[cmr_command][]="comment";      $sin2[cmr_command][]="comment";
+$sin1[cmr_command][]="date_time";      $sin2[cmr_command][]="date_time";
+
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_contact";      $sin2["cmr_table"][]="cmr_contact";
+$sin1[cmr_contact][]="id";      $sin2[cmr_contact][]="id";
+$sin1[cmr_contact][]="uid";      $sin2[cmr_contact][]="uid";
+$sin1[cmr_contact][]="name";      $sin2[cmr_contact][]="name";
+$sin1[cmr_contact][]="last_name";      $sin2[cmr_contact][]="last_name";
+$sin1[cmr_contact][]="sexe";      $sin2[cmr_contact][]="sexe";
+$sin1[cmr_contact][]="function";      $sin2[cmr_contact][]="function";
+$sin1[cmr_contact][]="email";      $sin2[cmr_contact][]="email";
+$sin1[cmr_contact][]="email_sign";      $sin2[cmr_contact][]="email_sign";
+$sin1[cmr_contact][]="tel";      $sin2[cmr_contact][]="tel";
+$sin1[cmr_contact][]="cel";      $sin2[cmr_contact][]="cel";
+$sin1[cmr_contact][]="adress";      $sin2[cmr_contact][]="adress";
+$sin1[cmr_contact][]="location";      $sin2[cmr_contact][]="location";
+$sin1[cmr_contact][]="country";      $sin2[cmr_contact][]="country";
+$sin1[cmr_contact][]="type";      $sin2[cmr_contact][]="type";
+$sin1[cmr_contact][]="state";      $sin2[cmr_contact][]="state";
+$sin1[cmr_contact][]="status";      $sin2[cmr_contact][]="status";
+$sin1[cmr_contact][]="lang";      $sin2[cmr_contact][]="lang";
+$sin1[cmr_contact][]="style";      $sin2[cmr_contact][]="style";
+$sin1[cmr_contact][]="public_key";      $sin2[cmr_contact][]="public_key";
+$sin1[cmr_contact][]="my_master";      $sin2[cmr_contact][]="my_master";
+$sin1[cmr_contact][]="my_slave";      $sin2[cmr_contact][]="my_slave";
+$sin1[cmr_contact][]="allow_level";      $sin2[cmr_contact][]="allow_level";
+$sin1[cmr_contact][]="allow_email";      $sin2[cmr_contact][]="allow_email";
+$sin1[cmr_contact][]="allow_groups";      $sin2[cmr_contact][]="allow_groups";
+$sin1[cmr_contact][]="comment";      $sin2[cmr_contact][]="comment";
+$sin1[cmr_contact][]="date_time";      $sin2[cmr_contact][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_cron";      $sin2["cmr_table"][]="cmr_cron";
+$sin1[cmr_cron][]="id";      $sin2[cmr_cron][]="id";
+$sin1[cmr_cron][]="name";      $sin2[cmr_cron][]="name";
+$sin1[cmr_cron][]="command";      $sin2[cmr_cron][]="command";
+$sin1[cmr_cron][]="at";      $sin2[cmr_cron][]="at";
+$sin1[cmr_cron][]="type";      $sin2[cmr_cron][]="type";
+$sin1[cmr_cron][]="state";      $sin2[cmr_cron][]="state";
+$sin1[cmr_cron][]="allow_level";      $sin2[cmr_cron][]="allow_level";
+$sin1[cmr_cron][]="allow_email";      $sin2[cmr_cron][]="allow_email";
+$sin1[cmr_cron][]="allow_groups";      $sin2[cmr_cron][]="allow_groups";
+$sin1[cmr_cron][]="comment";      $sin2[cmr_cron][]="comment";
+$sin1[cmr_cron][]="date_time";      $sin2[cmr_cron][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_download";      $sin2["cmr_table"][]="cmr_download";
+$sin1[cmr_download][]="id";      $sin2[cmr_download][]="id";
+$sin1[cmr_download][]="url";      $sin2[cmr_download][]="url";
+$sin1[cmr_download][]="path";      $sin2[cmr_download][]="path";
+$sin1[cmr_download][]="file_name";      $sin2[cmr_download][]="file_name";
+$sin1[cmr_download][]="file_type";      $sin2[cmr_download][]="file_type";
+$sin1[cmr_download][]="file_size";      $sin2[cmr_download][]="file_size";
+$sin1[cmr_download][]="state";      $sin2[cmr_download][]="state";
+$sin1[cmr_download][]="allow_level";      $sin2[cmr_download][]="allow_level";
+$sin1[cmr_download][]="allow_email";      $sin2[cmr_download][]="allow_email";
+$sin1[cmr_download][]="allow_groups";      $sin2[cmr_download][]="allow_groups";
+$sin1[cmr_download][]="comment";      $sin2[cmr_download][]="comment";
+$sin1[cmr_download][]="date_time";      $sin2[cmr_download][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_email";      $sin2["cmr_table"][]="cmr_email";
+$sin1[cmr_email][]="id";      $sin2[cmr_email][]="id";
+$sin1[cmr_email][]="encoding";      $sin2[cmr_email][]="encoding";
+$sin1[cmr_email][]="lang";      $sin2[cmr_email][]="lang";
+$sin1[cmr_email][]="header";      $sin2[cmr_email][]="header";
+$sin1[cmr_email][]="title";      $sin2[cmr_email][]="title";
+$sin1[cmr_email][]="mail_title";      $sin2[cmr_email][]="mail_title";
+$sin1[cmr_email][]="mail_from";      $sin2[cmr_email][]="mail_from";
+$sin1[cmr_email][]="mail_to";      $sin2[cmr_email][]="mail_to";
+$sin1[cmr_email][]="mail_cc";      $sin2[cmr_email][]="mail_cc";
+$sin1[cmr_email][]="mail_bcc";      $sin2[cmr_email][]="mail_bcc";
+$sin1[cmr_email][]="attach";      $sin2[cmr_email][]="attach";
+$sin1[cmr_email][]="text";      $sin2[cmr_email][]="text";
+$sin1[cmr_email][]="my_master";      $sin2[cmr_email][]="my_master";
+$sin1[cmr_email][]="my_slave";      $sin2[cmr_email][]="my_slave";
+$sin1[cmr_email][]="allow_level";      $sin2[cmr_email][]="allow_level";
+$sin1[cmr_email][]="allow_email";      $sin2[cmr_email][]="allow_email";
+$sin1[cmr_email][]="allow_groups";      $sin2[cmr_email][]="allow_groups";
+$sin1[cmr_email][]="comment";      $sin2[cmr_email][]="comment";
+$sin1[cmr_email][]="date_time";      $sin2[cmr_email][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_escalation";      $sin2["cmr_table"][]="cmr_escalation";
+$sin1[cmr_escalation][]="id";      $sin2[cmr_escalation][]="id";
+$sin1[cmr_escalation][]="ticket_number";      $sin2[cmr_escalation][]="ticket_number";
+$sin1[cmr_escalation][]="action";      $sin2[cmr_escalation][]="action";
+$sin1[cmr_escalation][]="id_ticket";      $sin2[cmr_escalation][]="id_ticket";
+$sin1[cmr_escalation][]="allow_level";      $sin2[cmr_escalation][]="allow_level";
+$sin1[cmr_escalation][]="allow_email";      $sin2[cmr_escalation][]="allow_email";
+$sin1[cmr_escalation][]="allow_groups";      $sin2[cmr_escalation][]="allow_groups";
+$sin1[cmr_escalation][]="comment";      $sin2[cmr_escalation][]="comment";
+$sin1[cmr_escalation][]="date_time";      $sin2[cmr_escalation][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_faq";      $sin2["cmr_table"][]="cmr_faq";
+$sin1[cmr_faq][]="id";      $sin2[cmr_faq][]="id";
+$sin1[cmr_faq][]="name";      $sin2[cmr_faq][]="name";
+$sin1[cmr_faq][]="argoment";      $sin2[cmr_faq][]="argoment";
+$sin1[cmr_faq][]="question";      $sin2[cmr_faq][]="question";
+$sin1[cmr_faq][]="response";      $sin2[cmr_faq][]="response";
+$sin1[cmr_faq][]="state";      $sin2[cmr_faq][]="state";
+$sin1[cmr_faq][]="allow_level";      $sin2[cmr_faq][]="allow_level";
+$sin1[cmr_faq][]="allow_email";      $sin2[cmr_faq][]="allow_email";
+$sin1[cmr_faq][]="allow_groups";      $sin2[cmr_faq][]="allow_groups";
+$sin1[cmr_faq][]="comment";      $sin2[cmr_faq][]="comment";
+$sin1[cmr_faq][]="date_time";      $sin2[cmr_faq][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_father_groups";      $sin2["cmr_table"][]="cmr_father_groups";
+$sin1[cmr_father_groups][]="id";      $sin2[cmr_father_groups][]="id";
+$sin1[cmr_father_groups][]="group_father";      $sin2[cmr_father_groups][]="group_father";
+$sin1[cmr_father_groups][]="group_child";      $sin2[cmr_father_groups][]="group_child";
+$sin1[cmr_father_groups][]="state";      $sin2[cmr_father_groups][]="state";
+$sin1[cmr_father_groups][]="date_time";      $sin2[cmr_father_groups][]="date_time";
+$sin1[cmr_father_groups][]="allow_level";      $sin2[cmr_father_groups][]="allow_level";
+$sin1[cmr_father_groups][]="allow_email";      $sin2[cmr_father_groups][]="allow_email";
+$sin1[cmr_father_groups][]="allow_groups";      $sin2[cmr_father_groups][]="allow_groups";
+$sin1[cmr_father_groups][]="comment";      $sin2[cmr_father_groups][]="comment";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_forum";      $sin2["cmr_table"][]="cmr_forum";
+$sin1[cmr_forum][]="id";      $sin2[cmr_forum][]="id";
+$sin1[cmr_forum][]="name";      $sin2[cmr_forum][]="name";
+$sin1[cmr_forum][]="argoment";      $sin2[cmr_forum][]="argoment";
+$sin1[cmr_forum][]="text";      $sin2[cmr_forum][]="text";
+$sin1[cmr_forum][]="my_master";      $sin2[cmr_forum][]="my_master";
+$sin1[cmr_forum][]="allow_level";      $sin2[cmr_forum][]="allow_level";
+$sin1[cmr_forum][]="allow_email";      $sin2[cmr_forum][]="allow_email";
+$sin1[cmr_forum][]="allow_groups";      $sin2[cmr_forum][]="allow_groups";
+$sin1[cmr_forum][]="comment";      $sin2[cmr_forum][]="comment";
+$sin1[cmr_forum][]="date_time";      $sin2[cmr_forum][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_generator";      $sin2["cmr_table"][]="cmr_generator";
+$sin1[cmr_generator][]="id";      $sin2[cmr_generator][]="id";
+$sin1[cmr_generator][]="db";      $sin2[cmr_generator][]="db";
+$sin1[cmr_generator][]="table";      $sin2[cmr_generator][]="table";
+$sin1[cmr_generator][]="column";      $sin2[cmr_generator][]="column";
+$sin1[cmr_generator][]="code1";      $sin2[cmr_generator][]="code1";
+$sin1[cmr_generator][]="code2";      $sin2[cmr_generator][]="code2";
+$sin1[cmr_generator][]="code3";      $sin2[cmr_generator][]="code3";
+$sin1[cmr_generator][]="allow_level";      $sin2[cmr_generator][]="allow_level";
+$sin1[cmr_generator][]="allow_email";      $sin2[cmr_generator][]="allow_email";
+$sin1[cmr_generator][]="allow_groups";      $sin2[cmr_generator][]="allow_groups";
+$sin1[cmr_generator][]="comment";      $sin2[cmr_generator][]="comment";
+$sin1[cmr_generator][]="date_time";      $sin2[cmr_generator][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_groups";      $sin2["cmr_table"][]="cmr_groups";
+$sin1[cmr_groups][]="id";      $sin2[cmr_groups][]="id";
+$sin1[cmr_groups][]="name";      $sin2[cmr_groups][]="name";
+$sin1[cmr_groups][]="state";      $sin2[cmr_groups][]="state";
+$sin1[cmr_groups][]="level";      $sin2[cmr_groups][]="level";
+$sin1[cmr_groups][]="location";      $sin2[cmr_groups][]="location";
+$sin1[cmr_groups][]="type";      $sin2[cmr_groups][]="type";
+$sin1[cmr_groups][]="sla";      $sin2[cmr_groups][]="sla";
+$sin1[cmr_groups][]="public_key";      $sin2[cmr_groups][]="public_key";
+$sin1[cmr_groups][]="private_key";      $sin2[cmr_groups][]="private_key";
+$sin1[cmr_groups][]="pass_phrase";      $sin2[cmr_groups][]="pass_phrase";
+$sin1[cmr_groups][]="email_sign";      $sin2[cmr_groups][]="email_sign";
+$sin1[cmr_groups][]="referent_email";      $sin2[cmr_groups][]="referent_email";
+$sin1[cmr_groups][]="admin_email";      $sin2[cmr_groups][]="admin_email";
+$sin1[cmr_groups][]="folder";      $sin2[cmr_groups][]="folder";
+$sin1[cmr_groups][]="notify";      $sin2[cmr_groups][]="notify";
+$sin1[cmr_groups][]="web_site";      $sin2[cmr_groups][]="web_site";
+$sin1[cmr_groups][]="login_script";      $sin2[cmr_groups][]="login_script";
+$sin1[cmr_groups][]="adress";      $sin2[cmr_groups][]="adress";
+$sin1[cmr_groups][]="my_master";      $sin2[cmr_groups][]="my_master";
+$sin1[cmr_groups][]="my_slave";      $sin2[cmr_groups][]="my_slave";
+$sin1[cmr_groups][]="allow_level";      $sin2[cmr_groups][]="allow_level";
+$sin1[cmr_groups][]="allow_email";      $sin2[cmr_groups][]="allow_email";
+$sin1[cmr_groups][]="allow_groups";      $sin2[cmr_groups][]="allow_groups";
+$sin1[cmr_groups][]="comment";      $sin2[cmr_groups][]="comment";
+$sin1[cmr_groups][]="date_time";      $sin2[cmr_groups][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_message";      $sin2["cmr_table"][]="cmr_message";
+$sin1[cmr_message][]="id";      $sin2[cmr_message][]="id";
+$sin1[cmr_message][]="sender";      $sin2[cmr_message][]="sender";
+$sin1[cmr_message][]="title";      $sin2[cmr_message][]="title";
+$sin1[cmr_message][]="model_id";      $sin2[cmr_message][]="model_id";
+$sin1[cmr_message][]="model_title";      $sin2[cmr_message][]="model_title";
+$sin1[cmr_message][]="lang";      $sin2[cmr_message][]="lang";
+$sin1[cmr_message][]="text";      $sin2[cmr_message][]="text";
+$sin1[cmr_message][]="groups_dest";      $sin2[cmr_message][]="groups_dest";
+$sin1[cmr_message][]="users_dest";      $sin2[cmr_message][]="users_dest";
+$sin1[cmr_message][]="modules_dest";      $sin2[cmr_message][]="modules_dest";
+$sin1[cmr_message][]="ripetitive";      $sin2[cmr_message][]="ripetitive";
+$sin1[cmr_message][]="repeat_end";      $sin2[cmr_message][]="repeat_end";
+$sin1[cmr_message][]="begin_time";      $sin2[cmr_message][]="begin_time";
+$sin1[cmr_message][]="end_time";      $sin2[cmr_message][]="end_time";
+$sin1[cmr_message][]="intervale";      $sin2[cmr_message][]="intervale";
+$sin1[cmr_message][]="priority";      $sin2[cmr_message][]="priority";
+$sin1[cmr_message][]="type";      $sin2[cmr_message][]="type";
+$sin1[cmr_message][]="state";      $sin2[cmr_message][]="state";
+$sin1[cmr_message][]="my_master";      $sin2[cmr_message][]="my_master";
+$sin1[cmr_message][]="my_slave";      $sin2[cmr_message][]="my_slave";
+$sin1[cmr_message][]="allow_level";      $sin2[cmr_message][]="allow_level";
+$sin1[cmr_message][]="allow_email";      $sin2[cmr_message][]="allow_email";
+$sin1[cmr_message][]="allow_groups";      $sin2[cmr_message][]="allow_groups";
+$sin1[cmr_message][]="comment";      $sin2[cmr_message][]="comment";
+$sin1[cmr_message][]="date_time";      $sin2[cmr_message][]="date_time";
+
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_message_read";      $sin2["cmr_table"][]="cmr_message_read";
+$sin1[cmr_message_read][]="id";      $sin2[cmr_message_read][]="id";
+$sin1[cmr_message_read][]="user_email";      $sin2[cmr_message_read][]="user_email";
+$sin1[cmr_message_read][]="message_id";      $sin2[cmr_message_read][]="message_id";
+$sin1[cmr_message_read][]="date_time";      $sin2[cmr_message_read][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_nagios";      $sin2["cmr_table"][]="cmr_nagios";
+$sin1[cmr_nagios][]="id";      $sin2[cmr_nagios][]="id";
+$sin1[cmr_nagios][]="group_name";      $sin2[cmr_nagios][]="group_name";
+$sin1[cmr_nagios][]="nagios_group";      $sin2[cmr_nagios][]="nagios_group";
+$sin1[cmr_nagios][]="config";      $sin2[cmr_nagios][]="config";
+$sin1[cmr_nagios][]="allow_level";      $sin2[cmr_nagios][]="allow_level";
+$sin1[cmr_nagios][]="allow_email";      $sin2[cmr_nagios][]="allow_email";
+$sin1[cmr_nagios][]="allow_groups";      $sin2[cmr_nagios][]="allow_groups";
+$sin1[cmr_nagios][]="comment";      $sin2[cmr_nagios][]="comment";
+$sin1[cmr_nagios][]="date_time";      $sin2[cmr_nagios][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_nessus";      $sin2["cmr_table"][]="cmr_nessus";
+$sin1[cmr_nessus][]="id";      $sin2[cmr_nessus][]="id";
+$sin1[cmr_nessus][]="group_name";      $sin2[cmr_nessus][]="group_name";
+$sin1[cmr_nessus][]="nessus_ip";      $sin2[cmr_nessus][]="nessus_ip";
+$sin1[cmr_nessus][]="allow_level";      $sin2[cmr_nessus][]="allow_level";
+$sin1[cmr_nessus][]="allow_email";      $sin2[cmr_nessus][]="allow_email";
+$sin1[cmr_nessus][]="allow_groups";      $sin2[cmr_nessus][]="allow_groups";
+$sin1[cmr_nessus][]="comment";      $sin2[cmr_nessus][]="comment";
+$sin1[cmr_nessus][]="date_time";      $sin2[cmr_nessus][]="date_time";
+
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_rss";      $sin2["cmr_table"][]="cmr_rss";
+$sin1[cmr_rss][]="id";      $sin2[cmr_rss][]="id";
+$sin1[cmr_rss][]="version";      $sin2[cmr_rss][]="version";
+$sin1[cmr_rss][]="title";      $sin2[cmr_rss][]="title";
+$sin1[cmr_rss][]="link";      $sin2[cmr_rss][]="link";
+$sin1[cmr_rss][]="language";      $sin2[cmr_rss][]="language";
+$sin1[cmr_rss][]="rating";      $sin2[cmr_rss][]="rating";
+$sin1[cmr_rss][]="state";      $sin2[cmr_rss][]="state";
+$sin1[cmr_rss][]="feed_adress";      $sin2[cmr_rss][]="feed_adress";
+$sin1[cmr_rss][]="type";      $sin2[cmr_rss][]="type";
+$sin1[cmr_rss][]="text";      $sin2[cmr_rss][]="text";
+$sin1[cmr_rss][]="allow_level";      $sin2[cmr_rss][]="allow_level";
+$sin1[cmr_rss][]="allow_email";      $sin2[cmr_rss][]="allow_email";
+$sin1[cmr_rss][]="allow_groups";      $sin2[cmr_rss][]="allow_groups";
+$sin1[cmr_rss][]="comment";      $sin2[cmr_rss][]="comment";
+$sin1[cmr_rss][]="date_time";      $sin2[cmr_rss][]="date_time";
+
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_services";      $sin2["cmr_table"][]="cmr_services";
+$sin1[cmr_services][]="id";      $sin2[cmr_services][]="id";
+$sin1[cmr_services][]="name";      $sin2[cmr_services][]="name";
+$sin1[cmr_services][]="port";      $sin2[cmr_services][]="port";
+$sin1[cmr_services][]="protocol";      $sin2[cmr_services][]="protocol";
+$sin1[cmr_services][]="check_command";      $sin2[cmr_services][]="check_command";
+$sin1[cmr_services][]="my_master";      $sin2[cmr_services][]="my_master";
+$sin1[cmr_services][]="my_slave";      $sin2[cmr_services][]="my_slave";
+$sin1[cmr_services][]="allow_level";      $sin2[cmr_services][]="allow_level";
+$sin1[cmr_services][]="allow_email";      $sin2[cmr_services][]="allow_email";
+$sin1[cmr_services][]="allow_groups";      $sin2[cmr_services][]="allow_groups";
+$sin1[cmr_services][]="comment";      $sin2[cmr_services][]="comment";
+$sin1[cmr_services][]="date_time";      $sin2[cmr_services][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_session";      $sin2["cmr_table"][]="cmr_session";
+$sin1[cmr_session][]="id";      $sin2[cmr_session][]="id";
+$sin1[cmr_session][]="sessionid";      $sin2[cmr_session][]="sessionid";
+$sin1[cmr_session][]="sessionip";      $sin2[cmr_session][]="sessionip";
+$sin1[cmr_session][]="user_email";      $sin2[cmr_session][]="user_email";
+$sin1[cmr_session][]="status";      $sin2[cmr_session][]="status";
+$sin1[cmr_session][]="state";      $sin2[cmr_session][]="state";
+$sin1[cmr_session][]="time_out";      $sin2[cmr_session][]="time_out";
+$sin1[cmr_session][]="session_end";      $sin2[cmr_session][]="session_end";
+$sin1[cmr_session][]="date_time";      $sin2[cmr_session][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_sla";      $sin2["cmr_table"][]="cmr_sla";
+$sin1[cmr_sla][]="id";      $sin2[cmr_sla][]="id";
+$sin1[cmr_sla][]="user_email";      $sin2[cmr_sla][]="user_email";
+$sin1[cmr_sla][]="group_name";      $sin2[cmr_sla][]="group_name";
+$sin1[cmr_sla][]="asset_ip";      $sin2[cmr_sla][]="asset_ip";
+$sin1[cmr_sla][]="user_type";      $sin2[cmr_sla][]="user_type";
+$sin1[cmr_sla][]="group_type";      $sin2[cmr_sla][]="group_type";
+$sin1[cmr_sla][]="asset_type";      $sin2[cmr_sla][]="asset_type";
+$sin1[cmr_sla][]="ticket_type";      $sin2[cmr_sla][]="ticket_type";
+$sin1[cmr_sla][]="ticket_call_method";      $sin2[cmr_sla][]="ticket_call_method";
+$sin1[cmr_sla][]="ticket_state";      $sin2[cmr_sla][]="ticket_state";
+$sin1[cmr_sla][]="ticket_severity";      $sin2[cmr_sla][]="ticket_severity";
+$sin1[cmr_sla][]="ticket_assign_to";      $sin2[cmr_sla][]="ticket_assign_to";
+$sin1[cmr_sla][]="num_user_impact";      $sin2[cmr_sla][]="num_user_impact";
+$sin1[cmr_sla][]="num_group_impact";      $sin2[cmr_sla][]="num_group_impact";
+$sin1[cmr_sla][]="num_asset_impact";      $sin2[cmr_sla][]="num_asset_impact";
+$sin1[cmr_sla][]="sla";      $sin2[cmr_sla][]="sla";
+$sin1[cmr_sla][]="comment";      $sin2[cmr_sla][]="comment";
+$sin1[cmr_sla][]="date_time";      $sin2[cmr_sla][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_software";      $sin2["cmr_table"][]="cmr_software";
+$sin1[cmr_software][]="id";      $sin2[cmr_software][]="id";
+$sin1[cmr_software][]="name";      $sin2[cmr_software][]="name";
+$sin1[cmr_software][]="type";      $sin2[cmr_software][]="type";
+$sin1[cmr_software][]="copyright";      $sin2[cmr_software][]="copyright";
+$sin1[cmr_software][]="certificate";      $sin2[cmr_software][]="certificate";
+$sin1[cmr_software][]="my_master";      $sin2[cmr_software][]="my_master";
+$sin1[cmr_software][]="allow_level";      $sin2[cmr_software][]="allow_level";
+$sin1[cmr_software][]="allow_email";      $sin2[cmr_software][]="allow_email";
+$sin1[cmr_software][]="allow_groups";      $sin2[cmr_software][]="allow_groups";
+$sin1[cmr_software][]="comment";      $sin2[cmr_software][]="comment";
+$sin1[cmr_software][]="date_time";      $sin2[cmr_software][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_statistic";      $sin2["cmr_table"][]="cmr_statistic";
+$sin1[cmr_statistic][]="id";      $sin2[cmr_statistic][]="id";
+$sin1[cmr_statistic][]="name";      $sin2[cmr_statistic][]="name";
+$sin1[cmr_statistic][]="type";      $sin2[cmr_statistic][]="type";
+$sin1[cmr_statistic][]="period_begin";      $sin2[cmr_statistic][]="period_begin";
+$sin1[cmr_statistic][]="period_end";      $sin2[cmr_statistic][]="period_end";
+$sin1[cmr_statistic][]="data";      $sin2[cmr_statistic][]="data";
+$sin1[cmr_statistic][]="my_master";      $sin2[cmr_statistic][]="my_master";
+$sin1[cmr_statistic][]="my_slave";      $sin2[cmr_statistic][]="my_slave";
+$sin1[cmr_statistic][]="allow_level";      $sin2[cmr_statistic][]="allow_level";
+$sin1[cmr_statistic][]="allow_email";      $sin2[cmr_statistic][]="allow_email";
+$sin1[cmr_statistic][]="allow_groups";      $sin2[cmr_statistic][]="allow_groups";
+$sin1[cmr_statistic][]="comment";      $sin2[cmr_statistic][]="comment";
+$sin1[cmr_statistic][]="date_time";      $sin2[cmr_statistic][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_ticket";      $sin2["cmr_table"][]="cmr_ticket";
+$sin1[cmr_ticket][]="id";      $sin2[cmr_ticket][]="id";
+$sin1[cmr_ticket][]="number";      $sin2[cmr_ticket][]="number";
+$sin1[cmr_ticket][]="lang";      $sin2[cmr_ticket][]="lang";
+$sin1[cmr_ticket][]="model_number";      $sin2[cmr_ticket][]="model_number";
+$sin1[cmr_ticket][]="model_title";      $sin2[cmr_ticket][]="model_title";
+$sin1[cmr_ticket][]="title";      $sin2[cmr_ticket][]="title";
+$sin1[cmr_ticket][]="work_by";      $sin2[cmr_ticket][]="work_by";
+$sin1[cmr_ticket][]="call_log_user";      $sin2[cmr_ticket][]="call_log_user";
+$sin1[cmr_ticket][]="call_log_groups";      $sin2[cmr_ticket][]="call_log_groups";
+$sin1[cmr_ticket][]="call_method";      $sin2[cmr_ticket][]="call_method";
+$sin1[cmr_ticket][]="state";      $sin2[cmr_ticket][]="state";
+$sin1[cmr_ticket][]="state_now";      $sin2[cmr_ticket][]="state_now";
+$sin1[cmr_ticket][]="assign_to";      $sin2[cmr_ticket][]="assign_to";
+$sin1[cmr_ticket][]="list_user_impact";      $sin2[cmr_ticket][]="list_user_impact";
+$sin1[cmr_ticket][]="list_group_impact";      $sin2[cmr_ticket][]="list_group_impact";
+$sin1[cmr_ticket][]="list_asset_impact";      $sin2[cmr_ticket][]="list_asset_impact";
+$sin1[cmr_ticket][]="severity";      $sin2[cmr_ticket][]="severity";
+$sin1[cmr_ticket][]="sla";      $sin2[cmr_ticket][]="sla";
+$sin1[cmr_ticket][]="mail_title";      $sin2[cmr_ticket][]="mail_title";
+$sin1[cmr_ticket][]="mail_from";      $sin2[cmr_ticket][]="mail_from";
+$sin1[cmr_ticket][]="mail_to";      $sin2[cmr_ticket][]="mail_to";
+$sin1[cmr_ticket][]="mail_cc";      $sin2[cmr_ticket][]="mail_cc";
+$sin1[cmr_ticket][]="mail_bcc";      $sin2[cmr_ticket][]="mail_bcc";
+$sin1[cmr_ticket][]="attach";      $sin2[cmr_ticket][]="attach";
+$sin1[cmr_ticket][]="type";      $sin2[cmr_ticket][]="type";
+$sin1[cmr_ticket][]="text";      $sin2[cmr_ticket][]="text";
+$sin1[cmr_ticket][]="mail_text";      $sin2[cmr_ticket][]="mail_text";
+$sin1[cmr_ticket][]="my_master";      $sin2[cmr_ticket][]="my_master";
+$sin1[cmr_ticket][]="allow_level";      $sin2[cmr_ticket][]="allow_level";
+$sin1[cmr_ticket][]="allow_email";      $sin2[cmr_ticket][]="allow_email";
+$sin1[cmr_ticket][]="allow_groups";      $sin2[cmr_ticket][]="allow_groups";
+$sin1[cmr_ticket][]="comment";      $sin2[cmr_ticket][]="comment";
+$sin1[cmr_ticket][]="date_time";      $sin2[cmr_ticket][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_ticket_read";      $sin2["cmr_table"][]="cmr_ticket_read";
+$sin1[cmr_ticket_read][]="id";      $sin2[cmr_ticket_read][]="id";
+$sin1[cmr_ticket_read][]="user_email";      $sin2[cmr_ticket_read][]="user_email";
+$sin1[cmr_ticket_read][]="ticket_id";      $sin2[cmr_ticket_read][]="ticket_id";
+$sin1[cmr_ticket_read][]="date_time";      $sin2[cmr_ticket_read][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_translate";      $sin2["cmr_table"][]="cmr_translate";
+$sin1[cmr_translate][]="id";      $sin2[cmr_translate][]="id";
+$sin1[cmr_translate][]="code";      $sin2[cmr_translate][]="code";
+$sin1[cmr_translate][]="language";      $sin2[cmr_translate][]="language";
+$sin1[cmr_translate][]="text";      $sin2[cmr_translate][]="text";
+$sin1[cmr_translate][]="translate_language";      $sin2[cmr_translate][]="translate_language";
+$sin1[cmr_translate][]="translate_text";      $sin2[cmr_translate][]="translate_text";
+$sin1[cmr_translate][]="date_time";      $sin2[cmr_translate][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_user";      $sin2["cmr_table"][]="cmr_user";
+$sin1[cmr_user][]="id";      $sin2[cmr_user][]="id";
+$sin1[cmr_user][]="uid";      $sin2[cmr_user][]="uid";
+$sin1[cmr_user][]="name";      $sin2[cmr_user][]="name";
+$sin1[cmr_user][]="last_name";      $sin2[cmr_user][]="last_name";
+$sin1[cmr_user][]="nickname";      $sin2[cmr_user][]="nickname";
+$sin1[cmr_user][]="sexe";      $sin2[cmr_user][]="sexe";
+$sin1[cmr_user][]="role";      $sin2[cmr_user][]="role";
+$sin1[cmr_user][]="sla";      $sin2[cmr_user][]="sla";
+$sin1[cmr_user][]="pw";      $sin2[cmr_user][]="pw";
+$sin1[cmr_user][]="email";      $sin2[cmr_user][]="email";
+$sin1[cmr_user][]="email_sign";      $sin2[cmr_user][]="email_sign";
+$sin1[cmr_user][]="tel";      $sin2[cmr_user][]="tel";
+$sin1[cmr_user][]="cel";      $sin2[cmr_user][]="cel";
+$sin1[cmr_user][]="adress";      $sin2[cmr_user][]="adress";
+$sin1[cmr_user][]="location";      $sin2[cmr_user][]="location";
+$sin1[cmr_user][]="state";      $sin2[cmr_user][]="state";
+$sin1[cmr_user][]="type";      $sin2[cmr_user][]="type";
+$sin1[cmr_user][]="status";      $sin2[cmr_user][]="status";
+$sin1[cmr_user][]="level";      $sin2[cmr_user][]="level";
+$sin1[cmr_user][]="lang";      $sin2[cmr_user][]="lang";
+$sin1[cmr_user][]="style";      $sin2[cmr_user][]="style";
+$sin1[cmr_user][]="login_script";      $sin2[cmr_user][]="login_script";
+$sin1[cmr_user][]="certificate";      $sin2[cmr_user][]="certificate";
+$sin1[cmr_user][]="photo";      $sin2[cmr_user][]="photo";
+$sin1[cmr_user][]="my_master";      $sin2[cmr_user][]="my_master";
+$sin1[cmr_user][]="allow_level";      $sin2[cmr_user][]="allow_level";
+$sin1[cmr_user][]="allow_email";      $sin2[cmr_user][]="allow_email";
+$sin1[cmr_user][]="allow_groups";      $sin2[cmr_user][]="allow_groups";
+$sin1[cmr_user][]="comment";      $sin2[cmr_user][]="comment";
+$sin1[cmr_user][]="date_time";      $sin2[cmr_user][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_user_groups";      $sin2["cmr_table"][]="cmr_user_groups";
+$sin1[cmr_user_groups][]="id";      $sin2[cmr_user_groups][]="id";
+$sin1[cmr_user_groups][]="user_email";      $sin2[cmr_user_groups][]="user_email";
+$sin1[cmr_user_groups][]="group_name";      $sin2[cmr_user_groups][]="group_name";
+$sin1[cmr_user_groups][]="type";      $sin2[cmr_user_groups][]="type";
+$sin1[cmr_user_groups][]="state";      $sin2[cmr_user_groups][]="state";
+$sin1[cmr_user_groups][]="date_time";      $sin2[cmr_user_groups][]="date_time";
+$sin1[cmr_user_groups][]="allow_level";      $sin2[cmr_user_groups][]="allow_level";
+$sin1[cmr_user_groups][]="allow_email";      $sin2[cmr_user_groups][]="allow_email";
+$sin1[cmr_user_groups][]="allow_groups";      $sin2[cmr_user_groups][]="allow_groups";
+$sin1[cmr_user_groups][]="comment";      $sin2[cmr_user_groups][]="comment";
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_code_source";      $sin2["cmr_table"][]="cmr_x_code_source";
+$sin1[cmr_x_code_source][]="id";      $sin2[cmr_x_code_source][]="id";
+$sin1[cmr_x_code_source][]="name";      $sin2[cmr_x_code_source][]="name";
+$sin1[cmr_x_code_source][]="path";      $sin2[cmr_x_code_source][]="path";
+$sin1[cmr_x_code_source][]="language";      $sin2[cmr_x_code_source][]="language";
+$sin1[cmr_x_code_source][]="lang_version";      $sin2[cmr_x_code_source][]="lang_version";
+$sin1[cmr_x_code_source][]="code_version";      $sin2[cmr_x_code_source][]="code_version";
+$sin1[cmr_x_code_source][]="state";      $sin2[cmr_x_code_source][]="state";
+$sin1[cmr_x_code_source][]="author";      $sin2[cmr_x_code_source][]="author";
+$sin1[cmr_x_code_source][]="copyright";      $sin2[cmr_x_code_source][]="copyright";
+
+
+
+
+
+$sin1[cmr_x_code_source][]="my_md5";      $sin2[cmr_x_code_source][]="my_md5";
+$sin1[cmr_x_code_source][]="license";      $sin2[cmr_x_code_source][]="license";
+$sin1[cmr_x_code_source][]="text";      $sin2[cmr_x_code_source][]="text";
+$sin1[cmr_x_code_source][]="my_master";      $sin2[cmr_x_code_source][]="my_master";
+$sin1[cmr_x_code_source][]="allow_level";      $sin2[cmr_x_code_source][]="allow_level";
+$sin1[cmr_x_code_source][]="allow_email";      $sin2[cmr_x_code_source][]="allow_email";
+$sin1[cmr_x_code_source][]="allow_groups";      $sin2[cmr_x_code_source][]="allow_groups";
+$sin1[cmr_x_code_source][]="comment";      $sin2[cmr_x_code_source][]="comment";
+$sin1[cmr_x_code_source][]="date_time";      $sin2[cmr_x_code_source][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_comment";      $sin2["cmr_table"][]="cmr_x_comment";
+$sin1[cmr_x_comment][]="id";      $sin2[cmr_x_comment][]="id";
+$sin1[cmr_x_comment][]="name";      $sin2[cmr_x_comment][]="name";
+$sin1[cmr_x_comment][]="encoding";      $sin2[cmr_x_comment][]="encoding";
+$sin1[cmr_x_comment][]="language";      $sin2[cmr_x_comment][]="language";
+$sin1[cmr_x_comment][]="state";      $sin2[cmr_x_comment][]="state";
+$sin1[cmr_x_comment][]="allow_level";      $sin2[cmr_x_comment][]="allow_level";
+$sin1[cmr_x_comment][]="allow_email";      $sin2[cmr_x_comment][]="allow_email";
+$sin1[cmr_x_comment][]="allow_groups";      $sin2[cmr_x_comment][]="allow_groups";
+$sin1[cmr_x_comment][]="date_time";      $sin2[cmr_x_comment][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_contents";      $sin2["cmr_table"][]="cmr_x_contents";
+$sin1[cmr_x_contents][]="id";      $sin2[cmr_x_contents][]="id";
+$sin1[cmr_x_contents][]="name";      $sin2[cmr_x_contents][]="name";
+$sin1[cmr_x_contents][]="path";      $sin2[cmr_x_contents][]="path";
+$sin1[cmr_x_contents][]="template";      $sin2[cmr_x_contents][]="template";
+$sin1[cmr_x_contents][]="title";      $sin2[cmr_x_contents][]="title";
+$sin1[cmr_x_contents][]="text";      $sin2[cmr_x_contents][]="text";
+$sin1[cmr_x_contents][]="state";      $sin2[cmr_x_contents][]="state";
+$sin1[cmr_x_contents][]="allow_level";      $sin2[cmr_x_contents][]="allow_level";
+$sin1[cmr_x_contents][]="allow_email";      $sin2[cmr_x_contents][]="allow_email";
+$sin1[cmr_x_contents][]="allow_groups";      $sin2[cmr_x_contents][]="allow_groups";
+$sin1[cmr_x_contents][]="comment";      $sin2[cmr_x_contents][]="comment";
+$sin1[cmr_x_contents][]="date_time";      $sin2[cmr_x_contents][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_files";      $sin2["cmr_table"][]="cmr_x_files";
+$sin1[cmr_x_files][]="id";      $sin2[cmr_x_files][]="id";
+$sin1[cmr_x_files][]="name";      $sin2[cmr_x_files][]="name";
+$sin1[cmr_x_files][]="path";      $sin2[cmr_x_files][]="path";
+$sin1[cmr_x_files][]="type";      $sin2[cmr_x_files][]="type";
+$sin1[cmr_x_files][]="state";      $sin2[cmr_x_files][]="state";
+$sin1[cmr_x_files][]="mine";      $sin2[cmr_x_files][]="mine";
+$sin1[cmr_x_files][]="text";      $sin2[cmr_x_files][]="text";
+$sin1[cmr_x_files][]="my_md5";      $sin2[cmr_x_files][]="my_md5";
+$sin1[cmr_x_files][]="my_master";      $sin2[cmr_x_files][]="my_master";
+$sin1[cmr_x_files][]="my_slave";      $sin2[cmr_x_files][]="my_slave";
+$sin1[cmr_x_files][]="allow_level";      $sin2[cmr_x_files][]="allow_level";
+$sin1[cmr_x_files][]="allow_email";      $sin2[cmr_x_files][]="allow_email";
+$sin1[cmr_x_files][]="allow_groups";      $sin2[cmr_x_files][]="allow_groups";
+$sin1[cmr_x_files][]="comment";      $sin2[cmr_x_files][]="comment";
+$sin1[cmr_x_files][]="date_time";      $sin2[cmr_x_files][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_images";      $sin2["cmr_table"][]="cmr_x_images";
+$sin1[cmr_x_images][]="id";      $sin2[cmr_x_images][]="id";
+$sin1[cmr_x_images][]="name";      $sin2[cmr_x_images][]="name";
+$sin1[cmr_x_images][]="path";      $sin2[cmr_x_images][]="path";
+$sin1[cmr_x_images][]="type";      $sin2[cmr_x_images][]="type";
+$sin1[cmr_x_images][]="state";      $sin2[cmr_x_images][]="state";
+$sin1[cmr_x_images][]="x_dim";      $sin2[cmr_x_images][]="x_dim";
+$sin1[cmr_x_images][]="y_dim";      $sin2[cmr_x_images][]="y_dim";
+$sin1[cmr_x_images][]="my_md5";      $sin2[cmr_x_images][]="my_md5";
+$sin1[cmr_x_images][]="base64";      $sin2[cmr_x_images][]="base64";
+$sin1[cmr_x_images][]="allow_level";      $sin2[cmr_x_images][]="allow_level";
+$sin1[cmr_x_images][]="allow_email";      $sin2[cmr_x_images][]="allow_email";
+$sin1[cmr_x_images][]="allow_groups";      $sin2[cmr_x_images][]="allow_groups";
+$sin1[cmr_x_images][]="comment";      $sin2[cmr_x_images][]="comment";
+$sin1[cmr_x_images][]="date_time";      $sin2[cmr_x_images][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_links";      $sin2["cmr_table"][]="cmr_x_links";
+$sin1[cmr_x_links][]="id";      $sin2[cmr_x_links][]="id";
+$sin1[cmr_x_links][]="name";      $sin2[cmr_x_links][]="name";
+$sin1[cmr_x_links][]="text";      $sin2[cmr_x_links][]="text";
+$sin1[cmr_x_links][]="state";      $sin2[cmr_x_links][]="state";
+$sin1[cmr_x_links][]="date_time";      $sin2[cmr_x_links][]="date_time";
+$sin1[cmr_x_links][]="allow_level";      $sin2[cmr_x_links][]="allow_level";
+$sin1[cmr_x_links][]="allow_email";      $sin2[cmr_x_links][]="allow_email";
+$sin1[cmr_x_links][]="allow_groups";      $sin2[cmr_x_links][]="allow_groups";
+$sin1[cmr_x_links][]="comment";      $sin2[cmr_x_links][]="comment";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_menu";      $sin2["cmr_table"][]="cmr_x_menu";
+$sin1[cmr_x_menu][]="id";      $sin2[cmr_x_menu][]="id";
+$sin1[cmr_x_menu][]="name";      $sin2[cmr_x_menu][]="name";
+$sin1[cmr_x_menu][]="path";      $sin2[cmr_x_menu][]="path";
+$sin1[cmr_x_menu][]="template";      $sin2[cmr_x_menu][]="template";
+$sin1[cmr_x_menu][]="list_link";      $sin2[cmr_x_menu][]="list_link";
+$sin1[cmr_x_menu][]="language";      $sin2[cmr_x_menu][]="language";
+$sin1[cmr_x_menu][]="state";      $sin2[cmr_x_menu][]="state";
+$sin1[cmr_x_menu][]="text";      $sin2[cmr_x_menu][]="text";
+$sin1[cmr_x_menu][]="date_time";      $sin2[cmr_x_menu][]="date_time";
+$sin1[cmr_x_menu][]="my_master";      $sin2[cmr_x_menu][]="my_master";
+$sin1[cmr_x_menu][]="allow_level";      $sin2[cmr_x_menu][]="allow_level";
+$sin1[cmr_x_menu][]="allow_email";      $sin2[cmr_x_menu][]="allow_email";
+$sin1[cmr_x_menu][]="allow_groups";      $sin2[cmr_x_menu][]="allow_groups";
+$sin1[cmr_x_menu][]="comment";      $sin2[cmr_x_menu][]="comment";
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_modules";      $sin2["cmr_table"][]="cmr_x_modules";
+$sin1[cmr_x_modules][]="id";      $sin2[cmr_x_modules][]="id";
+$sin1[cmr_x_modules][]="name";      $sin2[cmr_x_modules][]="name";
+$sin1[cmr_x_modules][]="path";      $sin2[cmr_x_modules][]="path";
+$sin1[cmr_x_modules][]="template";      $sin2[cmr_x_modules][]="template";
+$sin1[cmr_x_modules][]="language";      $sin2[cmr_x_modules][]="language";
+$sin1[cmr_x_modules][]="state";      $sin2[cmr_x_modules][]="state";
+$sin1[cmr_x_modules][]="text";      $sin2[cmr_x_modules][]="text";
+$sin1[cmr_x_modules][]="date_time";      $sin2[cmr_x_modules][]="date_time";
+$sin1[cmr_x_modules][]="my_master";      $sin2[cmr_x_modules][]="my_master";
+$sin1[cmr_x_modules][]="allow_level";      $sin2[cmr_x_modules][]="allow_level";
+$sin1[cmr_x_modules][]="allow_email";      $sin2[cmr_x_modules][]="allow_email";
+$sin1[cmr_x_modules][]="allow_groups";      $sin2[cmr_x_modules][]="allow_groups";
+$sin1[cmr_x_modules][]="comment";      $sin2[cmr_x_modules][]="comment";
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_object";      $sin2["cmr_table"][]="cmr_x_object";
+$sin1[cmr_x_object][]="id";      $sin2[cmr_x_object][]="id";
+$sin1[cmr_x_object][]="name";      $sin2[cmr_x_object][]="name";
+$sin1[cmr_x_object][]="path";      $sin2[cmr_x_object][]="path";
+$sin1[cmr_x_object][]="language";      $sin2[cmr_x_object][]="language";
+$sin1[cmr_x_object][]="state";      $sin2[cmr_x_object][]="state";
+$sin1[cmr_x_object][]="text";      $sin2[cmr_x_object][]="text";
+$sin1[cmr_x_object][]="my_md5";      $sin2[cmr_x_object][]="my_md5";
+$sin1[cmr_x_object][]="date_time";      $sin2[cmr_x_object][]="date_time";
+$sin1[cmr_x_object][]="my_master";      $sin2[cmr_x_object][]="my_master";
+$sin1[cmr_x_object][]="allow_level";      $sin2[cmr_x_object][]="allow_level";
+$sin1[cmr_x_object][]="allow_email";      $sin2[cmr_x_object][]="allow_email";
+$sin1[cmr_x_object][]="allow_groups";      $sin2[cmr_x_object][]="allow_groups";
+$sin1[cmr_x_object][]="comment";      $sin2[cmr_x_object][]="comment";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_pages";      $sin2["cmr_table"][]="cmr_x_pages";
+$sin1[cmr_x_pages][]="id";      $sin2[cmr_x_pages][]="id";
+$sin1[cmr_x_pages][]="name";      $sin2[cmr_x_pages][]="name";
+$sin1[cmr_x_pages][]="path";      $sin2[cmr_x_pages][]="path";
+$sin1[cmr_x_pages][]="template";      $sin2[cmr_x_pages][]="template";
+$sin1[cmr_x_pages][]="header";      $sin2[cmr_x_pages][]="header";
+$sin1[cmr_x_pages][]="footer";      $sin2[cmr_x_pages][]="footer";
+$sin1[cmr_x_pages][]="list_module";      $sin2[cmr_x_pages][]="list_module";
+$sin1[cmr_x_pages][]="language";      $sin2[cmr_x_pages][]="language";
+$sin1[cmr_x_pages][]="my_master";      $sin2[cmr_x_pages][]="my_master";
+$sin1[cmr_x_pages][]="allow_level";      $sin2[cmr_x_pages][]="allow_level";
+$sin1[cmr_x_pages][]="allow_email";      $sin2[cmr_x_pages][]="allow_email";
+$sin1[cmr_x_pages][]="allow_groups";      $sin2[cmr_x_pages][]="allow_groups";
+$sin1[cmr_x_pages][]="comment";      $sin2[cmr_x_pages][]="comment";
+$sin1[cmr_x_pages][]="date_time";      $sin2[cmr_x_pages][]="date_time";
+
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_sites";      $sin2["cmr_table"][]="cmr_x_sites";
+$sin1[cmr_x_sites][]="id";      $sin2[cmr_x_sites][]="id";
+$sin1[cmr_x_sites][]="name";      $sin2[cmr_x_sites][]="name";
+$sin1[cmr_x_sites][]="path";      $sin2[cmr_x_sites][]="path";
+$sin1[cmr_x_sites][]="language";      $sin2[cmr_x_sites][]="language";
+$sin1[cmr_x_sites][]="state";      $sin2[cmr_x_sites][]="state";
+$sin1[cmr_x_sites][]="index";      $sin2[cmr_x_sites][]="index";
+$sin1[cmr_x_sites][]="list_page";      $sin2[cmr_x_sites][]="list_page";
+$sin1[cmr_x_sites][]="my_master";      $sin2[cmr_x_sites][]="my_master";
+$sin1[cmr_x_sites][]="allow_level";      $sin2[cmr_x_sites][]="allow_level";
+$sin1[cmr_x_sites][]="allow_email";      $sin2[cmr_x_sites][]="allow_email";
+$sin1[cmr_x_sites][]="allow_groups";      $sin2[cmr_x_sites][]="allow_groups";
+$sin1[cmr_x_sites][]="comment";      $sin2[cmr_x_sites][]="comment";
+$sin1[cmr_x_sites][]="date_time";      $sin2[cmr_x_sites][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_template";      $sin2["cmr_table"][]="cmr_x_template";
+$sin1[cmr_x_template][]="id";      $sin2[cmr_x_template][]="id";
+$sin1[cmr_x_template][]="name";      $sin2[cmr_x_template][]="name";
+$sin1[cmr_x_template][]="path";      $sin2[cmr_x_template][]="path";
+$sin1[cmr_x_template][]="language";      $sin2[cmr_x_template][]="language";
+$sin1[cmr_x_template][]="state";      $sin2[cmr_x_template][]="state";
+$sin1[cmr_x_template][]="type";      $sin2[cmr_x_template][]="type";
+$sin1[cmr_x_template][]="text";      $sin2[cmr_x_template][]="text";
+$sin1[cmr_x_template][]="allow_level";      $sin2[cmr_x_template][]="allow_level";
+$sin1[cmr_x_template][]="allow_email";      $sin2[cmr_x_template][]="allow_email";
+$sin1[cmr_x_template][]="allow_groups";      $sin2[cmr_x_template][]="allow_groups";
+$sin1[cmr_x_template][]="comment";      $sin2[cmr_x_template][]="comment";
+$sin1[cmr_x_template][]="date_time";      $sin2[cmr_x_template][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="cmr_x_text";      $sin2["cmr_table"][]="cmr_x_text";
+$sin1[cmr_x_text][]="id";      $sin2[cmr_x_text][]="id";
+$sin1[cmr_x_text][]="name";      $sin2[cmr_x_text][]="name";
+$sin1[cmr_x_text][]="path";      $sin2[cmr_x_text][]="path";
+$sin1[cmr_x_text][]="encoding";      $sin2[cmr_x_text][]="encoding";
+$sin1[cmr_x_text][]="language";      $sin2[cmr_x_text][]="language";
+$sin1[cmr_x_text][]="state";      $sin2[cmr_x_text][]="state";
+$sin1[cmr_x_text][]="allow_level";      $sin2[cmr_x_text][]="allow_level";
+$sin1[cmr_x_text][]="allow_email";      $sin2[cmr_x_text][]="allow_email";
+$sin1[cmr_x_text][]="allow_groups";      $sin2[cmr_x_text][]="allow_groups";
+$sin1[cmr_x_text][]="comment";      $sin2[cmr_x_text][]="comment";
+$sin1[cmr_x_text][]="date_time";      $sin2[cmr_x_text][]="date_time";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,236 @@
+$sin1["cmr_table"][]="tstm_client";      $sin2["cmr_table"][]="tstm_client";
+$sin1[tstm_client][]="id";      $sin2[tstm_client][]="id";
+$sin1[tstm_client][]="uid";      $sin2[tstm_client][]="uid";
+$sin1[tstm_client][]="name";      $sin2[tstm_client][]="name";
+$sin1[tstm_client][]="state";      $sin2[tstm_client][]="state";
+$sin1[tstm_client][]="adress";      $sin2[tstm_client][]="adress";
+$sin1[tstm_client][]="date_time";      $sin2[tstm_client][]="date_time";
+$sin1[tstm_client][]="rif_scc";      $sin2[tstm_client][]="rif_scc";
+$sin1[tstm_client][]="contact";      $sin2[tstm_client][]="contact";
+$sin1[tstm_client][]="tel";      $sin2[tstm_client][]="tel";
+$sin1[tstm_client][]="cel";      $sin2[tstm_client][]="cel";
+$sin1[tstm_client][]="email";      $sin2[tstm_client][]="email";
+$sin1[tstm_client][]="folder";      $sin2[tstm_client][]="folder";
+$sin1[tstm_client][]="nagios_group";      $sin2[tstm_client][]="nagios_group";
+$sin1[tstm_client][]="nessus_ip";      $sin2[tstm_client][]="nessus_ip";
+$sin1[tstm_client][]="inf";      $sin2[tstm_client][]="inf";
+$sin1[tstm_client][]="sla";      $sin2[tstm_client][]="sla";
+
+
+
+
+$sin1["cmr_table"][]="tstm_command";      $sin2["cmr_table"][]="tstm_command";
+$sin1[tstm_command][]="id";      $sin2[tstm_command][]="id";
+$sin1[tstm_command][]="command_name";      $sin2[tstm_command][]="command_name";
+$sin1[tstm_command][]="command_line";      $sin2[tstm_command][]="command_line";
+$sin1[tstm_command][]="inf";      $sin2[tstm_command][]="inf";
+$sin1[tstm_command][]="date_time";      $sin2[tstm_command][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="tstm_father_group";      $sin2["cmr_table"][]="tstm_father_group";
+$sin1[tstm_father_group][]="id";      $sin2[tstm_father_group][]="id";
+$sin1[tstm_father_group][]="group_father";      $sin2[tstm_father_group][]="group_father";
+$sin1[tstm_father_group][]="group_child";      $sin2[tstm_father_group][]="group_child";
+$sin1[tstm_father_group][]="state";      $sin2[tstm_father_group][]="state";
+$sin1[tstm_father_group][]="date_time";      $sin2[tstm_father_group][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="tstm_group";      $sin2["cmr_table"][]="tstm_group";
+$sin1[tstm_group][]="id";      $sin2[tstm_group][]="id";
+$sin1[tstm_group][]="name";      $sin2[tstm_group][]="name";
+$sin1[tstm_group][]="state";      $sin2[tstm_group][]="state";
+$sin1[tstm_group][]="level";      $sin2[tstm_group][]="level";
+$sin1[tstm_group][]="config";      $sin2[tstm_group][]="config";
+$sin1[tstm_group][]="inf";      $sin2[tstm_group][]="inf";
+$sin1[tstm_group][]="nagios_group";      $sin2[tstm_group][]="nagios_group";
+$sin1[tstm_group][]="date_time";      $sin2[tstm_group][]="date_time";
+
+
+
+$sin1["cmr_table"][]="tstm_host";      $sin2["cmr_table"][]="tstm_host";
+$sin1[tstm_host][]="id";      $sin2[tstm_host][]="id";
+$sin1[tstm_host][]="mac_adress";      $sin2[tstm_host][]="mac_adress";
+$sin1[tstm_host][]="name";      $sin2[tstm_host][]="name";
+$sin1[tstm_host][]="ip";      $sin2[tstm_host][]="ip";
+$sin1[tstm_host][]="nat_ip";      $sin2[tstm_host][]="nat_ip";
+$sin1[tstm_host][]="type";      $sin2[tstm_host][]="type";
+$sin1[tstm_host][]="os";      $sin2[tstm_host][]="os";
+$sin1[tstm_host][]="state";      $sin2[tstm_host][]="state";
+$sin1[tstm_host][]="login_id";      $sin2[tstm_host][]="login_id";
+$sin1[tstm_host][]="login_pw";      $sin2[tstm_host][]="login_pw";
+$sin1[tstm_host][]="check_command";      $sin2[tstm_host][]="check_command";
+$sin1[tstm_host][]="inf";      $sin2[tstm_host][]="inf";
+$sin1[tstm_host][]="date_time";      $sin2[tstm_host][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="tstm_host_dependence";      $sin2["cmr_table"][]="tstm_host_dependence";
+$sin1[tstm_host_dependence][]="id";      $sin2[tstm_host_dependence][]="id";
+$sin1[tstm_host_dependence][]="first_host_id";      $sin2[tstm_host_dependence][]="first_host_id";
+$sin1[tstm_host_dependence][]="second_host_id";      $sin2[tstm_host_dependence][]="second_host_id";
+$sin1[tstm_host_dependence][]="first_host_name";      $sin2[tstm_host_dependence][]="first_host_name";
+$sin1[tstm_host_dependence][]="second_host_name";      $sin2[tstm_host_dependence][]="second_host_name";
+$sin1[tstm_host_dependence][]="state";      $sin2[tstm_host_dependence][]="state";
+$sin1[tstm_host_dependence][]="date_time";      $sin2[tstm_host_dependence][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="tstm_host_group";      $sin2["cmr_table"][]="tstm_host_group";
+$sin1[tstm_host_group][]="id";      $sin2[tstm_host_group][]="id";
+$sin1[tstm_host_group][]="host_id";      $sin2[tstm_host_group][]="host_id";
+$sin1[tstm_host_group][]="host_name";      $sin2[tstm_host_group][]="host_name";
+$sin1[tstm_host_group][]="group_name";      $sin2[tstm_host_group][]="group_name";
+$sin1[tstm_host_group][]="date_time";      $sin2[tstm_host_group][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="tstm_host_services";      $sin2["cmr_table"][]="tstm_host_services";
+$sin1[tstm_host_services][]="id";      $sin2[tstm_host_services][]="id";
+$sin1[tstm_host_services][]="host_id";      $sin2[tstm_host_services][]="host_id";
+$sin1[tstm_host_services][]="host_name";      $sin2[tstm_host_services][]="host_name";
+$sin1[tstm_host_services][]="service_name";      $sin2[tstm_host_services][]="service_name";
+$sin1[tstm_host_services][]="state";      $sin2[tstm_host_services][]="state";
+$sin1[tstm_host_services][]="date_time";      $sin2[tstm_host_services][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="tstm_host_user";      $sin2["cmr_table"][]="tstm_host_user";
+$sin1[tstm_host_user][]="id";      $sin2[tstm_host_user][]="id";
+$sin1[tstm_host_user][]="user_email";      $sin2[tstm_host_user][]="user_email";
+$sin1[tstm_host_user][]="host_id";      $sin2[tstm_host_user][]="host_id";
+$sin1[tstm_host_user][]="host_ip";      $sin2[tstm_host_user][]="host_ip";
+$sin1[tstm_host_user][]="date_time";      $sin2[tstm_host_user][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="tstm_message";      $sin2["cmr_table"][]="tstm_message";
+$sin1[tstm_message][]="id";      $sin2[tstm_message][]="id";
+$sin1[tstm_message][]="sender";      $sin2[tstm_message][]="sender";
+$sin1[tstm_message][]="title";      $sin2[tstm_message][]="title";
+$sin1[tstm_message][]="text";      $sin2[tstm_message][]="text";
+$sin1[tstm_message][]="groups_dest";      $sin2[tstm_message][]="groups_dest";
+$sin1[tstm_message][]="user_dest";      $sin2[tstm_message][]="user_dest";
+$sin1[tstm_message][]="modules_dest";      $sin2[tstm_message][]="modules_dest";
+$sin1[tstm_message][]="ripetitive";      $sin2[tstm_message][]="ripetitive";
+$sin1[tstm_message][]="ripeat_end";      $sin2[tstm_message][]="ripeat_end";
+$sin1[tstm_message][]="begin_time";      $sin2[tstm_message][]="begin_time";
+$sin1[tstm_message][]="end_time";      $sin2[tstm_message][]="end_time";
+$sin1[tstm_message][]="intervale";      $sin2[tstm_message][]="intervale";
+$sin1[tstm_message][]="priority";      $sin2[tstm_message][]="priority";
+$sin1[tstm_message][]="state";      $sin2[tstm_message][]="state";
+$sin1[tstm_message][]="date_time";      $sin2[tstm_message][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="tstm_message_read";      $sin2["cmr_table"][]="tstm_message_read";
+$sin1[tstm_message_read][]="id";      $sin2[tstm_message_read][]="id";
+$sin1[tstm_message_read][]="user_email";      $sin2[tstm_message_read][]="user_email";
+$sin1[tstm_message_read][]="id_message";      $sin2[tstm_message_read][]="id_message";
+$sin1[tstm_message_read][]="date_time";      $sin2[tstm_message_read][]="date_time";
+
+
+
+
+$sin1["cmr_table"][]="tstm_services";      $sin2["cmr_table"][]="tstm_services";
+$sin1[tstm_services][]="id";      $sin2[tstm_services][]="id";
+$sin1[tstm_services][]="name";      $sin2[tstm_services][]="name";
+$sin1[tstm_services][]="port";      $sin2[tstm_services][]="port";
+$sin1[tstm_services][]="protocol";      $sin2[tstm_services][]="protocol";
+$sin1[tstm_services][]="check_command";      $sin2[tstm_services][]="check_command";
+$sin1[tstm_services][]="inf";      $sin2[tstm_services][]="inf";
+$sin1[tstm_services][]="date_time";      $sin2[tstm_services][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="tstm_session";      $sin2["cmr_table"][]="tstm_session";
+$sin1[tstm_session][]="id";      $sin2[tstm_session][]="id";
+$sin1[tstm_session][]="session_id";      $sin2[tstm_session][]="session_id";
+$sin1[tstm_session][]="user_email";      $sin2[tstm_session][]="user_email";
+$sin1[tstm_session][]="state";      $sin2[tstm_session][]="state";
+$sin1[tstm_session][]="auto_login";      $sin2[tstm_session][]="auto_login";
+$sin1[tstm_session][]="date_time";      $sin2[tstm_session][]="date_time";
+
+
+
+$sin1["cmr_table"][]="tstm_ticket";      $sin2["cmr_table"][]="tstm_ticket";
+$sin1[tstm_ticket][]="id";      $sin2[tstm_ticket][]="id";
+$sin1[tstm_ticket][]="number";      $sin2[tstm_ticket][]="number";
+$sin1[tstm_ticket][]="title";      $sin2[tstm_ticket][]="title";
+$sin1[tstm_ticket][]="group";      $sin2[tstm_ticket][]="group";
+$sin1[tstm_ticket][]="by";      $sin2[tstm_ticket][]="by";
+$sin1[tstm_ticket][]="date_time";      $sin2[tstm_ticket][]="date_time";
+$sin1[tstm_ticket][]="state";      $sin2[tstm_ticket][]="state";
+$sin1[tstm_ticket][]="state_now";      $sin2[tstm_ticket][]="state_now";
+$sin1[tstm_ticket][]="assign_to";      $sin2[tstm_ticket][]="assign_to";
+$sin1[tstm_ticket][]="priority";      $sin2[tstm_ticket][]="priority";
+$sin1[tstm_ticket][]="expire";      $sin2[tstm_ticket][]="expire";
+$sin1[tstm_ticket][]="mail_from";      $sin2[tstm_ticket][]="mail_from";
+$sin1[tstm_ticket][]="mail_to";      $sin2[tstm_ticket][]="mail_to";
+$sin1[tstm_ticket][]="mail_cc";      $sin2[tstm_ticket][]="mail_cc";
+$sin1[tstm_ticket][]="mail_bcc";      $sin2[tstm_ticket][]="mail_bcc";
+$sin1[tstm_ticket][]="allegato";      $sin2[tstm_ticket][]="allegato";
+$sin1[tstm_ticket][]="type";      $sin2[tstm_ticket][]="type";
+$sin1[tstm_ticket][]="resolv_id";      $sin2[tstm_ticket][]="resolv_id";
+$sin1[tstm_ticket][]="text";      $sin2[tstm_ticket][]="text";
+
+
+
+
+
+$sin1["cmr_table"][]="tstm_ticket_read";      $sin2["cmr_table"][]="tstm_ticket_read";
+$sin1[tstm_ticket_read][]="id";      $sin2[tstm_ticket_read][]="id";
+$sin1[tstm_ticket_read][]="user_email";      $sin2[tstm_ticket_read][]="user_email";
+$sin1[tstm_ticket_read][]="ticket_id";      $sin2[tstm_ticket_read][]="ticket_id";
+$sin1[tstm_ticket_read][]="date_time";      $sin2[tstm_ticket_read][]="date_time";
+
+
+
+
+
+$sin1["cmr_table"][]="tstm_user";      $sin2["cmr_table"][]="tstm_user";
+$sin1[tstm_user][]="id";      $sin2[tstm_user][]="id";
+$sin1[tstm_user][]="uid";      $sin2[tstm_user][]="uid";
+$sin1[tstm_user][]="name";      $sin2[tstm_user][]="name";
+$sin1[tstm_user][]="last_name";      $sin2[tstm_user][]="last_name";
+$sin1[tstm_user][]="pw";      $sin2[tstm_user][]="pw";
+$sin1[tstm_user][]="email";      $sin2[tstm_user][]="email";
+$sin1[tstm_user][]="tel";      $sin2[tstm_user][]="tel";
+$sin1[tstm_user][]="cel";      $sin2[tstm_user][]="cel";
+$sin1[tstm_user][]="state";      $sin2[tstm_user][]="state";
+$sin1[tstm_user][]="level";      $sin2[tstm_user][]="level";
+$sin1[tstm_user][]="lang";      $sin2[tstm_user][]="lang";
+$sin1[tstm_user][]="style";      $sin2[tstm_user][]="style";
+$sin1[tstm_user][]="config";      $sin2[tstm_user][]="config";
+$sin1[tstm_user][]="public_key";      $sin2[tstm_user][]="public_key";
+$sin1[tstm_user][]="private_key";      $sin2[tstm_user][]="private_key";
+$sin1[tstm_user][]="pass_phrase";      $sin2[tstm_user][]="pass_phrase";
+$sin1[tstm_user][]="inf";      $sin2[tstm_user][]="inf";
+$sin1[tstm_user][]="date_time";      $sin2[tstm_user][]="date_time";
+
+
+      
+
+
+
+$sin1["cmr_table"][]="tstm_user_group";      $sin2["cmr_table"][]="tstm_user_group";
+$sin1[tstm_user_group][]="id";      $sin2[tstm_user_group][]="id";
+$sin1[tstm_user_group][]="user_email";      $sin2[tstm_user_group][]="user_email";
+$sin1[tstm_user_group][]="group_name";      $sin2[tstm_user_group][]="group_name";
+$sin1[tstm_user_group][]="type";      $sin2[tstm_user_group][]="type";
+$sin1[tstm_user_group][]="state";      $sin2[tstm_user_group][]="state";
+$sin1[tstm_user_group][]="date_time";      $sin2[tstm_user_group][]="date_time";

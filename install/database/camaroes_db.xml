@@ -1,0 +1,4251 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<!--
+-
+- phpMyAdmin XML Dump
+- version 2.6.2-Debian-3sarge6
+- http://www.phpmyadmin.net
+-
+- Host: localhost
+- Generato il: 29 Set, 2008 at 12:53 PM
+- Versione MySQL: 4.0.24
+- Versione PHP: 4.3.10-22
+-->
+
+<!--
+- Database: `camaroes_db`
+-->
+<camaroes_db>
+  <!-- Tabella cmr_account -->
+    <cmr_account>
+        <id>1</id>
+        <url>http://localhost</url>
+        <user_email>admin@localhost</user_email>
+        <uid>admin</uid>
+        <pw>21232f297a57a5a743894a0e4a801fc3</pw>
+        <server>localhost</server>
+        <service>extern_service.name</service>
+        <port>0</port>
+        <protocol></protocol>
+        <allow_level>5_noc,5_soc,5_operator,6_admin,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_account>
+  <!-- Tabella cmr_asset -->
+    <cmr_asset>
+        <id>1</id>
+        <serial></serial>
+        <mac_adress></mac_adress>
+        <name>localhost</name>
+        <location></location>
+        <ip>127.0.0.1</ip>
+        <nat_ip></nat_ip>
+        <mask></mask>
+        <gateway></gateway>
+        <dns1></dns1>
+        <dns2></dns2>
+        <type>pc</type>
+        <os></os>
+        <state>active</state>
+        <login_id></login_id>
+        <login_pw></login_pw>
+        <check_command>extern_command.name</check_command>
+        <certificate>extern_certificate.to_cn</certificate>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_admin,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <my_software></my_software>
+        <my_service></my_service>
+        <comment>localhost</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_asset>
+  <!-- Tabella cmr_certificate -->
+  <!-- Tabella cmr_code -->
+    <cmr_code>
+        <id>1</id>
+        <code>{{date_time}}</code>
+        <script>$eval_result=date(&quot;Y-M-D H:i:s&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>2</id>
+        <code>{{date}}</code>
+        <script>$eval_result=date(&quot;Y-m-d&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>3</id>
+        <code>{{time}}</code>
+        <script>$eval_result=date(&quot;h:i:s&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>4</id>
+        <code>{{my_ip}}</code>
+        <script>$eval_result=$_SERVER['REMOTE_ADDR'];
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>5</id>
+        <code>{{user_email}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>6</id>
+        <code>{{user_name}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>7</id>
+        <code>{{user_last_name}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>8</id>
+        <code>{{user_lang}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>9</id>
+        <code>{{user_comment}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state>active</state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>10</id>
+        <code>{{user_tel}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>11</id>
+        <code>{{user_cel}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>12</id>
+        <code>{{user_function}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>13</id>
+        <code>{{user_location}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>14</id>
+        <code>{{user_email_sign}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>15</id>
+        <code>{{groups_name}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>16</id>
+        <code>{{groups_email_sign}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>17</id>
+        <code>{{ticket_number}}</code>
+        <script>$eval_result=get_post(&quot;number&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>18</id>
+        <code>{{ticket_title}}</code>
+        <script>$eval_result=get_post(&quot;title&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>19</id>
+        <code>{{ticket_text}}</code>
+        <script>$eval_result=get_post(&quot;text&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>20</id>
+        <code>{{ticket_assign_to}}</code>
+        <script>$eval_result=get_post(&quot;assign_to&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>21</id>
+        <code>{{ticket_severity}}</code>
+        <script>$eval_result=get_post(&quot;severity&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>22</id>
+        <code>{{ticket_state}}</code>
+        <script>$eval_result=get_post(&quot;state&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>23</id>
+        <code>{{ticket_type}}</code>
+        <script>$eval_result=get_post(&quot;type&quot;);</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>24</id>
+        <code>{{ticket_list_user_inpact}}</code>
+        <script>$eval_result=get_post(&quot;list_user_inpact&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>25</id>
+        <code>{{ticket_list_group_inpact}}</code>
+        <script>$eval_result=get_post(&quot;list_group_inpact&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>26</id>
+        <code>{{ticket_list_asset_inpact}}</code>
+        <script>$eval_result=get_post(&quot;ticket_asset_inpact&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>27</id>
+        <code>{{ticket_sla}}</code>
+        <script>$eval_result=get_post(&quot;sla&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>28</id>
+        <code>{{ticket_lang}}</code>
+        <script>$eval_result=get_post(&quot;lang&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>29</id>
+        <code>{{ticket_call_log_group}}</code>
+        <script>$eval_result=get_post(&quot;call_log_group&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>30</id>
+        <code>{{ticket_comment}}</code>
+        <script>$eval_result=get_post(&quot;comment&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>31</id>
+        <code>{{ticket_call_log_user}}</code>
+        <script>$eval_result=get_post(&quot;call_log_group&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>32</id>
+        <code>{{ticket_mail_from}}</code>
+        <script>$eval_result=get_post(&quot;mail_from&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>33</id>
+        <code>{{ticket_mail_to}}</code>
+        <script>$eval_result=get_post(&quot;mail_to&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>34</id>
+        <code>{{ticket_mail_cc}}</code>
+        <script>$eval_result=get_post(&quot;mail_cc&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>35</id>
+        <code>{{ticket_mail_bcc}}</code>
+        <script>$eval_result=get_post(&quot;mail_bcc&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>36</id>
+        <code>{{ticket_list_user_impact}}</code>
+        <script>$eval_result=get_post(&quot;list_user_impact&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>37</id>
+        <code>{{ticket_list_group_impact}}</code>
+        <script>$eval_result=get_post(&quot;list_group_impact&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>38</id>
+        <code>{{ticket_list_asset_impact}}</code>
+        <script>$eval_result=get_post(&quot;list_asset_impact&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>39</id>
+        <code>{{ticket_assing_to}}</code>
+        <script>$eval_result=get_post(&quot;assing_to&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>40</id>
+        <code>{{ticket_attach1}}</code>
+        <script>$eval_result=get_post(&quot;attach1&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>41</id>
+        <code>{{ticket_attach2}}</code>
+        <script>$eval_result=get_post(&quot;attach2&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>42</id>
+        <code>{{ticket_attach3}}</code>
+        <script>$eval_result=get_post(&quot;attach3&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>43</id>
+        <code>{{ticket_attach4}}</code>
+        <script>$eval_result=get_post(&quot;attach4&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>44</id>
+        <code>{{ticket_attach}}</code>
+        <script>$eval_result=get_post(&quot;attach1&quot;).&quot;,&quot;.get_post(&quot;attach2&quot;).&quot;,&quot;.get_post(&quot;attach3&quot;).&quot;,&quot;.get_post(&quot;attach4&quot;);
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+    <cmr_code>
+        <id>45</id>
+        <code>{{iss_event_description}}</code>
+        <script>$eval_result=0;
+return $eval_result;</script>
+        <state></state>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_code>
+  <!-- Tabella cmr_command -->
+  <!-- Tabella cmr_contact -->
+  <!-- Tabella cmr_cron -->
+  <!-- Tabella cmr_download -->
+  <!-- Tabella cmr_email -->
+    <cmr_email>
+        <id>1</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>Security Operation Center &lt;etchouamou@sourceforge.net&gt;</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+</comment>
+        <date_time>20080929100254</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>2</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>Security Operation Center &lt;etchouamou@sourceforge.net&gt;</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:07:32]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+</comment>
+        <date_time>20080929100732</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>3</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>Security Operation Center &lt;etchouamou@sourceforge.net&gt;</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:26:47]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+</comment>
+        <date_time>20080929102648</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>4</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>Security Operation Center &lt;etchouamou@sourceforge.net&gt;</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+</comment>
+        <date_time>20080929103442</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>5</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>Security Operation Center &lt;etchouamou@sourceforge.net&gt;</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:35:24]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+</comment>
+        <date_time>20080929103524</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>6</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809004] Hello word</mail_title>
+        <mail_from>etchouamou@sourceforge.net</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:41:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:40:52 Aggiornato Da [ admin@localhost]
+
+</comment>
+        <date_time>20080929104115</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>7</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>etchouamou@sourceforge.net</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:42:01]-------------
+ Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  0809001
+
+Close test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l'oggetto) oppure contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+--
+
+-------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:41:36 Chiuso Da [ admin@localhost]
+
+</comment>
+        <date_time>20080929104202</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>8</id>
+        <encoding></encoding>
+        <lang>italian</lang>
+        <header></header>
+        <mail_title>[0809003] Hello word</mail_title>
+        <mail_from>etchouamou@sourceforge.net</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:50:53]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809003.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:26:47]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:50:31 Aggiornato Da [ admin@localhost]
+
+</comment>
+        <date_time>20080929105054</date_time>
+    </cmr_email>
+    <cmr_email>
+        <id>9</id>
+        <encoding></encoding>
+        <lang>default</lang>
+        <header></header>
+        <mail_title>[0809004] Hello word</mail_title>
+        <mail_from>etchouamou@sourceforge.net</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach></attach>
+        <text>-------------[2008-Sep-Mon 10:59:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+(breve descrizione dell'aggiornamento)
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:41:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+
+</text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:40:52 Aggiornato Da [ admin@localhost]
+
+
+(*) 29-09-2008 10:59:06 Aggiornato Da [ admin@localhost]
+
+</comment>
+        <date_time>20080929105915</date_time>
+    </cmr_email>
+  <!-- Tabella cmr_escalation -->
+  <!-- Tabella cmr_faq -->
+  <!-- Tabella cmr_father_groups -->
+    <cmr_father_groups>
+        <id>1</id>
+        <group_father>admin</group_father>
+        <group_child>admin</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>2</id>
+        <group_father>admin</group_father>
+        <group_child>operator</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>3</id>
+        <group_father>admin</group_father>
+        <group_child>tecnician</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>4</id>
+        <group_father>admin</group_father>
+        <group_child>guest</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>5</id>
+        <group_father>admin</group_father>
+        <group_child>client</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>6</id>
+        <group_father>admin</group_father>
+        <group_child>all_user</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>7</id>
+        <group_father>admin</group_father>
+        <group_child>first_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>8</id>
+        <group_father>admin</group_father>
+        <group_child>second_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>9</id>
+        <group_father>admin</group_father>
+        <group_child>last_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>10</id>
+        <group_father>admin</group_father>
+        <group_child>chat</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>11</id>
+        <group_father>admin</group_father>
+        <group_child>forum</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>12</id>
+        <group_father>admin</group_father>
+        <group_child>default</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>13</id>
+        <group_father>admin</group_father>
+        <group_child>null</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>14</id>
+        <group_father>admin</group_father>
+        <group_child>model</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>15</id>
+        <group_father>admin</group_father>
+        <group_child>web</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>16</id>
+        <group_father>admin</group_father>
+        <group_child>noc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>17</id>
+        <group_father>admin</group_father>
+        <group_child>soc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>18</id>
+        <group_father>operator</group_father>
+        <group_child>operator</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>19</id>
+        <group_father>operator</group_father>
+        <group_child>tecnician</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>20</id>
+        <group_father>operator</group_father>
+        <group_child>guest</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>21</id>
+        <group_father>operator</group_father>
+        <group_child>client</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>22</id>
+        <group_father>operator</group_father>
+        <group_child>all_user</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>23</id>
+        <group_father>operator</group_father>
+        <group_child>first_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>24</id>
+        <group_father>operator</group_father>
+        <group_child>second_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>25</id>
+        <group_father>operator</group_father>
+        <group_child>last_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>26</id>
+        <group_father>operator</group_father>
+        <group_child>chat</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>27</id>
+        <group_father>operator</group_father>
+        <group_child>forum</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>28</id>
+        <group_father>operator</group_father>
+        <group_child>default</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>29</id>
+        <group_father>operator</group_father>
+        <group_child>null</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>30</id>
+        <group_father>operator</group_father>
+        <group_child>model</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>31</id>
+        <group_father>operator</group_father>
+        <group_child>web</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>32</id>
+        <group_father>operator</group_father>
+        <group_child>noc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>33</id>
+        <group_father>operator</group_father>
+        <group_child>soc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>34</id>
+        <group_father>tecnician</group_father>
+        <group_child>tecnician</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>35</id>
+        <group_father>tecnician</group_father>
+        <group_child>guest</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>36</id>
+        <group_father>tecnician</group_father>
+        <group_child>client</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>37</id>
+        <group_father>tecnician</group_father>
+        <group_child>all_user</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>38</id>
+        <group_father>tecnician</group_father>
+        <group_child>first_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>39</id>
+        <group_father>tecnician</group_father>
+        <group_child>second_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>40</id>
+        <group_father>tecnician</group_father>
+        <group_child>last_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>41</id>
+        <group_father>tecnician</group_father>
+        <group_child>chat</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>42</id>
+        <group_father>tecnician</group_father>
+        <group_child>forum</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>43</id>
+        <group_father>tecnician</group_father>
+        <group_child>default</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>44</id>
+        <group_father>tecnician</group_father>
+        <group_child>null</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>45</id>
+        <group_father>tecnician</group_father>
+        <group_child>model</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>46</id>
+        <group_father>tecnician</group_father>
+        <group_child>web</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>47</id>
+        <group_father>tecnician</group_father>
+        <group_child>noc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>48</id>
+        <group_father>tecnician</group_father>
+        <group_child>soc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>49</id>
+        <group_father>developer</group_father>
+        <group_child>developer</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>50</id>
+        <group_father>developer</group_father>
+        <group_child>admin</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>51</id>
+        <group_father>developer</group_father>
+        <group_child>operator</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>52</id>
+        <group_father>developer</group_father>
+        <group_child>guest</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>53</id>
+        <group_father>developer</group_father>
+        <group_child>client</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>54</id>
+        <group_father>developer</group_father>
+        <group_child>all_user</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>55</id>
+        <group_father>developer</group_father>
+        <group_child>first_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>56</id>
+        <group_father>developer</group_father>
+        <group_child>second_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>57</id>
+        <group_father>developer</group_father>
+        <group_child>last_level</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>58</id>
+        <group_father>developer</group_father>
+        <group_child>chat</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>59</id>
+        <group_father>developer</group_father>
+        <group_child>forum</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>60</id>
+        <group_father>developer</group_father>
+        <group_child>default</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>61</id>
+        <group_father>developer</group_father>
+        <group_child>null</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>62</id>
+        <group_father>developer</group_father>
+        <group_child>model</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>63</id>
+        <group_father>developer</group_father>
+        <group_child>web</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>64</id>
+        <group_father>developer</group_father>
+        <group_child>noc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>65</id>
+        <group_father>developer</group_father>
+        <group_child>soc</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>66</id>
+        <group_father>client</group_father>
+        <group_child>client</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>67</id>
+        <group_father>demo</group_father>
+        <group_child>demo</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+    <cmr_father_groups>
+        <id>68</id>
+        <group_father>guest</group_father>
+        <group_child>guest</group_child>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_father_groups>
+  <!-- Tabella cmr_forum -->
+  <!-- Tabella cmr_generator -->
+  <!-- Tabella cmr_groups -->
+    <cmr_groups>
+        <id>1</id>
+        <name>developer</name>
+        <state>active</state>
+        <level></level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/developer</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_developer,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>2</id>
+        <name>admin</name>
+        <state>active</state>
+        <level>6_admin</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/admin</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_admin,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>3</id>
+        <name>operator</name>
+        <state>active</state>
+        <level>5_operator</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/operator</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_operator,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>4</id>
+        <name>soc</name>
+        <state>active</state>
+        <level>5_soc</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/soc</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_soc,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>5</id>
+        <name>noc</name>
+        <state>active</state>
+        <level>5_noc</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/noc</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_noc,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>6</id>
+        <name>first_level</name>
+        <state>active</state>
+        <level>5_noc</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/first_level</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_first_level,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>7</id>
+        <name>second_level</name>
+        <state>active</state>
+        <level>5_noc</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/second_level</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_second_level,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>8</id>
+        <name>tecnician</name>
+        <state>active</state>
+        <level>4_tecnician</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/tecnician</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_tecnician,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>9</id>
+        <name>client</name>
+        <state>active</state>
+        <level>2_client</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/client</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_client,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>10</id>
+        <name>all_user</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/all_user</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_all_user,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>11</id>
+        <name>forum</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/forum</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_forum,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>12</id>
+        <name>chat</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/chat</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_chat,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>13</id>
+        <name>default</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/default</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_default,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>14</id>
+        <name>no_db</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/no_db</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_no_db,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>15</id>
+        <name>demo</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/demo</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+    <cmr_groups>
+        <id>16</id>
+        <name>guest</name>
+        <state>active</state>
+        <level>0_guest</level>
+        <location></location>
+        <type>normal</type>
+        <sla>20080929095600</sla>
+        <public_key></public_key>
+        <private_key></private_key>
+        <pass_phrase></pass_phrase>
+        <email_sign></email_sign>
+        <referent_email>extern_user.email</referent_email>
+        <admin_email>extern_user.email</admin_email>
+        <home>home/groups/guest</home>
+        <notify>by_email</notify>
+        <web_site></web_site>
+        <login_script></login_script>
+        <adress></adress>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_guest,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_groups>
+  <!-- Tabella cmr_logging -->
+    <cmr_logging>
+        <id>1</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_user</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>login</action>
+        <date_time>20080929100126</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>2</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>0809001</line_id>
+        <action>new</action>
+        <date_time>20080929100254</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>3</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>0809002</line_id>
+        <action>new</action>
+        <date_time>20080929100732</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>4</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>0809003</line_id>
+        <action>new</action>
+        <date_time>20080929102647</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>5</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>0809004</line_id>
+        <action>new</action>
+        <date_time>20080929103442</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>6</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>0809005</line_id>
+        <action>new</action>
+        <date_time>20080929103524</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>7</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>read</action>
+        <date_time>20080929103554</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>8</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>read</action>
+        <date_time>20080929103557</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>9</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>read</action>
+        <date_time>20080929103559</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>10</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>57</line_id>
+        <action>read</action>
+        <date_time>20080929104045</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>11</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>57</line_id>
+        <action>read</action>
+        <date_time>20080929104048</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>12</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>57</line_id>
+        <action>read</action>
+        <date_time>20080929104050</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>13</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>57</line_id>
+        <action>update</action>
+        <date_time>20080929104115</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>14</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>54</line_id>
+        <action>read</action>
+        <date_time>20080929104129</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>15</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>54</line_id>
+        <action>read</action>
+        <date_time>20080929104132</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>16</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>54</line_id>
+        <action>read</action>
+        <date_time>20080929104134</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>17</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>54</line_id>
+        <action>close</action>
+        <date_time>20080929104201</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>18</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>55</line_id>
+        <action>read</action>
+        <date_time>20080929104221</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>19</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>55</line_id>
+        <action>read</action>
+        <date_time>20080929104224</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>20</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>55</line_id>
+        <action>read</action>
+        <date_time>20080929104226</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>21</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>read</action>
+        <date_time>20080929105023</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>22</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>read</action>
+        <date_time>20080929105026</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>23</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>read</action>
+        <date_time>20080929105028</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>24</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>56</line_id>
+        <action>update</action>
+        <date_time>20080929105053</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>25</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>{match_label_default_table&gt;</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>search 0809004</action>
+        <date_time>20080929105345</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>26</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>search 0809004</action>
+        <date_time>20080929105837</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>27</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>59</line_id>
+        <action>read</action>
+        <date_time>20080929105846</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>28</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>59</line_id>
+        <action>read</action>
+        <date_time>20080929105849</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>29</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>59</line_id>
+        <action>read</action>
+        <date_time>20080929105851</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>30</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>59</line_id>
+        <action>update</action>
+        <date_time>20080929105915</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>31</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>report</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>new</action>
+        <date_time>20080929110600</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>32</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>report</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>new</action>
+        <date_time>20080929110602</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>33</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>report</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>new</action>
+        <date_time>20080929110602</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>34</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>report</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>new</action>
+        <date_time>20080929110602</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>35</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>report</table_name>
+        <line_id>07a20bea8e92733d3991ef6c47e21d75</line_id>
+        <action>new</action>
+        <date_time>20080929110602</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>36</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_user</table_name>
+        <line_id>d30471d09614cbcc1634ecebf26dc7b2</line_id>
+        <action>login</action>
+        <date_time>20080929113407</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>37</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_user</table_name>
+        <line_id>1b3cf91b8de489d27171b179a6cc53d6</line_id>
+        <action>login</action>
+        <date_time>20080929114431</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>38</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>'</line_id>
+        <action>delete</action>
+        <date_time>20080929122341</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>39</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>'</line_id>
+        <action></action>
+        <date_time>20080929122343</date_time>
+    </cmr_logging>
+    <cmr_logging>
+        <id>40</id>
+        <user_email>admin@localhost</user_email>
+        <table_name>cmr_ticket</table_name>
+        <line_id>'</line_id>
+        <action></action>
+        <date_time>20080929122346</date_time>
+    </cmr_logging>
+  <!-- Tabella cmr_message -->
+  <!-- Tabella cmr_nagios -->
+  <!-- Tabella cmr_query -->
+  <!-- Tabella cmr_rss -->
+  <!-- Tabella cmr_services -->
+  <!-- Tabella cmr_session -->
+    <cmr_session>
+        <id>1</id>
+        <sessionid>07a20bea8e92733d3991ef6c47e21d75</sessionid>
+        <sessionip>192.168.1.186</sessionip>
+        <user_email>admin@localhost</user_email>
+        <status>connect</status>
+        <state>active</state>
+        <time_out>600 MINUTE</time_out>
+        <session_end>00000000000000</session_end>
+        <date_time>20080929100126</date_time>
+    </cmr_session>
+    <cmr_session>
+        <id>2</id>
+        <sessionid>d30471d09614cbcc1634ecebf26dc7b2</sessionid>
+        <sessionip>192.168.1.186</sessionip>
+        <user_email>admin@localhost</user_email>
+        <status>connect</status>
+        <state>active</state>
+        <time_out>600 MINUTE</time_out>
+        <session_end>00000000000000</session_end>
+        <date_time>20080929113407</date_time>
+    </cmr_session>
+    <cmr_session>
+        <id>3</id>
+        <sessionid>1b3cf91b8de489d27171b179a6cc53d6</sessionid>
+        <sessionip>192.168.1.186</sessionip>
+        <user_email>admin@localhost</user_email>
+        <status>connect</status>
+        <state>active</state>
+        <time_out>600 MINUTE</time_out>
+        <session_end>00000000000000</session_end>
+        <date_time>20080929114431</date_time>
+    </cmr_session>
+  <!-- Tabella cmr_sla -->
+  <!-- Tabella cmr_software -->
+  <!-- Tabella cmr_statistic -->
+  <!-- Tabella cmr_ticket -->
+    <cmr_ticket>
+        <id>1</id>
+        <number>0507001</number>
+        <lang>italian</lang>
+        <title>Segnalazione Ticket Normal</title>
+        <work_by></work_by>
+        <call_log_user></call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Segnalazione: {{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(breve descrizione se segnalato dal cliente oppure
+     descrizione dettagliata se e' stato rilevato da noi)</text>
+        <mail_text>-------------[{{date_time}}]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero {{ticket_number}}.
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>2</id>
+        <number>0507002</number>
+        <lang>italian</lang>
+        <title>Aggiornamento Ticket Normale</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Aggiornamento: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(breve descrizione dell'aggiornamento)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto {{ticket_number}}.
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>3</id>
+        <number>0507003</number>
+        <lang>italian</lang>
+        <title>Chiusura Ticket Normale</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>close</state>
+        <state_now>close</state_now>
+        <assign_to></assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Chiusura: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(spiegazioni della chiusura)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+ Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  {{ticket_number}}
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l'oggetto) oppure contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>4</id>
+        <number>0507004</number>
+        <lang>italian</lang>
+        <title>Segnalazione Ticket IDS</title>
+        <work_by></work_by>
+        <call_log_user></call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to></assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Segnalazione IDS: {{ticket_title}}</mail_title>
+        <mail_from></mail_from>
+        <mail_to></mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc></mail_bcc>
+        <attach></attach>
+        <type>ids</type>
+        <text>Ticket numero : {{ticket_number}}
+Nome Eventi :{{ticket_title}}
+Source IP : 
+Destination IP : 
+Severity : {{ticket_severity}}
+
+
+Per maggiori dettagli sull'evento segnalato:
+{{download}}
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+    la presente per segnalare che il SOC di Camaroes ha rilevato un
+evento sospetto attraverso i nostri sistemi di monitoraggio.
+
+{{ticket_text}}
+
+
+Distinti saluti
+
+-- 
+Per comunicare informazioni utili al declassamento del'evento (in caso
+di falso positivo o a seguito di contromisure implementate al vostro
+interno) rispondete a  questo messaggio (senza  modificarne l'oggetto)
+oppure contattateci telefonicamente facendo riferimento al numero di Ticket.
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>5</id>
+        <number>0507005</number>
+        <lang>italian</lang>
+        <title>Aggiornamento Ticket IDS</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>NULL</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Aggiornamento IDS: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>||</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>ids</type>
+        <text>  in merito all'evento segnalato con il ticket {{ticket_number}}, vi preghiamo di
+verificare se l'impatto per la vostra rete risulta essere rilevante.
+
+
+
+In caso contrario o di una mancata vostra risposta considereremo
+l'evento non impattante e provvederemo ad abbassare la priorità    di tali
+eventi mediante l'inserimento di un'event filter.</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+{{ticket_text}}
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere a questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+{{groups_email_sign}}
+</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>6</id>
+        <number>0507001</number>
+        <lang>italian</lang>
+        <title>Chiusura Ticket IDS</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>NULL</call_method>
+        <state>close</state>
+        <state_now>close</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Chiusura IDS: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>ids</type>
+        <text>E' stato inserito un event filter sull'evento segnalato, avente come
+campo destinazione l'indirizzo IP dell'host target.
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+  La presente per segnalare che il SOC di Camaroes ha provveduto a
+chiudere il ticket {{ticket_number}}.
+
+{{ticket_text}}.
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket e rialzare la severità   dell'evento potete
+rispondere a questo messaggio (senza modificarne l'oggetto) oppure
+contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+{{groups_email_sign}}.</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>7</id>
+        <number>0507008</number>
+        <lang>italian</lang>
+        <title>RealSecure XPU Update</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>xpu</type>
+        <text>Con la presente vi segnaliamo che Iss ha rilasciato la XPU xx.xx per
+RealSecure Network Sensor 7.0.
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+{{ticket_text}}
+
+Rimaniamo a Vs. disposizione per ulteriori chiarimenti al riguardo.
+
+Distinti saluti.
+
+-- 
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>8</id>
+        <number>0507008</number>
+        <lang>italian</lang>
+        <title>SiteProtector - Aggiornamento XPU</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>xpu</type>
+        <text>  le sonde di SiteProtector sono state aggiornate all'ultima release
+dell'XPU.
+
+Inoltre, come concordato, sono stati attivati i 'drop' sui seguenti
+attacchi con impatto classificato come HIGH.
+Di seguito viene fornito l'elenco delle nuove signature bloccate ed una
+loro breve descrizione, così come fornita da ISS:
+
+
+(descrizione dettagliata)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------Buongiorno,
+{{ticket_text}}
+Cordiali saluti
+
+-- 
+{{groups_email_sign}}
+
+</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>9</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Riepilogo eventi IDS del 20xx-xx-xx</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>ids</type>
+        <text>In allegato potete trovare due documenti in formato PDF:
+
+    1. il primo inerente il report giornaliero degli eventi HIGH e MEDIUM;
+
+    2. il secondo riguarda il dettaglio degli eventi HIGH con i
+       relativi indirizzi IP sorgenti e di destinazione.
+</text>
+        <mail_text>-------------[{{date_time}}]-------------Buongiorno,
+{{ticket_text}}
+
+Rimaniamo a disposizione per eventuali chiarimenti.
+
+-- 
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>10</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment Richiesta IP</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>  al fine di effettuare il previsto Vulnerabilty Assessment, inizieremo le scansioni dopo le 22.0.30 di oggi verso gli indirizzi IP da voi comunicati.
+
+Qualora non ci siano modifiche rispetto al mese precedente o in caso di
+mancato riscontro, porteremo avanti l'attività    con le stesse modalità   
+del mese precedente, dandovi comunque comunicazione via email prima di
+iniziare una sessione di scan e al termine della stessa.
+
+Gli indirizzi da cui potremmo effettuare il VA saranno i seguenti:
+
+- 
+- 
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Buongiorno,
+
+{{ticket_text}}
+Cordiali saluti
+
+-- 
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>11</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment Inizio</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>|Operation Center &lt;operator@localhost&gt;|</mail_from>
+        <mail_to>||</mail_to>
+        <mail_cc>|Tecnician&lt;tecnician@localhost&gt;|</mail_cc>
+        <mail_bcc>|Soc &lt;operator@localhost&gt;|</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>Con la presente intendiamo comunicarvi che alle ore 22.0.30 avrà    inizio il
+previsto Vulnerability Assessment.
+
+Vi invieremo un'e-mail di conferma a VA effettuato; qualora non dovesse
+terminare entro questa notte, il lavoro verrà    interrotto domattina alle
+8.00 e ripreso alle 22.0.30 di domani.</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+{{ticket_text}}.
+
+
+Cordiali saluti
+
+-- 
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>12</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment File zip</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>Buongiorno,
+
+  in allegato il Vulnerability Assessment effettuato verso la vostra rete. Il file è compresso in formato ZIP e cifrato con password. Per ottenterla potete chiamare il SOC in qualsiasi momento al numero 011 0700912.
+
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>13</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment interotto</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>|Operation Center &lt;operator@localhost&gt;|</mail_from>
+        <mail_to>||</mail_to>
+        <mail_cc>|Tecnician&lt;tecnician@localhost&gt;|</mail_cc>
+        <mail_bcc>|Soc &lt;operator@localhost&gt;|</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>Con la presente intendiamo comunicarvi che alle ore 8.00  di questa mattina, è stato interotto come da accordi il Vulnerability Assessment, e vera ripreso soltanto
+alle 22.0.30 di questa notte.
+
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+{{ticket_text}}
+
+Cordiali saluti
+
+
+-- 
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>14</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment continua</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>|Operation Center &lt;operator@localhost&gt;|</mail_from>
+        <mail_to>||</mail_to>
+        <mail_cc>|Tecnician&lt;tecnician@localhost&gt;|</mail_cc>
+        <mail_bcc>|Soc &lt;operator@localhost&gt;|</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>Con la presente intendiamo comunicarvi che dalle ore 22.0.30 continueremo il previsto Vulnerability Assessment a meno di un vostro contrordine.
+Vi invieremo un'e-mail di conferma a VA effettuato; qualora non dovesse
+terminare entro questa notte, il lavoro verrà   interrotto domattina alle
+8.00 e ripreso alle 22.0.30 di domani.
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+{{ticket_text}}
+
+Cordiali saluti
+-- 
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>15</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment fine</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>normal</call_method>
+        <state>close</state>
+        <state_now>close</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>|Operation Center &lt;operator@localhost&gt;|</mail_from>
+        <mail_to>||</mail_to>
+        <mail_cc>|Tecnician&lt;tecnician@localhost&gt;|</mail_cc>
+        <mail_bcc>|Soc &lt;operator@localhost&gt;|</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>Con la presente intendiamo comunicarvi che è da poco terminato il previsto Vulnerability Assessment mensile.
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+{{ticket_text}}
+
+Distinti Saluti.
+
+-- 
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>16</id>
+        <number>0507007</number>
+        <lang>italian</lang>
+        <title>Vulnerability Assessment Richiesta IP e Periodo</title>
+        <work_by>operator@localhost</work_by>
+        <call_log_user>operator@localhost</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>{{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>va</type>
+        <text>  al fine di effettuare il previsto Vulnerabilty Assessment mensile,
+chiediamo l'autorizzazione per iniziare l'attività   .
+Qualora ci siano esigenze diverse rispetto al mese scorso vi chiediamo
+di fornirci gli indirizzi IP delle macchine da sottoporre al security probing ed un'indicazione del periodo in cui poter operare.
+
+Qualora non ci siano modifiche rispetto al mese precedente o in caso di mancato riscontro, porteremo avanti l'attività    con le stesse modalità    (indirizzi IP e orario) del mese precedente, dandovi comunque comunicazione via email prima di iniziare una sessione di scan e al termine della stessa.
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Buongiorno,
+
+
+
+Cordiali saluti
+
+-- 
+-------------[{{groups_email_sign}}]-------------</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>17</id>
+        <number>0507001</number>
+        <lang>english</lang>
+        <title>Open Normal Ticket</title>
+        <work_by></work_by>
+        <call_log_user></call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Open: {{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Comment)</text>
+        <mail_text>-------------[{{date_time}}]-------------
+
+Hi,
+ Ticket was opened:
+Ticket number {{ticket_number}}.
+
+{{ticket_text}}
+
+Regards,
+
+-- 
+.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>18</id>
+        <number>0507002</number>
+        <lang>english</lang>
+        <title>Update Normal Ticket</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Update: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Comment)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Hi,
+Ticket was updated: {{ticket_number}}.
+
+{{ticket_text}}
+
+Regards,
+
+-- 
+.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>19</id>
+        <number>0507003</number>
+        <lang>english</lang>
+        <title>Close Normal Ticket</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>close</state>
+        <state_now>close</state_now>
+        <assign_to></assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Close: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Comment)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+ Hi,
+Ticket was closed:  {{ticket_number}}
+
+{{ticket_text}}
+
+Regards,
+
+-- 
+
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>33</id>
+        <number>0507009</number>
+        <lang>null</lang>
+        <title>null</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>NULL</call_method>
+        <state>NULL</state>
+        <state_now>NULL</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>null</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach>null</attach>
+        <type>NULL</type>
+        <text>null</text>
+        <mail_text>null</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>34</id>
+        <number>0507001</number>
+        <lang>french</lang>
+        <title>Ouvrir Ticket Normal</title>
+        <work_by></work_by>
+        <call_log_user></call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Ouvrir: {{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Commentaire)</text>
+        <mail_text>-------------[{{date_time}}]-------------
+
+Bonjour,
+ Ouverture Ticket:
+Ticket numero {{ticket_number}}.
+
+{{ticket_text}}
+
+Salut,
+
+-- 
+.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>35</id>
+        <number>0507002</number>
+        <lang>french</lang>
+        <title>Ajourner Ticket Normal</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Ajourner: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Commentaire)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Bonjour,
+Ajournement Ticket: {{ticket_number}}.
+
+{{ticket_text}}
+
+Salut,
+
+-- 
+.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>36</id>
+        <number>0507003</number>
+        <lang>french</lang>
+        <title>Fermer Ticket Normal</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>close</state>
+        <state_now>close</state_now>
+        <assign_to></assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Fermer: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Commentaire)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+ Bonjour,
+Fermeture Ticket:  {{ticket_number}}
+
+{{ticket_text}}
+
+Salut,
+
+-- 
+
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>51</id>
+        <number>0507001</number>
+        <lang>default</lang>
+        <title>Open Normal Ticket</title>
+        <work_by></work_by>
+        <call_log_user></call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>open</state>
+        <state_now>open</state_now>
+        <assign_to>soc</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Open: {{ticket_title}}</mail_title>
+        <mail_from>Operation Center &lt;operator@localhost&gt;</mail_from>
+        <mail_to></mail_to>
+        <mail_cc>Tecnician&lt;tecnician@localhost&gt;</mail_cc>
+        <mail_bcc>Soc &lt;operator@localhost&gt;</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Comment)</text>
+        <mail_text>-------------[{{date_time}}]-------------
+
+Hi,
+ Ticket was opened:
+Ticket number {{ticket_number}}.
+
+{{ticket_text}}
+
+Regards,
+
+-- 
+.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>52</id>
+        <number>0507002</number>
+        <lang>default</lang>
+        <title>Update Normal Ticket</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>update</state>
+        <state_now>update</state_now>
+        <assign_to>null</assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Update: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Comment)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+Hi,
+Ticket was updated: {{ticket_number}}.
+
+{{ticket_text}}
+
+Regards,
+
+-- 
+.
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>53</id>
+        <number>0507003</number>
+        <lang>default</lang>
+        <title>Close Normal Ticket</title>
+        <work_by>null</work_by>
+        <call_log_user>null</call_log_user>
+        <call_log_group></call_log_group>
+        <call_method>by_help_desk</call_method>
+        <state>close</state>
+        <state_now>close</state_now>
+        <assign_to></assign_to>
+        <list_user_impact>null</list_user_impact>
+        <list_group_impact>null</list_group_impact>
+        <list_asset_impact>null</list_asset_impact>
+        <severity></severity>
+        <sla>3 DAY</sla>
+        <mail_title>Ticket [{{ticket_number}}] Close: {{ticket_title}}</mail_title>
+        <mail_from>|null|</mail_from>
+        <mail_to>|null|</mail_to>
+        <mail_cc>|null|</mail_cc>
+        <mail_bcc>|null|</mail_bcc>
+        <attach></attach>
+        <type>normal</type>
+        <text>(Comment)
+</text>
+        <mail_text>-------------[{{date_time}}]-------------
+ Hi,
+Ticket was closed:  {{ticket_number}}
+
+{{ticket_text}}
+
+Regards,
+
+-- 
+
+
+{{groups_email_sign}}</mail_text>
+        <my_master>cmr_model</my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>model</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_ticket>
+    <cmr_ticket>
+        <id>54</id>
+        <number>0809001</number>
+        <lang>italian</lang>
+        <title>Hello word</title>
+        <work_by>admin@localhost</work_by>
+        <call_log_user>admin@localhost</call_log_user>
+        <call_log_group>operator</call_log_group>
+        <call_method></call_method>
+        <state>open</state>
+        <state_now>closed</state_now>
+        <assign_to>operator</assign_to>
+        <list_user_impact></list_user_impact>
+        <list_group_impact></list_group_impact>
+        <list_asset_impact></list_asset_impact>
+        <severity>normal</severity>
+        <sla>3 DAY DAY</sla>
+        <mail_title>[0809001] Hello word</mail_title>
+        <mail_from>Security Operation Center &lt;etchouamou@sourceforge.net&gt;</mail_from>
+        <mail_to>etchouamou@sourceforge.net</mail_to>
+        <mail_cc></mail_cc>
+        <mail_bcc>tchouamoueric@yahoo.com</mail_bcc>
+        <attach>, , ,</attach>
+        <type>normal</type>
+        <text>Hello Word;
+Only a test
+
+
+</text>
+        <mail_text>-------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+</mail_text>
+        <my_master></my_master>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+</comment>
+        <date_time>20080929104202</date_time>
+    </cmr_ticket>
+  <!-- Tabella cmr_user -->
+    <cmr_user>
+        <id>1</id>
+        <uid>developer</uid>
+        <name>developer</name>
+        <last_name>developer</last_name>
+        <nickname>developer</nickname>
+        <sexe></sexe>
+        <role>developer</role>
+        <sla></sla>
+        <pw>5e8edd851d2fdfbd7415232c67367cc3</pw>
+        <email>developer@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/developer</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level></level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_developer,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>developer</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+    <cmr_user>
+        <id>2</id>
+        <uid>admin</uid>
+        <name>admin</name>
+        <last_name>admin</last_name>
+        <nickname>admin</nickname>
+        <sexe></sexe>
+        <role>admin</role>
+        <sla></sla>
+        <pw>21232f297a57a5a743894a0e4a801fc3</pw>
+        <email>admin@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/default</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level>6_admin</level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_admin,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>admin</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+    <cmr_user>
+        <id>3</id>
+        <uid>operator</uid>
+        <name>operator</name>
+        <last_name>operator</last_name>
+        <nickname>operator</nickname>
+        <sexe></sexe>
+        <role>operator</role>
+        <sla></sla>
+        <pw>4b583376b2767b923c3e1da60d10de59</pw>
+        <email>operator@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/operator</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level>5_operator</level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_operator,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>operator</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+    <cmr_user>
+        <id>4</id>
+        <uid>tecnician</uid>
+        <name>tecnician</name>
+        <last_name>tecnician</last_name>
+        <nickname>tecnician</nickname>
+        <sexe></sexe>
+        <role>tecnician</role>
+        <sla></sla>
+        <pw>585af59d64771a205e06b29698e85ff5</pw>
+        <email>tecnician@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/tecnician</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level>4_tecnician</level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_tecnician,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>tecnician</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+    <cmr_user>
+        <id>5</id>
+        <uid>guest</uid>
+        <name>guest</name>
+        <last_name>guest</last_name>
+        <nickname>guest</nickname>
+        <sexe></sexe>
+        <role>guest</role>
+        <sla></sla>
+        <pw>084e0343a0486ff05530df6c705c8bb4</pw>
+        <email>guest@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/guest</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level>0_guest</level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_guest,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>guest</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+    <cmr_user>
+        <id>6</id>
+        <uid>client</uid>
+        <name>client</name>
+        <last_name>client</last_name>
+        <nickname>client</nickname>
+        <sexe></sexe>
+        <role>client</role>
+        <sla></sla>
+        <pw>62608e08adc29a8d6dbc9754e659f125</pw>
+        <email>client@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/client</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level>0_guest</level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_client,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>client</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+    <cmr_user>
+        <id>7</id>
+        <uid>demo</uid>
+        <name>demo</name>
+        <last_name>demo</last_name>
+        <nickname>demo</nickname>
+        <sexe></sexe>
+        <role>demo</role>
+        <sla></sla>
+        <pw>fe01ce2a7fbac8fafaed7c982a04e229</pw>
+        <email>demo@localhost</email>
+        <email_sign></email_sign>
+        <tel></tel>
+        <cel></cel>
+        <home>home/users/demo</home>
+        <adress></adress>
+        <location></location>
+        <state>active</state>
+        <type></type>
+        <status>disconnect</status>
+        <level>0_guest</level>
+        <lang>italian</lang>
+        <style>default</style>
+        <login_script></login_script>
+        <certificate>extern_certificate.user_email</certificate>
+        <photo></photo>
+        <my_master></my_master>
+        <allow_level>5_noc,5_soc,5_operator,6_demo,7_programer</allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment>demo</comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user>
+  <!-- Tabella cmr_user_groups -->
+    <cmr_user_groups>
+        <id>1</id>
+        <user_email>admin@localhost</user_email>
+        <group_name>admin</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+    <cmr_user_groups>
+        <id>2</id>
+        <user_email>operator@localhost</user_email>
+        <group_name>operator</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+    <cmr_user_groups>
+        <id>3</id>
+        <user_email>tecnician@localhost</user_email>
+        <group_name>tecnician</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+    <cmr_user_groups>
+        <id>4</id>
+        <user_email>developer@localhost</user_email>
+        <group_name>developer</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+    <cmr_user_groups>
+        <id>5</id>
+        <user_email>client@localhost</user_email>
+        <group_name>client</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+    <cmr_user_groups>
+        <id>6</id>
+        <user_email>demo@localhost</user_email>
+        <group_name>demo</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+    <cmr_user_groups>
+        <id>7</id>
+        <user_email>guest@localhost</user_email>
+        <group_name>guest</group_name>
+        <type>normal</type>
+        <state>active</state>
+        <allow_level></allow_level>
+        <allow_email></allow_email>
+        <allow_groups></allow_groups>
+        <comment></comment>
+        <date_time>20080929095600</date_time>
+    </cmr_user_groups>
+  <!-- Tabella cmr_va -->
+  <!-- Tabella cmr_x_code_source -->
+  <!-- Tabella cmr_x_comment -->
+  <!-- Tabella cmr_x_contents -->
+  <!-- Tabella cmr_x_files -->
+  <!-- Tabella cmr_x_images -->
+  <!-- Tabella cmr_x_links -->
+  <!-- Tabella cmr_x_menu -->
+  <!-- Tabella cmr_x_modules -->
+  <!-- Tabella cmr_x_object -->
+  <!-- Tabella cmr_x_pages -->
+  <!-- Tabella cmr_x_sites -->
+  <!-- Tabella cmr_x_template -->
+  <!-- Tabella cmr_x_text -->
+</camaroes_db>

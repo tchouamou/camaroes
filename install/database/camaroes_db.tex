@@ -1,0 +1,2389 @@
+% phpMyAdmin LaTeX Dump
+% version 2.6.2-Debian-3sarge6
+% http://www.phpmyadmin.net
+%
+% Host: localhost
+% Generato il: 29 Set, 2008 at 12:28 PM
+% Versione MySQL: 4.0.24
+% Versione PHP: 4.3.10-22
+% 
+% Database: `camaroes_db`
+% 
+
+%
+% Struttura: cmr_account
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_account} \label{tab:cmr_account-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_account (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+url & varchar(254) &  No  &  \\ \hline 
+user\_email & varchar(254) &  No  &  \\ \hline 
+uid & varchar(254) &  No  &  \\ \hline 
+\textbf{pw} & varchar(254) &  No  &  \\ \hline 
+server & varchar(254) &  No  &  \\ \hline 
+service & varchar(254) &  No  & extern\_service.name \\ \hline 
+port & int(11) &  No  & 0 \\ \hline 
+protocol & varchar(254) &  No  &  \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_account
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_account} \label{tab:cmr_account-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{url}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{uid}} & \multicolumn{1}{|c|}{\textbf{pw}} & \multicolumn{1}{|c|}{\textbf{server}} & \multicolumn{1}{|c|}{\textbf{service}} & \multicolumn{1}{|c|}{\textbf{port}} & \multicolumn{1}{|c|}{\textbf{protocol}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_account (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{url}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{uid}} & \multicolumn{1}{|c|}{\textbf{pw}} & \multicolumn{1}{|c|}{\textbf{server}} & \multicolumn{1}{|c|}{\textbf{service}} & \multicolumn{1}{|c|}{\textbf{port}} & \multicolumn{1}{|c|}{\textbf{protocol}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & http://localhost & admin@localhost & admin & 21232f297a57a5a743894a0e4a801fc3 & localhost & extern\_service.name & 0 &  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer &  &  &  & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_asset
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_asset} \label{tab:cmr_asset-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_asset (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+serial & varchar(254) &  Si  &  \\ \hline 
+mac\_adress & varchar(254) &  Si  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  & localhost \\ \hline 
+location & varchar(254) &  Si  &  \\ \hline 
+\textbf{ip} & varchar(100) &  No  & 127.0.0.1 \\ \hline 
+nat\_ip & varchar(254) &  No  &  \\ \hline 
+mask & varchar(254) &  Si  &  \\ \hline 
+gateway & varchar(254) &  Si  &  \\ \hline 
+dns1 & varchar(254) &  Si  &  \\ \hline 
+dns2 & varchar(254) &  Si  &  \\ \hline 
+type & enum('', 'router', 'switch', 'printer', 'fax', 'telefone', 'screem', 'firewall', 'pc', 'model') &  No  & pc \\ \hline 
+os & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+login\_id & varchar(254) &  No  &  \\ \hline 
+login\_pw & varchar(254) &  No  &  \\ \hline 
+check\_command & varchar(254) &  No  & extern\_command.name \\ \hline 
+certificate & varchar(254) &  No  & extern\_certificate.name \\ \hline 
+my\_master & varchar(254) &  No  & extern\_asset.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+my\_software & varchar(254) &  No  & extern\_software.name \\ \hline 
+my\_service & varchar(254) &  No  & extern\_service.name \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_asset
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_asset} \label{tab:cmr_asset-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{serial}} & \multicolumn{1}{|c|}{\textbf{mac\_adress}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{ip}} & \multicolumn{1}{|c|}{\textbf{nat\_ip}} & \multicolumn{1}{|c|}{\textbf{mask}} & \multicolumn{1}{|c|}{\textbf{gateway}} & \multicolumn{1}{|c|}{\textbf{dns1}} & \multicolumn{1}{|c|}{\textbf{dns2}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{os}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{login\_id}} & \multicolumn{1}{|c|}{\textbf{login\_pw}} & \multicolumn{1}{|c|}{\textbf{check\_command}} & \multicolumn{1}{|c|}{\textbf{certificate}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{my\_software}} & \multicolumn{1}{|c|}{\textbf{my\_service}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_asset (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{serial}} & \multicolumn{1}{|c|}{\textbf{mac\_adress}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{ip}} & \multicolumn{1}{|c|}{\textbf{nat\_ip}} & \multicolumn{1}{|c|}{\textbf{mask}} & \multicolumn{1}{|c|}{\textbf{gateway}} & \multicolumn{1}{|c|}{\textbf{dns1}} & \multicolumn{1}{|c|}{\textbf{dns2}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{os}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{login\_id}} & \multicolumn{1}{|c|}{\textbf{login\_pw}} & \multicolumn{1}{|c|}{\textbf{check\_command}} & \multicolumn{1}{|c|}{\textbf{certificate}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{my\_software}} & \multicolumn{1}{|c|}{\textbf{my\_service}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 &  &  & localhost &  & 127.0.0.1 &  &  &  &  &  & pc &  & active &  &  & extern\_command.name & extern\_certificate.to\_cn &  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer &  &  &  &  & localhost & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_certificate
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_certificate} \label{tab:cmr_certificate-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_certificate (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20)  &  No  &  \\ \hline 
+\textbf{serial} & varchar(254) &  No  &  \\ \hline 
+user\_email & varchar(254) &  No  &  \\ \hline 
+version & varchar(254) &  No  &  \\ \hline 
+to\_cn & varchar(254) &  Si  &  \\ \hline 
+to\_o & varchar(254) &  Si  &  \\ \hline 
+to\_ou & varchar(254) &  Si  &  \\ \hline 
+\textbf{from\_cn} & varchar(254) &  Si  &  \\ \hline 
+from\_o & varchar(254) &  Si  &  \\ \hline 
+from\_ou & varchar(254) &  Si  &  \\ \hline 
+valid\_from & datetime &  Si  & 0000-00-00 00:00:00 \\ \hline 
+valid\_to & datetime &  No  & 0000-00-00 00:00:00 \\ \hline 
+state & enum('', 'active', 'disactivated') &  No  & active \\ \hline 
+cert\_pkcs & varchar(254) &  Si  &  \\ \hline 
+pub\_key\_pkcs & varchar(254) &  No  &  \\ \hline 
+status & enum('', 'valid', 'revocation') &  Si  &  \\ \hline 
+type & varchar(254) &  No  & default \\ \hline 
+login\_script & text &  Si  & NULL \\ \hline 
+public\_key & text &  Si  & NULL \\ \hline 
+private\_key & text &  Si  & NULL \\ \hline 
+pass\_phrase & varchar(254) &  No  &  \\ \hline 
+my\_master & varchar(254) &  No  & extern\_certificate.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_certificate
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_certificate} \label{tab:cmr_certificate-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{serial}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{version}} & \multicolumn{1}{|c|}{\textbf{to\_cn}} & \multicolumn{1}{|c|}{\textbf{to\_o}} & \multicolumn{1}{|c|}{\textbf{to\_ou}} & \multicolumn{1}{|c|}{\textbf{from\_cn}} & \multicolumn{1}{|c|}{\textbf{from\_o}} & \multicolumn{1}{|c|}{\textbf{from\_ou}} & \multicolumn{1}{|c|}{\textbf{valid\_from}} & \multicolumn{1}{|c|}{\textbf{valid\_to}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{cert\_pkcs}} & \multicolumn{1}{|c|}{\textbf{pub\_key\_pkcs}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{login\_script}} & \multicolumn{1}{|c|}{\textbf{public\_key}} & \multicolumn{1}{|c|}{\textbf{private\_key}} & \multicolumn{1}{|c|}{\textbf{pass\_phrase}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_certificate (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{serial}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{version}} & \multicolumn{1}{|c|}{\textbf{to\_cn}} & \multicolumn{1}{|c|}{\textbf{to\_o}} & \multicolumn{1}{|c|}{\textbf{to\_ou}} & \multicolumn{1}{|c|}{\textbf{from\_cn}} & \multicolumn{1}{|c|}{\textbf{from\_o}} & \multicolumn{1}{|c|}{\textbf{from\_ou}} & \multicolumn{1}{|c|}{\textbf{valid\_from}} & \multicolumn{1}{|c|}{\textbf{valid\_to}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{cert\_pkcs}} & \multicolumn{1}{|c|}{\textbf{pub\_key\_pkcs}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{login\_script}} & \multicolumn{1}{|c|}{\textbf{public\_key}} & \multicolumn{1}{|c|}{\textbf{private\_key}} & \multicolumn{1}{|c|}{\textbf{pass\_phrase}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_code
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_code} \label{tab:cmr_code-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_code (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{code} & varchar(254) &  No  &  \\ \hline 
+script & text &  Si  & NULL \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_code
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_code} \label{tab:cmr_code-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{code}} & \multicolumn{1}{|c|}{\textbf{script}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_code (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{code}} & \multicolumn{1}{|c|}{\textbf{script}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & \{\{date\_time\}\} & \$eval\_result=date("Y-M-D H:i:s");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+2 & \{\{date\}\} & \$eval\_result=date("Y-m-d");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+3 & \{\{time\}\} & \$eval\_result=date("h:i:s");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+4 & \{\{my\_ip\}\} & \$eval\_result=\$\_SERVER['REMOTE\_ADDR'];
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+5 & \{\{user\_email\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+6 & \{\{user\_name\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+7 & \{\{user\_last\_name\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+8 & \{\{user\_lang\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+9 & \{\{user\_comment\}\} & \$eval\_result=0;
+return \$eval\_result; & active & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+10 & \{\{user\_tel\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+11 & \{\{user\_cel\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+12 & \{\{user\_function\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+13 & \{\{user\_location\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+14 & \{\{user\_email\_sign\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+15 & \{\{groups\_name\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+16 & \{\{groups\_email\_sign\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+17 & \{\{ticket\_number\}\} & \$eval\_result=get\_post("number");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+18 & \{\{ticket\_title\}\} & \$eval\_result=get\_post("title");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+19 & \{\{ticket\_text\}\} & \$eval\_result=get\_post("text");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+20 & \{\{ticket\_assign\_to\}\} & \$eval\_result=get\_post("assign\_to");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+21 & \{\{ticket\_severity\}\} & \$eval\_result=get\_post("severity");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+22 & \{\{ticket\_state\}\} & \$eval\_result=get\_post("state");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+23 & \{\{ticket\_type\}\} & \$eval\_result=get\_post("type"); &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+24 & \{\{ticket\_list\_user\_inpact\}\} & \$eval\_result=get\_post("list\_user\_inpact");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+25 & \{\{ticket\_list\_group\_inpact\}\} & \$eval\_result=get\_post("list\_group\_inpact");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+26 & \{\{ticket\_list\_asset\_inpact\}\} & \$eval\_result=get\_post("ticket\_asset\_inpact");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+27 & \{\{ticket\_sla\}\} & \$eval\_result=get\_post("sla");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+28 & \{\{ticket\_lang\}\} & \$eval\_result=get\_post("lang");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+29 & \{\{ticket\_call\_log\_group\}\} & \$eval\_result=get\_post("call\_log\_group");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+30 & \{\{ticket\_comment\}\} & \$eval\_result=get\_post("comment");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+31 & \{\{ticket\_call\_log\_user\}\} & \$eval\_result=get\_post("call\_log\_group");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+32 & \{\{ticket\_mail\_from\}\} & \$eval\_result=get\_post("mail\_from");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+33 & \{\{ticket\_mail\_to\}\} & \$eval\_result=get\_post("mail\_to");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+34 & \{\{ticket\_mail\_cc\}\} & \$eval\_result=get\_post("mail\_cc");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+35 & \{\{ticket\_mail\_bcc\}\} & \$eval\_result=get\_post("mail\_bcc");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+36 & \{\{ticket\_list\_user\_impact\}\} & \$eval\_result=get\_post("list\_user\_impact");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+37 & \{\{ticket\_list\_group\_impact\}\} & \$eval\_result=get\_post("list\_group\_impact");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+38 & \{\{ticket\_list\_asset\_impact\}\} & \$eval\_result=get\_post("list\_asset\_impact");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+39 & \{\{ticket\_assing\_to\}\} & \$eval\_result=get\_post("assing\_to");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+40 & \{\{ticket\_attach1\}\} & \$eval\_result=get\_post("attach1");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+41 & \{\{ticket\_attach2\}\} & \$eval\_result=get\_post("attach2");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+42 & \{\{ticket\_attach3\}\} & \$eval\_result=get\_post("attach3");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+43 & \{\{ticket\_attach4\}\} & \$eval\_result=get\_post("attach4");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+44 & \{\{ticket\_attach\}\} & \$eval\_result=get\_post("attach1").",".get\_post("attach2").",".get\_post("attach3").",".get\_post("attach4");
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+45 & \{\{iss\_event\_description\}\} & \$eval\_result=0;
+return \$eval\_result; &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_command
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_command} \label{tab:cmr_command-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_command (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{command\_name} & varchar(254) &  No  &  \\ \hline 
+command\_line & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_command
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_command} \label{tab:cmr_command-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{command\_name}} & \multicolumn{1}{|c|}{\textbf{command\_line}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_command (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{command\_name}} & \multicolumn{1}{|c|}{\textbf{command\_line}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_contact
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_contact} \label{tab:cmr_contact-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_contact (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{uid} & varchar(254) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+last\_name & varchar(254) &  Si  &  \\ \hline 
+sexe & enum('', 'M', 'F') &  Si  &  \\ \hline 
+function & varchar(254) &  Si  &  \\ \hline 
+\textbf{email} & varchar(254) &  Si  &  \\ \hline 
+email\_sign & text &  Si  & NULL \\ \hline 
+tel & varchar(254) &  Si  &  \\ \hline 
+cel & varchar(254) &  Si  &  \\ \hline 
+adress & varchar(254) &  Si  &  \\ \hline 
+location & varchar(254) &  No  &  \\ \hline 
+country & varchar(254) &  No  & active \\ \hline 
+type & enum('', 'vip', 'admin', 'user', 'custumer', 'web', 'model', 'system', 'forum', 'auto', 'chat', 'tstm', 'database', 'demo', 'application') &  Si  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+status & enum('', 'connect', 'disconnect') &  Si  &  \\ \hline 
+lang & varchar(254) &  No  & italian \\ \hline 
+style & varchar(254) &  No  & default \\ \hline 
+public\_key & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_contact
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_contact} \label{tab:cmr_contact-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{uid}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{last\_name}} & \multicolumn{1}{|c|}{\textbf{sexe}} & \multicolumn{1}{|c|}{\textbf{function}} & \multicolumn{1}{|c|}{\textbf{email}} & \multicolumn{1}{|c|}{\textbf{email\_sign}} & \multicolumn{1}{|c|}{\textbf{tel}} & \multicolumn{1}{|c|}{\textbf{cel}} & \multicolumn{1}{|c|}{\textbf{adress}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{country}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{style}} & \multicolumn{1}{|c|}{\textbf{public\_key}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_contact (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{uid}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{last\_name}} & \multicolumn{1}{|c|}{\textbf{sexe}} & \multicolumn{1}{|c|}{\textbf{function}} & \multicolumn{1}{|c|}{\textbf{email}} & \multicolumn{1}{|c|}{\textbf{email\_sign}} & \multicolumn{1}{|c|}{\textbf{tel}} & \multicolumn{1}{|c|}{\textbf{cel}} & \multicolumn{1}{|c|}{\textbf{adress}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{country}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{style}} & \multicolumn{1}{|c|}{\textbf{public\_key}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_cron
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_cron} \label{tab:cmr_cron-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_cron (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  &  \\ \hline 
+command & varchar(254) &  No  & extern\_command.command\_name \\ \hline 
+at & timestamp(14) &  Si  & NULL \\ \hline 
+type & enum('', 'normal', 'php', 'windows', 'linux', 'unix', 'solaris', 'database') &  No  & normal \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_cron
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_cron} \label{tab:cmr_cron-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{command}} & \multicolumn{1}{|c|}{\textbf{at}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_cron (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{command}} & \multicolumn{1}{|c|}{\textbf{at}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_download
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_download} \label{tab:cmr_download-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_download (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+url & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  Si  &  \\ \hline 
+file\_name & varchar(254) &  Si  &  \\ \hline 
+file\_type & varchar(254) &  Si  &  \\ \hline 
+file\_size & varchar(254) &  Si  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_download
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_download} \label{tab:cmr_download-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{url}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{file\_name}} & \multicolumn{1}{|c|}{\textbf{file\_type}} & \multicolumn{1}{|c|}{\textbf{file\_size}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_download (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{url}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{file\_name}} & \multicolumn{1}{|c|}{\textbf{file\_type}} & \multicolumn{1}{|c|}{\textbf{file\_size}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_email
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_email} \label{tab:cmr_email-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_email (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+encoding & varchar(254) &  No  &  \\ \hline 
+lang & varchar(254) &  No  &  \\ \hline 
+header & text &  Si  & NULL \\ \hline 
+mail\_title & varchar(254) &  No  &  \\ \hline 
+mail\_from & varchar(254) &  No  &  \\ \hline 
+mail\_to & varchar(254) &  No  &  \\ \hline 
+mail\_cc & varchar(254) &  No  &  \\ \hline 
+mail\_bcc & varchar(254) &  No  &  \\ \hline 
+attach & enum('', 'yes', 'no') &  Si  & no \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_email.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_email
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_email} \label{tab:cmr_email-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{encoding}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{header}} & \multicolumn{1}{|c|}{\textbf{mail\_title}} & \multicolumn{1}{|c|}{\textbf{mail\_from}} & \multicolumn{1}{|c|}{\textbf{mail\_to}} & \multicolumn{1}{|c|}{\textbf{mail\_cc}} & \multicolumn{1}{|c|}{\textbf{mail\_bcc}} & \multicolumn{1}{|c|}{\textbf{attach}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_email (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{encoding}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{header}} & \multicolumn{1}{|c|}{\textbf{mail\_title}} & \multicolumn{1}{|c|}{\textbf{mail\_from}} & \multicolumn{1}{|c|}{\textbf{mail\_to}} & \multicolumn{1}{|c|}{\textbf{mail\_cc}} & \multicolumn{1}{|c|}{\textbf{mail\_bcc}} & \multicolumn{1}{|c|}{\textbf{attach}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 &  & italian &  & [0809001] Hello word & Security Operation Center <etchouamou@sourceforge.net> & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+ & 20080929100254 \\ \hline 
+2 &  & italian &  & [0809001] Hello word & Security Operation Center <etchouamou@sourceforge.net> & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:07:32]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+ & 20080929100732 \\ \hline 
+3 &  & italian &  & [0809001] Hello word & Security Operation Center <etchouamou@sourceforge.net> & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:26:47]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+ & 20080929102648 \\ \hline 
+4 &  & italian &  & [0809001] Hello word & Security Operation Center <etchouamou@sourceforge.net> & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+ & 20080929103442 \\ \hline 
+5 &  & italian &  & [0809001] Hello word & Security Operation Center <etchouamou@sourceforge.net> & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:35:24]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+ & 20080929103524 \\ \hline 
+6 &  & italian &  & [0809004] Hello word & etchouamou@sourceforge.net & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:41:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:40:52 Aggiornato Da [ admin@localhost]
+
+ & 20080929104115 \\ \hline 
+7 &  & italian &  & [0809001] Hello word & etchouamou@sourceforge.net & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:42:01]-------------
+ Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  0809001
+
+Close test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l'oggetto) oppure contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+--
+
+-------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:41:36 Chiuso Da [ admin@localhost]
+
+ & 20080929104202 \\ \hline 
+8 &  & italian &  & [0809003] Hello word & etchouamou@sourceforge.net & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:50:53]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809003.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:26:47]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:50:31 Aggiornato Da [ admin@localhost]
+
+ & 20080929105054 \\ \hline 
+9 &  & default &  & [0809004] Hello word & etchouamou@sourceforge.net & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com &  & -------------[2008-Sep-Mon 10:59:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+(breve descrizione dell'aggiornamento)
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:41:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:40:52 Aggiornato Da [ admin@localhost]
+
+
+(*) 29-09-2008 10:59:06 Aggiornato Da [ admin@localhost]
+
+ & 20080929105915 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_escalation
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_escalation} \label{tab:cmr_escalation-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_escalation (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+ticket\_number & varchar(254) &  No  & extern\_ticket.number \\ \hline 
+action & varchar(254) &  No  & update \\ \hline 
+id\_ticket & int(11) &  No  & 0 \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_escalation
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_escalation} \label{tab:cmr_escalation-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{ticket\_number}} & \multicolumn{1}{|c|}{\textbf{action}} & \multicolumn{1}{|c|}{\textbf{id\_ticket}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_escalation (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{ticket\_number}} & \multicolumn{1}{|c|}{\textbf{action}} & \multicolumn{1}{|c|}{\textbf{id\_ticket}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_faq
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_faq} \label{tab:cmr_faq-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_faq (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  &  \\ \hline 
+argoment & varchar(254) &  No  &  \\ \hline 
+question & text &  Si  & NULL \\ \hline 
+response & text &  Si  & NULL \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_faq
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_faq} \label{tab:cmr_faq-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{argoment}} & \multicolumn{1}{|c|}{\textbf{question}} & \multicolumn{1}{|c|}{\textbf{response}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_faq (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{argoment}} & \multicolumn{1}{|c|}{\textbf{question}} & \multicolumn{1}{|c|}{\textbf{response}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_father_groups
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_father\_groups} \label{tab:cmr_father_groups-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_father\_groups (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{group\_father} & varchar(240) &  No  & extern\_groups.name \\ \hline 
+\textbf{group\_child} & varchar(240) &  No  & extern\_groups.name \\ \hline 
+state & enum('', 'active', 'disactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_father_groups
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_father\_groups} \label{tab:cmr_father_groups-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{group\_father}} & \multicolumn{1}{|c|}{\textbf{group\_child}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_father\_groups (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{group\_father}} & \multicolumn{1}{|c|}{\textbf{group\_child}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & admin & admin & active &  &  &  &  & 20080929095600 \\ \hline 
+2 & admin & operator & active &  &  &  &  & 20080929095600 \\ \hline 
+3 & admin & tecnician & active &  &  &  &  & 20080929095600 \\ \hline 
+4 & admin & guest & active &  &  &  &  & 20080929095600 \\ \hline 
+5 & admin & client & active &  &  &  &  & 20080929095600 \\ \hline 
+6 & admin & all\_user & active &  &  &  &  & 20080929095600 \\ \hline 
+7 & admin & first\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+8 & admin & second\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+9 & admin & last\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+10 & admin & chat & active &  &  &  &  & 20080929095600 \\ \hline 
+11 & admin & forum & active &  &  &  &  & 20080929095600 \\ \hline 
+12 & admin & default & active &  &  &  &  & 20080929095600 \\ \hline 
+13 & admin & null & active &  &  &  &  & 20080929095600 \\ \hline 
+14 & admin & model & active &  &  &  &  & 20080929095600 \\ \hline 
+15 & admin & web & active &  &  &  &  & 20080929095600 \\ \hline 
+16 & admin & noc & active &  &  &  &  & 20080929095600 \\ \hline 
+17 & admin & soc & active &  &  &  &  & 20080929095600 \\ \hline 
+18 & operator & operator & active &  &  &  &  & 20080929095600 \\ \hline 
+19 & operator & tecnician & active &  &  &  &  & 20080929095600 \\ \hline 
+20 & operator & guest & active &  &  &  &  & 20080929095600 \\ \hline 
+21 & operator & client & active &  &  &  &  & 20080929095600 \\ \hline 
+22 & operator & all\_user & active &  &  &  &  & 20080929095600 \\ \hline 
+23 & operator & first\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+24 & operator & second\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+25 & operator & last\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+26 & operator & chat & active &  &  &  &  & 20080929095600 \\ \hline 
+27 & operator & forum & active &  &  &  &  & 20080929095600 \\ \hline 
+28 & operator & default & active &  &  &  &  & 20080929095600 \\ \hline 
+29 & operator & null & active &  &  &  &  & 20080929095600 \\ \hline 
+30 & operator & model & active &  &  &  &  & 20080929095600 \\ \hline 
+31 & operator & web & active &  &  &  &  & 20080929095600 \\ \hline 
+32 & operator & noc & active &  &  &  &  & 20080929095600 \\ \hline 
+33 & operator & soc & active &  &  &  &  & 20080929095600 \\ \hline 
+34 & tecnician & tecnician & active &  &  &  &  & 20080929095600 \\ \hline 
+35 & tecnician & guest & active &  &  &  &  & 20080929095600 \\ \hline 
+36 & tecnician & client & active &  &  &  &  & 20080929095600 \\ \hline 
+37 & tecnician & all\_user & active &  &  &  &  & 20080929095600 \\ \hline 
+38 & tecnician & first\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+39 & tecnician & second\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+40 & tecnician & last\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+41 & tecnician & chat & active &  &  &  &  & 20080929095600 \\ \hline 
+42 & tecnician & forum & active &  &  &  &  & 20080929095600 \\ \hline 
+43 & tecnician & default & active &  &  &  &  & 20080929095600 \\ \hline 
+44 & tecnician & null & active &  &  &  &  & 20080929095600 \\ \hline 
+45 & tecnician & model & active &  &  &  &  & 20080929095600 \\ \hline 
+46 & tecnician & web & active &  &  &  &  & 20080929095600 \\ \hline 
+47 & tecnician & noc & active &  &  &  &  & 20080929095600 \\ \hline 
+48 & tecnician & soc & active &  &  &  &  & 20080929095600 \\ \hline 
+49 & developer & developer & active &  &  &  &  & 20080929095600 \\ \hline 
+50 & developer & admin & active &  &  &  &  & 20080929095600 \\ \hline 
+51 & developer & operator & active &  &  &  &  & 20080929095600 \\ \hline 
+52 & developer & guest & active &  &  &  &  & 20080929095600 \\ \hline 
+53 & developer & client & active &  &  &  &  & 20080929095600 \\ \hline 
+54 & developer & all\_user & active &  &  &  &  & 20080929095600 \\ \hline 
+55 & developer & first\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+56 & developer & second\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+57 & developer & last\_level & active &  &  &  &  & 20080929095600 \\ \hline 
+58 & developer & chat & active &  &  &  &  & 20080929095600 \\ \hline 
+59 & developer & forum & active &  &  &  &  & 20080929095600 \\ \hline 
+60 & developer & default & active &  &  &  &  & 20080929095600 \\ \hline 
+61 & developer & null & active &  &  &  &  & 20080929095600 \\ \hline 
+62 & developer & model & active &  &  &  &  & 20080929095600 \\ \hline 
+63 & developer & web & active &  &  &  &  & 20080929095600 \\ \hline 
+64 & developer & noc & active &  &  &  &  & 20080929095600 \\ \hline 
+65 & developer & soc & active &  &  &  &  & 20080929095600 \\ \hline 
+66 & client & client & active &  &  &  &  & 20080929095600 \\ \hline 
+67 & demo & demo & active &  &  &  &  & 20080929095600 \\ \hline 
+68 & guest & guest & active &  &  &  &  & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_forum
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_forum} \label{tab:cmr_forum-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_forum (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  &  \\ \hline 
+argoment & varchar(254) &  No  &  \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_forum.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_forum
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_forum} \label{tab:cmr_forum-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{argoment}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_forum (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{argoment}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_generator
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_generator} \label{tab:cmr_generator-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_generator (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{db} & varchar(254) &  No  &  \\ \hline 
+table & varchar(254) &  No  & 0 \\ \hline 
+column & varchar(254) &  No  &  \\ \hline 
+code1 & enum('', '@\_database\_@', '@\_show\_create\_db\_@', '@\_date\_time\_@', '@\_db\_date\_time\_@', '@\_db\_privileges\_@', '@\_db\_caracter\_set\_@', '@\_db\_collation\_@', '@\_db\_type\_@', '@\_pre\_match\_@', '@\_form\_name\_@', '@\_table\_@', '@\_table\_name\_@', '@\_show\_create\_table\_@', '@\_table\_engine\_@', '@\_table\_version\_@', '@\_table\_row\_format\_@', '@\_table\_rows\_@', '@\_table\_avg\_row\_length\_@', '@\_table\_data\_length\_@', '@\_table\_max\_data\_length\_@', '@\_table\_index\_length\_@', '@\_table\_data\_free\_@', '@\_table\_auto\_increment\_@', '@\_table\_create\_time\_@', '@\_table\_update\_time\_@', '@\_table\_check\_time\_@', '@\_table\_collation\_@', '@\_table\_checksum\_@', '@\_table\_create\_options\_@', '@\_table\_comment\_@', '@\_table\_index\_@', '@\_table\_num\_row\_@', '@\_table\_num\_column\_@', '@\_table\_primary\_@', '@\_table\_type\_@', '@\_table\_privilege\_@', '@\_table\_date\_time\_@', '@\_table\_non\_unique\_@', '@\_table\_key\_name\_@', '@\_table\_seq\_in\_index\_@', '@\_table\_column\_name\_@', '@\_table\_collation\_@', '@\_table\_cardinality\_@', '@\_table\_sub\_part\_@', '@\_table\_packed\_@', '@\_table\_index\_type\_@', '@\_column\_@', '@\_column\_id\_@', '@\_column\_count\_@', '@\_column\_null\_@', '@\_column\_default\_@', '@\_column\_extra\_@', '@\_column\_field\_@', '@\_column\_type\_@', '@\_column\_collation\_@', '@\_column\_key\_@', '@\_column\_privileges\_@', '@\_column\_comment\_@', '@\_column\_index1\_@', '@\_column\_unique1\_@', '@\_column\_not\_null1\_@', '@\_column\_extern1\_@', '@\_column\_comment1\_@', '@\_column\_date\_time1\_@', '@\_column\_int1\_@', '@\_column\_null1\_@', '@\_column\_key1\_@', '@\_column\_text1\_@', '@\_column\_index2\_@', '@\_column\_unique2\_@', '@\_column\_not\_null2\_@', '@\_column\_extern2\_@', '@\_column\_comment2\_@', '@\_column\_date\_time2\_@', '@\_column\_int2\_@', '@\_column\_null2\_@', '@\_column\_key2\_@', '@\_column\_text2\_@', '@\_column\_index3\_@', '@\_column\_unique3\_@', '@\_column\_not\_null3\_@', '@\_column\_extern3\_@', '@\_column\_comment3\_@', '@\_column\_date\_time3\_@', '@\_column\_int3\_@', '@\_column\_null3\_@', '@\_column\_key3\_@', '@\_column\_text3\_@', '@\_column0\_@', '@\_column1\_@', '@\_column2\_@', '@\_column3\_@', '@\_column4\_@', '@\_column5\_@', '@\_form\_label\_elmt\_@', '@\_form\_box\_elmt\_@', '@\_form\_box\_elmt\_upd\_@', '@\_column[0-9]+\_@', '@\_table[0-9]+\_@', '@\_rown[0-9]+\_@') &  No  & @\_database\_@ \\ \hline 
+code2 & enum('', '@\_foreach\_comment\_@([\^@]*)@@\_foreach\_comment\_@@', '@\_foreach\_db\_@([\^@]*)@@\_foreach\_db\_@@', '@\_foreach\_table\_@([\^@]*)@@\_foreach\_table\_@@', '@\_foreach\_column\_@([\^@]*)@@\_foreach\_column\_@@', '@\_foreach\_rown\_@([\^@]*)@@\_foreach\_rown\_@@', '@\_button\_@)(.*)(@@\_button\_@@)') &  No  & @\_foreach\_comment\_@([\^@]*)@@\_foreach\_comment\_@@ \\ \hline 
+code3 & enum('', '@@date\_time@@', '@@date@@', '@@time@@', '@@my\_ip@@', '@@my\_name@@', '@@my\_last\_name@@', '@@my\_lang@@', '@@my\_comment@@', '@@my\_tel@@', '@@my\_cel@@', '@@my\_group@@', '@@my\_function@@', '@@my\_location@@', '@@my\_sign@@', '@@group\_sign@@', '@@ticket\_number@@', '@@ticket\_title@@', '@@ticket\_text@@', '@@ticket\_assign\_to@@', '@@ticket\_severity@@', '@@ticket\_state@@', '@@ticket\_type@@', '@@ticket\_list\_user\_inpact@@', '@@ticket\_list\_group\_inpact@@', '@@ticket\_list\_asset\_inpact@@', '@@ticket\_sla@@', '@@ticket\_lang@@', '@@ticket\_call\_log\_group@@', '@@ticket\_comment@@') &  No  & @@date\_time@@ \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_generator
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_generator} \label{tab:cmr_generator-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{db}} & \multicolumn{1}{|c|}{\textbf{table}} & \multicolumn{1}{|c|}{\textbf{column}} & \multicolumn{1}{|c|}{\textbf{code1}} & \multicolumn{1}{|c|}{\textbf{code2}} & \multicolumn{1}{|c|}{\textbf{code3}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_generator (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{db}} & \multicolumn{1}{|c|}{\textbf{table}} & \multicolumn{1}{|c|}{\textbf{column}} & \multicolumn{1}{|c|}{\textbf{code1}} & \multicolumn{1}{|c|}{\textbf{code2}} & \multicolumn{1}{|c|}{\textbf{code3}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_groups
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_groups} \label{tab:cmr_groups-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_groups (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'disactivated') &  No  & active \\ \hline 
+level & enum('', '0\_guest', '1\_contact', '2\_client', '3\_user', '4\_tecnician', '5\_noc', '5\_soc', '5\_operator', '6\_admin', '7\_programer', '0', '1', '2', '3', '4', '5', '6', '7') &  No  & 0\_guest \\ \hline 
+location & varchar(254) &  Si  &  \\ \hline 
+type & set('tstm', 'forum', 'chat', 'web', 'database', 'demo', 'helpdesk', 'crm', 'object', 'software', 'hardware', 'sevrices', 'normal', 'read\_only') &  No  & normal \\ \hline 
+sla & timestamp(14) &  Si  & NULL \\ \hline 
+public\_key & text &  Si  & NULL \\ \hline 
+private\_key & text &  Si  & NULL \\ \hline 
+pass\_phrase & varchar(254) &  Si  &  \\ \hline 
+email\_sign & text &  Si  & NULL \\ \hline 
+referent\_email & varchar(254) &  Si  & extern\_user.email \\ \hline 
+admin\_email & varchar(254) &  Si  & extern\_user.email \\ \hline 
+home & varchar(254) &  No  & home/groups/default \\ \hline 
+notify & enum('', 'by\_email', 'by\_sms', 'by\_web', 'all', 'unknow') &  No  & by\_email \\ \hline 
+web\_site & varchar(254) &  Si  &  \\ \hline 
+login\_script & text &  Si  & NULL \\ \hline 
+adress & varchar(254) &  Si  &  \\ \hline 
+my\_master & varchar(254) &  No  & extern\_groups.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_groups
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_groups} \label{tab:cmr_groups-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{level}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{public\_key}} & \multicolumn{1}{|c|}{\textbf{private\_key}} & \multicolumn{1}{|c|}{\textbf{pass\_phrase}} & \multicolumn{1}{|c|}{\textbf{email\_sign}} & \multicolumn{1}{|c|}{\textbf{referent\_email}} & \multicolumn{1}{|c|}{\textbf{admin\_email}} & \multicolumn{1}{|c|}{\textbf{home}} & \multicolumn{1}{|c|}{\textbf{notify}} & \multicolumn{1}{|c|}{\textbf{web\_site}} & \multicolumn{1}{|c|}{\textbf{login\_script}} & \multicolumn{1}{|c|}{\textbf{adress}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_groups (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{level}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{public\_key}} & \multicolumn{1}{|c|}{\textbf{private\_key}} & \multicolumn{1}{|c|}{\textbf{pass\_phrase}} & \multicolumn{1}{|c|}{\textbf{email\_sign}} & \multicolumn{1}{|c|}{\textbf{referent\_email}} & \multicolumn{1}{|c|}{\textbf{admin\_email}} & \multicolumn{1}{|c|}{\textbf{home}} & \multicolumn{1}{|c|}{\textbf{notify}} & \multicolumn{1}{|c|}{\textbf{web\_site}} & \multicolumn{1}{|c|}{\textbf{login\_script}} & \multicolumn{1}{|c|}{\textbf{adress}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & developer & active &  &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/developer & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_developer,7\_programer &  &  &  & 20080929095600 \\ \hline 
+2 & admin & active & 6\_admin &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/admin & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer &  &  &  & 20080929095600 \\ \hline 
+3 & operator & active & 5\_operator &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/operator & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_operator,7\_programer &  &  &  & 20080929095600 \\ \hline 
+4 & soc & active & 5\_soc &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/soc & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_soc,7\_programer &  &  &  & 20080929095600 \\ \hline 
+5 & noc & active & 5\_noc &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/noc & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_noc,7\_programer &  &  &  & 20080929095600 \\ \hline 
+6 & first\_level & active & 5\_noc &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/first\_level & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_first\_level,7\_programer &  &  &  & 20080929095600 \\ \hline 
+7 & second\_level & active & 5\_noc &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/second\_level & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_second\_level,7\_programer &  &  &  & 20080929095600 \\ \hline 
+8 & tecnician & active & 4\_tecnician &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/tecnician & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_tecnician,7\_programer &  &  &  & 20080929095600 \\ \hline 
+9 & client & active & 2\_client &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/client & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_client,7\_programer &  &  &  & 20080929095600 \\ \hline 
+10 & all\_user & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/all\_user & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_all\_user,7\_programer &  &  &  & 20080929095600 \\ \hline 
+11 & forum & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/forum & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_forum,7\_programer &  &  &  & 20080929095600 \\ \hline 
+12 & chat & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/chat & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_chat,7\_programer &  &  &  & 20080929095600 \\ \hline 
+13 & default & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/default & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_default,7\_programer &  &  &  & 20080929095600 \\ \hline 
+14 & no\_db & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/no\_db & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_no\_db,7\_programer &  &  &  & 20080929095600 \\ \hline 
+15 & demo & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/demo & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  &  & 20080929095600 \\ \hline 
+16 & guest & active & 0\_guest &  & normal & 20080929095600 &  &  &  &  & extern\_user.email & extern\_user.email & home/groups/guest & by\_email &  &  &  &  & 5\_noc,5\_soc,5\_operator,6\_guest,7\_programer &  &  &  & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_logging
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_logging} \label{tab:cmr_logging-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_logging (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+user\_email & varchar(254) &  No  & extern\_user.email \\ \hline 
+table\_name & varchar(64) &  No  &  \\ \hline 
+line\_id & varchar(64) &  No  & 0 \\ \hline 
+action & varchar(64) &  No  & read \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_logging
+%
+ \begin{longtable}{|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_logging} \label{tab:cmr_logging-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{table\_name}} & \multicolumn{1}{|c|}{\textbf{line\_id}} & \multicolumn{1}{|c|}{\textbf{action}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_logging (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{table\_name}} & \multicolumn{1}{|c|}{\textbf{line\_id}} & \multicolumn{1}{|c|}{\textbf{action}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & admin@localhost & cmr\_user & 07a20bea8e92733d3991ef6c47e21d75 & login & 20080929100126 \\ \hline 
+2 & admin@localhost & cmr\_ticket & 0809001 & new & 20080929100254 \\ \hline 
+3 & admin@localhost & cmr\_ticket & 0809002 & new & 20080929100732 \\ \hline 
+4 & admin@localhost & cmr\_ticket & 0809003 & new & 20080929102647 \\ \hline 
+5 & admin@localhost & cmr\_ticket & 0809004 & new & 20080929103442 \\ \hline 
+6 & admin@localhost & cmr\_ticket & 0809005 & new & 20080929103524 \\ \hline 
+7 & admin@localhost & cmr\_ticket & 56 & read & 20080929103554 \\ \hline 
+8 & admin@localhost & cmr\_ticket & 56 & read & 20080929103557 \\ \hline 
+9 & admin@localhost & cmr\_ticket & 56 & read & 20080929103559 \\ \hline 
+10 & admin@localhost & cmr\_ticket & 57 & read & 20080929104045 \\ \hline 
+11 & admin@localhost & cmr\_ticket & 57 & read & 20080929104048 \\ \hline 
+12 & admin@localhost & cmr\_ticket & 57 & read & 20080929104050 \\ \hline 
+13 & admin@localhost & cmr\_ticket & 57 & update & 20080929104115 \\ \hline 
+14 & admin@localhost & cmr\_ticket & 54 & read & 20080929104129 \\ \hline 
+15 & admin@localhost & cmr\_ticket & 54 & read & 20080929104132 \\ \hline 
+16 & admin@localhost & cmr\_ticket & 54 & read & 20080929104134 \\ \hline 
+17 & admin@localhost & cmr\_ticket & 54 & close & 20080929104201 \\ \hline 
+18 & admin@localhost & cmr\_ticket & 55 & read & 20080929104221 \\ \hline 
+19 & admin@localhost & cmr\_ticket & 55 & read & 20080929104224 \\ \hline 
+20 & admin@localhost & cmr\_ticket & 55 & read & 20080929104226 \\ \hline 
+21 & admin@localhost & cmr\_ticket & 56 & read & 20080929105023 \\ \hline 
+22 & admin@localhost & cmr\_ticket & 56 & read & 20080929105026 \\ \hline 
+23 & admin@localhost & cmr\_ticket & 56 & read & 20080929105028 \\ \hline 
+24 & admin@localhost & cmr\_ticket & 56 & update & 20080929105053 \\ \hline 
+25 & admin@localhost & \{match\_label\_default\_table> & 07a20bea8e92733d3991ef6c47e21d75 & search 0809004 & 20080929105345 \\ \hline 
+26 & admin@localhost & cmr\_ticket & 07a20bea8e92733d3991ef6c47e21d75 & search 0809004 & 20080929105837 \\ \hline 
+27 & admin@localhost & cmr\_ticket & 59 & read & 20080929105846 \\ \hline 
+28 & admin@localhost & cmr\_ticket & 59 & read & 20080929105849 \\ \hline 
+29 & admin@localhost & cmr\_ticket & 59 & read & 20080929105851 \\ \hline 
+30 & admin@localhost & cmr\_ticket & 59 & update & 20080929105915 \\ \hline 
+31 & admin@localhost & report & 07a20bea8e92733d3991ef6c47e21d75 & new & 20080929110600 \\ \hline 
+32 & admin@localhost & report & 07a20bea8e92733d3991ef6c47e21d75 & new & 20080929110602 \\ \hline 
+33 & admin@localhost & report & 07a20bea8e92733d3991ef6c47e21d75 & new & 20080929110602 \\ \hline 
+34 & admin@localhost & report & 07a20bea8e92733d3991ef6c47e21d75 & new & 20080929110602 \\ \hline 
+35 & admin@localhost & report & 07a20bea8e92733d3991ef6c47e21d75 & new & 20080929110602 \\ \hline 
+36 & admin@localhost & cmr\_user & d30471d09614cbcc1634ecebf26dc7b2 & login & 20080929113407 \\ \hline 
+37 & admin@localhost & cmr\_user & 1b3cf91b8de489d27171b179a6cc53d6 & login & 20080929114431 \\ \hline 
+38 & admin@localhost & cmr\_ticket & ' & delete & 20080929122341 \\ \hline 
+39 & admin@localhost & cmr\_ticket & ' &  & 20080929122343 \\ \hline 
+40 & admin@localhost & cmr\_ticket & ' &  & 20080929122346 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_message
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_message} \label{tab:cmr_message-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_message (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+sender & varchar(254) &  No  &  \\ \hline 
+title & varchar(254) &  No  & No title \\ \hline 
+attach & varchar(254) &  No  &  \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+groups\_dest & varchar(254) &  No  &  \\ \hline 
+users\_dest & varchar(254) &  No  &  \\ \hline 
+modules\_dest & varchar(254) &  No  &  \\ \hline 
+mail\_to & varchar(254) &  No  &  \\ \hline 
+mail\_cc & varchar(254) &  No  &  \\ \hline 
+mail\_bcc & varchar(254) &  No  &  \\ \hline 
+begin\_time & timestamp(14) &  Si  & NULL \\ \hline 
+end\_time & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+intervale & varchar(254) &  No  &  \\ \hline 
+priority & int(11) &  No  & 0 \\ \hline 
+type & enum('', 'text', 'html', 'php', 'email', 'normal', 'news', 'work', 'java\_script', 'NULL') &  No  & text \\ \hline 
+state & enum('', 'active', 'disactivated', 'NULL') &  No  & active \\ \hline 
+my\_master & varchar(254) &  No  & extern\_message.title \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_message
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_message} \label{tab:cmr_message-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{sender}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{attach}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{groups\_dest}} & \multicolumn{1}{|c|}{\textbf{users\_dest}} & \multicolumn{1}{|c|}{\textbf{modules\_dest}} & \multicolumn{1}{|c|}{\textbf{mail\_to}} & \multicolumn{1}{|c|}{\textbf{mail\_cc}} & \multicolumn{1}{|c|}{\textbf{mail\_bcc}} & \multicolumn{1}{|c|}{\textbf{begin\_time}} & \multicolumn{1}{|c|}{\textbf{end\_time}} & \multicolumn{1}{|c|}{\textbf{intervale}} & \multicolumn{1}{|c|}{\textbf{priority}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_message (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{sender}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{attach}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{groups\_dest}} & \multicolumn{1}{|c|}{\textbf{users\_dest}} & \multicolumn{1}{|c|}{\textbf{modules\_dest}} & \multicolumn{1}{|c|}{\textbf{mail\_to}} & \multicolumn{1}{|c|}{\textbf{mail\_cc}} & \multicolumn{1}{|c|}{\textbf{mail\_bcc}} & \multicolumn{1}{|c|}{\textbf{begin\_time}} & \multicolumn{1}{|c|}{\textbf{end\_time}} & \multicolumn{1}{|c|}{\textbf{intervale}} & \multicolumn{1}{|c|}{\textbf{priority}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_nagios
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_nagios} \label{tab:cmr_nagios-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_nagios (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{group\_name} & varchar(240) &  No  & extern\_groups.name \\ \hline 
+\textbf{nagios\_group} & varchar(240) &  No  &  \\ \hline 
+config & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_nagios
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_nagios} \label{tab:cmr_nagios-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{nagios\_group}} & \multicolumn{1}{|c|}{\textbf{config}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_nagios (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{nagios\_group}} & \multicolumn{1}{|c|}{\textbf{config}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_query
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_query} \label{tab:cmr_query-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_query (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  Si  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_query
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_query} \label{tab:cmr_query-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_query (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_rss
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_rss} \label{tab:cmr_rss-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_rss (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+version & varchar(254) &  No  &  \\ \hline 
+title & varchar(254) &  No  & No title \\ \hline 
+link & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+rating & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+feed\_adress & varchar(254) &  Si  &  \\ \hline 
+type & enum('', 'normal', 'job', 'ids', 'xpu', 'va', 'rma', 'hardware\_Move', 'hardware\_remove', 'hardware\_add', 'hardware\_replace', 'new\_account', 'new\_group', 'hardware\_install', 'hardware\_request', 'hardware\_restart', 'software\_install', 'software\_remove', 'software\_update', 'software\_request', 'model', 'NULL') &  No  & normal \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_rss
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_rss} \label{tab:cmr_rss-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{version}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{link}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{rating}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{feed\_adress}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_rss (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{version}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{link}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{rating}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{feed\_adress}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_services
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_services} \label{tab:cmr_services-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_services (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  &  \\ \hline 
+port & int(11) &  No  & 0 \\ \hline 
+protocol & varchar(254) &  No  &  \\ \hline 
+check\_command & varchar(254) &  No  & extern\_command.command\_line \\ \hline 
+my\_master & varchar(254) &  No  & extern\_services.name \\ \hline 
+my\_slave & varchar(254) &  No  & extern\_services.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_services
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_services} \label{tab:cmr_services-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{port}} & \multicolumn{1}{|c|}{\textbf{protocol}} & \multicolumn{1}{|c|}{\textbf{check\_command}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_services (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{port}} & \multicolumn{1}{|c|}{\textbf{protocol}} & \multicolumn{1}{|c|}{\textbf{check\_command}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_session
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_session} \label{tab:cmr_session-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_session (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{sessionid} & varchar(50) &  No  &  \\ \hline 
+\textbf{sessionip} & varchar(50) &  No  &  \\ \hline 
+\textbf{user\_email} & varchar(254) &  No  & extern\_user.email \\ \hline 
+status & varchar(254) &  No  & disconnect \\ \hline 
+state & varchar(254) &  No  & active \\ \hline 
+time\_out & varchar(254) &  Si  &  \\ \hline 
+session\_end & timestamp(14) &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_session
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_session} \label{tab:cmr_session-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{sessionid}} & \multicolumn{1}{|c|}{\textbf{sessionip}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{time\_out}} & \multicolumn{1}{|c|}{\textbf{session\_end}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_session (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{sessionid}} & \multicolumn{1}{|c|}{\textbf{sessionip}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{time\_out}} & \multicolumn{1}{|c|}{\textbf{session\_end}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & 07a20bea8e92733d3991ef6c47e21d75 & 192.168.1.186 & admin@localhost & connect & active & 600 MINUTE & 00000000000000 & 20080929100126 \\ \hline 
+2 & d30471d09614cbcc1634ecebf26dc7b2 & 192.168.1.186 & admin@localhost & connect & active & 600 MINUTE & 00000000000000 & 20080929113407 \\ \hline 
+3 & 1b3cf91b8de489d27171b179a6cc53d6 & 192.168.1.186 & admin@localhost & connect & active & 600 MINUTE & 00000000000000 & 20080929114431 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_sla
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_sla} \label{tab:cmr_sla-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_sla (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+user\_email & varchar(254) &  Si  & extern\_user.email \\ \hline 
+group\_name & varchar(254) &  No  & extern\_groups.name \\ \hline 
+asset\_ip & varchar(254) &  No  &  \\ \hline 
+user\_type & enum('', 'vip', 'admin', 'user', 'custumer', 'web', 'model', 'system', 'forum', 'auto', 'chat', 'tstm', 'database', 'demo', 'application') &  No  & user \\ \hline 
+group\_type & enum('', 'tstm', 'forum', 'chat', 'web', 'database', 'demo', 'helpdesk', 'crm', 'object', 'software', 'hardware', 'sevrices') &  No  & tstm \\ \hline 
+asset\_type & enum('', 'tstm', 'forum', 'chat', 'web', 'database', 'demo', 'helpdesk', 'crm', 'object', 'software', 'hardware', 'sevrices') &  No  & tstm \\ \hline 
+ticket\_type & enum('', 'normal', 'job', 'ids', 'xpu', 'va', 'rma', 'hardware\_Move', 'hardware\_remove', 'hardware\_add', 'hardware\_replace', 'new\_account', 'new\_group', 'hardware\_install', 'hardware\_request', 'hardware\_restart', 'software\_install', 'software\_remove', 'software\_update', 'software\_request', 'model', 'NULL') &  No  & normal \\ \hline 
+ticket\_call\_method & set('normal', 'automatic', 'by\_help\_desk', 'by\_email', 'by\_phone', 'by\_web', 'by\_sms', 'unknow', 'SNMP', 'NULL') &  No  & by\_email \\ \hline 
+ticket\_state & enum('', 'open', 'update', 'close', 'in\_progress', 'pending', 'unknow', 'NULL') &  No  & open \\ \hline 
+ticket\_severity & enum('', 'info', 'low', 'normal', 'medium', 'high', 'critical', 'NULL') &  Si  & normal \\ \hline 
+ticket\_assign\_to & varchar(254) &  No  &  \\ \hline 
+num\_user\_impact & int(11) &  Si  & 0 \\ \hline 
+num\_group\_impact & int(11) &  Si  & 0 \\ \hline 
+num\_asset\_impact & int(11) &  Si  & 0 \\ \hline 
+sla & varchar(254) &  No  & 3 DAY \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_sla
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_sla} \label{tab:cmr_sla-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{asset\_ip}} & \multicolumn{1}{|c|}{\textbf{user\_type}} & \multicolumn{1}{|c|}{\textbf{group\_type}} & \multicolumn{1}{|c|}{\textbf{asset\_type}} & \multicolumn{1}{|c|}{\textbf{ticket\_type}} & \multicolumn{1}{|c|}{\textbf{ticket\_call\_method}} & \multicolumn{1}{|c|}{\textbf{ticket\_state}} & \multicolumn{1}{|c|}{\textbf{ticket\_severity}} & \multicolumn{1}{|c|}{\textbf{ticket\_assign\_to}} & \multicolumn{1}{|c|}{\textbf{num\_user\_impact}} & \multicolumn{1}{|c|}{\textbf{num\_group\_impact}} & \multicolumn{1}{|c|}{\textbf{num\_asset\_impact}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_sla (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{asset\_ip}} & \multicolumn{1}{|c|}{\textbf{user\_type}} & \multicolumn{1}{|c|}{\textbf{group\_type}} & \multicolumn{1}{|c|}{\textbf{asset\_type}} & \multicolumn{1}{|c|}{\textbf{ticket\_type}} & \multicolumn{1}{|c|}{\textbf{ticket\_call\_method}} & \multicolumn{1}{|c|}{\textbf{ticket\_state}} & \multicolumn{1}{|c|}{\textbf{ticket\_severity}} & \multicolumn{1}{|c|}{\textbf{ticket\_assign\_to}} & \multicolumn{1}{|c|}{\textbf{num\_user\_impact}} & \multicolumn{1}{|c|}{\textbf{num\_group\_impact}} & \multicolumn{1}{|c|}{\textbf{num\_asset\_impact}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_software
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_software} \label{tab:cmr_software-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_software (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+type & varchar(254) &  No  &  \\ \hline 
+copyrigth & varchar(254) &  No  &  \\ \hline 
+certificate & varchar(254) &  No  & extern\_certificate.name \\ \hline 
+my\_master & varchar(254) &  No  & extern\_software.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_software
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_software} \label{tab:cmr_software-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{copyrigth}} & \multicolumn{1}{|c|}{\textbf{certificate}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_software (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{copyrigth}} & \multicolumn{1}{|c|}{\textbf{certificate}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_statistic
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_statistic} \label{tab:cmr_statistic-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_statistic (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+type & set('day', 'week', 'month', 'year', 'other') &  No  &  \\ \hline 
+period\_begin & timestamp(14) &  Si  & NULL \\ \hline 
+period\_end & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+data & text &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_statistic.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & 00000000000000 \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_statistic
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_statistic} \label{tab:cmr_statistic-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{period\_begin}} & \multicolumn{1}{|c|}{\textbf{period\_end}} & \multicolumn{1}{|c|}{\textbf{data}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_statistic (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{period\_begin}} & \multicolumn{1}{|c|}{\textbf{period\_end}} & \multicolumn{1}{|c|}{\textbf{data}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_ticket
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_ticket} \label{tab:cmr_ticket-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_ticket (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+number & varchar(20) &  No  &  \\ \hline 
+lang & varchar(20) &  No  &  \\ \hline 
+title & varchar(254) &  No  & No title \\ \hline 
+work\_by & varchar(254) &  No  & extern\_user.email \\ \hline 
+call\_log\_user & varchar(254) &  Si  & extern\_user.email \\ \hline 
+call\_log\_group & varchar(254) &  No  & extern\_groups.name \\ \hline 
+call\_method & set('normal', 'automatic', 'by\_help\_desk', 'by\_email', 'by\_phone', 'by\_web', 'by\_sms', 'unknow', 'SNMP', 'NULL') &  Si  &  \\ \hline 
+state & enum('', 'open', 'update', 'close', 'in\_progress', 'pending', 'unknow', 'NULL') &  No  & open \\ \hline 
+state\_now & enum('', 'opened', 'updated', 'closed', 'unknow', 'open', 'update', 'close', 'in\_progress', 'pending', 'unknow', 'NULL') &  No  & opened \\ \hline 
+assign\_to & varchar(254) &  Si  &  \\ \hline 
+list\_user\_impact & varchar(254) &  Si  &  \\ \hline 
+list\_group\_impact & varchar(124) &  Si  &  \\ \hline 
+list\_asset\_impact & varchar(254) &  Si  &  \\ \hline 
+severity & enum('', 'info', 'low', 'normal', 'medium', 'high', 'critical', 'NULL') &  Si  & normal \\ \hline 
+sla & varchar(64) &  No  & 3 DAY \\ \hline 
+mail\_title & varchar(254) &  No  &  \\ \hline 
+mail\_from & varchar(254) &  No  & operator@localhost \\ \hline 
+mail\_to & varchar(254) &  No  & soc@localhost \\ \hline 
+mail\_cc & varchar(254) &  No  & noc@localhost \\ \hline 
+mail\_bcc & varchar(254) &  No  & admin@localhost \\ \hline 
+attach & varchar(254) &  No  & operator@localhost \\ \hline 
+type & enum('', 'normal', 'job', 'ids', 'xpu', 'va', 'rma', 'hardware\_Move', 'hardware\_remove', 'hardware\_add', 'hardware\_replace', 'new\_account', 'new\_group', 'hardware\_install', 'hardware\_request', 'hardware\_restart', 'software\_install', 'software\_remove', 'software\_update', 'software\_request', 'model', 'NULL') &  No  & normal \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+mail\_text & text &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  &  \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  &  \\ \hline 
+allow\_groups & varchar(254) &  No  &  \\ \hline 
+comment & text &  No  &  \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_ticket
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_ticket} \label{tab:cmr_ticket-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{number}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{work\_by}} & \multicolumn{1}{|c|}{\textbf{call\_log\_user}} & \multicolumn{1}{|c|}{\textbf{call\_log\_group}} & \multicolumn{1}{|c|}{\textbf{call\_method}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{state\_now}} & \multicolumn{1}{|c|}{\textbf{assign\_to}} & \multicolumn{1}{|c|}{\textbf{list\_user\_impact}} & \multicolumn{1}{|c|}{\textbf{list\_group\_impact}} & \multicolumn{1}{|c|}{\textbf{list\_asset\_impact}} & \multicolumn{1}{|c|}{\textbf{severity}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{mail\_title}} & \multicolumn{1}{|c|}{\textbf{mail\_from}} & \multicolumn{1}{|c|}{\textbf{mail\_to}} & \multicolumn{1}{|c|}{\textbf{mail\_cc}} & \multicolumn{1}{|c|}{\textbf{mail\_bcc}} & \multicolumn{1}{|c|}{\textbf{attach}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{mail\_text}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_ticket (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{number}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{work\_by}} & \multicolumn{1}{|c|}{\textbf{call\_log\_user}} & \multicolumn{1}{|c|}{\textbf{call\_log\_group}} & \multicolumn{1}{|c|}{\textbf{call\_method}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{state\_now}} & \multicolumn{1}{|c|}{\textbf{assign\_to}} & \multicolumn{1}{|c|}{\textbf{list\_user\_impact}} & \multicolumn{1}{|c|}{\textbf{list\_group\_impact}} & \multicolumn{1}{|c|}{\textbf{list\_asset\_impact}} & \multicolumn{1}{|c|}{\textbf{severity}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{mail\_title}} & \multicolumn{1}{|c|}{\textbf{mail\_from}} & \multicolumn{1}{|c|}{\textbf{mail\_to}} & \multicolumn{1}{|c|}{\textbf{mail\_cc}} & \multicolumn{1}{|c|}{\textbf{mail\_bcc}} & \multicolumn{1}{|c|}{\textbf{attach}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{mail\_text}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & 0507001 & italian & Segnalazione Ticket Normal &  &  &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & Ticket [\{\{ticket\_number\}\}] Segnalazione: \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & normal & (breve descrizione se segnalato dal cliente oppure
+     descrizione dettagliata se e' stato rilevato da noi) & -------------[\{\{date\_time\}\}]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+2 & 0507002 & italian & Aggiornamento Ticket Normale & null & null &  & by\_help\_desk & update & update & null & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Aggiornamento: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (breve descrizione dell'aggiornamento)
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+3 & 0507003 & italian & Chiusura Ticket Normale & null & null &  & by\_help\_desk & close & close &  & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Chiusura: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (spiegazioni della chiusura)
+ & -------------[\{\{date\_time\}\}]-------------
+ Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  \{\{ticket\_number\}\}
+
+\{\{ticket\_text\}\}
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l'oggetto) oppure contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+4 & 0507004 & italian & Segnalazione Ticket IDS &  &  &  & by\_help\_desk & open & open &  &  &  & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Segnalazione IDS: \{\{ticket\_title\}\} &  &  &  &  &  & ids & Ticket numero : \{\{ticket\_number\}\}
+Nome Eventi :\{\{ticket\_title\}\}
+Source IP : 
+Destination IP : 
+Severity : \{\{ticket\_severity\}\}
+
+
+Per maggiori dettagli sull'evento segnalato:
+\{\{download\}\}
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+    la presente per segnalare che il SOC di Camaroes ha rilevato un
+evento sospetto attraverso i nostri sistemi di monitoraggio.
+
+\{\{ticket\_text\}\}
+
+
+Distinti saluti
+
+-- 
+Per comunicare informazioni utili al declassamento del'evento (in caso
+di falso positivo o a seguito di contromisure implementate al vostro
+interno) rispondete a  questo messaggio (senza  modificarne l'oggetto)
+oppure contattateci telefonicamente facendo riferimento al numero di Ticket.
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+5 & 0507005 & italian & Aggiornamento Ticket IDS & null & null &  & NULL & update & update & null & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Aggiornamento IDS: \{\{ticket\_title\}\} & |null| & || & |null| & |null| &  & ids &   in merito all'evento segnalato con il ticket \{\{ticket\_number\}\}, vi preghiamo di
+verificare se l'impatto per la vostra rete risulta essere rilevante.
+
+
+
+In caso contrario o di una mancata vostra risposta considereremo
+l'evento non impattante e provvederemo ad abbassare la priorità    di tali
+eventi mediante l'inserimento di un'event filter. & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+\{\{ticket\_text\}\}
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere a questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+\{\{groups\_email\_sign\}\}
+ & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+6 & 0507001 & italian & Chiusura Ticket IDS & null & null &  & NULL & close & close & null & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Chiusura IDS: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & ids & E' stato inserito un event filter sull'evento segnalato, avente come
+campo destinazione l'indirizzo IP dell'host target.
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+  La presente per segnalare che il SOC di Camaroes ha provveduto a
+chiudere il ticket \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}.
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket e rialzare la severità   dell'evento potete
+rispondere a questo messaggio (senza modificarne l'oggetto) oppure
+contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+\{\{groups\_email\_sign\}\}. & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+7 & 0507008 & italian & RealSecure XPU Update & operator@localhost & operator@localhost &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & xpu & Con la presente vi segnaliamo che Iss ha rilasciato la XPU xx.xx per
+RealSecure Network Sensor 7.0.
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+\{\{ticket\_text\}\}
+
+Rimaniamo a Vs. disposizione per ulteriori chiarimenti al riguardo.
+
+Distinti saluti.
+
+-- 
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+8 & 0507008 & italian & SiteProtector - Aggiornamento XPU & operator@localhost & operator@localhost &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & xpu &   le sonde di SiteProtector sono state aggiornate all'ultima release
+dell'XPU.
+
+Inoltre, come concordato, sono stati attivati i 'drop' sui seguenti
+attacchi con impatto classificato come HIGH.
+Di seguito viene fornito l'elenco delle nuove signature bloccate ed una
+loro breve descrizione, così come fornita da ISS:
+
+
+(descrizione dettagliata)
+ & -------------[\{\{date\_time\}\}]-------------Buongiorno,
+\{\{ticket\_text\}\}
+Cordiali saluti
+
+-- 
+\{\{groups\_email\_sign\}\}
+
+ & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+9 & 0507007 & italian & Riepilogo eventi IDS del 20xx-xx-xx & operator@localhost & operator@localhost &  & normal & open & open & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & ids & In allegato potete trovare due documenti in formato PDF:
+
+    1. il primo inerente il report giornaliero degli eventi HIGH e MEDIUM;
+
+    2. il secondo riguarda il dettaglio degli eventi HIGH con i
+       relativi indirizzi IP sorgenti e di destinazione.
+ & -------------[\{\{date\_time\}\}]-------------Buongiorno,
+\{\{ticket\_text\}\}
+
+Rimaniamo a disposizione per eventuali chiarimenti.
+
+-- 
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+10 & 0507007 & italian & Vulnerability Assessment Richiesta IP & operator@localhost & operator@localhost &  & normal & open & open & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & va &   al fine di effettuare il previsto Vulnerabilty Assessment, inizieremo le scansioni dopo le 22.00 di oggi verso gli indirizzi IP da voi comunicati.
+
+Qualora non ci siano modifiche rispetto al mese precedente o in caso di
+mancato riscontro, porteremo avanti l'attività    con le stesse modalità   
+del mese precedente, dandovi comunque comunicazione via email prima di
+iniziare una sessione di scan e al termine della stessa.
+
+Gli indirizzi da cui potremmo effettuare il VA saranno i seguenti:
+
+- 
+- 
+ & -------------[\{\{date\_time\}\}]-------------
+Buongiorno,
+
+\{\{ticket\_text\}\}
+Cordiali saluti
+
+-- 
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+11 & 0507007 & italian & Vulnerability Assessment Inizio & operator@localhost & operator@localhost &  & normal & update & update & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & |Operation Center <operator@localhost>| & || & |Tecnician<tecnician@localhost>| & |Soc <operator@localhost>| &  & va & Con la presente intendiamo comunicarvi che alle ore 22.00 avrà    inizio il
+previsto Vulnerability Assessment.
+
+Vi invieremo un'e-mail di conferma a VA effettuato; qualora non dovesse
+terminare entro questa notte, il lavoro verrà    interrotto domattina alle
+8.00 e ripreso alle 22.00 di domani. & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+\{\{ticket\_text\}\}.
+
+
+Cordiali saluti
+
+-- 
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+12 & 0507007 & italian & Vulnerability Assessment File zip & operator@localhost & operator@localhost &  & normal & open & open & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & va & Buongiorno,
+
+  in allegato il Vulnerability Assessment effettuato verso la vostra rete. Il file è compresso in formato ZIP e cifrato con password. Per ottenterla potete chiamare il SOC in qualsiasi momento al numero 011 0700912.
+
+ & -------------[\{\{date\_time\}\}]-------------
+
+\{\{ticket\_text\}\}
+
+Distinti saluti
+
+-- 
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+13 & 0507007 & italian & Vulnerability Assessment interotto & operator@localhost & operator@localhost &  & normal & update & update & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & |Operation Center <operator@localhost>| & || & |Tecnician<tecnician@localhost>| & |Soc <operator@localhost>| &  & va & Con la presente intendiamo comunicarvi che alle ore 8.00  di questa mattina, è stato interotto come da accordi il Vulnerability Assessment, e vera ripreso soltanto
+alle 22.00 di questa notte.
+
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+\{\{ticket\_text\}\}
+
+Cordiali saluti
+
+
+-- 
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+14 & 0507007 & italian & Vulnerability Assessment continua & operator@localhost & operator@localhost &  & normal & update & update & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & |Operation Center <operator@localhost>| & || & |Tecnician<tecnician@localhost>| & |Soc <operator@localhost>| &  & va & Con la presente intendiamo comunicarvi che dalle ore 22.00 continueremo il previsto Vulnerability Assessment a meno di un vostro contrordine.
+Vi invieremo un'e-mail di conferma a VA effettuato; qualora non dovesse
+terminare entro questa notte, il lavoro verrà   interrotto domattina alle
+8.00 e ripreso alle 22.00 di domani.
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+\{\{ticket\_text\}\}
+
+Cordiali saluti
+-- 
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+15 & 0507007 & italian & Vulnerability Assessment fine & operator@localhost & operator@localhost &  & normal & close & close & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & |Operation Center <operator@localhost>| & || & |Tecnician<tecnician@localhost>| & |Soc <operator@localhost>| &  & va & Con la presente intendiamo comunicarvi che è da poco terminato il previsto Vulnerability Assessment mensile.
+ & -------------[\{\{date\_time\}\}]-------------
+Spett.le cliente,
+
+\{\{ticket\_text\}\}
+
+Distinti Saluti.
+
+-- 
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+16 & 0507007 & italian & Vulnerability Assessment Richiesta IP e Periodo & operator@localhost & operator@localhost &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & va &   al fine di effettuare il previsto Vulnerabilty Assessment mensile,
+chiediamo l'autorizzazione per iniziare l'attività   .
+Qualora ci siano esigenze diverse rispetto al mese scorso vi chiediamo
+di fornirci gli indirizzi IP delle macchine da sottoporre al security probing ed un'indicazione del periodo in cui poter operare.
+
+Qualora non ci siano modifiche rispetto al mese precedente o in caso di mancato riscontro, porteremo avanti l'attività    con le stesse modalità    (indirizzi IP e orario) del mese precedente, dandovi comunque comunicazione via email prima di iniziare una sessione di scan e al termine della stessa.
+ & -------------[\{\{date\_time\}\}]-------------
+Buongiorno,
+
+
+
+Cordiali saluti
+
+-- 
+-------------[\{\{groups\_email\_sign\}\}]------------- & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+17 & 0507001 & english & Open Normal Ticket &  &  &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & Ticket [\{\{ticket\_number\}\}] Open: \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & normal & (Comment) & -------------[\{\{date\_time\}\}]-------------
+
+Hi,
+ Ticket was opened:
+Ticket number \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Regards,
+
+-- 
+.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+18 & 0507002 & english & Update Normal Ticket & null & null &  & by\_help\_desk & update & update & null & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Update: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (Comment)
+ & -------------[\{\{date\_time\}\}]-------------
+Hi,
+Ticket was updated: \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Regards,
+
+-- 
+.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+19 & 0507003 & english & Close Normal Ticket & null & null &  & by\_help\_desk & close & close &  & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Close: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (Comment)
+ & -------------[\{\{date\_time\}\}]-------------
+ Hi,
+Ticket was closed:  \{\{ticket\_number\}\}
+
+\{\{ticket\_text\}\}
+
+Regards,
+
+-- 
+
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+33 & 0507009 & null & null & null & null &  & NULL & NULL & NULL & null & null & null & null &  & 3 DAY & null & |null| & |null| & |null| & |null| & null & NULL & null & null & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+34 & 0507001 & french & Ouvrir Ticket Normal &  &  &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & Ticket [\{\{ticket\_number\}\}] Ouvrir: \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & normal & (Commentaire) & -------------[\{\{date\_time\}\}]-------------
+
+Bonjour,
+ Ouverture Ticket:
+Ticket numero \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Salut,
+
+-- 
+.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+35 & 0507002 & french & Ajourner Ticket Normal & null & null &  & by\_help\_desk & update & update & null & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Ajourner: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (Commentaire)
+ & -------------[\{\{date\_time\}\}]-------------
+Bonjour,
+Ajournement Ticket: \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Salut,
+
+-- 
+.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+36 & 0507003 & french & Fermer Ticket Normal & null & null &  & by\_help\_desk & close & close &  & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Fermer: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (Commentaire)
+ & -------------[\{\{date\_time\}\}]-------------
+ Bonjour,
+Fermeture Ticket:  \{\{ticket\_number\}\}
+
+\{\{ticket\_text\}\}
+
+Salut,
+
+-- 
+
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+51 & 0507001 & default & Open Normal Ticket &  &  &  & by\_help\_desk & open & open & soc &  &  &  & normal & 3 DAY & Ticket [\{\{ticket\_number\}\}] Open: \{\{ticket\_title\}\} & Operation Center <operator@localhost> &  & Tecnician<tecnician@localhost> & Soc <operator@localhost> &  & normal & (Comment) & -------------[\{\{date\_time\}\}]-------------
+
+Hi,
+ Ticket was opened:
+Ticket number \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Regards,
+
+-- 
+.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+52 & 0507002 & default & Update Normal Ticket & null & null &  & by\_help\_desk & update & update & null & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Update: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (Comment)
+ & -------------[\{\{date\_time\}\}]-------------
+Hi,
+Ticket was updated: \{\{ticket\_number\}\}.
+
+\{\{ticket\_text\}\}
+
+Regards,
+
+-- 
+.
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+53 & 0507003 & default & Close Normal Ticket & null & null &  & by\_help\_desk & close & close &  & null & null & null &  & 3 DAY & Ticket [\{\{ticket\_number\}\}] Close: \{\{ticket\_title\}\} & |null| & |null| & |null| & |null| &  & normal & (Comment)
+ & -------------[\{\{date\_time\}\}]-------------
+ Hi,
+Ticket was closed:  \{\{ticket\_number\}\}
+
+\{\{ticket\_text\}\}
+
+Regards,
+
+-- 
+
+
+\{\{groups\_email\_sign\}\} & cmr\_model & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & model & 20080929095600 \\ \hline 
+54 & 0809001 & italian & Hello word & admin@localhost & admin@localhost & operator &  & open & closed & operator &  &  &  & normal & 3 DAY DAY & [0809001] Hello word & Security Operation Center <etchouamou@sourceforge.net> & etchouamou@sourceforge.net &  & tchouamoueric@yahoo.com & , , , & normal & Hello Word;
+Only a test
+
+
+ & -------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+ &  &  &  &  & 
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+ & 20080929104202 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_user
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_user} \label{tab:cmr_user-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_user (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20)  &  No  &  \\ \hline 
+\textbf{uid} & varchar(254) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+last\_name & varchar(254) &  Si  &  \\ \hline 
+nickname & varchar(254) &  No  & nickname \\ \hline 
+sexe & enum('', 'M', 'F') &  Si  &  \\ \hline 
+role & varchar(254) &  Si  &  \\ \hline 
+sla & varchar(254) &  Si  &  \\ \hline 
+pw & varchar(254) &  Si  &  \\ \hline 
+\textbf{email} & varchar(254) &  Si  &  \\ \hline 
+email\_sign & text &  Si  & NULL \\ \hline 
+tel & varchar(254) &  Si  &  \\ \hline 
+cel & varchar(254) &  Si  &  \\ \hline 
+home & varchar(254) &  No  & home/users/default \\ \hline 
+adress & varchar(254) &  Si  &  \\ \hline 
+location & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'disactivated') &  No  & active \\ \hline 
+type & enum('vip', 'contact', 'admin', 'user', 'custumer', 'web', 'model', 'system', 'forum', 'auto', 'chat', 'tstm', 'database', 'demo', 'application', 'guest', 'read\_only') &  No  & guest \\ \hline 
+status & enum('', 'connect', 'disconnect') &  No  & connect \\ \hline 
+level & enum('', '0\_guest', '1\_contact', '2\_client', '3\_user', '4\_tecnician', '5\_noc', '5\_soc', '5\_operator', '6\_admin', '7\_programer', '0', '1', '2', '3', '4', '5', '6', '7') &  No  & 0\_guest \\ \hline 
+lang & varchar(254) &  No  & italian \\ \hline 
+style & varchar(254) &  No  & default \\ \hline 
+login\_script & text &  Si  & NULL \\ \hline 
+certificate & varchar(254) &  No  & extern\_certificate.user\_email \\ \hline 
+photo & varchar(254) &  No  &  \\ \hline 
+my\_master & varchar(254) &  No  & extern\_user.email \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_user
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_user} \label{tab:cmr_user-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{uid}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{last\_name}} & \multicolumn{1}{|c|}{\textbf{nickname}} & \multicolumn{1}{|c|}{\textbf{sexe}} & \multicolumn{1}{|c|}{\textbf{role}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{pw}} & \multicolumn{1}{|c|}{\textbf{email}} & \multicolumn{1}{|c|}{\textbf{email\_sign}} & \multicolumn{1}{|c|}{\textbf{tel}} & \multicolumn{1}{|c|}{\textbf{cel}} & \multicolumn{1}{|c|}{\textbf{home}} & \multicolumn{1}{|c|}{\textbf{adress}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{level}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{style}} & \multicolumn{1}{|c|}{\textbf{login\_script}} & \multicolumn{1}{|c|}{\textbf{certificate}} & \multicolumn{1}{|c|}{\textbf{photo}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_user (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{uid}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{last\_name}} & \multicolumn{1}{|c|}{\textbf{nickname}} & \multicolumn{1}{|c|}{\textbf{sexe}} & \multicolumn{1}{|c|}{\textbf{role}} & \multicolumn{1}{|c|}{\textbf{sla}} & \multicolumn{1}{|c|}{\textbf{pw}} & \multicolumn{1}{|c|}{\textbf{email}} & \multicolumn{1}{|c|}{\textbf{email\_sign}} & \multicolumn{1}{|c|}{\textbf{tel}} & \multicolumn{1}{|c|}{\textbf{cel}} & \multicolumn{1}{|c|}{\textbf{home}} & \multicolumn{1}{|c|}{\textbf{adress}} & \multicolumn{1}{|c|}{\textbf{location}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{status}} & \multicolumn{1}{|c|}{\textbf{level}} & \multicolumn{1}{|c|}{\textbf{lang}} & \multicolumn{1}{|c|}{\textbf{style}} & \multicolumn{1}{|c|}{\textbf{login\_script}} & \multicolumn{1}{|c|}{\textbf{certificate}} & \multicolumn{1}{|c|}{\textbf{photo}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & developer & developer & developer & developer &  & developer &  & 5e8edd851d2fdfbd7415232c67367cc3 & developer@localhost &  &  &  & home/users/developer &  &  & active &  & disconnect &  & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_developer,7\_programer &  &  & developer & 20080929095600 \\ \hline 
+2 & admin & admin & admin & admin &  & admin &  & 21232f297a57a5a743894a0e4a801fc3 & admin@localhost &  &  &  & home/users/default &  &  & active &  & disconnect & 6\_admin & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer &  &  & admin & 20080929095600 \\ \hline 
+3 & operator & operator & operator & operator &  & operator &  & 4b583376b2767b923c3e1da60d10de59 & operator@localhost &  &  &  & home/users/operator &  &  & active &  & disconnect & 5\_operator & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_operator,7\_programer &  &  & operator & 20080929095600 \\ \hline 
+4 & tecnician & tecnician & tecnician & tecnician &  & tecnician &  & 585af59d64771a205e06b29698e85ff5 & tecnician@localhost &  &  &  & home/users/tecnician &  &  & active &  & disconnect & 4\_tecnician & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_tecnician,7\_programer &  &  & tecnician & 20080929095600 \\ \hline 
+5 & guest & guest & guest & guest &  & guest &  & 084e0343a0486ff05530df6c705c8bb4 & guest@localhost &  &  &  & home/users/guest &  &  & active &  & disconnect & 0\_guest & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_guest,7\_programer &  &  & guest & 20080929095600 \\ \hline 
+6 & client & client & client & client &  & client &  & 62608e08adc29a8d6dbc9754e659f125 & client@localhost &  &  &  & home/users/client &  &  & active &  & disconnect & 0\_guest & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_client,7\_programer &  &  & client & 20080929095600 \\ \hline 
+7 & demo & demo & demo & demo &  & demo &  & fe01ce2a7fbac8fafaed7c982a04e229 & demo@localhost &  &  &  & home/users/demo &  &  & active &  & disconnect & 0\_guest & italian & default &  & extern\_certificate.user\_email &  &  & 5\_noc,5\_soc,5\_operator,6\_demo,7\_programer &  &  & demo & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_user_groups
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_user\_groups} \label{tab:cmr_user_groups-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_user\_groups (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & bigint(20) &  No  &  \\ \hline 
+\textbf{user\_email} & varchar(240) &  No  & extern\_user.email \\ \hline 
+\textbf{group\_name} & varchar(240) &  No  & extern\_groups.name \\ \hline 
+type & enum('', 'normal', 'contact', 'vip', 'admin') &  No  & normal \\ \hline 
+state & enum('', 'active', 'disactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_user_groups
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_user\_groups} \label{tab:cmr_user_groups-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_user\_groups (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{user\_email}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+1 & admin@localhost & admin & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+2 & operator@localhost & operator & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+3 & tecnician@localhost & tecnician & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+4 & developer@localhost & developer & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+5 & client@localhost & client & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+6 & demo@localhost & demo & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+7 & guest@localhost & guest & normal & active &  &  &  &  & 20080929095600 \\ \hline 
+ \end{longtable}
+
+%
+% Struttura: cmr_va
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_va} \label{tab:cmr_va-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_va (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+group\_name & varchar(254) &  No  & extern\_groups.name \\ \hline 
+va\_ip & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_va
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_va} \label{tab:cmr_va-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{va\_ip}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_va (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{group\_name}} & \multicolumn{1}{|c|}{\textbf{va\_ip}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_code_source
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_code\_source} \label{tab:cmr_x_code_source-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_code\_source (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+\textbf{name} & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  Si  & html \\ \hline 
+lang\_version & varchar(254) &  Si  &  \\ \hline 
+code\_version & varchar(254) &  Si  & 1.0 \\ \hline 
+state & enum('', 'active', 'disactivated') &  No  & active \\ \hline 
+author & varchar(254) &  Si  &  \\ \hline 
+copyrigth & varchar(254) &  Si  &  \\ \hline 
+my\_md5 & varchar(254) &  No  &  \\ \hline 
+license & text &  Si  & NULL \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_code_source
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_code\_source} \label{tab:cmr_x_code_source-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{lang\_version}} & \multicolumn{1}{|c|}{\textbf{code\_version}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{author}} & \multicolumn{1}{|c|}{\textbf{copyrigth}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{license}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_code\_source (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{lang\_version}} & \multicolumn{1}{|c|}{\textbf{code\_version}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{author}} & \multicolumn{1}{|c|}{\textbf{copyrigth}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{license}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_comment
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_comment} \label{tab:cmr_x_comment-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_comment (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+encoding & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_comment
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_comment} \label{tab:cmr_x_comment-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{encoding}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_comment (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{encoding}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_contents
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_contents} \label{tab:cmr_x_contents-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_contents (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+template & varchar(254) &  No  &  \\ \hline 
+title & varchar(254) &  No  &  \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_contents
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_contents} \label{tab:cmr_x_contents-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_contents (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{title}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_files
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_files} \label{tab:cmr_x_files-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_files (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+type & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+mine & varchar(254) &  No  &  \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+my\_md5 & varchar(254) &  No  &  \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_files
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_files} \label{tab:cmr_x_files-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{mine}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_files (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{mine}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_images
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_images} \label{tab:cmr_x_images-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_images (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+type & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'actve', 'disactivated') &  No  & actve \\ \hline 
+x\_dim & varchar(254) &  No  &  \\ \hline 
+y\_dim & varchar(254) &  No  &  \\ \hline 
+my\_md5 & varchar(254) &  No  &  \\ \hline 
+base64 & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_images
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_images} \label{tab:cmr_x_images-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{x\_dim}} & \multicolumn{1}{|c|}{\textbf{y\_dim}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{base64}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_images (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{x\_dim}} & \multicolumn{1}{|c|}{\textbf{y\_dim}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{base64}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_links
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_links} \label{tab:cmr_x_links-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_links (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_links
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_links} \label{tab:cmr_x_links-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_links (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_menu
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_menu} \label{tab:cmr_x_menu-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_menu (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+template & varchar(254) &  No  &  \\ \hline 
+list\_link & text &  Si  & NULL \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_x\_menu.name \\ \hline 
+my\_slave & varchar(254) &  No  & extern\_x\_menu.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_menu
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_menu} \label{tab:cmr_x_menu-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{list\_link}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_menu (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{list\_link}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_modules
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_modules} \label{tab:cmr_x_modules-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_modules (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+template & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_x\_modules.name \\ \hline 
+my\_slave & varchar(254) &  No  & extern\_x\_modules.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_modules
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_modules} \label{tab:cmr_x_modules-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_modules (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_object
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_object} \label{tab:cmr_x_object-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_object (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+my\_md5 & varchar(254) &  No  &  \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_x\_object.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_object
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_object} \label{tab:cmr_x_object-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_object (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{my\_md5}} & \multicolumn{1}{|c|}{\textbf{date\_time}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_pages
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_pages} \label{tab:cmr_x_pages-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_pages (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+template & varchar(254) &  No  &  \\ \hline 
+header & varchar(254) &  No  &  \\ \hline 
+footer & varchar(254) &  No  &  \\ \hline 
+list\_module & text &  Si  & NULL \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+my\_master & varchar(254) &  No  & extern\_x\_pages.name \\ \hline 
+my\_slave & varchar(254) &  No  & extern\_x\_pages.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_pages
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_pages} \label{tab:cmr_x_pages-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{header}} & \multicolumn{1}{|c|}{\textbf{footer}} & \multicolumn{1}{|c|}{\textbf{list\_module}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_pages (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{template}} & \multicolumn{1}{|c|}{\textbf{header}} & \multicolumn{1}{|c|}{\textbf{footer}} & \multicolumn{1}{|c|}{\textbf{list\_module}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_sites
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_sites} \label{tab:cmr_x_sites-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_sites (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+index & varchar(254) &  No  &  \\ \hline 
+list\_page & text &  Si  & NULL \\ \hline 
+my\_master & varchar(254) &  No  & extern\_x\_sites.name \\ \hline 
+my\_slave & varchar(254) &  No  & extern\_x\_sites.name \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_sites
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_sites} \label{tab:cmr_x_sites-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{index}} & \multicolumn{1}{|c|}{\textbf{list\_page}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_sites (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{index}} & \multicolumn{1}{|c|}{\textbf{list\_page}} & \multicolumn{1}{|c|}{\textbf{my\_master}} & \multicolumn{1}{|c|}{\textbf{my\_slave}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_template
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_template} \label{tab:cmr_x_template-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_template (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  Si  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+type & varchar(254) &  No  &  \\ \hline 
+text & text &  Si  & NULL \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_template
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_template} \label{tab:cmr_x_template-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_template (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{type}} & \multicolumn{1}{|c|}{\textbf{text}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}
+
+%
+% Struttura: cmr_x_text
+%
+ \begin{longtable}{|l|c|c|c|} 
+ \caption{Struttura della tabella cmr\_x\_text} \label{tab:cmr_x_text-structure} \\
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline
+\endfirsthead
+ \caption{Struttura della tabella cmr\_x\_text (continua)} \\ 
+ \hline \multicolumn{1}{|c|}{\textbf{Campo}} & \multicolumn{1}{|c|}{\textbf{Tipo}} & \multicolumn{1}{|c|}{\textbf{Null}} & \multicolumn{1}{|c|}{\textbf{Predefinito}} \\ \hline \hline \endhead \endfoot \textbf{\textit{id}} & int(11) &  No  &  \\ \hline 
+name & varchar(254) &  No  &  \\ \hline 
+path & varchar(254) &  No  &  \\ \hline 
+encoding & varchar(254) &  No  &  \\ \hline 
+language & varchar(254) &  No  &  \\ \hline 
+state & enum('', 'active', 'diactivated') &  No  & active \\ \hline 
+allow\_level & varchar(254) &  No  & 5\_noc,5\_soc,5\_operator,6\_admin,7\_programer \\ \hline 
+allow\_email & varchar(254) &  No  & noc@localhost,soc@localhost,operator@localhost,admin@localhost,programer@localhost \\ \hline 
+allow\_groups & varchar(254) &  No  & noc,soc,operator,admin,programer \\ \hline 
+comment & text &  Si  & NULL \\ \hline 
+date\_time & timestamp(14) &  Si  & NULL \\ \hline 
+ \end{longtable}
+
+%
+% Dati: cmr_x_text
+%
+ \begin{longtable}{|l|l|l|l|l|l|l|l|l|l|l|} 
+ \hline \endhead \hline \endfoot \hline 
+ \caption{Contenuto della tabella cmr\_x\_text} \label{tab:cmr_x_text-data} \\\hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{encoding}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline  \endfirsthead 
+\caption{Contenuto della tabella cmr\_x\_text (continua)} \\ \hline \multicolumn{1}{|c|}{\textbf{id}} & \multicolumn{1}{|c|}{\textbf{name}} & \multicolumn{1}{|c|}{\textbf{path}} & \multicolumn{1}{|c|}{\textbf{encoding}} & \multicolumn{1}{|c|}{\textbf{language}} & \multicolumn{1}{|c|}{\textbf{state}} & \multicolumn{1}{|c|}{\textbf{allow\_level}} & \multicolumn{1}{|c|}{\textbf{allow\_email}} & \multicolumn{1}{|c|}{\textbf{allow\_groups}} & \multicolumn{1}{|c|}{\textbf{comment}} & \multicolumn{1}{|c|}{\textbf{date\_time}} \\ \hline \hline \endhead \endfoot
+ \end{longtable}

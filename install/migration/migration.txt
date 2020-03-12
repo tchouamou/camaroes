@@ -1,0 +1,118 @@
+
+
+  @ $id=html_control(control_magic_quote(${$VAR}['id'],254));
+  @ $uid=html_control(control_magic_quote(${$VAR}['uid'],254));
+  @ $name=html_control(control_magic_quote(${$VAR}['name'],254));
+  @ $last_name=html_control(control_magic_quote(${$VAR}['last_name'],254));
+  @ $pw=html_control(control_magic_quote(${$VAR}['pw'],50));
+  @ $old_pw=html_control(control_magic_quote(${$VAR}['old_pw'],50));
+  @ $new_pw1=html_control(control_magic_quote(${$VAR}['new_pw1'],50));
+  @ $new_pw2=html_control(control_magic_quote(${$VAR}['new_pw2'],50));
+  @ $email=html_control(control_magic_quote(${$VAR}['email'],254));
+  @ $group=html_control(control_magic_quote(${$VAR}['group'],80));
+  @ $tel=html_control(control_magic_quote(${$VAR}['tel'],100));
+  @ $cel=html_control(control_magic_quote(${$VAR}['cel'],100));
+  @ $inf1=html_control(control_magic_quote(${$VAR}['inf1'],1000));
+  @ $level=html_control(control_magic_quote(${$VAR}['level'],20));
+  @ $lang=html_control(control_magic_quote(${$VAR}['lang'],20));
+  @ $style=html_control(control_magic_quote(${$VAR}['style'],1000));
+  @ $state=html_control(control_magic_quote(${$VAR}['state'],20));
+
+  @ $user_email=html_control(control_magic_quote(${$VAR}['user_email'],254));
+    
+  @ $number=html_control(control_magic_quote(${$VAR}['number'],20));
+  @ $title=html_control(control_magic_quote(${$VAR}['title'],254));
+  @ $cliente=html_control(control_magic_quote(${$VAR}['cliente'],254));
+  @ $state_now=html_control(control_magic_quote(${$VAR}['state'],20));
+  @ $priority=html_control(control_magic_quote(${$VAR}['priority'],20));
+  @ $from=control_magic_quote(${$VAR}['from'],254);
+  @ $to=control_magic_quote(${$VAR}['to'],10000);
+  @ $cc=control_magic_quote(${$VAR}['cc'],10000);
+  @ $bcc=control_magic_quote(${$VAR}['bcc'],10000);
+  @ $allegato=html_control(control_magic_quote($_FILES['allegato']['name'],254));
+  @ $type=html_control(control_magic_quote(${$VAR}['type'],50));
+  @ $text=html_control(control_magic_quote(${$VAR}['text'],10000));
+  @ $assign_to=control_magic_quote(${$VAR}['assign_to'],254);
+  @ $no_number=html_control(control_magic_quote(${$VAR}['no_number'],254));
+    
+  @ $by=control_magic_quote(${$VAR}['by'],254);
+  @ $allegato=html_control(control_magic_quote(${$VAR}['allegato'],254));
+  @ $mese=html_control(control_magic_quote(${$VAR}['mese'],20));
+  @ $anno=html_control(control_magic_quote(${$VAR}['anno'],10));
+    
+  @ $group_name=html_control(control_magic_quote(${$VAR}['group_name'],80));
+  @ $adress=html_control(control_magic_quote(${$VAR}['adress'],254));
+  @ $rif_scc=control_magic_quote(${$VAR}['rif_scc'],254);
+  @ $contact=html_control(control_magic_quote(${$VAR}['contact'],254));
+  @ $folder=html_control(control_magic_quote(${$VAR}['folder'],254));
+  @ $sla=html_control(control_magic_quote(${$VAR}['sla'],50));
+  @ $num=html_control(control_magic_quote(${$VAR}['num'],50));
+  @ $resources_refresh=html_control(control_magic_quote(${$VAR}['resources_refresh'],254));
+
+  @ $group_father=html_control(control_magic_quote(${$VAR}['group_father'],80));
+  @ $group_child=html_control(control_magic_quote(${$VAR}['group_child'],80));
+    
+  @ $action=html_control(control_magic_quote(${$VAR}['action'],50));
+  @ $on=html_control(control_magic_quote(${$VAR}['on'],50));
+  @ $client=html_control(control_magic_quote(${$VAR}['client'],80));
+  @ $ticket=html_control(control_magic_quote(${$VAR}['ticket'],254));
+  @ $user=html_control(control_magic_quote(${$VAR}['user'],254));
+  @ $user_group=html_control(control_magic_quote(${$VAR}['user_group'],254));
+  @ $father_group=html_control(control_magic_quote(${$VAR}['father_group'],254));
+  @ $module=html_control(control_magic_quote(${$VAR}['module'],254));
+//   @ $module=html_control(control_magic_quote($sql=${$VAR}['sql'],10000));
+
+  @ $nagios_group=html_control(control_magic_quote(${$VAR}['nagios_group'],100));
+  @ $nessus_ip=html_control(control_magic_quote(${$VAR}['nessus_ip'],10000));
+
+  @ $config=html_control(control_magic_quote(${$VAR}['config'],10000));
+  @ $public_key=html_control(control_magic_quote(${$VAR}['public_key'],10000));
+  @ $private_key=html_control(control_magic_quote(${$VAR}['private_key'],10000));
+  @ $pass_phrase=html_control(control_magic_quote(${$VAR}['pass_phrase'],256));
+
+  @ $nat_ip=html_control(control_magic_quote(${$VAR}['nat_ip'],40));
+  @ $os=html_control(control_magic_quote(${$VAR}['os'],60));
+  @ $login_id=html_control(control_magic_quote(${$VAR}['login_id'],124));;
+  @ $login_pw=html_control(control_magic_quote(${$VAR}['login_pw'],80));
+
+  @ $first_host_id=html_control(control_magic_quote(${$VAR}['first_host_id'],20));
+  @ $second_host_id=html_control(control_magic_quote(${$VAR}['second_host_id'],20));
+
+  @ $host_id=html_control(control_magic_quote(${$VAR}['host_id'],20));
+
+  @ $service_id=html_control(control_magic_quote(${$VAR}['service_id'],20));
+
+  @ $problem_id=html_control(control_magic_quote(${$VAR}['problem_id'],20));
+  @ $solution_id=html_control(control_magic_quote(${$VAR}['solution_id'],20));
+
+  @ $port=html_control(control_magic_quote(${$VAR}['port'],254));
+  @ $protocol=html_control(control_magic_quote(${$VAR}['protocol'],80));
+  @ $test_command=html_control(control_magic_quote(${$VAR}['test_command'],10000));
+
+
+//##################################################
+//ajout migration
+//ajout
+
+
+$mail_from=$from;
+$mail_to=$to;
+$mail_cc=$cc;
+$mail_bcc=$bcc;
+$comment=1inf1
+$work_by=$by
+$attach1=$allegato;
+
+$priority=$severity;
+if(isset(${$var['mail_text'])){$text=$mail_text;}
+if(isset(${$var['text'])){$text=$text;}
+
+//da controllare 
+$id_user=$id;
+$id_group=$id;
+$id_ticket=$id;
+
+//##################################################
+
+
+?>
