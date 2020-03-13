@@ -1,0 +1,210 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="update_notify_div">
+<p align="center">
+<b>{match_notify_title1}</b>
+</p>
+<p class="normal_text">
+{match_notify_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_notify}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_notify}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="source"><b>{match_label_source}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_source')"><select class="hidded" name="func_source" id="id_func_func_source"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_source}"  id="source" name="source" onclick="large_id('notify,source')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="destination"><b>{match_label_destination}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_destination')"><select class="hidded" name="func_destination" id="id_func_func_destination"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="destination" id="destination"  onclick="large_id('notify,destination')">{match_value_destination}<option value=""></option>{match_link_destination}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="action"><b>{match_label_action}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_action')"><select class="hidded" name="func_action" id="id_func_func_action"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="action" id="action"  onclick="large_id('notify,action')">{match_value_action}<option value=""></option>{match_link_action}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="state"><b>{match_label_state}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_state')"><select class="hidded" name="func_state" id="id_func_func_state"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="state" id="state"  onclick="large_id('notify,state')">{match_value_state}<option value=""></option>{match_link_state}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="language"><b>{match_label_language}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_language')"><select class="hidded" name="func_language" id="id_func_func_language"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_language}"  id="language" name="language" onclick="large_id('notify,language')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="mail_from"><b>{match_label_mail_from}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_mail_from')"><select class="hidded" name="func_mail_from" id="id_func_func_mail_from"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_mail_from}"  id="mail_from" name="mail_from" onclick="large_id('notify,mail_from')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="mail_to"><b>{match_label_mail_to}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_mail_to')"><select class="hidded" name="func_mail_to" id="id_func_func_mail_to"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_mail_to}"  id="mail_to" name="mail_to" onclick="large_id('notify,mail_to')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="mail_cc"><b>{match_label_mail_cc}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_mail_cc')"><select class="hidded" name="func_mail_cc" id="id_func_func_mail_cc"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_mail_cc}"  id="mail_cc" name="mail_cc" onclick="large_id('notify,mail_cc')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="mail_bcc"><b>{match_label_mail_bcc}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_mail_bcc')"><select class="hidded" name="func_mail_bcc" id="id_func_func_mail_bcc"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_mail_bcc}"  id="mail_bcc" name="mail_bcc" onclick="large_id('notify,mail_bcc')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="title"><b>{match_label_title}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_title')"><select class="hidded" name="func_title" id="id_func_func_title"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_title}"  id="title" name="title" onclick="large_id('notify,title')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="text"><b>{match_label_text}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_text')"><select class="hidded" name="func_text" id="id_func_func_text"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<textarea rows="8" cols="40" name="text" id="text" onfocus="this.select()" >{match_value_text}</textarea>
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.cmr_module.value=update_notify;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.cmr_module.value=new_notify;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+{match_close_windows}
+</div>
+</template1>
+</template>

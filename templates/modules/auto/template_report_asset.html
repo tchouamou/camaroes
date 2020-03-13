@@ -1,0 +1,830 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="report_asset_div">
+<p align="center">
+<b>{match_asset_title1}</b>
+</p>
+<p class="normal_text">
+{match_asset_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("cmr_path") . "loader_get.php");-->
+<template2>
+{match_label_id}
+<!--select name="funcs[multi_edit][0][year]" onchange="return unNullify('year', '0')" tabindex="1010" id="field_4_1"-->
+
+<fieldset class="bubble"><legend>{match_legend1}:</legend>
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form2_id}">
+
+<table class="normal_text" border="1"  align="center">
+
+<!--=======-->
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+<tr>
+<td class="normal_text">
+<table class="normal_text" border="1"  align="center">
+
+<!--=======-->
+<tr>
+<td class="normal_text"><label for="show_graph">{match_label_show_graph}</label>
+<select class="{match_class_select}"  name="report_asset_show_graph">
+<option value="">{match_option_no_graph}</option>
+<option value="default">{match_option_default}</option>
+<option value="bar" selected>Bar</option>
+
+<option value="line">Line</option>
+<option value="bar_line">Bar - Line</option>
+<option value="scatter">Scatter</option>
+<option value="scatter_line">Scatter - Line</option>
+<option value="radar">Radar</option>
+<option value="polar">Polar</option>
+<option value="gantt">Gantt</option>
+<option value="pie">pie</option>
+<option value="pie3d">Pie - Pie3d</option>
+
+</select>
+</td>
+
+<td class="normal_text"><label for="period">{match_label_period}</label>
+<select class="{match_class_select}"  id="report_asset_period" name="report_asset_period" onchange="change_period('report_asset_begin','report_asset_end')">
+<option value="">{match_period_user_defined}</option>
+<option value="last_day">{match_period_last_day}</option>
+<option value="last_week">{match_period_last_week}</option>
+<option value="last_month">{match_period_last_month}</option>
+<option value="last_year">{match_period_last_year}</option>
+<option value="shortmonth">{match_period_shortmonth}</option>
+
+<option value="month">{match_period_month}</option>
+<option value="day">{match_period_day}</option>
+<option value="shortday">{match_period_shortday}</option>
+</select>
+</td>
+<td class="normal_text" colspan="2"> 
+<label for="show_data">{match_label_show_data}</label><input class="submit" type="checkbox" value="yes" name="report_asset_show_data" checked />
+<label for="data_number">{match_label_data_number}</label>
+<input type="text" value="20" name="report_asset_limit" />
+</td></tr>
+<!--=======-->
+
+<!--=======-->
+
+<tr>
+<td class="normal_text"><label for="begin_period">{match_label_begin_period}</label></td><td class="normal_text"><input type="text" value="{match_value_begin_period}" name="report_asset_begin" id="report_asset_begin" />
+<button id="button_report_asset_begin">...</button>
+</td>
+<td class="normal_text"><label for="end_period">{match_label_end_period}</label></td><td class="normal_text"><input type="text" value="{match_value_end_period}" name="report_asset_end" id="report_asset_end" />
+<button id="button_report_asset_end">...</button>
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+<tr><td class="normal_text">{match_label_column}</td>
+
+<td class="normal_text">{match_report_select_function}</td><td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_asset_column"  id="report_asset_column" onchange="
+load_selected('report_asset_column', 'report_asset_where_column');
+load_selected('report_asset_column', 'report_asset_group_by_column');
+load_selected('report_asset_column', 'report_asset_order_by_column');
+load_selected('report_asset_column', 'report_asset_having_column');
+">
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='mac_adress'>mac_adress</option>
+
+<option value='name'>name</option>
+
+<option value='location'>location</option>
+
+<option value='ip'>ip</option>
+
+<option value='nat_ip'>nat_ip</option>
+
+<option value='mask'>mask</option>
+
+<option value='gateway'>gateway</option>
+
+<option value='dns1'>dns1</option>
+
+<option value='dns2'>dns2</option>
+
+<option value='type'>type</option>
+
+<option value='os'>os</option>
+
+<option value='state'>state</option>
+
+<option value='login_id'>login_id</option>
+
+<option value='login_pw'>login_pw</option>
+
+<option value='check_command'>check_command</option>
+
+<option value='certificate'>certificate</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='my_software'>my_software</option>
+
+<option value='my_service'>my_service</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td></tr>
+
+
+
+<tr>
+<td class="normal_text" valign="top" colspan="4" >
+<p align="center">
+<input class="submit" type="submit" value="{match_submit1}" onclick="return confirm('{match_java_submit1}')" />
+</p>
+</td>
+</tr>
+
+
+
+
+</table>
+
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+<td class="normal_text">
+ <input type="button" value="+" id="hide_report_asset" onclick="show('extend_report_asset');show('preview_report_asset');hide('hide_report_asset');">
+ <input class="hidded" type="button" value="-" id="preview_report_asset" onclick="hide('extend_report_asset');show('hide_report_asset');hide('preview_report_asset');" >
+
+<!--div id="hide_report_asset" >
+
+<a onclick="show('extend_report_asset');hide('hide_report_asset');show('preview_report_asset');">
++</a>
+</div>
+
+<div id="preview_report_asset" class="hidded" >
+<a onclick="hide('extend_report_asset');hide('preview_report_asset');show('hide_report_asset');">
+-</a>
+</div-->
+
+</td>
+</tr>
+<!--=======-->
+
+
+
+
+
+<tr>
+<td class="normal_text" valign="top">
+
+<table class="normal_text" border="1"  align="center" width="100%" >
+
+
+<!--=======-->
+
+<tr>
+<td class="normal_text">
+
+<div id="extend_report_asset" class="hidded" >
+<table class="normal_text" border="1"  align="center">
+<tr><td class="normal_text">
+<label for="where">{match_label_where}</label></td><td class="normal_text">
+<select class="{match_class_select}" name="report_asset_where_column" id="report_asset_where_column">
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='mac_adress'>mac_adress</option>
+
+<option value='name'>name</option>
+
+<option value='location'>location</option>
+
+<option value='ip'>ip</option>
+
+<option value='nat_ip'>nat_ip</option>
+
+<option value='mask'>mask</option>
+
+<option value='gateway'>gateway</option>
+
+<option value='dns1'>dns1</option>
+
+<option value='dns2'>dns2</option>
+
+<option value='type'>type</option>
+
+<option value='os'>os</option>
+
+<option value='state'>state</option>
+
+<option value='login_id'>login_id</option>
+
+<option value='login_pw'>login_pw</option>
+
+<option value='check_command'>check_command</option>
+
+<option value='certificate'>certificate</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='my_software'>my_software</option>
+
+<option value='my_service'>my_service</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+
+</select>
+</td>
+
+<td class="normal_text">
+<!--select name="func[]"-->
+{match_report_select_operator}
+</td><td class="normal_text">
+<input type="text" value="%%" name="report_asset_where_value" size="28" />
+</td></tr>
+<!--=======-->
+
+
+<!--=======-->
+<tr><td class="normal_text"><label for="group_by">{match_label_group_by}</label></td>
+<td class="normal_text">
+<select class="{match_class_select}" name="report_asset_group_by_column" id="report_asset_group_by_column">
+
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='mac_adress'>mac_adress</option>
+
+<option value='name'>name</option>
+
+<option value='location'>location</option>
+
+<option value='ip'>ip</option>
+
+<option value='nat_ip'>nat_ip</option>
+
+<option value='mask'>mask</option>
+
+<option value='gateway'>gateway</option>
+
+<option value='dns1'>dns1</option>
+
+<option value='dns2'>dns2</option>
+
+<option value='type'>type</option>
+
+<option value='os'>os</option>
+
+<option value='state'>state</option>
+
+<option value='login_id'>login_id</option>
+
+<option value='login_pw'>login_pw</option>
+
+<option value='check_command'>check_command</option>
+
+<option value='certificate'>certificate</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='my_software'>my_software</option>
+
+<option value='my_service'>my_service</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td>
+
+
+<td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_asset_group_by_order">
+<option value="ASC" selected>{match_option_asc}</option>
+
+<option value="DESC">{match_option_desc}</option>
+</select>
+
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+<tr>
+<td class="normal_text">
+<label for="having">{match_label_having}</label>
+</td><td class="normal_text">
+<select class="{match_class_select}" name="report_asset_having_column" id="report_asset_having_column">
+<option value="*" selected>*</option>
+
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='mac_adress'>mac_adress</option>
+
+<option value='name'>name</option>
+
+<option value='location'>location</option>
+
+<option value='ip'>ip</option>
+
+<option value='nat_ip'>nat_ip</option>
+
+<option value='mask'>mask</option>
+
+<option value='gateway'>gateway</option>
+
+<option value='dns1'>dns1</option>
+
+<option value='dns2'>dns2</option>
+
+<option value='type'>type</option>
+
+<option value='os'>os</option>
+
+<option value='state'>state</option>
+
+<option value='login_id'>login_id</option>
+
+<option value='login_pw'>login_pw</option>
+
+<option value='check_command'>check_command</option>
+
+<option value='certificate'>certificate</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='my_software'>my_software</option>
+
+<option value='my_service'>my_service</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td><td class="normal_text">
+{match_report_select_operator}
+</td><td class="normal_text">
+<input type="text" value="%%" name="report_asset_having_value" size="28" />
+</td></tr>
+<!--select name="func[]"-->
+
+<!--=======-->
+
+
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+<tr><td class="normal_text">{match_label_order}</td>
+<td class="normal_text">
+<select class="{match_class_select}" name="report_asset_order_by_column" id="report_asset_order_by_column">
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='mac_adress'>mac_adress</option>
+
+<option value='name'>name</option>
+
+<option value='location'>location</option>
+
+<option value='ip'>ip</option>
+
+<option value='nat_ip'>nat_ip</option>
+
+<option value='mask'>mask</option>
+
+<option value='gateway'>gateway</option>
+
+<option value='dns1'>dns1</option>
+
+<option value='dns2'>dns2</option>
+
+<option value='type'>type</option>
+
+<option value='os'>os</option>
+
+<option value='state'>state</option>
+
+<option value='login_id'>login_id</option>
+
+<option value='login_pw'>login_pw</option>
+
+<option value='check_command'>check_command</option>
+
+<option value='certificate'>certificate</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='my_software'>my_software</option>
+
+<option value='my_service'>my_service</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td>
+
+
+<td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_asset_order_by_order">
+<option value="ASC" selected>{match_option_asc}</option>
+<option value="DESC">{match_option_desc}</option>
+</select>
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+<tr>
+<td class="normal_text">{match_label_width}</td>
+
+<td class="normal_text">
+<input type="text" value="600" name="report_asset_width"  id="report_asset_width" size="27" />
+</td>
+
+<td class="normal_text"><label for="height">{match_label_height}</label></td>
+
+<td class="normal_text">
+<input type="text" value="600" name="report_asset_height"  id="report_asset_height" size="28" />
+</td>
+</tr>
+
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+
+<tr>
+<td class="normal_text"><label for="color1">{match_label_color1}</label></td>
+
+<td class="normal_text">
+{match_report_select_color1}
+</td>
+
+<td class="normal_text"><label for="color2">{match_label_color2}</label></td>
+
+<td class="normal_text">
+{match_report_select_color2}
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="fillcolor1">{match_label_fillcolor1}</label></td>
+
+<td class="normal_text">
+{match_report_select_fillcolor1}
+</td>
+
+<td class="normal_text"><label for="fillcolor2">{match_label_fillcolor2}</label></td>
+
+<td class="normal_text">
+{match_report_select_fillcolor2}
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="font1">{match_label_font1}</label></td>
+
+<td class="normal_text">
+{match_report_select_font}
+</td>
+
+<td class="normal_text"><label for="font2">{match_label_font2}</label></td>
+
+<td class="normal_text">
+{match_report_select_font}
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="save_to">{match_label_save_to}</label></td>
+
+<td class="normal_text" colspan="3">
+<input type="text" size="86" value="" name="report_asset_path"  id="report_asset__path" />
+</td>
+
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="query">{match_label_query}</label></td>
+
+<td class="normal_text" colspan="3">
+</template2>
+<!--if($cmr->user["authorisation"] >= $cmr->config["cmr_admin_type"])-->
+<template3>
+<fieldset class="bubble"><legend>{match_legend_sql}:</legend>
+<p align="center">
+<select name="report_asset_show" id="report_asset_show" width="200" onchange="add_to_textarea('report_asset_sql', 'report_asset_show')">
+<option>?</option>
+{match_select_option_query}
+</select>
+<br />
+<textarea name="report_asset_sql" id="report_asset_sql" cols="73" rows="2">
+</textarea>
+</fieldset>
+
+</td>
+
+</tr>
+</table>
+
+</div>
+
+</template3>
+<!--=======-->
+
+
+<!--=======-->
+<template4>
+
+
+</td>
+</tr>
+ 
+ 
+ 
+<tr>
+<td class="normal_text" align="center">
+
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "report_asset_begin",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",    // the date format
+      button      : "button_report_asset_begin"       // ID of the button
+    }
+  );
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "report_asset_end",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",    // the date format
+      button      : "button_report_asset_end"       // ID of the button
+    }
+  );
+</script>  
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+
+
+</table>
+
+</td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td class="normal_text" valign="top">
+
+
+
+<table class="normal_text" border="1"  align="center" width="100%">
+<tr>
+<td class="normal_text" width="380" valign="top">
+
+
+
+<p align="left">
+<input class="submit" type="checkbox" name="check_all_table" id="all_table" value="yes" onclick="check_uncheck(this.form, 'all_table');"  checked />
+{match_link_report_asset}
+<br />
+</p>
+
+<p align="left">
+<ul class="{match_class_ul}">
+
+<li>
+<input class=\"submit\" type='checkbox' value='id' name='report_asset_id' checked />
+{match_link_report_asset_id}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='serial' name='report_asset_serial' checked />
+{match_link_report_asset_serial}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='mac_adress' name='report_asset_mac_adress' checked />
+{match_link_report_asset_mac_adress}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='name' name='report_asset_name' checked />
+{match_link_report_asset_name}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='location' name='report_asset_location' checked />
+{match_link_report_asset_location}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='ip' name='report_asset_ip' checked />
+{match_link_report_asset_ip}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='nat_ip' name='report_asset_nat_ip' checked />
+{match_link_report_asset_nat_ip}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='mask' name='report_asset_mask' checked />
+{match_link_report_asset_mask}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='gateway' name='report_asset_gateway' checked />
+{match_link_report_asset_gateway}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='dns1' name='report_asset_dns1' checked />
+{match_link_report_asset_dns1}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='dns2' name='report_asset_dns2' checked />
+{match_link_report_asset_dns2}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='type' name='report_asset_type' checked />
+{match_link_report_asset_type}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='os' name='report_asset_os' checked />
+{match_link_report_asset_os}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='state' name='report_asset_state' checked />
+{match_link_report_asset_state}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='login_id' name='report_asset_login_id' checked />
+{match_link_report_asset_login_id}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='login_pw' name='report_asset_login_pw' checked />
+{match_link_report_asset_login_pw}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='check_command' name='report_asset_check_command' checked />
+{match_link_report_asset_check_command}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='certificate' name='report_asset_certificate' checked />
+{match_link_report_asset_certificate}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='my_master' name='report_asset_my_master' checked />
+{match_link_report_asset_my_master}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='my_software' name='report_asset_my_software' checked />
+{match_link_report_asset_my_software}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='my_service' name='report_asset_my_service' checked />
+{match_link_report_asset_my_service}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='date_time' name='report_asset_date_time' checked />
+{match_link_report_asset_date_time}
+</li>
+
+</ul>
+</p>
+<p align="center">
+
+<input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+<input class="submit" type="submit" value="{match_submit2}" onclick="return confirm('{match_java_submit2}')" style="float: left" />
+</p>
+
+<br />
+
+
+</td>
+<!--=======-->
+
+
+
+
+<!--=======-->
+<td class="normal_text">
+
+<table class="normal_text" border="1"  align="center" width="8">
+<tr>
+
+<td class="normal_text" align="center">
+<!--=======-->
+<!--=======-->
+</template4>
+{match_include2}
+<!--include ($cmr->get_conf("cmr_class_path") . "class/graph_class.php");-->
+<template5>
+<br />
+ 
+<!--=======-->
+<!--=======-->
+<!--=======-->
+</td>
+</tr>
+</table>
+
+
+
+</td>
+<!--=======-->
+
+
+<!--=======-->
+</tr>
+ 
+
+</table>
+
+</td>
+</tr>
+</table>
+
+
+
+
+
+</form>
+</fieldset>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template5>
+</template>

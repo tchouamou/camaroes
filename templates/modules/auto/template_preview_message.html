@@ -1,0 +1,112 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="preview_message_div">
+<p align="center">
+<b>{match_message_title1}</b>
+</p>
+<p class="normal_text">
+{match_message_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+<fieldset class="bubble"><legend>
+{match_legend_message}
+</legend>
+
+<ul class="normal_text" >
+    
+    <li><b><label for=\"id\">{match_label_id}</label></b>{match_value_id}</li>
+    
+    <li><b><label for=\"sender\">{match_label_sender}</label></b>{match_value_sender}</li>
+    
+    <li><b><label for=\"title\">{match_label_title}</label></b>{match_value_title}</li>
+    
+    <li><b><label for=\"attach\">{match_label_attach}</label></b>{match_value_attach}</li>
+    
+    <li><b><label for=\"text\">{match_label_text}</label></b>{match_value_text}</li>
+    
+    <li><b><label for=\"groups_dest\">{match_label_groups_dest}</label></b>{match_value_groups_dest}</li>
+    
+    <li><b><label for=\"users_dest\">{match_label_users_dest}</label></b>{match_value_users_dest}</li>
+    
+    <li><b><label for=\"modules_dest\">{match_label_modules_dest}</label></b>{match_value_modules_dest}</li>
+    
+    <li><b><label for=\"mail_to\">{match_label_mail_to}</label></b>{match_value_mail_to}</li>
+    
+    <li><b><label for=\"mail_cc\">{match_label_mail_cc}</label></b>{match_value_mail_cc}</li>
+    
+    <li><b><label for=\"mail_bcc\">{match_label_mail_bcc}</label></b>{match_value_mail_bcc}</li>
+    
+    <li><b><label for=\"begin_time\">{match_label_begin_time}</label></b>{match_value_begin_time}</li>
+    
+    <li><b><label for=\"end_time\">{match_label_end_time}</label></b>{match_value_end_time}</li>
+    
+    <li><b><label for=\"intervale\">{match_label_intervale}</label></b>{match_value_intervale}</li>
+    
+    <li><b><label for=\"priority\">{match_label_priority}</label></b>{match_value_priority}</li>
+    
+    <li><b><label for=\"type\">{match_label_type}</label></b>{match_value_type}</li>
+    
+    <li><b><label for=\"state\">{match_label_state}</label></b>{match_value_state}</li>
+    
+    <li><b><label for=\"my_master\">{match_label_my_master}</label></b>{match_value_my_master}</li>
+    
+    <li><b><label for=\"date_time\">{match_label_date_time}</label></b>{match_value_date_time}</li>
+    
+</ul>
+
+</fieldset>
+
+ <form action="{match_www_path}index.php?cmr_mode=pdf&ext=.pdf" method="post" id="form_message_pdf">
+ <!--input type="hidden" value="cmr_mode" name="pdf" />
+ <input type="hidden" name="ext" value=".pdf" /-->
+ <input type="hidden" name="title"     id="pdf_message_title"    value="{match_pdf_title}" />
+ <input type="hidden" name="author"    id="pdf_message_author"   value="{match_pdf_author}" />
+ <input type="hidden" name="file"      id="pdf_message_file"     value="{match_pdf_file}" />
+ <input type="hidden" name="links"     id="pdf_message_links"    value="{match_pdf_links}" />
+ <input type="hidden" name="data_type" id="pdf_message_data_type" value="{match_pdf_data_type}" />
+ <input type="hidden" name="dim_col"   id="pdf_message_dim_col"  value="{match_pdf_dim_col}" />
+ <input type="hidden" name="header"    id="pdf_message_header"   value="{match_pdf_header}" />
+ <textarea  class="hidded" name="data" id="pdf_message_data"  >{match_pdf_data}</textarea>
+ <input class="submit" type="submit" value="pdf" />
+</form>
+
+&nbsp;&nbsp;&nbsp;&nbsp;
+
+<form action="{match_www_path}index.php" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_table_name}
+{match_input_hidden_line_id}
+<select name="check_action" >
+<option value="comment">{match_lang_comment}</option>
+<option value="print">{match_lang_view}</option>
+<option value="delete">{match_lang_delete}</option>
+<option value="policy">{match_lang_policy}</option>
+</select>
+<input type="submit" value="{match_submit_action}" />
+</form>
+
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("cmr_modules_path") ."modules/view_comment.php");-->
+{match_include2}
+<!--include($cmr->get_conf("cmr_modules_path") ."modules/view_policy.php");-->
+
+</template>

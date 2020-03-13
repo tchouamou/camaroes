@@ -23,22 +23,6 @@ All rights reserved.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 update_column.php, Ver 3.03 
 */
 
@@ -246,53 +230,55 @@ $count = get_post("num_fields");
 if(empty($count)) $count = 1;// $num_fields = $count;
 
 
-$val_column = get_all_columns($database_conn, "", $table_name, $cmr->post_var["current_column"]);
-// $val_column = get_table_columns($database, $table_name, $cmr->post_var["current_column"], $database_conn);
+// $val_co = get_all_columns($database_conn, "", $table_name, $cmr->post_var["current_column"]);
+$val_co = get_table_columns($database, $table_name, $cmr->post_var["current_column"], $database_conn);
+$val_column = $val_co[1][$cmr->post_var["current_column"]];
+// cmr_print_r($val_column);
 
 
 if(!empty($cmr->post_var["current_column"])){
-$division->prints["match_name_name"] = $val_column[0]["Field"];
-$division->prints["match_column_title"] = $val_column[0]["Field"];
-$division->prints["match_value_name"] = $val_column[0]["Field"];
+$division->prints["match_name_name"] = $val_column["Field"];
+$division->prints["match_column_title"] = $val_column["Field"];
+$division->prints["match_value_name"] = $val_column["Field"];
 
-$division->prints["match_value_type"] = $val_column[0]["Type"];
+$division->prints["match_value_type"] = $val_column["Type"];
 
-$division->prints["match_value_null"] = $val_column[0]["Null"];
-$division->prints["match_value_extra"] = $val_column[0]["Extra"];
+$division->prints["match_value_null"] = $val_column["Null"];
+$division->prints["match_value_extra"] = $val_column["Extra"];
 
 
-if($val_column[0]["Default"] == "NONE"){
+if($val_column["Default"] == "NONE"){
 	$division->prints["match_value_default_type"] = "NONE";
 	$division->prints["match_value_default_value"] = "";
-}elseif($val_column[0]["Default"] == "USER_DEFINED"){
+}elseif($val_column["Default"] == "USER_DEFINED"){
 	$division->prints["match_value_default_type"] = "USER_DEFINED";
-	$division->prints["match_value_default_value"] = $val_column[0]["Default"];
-}elseif($val_column[0]["Default"] == "CURRENT_TIMESTAMP"){
+	$division->prints["match_value_default_value"] = $val_column["Default"];
+}elseif($val_column["Default"] == "CURRENT_TIMESTAMP"){
 	$division->prints["match_value_default_type"] = "CURRENT_TIMESTAMP";
-	$division->prints["match_value_default_value"] = $val_column[0]["Default"];
+	$division->prints["match_value_default_value"] = $val_column["Default"];
 }else{
 	$division->prints["match_value_default_type"] = "USER_DEFINED";
-	$division->prints["match_value_default_value"] = $val_column[0]["Default"];
+	$division->prints["match_value_default_value"] = $val_column["Default"];
 }
 
 
 $division->prints["match_check_null"] = "";
 $division->prints["match_check_extra"] = "";
-if(!empty($val_column[0]["Null"]))
+if(!empty($val_column["Null"]))
 $division->prints["match_check_null"] = "checked";
-if(!empty($val_column[0]["Extra"]))
+if(!empty($val_column["Extra"]))
 $division->prints["match_check_extra"] = "checked";
  
 
 
-if(!empty($val_column[0]["length"]))
-$division->prints["match_value_length"] = $val_column[0]["length"];
-if(!empty($val_column[0]["collation"]))
-$division->prints["match_value_collation"] = $val_column[0]["collation"];
-if(!empty($val_column[0]["comments"]))
-$division->prints["match_value_comments"] = $val_column[0]["comments"];
-if(!empty($val_column[0]["Attrib"]))
-$division->prints["match_value_attrib"] = $val_column[0]["Attrib"];
+if(!empty($val_column["length"]))
+$division->prints["match_value_length"] = $val_column["length"];
+if(!empty($val_column["collation"]))
+$division->prints["match_value_collation"] = $val_column["collation"];
+if(!empty($val_column["comments"]))
+$division->prints["match_value_comments"] = $val_column["comments"];
+if(!empty($val_column["Attrib"]))
+$division->prints["match_value_attrib"] = $val_column["Attrib"];
 }
 
 
@@ -301,7 +287,7 @@ $division->prints["match_value_attrib"] = $val_column[0]["Attrib"];
 
 
 while($count > 0){
-if(empty($val_column[0]["Field"]))
+if(empty($val_column["Field"]))
 $division->prints["match_column_title"] = "COLUMN" . $count;
 
 $division->prints["match_name_name"] = "column" . $count;

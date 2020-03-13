@@ -1,0 +1,17 @@
+2011-04-11 04:27:19|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\control_session.php Line=65 : Wrong Account object, the session  or the user object is empty !!? (control session.cache_limiter, session.cache_expire) 
+2011-04-11 04:27:24|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\login.php Line=210 : Nomal form authentification 
+2011-04-11 04:27:38|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
+2011-04-11 04:27:38|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=brr2567geoc01llec8ceh1spe6
+2011-04-11 04:27:38|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
+2011-04-11 04:31:42|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_default_data.php Line=437 : Exit Request Normaly
+2011-04-11 04:31:43|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\logout.php Line=77 : Logout For User :guest clean  [ticket_read, message_read and cmr_session] session=bu95q5c9lmuu0d7pkj1hnoted7
+2011-04-11 04:31:47|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\login.php Line=210 : Nomal form authentification 
+2011-04-11 04:32:08|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
+2011-04-11 04:32:08|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=bu95q5c9lmuu0d7pkj1hnoted7
+2011-04-11 04:32:08|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
+2011-04-11 04:33:06|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_default_data.php Line=437 : Exit Request Normaly
+2011-04-11 04:33:08|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\logout.php Line=77 : Logout For User :guest clean  [ticket_read, message_read and cmr_session] session=7dbfs6ur101rbi1fruc8bhm622
+2011-04-11 04:33:11|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\login.php Line=210 : Nomal form authentification 
+2011-04-11 04:33:23|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
+2011-04-11 04:33:23|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=7dbfs6ur101rbi1fruc8bhm622
+2011-04-11 04:33:23|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin

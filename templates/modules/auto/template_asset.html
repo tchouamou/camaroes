@@ -1,0 +1,318 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="update_asset_div">
+<p align="center">
+<b>{match_asset_title1}</b>
+</p>
+<p class="normal_text">
+{match_asset_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_asset}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_asset}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="serial"><b>{match_label_serial}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_serial')"><select class="hidded" name="func_serial" id="id_func_func_serial"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_serial}"  id="serial" name="serial" onclick="large_id('asset,serial')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="mac_adress"><b>{match_label_mac_adress}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_mac_adress')"><select class="hidded" name="func_mac_adress" id="id_func_func_mac_adress"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_mac_adress}"  id="mac_adress" name="mac_adress" onclick="large_id('asset,mac_adress')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="name"><b>{match_label_name}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_name')"><select class="hidded" name="func_name" id="id_func_func_name"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_name}"  id="name" name="name" onclick="large_id('asset,name')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="location"><b>{match_label_location}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_location')"><select class="hidded" name="func_location" id="id_func_func_location"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_location}"  id="location" name="location" onclick="large_id('asset,location')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="ip"><b>{match_label_ip}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_ip')"><select class="hidded" name="func_ip" id="id_func_func_ip"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_ip}"  id="ip" name="ip" onclick="large_id('asset,ip')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="nat_ip"><b>{match_label_nat_ip}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_nat_ip')"><select class="hidded" name="func_nat_ip" id="id_func_func_nat_ip"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_nat_ip}"  id="nat_ip" name="nat_ip" onclick="large_id('asset,nat_ip')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="mask"><b>{match_label_mask}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_mask')"><select class="hidded" name="func_mask" id="id_func_func_mask"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_mask}"  id="mask" name="mask" onclick="large_id('asset,mask')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="gateway"><b>{match_label_gateway}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_gateway')"><select class="hidded" name="func_gateway" id="id_func_func_gateway"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_gateway}"  id="gateway" name="gateway" onclick="large_id('asset,gateway')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="dns1"><b>{match_label_dns1}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_dns1')"><select class="hidded" name="func_dns1" id="id_func_func_dns1"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_dns1}"  id="dns1" name="dns1" onclick="large_id('asset,dns1')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="dns2"><b>{match_label_dns2}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_dns2')"><select class="hidded" name="func_dns2" id="id_func_func_dns2"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_dns2}"  id="dns2" name="dns2" onclick="large_id('asset,dns2')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="type"><b>{match_label_type}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_type')"><select class="hidded" name="func_type" id="id_func_func_type"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="type" id="type"  onclick="large_id('asset,type')">{match_value_type}<option value=""></option>{match_link_type}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="os"><b>{match_label_os}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_os')"><select class="hidded" name="func_os" id="id_func_func_os"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_os}"  id="os" name="os" onclick="large_id('asset,os')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="state"><b>{match_label_state}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_state')"><select class="hidded" name="func_state" id="id_func_func_state"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="state" id="state"  onclick="large_id('asset,state')">{match_value_state}<option value=""></option>{match_link_state}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="login_id"><b>{match_label_login_id}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_login_id')"><select class="hidded" name="func_login_id" id="id_func_func_login_id"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_login_id}"  id="login_id" name="login_id" onclick="large_id('asset,login_id')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="login_pw"><b>{match_label_login_pw}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_login_pw')"><select class="hidded" name="func_login_pw" id="id_func_func_login_pw"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="10" type="password" value=""  id="login_pw" name="login_pw" onclick="large_id('asset,login_pw')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="check_command"><b>{match_label_check_command}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_check_command')"><select class="hidded" name="func_check_command" id="id_func_func_check_command"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="check_command" id="check_command"  onclick="large_id('asset,check_command')">{match_value_check_command}<option value=""></option>{match_link_check_command}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="certificate"><b>{match_label_certificate}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_certificate')"><select class="hidded" name="func_certificate" id="id_func_func_certificate"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input type="file" name="certificate" id="certificate"  />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="my_master"><b>{match_label_my_master}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_my_master')"><select class="hidded" name="func_my_master" id="id_func_func_my_master"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input type="button" value="+" id="hide_my_master" onclick="show('extra_my_master');show('hide_my_master');hide('hide_my_master');"><input class="hidded" type="button" value="-" id="show_my_master" onclick="hide('extra_my_master');show('hide_my_master');hide('show_my_master');"><div id="extra_my_master" style="visibility:hidden; display:none"><table class="normal_text" border="1" align="left"><tr><td align="left"><select name="my_master" id="my_master"  onclick="large_id('asset,my_master')">{match_value_my_master}<option value=""></option>{match_link_my_master}</td></tr></table></div><br />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="my_software"><b>{match_label_my_software}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_my_software')"><select class="hidded" name="func_my_software" id="id_func_func_my_software"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="my_software" id="my_software"  onclick="large_id('asset,my_software')">{match_value_my_software}<option value=""></option>{match_link_my_software}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="my_service"><b>{match_label_my_service}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_my_service')"><select class="hidded" name="func_my_service" id="id_func_func_my_service"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="my_service" id="my_service"  onclick="large_id('asset,my_service')">{match_value_my_service}<option value=""></option>{match_link_my_service}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.cmr_module.value=update_asset;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.cmr_module.value=new_asset;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+{match_close_windows}
+</div>
+</template1>
+</template>

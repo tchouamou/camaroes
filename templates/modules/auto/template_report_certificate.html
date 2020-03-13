@@ -1,0 +1,845 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="report_certificate_div">
+<p align="center">
+<b>{match_certificate_title1}</b>
+</p>
+<p class="normal_text">
+{match_certificate_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("cmr_path") . "loader_get.php");-->
+<template2>
+{match_label_id}
+<!--select name="funcs[multi_edit][0][year]" onchange="return unNullify('year', '0')" tabindex="1010" id="field_4_1"-->
+
+<fieldset class="bubble"><legend>{match_legend1}:</legend>
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form2_id}">
+
+<table class="normal_text" border="1"  align="center">
+
+<!--=======-->
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+<tr>
+<td class="normal_text">
+<table class="normal_text" border="1"  align="center">
+
+<!--=======-->
+<tr>
+<td class="normal_text"><label for="show_graph">{match_label_show_graph}</label>
+<select class="{match_class_select}"  name="report_certificate_show_graph">
+<option value="">{match_option_no_graph}</option>
+<option value="default">{match_option_default}</option>
+<option value="bar" selected>Bar</option>
+
+<option value="line">Line</option>
+<option value="bar_line">Bar - Line</option>
+<option value="scatter">Scatter</option>
+<option value="scatter_line">Scatter - Line</option>
+<option value="radar">Radar</option>
+<option value="polar">Polar</option>
+<option value="gantt">Gantt</option>
+<option value="pie">pie</option>
+<option value="pie3d">Pie - Pie3d</option>
+
+</select>
+</td>
+
+<td class="normal_text"><label for="period">{match_label_period}</label>
+<select class="{match_class_select}"  id="report_certificate_period" name="report_certificate_period" onchange="change_period('report_certificate_begin','report_certificate_end')">
+<option value="">{match_period_user_defined}</option>
+<option value="last_day">{match_period_last_day}</option>
+<option value="last_week">{match_period_last_week}</option>
+<option value="last_month">{match_period_last_month}</option>
+<option value="last_year">{match_period_last_year}</option>
+<option value="shortmonth">{match_period_shortmonth}</option>
+
+<option value="month">{match_period_month}</option>
+<option value="day">{match_period_day}</option>
+<option value="shortday">{match_period_shortday}</option>
+</select>
+</td>
+<td class="normal_text" colspan="2"> 
+<label for="show_data">{match_label_show_data}</label><input class="submit" type="checkbox" value="yes" name="report_certificate_show_data" checked />
+<label for="data_number">{match_label_data_number}</label>
+<input type="text" value="20" name="report_certificate_limit" />
+</td></tr>
+<!--=======-->
+
+<!--=======-->
+
+<tr>
+<td class="normal_text"><label for="begin_period">{match_label_begin_period}</label></td><td class="normal_text"><input type="text" value="{match_value_begin_period}" name="report_certificate_begin" id="report_certificate_begin" />
+<button id="button_report_certificate_begin">...</button>
+</td>
+<td class="normal_text"><label for="end_period">{match_label_end_period}</label></td><td class="normal_text"><input type="text" value="{match_value_end_period}" name="report_certificate_end" id="report_certificate_end" />
+<button id="button_report_certificate_end">...</button>
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+<tr><td class="normal_text">{match_label_column}</td>
+
+<td class="normal_text">{match_report_select_function}</td><td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_certificate_column"  id="report_certificate_column" onchange="
+load_selected('report_certificate_column', 'report_certificate_where_column');
+load_selected('report_certificate_column', 'report_certificate_group_by_column');
+load_selected('report_certificate_column', 'report_certificate_order_by_column');
+load_selected('report_certificate_column', 'report_certificate_having_column');
+">
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='user_email'>user_email</option>
+
+<option value='version'>version</option>
+
+<option value='to_cn'>to_cn</option>
+
+<option value='to_o'>to_o</option>
+
+<option value='to_ou'>to_ou</option>
+
+<option value='from_cn'>from_cn</option>
+
+<option value='from_o'>from_o</option>
+
+<option value='from_ou'>from_ou</option>
+
+<option value='valid_from'>valid_from</option>
+
+<option value='valid_to'>valid_to</option>
+
+<option value='state'>state</option>
+
+<option value='cert_pkcs'>cert_pkcs</option>
+
+<option value='pub_key_pkcs'>pub_key_pkcs</option>
+
+<option value='status'>status</option>
+
+<option value='type'>type</option>
+
+<option value='login_script'>login_script</option>
+
+<option value='public_key'>public_key</option>
+
+<option value='private_key'>private_key</option>
+
+<option value='pass_phrase'>pass_phrase</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td></tr>
+
+
+
+<tr>
+<td class="normal_text" valign="top" colspan="4" >
+<p align="center">
+<input class="submit" type="submit" value="{match_submit1}" onclick="return confirm('{match_java_submit1}')" />
+</p>
+</td>
+</tr>
+
+
+
+
+</table>
+
+</td>
+</tr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+<td class="normal_text">
+ <input type="button" value="+" id="hide_report_certificate" onclick="show('extend_report_certificate');show('preview_report_certificate');hide('hide_report_certificate');">
+ <input class="hidded" type="button" value="-" id="preview_report_certificate" onclick="hide('extend_report_certificate');show('hide_report_certificate');hide('preview_report_certificate');" >
+
+<!--div id="hide_report_certificate" >
+
+<a onclick="show('extend_report_certificate');hide('hide_report_certificate');show('preview_report_certificate');">
++</a>
+</div>
+
+<div id="preview_report_certificate" class="hidded" >
+<a onclick="hide('extend_report_certificate');hide('preview_report_certificate');show('hide_report_certificate');">
+-</a>
+</div-->
+
+</td>
+</tr>
+<!--=======-->
+
+
+
+
+
+<tr>
+<td class="normal_text" valign="top">
+
+<table class="normal_text" border="1"  align="center" width="100%" >
+
+
+<!--=======-->
+
+<tr>
+<td class="normal_text">
+
+<div id="extend_report_certificate" class="hidded" >
+<table class="normal_text" border="1"  align="center">
+<tr><td class="normal_text">
+<label for="where">{match_label_where}</label></td><td class="normal_text">
+<select class="{match_class_select}" name="report_certificate_where_column" id="report_certificate_where_column">
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='user_email'>user_email</option>
+
+<option value='version'>version</option>
+
+<option value='to_cn'>to_cn</option>
+
+<option value='to_o'>to_o</option>
+
+<option value='to_ou'>to_ou</option>
+
+<option value='from_cn'>from_cn</option>
+
+<option value='from_o'>from_o</option>
+
+<option value='from_ou'>from_ou</option>
+
+<option value='valid_from'>valid_from</option>
+
+<option value='valid_to'>valid_to</option>
+
+<option value='state'>state</option>
+
+<option value='cert_pkcs'>cert_pkcs</option>
+
+<option value='pub_key_pkcs'>pub_key_pkcs</option>
+
+<option value='status'>status</option>
+
+<option value='type'>type</option>
+
+<option value='login_script'>login_script</option>
+
+<option value='public_key'>public_key</option>
+
+<option value='private_key'>private_key</option>
+
+<option value='pass_phrase'>pass_phrase</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+
+</select>
+</td>
+
+<td class="normal_text">
+<!--select name="func[]"-->
+{match_report_select_operator}
+</td><td class="normal_text">
+<input type="text" value="%%" name="report_certificate_where_value" size="28" />
+</td></tr>
+<!--=======-->
+
+
+<!--=======-->
+<tr><td class="normal_text"><label for="group_by">{match_label_group_by}</label></td>
+<td class="normal_text">
+<select class="{match_class_select}" name="report_certificate_group_by_column" id="report_certificate_group_by_column">
+
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='user_email'>user_email</option>
+
+<option value='version'>version</option>
+
+<option value='to_cn'>to_cn</option>
+
+<option value='to_o'>to_o</option>
+
+<option value='to_ou'>to_ou</option>
+
+<option value='from_cn'>from_cn</option>
+
+<option value='from_o'>from_o</option>
+
+<option value='from_ou'>from_ou</option>
+
+<option value='valid_from'>valid_from</option>
+
+<option value='valid_to'>valid_to</option>
+
+<option value='state'>state</option>
+
+<option value='cert_pkcs'>cert_pkcs</option>
+
+<option value='pub_key_pkcs'>pub_key_pkcs</option>
+
+<option value='status'>status</option>
+
+<option value='type'>type</option>
+
+<option value='login_script'>login_script</option>
+
+<option value='public_key'>public_key</option>
+
+<option value='private_key'>private_key</option>
+
+<option value='pass_phrase'>pass_phrase</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td>
+
+
+<td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_certificate_group_by_order">
+<option value="ASC" selected>{match_option_asc}</option>
+
+<option value="DESC">{match_option_desc}</option>
+</select>
+
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+<tr>
+<td class="normal_text">
+<label for="having">{match_label_having}</label>
+</td><td class="normal_text">
+<select class="{match_class_select}" name="report_certificate_having_column" id="report_certificate_having_column">
+<option value="*" selected>*</option>
+
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='user_email'>user_email</option>
+
+<option value='version'>version</option>
+
+<option value='to_cn'>to_cn</option>
+
+<option value='to_o'>to_o</option>
+
+<option value='to_ou'>to_ou</option>
+
+<option value='from_cn'>from_cn</option>
+
+<option value='from_o'>from_o</option>
+
+<option value='from_ou'>from_ou</option>
+
+<option value='valid_from'>valid_from</option>
+
+<option value='valid_to'>valid_to</option>
+
+<option value='state'>state</option>
+
+<option value='cert_pkcs'>cert_pkcs</option>
+
+<option value='pub_key_pkcs'>pub_key_pkcs</option>
+
+<option value='status'>status</option>
+
+<option value='type'>type</option>
+
+<option value='login_script'>login_script</option>
+
+<option value='public_key'>public_key</option>
+
+<option value='private_key'>private_key</option>
+
+<option value='pass_phrase'>pass_phrase</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td><td class="normal_text">
+{match_report_select_operator}
+</td><td class="normal_text">
+<input type="text" value="%%" name="report_certificate_having_value" size="28" />
+</td></tr>
+<!--select name="func[]"-->
+
+<!--=======-->
+
+
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+<tr><td class="normal_text">{match_label_order}</td>
+<td class="normal_text">
+<select class="{match_class_select}" name="report_certificate_order_by_column" id="report_certificate_order_by_column">
+<option value="*" selected>*</option>
+
+<option value='id'>id</option>
+
+<option value='serial'>serial</option>
+
+<option value='user_email'>user_email</option>
+
+<option value='version'>version</option>
+
+<option value='to_cn'>to_cn</option>
+
+<option value='to_o'>to_o</option>
+
+<option value='to_ou'>to_ou</option>
+
+<option value='from_cn'>from_cn</option>
+
+<option value='from_o'>from_o</option>
+
+<option value='from_ou'>from_ou</option>
+
+<option value='valid_from'>valid_from</option>
+
+<option value='valid_to'>valid_to</option>
+
+<option value='state'>state</option>
+
+<option value='cert_pkcs'>cert_pkcs</option>
+
+<option value='pub_key_pkcs'>pub_key_pkcs</option>
+
+<option value='status'>status</option>
+
+<option value='type'>type</option>
+
+<option value='login_script'>login_script</option>
+
+<option value='public_key'>public_key</option>
+
+<option value='private_key'>private_key</option>
+
+<option value='pass_phrase'>pass_phrase</option>
+
+<option value='my_master'>my_master</option>
+
+<option value='date_time'>date_time</option>
+
+<option value="serial" selected>serial</option>
+</select>
+</td>
+
+
+<td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_certificate_order_by_order">
+<option value="ASC" selected>{match_option_asc}</option>
+<option value="DESC">{match_option_desc}</option>
+</select>
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+<tr>
+<td class="normal_text">{match_label_width}</td>
+
+<td class="normal_text">
+<input type="text" value="600" name="report_certificate_width"  id="report_certificate_width" size="27" />
+</td>
+
+<td class="normal_text"><label for="height">{match_label_height}</label></td>
+
+<td class="normal_text">
+<input type="text" value="600" name="report_certificate_height"  id="report_certificate_height" size="28" />
+</td>
+</tr>
+
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+
+
+<tr>
+<td class="normal_text"><label for="color1">{match_label_color1}</label></td>
+
+<td class="normal_text">
+{match_report_select_color1}
+</td>
+
+<td class="normal_text"><label for="color2">{match_label_color2}</label></td>
+
+<td class="normal_text">
+{match_report_select_color2}
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="fillcolor1">{match_label_fillcolor1}</label></td>
+
+<td class="normal_text">
+{match_report_select_fillcolor1}
+</td>
+
+<td class="normal_text"><label for="fillcolor2">{match_label_fillcolor2}</label></td>
+
+<td class="normal_text">
+{match_report_select_fillcolor2}
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="font1">{match_label_font1}</label></td>
+
+<td class="normal_text">
+{match_report_select_font}
+</td>
+
+<td class="normal_text"><label for="font2">{match_label_font2}</label></td>
+
+<td class="normal_text">
+{match_report_select_font}
+
+</td>
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="save_to">{match_label_save_to}</label></td>
+
+<td class="normal_text" colspan="3">
+<input type="text" size="86" value="" name="report_certificate_path"  id="report_certificate__path" />
+</td>
+
+</tr>
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<!--=======--><!--=======--><!--=======--><!--=======--><!--=======--><!--=======-->
+<tr>
+<td class="normal_text"><label for="query">{match_label_query}</label></td>
+
+<td class="normal_text" colspan="3">
+</template2>
+<!--if($cmr->user["authorisation"] >= $cmr->config["cmr_admin_type"])-->
+<template3>
+<fieldset class="bubble"><legend>{match_legend_sql}:</legend>
+<p align="center">
+<select name="report_certificate_show" id="report_certificate_show" width="200" onchange="add_to_textarea('report_certificate_sql', 'report_certificate_show')">
+<option>?</option>
+{match_select_option_query}
+</select>
+<br />
+<textarea name="report_certificate_sql" id="report_certificate_sql" cols="73" rows="2">
+</textarea>
+</fieldset>
+
+</td>
+
+</tr>
+</table>
+
+</div>
+
+</template3>
+<!--=======-->
+
+
+<!--=======-->
+<template4>
+
+
+</td>
+</tr>
+ 
+ 
+ 
+<tr>
+<td class="normal_text" align="center">
+
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "report_certificate_begin",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",    // the date format
+      button      : "button_report_certificate_begin"       // ID of the button
+    }
+  );
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "report_certificate_end",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",    // the date format
+      button      : "button_report_certificate_end"       // ID of the button
+    }
+  );
+</script>  
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+
+
+</table>
+
+</td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+<td class="normal_text" valign="top">
+
+
+
+<table class="normal_text" border="1"  align="center" width="100%">
+<tr>
+<td class="normal_text" width="380" valign="top">
+
+
+
+<p align="left">
+<input class="submit" type="checkbox" name="check_all_table" id="all_table" value="yes" onclick="check_uncheck(this.form, 'all_table');"  checked />
+{match_link_report_certificate}
+<br />
+</p>
+
+<p align="left">
+<ul class="{match_class_ul}">
+
+<li>
+<input class=\"submit\" type='checkbox' value='id' name='report_certificate_id' checked />
+{match_link_report_certificate_id}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='serial' name='report_certificate_serial' checked />
+{match_link_report_certificate_serial}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='user_email' name='report_certificate_user_email' checked />
+{match_link_report_certificate_user_email}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='version' name='report_certificate_version' checked />
+{match_link_report_certificate_version}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='to_cn' name='report_certificate_to_cn' checked />
+{match_link_report_certificate_to_cn}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='to_o' name='report_certificate_to_o' checked />
+{match_link_report_certificate_to_o}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='to_ou' name='report_certificate_to_ou' checked />
+{match_link_report_certificate_to_ou}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='from_cn' name='report_certificate_from_cn' checked />
+{match_link_report_certificate_from_cn}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='from_o' name='report_certificate_from_o' checked />
+{match_link_report_certificate_from_o}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='from_ou' name='report_certificate_from_ou' checked />
+{match_link_report_certificate_from_ou}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='valid_from' name='report_certificate_valid_from' checked />
+{match_link_report_certificate_valid_from}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='valid_to' name='report_certificate_valid_to' checked />
+{match_link_report_certificate_valid_to}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='state' name='report_certificate_state' checked />
+{match_link_report_certificate_state}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='cert_pkcs' name='report_certificate_cert_pkcs' checked />
+{match_link_report_certificate_cert_pkcs}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='pub_key_pkcs' name='report_certificate_pub_key_pkcs' checked />
+{match_link_report_certificate_pub_key_pkcs}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='status' name='report_certificate_status' checked />
+{match_link_report_certificate_status}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='type' name='report_certificate_type' checked />
+{match_link_report_certificate_type}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='login_script' name='report_certificate_login_script' checked />
+{match_link_report_certificate_login_script}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='public_key' name='report_certificate_public_key' checked />
+{match_link_report_certificate_public_key}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='private_key' name='report_certificate_private_key' checked />
+{match_link_report_certificate_private_key}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='pass_phrase' name='report_certificate_pass_phrase' checked />
+{match_link_report_certificate_pass_phrase}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='my_master' name='report_certificate_my_master' checked />
+{match_link_report_certificate_my_master}
+</li>
+
+<li>
+<input class=\"submit\" type='checkbox' value='date_time' name='report_certificate_date_time' checked />
+{match_link_report_certificate_date_time}
+</li>
+
+</ul>
+</p>
+<p align="center">
+
+<input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+<input class="submit" type="submit" value="{match_submit2}" onclick="return confirm('{match_java_submit2}')" style="float: left" />
+</p>
+
+<br />
+
+
+</td>
+<!--=======-->
+
+
+
+
+<!--=======-->
+<td class="normal_text">
+
+<table class="normal_text" border="1"  align="center" width="8">
+<tr>
+
+<td class="normal_text" align="center">
+<!--=======-->
+<!--=======-->
+</template4>
+{match_include2}
+<!--include ($cmr->get_conf("cmr_class_path") . "class/graph_class.php");-->
+<template5>
+<br />
+ 
+<!--=======-->
+<!--=======-->
+<!--=======-->
+</td>
+</tr>
+</table>
+
+
+
+</td>
+<!--=======-->
+
+
+<!--=======-->
+</tr>
+ 
+
+</table>
+
+</td>
+</tr>
+</table>
+
+
+
+
+
+</form>
+</fieldset>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template5>
+</template>

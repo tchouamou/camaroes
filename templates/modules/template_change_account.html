@@ -1,0 +1,214 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+
+<div id="my_account_div">
+<br />
+<p class="normal_text">
+<b>{match_my_account_title1}</b>
+<br />
+<p class="normal_text">
+{match_my_account_title2}
+</p>
+<br />
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p class="normal_text">
+{match_list_link}
+</p>
+</fieldset>
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+
+
+
+
+
+<!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+<div id="change_account_div">
+
+
+<!--==================================================-->
+<!--==================================================-->
+
+
+<fieldset>
+<form action="index.php" method="post">
+<?php print(input_hidden("<input type=\"hidden\" value=\"get_data/get_change_email.php\" name=\"cmr_get_data\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . __FILE__ . "\" name=\"middle1\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . $id_user . "\" name=\"id_user\" />"));?>
+<b><?php print($cmr->translate("change email of:") . " (" . $user_email . ")");?></b>
+<br />
+<p  class="normal_text">
+<?php  print($cmr->translate("usefull to change email of user (") . $user_email . ")");
+?>
+</p>
+<br />
+
+
+
+<table border="0" align="center" >
+
+<!--tr align="left" >
+<td><?php print($cmr->translate("email_old"));
+?>:</td><td><input type="email" name="old_email" /> </td>
+</tr-->
+
+<tr align="left" >
+<td style="text-align:right;" ><?php print($cmr->translate("email_new"));
+?>:<span class="alert">*&nbsp;</span></td><td><input type="email" name="new_email1" /> </td>
+</tr>
+
+<tr align="left" >
+<td style="text-align:right;"><?php print($cmr->translate("email_new_confirm"));
+?>:<span class="alert">*&nbsp;</span></td><td><input type="email" name="new_email2" /> </td>
+</tr>
+<tr align="center" ><td align="center" colspan="4"><input class="submit" type="submit" value="<?php echo $cmr->translate("Change email");?>" onclick="return confirm('<?php print($cmr->translate("sure to change email"));
+?>')"/></td></tr>
+
+</table>
+</form>
+</fieldset>
+
+
+<!--==================================================-->
+<!--==================================================-->
+
+
+<fieldset>
+<form action="index.php" method="post">
+<?php print(input_hidden("<input type=\"hidden\" value=\"get_data/get_change_groups.php\" name=\"cmr_get_data\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . __FILE__ . "\" name=\"middle1\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . $id_groups . "\" name=\"id_groups\" />"));?>
+<b><?php print($cmr->translate("change groups of:") . " (" . $cmr->get_user("auth_email") . ")");?></b>
+<br />
+<p  class="normal_text">
+<?php  print($cmr->translate("usefull to change groups of user (") . $group_name . ")");
+?>
+</p>
+<br />
+
+
+
+<table border="0" align="center" >
+
+
+
+<tr align="left" >
+<td style="text-align:right;" ><?php print($cmr->translate("select new groups"));
+?>:<span class="alert">*&nbsp;</span></td>
+<td>
+
+<select name="group_name" id="group_name" >
+<?php 
+	$list_groups = explode("', '", $cmr->user["auth_list_group"]);
+    print("<option value=\"" . $group_name . "\" >" . $group_name . "</option>");
+    print(select_order($cmr->language, $list_groups, $list_groups, "0"));
+?>
+</select>
+
+</td>
+</tr>
+
+<tr align="center" ><td align="center" colspan="4"><input class="submit" type="submit" value="<?php echo $cmr->translate("Select groups");?>" onclick="return confirm('<?php print($cmr->translate("sure to change groups"));
+?>')"/></td></tr>
+
+</table>
+</form>
+</fieldset>
+
+
+<!--==================================================-->
+<!--==================================================-->
+
+
+<fieldset>
+<form action="index.php" method="post">
+<?php print(input_hidden("<input type=\"hidden\" value=\"get_data/get_change_pw.php\" name=\"cmr_get_data\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . __FILE__ . "\" name=\"middle1\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . $id_user . "\" name=\"id_user\" />"));?>
+<b><?php print($cmr->translate("change password of:") . " (" . $user_email . ")");?></b>
+<br />
+<p  class="normal_text">
+<?php  print($cmr->translate("usefull to change password of user (") . $user_email . ")");
+?>
+</p>
+<br />
+
+
+
+<table border="0" align="center" >
+
+<!--tr align="left" >
+<td><?php print($cmr->translate("pw_old"));
+?>:</td><td><input type="password" name="old_pw" /> </td>
+</tr-->
+
+<tr align="left" >
+<td style="text-align:right;" ><?php print($cmr->translate("pw_new"));
+?>:<span class="alert">*&nbsp;</span></td><td><input type="password" name="new_pw1" /> </td>
+</tr>
+
+<tr align="left" >
+<td style="text-align:right;"><?php print($cmr->translate("pw_new_confirm"));
+?>:<span class="alert">*&nbsp;</span></td><td><input type="password" name="new_pw2" /> </td>
+</tr>
+<tr align="center" ><td align="center" colspan="4"><input class="submit" type="submit" value="<?php echo $cmr->translate("Change Password");?>" onclick="return confirm('<?php print($cmr->translate("sure to change password"));
+?>')"/></td></tr>
+
+</table>
+</form>
+</fieldset>
+
+
+<!--==================================================-->
+<!--==================================================-->
+
+
+<fieldset>
+<form action="index.php" method="post">
+<?php print(input_hidden("<input type=\"hidden\" value=\"get_data/get_change_uid.php\" name=\"cmr_get_data\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . __FILE__ . "\" name=\"middle1\" />"));?>
+<?php print(input_hidden("<input type=\"hidden\" value=\"" . $id . "\" name=\"id_user\" />"));?>
+<b><?php print($cmr->translate("change uid of:") . " (" . $user_email . ")");?></b>
+<br />
+<p  class="normal_text">
+<?php  print($cmr->translate("usefull to change uid of user (") . $user_email . ")");
+?>
+</p>
+<br />
+
+
+
+<table border="0" align="center" >
+
+<!--tr align="left" >
+<td><?php print($cmr->translate("uid_old"));
+?>:</td><td><input type="uid" name="old_uid" /> </td>
+</tr-->
+
+<tr align="left" >
+<td style="text-align:right;" ><?php print($cmr->translate("uid_new"));
+?>:<span class="alert">*&nbsp;</span></td><td><input type="uid" name="new_uid1" /> </td>
+</tr>
+
+<tr align="left" >
+<td style="text-align:right;"><?php print($cmr->translate("uid_new_confirm"));
+?>:<span class="alert">*&nbsp;</span></td><td><input type="uid" name="new_uid2" /> </td>
+</tr>
+<tr align="center" ><td align="center" colspan="4"><input class="submit" type="submit" value="<?php echo $cmr->translate("Change uid");?>" onclick="return confirm('<?php print($cmr->translate("sure to change uid"));
+?>')"/></td></tr>
+
+</table>
+</form>
+</fieldset>
+
+
+<!--==================================================-->
+<!--==================================================-->
+
+
+</div>
+{match_close_windows_user_groups}
+</template3>
+</template>

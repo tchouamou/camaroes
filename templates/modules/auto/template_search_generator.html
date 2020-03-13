@@ -1,0 +1,210 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="search_generator_div">
+<p align="center">
+<b>{match_generator_title1}</b>
+</p>
+<!--p class="normal_text">
+{match_generator_title2}
+</p-->
+
+<form  action="index.php" method="post" onsubmit="return confirm('{match_submit_java}')" >
+<p align="center">
+{match_input_hidden_module1}
+{match_input_hidden_get1}
+{match_input_hidden_table}
+
+[{match_label_like}<input type="radio" name="cmr_action" value="like" checked />]&nbsp
+[{match_label_any}<input type="radio" name="cmr_action" value="any" />]&nbsp
+[{match_label_all}<input type="radio" name="cmr_action" value="all" />]&nbsp
+[{match_label_regexp}<input type="radio" name="cmr_action" value="regexp" />]
+<br />
+<input type="text" name="search_text" size="30" />
+<input class="submit" type="submit" value="{match_submit}"/>
+</p>
+</form>
+
+<br />
+
+
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<table border="0" align="center" >
+	<tr>
+		<td align="left">
+	     <input type="button" value="+" id="hide_search_generator" onclick="show('extra_search_generator');show('show_search_generator');hide('hide_search_generator');">
+	     <input class="hidded" type="button" value="-" id="show_search_generator" onclick="hide('extra_search_generator');show('hide_search_generator');hide('show_search_generator');" >
+		<b>{match_detail}</b>
+		</td>
+		<td align="left" >
+		
+		
+		<!--div id="hide_search_generator" ><a onclick="show('extra_search_generator');hide('hide_search_generator');show('show_search_generator');"><b>+</b></a></div>
+		<div id="show_search_generator" class="hidded" ><a onclick="hide('extra_search_generator');hide('show_search_generator');show('hide_search_generator');"><b>-</b></a></div-->
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" colspan="2">
+		<div id="extra_search_generator" >
+<!--
+//==============================================================
+//==============================================================
+?-->
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post"  id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<br />
+
+
+
+
+<fieldset class="bubble"><legend>{match_legend_generator}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+	
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="db"><b>{match_label_db}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_db')"><select class="hidded" name="func_db" id="id_func_func_db"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="db" name="db" onclick="large_id('generator,db')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="table_name"><b>{match_label_table_name}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_table_name')"><select class="hidded" name="func_table_name" id="id_func_func_table_name"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="table_name" name="table_name" onclick="large_id('generator,table_name')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="column"><b>{match_label_column}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_column')"><select class="hidded" name="func_column" id="id_func_func_column"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="column" name="column" onclick="large_id('generator,column')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="code1"><b>{match_label_code1}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_code1')"><select class="hidded" name="func_code1" id="id_func_func_code1"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="code1" name="code1" onclick="large_id('generator,code1')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="code2"><b>{match_label_code2}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_code2')"><select class="hidded" name="func_code2" id="id_func_func_code2"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="code2" name="code2" onclick="large_id('generator,code2')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="code3"><b>{match_label_code3}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_code3')"><select class="hidded" name="func_code3" id="id_func_func_code3"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="code3" name="code3" onclick="large_id('generator,code3')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+	
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+<input class="submit" type="submit" value="{match_submit}" />
+</p>
+</form>
+{match_script_calendar}
+
+
+
+<!--
+
+//==============================================================
+//==============================================================
+?-->
+		
+		</div>
+		</td>
+	</tr>
+</table>
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<script language="javascript" type="text/javascript">
+hide("extra_search_generator");
+</script>
+
+
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

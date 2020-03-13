@@ -56,8 +56,9 @@ $division->module["title"] = $cmr->translate($mod->base_name);
 // $division->module["text"] = "";
 $division->prints["match_open_windows"] = $division->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+ 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+$division->prints["match_reset_form"] = $cmr->translate("reset"); 
 $division->prints["match_comment_title1"] = ""; 
 $division->prints["match_comment_title2"] = ""; 
 if(($cmr->translate($mod->base_name))) 
@@ -68,8 +69,11 @@ $division->prints["match_comment_title2"] = $cmr->translate($mod->base_name . "_
   $table_name = get_post("table_name");
   $line_id = get_post("line_id");
   
-  if(!($table_name)) $table_name = $cmr->post_var["table_name"];
-  if(!($line_id)) $line_id = $cmr->post_var["line_id"];
+  if(empty($cmr->post_var["table_name"])) $cmr->post_var["table_name"] =  "";
+  if(empty($cmr->post_var["line_id"])) $cmr->post_var["line_id"] =  "";
+  
+  if(empty($table_name)) $table_name = $cmr->post_var["table_name"];
+  if(empty($line_id)) $line_id = $cmr->post_var["line_id"];
   
   if($table_name)
   $division->prints["match_policy_title2"] = $cmr->translate("New comment for [" . $table_name ."]");

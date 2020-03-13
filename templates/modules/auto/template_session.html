@@ -1,0 +1,162 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="update_session_div">
+<p align="center">
+<b>{match_session_title1}</b>
+</p>
+<p class="normal_text">
+{match_session_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_session}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_session}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="sessionid"><b>{match_label_sessionid}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_sessionid')"><select class="hidded" name="func_sessionid" id="id_func_func_sessionid"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_sessionid}"  id="sessionid" name="sessionid" onclick="large_id('session,sessionid')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="sessionip"><b>{match_label_sessionip}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_sessionip')"><select class="hidded" name="func_sessionip" id="id_func_func_sessionip"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_sessionip}"  id="sessionip" name="sessionip" onclick="large_id('session,sessionip')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="user_email"><b>{match_label_user_email}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_user_email')"><select class="hidded" name="func_user_email" id="id_func_func_user_email"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<select name="user_email" id="user_email"  onclick="large_id('session,user_email')">{match_value_user_email}<option value=""></option>{match_link_user_email}
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="status"><b>{match_label_status}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_status')"><select class="hidded" name="func_status" id="id_func_func_status"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_status}"  id="status" name="status" onclick="large_id('session,status')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="state"><b>{match_label_state}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_state')"><select class="hidded" name="func_state" id="id_func_func_state"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_state}"  id="state" name="state" onclick="large_id('session,state')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_time_out')"><select class="hidded" name="func_time_out" id="id_func_func_time_out"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="session_end"><b>{match_label_session_end}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_session_end')"><select class="hidded" name="func_session_end" id="id_func_func_session_end"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input type="text" value="{match_value_session_end}" id="date_time_session_end" name="session_end" onclick="large_id('session,session_end')" onfocus="this.select()" /><button id="button_{match_base_name}session_end">...</button>
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.cmr_module.value=update_session;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.cmr_module.value=new_session;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+{match_close_windows}
+</div>
+</template1>
+</template>

@@ -1,0 +1,234 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="search_cve_action_div">
+<p align="center">
+<b>{match_cve_action_title1}</b>
+</p>
+<!--p class="normal_text">
+{match_cve_action_title2}
+</p-->
+
+<form  action="index.php" method="post" onsubmit="return confirm('{match_submit_java}')" >
+<p align="center">
+{match_input_hidden_module1}
+{match_input_hidden_get1}
+{match_input_hidden_table}
+
+[{match_label_like}<input type="radio" name="cmr_action" value="like" checked />]&nbsp
+[{match_label_any}<input type="radio" name="cmr_action" value="any" />]&nbsp
+[{match_label_all}<input type="radio" name="cmr_action" value="all" />]&nbsp
+[{match_label_regexp}<input type="radio" name="cmr_action" value="regexp" />]
+<br />
+<input type="text" name="search_text" size="30" />
+<input class="submit" type="submit" value="{match_submit}"/>
+</p>
+</form>
+
+<br />
+
+
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<table border="0" align="center" >
+	<tr>
+		<td align="left">
+	     <input type="button" value="+" id="hide_search_cve_action" onclick="show('extra_search_cve_action');show('show_search_cve_action');hide('hide_search_cve_action');">
+	     <input class="hidded" type="button" value="-" id="show_search_cve_action" onclick="hide('extra_search_cve_action');show('hide_search_cve_action');hide('show_search_cve_action');" >
+		<b>{match_detail}</b>
+		</td>
+		<td align="left" >
+		
+		
+		<!--div id="hide_search_cve_action" ><a onclick="show('extra_search_cve_action');hide('hide_search_cve_action');show('show_search_cve_action');"><b>+</b></a></div>
+		<div id="show_search_cve_action" class="hidded" ><a onclick="hide('extra_search_cve_action');hide('show_search_cve_action');show('hide_search_cve_action');"><b>-</b></a></div-->
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" colspan="2">
+		<div id="extra_search_cve_action" >
+<!--
+//==============================================================
+//==============================================================
+?-->
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post"  id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<br />
+
+
+
+
+<fieldset class="bubble"><legend>{match_legend_cve_action}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+	
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="cve_number"><b>{match_label_cve_number}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_cve_number')"><select class="hidded" name="func_cve_number" id="id_func_func_cve_number"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="cve_number" name="cve_number" onclick="large_id('cve_action,cve_number')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="group_name"><b>{match_label_group_name}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_group_name')"><select class="hidded" name="func_group_name" id="id_func_func_group_name"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="group_name" name="group_name" onclick="large_id('cve_action,group_name')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="user_email"><b>{match_label_user_email}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_user_email')"><select class="hidded" name="func_user_email" id="id_func_func_user_email"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="user_email" name="user_email" onclick="large_id('cve_action,user_email')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="asset_ip"><b>{match_label_asset_ip}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_asset_ip')"><select class="hidded" name="func_asset_ip" id="id_func_func_asset_ip"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="asset_ip" name="asset_ip" onclick="large_id('cve_action,asset_ip')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="service_name"><b>{match_label_service_name}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_service_name')"><select class="hidded" name="func_service_name" id="id_func_func_service_name"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="service_name" name="service_name" onclick="large_id('cve_action,service_name')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="action"><b>{match_label_action}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_action')"><select class="hidded" name="func_action" id="id_func_func_action"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="action" name="action" onclick="large_id('cve_action,action')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="ticket_number"><b>{match_label_ticket_number}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_ticket_number')"><select class="hidded" name="func_ticket_number" id="id_func_func_ticket_number"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="ticket_number" name="ticket_number" onclick="large_id('cve_action,ticket_number')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="my_master"><b>{match_label_my_master}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_my_master')"><select class="hidded" name="func_my_master" id="id_func_func_my_master"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="my_master" name="my_master" onclick="large_id('cve_action,my_master')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+	
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+<input class="submit" type="submit" value="{match_submit}" />
+</p>
+</form>
+{match_script_calendar}
+
+
+
+<!--
+
+//==============================================================
+//==============================================================
+?-->
+		
+		</div>
+		</td>
+	</tr>
+</table>
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<script language="javascript" type="text/javascript">
+hide("extra_search_cve_action");
+</script>
+
+
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

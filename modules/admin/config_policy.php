@@ -117,6 +117,16 @@ $lk->add_link("modules/admin/configure_tab.php?conf_name=conf.d/modules/conf_con
 $lk->add_link("modules/menu_config.php?conf_name=conf.d/modules/conf_config.ini", 1);
 print($lk->list_link());
 
+if(empty($cmr->config[$text_key . "0"])) $cmr->config[$text_key . "0"] = "";
+if(empty($cmr->config[$text_key . "1"])) $cmr->config[$text_key . "1"] = "";
+if(empty($cmr->config[$text_key . "2"])) $cmr->config[$text_key . "2"] = "";
+if(empty($cmr->config[$text_key . "3"])) $cmr->config[$text_key . "3"] = "";
+if(empty($cmr->config[$text_key . "4"])) $cmr->config[$text_key . "4"] = "";
+if(empty($cmr->config[$text_key . "5"])) $cmr->config[$text_key . "5"] = "";
+if(empty($cmr->config[$text_key . "6"])) $cmr->config[$text_key . "6"] = "";
+if(empty($cmr->config[$text_key . "7"])) $cmr->config[$text_key . "7"] = "";
+
+
 (cmr_search("^\+all", $cmr->config[$text_key . "0"])) ? $default0 = "+all" : $default0 = "-all";
 (cmr_search("^\+all", $cmr->config[$text_key . "1"])) ? $default1 = "+all" : $default1 = "-all";
 (cmr_search("^\+all", $cmr->config[$text_key . "2"])) ? $default2 = "+all" : $default2 = "-all";

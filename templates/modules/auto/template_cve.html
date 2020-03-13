@@ -1,0 +1,210 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="update_cve_div">
+<p align="center">
+<b>{match_cve_title1}</b>
+</p>
+<p class="normal_text">
+{match_cve_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_cve}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_cve}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="number"><b>{match_label_number}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_number')"><select class="hidded" name="func_number" id="id_func_func_number"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_number}"  id="number" name="number" onclick="large_id('cve,number')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="title"><b>{match_label_title}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_title')"><select class="hidded" name="func_title" id="id_func_func_title"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_title}"  id="title" name="title" onclick="large_id('cve,title')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="severity"><b>{match_label_severity}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_severity')"><select class="hidded" name="func_severity" id="id_func_func_severity"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_severity}"  id="severity" name="severity" onclick="large_id('cve,severity')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="platform"><b>{match_label_platform}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_platform')"><select class="hidded" name="func_platform" id="id_func_func_platform"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_platform}"  id="platform" name="platform" onclick="large_id('cve,platform')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="problem"><b>{match_label_problem}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_problem')"><select class="hidded" name="func_problem" id="id_func_func_problem"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<textarea rows="8" cols="40" name="problem" id="problem" onfocus="this.select()" >{match_value_problem}</textarea>
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="solution"><b>{match_label_solution}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_solution')"><select class="hidded" name="func_solution" id="id_func_func_solution"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<textarea rows="8" cols="40" name="solution" id="solution" onfocus="this.select()" >{match_value_solution}</textarea>
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="refer"><b>{match_label_refer}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_refer')"><select class="hidded" name="func_refer" id="id_func_func_refer"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<textarea rows="8" cols="40" name="refer" id="refer" onfocus="this.select()" >{match_value_refer}</textarea>
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="other"><b>{match_label_other}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_other')"><select class="hidded" name="func_other" id="id_func_func_other"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<textarea rows="8" cols="40" name="other" id="other" onfocus="this.select()" >{match_value_other}</textarea>
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_release_date')"><select class="hidded" name="func_release_date" id="id_func_func_release_date"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="last_revision"><b>{match_label_last_revision}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_last_revision')"><select class="hidded" name="func_last_revision" id="id_func_func_last_revision"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value="{match_value_last_revision}"  id="last_revision" name="last_revision" onclick="large_id('cve,last_revision')" onfocus="this.select()" />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="my_master"><b>{match_label_my_master}:</b></label>
+  </th>
+   <td align='rigth'>
+    <span onclick="show('id_func_func_my_master')"><select class="hidded" name="func_my_master" id="id_func_func_my_master"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input type="button" value="+" id="hide_my_master" onclick="show('extra_my_master');show('hide_my_master');hide('hide_my_master');"><input class="hidded" type="button" value="-" id="show_my_master" onclick="hide('extra_my_master');show('hide_my_master');hide('show_my_master');"><div id="extra_my_master" style="visibility:hidden; display:none"><table class="normal_text" border="1" align="left"><tr><td align="left"><select name="my_master" id="my_master"  onclick="large_id('cve,my_master')">{match_value_my_master}<option value=""></option>{match_link_my_master}</td></tr></table></div><br />
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+    
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.cmr_module.value=update_cve;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.cmr_module.value=new_cve;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+{match_close_windows}
+</div>
+</template1>
+</template>

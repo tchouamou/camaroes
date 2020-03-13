@@ -1,0 +1,99 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>HelpGenerator Menu</title>
+<link rel="stylesheet" type="text/css" href="styles/interface.css"/>
+<link rel="stylesheet" type="text/css" href="tools/xtree.css"/>
+<script src="tools/classTree.js"></script>
+</head>
+<body bgcolor="#FFFFFF" topmargin="1" leftmargin="1" rightmargin="1" bottommargin="1">
+<a href="FileTree.html">Files</a> - Classes: <a href="ClassTree.html">Tree</a> - <a href="ClassList.html">List</a> - <a href="FunctionList.html">Functions</a>
+<div class="separator"></div>
+<script language="Javascript">
+
+if (document.getElementById) {
+  var tree = new WebFXTree('Class List', 'tools/Legend.html');
+  tree.setBehavior('classic');
+  tree.openIcon = 'images/help-book.gif';
+  tree.icon = 'images/help-book.gif';
+
+
+
+	var class_table_ = new WebFXTreeItem('_table_ (class_model.php)', 'class._table_.html');
+	class_table_.openIcon = 'images/class.gif';
+	class_table_.icon = 'images/class.gif';
+	tree.add(class_table_);
+
+
+	var classcamaroes = new WebFXTreeItem('camaroes (camaroes_class.php)', 'class.camaroes.html');
+	classcamaroes.openIcon = 'images/class.gif';
+	classcamaroes.icon = 'images/class.gif';
+	tree.add(classcamaroes);
+
+
+	var classcmr_graph = new WebFXTreeItem('cmr_graph (class_graph.php)', 'class.cmr_graph.html');
+	classcmr_graph.openIcon = 'images/class.gif';
+	classcmr_graph.icon = 'images/class.gif';
+	tree.add(classcmr_graph);
+
+
+	var classcmr_sql = new WebFXTreeItem('cmr_sql (class_sql.php)', 'class.cmr_sql.html');
+	classcmr_sql.openIcon = 'images/class.gif';
+	classcmr_sql.icon = 'images/class.gif';
+	tree.add(classcmr_sql);
+
+
+	var classdatabase = new WebFXTreeItem('database (class_database.php)', 'class.database.html');
+	classdatabase.openIcon = 'images/class.gif';
+	classdatabase.icon = 'images/class.gif';
+	tree.add(classdatabase);
+
+
+	var classgenerator = new WebFXTreeItem('generator (class_form_generator.php)', 'class.generator.html');
+	classgenerator.openIcon = 'images/class.gif';
+	classgenerator.icon = 'images/class.gif';
+	tree.add(classgenerator);
+
+
+	var classgenerator_class = new WebFXTreeItem('generator_class (class_generator.php)', 'class.generator_class.html');
+	classgenerator_class.openIcon = 'images/class.gif';
+	classgenerator_class.icon = 'images/class.gif';
+	tree.add(classgenerator_class);
+
+
+	var classimap_class = new WebFXTreeItem('imap_class (class_imap.php)', 'class.imap_class.html');
+	classimap_class.openIcon = 'images/class.gif';
+	classimap_class.icon = 'images/class.gif';
+	tree.add(classimap_class);
+
+
+	var classmodule_link = new WebFXTreeItem('module_link (class_link.php)', 'class.module_link.html');
+	classmodule_link.openIcon = 'images/class.gif';
+	classmodule_link.icon = 'images/class.gif';
+	tree.add(classmodule_link);
+
+
+	var classopen_window = new WebFXTreeItem('open_window (func_windows.php)', 'class.open_window.html');
+	classopen_window.openIcon = 'images/class.gif';
+	classopen_window.icon = 'images/class.gif';
+	tree.add(classopen_window);
+
+
+	var classPDF = new WebFXTreeItem('PDF (class_pdf.php)', 'class.PDF.html');
+	classPDF.openIcon = 'images/class.gif';
+	classPDF.icon = 'images/class.gif';
+	tree.add(classPDF);
+
+
+	var classphpexplorator = new WebFXTreeItem('phpexplorator (phpexplorator.class.php)', 'class.phpexplorator.html');
+	classphpexplorator.openIcon = 'images/class.gif';
+	classphpexplorator.icon = 'images/class.gif';
+	tree.add(classphpexplorator);
+  
+ 
+  document.write(tree);
+}
+</script>
+<div class="separator"></div>
+</body>
+</html>

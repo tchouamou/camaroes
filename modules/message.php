@@ -829,7 +829,7 @@ if(empty($cmr->post_var["id_message"])){
     $division->prints["match_value_title"]  = $result_value["title"];
     $division->prints["match_value_text"] = $result_value["text"];
     (empty($r_model->mail_title)) ? $mail_title =  "message:{{message_title}}" : $mail_title = $r_model->mail_title ;
-    $division->prints["match_value_comment"] .= $result_value["comment"] . "\n* " . date("Y-m-d H:i:s") . $cmr->translate(" Updated by [") . $cmr->get_user("auth_email") . "]\n";
+    $division->prints["match_value_comment"] .= "";// $result_value["comment"] . "\n* " . date("Y-m-d H:i:s") . $cmr->translate(" Updated by [") . $cmr->get_user("auth_email") . "]\n";
     $division->prints["match_value_pre_text"] = $result_value["text"];
 
 
@@ -842,7 +842,7 @@ if(empty($cmr->post_var["id_message"])){
     $division->prints["match_submit_text"]  = $cmr->translate("reply_message");
     $division->prints["match_submit_text"]  = $cmr->translate("reply_message");
 //   $division->prints["match_load_script"]  = "<script language=\"javascript\" type=\"text/javascript\">load_model(this.form,'model', 'message_');</script>";
-    $division->prints["match_load_script"] ="";
+    $division->prints["match_load_script"] = "";
     break;
 
 // ==============================================================

@@ -1,0 +1,210 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="search_statistic_div">
+<p align="center">
+<b>{match_statistic_title1}</b>
+</p>
+<!--p class="normal_text">
+{match_statistic_title2}
+</p-->
+
+<form  action="index.php" method="post" onsubmit="return confirm('{match_submit_java}')" >
+<p align="center">
+{match_input_hidden_module1}
+{match_input_hidden_get1}
+{match_input_hidden_table}
+
+[{match_label_like}<input type="radio" name="cmr_action" value="like" checked />]&nbsp
+[{match_label_any}<input type="radio" name="cmr_action" value="any" />]&nbsp
+[{match_label_all}<input type="radio" name="cmr_action" value="all" />]&nbsp
+[{match_label_regexp}<input type="radio" name="cmr_action" value="regexp" />]
+<br />
+<input type="text" name="search_text" size="30" />
+<input class="submit" type="submit" value="{match_submit}"/>
+</p>
+</form>
+
+<br />
+
+
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<table border="0" align="center" >
+	<tr>
+		<td align="left">
+	     <input type="button" value="+" id="hide_search_statistic" onclick="show('extra_search_statistic');show('show_search_statistic');hide('hide_search_statistic');">
+	     <input class="hidded" type="button" value="-" id="show_search_statistic" onclick="hide('extra_search_statistic');show('hide_search_statistic');hide('show_search_statistic');" >
+		<b>{match_detail}</b>
+		</td>
+		<td align="left" >
+		
+		
+		<!--div id="hide_search_statistic" ><a onclick="show('extra_search_statistic');hide('hide_search_statistic');show('show_search_statistic');"><b>+</b></a></div>
+		<div id="show_search_statistic" class="hidded" ><a onclick="hide('extra_search_statistic');hide('show_search_statistic');show('hide_search_statistic');"><b>-</b></a></div-->
+		</td>
+	</tr>
+	
+	<tr>
+		<td align="left" colspan="2">
+		<div id="extra_search_statistic" >
+<!--
+//==============================================================
+//==============================================================
+?-->
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post"  id="{match_form_id}">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<br />
+
+
+
+
+<fieldset class="bubble"><legend>{match_legend_statistic}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+	
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="name"><b>{match_label_name}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_name')"><select class="hidded" name="func_name" id="id_func_func_name"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="name" name="name" onclick="large_id('statistic,name')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="type"><b>{match_label_type}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_type')"><select class="hidded" name="func_type" id="id_func_func_type"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="type" name="type" onclick="large_id('statistic,type')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="period_begin"><b>{match_label_period_begin}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_period_begin')"><select class="hidded" name="func_period_begin" id="id_func_func_period_begin"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="period_begin" name="period_begin" onclick="large_id('statistic,period_begin')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="period_end"><b>{match_label_period_end}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_period_end')"><select class="hidded" name="func_period_end" id="id_func_func_period_end"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="period_end" name="period_end" onclick="large_id('statistic,period_end')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="data"><b>{match_label_data}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_data')"><select class="hidded" name="func_data" id="id_func_func_data"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="data" name="data" onclick="large_id('statistic,data')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	<label for="my_master"><b>{match_label_my_master}:</b></label>
+  </th>
+   <td align='rigth'>
+	<span onclick="show('id_func_func_my_master')"><select class="hidded" name="func_my_master" id="id_func_func_my_master"  ><option value=""></option><option value="EXACT">EXACT</option><option value="LIKE">LIKE</option><option value="LIKE %...%">LIKE %...%</option><option value="NOT LIKE">NOT LIKE</option><option value="=">=</option><option value="!=">!=</option><option value="REGEXP">REGEXP</option><option value="NOT REGEXP">NOT REGEXP</option><option value="IN">IN</option><option value="NOT IN">NOT IN</option><option value="IS NULL">IS NULL</option><option value="IS NOT NULL">IS NOT NULL</option></select></span>
+   </td>
+  <td align='left'>
+ 	<input size="20" type="text" value=""  id="my_master" name="my_master" onclick="large_id('statistic,my_master')">
+  </td>
+ </tr>
+
+ <tr>
+  <th align='rigth'>
+ 	
+  </th>
+   <td align='rigth'>
+	
+   </td>
+  <td align='left'>
+ 	
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+<p align="center">
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}')" />
+<input class="submit" type="submit" value="{match_submit}" />
+</p>
+</form>
+{match_script_calendar}
+
+
+
+<!--
+
+//==============================================================
+//==============================================================
+?-->
+		
+		</div>
+		</td>
+	</tr>
+</table>
+<!--
+//==============================================================
+//==============================================================
+//==============================================================
+//==============================================================
+?-->
+<script language="javascript" type="text/javascript">
+hide("extra_search_statistic");
+</script>
+
+
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+</template>

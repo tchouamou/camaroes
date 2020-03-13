@@ -52,7 +52,7 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_www_path"] = $cmr->get_path("www");
-
+ 
 
 $division->prints["match_home"] = $cmr->translate(" |Home| ");
 
@@ -69,7 +69,7 @@ $division->prints["match_exit"] = $cmr->translate("|Exit|");
 
 
 $division->prints["match_www_path"] = $cmr->get_path("www");
-$division->prints["{match_class_a}"] = "link";
+$division->prints["match_link_menu_general"] = $division->prints["match_link_menu_list"];
 
 
 

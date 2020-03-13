@@ -1,0 +1,331 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<p align="center">
+<b>{match_query_title1}</b>
+{match_num_row_link}
+&nbsp;&nbsp;&nbsp;&nbsp;
+{match_button_assign_del}
+</p>
+<p class="normal_text">
+{match_query_title2}
+</p>
+
+
+
+<div id="{match_base_name}_div" >
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}" >
+{match_input_hidden_page}
+{match_input_hidden_search}
+<select {match_input_select} name="{match_base_name}_page" onchange="this.form.submit();">
+<option value="{match_table_page}">Page {match_table_page}</option>
+<option value="0">{match_page_0}</option>
+{match_option_page}
+</select>
+
+<label for="limit">{match_label_limit}</label>
+<input type="{match_input_text}" size="5" value="{match_value_limit}" name="{match_base_name}_limit" />
+<input class="submit" type="{match_input_submit}" value=">" />
+&nbsp;&nbsp;&nbsp;&nbsp;
+<label for="search">{match_label_search}</label>
+<input type="{match_input_text}" size="15" value="{match_value_search}" name="__all__{match_base_name}" />
+<input class="submit" type="{match_input_submit}" value=">" />
+</form>
+
+
+
+<table align="left" width="100%" class="normal_text" border="1">
+<form action="index.php" method="post" id="form_{match_base_name}" >
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_search}
+
+<!--input name="check_action" value="" type="hidden" /-->
+<tr>
+<td class="rown3">
+<input type="text" size="3" value="{match_value_columns}" name="{match_base_name}_columns" />
+</td>
+
+<td class="rown1">
+!<input type="checkbox" name="{match_base_name}_not" value=" NOT " {match_checked} />
+</td>
+
+{match_table_link_input}
+
+<td class="rown1" onclick="show('date_time_{match_base_name}1');show('date_time_{match_base_name}2');" class="rown2" align="center" >
+	<input {match_date_style1} value="{match_date_value1}" type="text" size="8" name="date_time_{match_base_name}1" id="date_time_{match_base_name}1" />
+	<input {match_date_style2} value="{match_date_value2}" type="text" size="8" name="date_time_{match_base_name}2" id="date_time_{match_base_name}2" />
+</td>
+
+
+<td class="rown1" align="center">
+	<button id="button_date_time_{match_base_name}1">...</button> - 
+	<button id="button_date_time_{match_base_name}2">...</button>
+	<input class="submit" type="submit" value=">" />
+</td>
+</tr>
+
+
+<tr>
+<td class="rown3">
+{match_view_order}
+</td>
+
+</form>
+
+
+<form action="index.php" method="post" id="form_{match_base_name}" >
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_search}
+
+<td class="rown3">
+<input type="checkbox" id="{match_base_name}_sel_all" onclick="check_uncheck(this.form, '{match_base_name}_sel_all')" value="yes" />
+</td>
+
+{match_table_link_titles}
+
+<td class="rown3"><b>
+{match_view_date_time}
+</b>
+
+</td>
+<!--button id="button_date_time_{match_base_name}">...</button-->
+<td class="rown3"><b>{match_view_link}</b></td>
+</tr>
+{match_table_link_all}
+<input name="num_view" value="{match_num_view}" type="hidden" />
+<tr>
+<td class="normal_text" colspan="{match_last_line}">
+
+<select {match_input_select} name="check_action" >
+<option value="{match_value_action}">{match_lang_action}</option>
+<option value="view">{match_lang_view}</option>
+<option value="update">{match_lang_update}</option>
+<option value="delete">{match_lang_delete}</option>
+<option value="policy">{match_lang_policy}</option>
+<option value="comment">{match_lang_comment}</option>
+{match_options_action}
+</select>
+<input type="{match_input_submit}" value="{match_submit_action}" />
+
+</td>
+</tr>
+</form>
+
+</table>
+<p>&nbsp;</p>
+<p>{match_show_next_preview_bar} </p>
+
+
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "date_time_{match_base_name}1",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",   // the date format
+      button      : "button_date_time_{match_base_name}1"       // ID of the button
+    }
+  );
+</script>  
+
+
+<script type="text/javascript">
+  Calendar.setup(
+    {
+      showsTime      :    true,
+      timeFormat     :    "24",
+      inputField  : "date_time_{match_base_name}2",         // ID of the input field
+      ifFormat    : "%Y-%m-%d %H:%M:00",   // the date format
+      button      : "button_date_time_{match_base_name}2"       // ID of the button
+    }
+  );
+</script>  
+
+
+
+
+
+
+<form action="{match_www_path}index.php?cmr_mode=pdf&ext=.pdf" method="post" id="form_query__pdf">
+
+<!--input type="hidden" value="cmr_mode" name="pdf" />
+<input type="hidden" name="ext" value=".pdf" /-->
+<input type="hidden" name="title"     id="pdf_{match_base_name}_title"    value="{match_pdf_title}" />
+<input type="hidden" name="author"    id="pdf_{match_base_name}_author"   value="{match_pdf_author}" />
+<input type="hidden" name="file"      id="pdf_{match_base_name}_file"     value="{match_pdf_file}" />
+<input type="hidden" name="links"     id="pdf_{match_base_name}_links"    value="{match_pdf_links}" />
+<input type="hidden" name="data_type" id="pdf_{match_base_name}_data_type" value="{match_pdf_data_type}" />
+<input type="hidden" name="dim_col"   id="pdf_{match_base_name}_dim_col"  value="{match_pdf_dim_col}" />
+<input type="hidden" name="header"    id="pdf_{match_base_name}_header"   value="{match_pdf_header}" />
+<textarea  class="hidded" name="data" id="pdf_{match_base_name}_data"  >{match_pdf_data}</textarea>
+<p align="center">
+<input class="submit" type="submit" value="pdf" onclick="return confirm('confirm')" />
+</p>
+</form>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template1>
+<!------------------------------>
+
+
+
+
+
+<!------------------------------>
+<template2>
+{match_open_windows}
+{match_open_tab}
+<p align="center">
+<b>{match_query_title1}</b>
+{match_num_row_link}
+&nbsp;&nbsp;&nbsp;&nbsp;
+{match_button_assign_del}
+</p>
+<p class="normal_text">
+{match_query_title2}
+</p>
+
+
+<div id="{match_base_name}_div">
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form_id}" >
+{match_input_hidden_page}
+{match_input_hidden_search}
+<select name="{match_base_name}_page" onchange="this.form.submit();">
+<option value="{match_table_page}">Page {match_table_page}</option>
+<option value="0">{match_page_0}</option>
+{match_option_page}
+</select>
+
+<label for="limit">{match_label_limit}</label><input type="{match_input_text}" size="5" value="{match_value_limit}" name="{match_base_name}_limit" />
+<input class="submit" type="{match_input_submit}" value=">" />
+&nbsp;&nbsp;<label for="search">{match_label_search}</label><input type="{match_input_text}" size="15" value="{match_value_search}" name="__all__{match_base_name}" />
+<input class="submit" type="{match_input_submit}" value=">" />
+</form>
+
+
+<fieldset class="bubble"><legend>{match_fieldset_legend}</legend>
+<form action="{match_www_path}index.php?{match_form_param}&cmr_conf=conf.d/conf_{match_base_name}.php" method="post" id="{match_form_id}" >
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+{match_input_hidden_search}
+<!--input name="check_action" value="" type="hidden" /-->
+<ul>
+{match_table_link_all}
+</ul>
+<p align="center">
+{match_show_next_preview_bar}
+</p>
+<input name="num_view" value="{match_num_view}" type="hidden" />
+<select {match_input_select} name="check_action" >
+<option value="{match_value_action}">{match_lang_action}</option>
+<option value="view">{match_lang_view}</option>
+<option value="update">{match_lang_update}</option>
+<option value="delete">{match_lang_delete}</option>
+<option value="policy">{match_lang_policy}</option>
+<option value="comment">{match_lang_comment}</option>
+{match_options_action}
+</select>
+<input type="{match_input_submit}" value="{match_submit_action}" />
+</form>
+</fieldset>
+    
+<form action="{match_www_path}index.php?cmr_mode=pdf&ext=.pdf" method="post" id="form_query_pdf">
+<!--input type="hidden" value="cmr_mode" name="pdf" />
+<input type="hidden" name="ext" value=".pdf" /-->
+<input type="hidden" name="title"     id="pdf_query_title"    value="{match_pdf_title}" />
+<input type="hidden" name="author"    id="pdf_query_author"   value="{match_pdf_author}" />
+<input type="hidden" name="file"      id="pdf_query_file"     value="{match_pdf_file}" />
+<input type="hidden" name="links"     id="pdf_query_links"    value="{match_pdf_links}" />
+<input type="hidden" name="data_type" id="pdf_query_data_type" value="{match_pdf_data_type}" />
+<input type="hidden" name="dim_col"   id="pdf_query_dim_col"  value="{match_pdf_dim_col}" />
+<input type="hidden" name="header"    id="pdf_query_header"   value="{match_pdf_header}" />
+<textarea class="hidded" name="data" id="pdf_query_data"  >
+{match_pdf_data}
+</textarea>
+<p align="center">
+<input class="submit" type="submit" value="pdf" onclick="return confirm('confirm')" />
+</p>
+</form>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+
+</div>
+{match_close_tab}
+{match_close_windows}
+</template2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<template3>
+	<li>
+		{match_value_check_box}
+		<img alt=">" src="{match_source_image}" border="0"  title="{match_title_image}" />
+		<b>{match_show_column1}</b>:<i>[{match_link_date_time}] ({match_text_column1}</i>
+		<br /> {match_link_val}
+	</li> 
+	
+	
+</template3>
+
+
+<template4>
+<tr>
+<td class="rown3">{match_row_num}</td>
+<td class="rown1" >{match_value_check_box}<img alt=">" src="{match_source_image}" border="0"  title="{match_title_image}" /></td>
+</template4>
+
+
+<template5>
+<td class="rown{match_col_num}">{match_link_val}</td>
+</template5>
+
+
+<template6>
+<td class="rown2" >{match_link_date_time}</td>
+<td class="rown1" >{match_link_update}{match_link_preview}{match_link_delete}</td>
+</tr>
+
+
+
+</template6>
+
+
+<template7>
+<ul>
+	<li>
+		{match_value_check_box}
+		<img alt=">" src="{match_source_image}" border="0"  title="{match_title_image}" />
+		<b>{match_show_column1}</b>:<i>[{match_show_date_time}] ({match_text_column1}</i>
+		<br /> 	{match_link_val}
+	</li>        
+	<li>{match_big_text}</li>
+	<li>[{match_link_update} - {match_link_preview} - {match_link_delete}]</li>
+</ul>
+</template7>
+</template>

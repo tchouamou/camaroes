@@ -1,0 +1,19 @@
+2011-11-12 13:19:31|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\login.php Line=210 : Nomal form authentification 
+2011-11-12 14:37:57|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\login.php Line=210 : Nomal form authentification 
+2011-11-12 14:39:06|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php Line=262 :  User Cannot be Find, Wrong Username or Password or no database
+2011-11-12 14:39:06|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php Line=293 : Empty User Send
+2011-11-12 14:39:07|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\login.php Line=210 : Nomal form authentification 
+2011-11-12 14:52:29|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\login.php Line=210 : Nomal form authentification 
+2011-11-12 14:52:40|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
+2011-11-12 14:52:40|127.0.0.1| User=[admin@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=01ipk0rpe265256m39mb330305
+2011-11-12 14:52:40|127.0.0.1| User=[admin@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
+2011-11-13 09:32:14|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\logout.php Line=77 : Logout For User :guest clean  [ticket_read, message_read and cmr_session] session=k088na6ipig5r2k0mghnij9p07
+2011-11-13 09:32:16|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\login.php Line=210 : Nomal form authentification 
+2011-11-13 09:33:11|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
+2011-11-13 09:33:11|127.0.0.1| User=[admin@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=k088na6ipig5r2k0mghnij9p07
+2011-11-13 09:33:11|127.0.0.1| User=[admin@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
+2011-11-13 21:02:33|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\control_session.php Line=65 : Wrong Account object, the session  or the user object is empty !!? (control session.cache_limiter, session.cache_expire) 
+2011-11-13 21:02:40|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\login.php Line=210 : Nomal form authentification 
+2011-11-13 21:03:41|127.0.0.1| User=[guest@localhost]| Script=C:\Users\Eric\Desktop\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
+2011-11-13 21:03:41|127.0.0.1| User=[admin@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=riutk13gou78rvohctl81h9fi6
+2011-11-13 21:03:41|127.0.0.1| User=[admin@localhost]| Script=C:\Users\Eric\Desktop\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin

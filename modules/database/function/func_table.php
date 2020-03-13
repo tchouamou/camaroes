@@ -548,21 +548,53 @@ function get_data_table($table_name, $table_name, $data_table = array())
 	} 
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(!(function_exists("cmr_sql_new_table"))){
     /**
      * cmr_sql_new_table()
      *
-     * @param array $conn
+     * @param array $data
      * @return
      **/
-function cmr_sql_new_table($table_name, $data_column = array())
+function cmr_sql_new_table($table_name, $data = array())
 {
-// CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
-//     (create_definition,...)
-//     [table_options]
-//     [partition_options]
+$sql_string = "";
+$select_statement = "";
+if(empty($table_name)) return $sql_string;
+(empty($data["TEMPORARY"])) ? $data["TEMPORARY"] = "" : $data["TEMPORARY"] = " TEMPORARY ";
+(empty($data["IF_NOT_EXISTS"])) ? $data["IF_NOT_EXISTS"] = "" : $data["IF_NOT_EXISTS"] = " IF NOT EXISTS ";
+(empty($data["old_tbl_name"])) ? $data["old_tbl_name"] = "" : $data["old_tbl_name"] = " LIKE " . $data["old_tbl_name"];
+
+// select_statement:
+if(!empty($data["SELECT"])){
+	(empty($data["AS"])) ? $data["AS"] = "" : $data["AS"] = " AS ";
+	if(empty($data["ignore_replace"])) $data["ignore_replace"] = "";
+	$select_statement .= $data["ignore_replace"] . $data["AS"] . $data["SELECT"];//   [IGNORE | REPLACE] [AS] SELECT ...   (Some legal select statement)
+}
+
+	
+
+$sql_string .= "CREATE " . $data["TEMPORARY"] . " TABLE " . $data["IF_NOT_EXISTS"] . $table_name;
+if(empty($data["old_tbl_name"])){
+$sql_string = "(";
+	foreach($data["create_definition"] as $key => $value){
+		$sql_string .= create_definition($key, $value);//    (create_definition,...)
+	}
+$sql_string = ")";
+	$sql_string .= table_options($data["table_options"]);//     [table_options]
+	$sql_string .= partition_options($data["partition_options"]);//     [partition_options]
+	$sql_string .= $select_statement;//     [select_statement]
+}
+$sql_string .= $data["old_tbl_name"];//     [like_old_tbl_name]
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 // Or:
 
@@ -576,71 +608,153 @@ function cmr_sql_new_table($table_name, $data_column = array())
 
 // CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
 //     { LIKE old_tbl_name | (LIKE old_tbl_name) }
-
+	
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("create_definition"))){
+function create_definition($col_name, $data = array())
+{
+$sql_string = "";
+if(empty($col_name)) return $sql_string;
+if(empty($data["symbol"])) $data["symbol"] = "";
+(empty($data["PRIMARY"])) ? $data["PRIMARY"] = "" : $data["PRIMARY"] = " PRIMARY KEY ";
+(empty($data["CONSTRAINT"])) ? $data["CONSTRAINT"] = "" : $data["CONSTRAINT"] = " CONSTRAINT " . $data["symbol"];
+(empty($data["UNIQUE"])) ? $data["UNIQUE"] = "" : $data["UNIQUE"] = " UNIQUE ";
+(empty($data["FOREIGN"])) ? $data["FOREIGN"] = "" : $data["FOREIGN"] = " FOREIGN KEY ";
+(empty($data["expr"])) ? $data["expr"] = "" : $data["expr"] =  " CHECK (" . $data["expr"] . ") ";
+(empty($data["INDEX"])) ? $data["INDEX"] = "" : $data["symbol"] = " INDEX ";
+(empty($data["KEY"])) ? $data["KEY"] = "" : $data["KEY"] = " KEY ";
+(empty($data["FULLTEXT"])) ? $data["FULLTEXT"] = "" : $data["FULLTEXT"] = " FULLTEXT ";
+(empty($data["SPATIAL"])) ? $data["SPATIAL"] = "" : $data["SPATIAL"] = " SPATIAL ";
 // create_definition:
-//     col_name column_definition
-//   | [CONSTRAINT [symbol]] PRIMARY KEY [index_type] (index_col_name,...)
-//       [index_option] ...
-//   | {INDEX|KEY} [index_name] [index_type] (index_col_name,...)
-//       [index_option] ...
-//   | [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY]
-//       [index_name] [index_type] (index_col_name,...)
-//       [index_option] ...
-//   | {FULLTEXT|SPATIAL} [INDEX|KEY] [index_name] (index_col_name,...)
-//       [index_option] ...
-//   | [CONSTRAINT [symbol]] FOREIGN KEY
-//       [index_name] (index_col_name,...) reference_definition
-//   | CHECK (expr)
+$sql_string .= $col_name . " "; //  col_name 
+$sql_string .= column_definition($data["column_definition"]);
+//column_definition
+$sql_string .= $data["expr"] . $data["FULLTEXT"] . $data["SPATIAL"] . $data["CONSTRAINT"];
+$sql_string .= $data["PRIMARY"] . $data["FOREIGN"] . $data["INDEX"] . $data["KEY"];
+$sql_string .= index_col_name($data["INDEX"]);
 
+
+ //| [CONSTRAINT [symbol]] PRIMARY KEY  [index_type] (index_col_name,...)//    [index_option] ...
+ //| {INDEX|KEY}  // [index_name] [index_type] (index_col_name,...)//    [index_option] ...
+ //| [CONSTRAINT [symbol]] UNIQUE [INDEX|KEY] // [index_name] [index_type] (index_col_name,...)//    [index_option] ...
+ //| {FULLTEXT|SPATIAL} [INDEX|KEY] // [index_name] (index_col_name,...)//    [index_option] ...
+ //| CHECK (expr)
+ //| [CONSTRAINT [symbol]] FOREIGN KEY    [index_name] (index_col_name,...) "
+// $sql_string .= reference_definition($data["REFERENCE"]);//reference_definition
+
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("column_definition"))){
+function column_definition($data = array())
+{
+$sql_string = "";
 // column_definition:
-//     data_type [NOT NULL | NULL] [DEFAULT default_value]
-//       [AUTO_INCREMENT] [UNIQUE [KEY] | [PRIMARY] KEY]
-//       [COMMENT 'string']
-//       [COLUMN_FORMAT {FIXED|DYNAMIC|DEFAULT}]
-//       [STORAGE {DISK|MEMORY|DEFAULT}]
-//       [reference_definition]
-
+	(empty($data["DEFAULT"])) ? $data["DEFAULT"] = "" : $data["DEFAULT"] = " DEFAULT " . $data["DEFAULT"];
+	(empty($data["NULL"])) ? $data["NULL"] = "" : $data["NULL"] = $data["NULL"] . " " . $data["DEFAULT"];
+	(empty($data["KEY"])) ? $data["KEY"] = "" : $data["KEY"] = " KEY ";
+	(empty($data["PRIMARY"])) ? $data["PRIMARY"] = "" : $data["PRIMARY"] = " PRIMARY " . $data["KEY"];
+	(empty($data["UNIQUE"])) ? $data["UNIQUE"] = "" : $data["UNIQUE"] = " UNIQUE " . $data["KEY"];
+	(empty($data["AUTO_INCREMENT"])) ? $data["AUTO_INCREMENT"] = "" : $data["AUTO_INCREMENT"] = " AUTO_INCREMENT " . $data["UNIQUE"];
+	(empty($data["COMMENT"])) ? $data["COMMENT"] = "" : $data["COMMENT"] = " COMMENT " . $data["COMMENT"];
+	(empty($data["COLUMN_FORMAT"])) ? $data["COLUMN_FORMAT"] = "" : $data["COLUMN_FORMAT"] = " COLUMN_FORMAT " . $data["COLUMN_FORMAT"];
+	(empty($data["STORAGE"])) ? $data["STORAGE"] = "" : $data["STORAGE"] = " STORAGE " . $data["STORAGE"];
+$sql_string .= data_type($data["data_type"]); //data_type
+$sql_string .= $data["NULL"] . $data["AUTO_INCREMENT"] . $data["PRIMARY"] . $data["COMMENT"] . $data["COLUMN_FORMAT"] . $data["STORAGE"]; 
+//   [NOT NULL | NULL] [DEFAULT default_value]
+//    [AUTO_INCREMENT] [UNIQUE [KEY] | [PRIMARY] KEY]
+//    [COMMENT 'string']
+//    [COLUMN_FORMAT {FIXED|DYNAMIC|DEFAULT}]
+//    [STORAGE {DISK|MEMORY|DEFAULT}]
+$sql_string .= reference_definition($data["REFERENCE"]);//       [reference_definition]
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("data_type"))){
+function data_type($data = array())
+{
+$sql_string = "";
 // data_type:
-//     BIT[(length)]
-//   | TINYINT[(length)] [UNSIGNED] [ZEROFILL]
-//   | SMALLINT[(length)] [UNSIGNED] [ZEROFILL]
-//   | MEDIUMINT[(length)] [UNSIGNED] [ZEROFILL]
-//   | INT[(length)] [UNSIGNED] [ZEROFILL]
-//   | INTEGER[(length)] [UNSIGNED] [ZEROFILL]
-//   | BIGINT[(length)] [UNSIGNED] [ZEROFILL]
-//   | REAL[(length,decimals)] [UNSIGNED] [ZEROFILL]
-//   | DOUBLE[(length,decimals)] [UNSIGNED] [ZEROFILL]
-//   | FLOAT[(length,decimals)] [UNSIGNED] [ZEROFILL]
-//   | DECIMAL[(length[,decimals])] [UNSIGNED] [ZEROFILL]
-//   | NUMERIC[(length[,decimals])] [UNSIGNED] [ZEROFILL]
-//   | DATE
-//   | TIME
-//   | TIMESTAMP
-//   | DATETIME
-//   | YEAR
-//   | CHAR[(length)]
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | VARCHAR(length)
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | BINARY[(length)]
-//   | VARBINARY(length)
-//   | TINYBLOB
-//   | BLOB
-//   | MEDIUMBLOB
-//   | LONGBLOB
-//   | TINYTEXT [BINARY]
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | TEXT [BINARY]
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | MEDIUMTEXT [BINARY]
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | LONGTEXT [BINARY]
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | ENUM(value1,value2,value3,...)
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | SET(value1,value2,value3,...)
-//       [CHARACTER SET charset_name] [COLLATE collation_name]
-//   | spatial_type
+	(empty($data["data_type"])) ? $data["data_type"] = "" : $data["data_type"] = " TINYTEXT ";
+	(empty($data["decimals"])) ? $data["decimals"] = "" : $data["decimals"] = "," . $data["decimals"];
+	(empty($data["length"])) ? $data["length"] = "" : $data["length"] = "(" . $data["length"] . $data["decimals"] . ")";
+	(empty($data["UNSIGNED"])) ? $data["UNSIGNED"] = "" : $data["UNSIGNED"] = " UNSIGNED ";
+	(empty($data["ZEROFILL"])) ? $data["ZEROFILL"] = "" : $data["ZEROFILL"] = " ZEROFILL ";
+	(empty($data["BINARY"])) ? $data["BINARY"] = "" : $data["BINARY"] = " BINARY ";
+	(empty($data["charset_name"])) ? $data["charset_name"] = "" : $data["charset_name"] = " CHARACTER SET  " . $data["charset_name"];
+	(empty($data["collation_name"])) ? $data["collation_name"] = "" : $data["collation_name"] = "COLLATE   " . $data["collation_name"];
+	
+$sql_string .= $data["data_type"] . $data["length"] . $data["UNSIGNED"] . $data["ZEROFILL"] . $data["charset_name"] . $data["collation_name"];
+ //  BIT[(length)]
+ //| TINYINT[(length)] [UNSIGNED] [ZEROFILL]
+ //| SMALLINT[(length)] [UNSIGNED] [ZEROFILL]
+ //| MEDIUMINT[(length)] [UNSIGNED] [ZEROFILL]
+ //| INT[(length)] [UNSIGNED] [ZEROFILL]
+ //| INTEGER[(length)] [UNSIGNED] [ZEROFILL]
+ //| BIGINT[(length)] [UNSIGNED] [ZEROFILL]
+ //| REAL[(length,decimals)] [UNSIGNED] [ZEROFILL]
+ //| DOUBLE[(length,decimals)] [UNSIGNED] [ZEROFILL]
+ //| FLOAT[(length,decimals)] [UNSIGNED] [ZEROFILL]
+ //| DECIMAL[(length[,decimals])] [UNSIGNED] [ZEROFILL]
+ //| NUMERIC[(length[,decimals])] [UNSIGNED] [ZEROFILL]
+ //| DATE
+ //| TIME
+ //| TIMESTAMP
+ //| DATETIME
+ //| YEAR
+ //| CHAR[(length)][CHARACTER SET charset_name] [COLLATE collation_name]
+ //| VARCHAR(length)[CHARACTER SET charset_name] [COLLATE collation_name]
+ //| BINARY[(length)]
+ //| VARBINARY(length)
+ //| TINYBLOB
+ //| BLOB
+ //| MEDIUMBLOB
+ //| LONGBLOB
+ //| TINYTEXT [BINARY][CHARACTER SET charset_name] [COLLATE collation_name]
+ //| TEXT [BINARY][CHARACTER SET charset_name] [COLLATE collation_name]
+ //| MEDIUMTEXT [BINARY][CHARACTER SET charset_name] [COLLATE collation_name]
+ //| LONGTEXT [BINARY][CHARACTER SET charset_name] [COLLATE collation_name]
+ //| ENUM(value1,value2,value3,...) [CHARACTER SET charset_name] [COLLATE collation_name]
+ //| SET(value1,value2,value3,...)[CHARACTER SET charset_name] [COLLATE collation_name]
+ //| spatial_type
+
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("index_col_name"))){
+function index_col_name($data = array())
+{
+$sql_string = "";
+foreach($data["col_name"] as $key => $value){
+	if(empty($value["col_name"]))
+	$sql_string .= $value["col_name"] . $value["length"] . $value["DESC"];// col_name [(length)] [ASC | DESC]
+}
+(empty($data["index_type"])) ? $data["index_type"] = "" : $data["index_type"] = " USING " . $data["index_type"];
+(empty($data["KEY_BLOCK_SIZE"])) ? $data["KEY_BLOCK_SIZE"] = "" : $data["KEY_BLOCK_SIZE"] = " WITH PARSER " . $data["KEY_BLOCK_SIZE"];
+(empty($data["WITH_PARSER"])) ? $data["WITH_PARSER"] = "" : $data["WITH_PARSER"] = " WITH PARSER " . $data["WITH_PARSER"];
+$data["index_option"] = $data["KEY_BLOCK_SIZE"] . $data["index_type1"] . $data["WITH_PARSER"];
+
+$sql_string .= $data["index_name"] . $data["index_type"] . $sql_string . $data["index_option"];
 
 // index_col_name:
 //     col_name [(length)] [ASC | DESC]
@@ -652,89 +766,167 @@ function cmr_sql_new_table($table_name, $data_column = array())
 //     KEY_BLOCK_SIZE [=] value
 //   | index_type
 //   | WITH PARSER parser_name
-
-// reference_definition:
-//     REFERENCES tbl_name (index_col_name,...)
-//       [MATCH FULL | MATCH PARTIAL | MATCH SIMPLE]
-//       [ON DELETE reference_option]
-//       [ON UPDATE reference_option]
-
-// reference_option:
-//     RESTRICT | CASCADE | SET NULL | NO ACTION
-
-// table_options:
-//     table_option [[,] table_option] ...
-
-// table_option:
-//     ENGINE [=] engine_name
-//   | AUTO_INCREMENT [=] value
-//   | AVG_ROW_LENGTH [=] value
-//   | [DEFAULT] CHARACTER SET [=] charset_name
-//   | CHECKSUM [=] {0 | 1}
-//   | [DEFAULT] COLLATE [=] collation_name
-//   | COMMENT [=] 'string'
-//   | CONNECTION [=] 'connect_string'
-//   | DATA DIRECTORY [=] 'absolute path to directory'
-//   | DELAY_KEY_WRITE [=] {0 | 1}
-//   | INDEX DIRECTORY [=] 'absolute path to directory'
-//   | INSERT_METHOD [=] { NO | FIRST | LAST }
-//   | KEY_BLOCK_SIZE [=] value
-//   | MAX_ROWS [=] value
-//   | MIN_ROWS [=] value
-//   | PACK_KEYS [=] {0 | 1 | DEFAULT}
-//   | PASSWORD [=] 'string'
-//   | ROW_FORMAT [=] {DEFAULT|DYNAMIC|FIXED|COMPRESSED|REDUNDANT|COMPACT}
-//   | TABLESPACE tablespace_name [STORAGE {DISK|MEMORY|DEFAULT}]
-//   | UNION [=] (tbl_name[,tbl_name]...)
-
-// partition_options:
-//     PARTITION BY
-//         { [LINEAR] HASH(expr)
-//         | [LINEAR] KEY(column_list)
-//         | RANGE(expr)
-//         | LIST(expr) }
-//     [PARTITIONS num]
-//     [SUBPARTITION BY
-//         { [LINEAR] HASH(expr)
-//         | [LINEAR] KEY(column_list) }
-//       [SUBPARTITIONS num]
-//     ]
-//     [(partition_definition [, partition_definition] ...)]
-
-// partition_definition:
-//     PARTITION partition_name
-//         [VALUES 
-//             {LESS THAN {(expr) | MAXVALUE} 
-//             | 
-//             IN (value_list)}]
-//         [[STORAGE] ENGINE [=] engine_name]
-//         [COMMENT [=] 'comment_text' ]
-//         [DATA DIRECTORY [=] 'data_dir']
-//         [INDEX DIRECTORY [=] 'index_dir']
-//         [MAX_ROWS [=] max_number_of_rows]
-//         [MIN_ROWS [=] min_number_of_rows]
-//         [TABLESPACE [=] tablespace_name]
-//         [NODEGROUP [=] node_group_id]
-//         [(subpartition_definition [, subpartition_definition] ...)]
-
-// subpartition_definition:
-//     SUBPARTITION logical_name
-//         [[STORAGE] ENGINE [=] engine_name]
-//         [COMMENT [=] 'comment_text' ]
-//         [DATA DIRECTORY [=] 'data_dir']
-//         [INDEX DIRECTORY [=] 'index_dir']
-//         [MAX_ROWS [=] max_number_of_rows]
-//         [MIN_ROWS [=] min_number_of_rows]
-//         [TABLESPACE [=] tablespace_name]
-//         [NODEGROUP [=] node_group_id]
-
-// select_statement:
-//     [IGNORE | REPLACE] [AS] SELECT ...   (Some legal select statement)
-	
 	return $sql_string;
 } 
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("reference_definition"))){
+function reference_definition($data = array())
+{
+$sql_string = "";
+(empty($data["MATCH"])) ? $data["MATCH"] = "" : $data["MATCH"] = " MATCH " . $data["MATCH"];
+if(!empty($data["reference_option"])){
+	(empty($data["DELETE"])) ? $data["DELETE"] = "" : $data["DELETE"] = " ON DELETE " . $data["reference_option"];
+	(empty($data["UPDATE"])) ? $data["UPDATE"] = "" : $data["UPDATE"] = " ON UPDATE " . $data["reference_option"];
+}else{
+	$data["reference_option"] = "";
+} 
+if(!empty($data["tbl_name"]));
+$sql_string = "REFERENCES " . $data["tbl_name"] . index_col_name($data["INDEX"]) . $data["MATCH"] . $data["DELETE"] . $data["UPDATE"];
+// reference_definition:
+//  REFERENCES tbl_name (index_col_name,...)
+//    [MATCH FULL | MATCH PARTIAL | MATCH SIMPLE]
+//    [ON DELETE reference_option]
+//    [ON UPDATE reference_option]
+
+// reference_option:
+//  RESTRICT | CASCADE | SET NULL | NO ACTION
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("table_options"))){
+function table_options($data = array())
+{
+$sql_string = "";
+(empty($data["STORAGE"])) ? $data["STORAGE"] = "" : $data["STORAGE"] = " STORAGE " . $data["STORAGE"];
+// table_options:
+if(!empty($data["table_option"]))
+foreach($data["table_option"] as $key => $value){ //  table_option [[,] table_option] ...
+// table_option:
+$sql_string .= $data["DEFAULT"] . $data["option_type"] . $data["option_value"] . $data["STORAGE"];
+//  ENGINE [=] engine_name
+//| AUTO_INCREMENT [=] value
+//| AVG_ROW_LENGTH [=] value
+//| [DEFAULT] CHARACTER SET [=] charset_name
+//| CHECKSUM [=] {0 | 1}
+//| [DEFAULT] COLLATE [=] collation_name
+//| COMMENT [=] 'string'
+//| CONNECTION [=] 'connect_string'
+//| DATA DIRECTORY [=] 'absolute path to directory'
+//| DELAY_KEY_WRITE [=] {0 | 1}
+//| INDEX DIRECTORY [=] 'absolute path to directory'
+//| INSERT_METHOD [=] { NO | FIRST | LAST }
+//| KEY_BLOCK_SIZE [=] value
+//| MAX_ROWS [=] value
+//| MIN_ROWS [=] value
+//| PACK_KEYS [=] {0 | 1 | DEFAULT}
+//| PASSWORD [=] 'string'
+//| ROW_FORMAT [=] {DEFAULT|DYNAMIC|FIXED|COMPRESSED|REDUNDANT|COMPACT}
+//| TABLESPACE tablespace_name [STORAGE {DISK|MEMORY|DEFAULT}]
+//| UNION [=] (tbl_name[,tbl_name]...)
+} 
+
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("partition_options"))){
+function partition_options($data = array())
+{
+$sql_string = "";
+(empty($data["options"])) ? $data["options"] = "" : $data["options"] = " PARTITION BY " . $data["options"];
+(empty($data["PARTITIONS"])) ? $data["PARTITIONS"] = "" : $data["PARTITIONS"] = " PARTITIONS " . $data["PARTITIONS"];
+(empty($data["SUBPARTITION"])) ? $data["SUBPARTITION"] = "" : $data["SUBPARTITION"] = " SUBPARTITION BY " . $data["SUBPARTITION"];
+(empty($data["SUBPARTITIONS"])) ? $data["SUBPARTITIONS"] = "" : $data["SUBPARTITIONS"] = " SUBPARTITIONS " . $data["SUBPARTITIONS"];
+$sql_string .= $data["PARTITION"] . $data["PARTITIONS"] . $data["SUBPARTITION"] . $data["SUBPARTITIONS"];
+// partition_options:
+//  PARTITION BY
+//      { [LINEAR] HASH(expr)
+//      | [LINEAR] KEY(column_list)
+//      | RANGE(expr)
+//      | LIST(expr) }
+//  [PARTITIONS num]
+//  [SUBPARTITION BY
+//      { [LINEAR] HASH(expr)
+//      | [LINEAR] KEY(column_list) }
+//    [SUBPARTITIONS num]
+//  ]
+$sql_string .= partition_definition($data["partition"]);
+//      [(partition_definition [, partition_definition] ...)]
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("partition_definition"))){
+function partition_definition($data = array())
+{
+$sql_string = "";
+(empty($data["NAME"])) ? $data["NAME"] = "" : $data["NAME"] = " PARTITION " . $data["NAME"];
+(empty($data["VALUES"])) ? $data["VALUES"] = "" : $data["VALUES"] = " VALUES MAXVALUE ";
+(empty($data["value_list"])) ? $data["value_list"] = "" : $data["VALUES"] = " VALUES IN " . $data["value_list"];
+(empty($data["expr"])) ? $data["expr"] = "" : $data["VALUES"] = " VALUES LESS THAN " . $data["expr"];
+(empty($data["definition"])) ? $data["definition"] = "" : $data["definition"] = "  " . $data["definition"] . $data["definition_value"];
+$sql_string .= $data["NAME"] . $data["VALUES"] . " " . $data["definition"];
+// partition_definition:
+//  PARTITION partition_name
+//      [VALUES 
+//          {LESS THAN {(expr) | MAXVALUE} 
+//          | 
+//          IN (value_list)}]
+//      [[STORAGE] ENGINE [=] engine_name]
+//      [COMMENT [=] 'comment_text' ]
+//      [DATA DIRECTORY [=] 'data_dir']
+//      [INDEX DIRECTORY [=] 'index_dir']
+//      [MAX_ROWS [=] max_number_of_rows]
+//      [MIN_ROWS [=] min_number_of_rows]
+//      [TABLESPACE [=] tablespace_name]
+//      [NODEGROUP [=] node_group_id]
+$sql_string .= subpartition_definition($data["subpartition"]);
+//          [(subpartition_definition [, subpartition_definition] ...)]
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("subpartition_definition"))){
+function subpartition_definition($data = array())
+{
+$sql_string = "";
+(empty($data["logical_name"])) ? $data["logical_name"] = "" : $data["logical_name"] = " SUBPARTITION " . $data["logical_name"];
+(empty($data["definition"])) ? $data["definition"] = "" : $data["definition"] = "  " . $data["definition"] . $data["definition_value"];
+$sql_string .= $data["logical_name"] . $data["definition"];
+// subpartition_definition:
+//  SUBPARTITION logical_name
+//      [[STORAGE] ENGINE [=] engine_name]
+//      [COMMENT [=] 'comment_text' ]
+//      [DATA DIRECTORY [=] 'data_dir']
+//      [INDEX DIRECTORY [=] 'index_dir']
+//      [MAX_ROWS [=] max_number_of_rows]
+//      [MIN_ROWS [=] min_number_of_rows]
+//      [TABLESPACE [=] tablespace_name]
+//      [NODEGROUP [=] node_group_id]
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -747,13 +939,41 @@ if(!(function_exists("cmr_sql_alter_table"))){
      * @param array $conn
      * @return
      **/
-function cmr_sql_alter_table($table_name, $data_column1 = array(), $data_column2 = array())
+function cmr_sql_alter_table($table_name, $data = array(), $data_column1 = array(), $data_column2 = array())
 {
-// ALTER [ONLINE | OFFLINE] [IGNORE] TABLE tbl_name
-//     alter_specification [, alter_specification] ...
+$sql_string = "";
+$sql_string .= "ALTER " . $data["LINE"] . $data["IGNORE"] . $table_name; // ALTER [ONLINE | OFFLINE] [IGNORE] TABLE tbl_name
+foreach($data["column"] as $key => $value){
+	$sql_string .= alter_specification($data, $data_column1[$value], $data_column2[$value]);//     alter_specification [, alter_specification] ...
+} 
 
+	return $sql_string;
+} 
+}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if(!(function_exists("alter_specification"))){
+    /**
+     * alter_specification()
+     *
+     * @param array $data
+     * @return
+     **/
+function alter_specification($data = array(), $data_column1 = array(), $data_column2 = array())
+{
 // alter_specification:
-//     table_options
+$sql_string = "";
+// table_options:
+//     table_option [[,] table_option] ...  (see CREATE TABLE options)
+// 	
+$sql_string .= table_options($data["table_options"]);//     table_options
+$sql_string .= $data["ALTER"] . $data["PARTITION"] . $data["symbol"] . $data["KEY"];
+$sql_string .= index_col_name($data["INDEX"]);
 //   | ADD [COLUMN] col_name column_definition
 //         [FIRST | AFTER col_name ]
 //   | ADD [COLUMN] (col_name column_definition,...)
@@ -800,82 +1020,10 @@ function cmr_sql_alter_table($table_name, $data_column1 = array(), $data_column2
 //   | REPAIR PARTITION  {partition_names | ALL }
 //   | PARTITION BY partitioning_expression
 //   | REMOVE PARTITIONING
-
-// index_col_name:
-//     col_name [(length)] [ASC | DESC]
-
-// index_type:
-//     USING {BTREE | HASH}
-
-// index_option:
-//     KEY_BLOCK_SIZE [=] value
-//   | index_type
-//   | WITH PARSER parser_name
-
-// table_options:
-//     table_option [[,] table_option] ...  (see CREATE TABLE options)
-// 	
 	return $sql_string;
 } 
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(!(function_exists("cmr_sql_copy_table"))){
-    /**
-     * cmr_sql_copy_table()
-     *
-     * @param array $conn
-     * @return
-     **/
-function cmr_sql_copy_table($table_name1, $table_name2, $data_column = array())
-{
- // CREATE TABLE `cd`.`er` (
-// `er` int( 11 ) NOT NULL ,
-// `as` int( 11 ) NOT NULL
-// ) ENGINE = MYISAM DEFAULT CHARSET = latin1;
-
-// INSERT INTO `cd`.`er`
-// SELECT *
-// FROM `test`.`er` ;
-
-	
-	return $sql_string;
-} 
-}
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(!(function_exists("cmr_sql_copy_db"))){
-    /**
-     * cmr_sql_copy_db()
-     *
-     * @param array $conn
-     * @return
-     **/
-function cmr_sql_copy_db($db_name1, $db_name2, $list_table = array())
-{
-// CREATE DATABASE `cd` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-
-// CREATE TABLE `cd`.`er` (
-// `er` int( 11 ) NOT NULL ,
-// `as` int( 11 ) NOT NULL
-// ) ENGINE = MYISAM DEFAULT CHARSET = latin1;
-
-// INSERT INTO `cd`.`er`
-// SELECT *
-// FROM `test`.`er` ;
- 
-	
-	return $sql_string;
-} 
-}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -889,8 +1037,49 @@ if(!(function_exists("cmr_sql_grand_privilege"))){
      * @param array $conn
      * @return
      **/
-function cmr_sql_grand_privilege($user, $host, $password, $db_name = array(), $table_name = array(), $data_privilege = array())
+function cmr_sql_grand_privilege($data = array())
 {
+$sql_string = "";
+if(!empty($data)){
+$sql_string .= "GRANT ";
+
+if(!empty($data["priv_type"]))
+if($value = array_pop($data["priv_type"])){
+$sql_string .= " " . $value["type"] . " " . $value["column_list"];
+foreach($data["priv_type"] as $key => $value){
+ $sql_string .=  ", " . $value["type"] . " " . $value["column_list"];
+} 
+}
+
+if(empty($data["object_type"])) $data["object_type"] = "";
+if(!empty($data["priv_level"]))
+$sql_string .= "ON " . $data["object_type"] . " " . $data["priv_level"];
+
+if(!empty($data["IDENTIFIED"])){
+$sql_string .= "TO ";
+if($value = array_pop($data["IDENTIFIED"])){
+$sql_string .= $value["user"] . " " . $value["password"];
+foreach($data["IDENTIFIED"] as $key => $value){
+ $sql_string .= ", " . $value["user"] . " " . $value["password"];
+} 
+} 
+} 
+if(!empty($data["ssl_option"])){
+$sql_string .= "REQUIRE ";
+if($value = array_pop($data["ssl_option"])){
+$sql_string .= $value["option"] . $value["value"];
+foreach($data["ssl_option"] as $key => $value){
+ $sql_string .= " " . $value["option"] . " " . $value["value"];
+} 
+} 
+} 
+if(!empty($data["with_option"])){
+$sql_string .= "WITH ";
+foreach($data["with_option"] as $key => $value){
+ $sql_string .= " " . $value["option"] . " " . $value["value"];
+} 
+} 
+} 
 // GRANT
 //     priv_type [(column_list)]
 //       [, priv_type [(column_list)]] ...
@@ -945,6 +1134,7 @@ if(!(function_exists("cmr_sql_create_function"))){
      **/
 function cmr_sql_create_function($name, $data = array())
 {
+$sql_string = "";
 // CREATE
 //     [DEFINER = { user | CURRENT_USER }]
 //     PROCEDURE sp_name ([proc_parameter[,...]])
@@ -995,6 +1185,7 @@ if(!(function_exists("cmr_sql_create_trigger"))){
      **/
 function cmr_sql_create_trigger($name, $event = array(), $data = array())
 {
+$sql_string = "";
 // CREATE
 //     [DEFINER = { user | CURRENT_USER }]
 //     TRIGGER trigger_name trigger_time trigger_event

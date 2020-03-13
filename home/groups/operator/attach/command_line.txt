@@ -1,0 +1,862 @@
+ Keyboard Shortcuts
+
+Moving the cursor:
+
+  Ctrl + A   Go to the beginning of the line you are currently typing on
+  Ctrl + E   Go to the end of the line you are currently typing on 
+  alt-b      Move cursor back one word
+  alt-f      Move cursor forward one word
+  Ctrl + R   Search through previously used commands
+  TAB        Tab completion for file/directory names
+
+    For example, to move to a directory 'sample1'; Type cd sam ; then press TAB and ENTER.
+    type just enough characters to uniquely identify the directory you wish to open.
+
+Editing:
+
+ Ctrl + L   Clear the Screen, similar to the clear command
+ Ctrl + U   Cut/delete the line before the cursor position.
+ Ctrl + H   Backspace
+ Ctrl + W   Cut/delete the Word before the cursor (the last word)
+ Ctrl + K   Cut/delete the line after the cursor
+ Ctrl + T   Swap the last two characters before the cursor
+ Esc  + T   Swap the last two words before the cursor 
+ ctrl + y	 Paste the last thing to be cut
+ ctrl + _	 Undo
+
+Process control:
+
+ Ctrl + C   Kill whatever you are running
+ Ctrl + D   Exit the current shell
+ Ctrl + Z   Put whatever you are running into a background process. 
+
+    After pressing Ctrl-Z the process will not continue to run. To put the last suspended job into the background run bg without a job number:
+
+Emacs mode vs Vi Mode
+
+All the above assume that bash is running in the default Emacs setting, if you prefer this can be switched to Vi shortcuts instead.
+
+Set Vi Mode in bash:
+
+$ set -o vi 
+
+Set Emacs Mode in bash:
+
+$ set -o emacs 
+
+
+
+
+
+An A-Z Index of the Bash command line for Linux.
+
+  alias    Create an alias
+  apropos  Search Help manual pages (man -k)
+  apt-get  Search for and install software packages (Debian)
+  aspell   Spell Checker
+  awk      Find and Replace text, database sort/validate/index
+b
+  bash     GNU Bourne-Again SHell 
+  bc       Arbitrary precision calculator language 
+  bg       Send to background
+  break    Exit from a loop
+  builtin  Run a shell builtin
+  bzip2    Compress or decompress named file(s)
+c
+  cal      Display a calendar
+  case     Conditionally perform a command
+  cat      Display the contents of a file
+  cd       Change Directory
+  cfdisk   Partition table manipulator for Linux
+  chgrp    Change group ownership
+  chmod    Change access permissions
+  chown    Change file owner and group
+  chroot   Run a command with a different root directory
+  chkconfig System services (runlevel)
+  cksum    Print CRC checksum and byte counts
+  clear    Clear terminal screen
+  cmp      Compare two files
+  comm     Compare two sorted files line by line
+  command  Run a command - ignoring shell functions
+  continue Resume the next iteration of a loop
+  cp       Copy one or more files to another location
+  cron     Daemon to execute scheduled commands
+  crontab  Schedule a command to run at a later time
+  csplit   Split a file into context-determined pieces
+  cut      Divide a file into several parts
+d
+  date     Display or change the date & time
+  dc       Desk Calculator
+  dd       Convert and copy a file, write disk headers, boot records
+  ddrescue Data recovery tool
+  declare  Declare variables and give them attributes
+  df       Display free disk space
+  diff     Display the differences between two files
+  diff3    Show differences among three files
+  dig      DNS lookup
+  dir      Briefly list directory contents
+  dircolors Colour setup for `ls'
+  dirname  Convert a full pathname to just a path
+  dirs     Display list of remembered directories
+  dmesg    Print kernel & driver messages 
+  du       Estimate file space usage
+e
+  echo     Display message on screen
+  egrep    Search file(s) for lines that match an extended expression
+  eject    Eject removable media
+  enable   Enable and disable builtin shell commands
+  env      Environment variables
+  ethtool  Ethernet card settings
+  eval     Evaluate several commands/arguments
+  exec     Execute a command
+  exit     Exit the shell
+  expect   Automate arbitrary applications accessed over a terminal
+  expand   Convert tabs to spaces
+  export   Set an environment variable
+  expr     Evaluate expressions
+f
+  false    Do nothing, unsuccessfully
+  fdformat Low-level format a floppy disk
+  fdisk    Partition table manipulator for Linux
+  fg       Send job to foreground 
+  fgrep    Search file(s) for lines that match a fixed string
+  file     Determine file type
+  find     Search for files that meet a desired criteria
+  fmt      Reformat paragraph text
+  fold     Wrap text to fit a specified width.
+  for      Expand words, and execute commands
+  format   Format disks or tapes
+  free     Display memory usage
+  fsck     File system consistency check and repair
+  ftp      File Transfer Protocol
+  function Define Function Macros
+  fuser    Identify/kill the process that is accessing a file
+g
+  gawk     Find and Replace text within file(s)
+  getopts  Parse positional parameters
+  grep     Search file(s) for lines that match a given pattern
+  groups   Print group names a user is in
+  gzip     Compress or decompress named file(s)
+h
+  hash     Remember the full pathname of a name argument
+  head     Output the first part of file(s)
+  history  Command History
+  hostname Print or set system name
+i
+  id       Print user and group id's
+  if       Conditionally perform a command
+  ifconfig Configure a network interface
+  ifdown   Stop a network interface 
+  ifup     Start a network interface up
+  import   Capture an X server screen and save the image to file
+  install  Copy files and set attributes
+j
+  join     Join lines on a common field
+k
+  kill     Stop a process from running
+  killall  Kill processes by name
+l
+  less     Display output one screen at a time
+  let      Perform arithmetic on shell variables
+  ln       Make links between files
+  local    Create variables
+  locate   Find files
+  logname  Print current login name
+  logout   Exit a login shell
+  look     Display lines beginning with a given string
+  lpc      Line printer control program
+  lpr      Off line print
+  lprint   Print a file
+  lprintd  Abort a print job
+  lprintq  List the print queue
+  lprm     Remove jobs from the print queue
+  ls       List information about file(s)
+  lsof     List open files
+m
+  make     Recompile a group of programs
+  man      Help manual
+  mkdir    Create new folder(s)
+  mkfifo   Make FIFOs (named pipes)
+  mkisofs  Create an hybrid ISO9660/JOLIET/HFS filesystem
+  mknod    Make block or character special files
+  more     Display output one screen at a time
+  mount    Mount a file system
+  mtools   Manipulate MS-DOS files
+  mv       Move or rename files or directories
+  mmv      Mass Move and rename (files)
+n
+  netstat  Networking information
+  nice     Set the priority of a command or job
+  nl       Number lines and write files
+  nohup    Run a command immune to hangups
+  nslookup Query Internet name servers interactively
+o
+  open     Open a file in its default application
+  op       Operator access 
+p
+  passwd   Modify a user password
+  paste    Merge lines of files
+  pathchk  Check file name portability
+  ping     Test a network connection
+  popd     Restore the previous value of the current directory
+  pr       Prepare files for printing
+  printcap Printer capability database
+  printenv Print environment variables
+  printf   Format and print data
+  ps       Process status
+  pushd    Save and then change the current directory
+  pwd      Print Working Directory
+q
+  quota    Display disk usage and limits
+  quotacheck Scan a file system for disk usage
+  quotactl Set disk quotas
+r
+  ram      ram disk device
+  rcp      Copy files between two machines
+  read     read a line from standard input
+  readonly Mark variables/functions as readonly
+  reboot   Reboot the system
+  renice   Alter priority of running processes 
+  remsync  Synchronize remote files via email
+  return   Exit a shell function
+  rev      Reverse lines of a file
+  rm       Remove files
+  rmdir    Remove folder(s)
+  rsync    Remote file copy (Synchronize file trees)
+s
+  screen   Multiplex terminal, run remote shells via ssh
+  scp      Secure copy (remote file copy)
+  sdiff    Merge two files interactively
+  sed      Stream Editor
+  select   Accept keyboard input
+  seq      Print numeric sequences
+  set      Manipulate shell variables and functions
+  sftp     Secure File Transfer Program
+  shift    Shift positional parameters
+  shopt    Shell Options
+  shutdown Shutdown or restart linux
+  sleep    Delay for a specified time
+  slocate  Find files
+  sort     Sort text files
+  source   Run commands from a file `.'
+  split    Split a file into fixed-size pieces
+  ssh      Secure Shell client (remote login program)
+  strace   Trace system calls and signals
+  su       Substitute user identity
+  sudo     Execute a command as another user
+  sum      Print a checksum for a file
+  symlink  Make a new name for a file
+  sync     Synchronize data on disk with memory
+t
+  tail     Output the last part of files
+  tar      Tape ARchiver
+  tee      Redirect output to multiple files
+  test     Evaluate a conditional expression
+  time     Measure Program running time
+  times    User and system times
+  touch    Change file timestamps
+  top      List processes running on the system
+  traceroute Trace Route to Host
+  trap     Run a command when a signal is set(bourne)
+  tr       Translate, squeeze, and/or delete characters
+  true     Do nothing, successfully
+  tsort    Topological sort
+  tty      Print filename of terminal on stdin
+  type     Describe a command
+u
+  ulimit   Limit user resources
+  umask    Users file creation mask
+  umount   Unmount a device
+  unalias  Remove an alias
+  uname    Print system information
+  unexpand Convert spaces to tabs
+  uniq     Uniquify files
+  units    Convert units from one scale to another
+  unset    Remove variable or function names
+  unshar   Unpack shell archive scripts
+  until    Execute commands (until error)
+  useradd  Create new user account
+  usermod  Modify user account
+  users    List users currently logged in
+  uuencode Encode a binary file 
+  uudecode Decode a file created by uuencode
+v
+  v        Verbosely list directory contents (`ls -l -b')
+  vdir     Verbosely list directory contents (`ls -l -b')
+  vi       Text Editor
+  vmstat   Report virtual memory statistics
+w
+  watch    Execute/display a program periodically
+  wc       Print byte, word, and line counts
+  whereis  Report all known instances of a command    
+  which    Locate a program file in the user's path. 
+  while    Execute commands
+  who      Print all usernames currently logged in
+  whoami   Print the current user id and name (`id -un')
+  Wget     Retrieve web pages or files via HTTP, HTTPS or FTP
+  write    Send a message to another user 
+x
+  xargs    Execute utility, passing constructed argument list(s)
+  yes      Print a string until interrupted
+  .        Run a command script in the current shell
+  ###      Comment / Remark
+
+
+
+
+
+
+
+ An A-Z Index of Oracle SQL Commands
+
+ANALYZE
+AUDIT
+
+CALL
+Cluster - CREATE CLUSTER
+        - ALTER  CLUSTER
+        - DROP   CLUSTER
+COMMENT
+COMMIT
+CONNECT
+CONSTRAINT - Add / Enable
+Context - CREATE CONTEXT
+        - DROP CONTEXT
+Controlfile - CREATE CONTROLFILE
+
+Database - CREATE DATABASE
+         - ALTER  DATABASE
+DELETE
+DESCRIBE
+Dimension - CREATE DIMENSION
+          - ALTER DIMENSION
+          - DROP DIMENSION
+Directory - CREATE DIRECTORY
+          - DROP DIRECTORY
+
+EXEC
+EXECUTE IMMEDIATE
+EXPLAIN PLAN
+
+Function - CREATE FUNCTION
+         - ALTER  FUNCTION
+         - DROP   FUNCTION
+
+GRANT
+
+Index - CREATE INDEX
+      - ALTER  INDEX
+      - DROP   INDEX
+Indextype - CREATE INDEXTYPE
+          - DROP INDEXTYPE
+INSERT
+INTERSECT
+
+Java - CREATE JAVA
+     - ALTER JAVA
+     - DROP JAVA
+
+Library - CREATE LIBRARY
+        - DROP LIBRARY
+Link - CREATE DATABASE LINK
+     - DROP DATABASE LINK
+LOCK TABLE
+
+Mview - CREATE MATERIALIZED VIEW
+      - ALTER MATERIALIZED VIEW
+      - DROP MATERIALIZED VIEW
+      - CREATE MATERIALIZED VIEW LOG
+      - ALTER MATERIALIZED VIEW LOG
+      - DROP MATERIALIZED VIEW LOG
+MINUS
+
+NOAUDIT
+
+Operator - CREATE OPERATOR
+         - DROP OPERATOR
+Outline - CREATE OUTLINE
+        - ALTER OUTLINE
+        - DROP OUTLINE
+
+Package - CREATE PACKAGE/BODY
+        - ALTER  PACKAGE
+        - DROP   PACKAGE
+Pfile - CREATE PFILE
+Procedure - CREATE PROCEDURE
+          - ALTER  PROCEDURE
+          - DROP   PROCEDURE
+Profile - CREATE PROFILE
+        - ALTER  PROFILE
+        - DROP   PROFILE
+
+RECOVER
+RENAME
+Resource - ALTER RESOURCE COST
+REVOKE
+RMAN - Recovery Manager
+Role - CREATE ROLE
+     - SET    ROLE
+     - ALTER  ROLE
+     - DROP   ROLE
+ROLLBACK
+Rollback - CREATE ROLLBACK SEGMENT
+         - ALTER  ROLLBACK SEGMENT
+         - DROP   ROLLBACK SEGMENT
+
+SAVEPOINT
+Schema - CREATE SCHEMA
+SELECT
+Sequence - CREATE SEQUENCE
+         - ALTER  SEQUENCE
+         - DROP   SEQUENCE
+Session - ALTER SESSION
+SHUTDOWN
+SNAPSHOT
+SPfile - CREATE SPFILE
+STARTUP
+Statistics - ASSOCIATE STATISTICS
+           - DISASSOCIATE STATISTICS
+Synonym - CREATE SYNONYM
+        - DROP   SYNONYM
+System - ALTER SYSTEM
+
+Table - CREATE TABLE
+      - ALTER  TABLE
+      - DROP   TABLE
+Tablespace - CREATE TABLESPACE
+           - ALTER  TABLESPACE
+           - DROP   TABLESPACE
+           - CREATE TEMPORARY TABLESPACE
+Transaction - SET TRANSACTION
+Trigger - CREATE TRIGGER
+        - ALTER  TRIGGER
+        - DROP   TRIGGER
+TRUNCATE
+Type - CREATE TYPE
+     - ALTER TYPE
+     - DROP TYPE
+     - CREATE TYPE BODY
+     - DROP TYPE BODY
+
+UPDATE
+UNION
+User - CREATE USER
+     - ALTER  USER
+     - DROP   USER
+
+View - CREATE VIEW
+     - ALTER  VIEW
+     - DROP   VIEW
+
+
+
+
+An A-Z Index of the Windows XP command line
+
+   ADDUSERS Add or list users to/from a CSV file
+   ARP      Address Resolution Protocol
+   ASSOC    Change file extension associations•
+   ASSOCIAT One step file association
+   AT       Schedule a command to run at a later time
+   ATTRIB   Change file attributes
+b
+   BOOTCFG  Edit Windows boot settings
+   BROWSTAT Get domain, browser and PDC info
+c
+   CACLS    Change file permissions
+   CALL     Call one batch program from another•
+   CD       Change Directory - move to a specific Folder•
+   CHANGE   Change Terminal Server Session properties
+   CHKDSK   Check Disk - check and repair disk problems
+   CHKNTFS  Check the NTFS file system
+   CHOICE   Accept keyboard input to a batch file
+   CIPHER   Encrypt or Decrypt files/folders
+   CleanMgr Automated cleanup of Temp files, recycle bin
+   CLEARMEM Clear memory leaks
+   CLIP     Copy STDIN to the Windows clipboard.
+   CLS      Clear the screen•
+   CLUSTER  Windows Clustering
+   CMD      Start a new CMD shell
+   COLOR    Change colors of the CMD window•
+   COMP     Compare the contents of two files or sets of files
+   COMPACT  Compress files or folders on an NTFS partition
+   COMPRESS Compress individual files on an NTFS partition
+   CON2PRT  Connect or disconnect a Printer
+   CONVERT  Convert a FAT drive to NTFS.
+   COPY     Copy one or more files to another location•
+   CSCcmd   Client-side caching (Offline Files)
+   CSVDE    Import or Export Active Directory data 
+d
+   DATE     Display or set the date•
+   Dcomcnfg DCOM Configuration Utility
+   DEFRAG   Defragment hard drive
+   DEL      Delete one or more files•
+   DELPROF  Delete NT user profiles
+   DELTREE  Delete a folder and all subfolders
+   DevCon   Device Manager Command Line Utility 
+   DIR      Display a list of files and folders•
+   DIRUSE   Display disk usage
+   DISKCOMP Compare the contents of two floppy disks
+   DISKCOPY Copy the contents of one floppy disk to another
+   DISKPART Disk Administration
+   DNSSTAT  DNS Statistics
+   DOSKEY   Edit command line, recall commands, and create macros
+   DSADD    Add user (computer, group..) to active directory
+   DSQUERY  List items in active directory
+   DSMOD    Modify user (computer, group..) in active directory
+e
+   ECHO     Display message on screen•
+   ENDLOCAL End localisation of environment changes in a batch file•
+   ERASE    Delete one or more files•
+   EXIT     Quit the current script/routine and set an errorlevel•
+   EXPAND   Uncompress files
+   EXTRACT  Uncompress CAB files
+f
+   FC       Compare two files
+   FIND     Search for a text string in a file
+   FINDSTR  Search for strings in files
+   FOR /F   Loop command: against a set of files•
+   FOR /F   Loop command: against the results of another command•
+   FOR      Loop command: all options Files, Directory, List•
+   FORFILES Batch process multiple files
+   FORMAT   Format a disk
+   FREEDISK Check free disk space (in bytes)
+   FSUTIL   File and Volume utilities
+   FTP      File Transfer Protocol
+   FTYPE    Display or modify file types used in file extension associations•
+g
+   GLOBAL   Display membership of global groups
+   GOTO     Direct a batch program to jump to a labelled line•
+h
+   HELP     Online Help
+i
+   iCACLS   Change file permissions
+   IF       Conditionally perform a command•
+   IFMEMBER Is the current user in an NT Workgroup
+   IPCONFIG Configure IP
+k
+   KILL     Remove a program from memory
+l
+   LABEL    Edit a disk label
+   LOCAL    Display membership of local groups
+   LOGEVENT Write text to the NT event viewer.
+   LOGOFF   Log a user off
+   LOGTIME  Log the date and time in a file
+m
+   MAPISEND Send email from the command line
+   MBSAcli  Baseline Security Analyzer. 
+   MEM      Display memory usage
+   MD       Create new folders•
+   MKLINK   Create a symbolic link (linkd)
+   MODE     Configure a system device
+   MORE     Display output, one screen at a time
+   MOUNTVOL Manage a volume mount point
+   MOVE     Move files from one folder to another•
+   MOVEUSER Move a user from one domain to another
+   MSG      Send a message
+   MSIEXEC  Microsoft Windows Installer
+   MSINFO   Windows NT diagnostics
+   MSTSC    Terminal Server Connection (Remote Desktop Protocol)
+   MUNGE    Find and Replace text within file(s)
+   MV       Copy in-use files
+n
+   NET      Manage network resources
+   NETDOM   Domain Manager
+   NETSH    Configure network protocols
+   NETSVC   Command-line Service Controller
+   NBTSTAT  Display networking statistics (NetBIOS over TCP/IP)
+   NETSTAT  Display networking statistics (TCP/IP)
+   NOW      Display the current Date and Time 
+   NSLOOKUP Name server lookup
+   NTBACKUP Backup folders to tape
+   NTRIGHTS Edit user account rights
+p
+   PATH     Display or set a search path for executable files•
+   PATHPING Trace route plus network latency and packet loss
+   PAUSE    Suspend processing of a batch file and display a message•
+   PERMS    Show permissions for a user
+   PERFMON  Performance Monitor
+   PING     Test a network connection
+   POPD     Restore the previous value of the current directory saved by PUSHD•
+   PORTQRY  Display the status of ports and services
+   PRINT    Print a text file
+   PRNCNFG  Display, configure or rename a printer
+   PRNMNGR  Add, delete, list printers set the default printer
+   PROMPT   Change the command prompt•
+   PsExec     Execute process remotely
+   PsFile     Show files opened remotely
+   PsGetSid   Display the SID of a computer or a user
+   PsInfo     List information about a system
+   PsKill     Kill processes by name or process ID
+   PsList     List detailed information about processes
+   PsLoggedOn Who's logged on (locally or via resource sharing)
+   PsLogList  Event log records
+   PsPasswd   Change account password
+   PsService  View and control services
+   PsShutdown Shutdown or reboot a computer
+   PsSuspend  Suspend processes
+   PUSHD    Save and then change the current directory•
+q
+   QGREP    Search file(s) for lines that match a given pattern.
+r
+   RASDIAL  Manage RAS connections
+   RASPHONE Manage RAS connections
+   RECOVER  Recover a damaged file from a defective disk.
+   REG      Registry: Read, Set, Export, Delete keys and values
+   REGEDIT  Import or export registry settings
+   REGSVR32 Register or unregister a DLL
+   REGINI   Change Registry Permissions
+   REM      Record comments (remarks) in a batch file•
+   REN      Rename a file or files•
+   REPLACE  Replace or update one file with another
+   RD       Delete folder(s)•
+   RMTSHARE Share a folder or a printer
+   ROBOCOPY Robust File and Folder Copy
+   ROUTE    Manipulate network routing tables
+   RUNAS    Execute a program under a different user account
+   RUNDLL32 Run a DLL command (add/remove print connections)
+s
+   SC       Service Control
+   SCHTASKS Create or Edit Scheduled Tasks 
+   SCLIST   Display NT Services
+   SET      Display, set, or remove environment variables•
+   SETLOCAL Control the visibility of environment variables•
+   SETX     Set environment variables permanently 
+   SHARE    List or edit a file share or print share
+   SHIFT    Shift the position of replaceable parameters in a batch file•
+   SHORTCUT Create a windows shortcut (.LNK file)
+   SHOWGRPS List the NT Workgroups a user has joined
+   SHOWMBRS List the Users who are members of a Workgroup
+   SHUTDOWN Shutdown the computer
+   SLEEP    Wait for x seconds
+   SOON     Schedule a command to run in the near future
+   SORT     Sort input
+   START    Start a program or command in a separate window•
+   SU       Switch User
+   SUBINACL Edit file and folder Permissions, Ownership and Domain
+   SUBST    Associate a path with a drive letter
+   SYSTEMINFO List system configuration
+t
+   TASKLIST List running applications and services
+   TASKKILL Remove a running process from memory
+   TIME     Display or set the system time•
+   TIMEOUT  Delay processing of a batch file
+   TITLE    Set the window title for a CMD.EXE session•
+   TLIST    Task list with full path
+   TOUCH    Change file timestamps    
+   TRACERT  Trace route to a remote host
+   TREE     Graphical display of folder structure
+   TYPE     Display the contents of a text file•
+u
+   USRSTAT  List domain usernames and last login
+v
+   VER      Display version information•
+   VERIFY   Verify that files have been saved•
+   VOL      Display a disk label•
+w
+   WHERE    Locate and display files in a directory tree
+   WHOAMI   Output the current UserName and domain
+   WINDIFF  Compare the contents of two files or sets of files
+   WINMSD   Windows system diagnostics
+   WINMSDP  Windows system diagnostics II
+   WMIC     WMI Commands
+x
+   XCACLS   Change file permissions
+   XCOPY    Copy files and folders
+   ::       Comment / Remark•
+
+
+
+
+ An A-Z Index of Windows PowerShell commands
+
+a
+   Get-Acl                    Get permission settings for a file or registry key
+   Set-Acl                    Set permissions
+   Get-Alias            gal   Return alias names for Cmdlets
+   Import-Alias        ipal   Import an alias list from a file
+   New-Alias            nal   Create a new alias.
+   Set-Alias            sal   Create or change an alias
+   Get-AuthenticodeSignature  Get the signature object associated with a file
+   Set-AuthenticodeSignature  Place a signature in a .ps1 script or other file
+c
+   Set-Location  cd/chdir/sl  Set the current working location
+   Get-ChildItem   dir/ls/gci Get child items (contents of a folder or registry key)
+   Get-Command          gcm   Retrieve basic information about a command
+   Measure-Command            Measure running time
+   Trace-Command              Trace an expression or command
+   Add-Content           ac   Add to the content of the item
+   Get-Content   cat/type/gc  Get content from item (specific location)
+   Set-Content           sc   Set content in the item (specific location)
+   Clear-Content        clc   Remove content from a file/item
+   ConvertTo-Html             Convert the input into an HTML table
+   ConvertFrom-SecureString   Convert a secure string into an encrypted standard string
+   ConvertTo-SecureString     Convert an encrypted standard string into a secure string
+   Clear-Host      clear/cls  Clear the screen
+   Clear-Item           cli   Remove content from a variable or an alias
+   Copy-Item     copy/cp/cpi  Copy an item from a namespace location
+   Get-Credential             Get a security credential (username/password)
+   Get-Culture                Get region information (language and keyboard layout)
+d
+   Get-ChildItem   dir/ls/gci Get child items (contents of a folder or registry key)
+   Get-Date                   Get current date and time
+   Set-Date                   Set system time on the host system
+   Do                         Loop while a condition is True
+   Get-PSDrive          gdr   Get drive information (DriveInfo)
+   New-PSDrive      mount/ndr Install a new drive on the machine
+   Remove-PSDrive       rdr   Remove a provider/drive from its location
+e
+   Get-Eventlog               Get eventlog data
+   Get-ExecutionPolicy        Get the execution policy for the shell
+   Set-ExecutionPolicy        Change the execution policy (user preference)
+   Export-Alias         epal  Export an alias list to a file
+   Export-Clixml              Produce a clixml representation of powershell objects
+   Export-Console             Export console configuration to a file
+   Export-Csv          epcsv  Export to Comma Separated Values (spreadsheet)
+   Invoke-Expression          Run a PowerShell expression
+   Exit                       Exit Powershell (or exit a script)
+f
+   ForEach-Object    foreach  Loop for each object in the pipeline
+   ForEach                    Loop through values in the pipeline
+   For                        Loop through items that match a condition
+   Format-Custom         fc   Format output using a customized view
+   Format-List           fl   Format output as a list of properties, each on a new line
+   Format-Table          ft   Format output as a table
+   Format-Wide           fw   Format output as a table listing one property only
+g
+   Get-Item              gi   Get a file/registry object (or any other namespace object)
+   Get-ChildItem   dir/ls/gci Get child items (contents of a folder or registry key)
+h
+   Get-Help            help   Open the help file
+   Add-History                Add entries to the session history
+   Get-History  history/h/ghy Get a listing of the session history
+   Invoke-History     r/ihy   Invoke a previously executed Cmdlet
+   Get-Host                   Get host information
+   Clear-Host      clear/cls  Clear the screen
+   Read-Host                  Read a line of input from the host console
+   Write-Host                 Display objects through the host user interface
+i
+   if                         Conditionally perform a command
+   Import-Clixml              Import a clixml file and rebuild the PS object
+   Import-Csv         ipcsv   Take values from a CSV list and send objects down the pipeline.
+   Get-Item              gi   Get a file object or get a registry (or other namespace) object
+   Invoke-Item           ii   Invoke an executable or open a file (START)
+   New-Item              ni   Create a new item in a namespace
+   Remove-Item  rm/del/erase/rd/ri/rmdir   Remove an item
+   Set-Item              si   Change the value of an item
+   Clear-ItemProperty         Delete the value of a property
+   Copy-ItemProperty          Copy a property along with its value
+   Get-ItemProperty           Retrieve the properties of an object
+   Move-ItemProperty          Move a property from one location to another
+   New-ItemProperty           Set a new property of an item at a location
+   Remove-ItemProperty        Delete the property and its value from an item
+   Rename-ItemProperty        Rename a property of an item
+   Set-ItemProperty           Set the value of a property
+k
+   Stop-Process    kill/spps  Stop a running process
+l
+   Get-Location    pwd / gl   Get and display the current location
+   Pop-Location        popd   Set the current working location from the stack
+   Push-Location      pushd   Push a location to the stack
+   Set-Location  cd/chdir/sl  Set the current working location
+m
+   Add-Member                 Add a member to an instance of a PowerShell object
+   Get-Member            gm   Enumerate the properties of an object
+   Move-Item      move/mv/mi  Move an item from one location to another
+o
+   Compare-Object             Compare the properties of objects
+   Group-Object       group   Group the objects that contain the same value for a common property
+   Measure-Object             Measure the properties of an object
+   New-Object                 Create a new .Net object
+   Select-Object     select   Select properties of objects
+   Sort-Object         sort   Sort objects by property value
+   Where-Object               Filter the objects passed along the command pipeline.
+   Out-Default                Send output to default
+   Out-File                   Send command output to a file
+   Out-Host              oh   Send the pipelined output to the host
+   Out-Null                   Send output to null
+   Out-Printer           lp   Send the output to a printer
+   Out-String                 Send objects to the host as strings
+p
+   Powershell                 Launch a powershell session
+   Convert-Path        cvpa   Convert a ps path to a provider path
+   Join-Path                  Combine a path and child-path
+   Resolve-Path        rvpa   Resolves the wildcards in a path
+   Split-Path                 Return part of a path
+   Test-Path                  Return true if the path exists, otherwise return false
+   Get-Pfxcertificate         Get pfx certificate information
+   Pop-Location        popd   Set the current working location from the stack
+   Push-Location      pushd   Push a location to the stack
+   Get-Process       ps/gps   Get a list of processes on a machine
+   Stop-Process    kill/spps  Stop a running process
+   Clear-ItemProperty   clp   Remove the property value from a property
+   Copy-ItemProperty    cpp   Copy a property along with it's value
+   Get-ItemProperty      gp   Retrieve the properties of an object
+   Move-ItemProperty     mp   Move a property from one location to another
+   New-ItemProperty           Set a new property
+   Remove-ItemProperty   rp   Remove a property and its value
+   Rename-ItemProperty  rnp   Renames a property at its location
+   Set-ItemProperty      sp   Set a property at the specified location to a specified value
+   Get-PsProvider             Get information for the specified provider
+   Set-PSdebug                Turn script debugging on or off
+   Add-PsSnapIn               Add snap-ins to the console
+   Get-PsSnapin               List PowerShell snap-ins on this computer
+   Remove-PSSnapin            Remove PowerShell snap-ins from the console
+q
+   Quest AD cmdlets           Read and write to Active Directory
+r
+   Read-Host                  Read a line of input from the host console
+   Remove-Item  rm/del/erase/rd/ri/rmdir   Remove an item
+   Rename-Item      ren/rni   Change the name of an existing item
+   Rename-ItemProperty        Rename a property of an item
+   Run/Call             &     Run a command (call operator)
+s
+   Select-Object     select   Select properties of objects
+   Get-Service          gsv   Get a list of services
+   New-Service                Create a new service
+   Restart-Service            Stop and then restart a service
+   Resume-Service             Resume a suspended service
+   Set-Service                Change the start mode/properties of a service
+   Sort-Object         sort   Sort objects by property value
+   Start-Service       sasv   Start a stopped service
+   Stop-Service        spsv   Stop a running service
+   Suspend-Service            Suspend a running service
+   Start-Sleep        sleep   Suspend shell, script, or runspace activity
+   Switch                     Multiple if statements
+   Select-String              Search through strings or files for patterns
+t
+   Tee-Object                 Send input objects to two places
+   New-Timespan               Create a timespan object
+   Trace-Command              Trace an expression or command
+   Get-Tracesource            Get components that are instrumented for tracing.
+   Set-Tracesource            Trace a PowerShell component
+   Start-Transcript           Start a transcript of a command shell session
+   Stop-Transcript            Stop the transcription process
+u
+   Get-Uiculture              Get the ui culture information
+   Get-Unique            gu   Get the unique items in a collection
+   Update-Formatdata          Update and append format data files
+   Update-Typedata            Update the current extended type configuration
+v
+   Clear-Variable       clv   Remove the value from a variable
+   Get-Variable          gv   Get a powershell variable
+   New-Variable          nv   Create a new variable
+   Remove-Variable       rv   Remove a variable and its value
+   Set-Variable      set/sv   Set a variable and a value
+w
+   Where-Object       where   Filter input from the pipeline
+   While                      Loop while a condition is True
+   Get-WMIobject              Get WMI class information
+   Write-Debug                Write a debug message to the host display
+   Write-Error                Write an object to the error pipeline.
+   Write-Output        echo   Write an object to the pipeline
+   Write-Progress             Display a progress bar
+   Write-Verbose              Write a string to the host's verbose display
+   Write-Warning              Write a warning message
+   #                          Comment / Remark
+
+
+
+
+
+

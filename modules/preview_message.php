@@ -17,6 +17,17 @@ All rights reserved.
 
 
 
+Notice: Undefined index: match_list_link1 in C:\Users\Eric\Desktop\camaroes\modules\preview_message.php on line 149
+
+Notice: Undefined variable: result_mess in C:\Users\Eric\Desktop\camaroes\modules\preview_message.php on line 191
+
+Notice: Undefined index: comment in C:\Users\Eric\Desktop\camaroes\modules\preview_message.php on line 224
+
+
+Notice: Undefined index: match_list_link in C:\Users\Eric\Desktop\camaroes\function\func_output.php(123) : regexp code on line 1
+
+ 
+ 
 
 
 
@@ -136,6 +147,7 @@ $lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 $lk->add_link("modules/email_message.php?conf_name=conf.d/modules/conf_email_message.ini&id_message=".$cmr->post_var["id_message"]."", 1);
 $lk->add_link("modules/message_from_model.php?conf_name=conf.d/modules/conf_message_from_model.ini&id_message=".$cmr->post_var["id_message"]."", 1);
 $division->prints["match_link_list"] = $lk->list_link();
+$division->prints["match_list_link"] = $lk->list_link();
 
 $lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 $lk->add_link("modules/view_message.php?conf_name=conf.d/modules/conf_message.ini&id_message=".$cmr->post_var["id_message"]."", 1);
@@ -146,7 +158,7 @@ $lk->add_link("modules/view_sended_message.php?conf_name=conf.d/modules/conf_sen
 $lk->add_link("modules/view_current_message.php?conf_name=conf.d/modules/conf_current_message.ini&id_message=".$cmr->post_var["id_message"]."", 1);
 $lk->add_link("modules/view_date_message.php?conf_name=conf.d/modules/conf_date_message.ini&id_message=".$cmr->post_var["id_message"]."", 1);
 $lk->add_link("modules/view_model_message.php?conf_name=conf.d/modules/conf_model_message.ini&id_message=".$cmr->post_var["id_message"]."", 1);
-$division->prints["match_list_link1"] .= $lk->list_link();
+$division->prints["match_list_link1"] = $lk->list_link();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -188,7 +200,7 @@ if($result_value["id"]) $cmr->post_var["id_message"] = $result_value["id"];
 
 
 //----------
-$pdf_data_text .= "\n:" . $result_value["date_time"] ."\:" . $result_value["title"] . "\n:\n" . serialize ($result_mess) .  "\n===========================\n";
+$pdf_data_text .= "\n:" . $result_value["date_time"] ."\:" . $result_value["title"] . "\n:\n" . serialize ($result_value) .  "\n===========================\n";
 //----------
 
 // show_hide("header", "begin", 0);
@@ -221,7 +233,7 @@ $pdf_data_text .= "\n:" . $result_value["date_time"] ."\:" . $result_value["titl
   }
 // show_hide("comment", "begin", 0);
   $division->prints["match_label_comment"] = $cmr->translate("comment");
-  $division->prints["match_value_comment"] = wordwrap($result_value["comment"], 100);
+  $division->prints["match_value_comment"] =  "";// wordwrap($result_value["comment"], 100);
   $division->prints["match_comment_hidden"] = input_hidden("<input type=\"hidden\" name=\"cmr_get_data\" value=\"comment\" />");
   $division->prints["match_comment_hidden_id"] = input_hidden("<input type=\"hidden\" name=\"id_message\" value=\"" . $result_value["id"] . "\" />");
   $division->prints["match_comment_submit"] = $cmr->translate("add comment");
@@ -365,8 +377,8 @@ $cmr->action["where"] = $cmr->where_query();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->query[$cmr->action["table_name"]] = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "comment ";
 $cmr->query[$cmr->action["table_name"]] .= "WHERE (";
-$cmr->query[$cmr->action["table_name"]] .= " (line_id = '" . $cmr->post_var["id_groups"] . "') ";
-$cmr->query[$cmr->action["table_name"]] .= " AND (table_name = '" . $cmr->get_conf("cmr_table_prefix") . "groups') ";
+$cmr->query[$cmr->action["table_name"]] .= " (line_id = '" . $cmr->post_var["id_message"] . "') ";
+$cmr->query[$cmr->action["table_name"]] .= " AND (table_name = '" . $cmr->get_conf("cmr_table_prefix") . "message') ";
 $cmr->query[$cmr->action["table_name"]] .= ") ";
 $cmr->query[$cmr->action["table_name"]] .= " AND " . $cmr->action["where"];
 

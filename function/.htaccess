@@ -1,0 +1,129 @@
+#
+#  mod_rewrite active
+#
+#
+#  Files
+#  .*\.ini .*\.log .*\.cgi
+
+<Files ~ "^conf.d$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^tab$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^themes$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^languages$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^home$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+
+<Files ~ "^groups$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+
+<Files ~ "^users$">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^sess_(.+)">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+
+<Files ~ "^sess_(.+)">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^\.ht">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.ini">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.csv">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.sql">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.xml">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.xls">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.log">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.cgi">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.conf">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.bak">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>
+
+<Files ~ "^(.+)\.bak.">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+</Files>

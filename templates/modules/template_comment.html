@@ -1,0 +1,174 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div class="form" id="update_comment_div">
+<p align="center">
+<b>{match_comment_title1}</b>
+</p>
+<p class="normal_text">
+{match_comment_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_comment}
+
+
+<br />
+
+
+<fieldset class="bubble"><legend>{match_legend_comment}:</legend>
+<p class="normal_text">
+<table  border="1"  class="normal_text"  align="center">
+
+
+ <tr>
+  <td align='rigth'>
+ {match_label_id}
+  </td>
+   <td align='rigth'>
+    {match_function_id}
+   </td>
+  <td align='left'>
+ {match_value_id}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_sender}
+  </td>
+   <td align='rigth'>
+    {match_function_sender}
+   </td>
+  <td align='left'>
+ {match_value_sender}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_title}
+  </td>
+   <td align='rigth'>
+    {match_function_title}
+   </td>
+  <td align='left'>
+ {match_value_title}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_text}
+  </td>
+   <td align='rigth'>
+    {match_function_text}
+   </td>
+  <td align='left'>
+ {match_value_text}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_state}
+  </td>
+   <td align='rigth'>
+    {match_function_state}
+   </td>
+  <td align='left'>
+ {match_value_state}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_table_name}
+  </td>
+   <td align='rigth'>
+    {match_function_table_name}
+   </td>
+  <td align='left'>
+ {match_value_table_name}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_line_id}
+  </td>
+   <td align='rigth'>
+    {match_function_line_id}
+   </td>
+  <td align='left'>
+ {match_value_line_id}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_encoding}
+  </td>
+   <td align='rigth'>
+    {match_function_encoding}
+   </td>
+  <td align='left'>
+ {match_value_encoding}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_language}
+  </td>
+   <td align='rigth'>
+    {match_function_language}
+   </td>
+  <td align='left'>
+ {match_value_language}
+  </td>
+ </tr>
+
+ <tr>
+  <td align='rigth'>
+ {match_label_date_time}
+  </td>
+   <td align='rigth'>
+    {match_function_date_time}
+   </td>
+  <td align='left'>
+ {match_value_date_time}
+  </td>
+ </tr>
+
+</table>
+</p>
+</fieldset>
+
+
+
+<p align="center">
+   <input class="submit" type="submit" value="{match_submit_update}" onclick="this.form.class_module.value=update_comment;return confirm('{match_submit_java1}')"/>
+   <input class="submit" type="submit" value="{match_submit_new}" onclick="this.class_module.value=new_comment;return confirm('{match_submit_java2}')"/>
+   <input class="submit" type="reset" onclick="return confirm('{match_reset_form}'" />
+</p>
+</form>
+{match_script_calendar}
+{match_close_tab}
+{match_close_windows}
+</div>
+</template1>
+</template>
