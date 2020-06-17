@@ -42,7 +42,7 @@ All rights reserved.
 
 
 
-func_session.php,Ver 3.0  2011-Nov-Wed 22:19:05  
+func_session.php,Ver 3.0  2011-Nov-Wed 22:19:05
 */
 
 // function sid_gc($maxlifetime)
@@ -57,14 +57,14 @@ func_session.php,Ver 3.0  2011-Nov-Wed 22:19:05
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("cmr_load_session_mode"))){
 function cmr_load_session_mode($cmr_config = array()) // --constructor--
     {
-	    
+
 if(empty($cmr_config)) $cmr_config = cmr_get_config();
 
 if(!(empty($cmr_config["cmr_save_session"]))){
@@ -72,43 +72,53 @@ if(!(empty($cmr_config["cmr_save_session"]))){
 		    case "database":break;
 		    case "cookies":break;
 		    case "files":
-			 session_save_path(cmr_get_path("session"));// for good session work
+			  //session_save_path(cmr_get_path("session"));// for good session work
 		    break;
 		    case "normal":
 		    default:
 		    break;
 	    }
 	 }
-	 
-	 
+
+
             /* set the cache limiter to 'nocache' */
             session_cache_limiter($cmr_config["cmr_session_cache"]);
             /* set the cache expire to 300 minutes */
             session_cache_expire(intval($cmr_config["cmr_cache_expire"]));
-	 
-	 
+
+
    return true;
     }
     }
 /*=================================================================*/
 /*=================================================================*/
-if(!(function_exists("cmr_save_session"))){
+if(!(function_exists("cmr_put_session"))){
 function cmr_put_session($cmr_config = array(), $cmr_save = array(), $param = "")
     {
-       $_SESSION["cmr_array_" . $param] = $cmr_save;
-       
+
+    return ($_COOKIE["cmr_array_" . $param] = $cmr_save);
+    //foreach ($cmr_save  as $key => $value) setcookie("cmr_" . $param . "_" . $key, $value, time()+3600);
+    //print("key=" . $key . ",value=" . $value . "; ");
+
+    return true;
 
 		if($cmr_config["cmr_save_session"]=="files"){
+      session_save_path(cmr_get_path("session"));// for good session work
+      return true;
 		}elseif($cmr_config["cmr_save_session"]=="database"){
+      return true;
 		}elseif($cmr_config["cmr_save_session"]=="cookies"){
+      return true;
 		if(!empty($cmr_config["cmr_use_cookie"])){
        		cmr_setcookie ("cmr_" . $param . "[]", strval($cmr_save) , time() - intval($cmr_config["cmr_cookie_time_out"]));
        		cmr_setcookie ("cmr_" . $param . "[]", strval($cmr_save) , time() + intval($cmr_config["cmr_cookie_time_out"]));
+          return true;
 		}else{
+      return true;
 		}
-		
+
 		}
-   return  true;
+   return true;
     }
     }
 /*=================================================================*/
@@ -116,9 +126,9 @@ function cmr_put_session($cmr_config = array(), $cmr_save = array(), $param = ""
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("cmr_save_session"))){
-function cmr_save_session($cmr_config = array(), $cmr_themes = array(), $cmr_page = array(), $cmr_language = array(), $cmr_db = array(), $cmr_imap = array(), $cmr_user = array(), $cmr_group = array(), $cmr_post_var = array(), $cmr_session = array(), $cmr_others=array())
+function cmr_save_session($cmr_config = array(), $cmr_themes = array(), $cmr_page = array(), $cmr_language = array(), $cmr_db = array(), $cmr_imap = array(), $cmr_user = array(), $cmr_group = array(), $cmr_post_var = array(), $cmr_session = array())
 {
-	    
+
 	cmr_put_session($cmr_config, $cmr_config, "config");
 	cmr_put_session($cmr_config, $cmr_themes, "themes");
 	cmr_put_session($cmr_config, $cmr_page, "page");
@@ -129,8 +139,8 @@ function cmr_save_session($cmr_config = array(), $cmr_themes = array(), $cmr_pag
 	cmr_put_session($cmr_config, $cmr_group, "group");
 	cmr_put_session($cmr_config, $cmr_post_var, "post_var");
 	cmr_put_session($cmr_config, $cmr_session, "session");
-	cmr_put_session($cmr_config, $cmr_others, "others");
-       
+	//cmr_put_session($cmr_config, $cmr_others, "others");
+
     return  true;
   }
 }
@@ -138,24 +148,24 @@ function cmr_save_session($cmr_config = array(), $cmr_themes = array(), $cmr_pag
 /*=================================================================*/
 if(!(function_exists("cmr_load_session"))){
 function cmr_load_session($cmr_object, $cmr_config = array())
-    {
-       $cmr_return = "";
-       if(!empty($_SESSION["cmr_array_".$cmr_object])) $cmr_return = $_SESSION["cmr_array_".$cmr_object];
-			
+  {
+    $cmr_return = array();
+    if($_COOKIE["cmr_array_" . $cmr_object]) return $_COOKIE["cmr_array_" . $cmr_object];
 		if($cmr_config["cmr_save_session"]=="files"){
-		}
-		elseif($cmr_config["cmr_save_session"]=="database"){
-		}
-		elseif($cmr_config["cmr_save_session"]=="cookies"){
-		if(!empty($cmr_config["cmr_use_cookie"])){
-			$cmr_return=$_COOKIE["cmr_".$cmr_object];
-		}
-			
+      $cmr_return = array();
+		}elseif($cmr_config["cmr_save_session"]=="database"){
+      $cmr_return = array();
+		}elseif($cmr_config["cmr_save_session"]=="cookies"){
+		    if(!empty($cmr_config["cmr_use_cookie"])){
+			       $cmr_return = $_COOKIE["cmr_" . $cmr_object];
+		    }
+
 		}else{
-			}
-   return $cmr_return;
-    }
-    }
+      $cmr_return = array();
+		}
+     return $cmr_return;
+  }
+}
 /*=================================================================*/
 /*=================================================================*/
 /**

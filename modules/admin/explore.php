@@ -41,17 +41,17 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
         $p1->img_by_text($p1->getpost("PE_imgtext"));
         $p1->img_by_path($p1->getpost("PE_imgpath"));
     }
-    
+
 
 		// ===============================================
 		$division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
-		
+
 		// $division->load_themes($cmr->themes);
-		
-		$division->module["name"]= "Explore";
-		$division->themes["module_positionx"]= "middle";
-		$division->themes["module_positiony"]= "1;1;1;1;1;1";
-		
+
+		$division->module["name"] = "Explore";
+		$division->themes["module_positionx"] = "middle";
+		$division->themes["module_positiony"] = "1;1;1;1;1;1";
+
 		$division->module["title"] = $cmr->translate($mod->base_name);
 		// $division->module["text"] = $str;
 		$division->header_tools_right = 0;

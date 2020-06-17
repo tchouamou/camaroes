@@ -57,7 +57,7 @@ include_once("camaroes_class.php");
 include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// open_finestra($cmr->config, $cmr->language, $cmr->module["name"], $cmr->module["rown_position"], $cmr->module["col_position"], " Application Bar");
+// open_box($cmr->config, $cmr->language, $cmr->module["name"], $cmr->module["rown_position"], $cmr->module["col_position"], " Application Bar");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 

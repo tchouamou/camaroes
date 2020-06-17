@@ -7,7 +7,7 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
  * copyright   : Camaroes Ver 3.03 (C) 2011 T.E.H
  * www     : http://sourceforge.net/projects/camaroes//
  */
- 
+
 /*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
@@ -75,8 +75,8 @@ if(($cmr->get_user("authorisation"))){
     $array_value = get_languages_list($cmr->config);
     $str_title .= select_order($cmr->language, $array_value[1], $array_value[2], "1");
     $str_title .= "</select>&nbsp;&nbsp;";
-        
-        
+
+
     }
     // =========================================
     if((($cmr->get_page("cmr_see_theme")))){
@@ -89,7 +89,7 @@ if(($cmr->get_user("authorisation"))){
     }
     // =========================================
 
-    
+
     // =========================================
     if((($cmr->get_page("cmr_see_refresh")) && ($cmr->get_page("cmr_see_refresh")))){
     $str_title .= "<select name=\"com_refresh\" id=\"com_refresh\" onchange=\"link_conf('com_refresh','current_refresh');\" >";
@@ -162,30 +162,30 @@ if(($cmr->get_user("authorisation"))){
 
 //         $str_title .= "<option value=\"left_menu\">" . $cmr->translate("Left Menu") . "</option>";
 //         $str_title .= "<option value=\"\">--</option>";
-// 
+//
 //         $str_title .= "<option value=\"save_u\">" . $cmr->translate("Save front page for User") . "</option>";
 //         $str_title .= "<option value=\"save_g\">" . $cmr->translate("Save front page for Group") . "</option>";
-// 
+//
 //         $str_title .= "<option value=\"\">--</option>";
-// 
+//
 //         $str_title .= "<option value=\"load_u\">" . $cmr->translate("Load Group front page") . "</option>";
 //         $str_title .= "<option value=\"load_g\">" . $cmr->translate("Load Default front page") . "</option>";
-// 
+//
 //         $str_title .= "<option value=\"\">--</option>";
-// 
+//
 //         $str_title .= "<option value=\"layer_1\">" . $cmr->translate("1 Layer") . "</option>";
 //         $str_title .= "<option value=\"layer_2\">" . $cmr->translate("2 Layer ") . "</option>";
 //         $str_title .= "<option value=\"layer_3\">" . $cmr->translate("3 Layer ") . "</option>";
 //         $str_title .= "<option value=\"layer_3\">" . $cmr->translate("Layer Normal") . "</option>";
 //         $str_title .= "</optgroup>";
-        
+
         $str_title .= "</select>";
         }
         //$str_title .= "</div>";
     }
 
 
-    
+
 	$str_title .= "<noscript><input type=\"submit\" value=\">\" /></noscript>";
 	}
 
@@ -198,7 +198,7 @@ $division->prints["match_company_name"] = $cmr->get_conf("cmr_company_name");
 // $division->prints["match_head_image_left2"] = $cmr->get_conf("cmr_image_2");
 $division->prints["match_portal_name_bis"] = $cmr->config["cmr_company_name2"];
 $division->prints["match_head_image_right1"] = $cmr->get_conf("cmr_image_3");
-// $division->prints["match_head_image_right2"] = $cmr->get_conf("cmr_image_3");
+$division->prints["match_head_image_right2"] = $cmr->get_conf("cmr_image_3");
 
 
 $division->prints["match_head_see_time"] = "";
@@ -218,7 +218,7 @@ $division->module["title"] = substr($cmr->get_conf("cmr_company_name3") . " ver.
 $division->prints["match_open_windows"] = $division->show_noclose();
 
 
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -231,7 +231,7 @@ $file_list[] = $cmr->get_path("template") . "templates/modules/template_page_hea
 $file_list[] = $cmr->get_path("template") . "templates/modules/auto/template_page_header" . $cmr->get_ext("template");
 $division->template = $division->load_template($file_list);
 
-  
+
 $division->print_template();
 $division->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -247,30 +247,30 @@ $division->prints = array();
 
 
 // switch($cmr->post_var["com_action"]){
-//  case "site_map": 
-//  case "command_bar": 
-//  case "left_menu": 
-//  case "tab_mode": 
-//  case "view_task": 
-//  case "login": 
-//  case "init": 
-//  case "exit": 
-//  case "expert": 
-//  case "normal": 
-//  case "minim": 
-//  case "debug": 
-//  case "no_debug": 
-//  case "save_u": 
-//  case "save_g": 
-//  case "load_u": 
-//  case "load_g": 
-//  case "layer_1": 
-//  case "layer_2": 
-//  case "layer_3": 
-//  case "layer_3": 
+//  case "site_map":
+//  case "command_bar":
+//  case "left_menu":
+//  case "tab_mode":
+//  case "view_task":
+//  case "login":
+//  case "init":
+//  case "exit":
+//  case "expert":
+//  case "normal":
+//  case "minim":
+//  case "debug":
+//  case "no_debug":
+//  case "save_u":
+//  case "save_g":
+//  case "load_u":
+//  case "load_g":
+//  case "layer_1":
+//  case "layer_2":
+//  case "layer_3":
+//  case "layer_3":
 //  break;
-//  
-//  case "": 
+//
+//  case "":
 //  if(!empty($cmr->post_var["last_id"])) $cmr->user["auth_id"] = $cmr->post_var["last_id"];
 //  if(!empty($cmr->post_var["last_uid"])) $cmr->user["auth_uid"] = $cmr->post_var["last_uid"];
 //  if(!empty($cmr->post_var["last_email"])) $cmr->user["auth_email"] = $cmr->post_var["last_email"];
@@ -279,7 +279,7 @@ $division->prints = array();
 //  if(!empty($cmr->post_var["last_authorization"])) $cmr->user["authorization"] = $cmr->post_var["last_authorization"];
 //  if(!empty($cmr->post_var["last_list_group"])) $cmr->user["auth_list_group"] = $cmr->post_var["last_list_group"];
 //  break;
-//  
+//
 //  default:
 // //  $cmr->post_var["last_id"] = $cmr->get_user("auth_id");
 // //  $cmr->post_var["last_uid"] = $cmr->get_user("auth_uid");
@@ -288,7 +288,7 @@ $division->prints = array();
 //  $cmr->post_var["last_level"] = $cmr->get_user("auth_type");
 // //  $cmr->post_var["last_authorization"] = $cmr->get_user("authorization");
 // //  $cmr->post_var["last_list_group"] = $cmr->get_user("auth_list_group");
-//  
+//
 //  if(strpos("@", $cmr->post_var["com_action"])){
 // // 	 $cmr->user["auth_id"] = $cmr->post_var["last_id"];
 // // 	 $cmr->user["auth_uid"] = $cmr->post_var["last_uid"];
@@ -307,8 +307,8 @@ $division->prints = array();
 // // 	 $cmr->user["authorization"] = $cmr->post_var["last_authorization"];
 // // 	 $cmr->user["auth_list_group"] = $cmr->post_var["last_list_group"];
 //  }
-//  
+//
 //  break;
-//  
+//
 // }
 ?>

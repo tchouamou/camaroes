@@ -41,7 +41,8 @@ func_security.php,  2011-Oct
 // function pw_encode($pass)
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../function.php"); //to control access 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -402,11 +403,11 @@ if(empty($secure_mode)) return $param;
 	$type = substr(stristr($param, " type="),6,10);
 // 	echo "\$type=".htmlentities($type).";<br />";
 	
-	$param = preg_replace('/([^\\\])"(.*[^\\\])(")/seU', "cmr_var_name('\\1', '\\2', '\\3')", $param);
-	$param = preg_replace("/([^\\\])'(.*[^\\\])(')/seU", "cmr_var_name('\\1', '\\2', '\\3')", $param);
+	$param = preg_replace('/([^\\\])"(.*[^\\\])(")/sU', "cmr_var_name('\\1', '\\2', '\\3')", $param);
+	$param = preg_replace("/([^\\\])'(.*[^\\\])(')/sU", "cmr_var_name('\\1', '\\2', '\\3')", $param);
 // 	$param = cmr_search_replace("/[[:space:]]+/eU", " ", $param);
 // echo "\$param=".htmlentities($param).";<br />";
-	$param = preg_replace("/[\\n\\t\\f]+/eU", " ", $param);
+	$param = preg_replace("/[\\n\\t\\f]+/U", " ", $param);
 	$param = str_replace("  ", " ", $param);
 // 	$param = str_replace("'", '"', $param);
 	$param = cmr_search_replace(" =|= | = ", "=", $param);

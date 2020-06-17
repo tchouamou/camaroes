@@ -1,6 +1,0 @@
-2010-10-12 15:43:19|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\login.php Line=210 : Nomal form authentification 
-2010-10-12 15:44:51|127.0.0.1| User=[guest@localhost]| Script=G:\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
-2010-10-12 15:44:52|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=qpmonos4ts3q7v0moo4om2gtp3
-2010-10-12 15:44:52|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
-2010-10-13 00:27:27|127.0.0.1| User=[admin@localhost]| Script=G:\camaroes\system\generate\generator_mod.php  Line=73 : !!! Called Off a not existing Data Module In   (generate_mod.php) By User   admin@localhost, host:127.0.0.1 The module (delete_user.php) was Called But do not exist   
-

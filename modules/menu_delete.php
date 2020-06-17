@@ -7,40 +7,40 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
  * copyright   : Camaroes Ver 3.03 (C) 2004-2011 T.E.H
  * www     : http://sourceforge.net/projects/camaroes/
  *
- *********************************************************************/ 
+ *********************************************************************/
 
  /*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
-
- 
- 
-
- 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 
- 
 
 
-menu_delete,Ver 3.0  @_date_time_@  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+menu_delete,Ver 3.0  @_date_time_@
 */
 
 
@@ -52,7 +52,7 @@ menu_delete,Ver 3.0  @_date_time_@
 *
 * Is used for keeping
 *
-* windowss (design for the layer usefull when running a module)  
+* windowss (design for the layer usefull when running a module)
 *
 * @$division object istance of the class windowss
 
@@ -67,13 +67,13 @@ include_once("common_begin.php");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 // $division->load_themes($cmr->themes);
-$division->module["name"] = $mod->name; 
+$division->module["name"] = $mod->name;
 
 
 
 
 $division->module["title"]=cmr_search_replace("_", " ", $cmr->translate($mod->base_name));
-$division->module["title"] = "Menu General"; 
+$division->module["title"] = "Menu General";
 //$division->module["text"] = "";
 
 
@@ -106,7 +106,7 @@ print("</p>");
 ?>
 
 
-<div id="menu_delete_div"> 
+<div id="menu_delete_div">
 <ul class="cmr_menu">
 
 
@@ -116,7 +116,7 @@ print("</p>");
  </li>
 
 
-<?php 
+<?php
 $im=0;
 $array_modules = array();
 $num_modules=0;
@@ -154,12 +154,12 @@ array_multisort(
 // ====================================================
 // ====================================================
     foreach ($array_modules["path"] as $key => $value){
-		
+
 		if(accept_mod($cmr->config, $cmr->user, $array_modules["name"][$key])){
 		print("<li>");
-		   print($cmr->module_icon($array_modules["path"][$key], "16") . $cmr->module_link($array_modules["path"][$key] . "?conf_name=conf.d/modules/conf_" . $array_modules["label"] . ".ini"));
+    print($cmr->module_icon($value, "16") . $cmr->module_link($value . "?conf_name=conf.d/modules/conf_" . $array_modules["label"][$key]. ".ini"));
 		print("</li>");
-		
+
     };
     };
 // ====================================================
@@ -168,11 +168,11 @@ array_multisort(
 // ====================================================
 // ====================================================
 
-		
+
 		print("<li>");
 		   print($cmr->module_icon("modules/menu_list.php", "16") . $cmr->module_link("modules/menu_list.php?conf_name=conf.d/modules/conf_general.ini"));
 		print("</li>");
-		
+
 ?>
 
 

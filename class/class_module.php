@@ -36,7 +36,7 @@ class_windows.php,Ver 3.0  2011-July 10:36:59
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -57,7 +57,7 @@ if(!(class_exists("class_module"))){
 
  class class_module {
     var $config = array();
-    
+
 //   all files path are relatively refered to the application path in the main configuration file, files will be look also in [auto] dir
 //   where to find the module
     var $path = "";
@@ -94,11 +94,11 @@ if(!(class_exists("class_module"))){
     var $class = "";
     var $language = "english";
     var $help = "";
-   
+
 //   use only one file (usefull for the module [menu_@_table_@.php][destop.php] and other link and menu to the module)
     var $image = "images/icon/32x32.png";
     var $small_image = "images/icon/16x16.png";
-   
+
 //   use only one file (usefull for The script  file [get_x.php])
     var $notify_file = "";
 
@@ -126,7 +126,7 @@ if(!(class_exists("class_module"))){
 //   define witch user IP can run the module (Security)
    //allow_ip = "*
     var $allow_ip = "";
-	
+
     var $allow_ip_get = "";
 
 //   only for infomation use
@@ -143,12 +143,12 @@ if(!(class_exists("class_module"))){
 
 
 
-    //00000000000000000000000000 
+    //00000000000000000000000000
 	function __construct($config = array(), $module = array()) // --constructor--
 	{
 	   return $this->class_module($config, $module);
 	}
-    //00000000000000000000000000 
+    //00000000000000000000000000
 /*=================================================================*/
 /*=================================================================*/
     /**
@@ -173,11 +173,11 @@ if(!(class_exists("class_module"))){
 	    if(isset($module["need_type"])) $this->need_type = $module["need_type"];
 	    if(isset($module["header_icon"])) $this->header_icon = $module["header_icon"];
 	    if(isset($module["need_type"])) $this->need_type = $module["need_type"];
-	
+
 	    if(isset($module["get_name"])) $this->get_name = $module["get_name"];
 	    if(isset($module["get_base_name"])) $this->get_base_name = $module["get_base_name"];
 	    if(isset($module["get_pure_name"])) $this->get_pure_name = $module["get_pure_name"];
-	    
+
 //   after an action, define where to send logs for this module
 	    if(isset($config["log_to_email" . $this->base_name])) $this->log_to_email = $config["log_to_email" . $this->base_name];
 	    if(isset($config["log_to_page" . $this->base_name])) $this->log_to_page = $config["log_to_page" . $this->base_name];
@@ -193,11 +193,11 @@ if(!(class_exists("class_module"))){
 	    if(isset($config["class" . $this->base_name])) $this->class = $config["class" . $this->base_name];
 	    if(isset($config["language" . $this->base_name])) $this->language = $config["language" . $this->base_name];
 	    if(isset($config["help" . $this->base_name])) $this->help = $config["help" . $this->base_name];
-   
+
 //   use only one file (usefull for the module [menu_@_table_@.php][destop.php] and other link and menu to the module)
 	    if(isset($config["image" . $this->base_name])) $this->image = $config["image" . $this->base_name];
 	    if(isset($config["small_image" . $this->base_name])) $this->small_image = $config["small_image" . $this->base_name];
-   
+
 //   use only one file (usefull for The script  file [get_x.php])
 	    if(isset($config["notify_file" . $this->base_name])) $this->notify_file = $config["notify_file" . $this->base_name];
 
@@ -225,7 +225,7 @@ if(!(class_exists("class_module"))){
 //   define witch user IP can run the module (Security)
    //allow_ip = "*
 	    if(isset($config["allow_ip" . $this->base_name])) $this->allow_ip = $config["allow_ip" . $this->base_name];
-	
+
 	    if(isset($config["allow_ip_get" . $this->base_name])) $this->allow_ip_get = $config["allow_ip_get" . $this->base_name];
 
 //   only for infomation use
@@ -260,10 +260,10 @@ function good_file($cmr_user = array(), $language = "", $type = "", $action = ""
 				$file_list[] = $this->config["cmr_template_path"] . $this->config["notify_" . $action];
 			}
 			$file_list[] = $this->config["cmr_notify_path"] . "templates/notify/" . $language . "/notify_" . $action . $this->config["cmr_notify_ext"];
-			$file_list[] = $this->config["cmr_notify_path"] . "templates/notify/" . $language . "/auto/notify_" . $action . $this->config["cmr_notify_ext"]; 
+			$file_list[] = $this->config["cmr_notify_path"] . "templates/notify/" . $language . "/auto/notify_" . $action . $this->config["cmr_notify_ext"];
 			$file_list[] = $this->config["cmr_notify_path"]  ."templates/notify/auto/notify_" . $action . $this->config["cmr_notify_ext"];
 			break;
-			
+
 	 		case "template":
 			$file_list[] = $cmr_user["auth_user_path"] . "templates/modules/template_" . $action . $this->config["cmr_template_ext"];
 			$file_list[] = $cmr_user["auth_group_path"] . "templates/modules/template_" . $action . $this->config["cmr_template_ext"];
@@ -274,13 +274,13 @@ function good_file($cmr_user = array(), $language = "", $type = "", $action = ""
 			$file_list[] = $this->config["cmr_template_path"] . "templates/modules/template_" . $action . $this->config["cmr_template_ext"];
 			$file_list[] = $this->config["cmr_template_path"] . "templates/modules/auto/template_" . $action . $this->config["cmr_template_ext"];
 			break;
-			
-			
+
+
 			default:
 			break;
 		}
 		return cmr_good_file($file_list);
-    } 
+    }
 /*=================================================================*/
 /*=================================================================*/
 
@@ -293,7 +293,7 @@ function load_lang($cmr_language = array(), $language = "", $cmrmodule = "user.i
 
     $root_name = cmr_pure_name($this->config, $cmrmodule);
     if(cmr_search(".", $root_name)) $root_name = substr($root_name, 0, strrpos($root_name, "."));
-    $lang_name = "lang_" . $root_name . $this->config["cmr_lang_ext"];    
+    $lang_name = "lang_" . $root_name . $this->config["cmr_lang_ext"];
 
 //     if(!empty($cmr_language["load_lang_" . cmr_basename($root_name)])) return $cmr_language;
     // -------
@@ -303,7 +303,7 @@ function load_lang($cmr_language = array(), $language = "", $cmrmodule = "user.i
 	   $file_list[] = $this->config["cmr_path"] . $cmrmodule;
 	   $file_list[] = $this->config["cmr_lang_path"] . "languages/" . $language . "/" . $lang_name;
 	   $file_list[] = $this->config["cmr_lang_path"] . "languages/" . $language . "/auto/" . $lang_name;
-	   
+
 	   $file_lang = cmr_good_file($file_list, "file");
     // -------
 //     echo "<br />--[".$this->config["cmr_lang_path"] . "languages/" . $language . "/" . $lang_name."]--";
@@ -311,7 +311,7 @@ function load_lang($cmr_language = array(), $language = "", $cmrmodule = "user.i
     if(file_exists($file_lang) && (empty($this->config["load_lang_" . $root_name])))  $cmr_language = cmr_include_conf($this->config, $file_lang, $cmr_language, "var");
     // -------
    return $cmr_language;
-} 
+}
 /*=================================================================*/
 /*=================================================================*/
 
@@ -326,11 +326,11 @@ function load_conf($cmrmodule = "user.ini")
 //     if(cmr_search("/", $conf_name)){
 //     $root_name = substr($root_name, strrpos($root_name, "/") + 1);
 // 	}
-	
+
     $root_name = cmr_pure_name($this->config, $cmrmodule);
     if(cmr_search(".", $root_name)) $root_name = substr($root_name, 0, strrpos($root_name, "."));
     $conf_name = "conf_" . $root_name . $this->config["cmr_conf_ext"];
-    
+
     // -------
 //     // if(!empty($this->config["version_" . cmr_basename($root_name)])) return $this->config;
     // -------
@@ -342,7 +342,7 @@ function load_conf($cmrmodule = "user.ini")
 	   $file_list[3] = $this->config["cmr_conf_path"] . "conf.d/modules/auto/" . $root_name . $this->config["cmr_conf_ext"];
 	   $file_list[4] = $this->config["cmr_conf_path"] . "conf.d/modules/" . $conf_name;
 	   $file_list[5] = $this->config["cmr_conf_path"] . "conf.d/modules/auto/" . $conf_name;
-	   
+
 	   $file_conf = cmr_good_file($file_list, "file");
     // -------
 	    if(is_file($file_list[5])) $this->config = cmr_include_conf($this->config, $file_list[5], $this->config, "var");
@@ -353,10 +353,10 @@ function load_conf($cmrmodule = "user.ini")
 	    if(is_file($file_list[0])) $this->config = cmr_include_conf($this->config, $file_list[0], $this->config, "var");
 	    if(is_file($file_conf)) $this->config = cmr_include_conf($this->config, $file_conf, $this->config, "var");
     // -------
-	    
+
 //     echo "<br />--[".$conf_name."]--";
    return $this->config;
-} 
+}
 /*=================================================================*/
 /*=================================================================*/
 
@@ -381,14 +381,14 @@ function load_help($cmrmodule = "user.php")
 	   $file_list[] = $this->config["cmr_help_path"] . "help/auto/" . $help_name;
 	   $file_list[] = $this->config["cmr_path"] . $cmrmodule;
 	   $file_list[] = $cmrmodule;
-	   
+
 	   $file_help = cmr_good_file($file_list, "file");
     // -------
 // 	if(file_exists($file_help)) include_once($file_help);
     // -------
 
    return $cmr_help;
-} 
+}
 /*=================================================================*/
 /*=================================================================*/
 
@@ -412,7 +412,7 @@ $this->config = cmr_load_conf_need($this->config, $cmrmodule);
 $cmr_help = cmr_load_help_need($this->config, $cmrmodule);
 
    return  array_merge($this->config, $cmr_language, $cmr_help);
-} 
+}
 /*=================================================================*/
 /*=================================================================*/
 
@@ -451,24 +451,24 @@ function match_include($position = "", $template = "")
 
 /*=================================================================*/
 /*=================================================================*/
-function print_template($template, $position = "", $array_match = array())
-    {
-		if(!empty($position)){
-		    preg_match("|<" . $position . ">(.*)</" . $position . ">|sieU", $template, $matches);
-		    (empty($matches[1])) ? $template = "" : $template = $matches[1];
-		    
+//function print_template($template, $position = "", $array_match = array())
+//    {
+//		if(!empty($position)){
+//		    preg_match("|<" . $position . ">(.*)</" . $position . ">|sieU", $template, $matches);
+//		    (empty($matches[1])) ? $template = "" : $template = $matches[1];
+
 // 			$template1 = stristr($template, "<".$position.">");
 // 			$template2 = stristr($template, "</".$position.">");
 // 			$len0 = strlen($position);
 // 			$len1 = strlen($template1);
 // 			$len2 = strlen($template2);
 // 			$len = strlen($template);
-// 			$template = substr($template, $len1, $len - $len2);		    
-			}
-			
-	 if(!empty($array_match)) $template = preg_replace("/(\{)([^}{ ]*)(\})/sieU", "\$array_match['\\2']", $template);
-   return $template;
-    }
+// 			$template = substr($template, $len1, $len - $len2);
+//			}
+
+	// if(!empty($array_match)) $template = preg_replace("/(\{)([^}{ ]*)(\})/sieU", "\$array_match['\\2']", $template);
+  // return $template;
+//    }
 /*=================================================================*/
 /*=================================================================*/
 
@@ -506,7 +506,7 @@ while(isset($cmr_query[$count])){
     if($result_query) $cmr_db["affected_row"][$count] = $result_query->RecordCount();;
 	$cmr_action["affected_rows"] += $cmr_db["affected_row"][$count];
 	}
-	
+
 }
     $count++;
 }
@@ -520,9 +520,9 @@ while(isset($cmr_query[$count])){
 /*=================================================================*/
 /*=================================================================*/
 function run_message($cmr_query = array(), $cmr_db = array(), $cmr_session = array(), $cmr_output = array(), $cmr_db_connection = NULL)
-{	
+{
 if(!empty($cmr_db["result"][0])){
-    //  Query to be run 
+    //  Query to be run
     // if( (!cmr_searchi("^search", $cmr_form))&&($cmr_form !="report_periodic"))
 	    if(isset($cmr_query[0]) && ($cmr_query[0])){
 	        // ----successo------------------
@@ -531,7 +531,7 @@ if(!empty($cmr_db["result"][0])){
 	        // --log action-----
 	        cmr_error_log($this->config, $cmr_session, "Script=" . __FILE__ . " : " . cmr_translate("action_db") . " : " . substr($cmr_output[1], 0, 80));
 	    } //--------fallito-----------
-	    else { 
+	    else {
 	        $template .= ("<br /><span class=\"blink\"> " . cmr_translate("no_write_db") . "  .</span><br />");
 	        // --log action-----
 	        cmr_error_log($this->config, $cmr_session, "Script=" . __FILE__ . " : " . cmr_translate("no_write_db") . " : " . substr($cmr_output[1], 0, 80));
@@ -547,7 +547,7 @@ if(!empty($cmr_db["result"][0])){
 /*=================================================================*/
 /*=================================================================*/
 function output_text($cmr_output = array())
-{	
+{
 	if(!empty($cmr_output[0])){
 	    $template .= ("<pre>" . html_control(wordwrap(substr($cmr_output[0], 0, 10000), 100, "\n")) . "</pre>");
 	}
@@ -562,25 +562,25 @@ function output_text($cmr_output = array())
 function action_run($cmr_output = array())
 {
 	if(empty($cmr_output[1])) $cmr_output[1] = $cmr_output[0];
-	if($this->match_include("match_include1")) 
+	if($this->match_include("match_include1"))
 	if(($cmr_action["form_action_run"])){
-	    // Script to be run 
+	    // Script to be run
 	    print(eval($cmr_action["form_action_run"]));
 	}
    return $template;
 }
 /*=================================================================*/
 /*=================================================================*/
- 
+
 
 /*=================================================================*/
 /*=================================================================*/
 function action_include($cmr_query = array(), $cmr_action = array())
 {
-	if($this->match_include("match_include2")) 
+	if($this->match_include("match_include2"))
 	if(($cmr_action["form_action_include"])){
-	    // Script to be include 
-		if(file_exists($cmr_action["form_action_include"])) 
+	    // Script to be include
+		if(file_exists($cmr_action["form_action_include"]))
 	    include($cmr_action["form_action_include"]);
 	}
    return $template;
@@ -593,7 +593,7 @@ function action_include($cmr_query = array(), $cmr_action = array())
 /*=================================================================*/
 function send_email($cmr_email = array(), $cmr_post_file = array())
 {
-if($this->match_include("match_include3")) 
+if($this->match_include("match_include3"))
 if((isset($cmr_email["subject"])) && (isset($cmr_email["message"]) && ($this->config["cmr_use_email"]))){
 // 	include($this->config["cmr_path"] . "system/generate/email.php");
 
@@ -646,7 +646,7 @@ if((isset($cmr_email["subject"])) && (isset($cmr_email["message"]) && ($this->co
 			// ======================================================
 			$cmr_email["headers_all"] = $cmr_email["email_bcc"] . $cmr_email["email_to"] . $cmr_email["email_cc"] . $cmr_email["email_bcc"];
 			$cmr_email["headers_all"] .= "Mime-Version: ".$cmr_email["headers_mime"]." \r\n";
-			
+
 			if(@sizeof($cmr_post_file["content"][0])){
 			    $cmr_email["headers_all"] .= "Content-Type: multipart/mixed; boundary = ".$cmr_email["boundary"] ."\r\n\r\n";
 				$cmr_email["headers_all"] .= "Content-Transfer-Encoding: ".$cmr_email["ctencoding"]."\r\n";
@@ -655,7 +655,7 @@ if((isset($cmr_email["subject"])) && (isset($cmr_email["message"]) && ($this->co
 			    $cmr_email["headers_all"] .= "Content-Type: ".$cmr_email["headers_content"] ."; charset=".$cmr_email["herders_charset"]."\r\n";
 			    $cmr_email["headers_all"] .= "Content-Transfer-Encoding: 8bit\r\n\r\n";
 			}
-			
+
 			$cmr_email["headers_all"] .= "X-severity: ".$cmr_email["headers_severity"]."\r\n";
 			// $cmr_email["headers_all"].= "X-Mailer: Php/libMailv1.3\r\n";
 			$cmr_email["headers_all"] .= "X-MSMail-severity: ".$cmr_email["MSMail_severity"]."\r\n";
@@ -677,16 +677,16 @@ if((isset($cmr_email["subject"])) && (isset($cmr_email["message"]) && ($this->co
 /*=================================================================*/
 /*=================================================================*/
 function sincronise($cmr_query = array(), $cmr_db = array(), $cmr_db_connection = NULL)
-{	
-if(!empty($cmr_db["result"][0])) 
-if($this->match_include("match_include4")) 
-if(!empty($cmr_query[0]) && ($this->config["cmr_sincronisation"])){	
-    // usefull for sincronisation use 
+{
+if(!empty($cmr_db["result"][0]))
+if($this->match_include("match_include4"))
+if(!empty($cmr_query[0]) && ($this->config["cmr_sincronisation"])){
+    // usefull for sincronisation use
 	@ list($type_migration, $migration) = explode("|", $this->config["cmr_sincronisation"]);
-	if(!empty($migration)) 
-	if(file_exists($migration)) 
+	if(!empty($migration))
+	if(file_exists($migration))
 	include_once($migration);
-    // usefull for sincronisation use 
+    // usefull for sincronisation use
 }
    return $template;
 }
@@ -698,7 +698,7 @@ if(!empty($cmr_query[0]) && ($this->config["cmr_sincronisation"])){
      *
      * @return
      **/
-    
+
     function close() // ----
     {
 	    unset($this->name);

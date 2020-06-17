@@ -180,17 +180,17 @@ while ($my_group = $result_group->FetchNextObject(false)){
   if((!(cmr_search("'" . $my_group->group_name . "'", $auth_list_group))) && (($my_group->state == 'enable') || ($my_group->state == 'active'))){
     $auth_list_group .= ", '" . $my_group->group_name . "'";
 	$my_group_type = get_user_type($my_group);
-	
+
 	if($my_group_type >= $max_group_type){
 		$auth_group = $my_group;
 		$max_group_type = $my_group_type;
 		}
-	
+
  }
-}; 
+};
 // ======================================================================
 // ======================================================================
-if($max_group_type > $cmr->user["authorisation"]) 
+if($max_group_type > $cmr->user["authorisation"])
 $cmr->user["authorisation"] = $my_group_type;
 // ======================================================================
 // ======================================================================
@@ -201,17 +201,17 @@ if($auth_group){
 //     $cmr->group["comment"] = $auth_group->comment;
     $cmr->group["email_sign"] = $auth_group->email_sign;
     $cmr->group["home"] = $auth_group->home;
-    
+
     $cmr->user["auth_group"] = $auth_group->group_name;
     $cmr->user["auth_group_script"] = $auth_group->login_script;
 //     $cmr->user["auth_group_comment"] = $auth_group->comment;
     $cmr->user["auth_group_sign"] = $auth_group->email_sign;
-	
+
 // ======================================================================
 	if($cmr->user["auth_group_type"] > $cmr->user["authorisation"])
     $cmr->user["authorisation"] = $cmr->user["auth_group_type"];
 // ======================================================================
-}; 
+};
 
 
 // =======================================================================
@@ -279,7 +279,7 @@ $cmr->user["auth_groups"] = $cmr->user["auth_group"];
 $cmr->user["auth_list_group"] = $auth_list_group;
 $cmr->user["auth_path"] = $cmr->get_path("home") . "home/" . $cmr->user["auth_group"] . "/";
 
-if($cmr->user["auth_user_type"] > $cmr->user["authorisation"]) 
+if($cmr->user["auth_user_type"] > $cmr->user["authorisation"])
 $cmr->user["authorisation"] = $cmr->user["auth_user_type"];
 
 $cmr->user["auth_type"] = $cmr->user["auth_user_type"];
@@ -409,7 +409,7 @@ if(($cmr->page["auth_tab"])){
 		case "ticket":
 			$cmr->page["tab_mode"] = 0;
 		break;
-		
+
 		case "file_explorator":
 		case "database":
 		case "replace":
@@ -423,7 +423,7 @@ if(($cmr->page["auth_tab"])){
 		break;
 		}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		
+
 	// ============================================
 	$tab_toload = trim($cmr->page["auth_tab"]);
 	if(file_exists($cmr->get_path("tab") . "tab/" . $tab_toload . "/page" . $cmr->get_ext("page")))
@@ -453,15 +453,15 @@ if(($cmr->page["auth_tab"])){
 	if(empty($cmr->db["db_pw"])) $cmr->db["db_pw"] = $cmr->get_conf("db_pw");
 // =======================================================================
 // =======================================================================
-	if(!file_exists($cmr->get_path("index") . "home/")) 
+	if(!file_exists($cmr->get_path("index") . "home/"))
 	mkdir($cmr->get_path("index") . "home/");
-	    
+
 	if(!file_exists($cmr->get_path("index") . "home/groups/"))
 	mkdir($cmr->get_path("index") . "home/groups/");
-	    
-	if(!file_exists($cmr->get_path("index") . "home/groups/" . trim($cmr->get_user("auth_group")))) 
+
+	if(!file_exists($cmr->get_path("index") . "home/groups/" . trim($cmr->get_user("auth_group"))))
 	mkdir($cmr->get_path("index") . "home/groups/" . trim($cmr->get_user("auth_group")));
-	    
+
 	if(!file_exists($cmr->get_path("index") . "home/users/" . trim($cmr->get_user("auth_uid"))))
 	mkdir($cmr->get_path("index") . "home/users/" . trim($cmr->get_user("auth_uid")));
 // ======================================================================
@@ -485,23 +485,25 @@ $cmr->post_var["next_tab"] = "";
     include_once(($cmr->get_user("auth_user_path")."login_rc.php"));// ===============file login user script=================
     @ eval($cmr->get_user("auth_group_script"));// ===============database login group script================
     @ eval($cmr->get_user("auth_user_script"));// ===============database login user script=================
-         
+
     $cmr->config = $cmr->include_conf($cmr->get_user("auth_group_path") . $cmr->get_conf("cmr_home_config"), $cmr->config, "var");
     $cmr->config = $cmr->include_conf($cmr->get_user("auth_user_path") . $cmr->get_conf("cmr_home_config"), $cmr->config, "var");
-    if($cmr->get_conf("cmr_page_filename")) 
+    if($cmr->get_conf("cmr_page_filename"))
     $cmr->page = $cmr->include_conf($cmr->get_user("auth_group_path") . $cmr->get_conf("cmr_page_filename"), $cmr->page, "var");
-    if($cmr->get_conf("cmr_page_filename")) 
+    if($cmr->get_conf("cmr_page_filename"))
     $cmr->page = $cmr->include_conf($cmr->get_user("auth_user_path") . $cmr->get_conf("cmr_page_filename"), $cmr->page, "var");
-    if($cmr->get_conf("cmr_theme_filename")) 
+    if($cmr->get_conf("cmr_theme_filename"))
     $cmr->themes = $cmr->include_conf($cmr->get_path("theme") . "themes/" . $cmr->get_user("auth_theme") . "/" . $cmr->get_conf("cmr_theme_filename"), $cmr->themes, "var");
-    if($cmr->get_conf("cmr_lang_filename")) 
+    if($cmr->get_conf("cmr_lang_filename"))
     $cmr->language = $cmr->include_conf($cmr->get_path("lang") . "languages/" . $cmr->get_page("language") . "/" . $cmr->get_conf("cmr_lang_filename"), $cmr->language, "var");
-    if($cmr->get_conf("cmr_lang_filename")) 
+    if($cmr->get_conf("cmr_lang_filename"))
     $cmr->language = $cmr->include_conf($cmr->get_path("lang") . "languages/" . $cmr->get_user("auth_lang") . "/" . $cmr->get_conf("cmr_lang_filename"), $cmr->language, "var");
 	if(($cmr->get_session("login_to"))) $cmr->page = cmr_include_conf($cmr->config, $cmr->get_path("tab") . "tab/" . $cmr->post_var["next_tab"] . "/page" . $cmr->get_ext("page"), $cmr->page, "var");
-//      include(dirname(__FILE__) . "/system/loader/login_to.php");
+// include(dirname(__FILE__) . "/system/loader/login_to.php");
 // ======================================================================
-	$cmr->update_mess(); //Update ripetitive Message 
+//cmr_save_session($cmr->config, $cmr->themes, $cmr->page, $cmr->language, $cmr->db, $cmr->imap, $cmr->user, $cmr->group, $cmr->post_var, $cmr->session);
+// ======================================================================
+	$cmr->update_mess(); //Update ripetitive Message
 // ======================================================================
 
 ?>

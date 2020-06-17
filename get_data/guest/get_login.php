@@ -17,15 +17,15 @@ All rights reserved.
 
 
 
-control_login.php, Ver 3.03 
+control_login.php, Ver 3.03
 */
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access in the module
+include_once(dirname(__FILE__) . "/../../control.php"); //to control access in the module
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$_SESSION = array();
+// $_SESSION = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->db["db_user"] = get_post("db_user");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -39,8 +39,9 @@ if(!empty($cmr->db["db_user"])){
 	get_post("db_host") ? $cmr->db["db_host"] = get_post("db_host") : $cmr->db["db_host"] = $cmr->get_conf("db_host");
 	get_post("db_pw") ? $cmr->db["db_pw"] = get_post("db_pw") : $cmr->db["db_pw"] = $cmr->get_conf("db_pw");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	$db_connect = NewADOConnection($cmr->db["db_type"]);
-	$db_connect->Connect($cmr->db["db_host"], $cmr->db["db_user"], $cmr->db["db_pw"], $cmr->db["db_name"]);
+	//$db_connect = NewADOConnection($cmr->db["db_type"]);
+	//$db_connect->mysqli($cmr->db["db_host"], $cmr->db["db_user"], $cmr->db["db_pw"], $cmr->db["db_name"]);
+	$db_connect = $cmr->connect();
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$cmr->put_session($cmr->db, "db");// 	cmr_put_session($cmr->config, $cmr->db, "db");
 
@@ -57,14 +58,14 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
         $cmr->user["auth_pw_send"] = $_SERVER["PHP_AUTH_PW"];
         // die("Apache authentification good");
         // ======================authentificazione first=======================
-        
+
 		$cmr->query["login"] = sprintf("SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE ((uid='%s' or email='%s') AND pw='%s');",
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape(pw_encode($cmr->get_user("auth_pw_send"))));
 
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
 // ======================================================================
 // ======================================================================
 // ======================================================================
@@ -109,12 +110,12 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape(pw_encode($cmr->get_user("auth_pw_send"))));
-		
+
 //         $auth_uid = $cmr->get_user("auth_user_send");
 //         $auth_pw=pw_encode($cmr->get_user("auth_pw_send"));
 //      $cmr->query["login"] = "SELECT * from " . $cmr->get_conf("cmr_table_prefix") . "user where (uid='$auth_uid');"; //and (pw='$auth_pw')
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
         if(!($user_object)) $cmr->user = cmr_load_session("user", $cmr->config);
         // ======================================================================
         if(!($user_object)){
@@ -133,16 +134,16 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
     }
 // ======================================================================
 // ======================================================================
-    elseif((($cmr->get_conf("cmr_no_auth")))){ // ---- NOBODY METHOD ----------
+    elseif((($cmr->get_conf("cmr_no_auth") || $cmr->get_conf("cmr_guest_mode") ))){ // ---- NOBODY METHOD ----------
         $cmr->user["auth_user_send"] = "guest";
         $cmr->user["auth_pw_send"] = "guest";
 
 		$cmr->query["login"] = sprintf("SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE ((uid='%s' or email='%s'));",
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")));
-		
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
 //         // ======================================================================
         if(!($user_object)){
 	    $cmr->event["id"] = "16";
@@ -168,13 +169,13 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 
 //         $auth_uid = $cmr->get_user("auth_user_send");
 //         $auth_pw=pw_encode($cmr->get_user("auth_pw_send"));
-		
+
 		$cmr->query["login"] = sprintf("SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE ((uid='%s' or email='%s'));",
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")));
-		
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
         // ======================================================================
         if(!($user_object)){
 	    $cmr->event["id"] = "15";
@@ -205,8 +206,8 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 //         $auth_uid = $cmr->get_user("auth_user_send");
 //         $auth_pw = pw_encode($cmr->get_user("auth_pw_send"));
 //         $cmr->query["login"] = "SELECT * from " . $cmr->get_conf("cmr_table_prefix") . "user where (uid='$auth_uid') and (pw='$auth_pw');"; //and (pw='$auth_pw')
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
         // ======================================================================
         if(!($user_object)){
 	    $cmr->event["id"] = "14";
@@ -238,8 +239,8 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
         // ======================================================================
 
         // ======================================================================
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+        if($cmr->db_connection) $result_user = $cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
         if(!($user_object)) $cmr->user = cmr_load_session("user", $cmr->config);
         // ======================================================================
 		if(empty($cmr->user["auth_user_send"]) && empty($cmr->user["auth_pw_send"]))
@@ -247,13 +248,13 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
         if(!($user_object)){
 	        $cmr->user["auth_user_send"] = "operator";
 	        $cmr->user["auth_pw_send"] = "operator";
-	
+
 			$cmr->query["login"] = sprintf("SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE ((uid='%s' or email='%s'));",
 			cmr_escape($cmr->get_user("auth_user_send")),
 			cmr_escape($cmr->get_user("auth_user_send")));
-			
-	        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-	        if($result_user) $user_object = $result_user->FetchNextObject(false);
+
+	        if($cmr->db_connection) $result_user = $cmr->db_connection->query($cmr->query["login"]);
+	        if($result_user) $user_object = $result_user->fetch_object(false);
 		}
         // ======================================================================
         if((!($user_object)) || ((($cmr->get_conf("cmr_login_code")))&&($cmr->session["cmr_code"] =! pw_encode($cmr->get_user("auth_code_send")))))  {
@@ -267,23 +268,23 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
         }
         // ======================================================================
     }
-    
+
 // ======================================================================
 // ======================================================================
 // ======================================================================
-    
+
 // ======================================================================
 // ======================================================================
 // ======================================================================
-    
+
 // ======================================================================
 // ======================================================================
 // ======================================================================
-    
+
 // ======================================================================
 // ======================================================================
 // ======================================================================
-    
+
 // ======================================================================
 // ======================================================================
 // ======================================================================
@@ -308,8 +309,8 @@ cmr_escape($cmr->get_user("auth_user_send")),
 cmr_escape($cmr->get_user("auth_user_send")));
 
 //and (pw='$auth_pw')
-$result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-if($result_user) $user_object = $result_user->FetchNextObject(false);
+if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+if($result_user) $user_object = $result_user->fetch_object(false);
 // ======================================================================
 // ======================================================================
 // =====================GOOD OR BAD AUTHENTIFICATION=====================
@@ -333,9 +334,9 @@ if(!($user_object)){
 		$cmr->query["login"] = sprintf("SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE ((uid='%s' or email='%s'));",
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")));
-		
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
     }else {
 	    $cmr->event["id"] = "22";
 	    $cmr->event["name"] = "user_not_found";
@@ -358,8 +359,8 @@ if(!($user_object)){
 		    $cmr->event["data"] = "?cmr_mode=login&force_login=yes&login=1";
 		    $cmr->event["comment"] = "User [" . $user_object->email . "] find but Not Authorized";
 		    $cmr->run_event();
-		} 
-	
+		}
+
 // ======================================================================
 // ========================== GOOD LOGIN, CAN CONTINUE===================
 // ======================================================================
@@ -371,32 +372,31 @@ if(!($user_object)){
 	    $cmr->event["comment"] = "Good login, User [" . $cmr->get_user("auth_user_send") . "] found";
 	    $cmr->run_event();
 // ======================================================================
- } 
+ }
 $cmr->user["auth_mode"] = get_post("auth_mode");
 
-
-
 switch($cmr->get_user("auth_mode")){
-	
+
 	case "read_only":
         $cmr->session["type"] = "read_only";
 	break;
-	
+
 	case "demo":
+	case "cmr_guest_mode":
         $cmr->user["auth_user_send"] = "demo";
         $cmr->user["auth_pw_send"] = "demo";
 
 		$cmr->query["login"] = sprintf("SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE ((uid='%s' or email='%s'));",
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")));
-		
-        $result_user = &$cmr->db_connection->Execute($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->FetchNextObject(false);
+
+        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object(false);
 	break;
-	
+
 	case "cert":
 	break;
-	
+
 	case "normal":
 	default:
 	break;
@@ -433,19 +433,19 @@ switch($cmr->get_user("auth_mode")){
 	save_cookie_status($cmr->config, "cmr_lang", $cookie_action);
 	save_cookie_status($cmr->config, "cmr_theme", $cookie_action);
 	save_cookie_status($cmr->config, "login_to", $cookie_action);
-	
-// 	setcookie("auth_user", get_post("auth_user"), time()+intval($cookie_action)); 
-// 	setcookie("auth_pw", get_post("auth_pw"), time()+intval($cookie_action)); 
-// 	setcookie("db_port", get_post("db_port"), time()+intval($cookie_action)); 
-// 	setcookie("db_host", get_post("db_host"), time()+intval($cookie_action)); 
-// 	setcookie("db_user", get_post("db_user"), time()+intval($cookie_action)); 
-// 	setcookie("db_name", get_post("db_name"), time()+intval($cookie_action)); 
-// 	setcookie("db_pw", get_post("db_pw"), time()+intval($cookie_action)); 
-// 	setcookie("cmr_lang", get_post("cmr_lang"), time()+intval($cookie_action)); 
-// 	setcookie("cmr_theme", get_post("cmr_theme"), time()+intval($cookie_action)); 
-// 	setcookie("login_to", get_post("login_to"), time()+intval($cookie_action)); 
-// 	setcookie("save_cookies", get_post("save_cookies"), time()+intval($cookie_action)); 
-		
+
+// 	setcookie("auth_user", get_post("auth_user"), time()+intval($cookie_action));
+// 	setcookie("auth_pw", get_post("auth_pw"), time()+intval($cookie_action));
+// 	setcookie("db_port", get_post("db_port"), time()+intval($cookie_action));
+// 	setcookie("db_host", get_post("db_host"), time()+intval($cookie_action));
+// 	setcookie("db_user", get_post("db_user"), time()+intval($cookie_action));
+// 	setcookie("db_name", get_post("db_name"), time()+intval($cookie_action));
+// 	setcookie("db_pw", get_post("db_pw"), time()+intval($cookie_action));
+// 	setcookie("cmr_lang", get_post("cmr_lang"), time()+intval($cookie_action));
+// 	setcookie("cmr_theme", get_post("cmr_theme"), time()+intval($cookie_action));
+// 	setcookie("login_to", get_post("login_to"), time()+intval($cookie_action));
+// 	setcookie("save_cookies", get_post("save_cookies"), time()+intval($cookie_action));
+
 // =======================================================================
 
 // // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

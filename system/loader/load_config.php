@@ -24,7 +24,7 @@ All rights reserved.
 
 
 
-load_config.php, Ver 3.03 
+load_config.php, Ver 3.03
 */
 
 /**
@@ -37,7 +37,7 @@ load_config.php, Ver 3.03
  * @code_link() function  who take in input a module name and create and html link to this module
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $file_list = array();
@@ -279,7 +279,7 @@ if(!file_exists($file_name)){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
-    
+
 if($cmr->get_user("authorisation") > $cmr->get_conf("cmr_noc_type")){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

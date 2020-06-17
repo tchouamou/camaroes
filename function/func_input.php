@@ -63,7 +63,8 @@ function_loader.php,Ver 3.0  2011-Nov-Wed 22:19:05
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../control.php"); //to control access in the module
+include_once(dirname(__FILE__) . "/func_security.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 /*=================================================================*/

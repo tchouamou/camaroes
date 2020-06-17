@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-desktop.php, Ver 3.03   
+desktop.php, Ver 3.03
 */
 
 /**
@@ -78,7 +78,7 @@ $num_modules=0;
 $division->prints["match_desktop_links"] = "";
 // ====================================================
     $dir = opendir($cmr->get_path("module") . "modules/");
-    if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type"))) 
+    if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")))
     while ($file = readdir($dir)){
         if(($file != ".") && ($file != "..") && cmr_search("^menu_", $file) && ($file != "..") && is_file($cmr->get_path("module") . "modules/".$file)){
 	            $array_modules["path"][] = $cmr->get_path("module") . "modules/" . $file;
@@ -91,7 +91,7 @@ $num_modules++;
     };
 // ====================================================
     $dir = opendir($cmr->get_path("module") . "modules/auto/");
-    if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type"))) 
+    if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")))
     while ($file = readdir($dir)){
         if(($file != ".") && ($file != "..") && cmr_search("^menu_", $file) && ($file != "..") && is_file($cmr->get_path("module") . "modules/auto/" . $file)){
 	            $array_modules["path"][] = $cmr->get_path("module") . "modules/auto/" . $file;
@@ -103,7 +103,7 @@ $num_modules++;
         };
     };
 // ====================================================
-if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type"))) 
+if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")))
 array_multisort(
 	$array_modules["auto"], SORT_ASC, SORT_STRING,
 	$array_modules["label"], SORT_ASC, SORT_STRING,
@@ -121,10 +121,10 @@ foreach($desktop_modules as $key => $value){
 		$label = trim($label);
 		$image = trim($image);
 		$link_modules = trim($link_modules);
-		
+
         @list($mod_name, $param) = explode("&", $link_modules);
 		$mod_name = trim($mod_name);
-        
+
 		if(empty($mod_name)) $mod_name = $label;
     	if(file_exists($image)) $cmr->config["image" . cmr_basename($mod_name)] = trim($image);
 		$link_modules = $mod_name . "?" . $param;
@@ -173,7 +173,7 @@ $count = 0;
 // ====================================================
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

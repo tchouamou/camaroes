@@ -143,6 +143,6 @@ print($menustring);
 
 ?>
 </div>
-<?php /*close_finestra();*/ print($division->close());
+<?php /*close_box();*/ print($division->close());
 ?>
 

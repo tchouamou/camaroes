@@ -103,7 +103,7 @@ $division->prints["match_legend_link"] = $cmr->translate("Links");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// open_finestra($cmr->config, $cmr->language, $module_name, $module_positionx, $module_positiony,"<img alt=\"=> \" src=\"".$cmr->get_path("www") ."images/pallino_blue.gif\">"." about");
+// open_box($cmr->config, $cmr->language, $module_name, $module_positionx, $module_positiony,"<img alt=\"=> \" src=\"".$cmr->get_path("www") ."images/pallino_blue.gif\">"." about");
 /* TO USE RELATIVE PATHS: */
 $myDirPath = "phplayersmenu/";
 $myWwwPath = "phplayersmenu/";

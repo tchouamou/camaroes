@@ -92,7 +92,7 @@ print($division->show_noclose());
 // print("</b><br /><p class=\"normal_text\">");
 // print($cmr->language['" . $mod->base_name . "_text']);
 // print("</p>");
-// open_finestra($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "Left Menu");
+// open_box($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "Left Menu");
 print("<div id=\"menu_default_div\">");
 print("<ul class=\"cmr_menu\">");
 

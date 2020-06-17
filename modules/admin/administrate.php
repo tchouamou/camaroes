@@ -20,7 +20,7 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 include_once("camaroes_class.php");
 include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// open_finestra($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, " Administrate");
+// open_box($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, " Administrate");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 

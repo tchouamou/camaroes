@@ -1,9 +1,0 @@
-2010-12-12 02:19:35|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\login.php Line=210 : Nomal form authentification 
-2010-12-12 02:36:27|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\login.php Line=210 : Nomal form authentification 
-2010-12-12 02:42:20|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\login.php Line=210 : Nomal form authentification 
-2010-12-12 02:42:45|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
-2010-12-12 02:42:45|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=8vn5dq8k4f8jl63p5p3m0u2qv5
-2010-12-12 02:42:45|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin
-2010-12-12 02:53:18|127.0.0.1| User=[guest@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\get_data\guest\get_login.php Line=368 : Good login, User [admin] found
-2010-12-12 02:53:18|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=473 : User [admin@localhost ] find and Authorized, New Session id=8vn5dq8k4f8jl63p5p3m0u2qv5
-2010-12-12 02:53:18|127.0.0.1| User=[admin@localhost]| Script=C:\Documents and Settings\Eric\Desktop\chiavetta\camaroes\system\load_user_data.php  Line=474 :  connect succefull ! Group=admin

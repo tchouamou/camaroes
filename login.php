@@ -26,6 +26,7 @@ template_login.php,  2011-Oct
 */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         /*==================*/
+
 	// --chosing authentification method by host ip or hostname---
 // 	 if(cmr_new_login($cmr->config, $cmr->user))
 	 $_SESSION['host_name'] = gethostbyaddr($_SERVER['REMOTE_ADDR']); //--Critico--
@@ -33,7 +34,6 @@ template_login.php,  2011-Oct
 	 if(empty($_SESSION['host_name'])) $_SESSION['host_name'] = "remotehost";
 	 $cmr->config = auth_method($cmr->config, $_SERVER['REMOTE_ADDR'], $_SESSION['host_name']);
         /*==================*/
-
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     $cmr->post_var["login_to"] = get_post("login_to");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -55,7 +55,7 @@ template_login.php,  2011-Oct
 			$cmr->config["cmr_allow_select_login"] = 0;
 // 			$cmr->config["cmr_allow_certificate_login"] = 1;
 		break;
-		
+
 		case "database":
 		case "report":
 		case "admin":
@@ -69,7 +69,7 @@ template_login.php,  2011-Oct
 // 			$cmr->config["cmr_allow_select_login"] = 1;
 // 			$cmr->config["cmr_allow_certificate_login"] = 1;
 		break;
-		
+
 		default:
 // 			$cmr->config["cmr_allow_forget_account"] = 1;
 // 			$cmr->config["cmr_allow_inscription"] = 1;
@@ -81,13 +81,14 @@ template_login.php,  2011-Oct
 // 			$cmr->config["cmr_allow_select_login"] = 1;
 // 			$cmr->config["cmr_allow_certificate_login"] = 1;
 		break;
-		
+
 		}
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 if(($cmr->get_conf("cmr_apache_auth"))){
     // ================ APACHE AUTHENTIFICATION =========================
@@ -97,9 +98,10 @@ if(($cmr->get_conf("cmr_apache_auth"))){
         if($force_login == "yes"){
             cmr_setcookie ("force_login", "no", time() + 10);
         }
-        cmr_auth_basic($cmr->config, $_SERVER['PHP_SELF']);
+       cmr_auth_basic($cmr->config, $_SERVER['PHP_SELF']);
     }
     // ==================================================================
+
     // ==================================================================
     if(!(isset($_SERVER['PHP_AUTH_USER']))){
         cmr_auth_basic($cmr->config, $_SERVER['PHP_SELF']);
@@ -187,19 +189,7 @@ exit;
     @cmr_setcookie("auth_pw_send", $cmr->get_conf("cmr_default_pw"), time() + 420);
 //     @ $cmr->event_log("Script=" . __FILE__ . " Line=" . __LINE__ . " : " . "Cookie authentification ");
 //     cmr_header("Location: " . $cmr->get_path("index") . "index.php?auth_user_send=" . $cmr->get_conf("cmr_default_user") . "&auth_pw_send=" . $cmr->get_conf("cmr_default_pw") . ");
-} 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
  // if(($cmr->get_conf("cmr_normal_auth")))
@@ -240,7 +230,7 @@ $cmr->prints["match_logo_icon"] = $cmr->get_conf("cmr_logo_icon");
 $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style");
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -273,9 +263,9 @@ if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
 $file_list = array();
 $file_list[] = $cmr->config["template_login"];
 $file_list[] = $cmr->get_path("template") . "templates/template_login" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_login" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_login" . $cmr->get_ext("template");
 $template_login_file = cmr_good_file($file_list);
-$template_login = file_get_contents($template_login_file);  
+$template_login = file_get_contents($template_login_file);
 $cmr->print_template("template1", $template_login);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // $user_email=$cmr->user["auth_email"];
@@ -287,6 +277,7 @@ $mod = new class_module($cmr->config, $cmr->user);
 $mod->name = "login";
 $mod->rown_position = "head";
 $mod->col_position = "1";
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  if(cmr_match_include($template_login, "match_include1")) include_once($cmr->get_path("module") . "modules/guest/page_header.php");
@@ -327,15 +318,18 @@ $division->themes["header_tools_right"] = 0;
 
 $cmr->prints["match_open_windows"] = $division->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->prints["match_login_failled"] = "";
 if(get_post("login")){
     $cmr->prints["match_login_failled"] = $cmr->translate("login failled");
 }
+//$cmr->show();exit;
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/adodb/adodb.inc.php");
-$result = sql_run("result", $cmr->connect(), "select", "", $cmr->config["db_name"], $cmr->config["cmr_table_prefix"] . "user", "email");
-if(empty($result)) $cmr->prints["match_login_failled"] = $cmr->translate("Problem on Database connection !!!? ") . "<li><a href=\"index.php?cmr_mode=install_need\" >" .  $cmr->translate("Click here to solve") . "</span></a>";
+//include_once(dirname(__FILE__) . "/adodb/adodb.inc.php");
+//$result = sql_run("result", $cmr->connect(), "select", "", $cmr->config["db_name"], $cmr->config["cmr_table_prefix"] . "user", "email");
+if(empty($result)) $cmr->prints["match_login_failled"] = $cmr->translate("IF problem with connection - ") . "<a href=\"index.php?cmr_mode=install_need\" >" .  $cmr->translate("Click here to solve the problem") . "</a>";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->prints["match_module_message"] = "";
@@ -388,16 +382,16 @@ $cmr->print_template("template3", $template_login);
 	}
 
 
-@ $cmr->prints["match_cookie_auth_cert"] = $_COOKIE["auth_cert"];
+@$cmr->prints["match_cookie_auth_cert"] = $_COOKIE["auth_cert"];
 if(($cmr->get_conf("cmr_allow_certificate_login")))
 $cmr->print_template("template4", $template_login);
 
-@ $cmr->prints["match_save_cookies"] = $_COOKIE["save_cookies"];
-$cmr->prints["match_user_name"] = $cmr->translate("insert user name and password");
+@$cmr->prints["match_save_cookies"] = $_COOKIE["save_cookies"];
+$cmr->prints["match_user_name"] = $cmr->translate("insert user name and password - default ") . "(admin / admin)";
 $cmr->prints["match_label_uid"] = $cmr->translate("id user:");
-@ $cmr->prints["match_cookie_auth_user"] = $_COOKIE["auth_user"];
+@$cmr->prints["match_cookie_auth_user"] = $_COOKIE["auth_user"];
 $cmr->prints["match_label_password"] = $cmr->translate("password:");
-@ $cmr->prints["match_cookie_auth_pw"] = $_COOKIE["auth_pw"];
+@$cmr->prints["match_cookie_auth_pw"] = $_COOKIE["auth_pw"];
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -497,7 +491,7 @@ if(($cmr->get_conf("cmr_allow_theme_login"))){
 }
 $cmr->print_template("template8", $template_login);
 
-$cmr->prints["match_close_windows"] = $division->close(); 
+$cmr->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $cmr->prints["match_label_Login"] = $cmr->translate("Login");
@@ -522,6 +516,6 @@ $cmr->print_template("template10", $template_login);
 $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-$_SESSION = array();
+//$_SESSION = array();
 exit;
 ?>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac81baa3-c781-40ee-8180-55d5a33882b9" name="Default" comment="mssql: fix typo in class property">
-      <change beforePath="$PROJECT_DIR$/docs/changelog.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/changelog.md" afterDir="false" />
-    </list>
+    <list default="true" id="ac81baa3-c781-40ee-8180-55d5a33882b9" name="Default" comment="mssql: fix typo in class property" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +74,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../plugins/AdminSetPassword" />
     <property name="nodejs_interpreter_path" value="/usr/bin/node" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.textmate.bundles" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -194,7 +195,14 @@
       <workItem from="1578135131140" duration="17043000" />
       <workItem from="1578614636634" duration="175000" />
       <workItem from="1578695373620" duration="530000" />
-      <workItem from="1578849113793" duration="873000" />
+      <workItem from="1578849113793" duration="3261000" />
+      <workItem from="1578853277694" duration="1526000" />
+      <workItem from="1579042088151" duration="7708000" />
+      <workItem from="1579646799678" duration="13000" />
+      <workItem from="1579903912100" duration="3824000" />
+      <workItem from="1579981236928" duration="16338000" />
+      <workItem from="1580654421458" duration="627000" />
+      <workItem from="1585639737896" duration="1831000" />
     </task>
     <task id="LOCAL-00001" summary="Update changelog&#10;">
       <created>1459370567207</created>
@@ -243,17 +251,6 @@
     <MESSAGE value="Fix PHP warning in ADORecordset_mysqli::__close()&#10;&#10;PHP Warning: mysqli_free_result() expects parameter 1 to be mysqli_result, integer given&#10;&#10;Fixes #217&#10;" />
     <MESSAGE value="mssql: fix typo in class property" />
     <option name="LAST_COMMIT_MESSAGE" value="mssql: fix typo in class property" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/tests/testdatabases.inc.php</url>
-          <line>71</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

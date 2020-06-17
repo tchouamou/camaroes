@@ -1,0 +1,30 @@
+<template><!-- By {tchouamou@gmail.com} (C) 2010 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="new_@_table_@_div">
+<p align="center">
+<b>{match_@_table_@_title1}</b>
+</p>
+<p class="normal_text">
+{match_@_table_@_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</fieldset>
+<br />
+
+<form action="{match_www_path}index.php?{match_form_param}" method="post" ENCTYPE="multipart/form-data">
+<input type=hidden name="MAX_FILE_SIZE" VALUE="32768000" />
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+{match_input_hidden_id_@_table_@}
+
+
+<fieldset class="bubble"><legend>{match_legend_@_table_@}:</legend>
+<p class="normal_text">
+<table class="normal_text" border="1"  align="center">

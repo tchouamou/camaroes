@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<notification>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_delete>
+<to_email><!-- To by use by email -->
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}}:{{lang_Delete in @_table_@}}</subject>
+<message>
+{{lang_The record}}({{get_id_@_table_@}}){{lang_@_table_@ was deleted by}}: {{user_auth_email}}
+
+{{lang_thanks}}  
+--
+
+</message>
+{{group_sign}}
+</to_email>
+
+
+
+<to_page><!-- To by use by page -->
+<p>
+<b><u>{{lang_Record Deleted successfully}}</u></b>
+<br />
+{{lang_The record}}({{get_id_@_table_@}}){{lang_@_table_@ was deleted}}
+<br />
+{{lang_thanks}} 
+--
+<br />
+</p>
+</to_page>
+
+
+<!-- To by use by log -->
+<to_log>{{conf_cmr_company_name3}}:{{lang_Delete in @_table_@}}</to_log>
+
+<!-- To by use by db -->
+<to_db></to_db>
+
+<!-- To by use by sms -->
+<to_sms></to_sms>
+
+<!-- To by use by flux -->
+<to_flux></to_flux>
+
+<!-- To by use by rss -->
+<to_rss></to_rss>
+
+<!-- To by use by other -->
+<to_other></to_other>
+
+</action_delete>
+
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+<!-- ---------------------------------------- -->
+
+<action_new>
+<to_email><!-- To by use by email -->
+<headers_severity>3</headers_severity>
+<headers_to>{{conf_cmr_log_email}}</headers_to>
+<headers_from>{{conf_cmr_from_email}}</headers_from>
+<headers_cc>{{conf_cmr_cc_email}}</headers_cc>
+<headers_bcc>{{conf_cmr_bcc_email}}</headers_bcc>
+
+<subject>{{conf_cmr_company_name3}}:{{lang_A new @_table_@}}</subject>
+<message>
+{{lang_A new  @_table_@ was created by}}: {{user_auth_email}}
+

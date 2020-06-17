@@ -7,47 +7,47 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
  * copyright   : Camaroes Ver 3.03 (C) 2004-2011 T.E.H
  * www     : http://sourceforge.net/projects/camaroes/
  *
- *********************************************************************/ 
+ *********************************************************************/
 
  /*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
-
- 
- 
-
- 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 
- 
 
 
-menu_view,Ver 3.0  @_date_time_@  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+menu_view,Ver 3.0  @_date_time_@
 */
 
 
 /**
 * Information about
 * Is used for keeping
-* windowss (design for the layer usefull when running a module)  
+* windowss (design for the layer usefull when running a module)
 * @$division object istance of the class windowss
 */
 
@@ -64,7 +64,7 @@ include_once("common_begin.php");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 // $division->load_themes($cmr->themes);
-$division->module["name"] = $mod->name; 
+$division->module["name"] = $mod->name;
 
 
 
@@ -102,7 +102,7 @@ print("</p>");
 ?>
 
 
-<div id="left_menu_view_div"> 
+<div id="left_menu_view_div">
 <table class="normal_bold"  valign="middle" width="100%" border="1" cellspacing="0" cellpadding="0">
 
 
@@ -112,7 +112,7 @@ print("</p>");
  </td>
 </tr>
 
-<?php 
+<?php
 $im=0;
 $array_modules = array();
 $num_modules=0;
@@ -153,7 +153,7 @@ array_multisort(
 		if(accept_mod($cmr->config, $cmr->user, $array_modules["name"][$key])){
 		print("<tr>");
 		print("<td class=\"menu_row".($key % 2)."\" height=\"20\" onmouseover=\"this.style.backgroundcolor='#00eeee'\" onmouseout=\"this.style.backgroundcolor=''\">");
-		   print($cmr->module_icon($array_modules["path"][$key], "16") . $cmr->module_link($array_modules["path"][$key] . "?conf_name=conf.d/modules/conf_" . $array_modules["label"] . ".ini"));
+    print($cmr->module_icon($value, "16") . $cmr->module_link($value . "?conf_name=conf.d/modules/conf_" . $array_modules["label"][$key]. ".ini"));
 		print("</td>");
 		print("</tr>");
     };

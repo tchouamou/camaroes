@@ -1,0 +1,457 @@
+ Keyboard Shortcuts
+
+Moving the cursor:
+
+  Ctrl + A   Go to the beginning of the line you are currently typing on
+  Ctrl + E   Go to the end of the line you are currently typing on 
+  alt-b      Move cursor back one word
+  alt-f      Move cursor forward one word
+  Ctrl + R   Search through previously used commands
+  TAB        Tab completion for file/directory names
+
+    For example, to move to a directory 'sample1'; Type cd sam ; then press TAB and ENTER.
+    type just enough characters to uniquely identify the directory you wish to open.
+
+Editing:
+
+ Ctrl + L   Clear the Screen, similar to the clear command
+ Ctrl + U   Cut/delete the line before the cursor position.
+ Ctrl + H   Backspace
+ Ctrl + W   Cut/delete the Word before the cursor (the last word)
+ Ctrl + K   Cut/delete the line after the cursor
+ Ctrl + T   Swap the last two characters before the cursor
+ Esc  + T   Swap the last two words before the cursor 
+ ctrl + y	 Paste the last thing to be cut
+ ctrl + _	 Undo
+
+Process control:
+
+ Ctrl + C   Kill whatever you are running
+ Ctrl + D   Exit the current shell
+ Ctrl + Z   Put whatever you are running into a background process. 
+
+    After pressing Ctrl-Z the process will not continue to run. To put the last suspended job into the background run bg without a job number:
+
+Emacs mode vs Vi Mode
+
+All the above assume that bash is running in the default Emacs setting, if you prefer this can be switched to Vi shortcuts instead.
+
+Set Vi Mode in bash:
+
+$ set -o vi 
+
+Set Emacs Mode in bash:
+
+$ set -o emacs 
+
+
+
+
+
+An A-Z Index of the Bash command line for Linux.
+
+  alias    Create an alias
+  apropos  Search Help manual pages (man -k)
+  apt-get  Search for and install software packages (Debian)
+  aspell   Spell Checker
+  awk      Find and Replace text, database sort/validate/index
+b
+  bash     GNU Bourne-Again SHell 
+  bc       Arbitrary precision calculator language 
+  bg       Send to background
+  break    Exit from a loop
+  builtin  Run a shell builtin
+  bzip2    Compress or decompress named file(s)
+c
+  cal      Display a calendar
+  case     Conditionally perform a command
+  cat      Display the contents of a file
+  cd       Change Directory
+  cfdisk   Partition table manipulator for Linux
+  chgrp    Change group ownership
+  chmod    Change access permissions
+  chown    Change file owner and group
+  chroot   Run a command with a different root directory
+  chkconfig System services (runlevel)
+  cksum    Print CRC checksum and byte counts
+  clear    Clear terminal screen
+  cmp      Compare two files
+  comm     Compare two sorted files line by line
+  command  Run a command - ignoring shell functions
+  continue Resume the next iteration of a loop
+  cp       Copy one or more files to another location
+  cron     Daemon to execute scheduled commands
+  crontab  Schedule a command to run at a later time
+  csplit   Split a file into context-determined pieces
+  cut      Divide a file into several parts
+d
+  date     Display or change the date & time
+  dc       Desk Calculator
+  dd       Convert and copy a file, write disk headers, boot records
+  ddrescue Data recovery tool
+  declare  Declare variables and give them attributes
+  df       Display free disk space
+  diff     Display the differences between two files
+  diff3    Show differences among three files
+  dig      DNS lookup
+  dir      Briefly list directory contents
+  dircolors Colour setup for `ls'
+  dirname  Convert a full pathname to just a path
+  dirs     Display list of remembered directories
+  dmesg    Print kernel & driver messages 
+  du       Estimate file space usage
+e
+  echo     Display message on screen
+  egrep    Search file(s) for lines that match an extended expression
+  eject    Eject removable media
+  enable   Enable and disable builtin shell commands
+  env      Environment variables
+  ethtool  Ethernet card settings
+  eval     Evaluate several commands/arguments
+  exec     Execute a command
+  exit     Exit the shell
+  expect   Automate arbitrary applications accessed over a terminal
+  expand   Convert tabs to spaces
+  export   Set an environment variable
+  expr     Evaluate expressions
+f
+  false    Do nothing, unsuccessfully
+  fdformat Low-level format a floppy disk
+  fdisk    Partition table manipulator for Linux
+  fg       Send job to foreground 
+  fgrep    Search file(s) for lines that match a fixed string
+  file     Determine file type
+  find     Search for files that meet a desired criteria
+  fmt      Reformat paragraph text
+  fold     Wrap text to fit a specified width.
+  for      Expand words, and execute commands
+  format   Format disks or tapes
+  free     Display memory usage
+  fsck     File system consistency check and repair
+  ftp      File Transfer Protocol
+  function Define Function Macros
+  fuser    Identify/kill the process that is accessing a file
+g
+  gawk     Find and Replace text within file(s)
+  getopts  Parse positional parameters
+  grep     Search file(s) for lines that match a given pattern
+  groups   Print group names a user is in
+  gzip     Compress or decompress named file(s)
+h
+  hash     Remember the full pathname of a name argument
+  head     Output the first part of file(s)
+  history  Command History
+  hostname Print or set system name
+i
+  id       Print user and group id's
+  if       Conditionally perform a command
+  ifconfig Configure a network interface
+  ifdown   Stop a network interface 
+  ifup     Start a network interface up
+  import   Capture an X server screen and save the image to file
+  install  Copy files and set attributes
+j
+  join     Join lines on a common field
+k
+  kill     Stop a process from running
+  killall  Kill processes by name
+l
+  less     Display output one screen at a time
+  let      Perform arithmetic on shell variables
+  ln       Make links between files
+  local    Create variables
+  locate   Find files
+  logname  Print current login name
+  logout   Exit a login shell
+  look     Display lines beginning with a given string
+  lpc      Line printer control program
+  lpr      Off line print
+  lprint   Print a file
+  lprintd  Abort a print job
+  lprintq  List the print queue
+  lprm     Remove jobs from the print queue
+  ls       List information about file(s)
+  lsof     List open files
+m
+  make     Recompile a group of programs
+  man      Help manual
+  mkdir    Create new folder(s)
+  mkfifo   Make FIFOs (named pipes)
+  mkisofs  Create an hybrid ISO9660/JOLIET/HFS filesystem
+  mknod    Make block or character special files
+  more     Display output one screen at a time
+  mount    Mount a file system
+  mtools   Manipulate MS-DOS files
+  mv       Move or rename files or directories
+  mmv      Mass Move and rename (files)
+n
+  netstat  Networking information
+  nice     Set the priority of a command or job
+  nl       Number lines and write files
+  nohup    Run a command immune to hangups
+  nslookup Query Internet name servers interactively
+o
+  open     Open a file in its default application
+  op       Operator access 
+p
+  passwd   Modify a user password
+  paste    Merge lines of files
+  pathchk  Check file name portability
+  ping     Test a network connection
+  popd     Restore the previous value of the current directory
+  pr       Prepare files for printing
+  printcap Printer capability database
+  printenv Print environment variables
+  printf   Format and print data
+  ps       Process status
+  pushd    Save and then change the current directory
+  pwd      Print Working Directory
+q
+  quota    Display disk usage and limits
+  quotacheck Scan a file system for disk usage
+  quotactl Set disk quotas
+r
+  ram      ram disk device
+  rcp      Copy files between two machines
+  read     read a line from standard input
+  readonly Mark variables/functions as readonly
+  reboot   Reboot the system
+  renice   Alter priority of running processes 
+  remsync  Synchronize remote files via email
+  return   Exit a shell function
+  rev      Reverse lines of a file
+  rm       Remove files
+  rmdir    Remove folder(s)
+  rsync    Remote file copy (Synchronize file trees)
+s
+  screen   Multiplex terminal, run remote shells via ssh
+  scp      Secure copy (remote file copy)
+  sdiff    Merge two files interactively
+  sed      Stream Editor
+  select   Accept keyboard input
+  seq      Print numeric sequences
+  set      Manipulate shell variables and functions
+  sftp     Secure File Transfer Program
+  shift    Shift positional parameters
+  shopt    Shell Options
+  shutdown Shutdown or restart linux
+  sleep    Delay for a specified time
+  slocate  Find files
+  sort     Sort text files
+  source   Run commands from a file `.'
+  split    Split a file into fixed-size pieces
+  ssh      Secure Shell client (remote login program)
+  strace   Trace system calls and signals
+  su       Substitute user identity
+  sudo     Execute a command as another user
+  sum      Print a checksum for a file
+  symlink  Make a new name for a file
+  sync     Synchronize data on disk with memory
+t
+  tail     Output the last part of files
+  tar      Tape ARchiver
+  tee      Redirect output to multiple files
+  test     Evaluate a conditional expression
+  time     Measure Program running time
+  times    User and system times
+  touch    Change file timestamps
+  top      List processes running on the system
+  traceroute Trace Route to Host
+  trap     Run a command when a signal is set(bourne)
+  tr       Translate, squeeze, and/or delete characters
+  true     Do nothing, successfully
+  tsort    Topological sort
+  tty      Print filename of terminal on stdin
+  type     Describe a command
+u
+  ulimit   Limit user resources
+  umask    Users file creation mask
+  umount   Unmount a device
+  unalias  Remove an alias
+  uname    Print system information
+  unexpand Convert spaces to tabs
+  uniq     Uniquify files
+  units    Convert units from one scale to another
+  unset    Remove variable or function names
+  unshar   Unpack shell archive scripts
+  until    Execute commands (until error)
+  useradd  Create new user account
+  usermod  Modify user account
+  users    List users currently logged in
+  uuencode Encode a binary file 
+  uudecode Decode a file created by uuencode
+v
+  v        Verbosely list directory contents (`ls -l -b')
+  vdir     Verbosely list directory contents (`ls -l -b')
+  vi       Text Editor
+  vmstat   Report virtual memory statistics
+w
+  watch    Execute/display a program periodically
+  wc       Print byte, word, and line counts
+  whereis  Report all known instances of a command    
+  which    Locate a program file in the user's path. 
+  while    Execute commands
+  who      Print all usernames currently logged in
+  whoami   Print the current user id and name (`id -un')
+  Wget     Retrieve web pages or files via HTTP, HTTPS or FTP
+  write    Send a message to another user 
+x
+  xargs    Execute utility, passing constructed argument list(s)
+  yes      Print a string until interrupted
+  .        Run a command script in the current shell
+  ###      Comment / Remark
+
+
+
+
+
+
+
+ An A-Z Index of Oracle SQL Commands
+
+ANALYZE
+AUDIT
+
+CALL
+Cluster - CREATE CLUSTER
+        - ALTER  CLUSTER
+        - DROP   CLUSTER
+COMMENT
+COMMIT
+CONNECT
+CONSTRAINT - Add / Enable
+Context - CREATE CONTEXT
+        - DROP CONTEXT
+Controlfile - CREATE CONTROLFILE
+
+Database - CREATE DATABASE
+         - ALTER  DATABASE
+DELETE
+DESCRIBE
+Dimension - CREATE DIMENSION
+          - ALTER DIMENSION
+          - DROP DIMENSION
+Directory - CREATE DIRECTORY
+          - DROP DIRECTORY
+
+EXEC
+EXECUTE IMMEDIATE
+EXPLAIN PLAN
+
+Function - CREATE FUNCTION
+         - ALTER  FUNCTION
+         - DROP   FUNCTION
+
+GRANT
+
+Index - CREATE INDEX
+      - ALTER  INDEX
+      - DROP   INDEX
+Indextype - CREATE INDEXTYPE
+          - DROP INDEXTYPE
+INSERT
+INTERSECT
+
+Java - CREATE JAVA
+     - ALTER JAVA
+     - DROP JAVA
+
+Library - CREATE LIBRARY
+        - DROP LIBRARY
+Link - CREATE DATABASE LINK
+     - DROP DATABASE LINK
+LOCK TABLE
+
+Mview - CREATE MATERIALIZED VIEW
+      - ALTER MATERIALIZED VIEW
+      - DROP MATERIALIZED VIEW
+      - CREATE MATERIALIZED VIEW LOG
+      - ALTER MATERIALIZED VIEW LOG
+      - DROP MATERIALIZED VIEW LOG
+MINUS
+
+NOAUDIT
+
+Operator - CREATE OPERATOR
+         - DROP OPERATOR
+Outline - CREATE OUTLINE
+        - ALTER OUTLINE
+        - DROP OUTLINE
+
+Package - CREATE PACKAGE/BODY
+        - ALTER  PACKAGE
+        - DROP   PACKAGE
+Pfile - CREATE PFILE
+Procedure - CREATE PROCEDURE
+          - ALTER  PROCEDURE
+          - DROP   PROCEDURE
+Profile - CREATE PROFILE
+        - ALTER  PROFILE
+        - DROP   PROFILE
+
+RECOVER
+RENAME
+Resource - ALTER RESOURCE COST
+REVOKE
+RMAN - Recovery Manager
+Role - CREATE ROLE
+     - SET    ROLE
+     - ALTER  ROLE
+     - DROP   ROLE
+ROLLBACK
+Rollback - CREATE ROLLBACK SEGMENT
+         - ALTER  ROLLBACK SEGMENT
+         - DROP   ROLLBACK SEGMENT
+
+SAVEPOINT
+Schema - CREATE SCHEMA
+SELECT
+Sequence - CREATE SEQUENCE
+         - ALTER  SEQUENCE
+         - DROP   SEQUENCE
+Session - ALTER SESSION
+SHUTDOWN
+SNAPSHOT
+SPfile - CREATE SPFILE
+STARTUP
+Statistics - ASSOCIATE STATISTICS
+           - DISASSOCIATE STATISTICS
+Synonym - CREATE SYNONYM
+        - DROP   SYNONYM
+System - ALTER SYSTEM
+
+Table - CREATE TABLE
+      - ALTER  TABLE
+      - DROP   TABLE
+Tablespace - CREATE TABLESPACE
+           - ALTER  TABLESPACE
+           - DROP   TABLESPACE
+           - CREATE TEMPORARY TABLESPACE
+Transaction - SET TRANSACTION
+Trigger - CREATE TRIGGER
+        - ALTER  TRIGGER
+        - DROP   TRIGGER
+TRUNCATE
+Type - CREATE TYPE
+     - ALTER TYPE
+     - DROP TYPE
+     - CREATE TYPE BODY
+     - DROP TYPE BODY
+
+UPDATE
+UNION
+User - CREATE USER
+     - ALTER  USER
+     - DROP   USER
+
+View - CREATE VIEW
+     - ALTER  VIEW
+     - DROP   VIEW
+
+
+
+
+An A-Z Index of the Windows XP command line
+
+   ADDUSERS Add or list users to/from a CSV file
+   ARP      Address Resolution Protocol

@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined("cmr_online") or die("hacking attempt, application is not online, click <a href=\"index.php?cmr_mode=login\" > Here </a>  to login before continue ");
 /**
  * loader_module.php
@@ -51,10 +51,10 @@ loader_module.php,  2011-Oct
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+//$cmr->show();exit;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $mod = new class_module($cmr->config, $cmr->user);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -65,7 +65,7 @@ $mod->path = $cmr->page["module"];
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(empty($cmr->page[$cmr->page["layer"] . $cmr->page["count3"]])) $cmr->page[$cmr->page["layer"] . $cmr->page["count3"]] = "";
 $cmr->page[$cmr->page["layer"] . $cmr->page["count4"]] = $cmr->page[$cmr->page["layer"] . $cmr->page["count3"]];
-if($cmr->page["count4"] != $cmr->page["count3"])  unset($cmr->page[$cmr->page["layer"] . $cmr->page["count3"]]); 
+if($cmr->page["count4"] != $cmr->page["count3"])  unset($cmr->page[$cmr->page["layer"] . $cmr->page["count3"]]);
 // --order----
 // unset($cmr->page[$cmr->page["layer"] . $cmr->page["count3"]]);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -103,7 +103,7 @@ if(strpos($mod->url, "?")){
 }else{
 	if(strpos($mod->url, "&")) $mod->param = substr($mod->url, strpos($mod->url, "&") + 1);
 }
-	 
+
 $mod->name = $mod->script;
 if(strpos($mod->script, "&")) $mod->name = substr($mod->script, 0, strpos($mod->script, "&"));
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -154,19 +154,19 @@ $cmr->module["position"] = $mod->position;
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // $cmr->config["version_" . $mod->pure_name] = 1
-// $cmr->config["language_" . $mod->pure_name] = languages/{cmr_language}/lang_$mod->pure_name.ini 
-// $cmr->config["func_" . $mod->pure_name] = 
+// $cmr->config["language_" . $mod->pure_name] = languages/{cmr_language}/lang_$mod->pure_name.ini
+// $cmr->config["func_" . $mod->pure_name] =
 // $cmr->config["class_" . $mod->pure_name] = class/class_$mod->pure_name.php
 // $cmr->config["path_" . $mod->base_name] = modules/$mod->base_name.php
-// $cmr->config["help_" . $mod->base_name] = help/help_$mod->pure_name.html 
+// $cmr->config["help_" . $mod->base_name] = help/help_$mod->pure_name.html
 // $cmr->config["image_" . $mod->base_name] = images/icon/32x32/modules/$mod->base_name.png
 // $cmr->config["small_image_" . $mod->base_name] = images/icon/16x16/modules/$mod->pure_name.png
 // $cmr->config["button_image_" . $mod->base_name] = images/button/auto/$mod->base_name.png
-// $cmr->config["template_" . $mod->base_name] = templates/modules/template_$mod->base_name.html 
+// $cmr->config["template_" . $mod->base_name] = templates/modules/template_$mod->base_name.html
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if($cmr->exist_mess( $cmr->page["layer"]. ".php")) 
+if($cmr->exist_mess( $cmr->page["layer"]. ".php"))
 print($cmr->module_mess($cmr->page["layer"]. ".php"));
 
 
@@ -196,16 +196,16 @@ include($cmr->get_path("index") . "system/loader/loader_class.php");
 			   if($cmr->get_user("authorisation") >= $cmr->get_conf("cmr_noc_type")) $file_list[] = $cmr->get_path("module") . "modules/admin/" . $mod->name;
 			   if($cmr->get_user("authorisation") >= $cmr->get_conf("cmr_noc_type")) $file_list[] = $cmr->get_path("module") . "modules/database/" . $mod->name;
 			   if($cmr->get_user("authorisation") > $cmr->get_conf("cmr_noc_type")) $file_list[] = $cmr->get_path("index") . "system/generate/generator_mod.php";
-			   
+
 			   $module_file = cmr_good_file($file_list);
-			   if((0) 
+			   if((0)
 			      || ((dirname($module_file) == dirname($cmr->get_path("module") . "modules/.")) && ($cmr->get_user("authorisation") < $cmr->get_conf("cmr_client_type")))
 			      || ((dirname($module_file) == dirname($cmr->get_path("module") . "modules/auto/.")) && ($cmr->get_user("authorisation") < $cmr->get_conf("cmr_client_type")))
 			      || ((dirname($module_file) == dirname($cmr->get_path("module") . "modules/admin/.")) && ($cmr->get_user("authorisation") < $cmr->get_conf("cmr_noc_type")))
 			      || ((dirname($module_file) == dirname($cmr->get_path("module") . "modules/database/.")) && ($cmr->get_user("authorisation") < $cmr->get_conf("cmr_noc_type")))
-			   ) 
+			   )
 			   $alert_message = true;
-			   
+
 			   $mod->script = $module_file;
 			   if($alert_message != true) if(is_file($module_file)) include($module_file);
 		    }else{
@@ -213,8 +213,8 @@ include($cmr->get_path("index") . "system/loader/loader_class.php");
 		    	include($cmr->get_path("index") . "system/loader/iframe.php");
 		    }
     // ------------------------------------------
-        
-            
+
+
 }
 
 if($alert_message == true){

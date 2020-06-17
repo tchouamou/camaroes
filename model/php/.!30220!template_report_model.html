@@ -1,0 +1,100 @@
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
+<template1>
+{match_open_windows}
+{match_open_tab}
+<div id="report_@_table_@_div">
+<p align="center">
+<b>{match_@_table_@_title1}</b>
+</p>
+<p class="normal_text">
+{match_@_table_@_title2}
+</p>
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+<p align="center">
+{match_list_link}
+</p>
+</template1>
+{match_include1}
+<!--include($cmr->get_conf("cmr_path") . "loader_get.php");-->
+<template2>
+{match_label_@_column_@}
+<!--select name="funcs[multi_edit][0][year]" onchange="return unNullify('year', '0')" tabindex="1010" id="field_4_1"-->
+
+<fieldset class="bubble"><legend>{match_legend1}:</legend>
+<form action="{match_www_path}index.php?{match_form_param}" method="post" id="{match_form2_id}">
+
+<table class="normal_text" border="1"  align="center">
+
+<!--=======-->
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+<tr>
+<td class="normal_text">
+<table class="normal_text" border="1"  align="center">
+
+<!--=======-->
+<tr>
+<td class="normal_text"><label for="show_graph">{match_label_show_graph}</label>
+<select class="{match_class_select}"  name="report_@_table_@_show_graph">
+<option value="">{match_option_no_graph}</option>
+<option value="default">{match_option_default}</option>
+<option value="bar" selected>Bar</option>
+
+<option value="line">Line</option>
+<option value="bar_line">Bar - Line</option>
+<option value="scatter">Scatter</option>
+<option value="scatter_line">Scatter - Line</option>
+<option value="radar">Radar</option>
+<option value="polar">Polar</option>
+<option value="gantt">Gantt</option>
+<option value="pie">pie</option>
+<option value="pie3d">Pie - Pie3d</option>
+
+</select>
+</td>
+
+<td class="normal_text"><label for="period">{match_label_period}</label>
+<select class="{match_class_select}"  id="report_@_table_@_period" name="report_@_table_@_period" onchange="change_period('report_@_table_@_begin','report_@_table_@_end')">
+<option value="">{match_period_user_defined}</option>
+<option value="last_day">{match_period_last_day}</option>
+<option value="last_week">{match_period_last_week}</option>
+<option value="last_month">{match_period_last_month}</option>
+<option value="last_year">{match_period_last_year}</option>
+<option value="shortmonth">{match_period_shortmonth}</option>
+
+<option value="month">{match_period_month}</option>
+<option value="day">{match_period_day}</option>
+<option value="shortday">{match_period_shortday}</option>
+</select>
+</td>
+<td class="normal_text" colspan="2"> 
+<label for="show_data">{match_label_show_data}</label><input class="submit" type="checkbox" value="yes" name="report_@_table_@_show_data" checked />
+<label for="data_number">{match_label_data_number}</label>
+<input type="text" value="20" name="report_@_table_@_limit" />
+</td></tr>
+<!--=======-->
+
+<!--=======-->
+
+<tr>
+<td class="normal_text"><label for="begin_period">{match_label_begin_period}</label></td><td class="normal_text"><input type="text" value="{match_value_begin_period}" name="report_@_table_@_begin" id="report_@_table_@_begin" />
+<button id="button_report_@_table_@_begin">...</button>
+</td>
+<td class="normal_text"><label for="end_period">{match_label_end_period}</label></td><td class="normal_text"><input type="text" value="{match_value_end_period}" name="report_@_table_@_end" id="report_@_table_@_end" />
+<button id="button_report_@_table_@_end">...</button>
+</td>
+</tr>
+<!--=======-->
+
+<!--=======-->
+<tr><td class="normal_text">{match_label_column}</td>
+
+<td class="normal_text">{match_report_select_function}</td><td class="normal_text" colspan="2">
+<select class="{match_class_select}" name="report_@_table_@_column"  id="report_@_table_@_column" onchange="
+load_selected('report_@_table_@_column', 'report_@_table_@_where_column');
+load_selected('report_@_table_@_column', 'report_@_table_@_group_by_column');
+load_selected('report_@_table_@_column', 'report_@_table_@_order_by_column');
+load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
+">
+<option value="*" selected>*</option>

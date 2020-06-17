@@ -1,0 +1,48 @@
+<template>
+<template1>
+{match_open_windows}
+<fieldset class="bubble"><!--legend>{match_legend_link}</legend-->
+{match_list_link}
+</fieldset>
+<br />
+<b>{match_administrate_title1}</b>
+<br />
+<p class="normal_text">
+{match_administrate_title2}
+</p>
+<br />
+<div class="form" id="administrate_div">
+
+<br />
+
+
+
+
+<form action="{cmr_wwwpath}index.php?{match_form_param}" method="post">
+{match_input_hidden_module}
+{match_input_hidden_get}
+{match_input_hidden_conf}
+
+<fieldset class="bubble"><legend>{match_legend_action}</legend>
+
+<p align="center">
+[{match_action_view}:<input class="submit" type="radio" name="action" value="view" checked />]&nbsp&nbsp
+[{match_action_search}:<input class="submit" type="radio" name="action" value="search" />&nbsp&nbsp
+[{match_action_report}:<input class="submit" type="radio" name="action" value="report" />&nbsp&nbsp
+[{match_action_new}:<input class="submit" type="radio" name="action" value="new" />]&nbsp&nbsp
+[{match_action_update}:<input class="submit" type="radio" name="action" value="update" />]&nbsp&nbsp
+[{match_action_delete}:<input class="submit" type="radio" name="action" value="delete" />]&nbsp&nbsp
+<br />
+</fieldset>
+
+</p>
+
+
+
+<b>{match_select_dest}</b><br />
+<table class="normal_text" border="0" align="center" >
+
+
+
+
+

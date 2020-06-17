@@ -9,42 +9,25 @@
 //  ) __/) __ ( ) __/ ) _)  )  (  ) __// (_/\(  O ))   //    \ )( (  O ))   /
 // (__)  \_)(_/(__)  (____)(_/\_)(__)  \____/ \__/(__\_)\_/\_/(__) \__/(__\_)
 /**
-* begin    : July 2004 - july 2011
-* copyright   : PhpExplorator Ver 2.1 (C) 2004-2011 T.E.H
+* begin    : July 2004 - Jun 2020
+* copyright   : PhpExplorator Ver 3.0 (C) 2004-2020 T.E.H
 * www     : http://phpexplorator.sourceforge.com
 *
 *  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
 *
-* Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
+* Copyright (c) 2020, Tchouamou Eric Herve  <tchouamou@gmail.com>
 * All rights reserved.
 *
 * 
 * 
 * 
-*
-* 
-*
-*
-* 
-*
-*
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
-* 
 * 
 *
 * 
-* 
 *
-* phpexplorator.php,Ver 3.0 01-07-2011 22:05:00
+* phpexplorator.php,Ver 3.0 08-06-2020 12:40:00
 */
-define("PE_version", "2.1");
+define("PE_version", "3.0");
 /**
 * PE_load_other_config()
 *
@@ -54,7 +37,6 @@ define("PE_version", "2.1");
 function PE_load_other_config($conf_type = "")
 {
     $PE_mce_conf = "";
-    if(file_exists("config.php")) include("config.php"); //--configuration file
     if(!empty($conf_type)) return $PE_mce_conf;
 //    ___  __   __ _  ____  __  ___  _  _  ____   __  ____  __  __   __ _
 //   / __)/  \ (  ( \(  __)(  )/ __)/ )( \(  _ \ / _\(_  _)(  )/  \ (  ( \
@@ -167,6 +149,9 @@ function PE_load_other_config($conf_type = "")
             'SHIFT_JIS'
             );
     }
+    
+    if(file_exists("config.php")) include("config.php"); //--configuration file
+    
     return $PE_config;
 }
 //  ____  _  _  __ _   ___  ____  __  __   __ _  ____
@@ -191,7 +176,7 @@ function PE_translate($text)
 * @return
 */
 function PE_getpost($PE_var = "")
-{
+{print_r($_GET);
     $PE_return = null;
     $PE_return = isset($_POST[$PE_var]) ? $_POST[$PE_var]: $PE_return;
     $PE_return = isset($_GET[$PE_var]) ? urldecode($_GET[$PE_var]): $PE_return;
@@ -470,7 +455,8 @@ function PE_format_filesize($filesize)
 */
 function PE_is_windows()
 {
-    return eregi("windows", $_SERVER["http_user_agent"]);
+    $value1 = preg_match("/windows/i", $_SERVER["http_user_agent"]);
+    return $value1;
 }
 /**
 * PE_is_include_dir()
@@ -501,7 +487,9 @@ function PE_is_include_dir($the_file_value = "", $the_pure_dir = "")
 */
 function PE_path_separator()
 {
-    return (PE_is_windows())?"\\\\":"/";
+    $path1 = "/";
+    if (PE_is_windows()) $path1 = "\\\\";
+    return $path1;
 }
 /**
 * PE_integration()
@@ -677,7 +665,6 @@ function PE_load_lang($PE_config = array())
     $PE_language["past_succ"] = "Action Paste run Successfully  on ";
     $PE_language["file_transf"] = "file transfert ";
     $PE_language["transf_file"] = "Transfert file";
-    $PE_language["edit_file"] = "Edit File";
     $PE_language["editor_mode"] = "Editor Mode:";
     $PE_language["edit_text"] = " Edit Text:";
     $PE_language["succ_create"] = "Successfully  created.";
@@ -2283,8 +2270,9 @@ function PE_login($PE_config, $PE_language = array())
 */
 function PE_get_var($PE_config)
 {
+
     session_start();
-    $PE_thevar = array();
+    $PE_thevar = array(); 
     /**
     * send value
     */
@@ -2330,6 +2318,8 @@ function PE_get_var($PE_config)
                 break;
         }
     };
+    
+    
     /**
     * path limit
     */
@@ -2388,6 +2378,8 @@ function PE_get_var($PE_config)
     $PE_thevar["select_order"] = (empty($PE_thevar["select_order"]))?($_SESSION["select_order"]) : $PE_thevar["select_order"];
 
     $_SESSION["current_language"] = (empty($_SESSION["current_language"])) ? $PE_config["current_language"] : $_SESSION["current_language"];
+    
+    
     return $PE_thevar;
 }
 /**
@@ -2432,6 +2424,7 @@ function PE_command_1($PE_config, $PE_thevar, $PE_language = array())
  </td>
 
  <td>
+ 
  <?php print(PE_form($PE_config, PE_translate("edit_file"), "text", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "edit", "", "", ""));
 
     ?>
@@ -4791,19 +4784,19 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
             if((PE_is_include_dir($file_path, $_SERVER["DOCUMENT_ROOT"])) && (is_file($PE_thevar["current_stream"] . $file_path))){
                 $url_path_link = substr($_SERVER["PHP_SELF"], 0, strlen($_SERVER["PHP_SELF"]) - strlen($_SERVER["SCRIPT_NAME"])) . "/" . substr($file_path, strlen($_SERVER["DOCUMENT_ROOT"]));
             }else{
-                $url_path_link = $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"";
+                $url_path_link = $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"";
             }
             $url_path_link = realpath($url_path_link);
             if(is_dir($file_path)){
                 $count_dir++;
-                $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode(realpath($file_path)) . "/&PE_select_action=list\"><img title=\"Open dir($file_path)\" border=\"0\" alt=\"[]-> \"  height=\"15\" width=\"15\" src=\"" .
+                $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode(realpath($file_path)) . "/&PE_select_action=list\"><img title=\"Open dir($file_path)\" border=\"0\" alt=\"[]-> \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "folder.png") . "\"  /> <b>" . $filename . "</b> </a>";
-                $list_path_action[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\"  href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                $list_path_action[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\"  href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode(realpath($file_path)) . "&PE_select_action=rm_dir" . " \"><img  title=\"Remove dir($file_path)\" border=\"0\" alt=\"[x] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=download" . "\"><img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=download" . "\"><img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=zip" . "\"><img title=\"Zip file($file_path)\" border=\"0\" alt=\"[z] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=property\"><img title=\"Property file($file_path)\" border=\"0\" alt=\"[p] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>". "<a href=\"" . $url_path_link . "\">" . "<img title=\"Url file($url_path_link)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "world1.png") . "\" /></a>";
@@ -4815,17 +4808,17 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
             } elseif(is_link($file_path)){
                 $count_link++;
                 if(!empty($PE_config["beautifull_name"])) $filename = str_replace("_", " ", substr($filename, 0, strrpos($filename, ".")));
-                $list_path_link[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\" href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \">" . "<img title=\"Select file($file_path)\" border=\"0\" alt=\"@-> \"  height=\"15\" width=\"15\" src=\"" .
+                $list_path_link[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\" href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \">" . "<img title=\"Select file($file_path)\" border=\"0\" alt=\"@-> \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . $image) . "\" />$filename</a>";
 
-                $list_path_action[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\"  href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                $list_path_action[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\"  href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=delete\">" . "<img title=\"Delete file($file_path)\" border=\"0\" alt=\"[x] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=edit\">" . "<img title=\"Edit file($file_path)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "quill.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode(readlink($file_path)) . "&PE_select_action=download\"><img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "quill.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode(readlink($file_path)) . "&PE_select_action=download\"><img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=property\"><img title=\"Property file($file_path)\" border=\"0\" alt=\"[p] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode(readlink($file_path)) . "&PE_select_action=zip\">" . "<img title=\"Zip file (" . $file_path . ")\" border=\"0\" alt=\"[z]\"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>";
 
@@ -4836,17 +4829,17 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
             } elseif(is_file($PE_thevar["current_stream"] . $file_path)){
                 $count_file++;
                 if(!empty($PE_config["beautifull_name"])) $filename = str_replace("_", " ", substr($filename, 0, strrpos($filename, ".")));
-                $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"><img title=\"Select file($file_path)\" border=\"0\" alt=\"#-> \" src=\"" .
+                $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"><img title=\"Select file($file_path)\" border=\"0\" alt=\"#-> \" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . $image) . "\" height=\"15\" width=\"15\" />$filename</a>";
 
-                $list_path_action[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\" href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=delete\">" . "<img title=\"Delete file($file_path)\" border=\"0\" alt=\"[x] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=download\">" . "<img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                $list_path_action[] = "<a onclick=\"return PE_confirm('delete', js_message1, js_message2)\" href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=delete\">" . "<img title=\"Delete file($file_path)\" border=\"0\" alt=\"[x] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=download\">" . "<img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=zip\">" . "<img title=\"Zip file($file_path)\" border=\"0\" alt=\"[z] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=property\">" . "<img title=\"Property file($file_path)\" border=\"0\" alt=\"[p] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>" . "<a href=\"" . $url_path_link . "\">" . "<img title=\"Url file($url_path_link)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "world1.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "world1.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=edit\">" . "<img title=\"Edit file($file_path)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "quill.png") . "\" /></a>";
 
@@ -4857,14 +4850,14 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
             }else{
                 $count_else++;
                 if(!empty($PE_config["beautifull_name"])) $filename = str_replace("_", " ", substr($filename, 0, strrpos($filename, ".")));
-                $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"><img title=\"Select file($file_path)\" border=\"0\" alt=\"*-> \"  height=\"15\" width=\"15\" src=\"" .
+                $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"><img title=\"Select file($file_path)\" border=\"0\" alt=\"*-> \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . $image) . "\" height=\"15\" width=\"15\" />$filename</a> ";
-                $list_path_action[] = "<a  onclick=\"return PE_confirm('delete', js_message1, js_message2)\" href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=" . "delete\"><img title=\"Delete file($file_path)\" border=\"0\" alt=\"[x] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                $list_path_action[] = "<a  onclick=\"return PE_confirm('delete', js_message1, js_message2)\" href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=" . "delete\"><img title=\"Delete file($file_path)\" border=\"0\" alt=\"[x] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "bomb.png") . "\" /></a><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=download" . "\"><img title=\"Download file($file_path)\" border=\"0\" alt=\"[d] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "down.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=zip" . "\"><img title=\"Zip file($file_path)\" border=\"0\" alt=\"[z] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($file_path) . "&PE_select_action=edit" . "\"><img border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=edit" . "\"><img border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "quill.png") . "\" /></a>";
 
                 $list_path_info[] = " " . PE_translate("file") . "   [" . $file_ext . " ] " . $ctype ;
@@ -5021,15 +5014,15 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
         // ===========================
         if(!empty($PE_config["show_col_num"])) print("<td></td>");
         if(!empty($PE_config["show_col_check"])) print("<td>.</td>");
-        if(!empty($PE_config["show_col_name"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=name&PE_select_action=order\" >" . PE_translate("name") . "</a></b></td>");
-        if(!empty($PE_config["show_col_action"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=action&PE_select_action=order\" >" . PE_translate("action") . "</a></b></td>");
-        if(!empty($PE_config["show_col_comment"])) print("<td width=\"100\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=comment&PE_select_action=order\" >" . PE_translate("comment") . "</a></b></td>");
-        if(!empty($PE_config["show_col_size"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=size&PE_select_action=order\" >" . PE_translate("size") . "</a></b></td>");
-        if(!empty($PE_config["show_col_type"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=type&PE_select_action=order\" >" . PE_translate("type") . "</a></b></td>");
-        if(!empty($PE_config["show_col_perm"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=permission&PE_select_action=order\" >" . PE_translate("permission") . "</a></b></td>");
-        if(!empty($PE_config["show_col_owner"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=owner&PE_select_action=order\" >" . PE_translate("owner") . "</a></b></td>");
-        if(!empty($PE_config["show_col_group"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=group&PE_select_action=order\" >" . PE_translate("group") . "</a></b></td>");
-        if(!empty($PE_config["show_col_date_time"])) print("<td width=\"70\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file = " . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=filemtime&PE_select_action=order\" >" . PE_translate("last_modified") . "</a></b></td>");
+        if(!empty($PE_config["show_col_name"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=name&PE_select_action=order\" >" . PE_translate("name") . "</a></b></td>");
+        if(!empty($PE_config["show_col_action"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=action&PE_select_action=order\" >" . PE_translate("action") . "</a></b></td>");
+        if(!empty($PE_config["show_col_comment"])) print("<td width=\"100\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=comment&PE_select_action=order\" >" . PE_translate("comment") . "</a></b></td>");
+        if(!empty($PE_config["show_col_size"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=size&PE_select_action=order\" >" . PE_translate("size") . "</a></b></td>");
+        if(!empty($PE_config["show_col_type"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=type&PE_select_action=order\" >" . PE_translate("type") . "</a></b></td>");
+        if(!empty($PE_config["show_col_perm"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=permission&PE_select_action=order\" >" . PE_translate("permission") . "</a></b></td>");
+        if(!empty($PE_config["show_col_owner"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=owner&PE_select_action=order\" >" . PE_translate("owner") . "</a></b></td>");
+        if(!empty($PE_config["show_col_group"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=group&PE_select_action=order\" >" . PE_translate("group") . "</a></b></td>");
+        if(!empty($PE_config["show_col_date_time"])) print("<td width=\"70\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=filemtime&PE_select_action=order\" >" . PE_translate("last_modified") . "</a></b></td>");
         print("</tr>");
         // ===========================
         foreach($list_path_name as $key1 => $value){
@@ -5707,6 +5700,7 @@ function PE_header_extra($PE_config, $PE_thevar, $PE_language = array())
 * @version $Id$
 * @access public
 */
+
 if(!(class_exists("phpexplorator"))){
 class phpexplorator {
     /**
@@ -5740,9 +5734,9 @@ function __construct() // --constructor--
         $this->config = $this->load_other_config();
         if(empty($this->config["show_error"]))ini_set('error_reporting', 0);
         if(!empty($this->config["show_error"]))error_reporting (E_ALL ^ E_NOTICE);//error_reporting (E_ERROR | E_WARNING | E_PARSE);
-        $this->the_var = $this->get_var();
-
+        $this->the_var = $this->get_var($this->config);
         $this->mce_conf = $this->load_other_config("mce");
+
         return true;
     }
 
@@ -6374,12 +6368,14 @@ function __construct() // --constructor--
 
     function show()
     {
+    
         if($this->config["self_header"]){
             $this->img_by_text($this->getpost("PE_imgtext"));
             $this->img_by_path($this->getpost("PE_imgpath"));
         }
 
 
+            
         if($this->login()){
             $this->language = $this->load_lang($this->config);
             $this->config = $this->load_stream();
@@ -6414,6 +6410,7 @@ function __construct() // --constructor--
     }
 }
 }
+
 
 // 
 //  _  _   __   __  __ _

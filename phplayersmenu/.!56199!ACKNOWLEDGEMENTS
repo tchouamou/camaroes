@@ -1,0 +1,18 @@
+
+Thanks to Mihai Bazon and Bruno for the hints provided in
+http://dynarch.com/mishoo/articles.epl?art_id=620
+about "CSS-based separators".
+
+The "New generation" patch is inspired by examples and suggestions
+contributed by Shai Coleman <shai@eurotexte.fr>.
+Many thanks, Shai.
+
+Many thanks to Paul Adams <crazystick@users.sourceforge.net>
+and Shai Coleman <shai@eurotexte.fr> for their suggestions about
+the addition of the timeout feature to the Layers Menu.
+
+Many thanks to Iacopo Spalletti <iacopo@spalletti.it>
+for the key hint which is the basis of the 2.1.0 release
+and has allowed to abandon the detection of the position
+of the mouse pointer.
+

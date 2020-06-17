@@ -35,7 +35,7 @@ include_once($cmr->get_path("index") . "system/run_result.php");
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// open_finestra($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/pallino_blue.gif\">"." query");
+// open_box($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/pallino_blue.gif\">"." query");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 
@@ -61,24 +61,26 @@ print($division->show_noclose());
 <p align="center">
 <b>
 <?php
-if(!empty($cmr->action[$cmr->action["table_name"] . "_title1"]))
+if($cmr->action["table_name"])
+if(($cmr->action[$cmr->action["table_name"] . "_title1"]))
 print($cmr->action[$cmr->action["table_name"] . "_title1"]);
 ?>
 </b>
 </p>
 <p class="normal_text">
 <?php
-if(!empty($cmr->action[$cmr->action["table_name"] . "_title2"]))
+if($cmr->action["table_name"])
+if(($cmr->action[$cmr->action["table_name"] . "_title2"]))
 print($cmr->action[$cmr->action["table_name"] . "_title2"]);
 ?>
 </p>
 <br />
-<?php 
+<?php
 // =======================================================================
 ?>
 <fieldset class="bubble"><legend><?php  print($cmr->translate("links:"));?></legend>
 <p align="center">
-<?php  
+<?php
 $lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 $lk->add_link("modules/admin/query.php?conf_name=conf.d/modules/conf_query.ini", 1);
 $lk->add_link("modules/view_query.php?conf_name=conf.d/modules/conf_view_query.ini", 1);
@@ -221,7 +223,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_soc_type")){
     print($cmr->translate('sql_query'));
     print("</big><br />");
     print("<textarea  onclick=\"radio_select('sql_on')\" name=\"sql\" id=\"sql\" cols=\"60\" rows=\"4\">");
-//             case "show_index" : $sql_query = "SHOW INDEX FROM " . $db . $tabLE . "; "; 
+//             case "show_index" : $sql_query = "SHOW INDEX FROM " . $db . $tabLE . "; ";
 //             case "analyse" : $sql_query = "SELECT FROM " . $db . $table . " PROCEDURE ANALYSE()";
 //             case "repair" : $sql_query = "REPAIR TABLE " . $db . $table . ";";
 //             case "check" : $sql_query = "CHECK TABLE " . $db . $table . ";";
@@ -230,7 +232,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_soc_type")){
 //             case "explain_select" : $sql_query = "EXPLAIN " . $select . ";";
 //             case "optmize" : $sql_query = "OPTIMIZE " . $db . $table . ";";
 //             case "drop_index" : $sql_query = "ALTER TABLE " . $db . $table . " DROP INDEX " . $index . "";
-//             
+//
 //             case "show_create_table" : $sql_query = "SHOW CREATE TABLE " . $db . $table . ";";
 //             case "create_table" : $sql_query = "CREATE TABLE" . $db . $table . ";";
 //             case "create_view" : $sql_query = "CREATE TEMPORARY TABLE " . $db . $table . ";";
@@ -238,7 +240,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_soc_type")){
 //             case "add_field" : $sql_query = "ALTER TABLE " . $db . $table . " ADD " . $field . " " . $type . ";";
 //             case "add_key" : $sql_query = "ALTER TABLE " . $db . $table . " ADD PRIMARY KEY (" . $field . ", " . $field . ")";
 //             case "add_unique" : $sql_query = "ALTER TABLE " . $db . $table . " ADD UNIQUE  " . $name . "_ (" . $field . ", " . $field . ");";
-//             case "show_index" : $sql_query = "SHOW INDEX FROM " . $db . $tabLE . "; "; 
+//             case "show_index" : $sql_query = "SHOW INDEX FROM " . $db . $tabLE . "; ";
 //             case "show_columns" : $sql_query = "SHOW FULL COLUMNS FROM " . $db . "." . $table . " " . $like . ";";
 //             case "drop_table" : $sql_query = "DROP TABLE " . $table . " FROM " . $db . "";
 //             case "analyse" : $sql_query = "SELECT FROM " . $db . $table . " PROCEDURE ANALYSE()";

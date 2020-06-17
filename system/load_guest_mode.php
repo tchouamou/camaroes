@@ -58,7 +58,7 @@ include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-$cmr->user["authorisation"] = 1; //--importante per diritti utenti--
+$cmr->user["authorisation"] ="z"; //--importante per diritti utenti--
 $cmr->user["auth_uid"] = "guest";
 $cmr->user["auth_id"] = "-1";
 $cmr->user["auth_group_comment"] = "No Database Mode";
@@ -71,7 +71,7 @@ $cmr->user["auth_tel"] = "";
 $cmr->user["auth_theme"] = "";
 $cmr->user["auth_cel"] = "";
 $cmr->user["auth_user_name"] = "guest";
-$cmr->user["auth_user_type"] = 1;
+$cmr->user["auth_user_type"] ="z";
 $cmr->user["auth_lang"] = "default";
 $cmr->user["authorised"] = 1;
 $cmr->user["auth_email"] = "guest@localhost";
@@ -82,7 +82,7 @@ $cmr->user["auth_group_type"] = "normal";
 $cmr->user["auth_group_script"] = "";// ===============database login group script================
 $cmr->user["auth_user_script"] = "";// ===============database login user script=================
 
-$cmr->group["auth_type"] = 1;
+$cmr->group["auth_type"] = 7;
 $cmr->group["name"] = "guest";
 $cmr->group["login_script"] = "";
 $cmr->group["type"] = "default";
@@ -102,8 +102,8 @@ $cmr->page["auth_theme"] = "default";
 $cmr->page["language"] = "default";
 
 $cmr->config["cmr_on_db_error"] = "exit";
-$cmr->config["cmr_secure_mode"] = "1";
-$cmr->config["cmr_code_url"] = "1";
+$cmr->config["cmr_secure_mode"] = "0";
+$cmr->config["cmr_code_url"] = "0";
 $cmr->config["cmr_show_event"] = "0";
 $cmr->config["cmr_show_message"] = "0";
 $cmr->config["cmr_debug_mode"] = "0";

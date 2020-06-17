@@ -1,0 +1,102 @@
+<?php
+defined("cmr_online") or die("Application is not online, click <a href=\"index.php?cmr_mode=login\" > Here </a>  to login before continue ");
+/**
+ * imap.php
+ *         --------
+ * begin    : July 2004 - July 2007
+ * copyright   : Camaroes Ver 2.0 (C) 2005-2007 T.E.H
+ * www     : http://sourceforge.net/projects/camaroes/
+ */
+
+/*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
+/*
+Copyright (c) 2006, Tchouamou Eric Herve <tchouamou@gmail.com>
+All rights reserved.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+imap.php,  2007-Feb-Tue 0:12:13
+*/
+
+/**
+ * Information about
+ *
+ * This is a modular application, all can be personalise, config file, template file, class, function, module
+ * $division object istance of the class windowss
+ *
+ * @open _windows Class use to make module windows
+ * @code_link() function  who take in input a module name and create and html link to this module
+ */
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*$need_type= $cmr->config["cmr_guest_type"];*/
+include_once("control.php"); //to control access in the module
+/* $cmr->session["pre_match"].="@#@imap.php@:@id@,@[:digit]*@,@30@;@serial@,@.*@,@10000@;@mac_adress@,@.*@,@10000@;@name@,@.*@,@10000@;@location@,@.*@,@10000@;@ip@,@.*@,@10000@;@nat_ip@,@.*@,@10000@;@mask@,@.*@,@10000@;@gateway@,@.*@,@10000@;@dns1@,@.*@,@10000@;@dns2@,@.*@,@10000@;@type@,@.*@,@10000@;@os@,@.*@,@10000@;@state@,@.*@,@10000@;@login_id@,@.*@,@10000@;@login_pw@,@.*@,@10000@;@check_command@,@.*@,@10000@;@comment@,@.*@,@10000@;@date_time@,@.*@,@30@;@";*/
+// !!!!!!!!!!!Security and authorisation!!!!!!!!!!!!!!!
+
+
+
+// $cmr->config["imap_server"] = "mail.securegroup.it";
+// $cmr->config["imap_port"] = "143";
+// $cmr->config["imap_user_name"] = "etchouamou";
+// $cmr->config["imap_password"] = "96cipr";
+// $cmr->config["imap_default_folder"] = "INBOX";
+
+// $cmr->config["pop3_server"] = "popmail.libero.it";
+// $cmr->config["pop3_port"] = "110";
+// $cmr->config["pop3_user_name"] = "tchouamou";
+// $cmr->config["pop3_password"] = "tchouapip";
+// $cmr->config["pop3_default_folder"] = "INBOX";
+
+// $cmr->config["nntp_server"] = "ntp.intranet.securegroup.it";
+// $cmr->config["nntp_port"] = "119";
+// $cmr->config["nntp_user_name"] = "tchouamou";
+// $cmr->config["nntp_password"] = "tchouapip";
+// // $cmr->config["nntp_user_name"] = "";
+// // $cmr->config["nntp_password"] = "";
+// $cmr->config["nntp_group"] = "comp.test";
+// $cmr->config["nntp_default_folder"] = "";
+
+// $cmr->config["imap_ssl_server"] = "pop.gmail.com";
+// $cmr->config["imap_ssl_port"] = "995";
+// $cmr->config["imap_ssl_user_name"] = "tchouamou";
+// $cmr->config["imap_ssl_password"] = "tchouapip";
+// $cmr->config["imap_ssl_default_folder"] = "INBOX";
+
+// $cmr->config["imap_ssl_cert_server"] = "ntp.intranet.securegroup.it";
+// $cmr->config["imap_ssl_cert_port"] = "995";
+// $cmr->config["imap_ssl_cert_user_name"] = "tchouamou";
+// $cmr->config["imap_ssl_cert_password"] = "tchouapip";
+// $cmr->config["imap_ssl_cert_default_folder"] = "INBOX";
+
+// $cmr->config["imap_certificate"] = "";
+
+// $cmr->config["imap_list_folder"] = "*";
+
+// $cmr->config["imap_service"] = "imap";//imap,pop3,imap_ssl,imap_ssl_cert,nntp
+
+switch ($cmr->get_conf("imap_service")) {
+    case "imap":

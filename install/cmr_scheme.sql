@@ -1,18 +1,18 @@
 -- Host: localhost
 -- Generato il: 16 Giu, 2007 at 12:45 PM
 -- Versione MySQL: 4.1.9
--- 
+--
 -- Database: `camaroes`
--- 
+--
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_account`
--- 
---  
---  
--- 
+--
+--
+--
+-- n
 
 CREATE TABLE IF NOT EXISTS `cmr_account` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -31,12 +31,12 @@ CREATE TABLE IF NOT EXISTS `cmr_account` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_asset`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_asset` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -68,12 +68,12 @@ CREATE TABLE IF NOT EXISTS `cmr_asset` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_certificate`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_certificate` (
   `id` bigint(20) unsigned NOT NULL auto_increment,
@@ -107,12 +107,12 @@ CREATE TABLE IF NOT EXISTS `cmr_certificate` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_code`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_code` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -126,12 +126,12 @@ CREATE TABLE IF NOT EXISTS `cmr_code` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_command`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_command` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -145,12 +145,12 @@ CREATE TABLE IF NOT EXISTS `cmr_command` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_contact`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_contact` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -179,12 +179,12 @@ CREATE TABLE IF NOT EXISTS `cmr_contact` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_cron`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_cron` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -200,12 +200,12 @@ CREATE TABLE IF NOT EXISTS `cmr_cron` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_download`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_download` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -221,12 +221,12 @@ CREATE TABLE IF NOT EXISTS `cmr_download` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_email`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_email` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -247,12 +247,12 @@ CREATE TABLE IF NOT EXISTS `cmr_email` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_faq`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_faq` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -268,12 +268,12 @@ CREATE TABLE IF NOT EXISTS `cmr_faq` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_father_groups`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_father_groups` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -287,12 +287,12 @@ CREATE TABLE IF NOT EXISTS `cmr_father_groups` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_forum`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_forum` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -307,12 +307,12 @@ CREATE TABLE IF NOT EXISTS `cmr_forum` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_generator`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_generator` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -329,12 +329,12 @@ CREATE TABLE IF NOT EXISTS `cmr_generator` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_groups`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_groups` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -362,12 +362,12 @@ CREATE TABLE IF NOT EXISTS `cmr_groups` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_history`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_history` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -381,12 +381,12 @@ CREATE TABLE IF NOT EXISTS `cmr_history` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_message`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_message` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -413,12 +413,12 @@ CREATE TABLE IF NOT EXISTS `cmr_message` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_monitor`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_monitor` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -432,12 +432,12 @@ CREATE TABLE IF NOT EXISTS `cmr_monitor` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_va`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_va` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -449,12 +449,12 @@ CREATE TABLE IF NOT EXISTS `cmr_va` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_rss`
--- 
--- 
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_rss` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -473,12 +473,12 @@ CREATE TABLE IF NOT EXISTS `cmr_rss` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_services`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_services` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -495,12 +495,12 @@ CREATE TABLE IF NOT EXISTS `cmr_services` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_session`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_session` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -518,12 +518,12 @@ CREATE TABLE IF NOT EXISTS `cmr_session` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_sla`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_sla` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -545,12 +545,12 @@ CREATE TABLE IF NOT EXISTS `cmr_sla` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_software`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_software` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -565,12 +565,12 @@ CREATE TABLE IF NOT EXISTS `cmr_software` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_statistic`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_statistic` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -586,12 +586,12 @@ CREATE TABLE IF NOT EXISTS `cmr_statistic` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_ticket`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_ticket` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -627,17 +627,17 @@ CREATE TABLE IF NOT EXISTS `cmr_ticket` (
   FULLTEXT KEY `text` (`text`),
   FULLTEXT KEY `mail_text` (`mail_text`)
 ) TYPE=MyISAM COMMENT='table of tickets' AUTO_INCREMENT=1 ;
-        
+
 
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_translate`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_translate` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -652,12 +652,12 @@ CREATE TABLE IF NOT EXISTS `cmr_translate` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_user`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_user` (
   `id` bigint(20) unsigned NOT NULL auto_increment,
@@ -693,12 +693,12 @@ CREATE TABLE IF NOT EXISTS `cmr_user` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_user_groups`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_user_groups` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -712,12 +712,12 @@ CREATE TABLE IF NOT EXISTS `cmr_user_groups` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_source_code`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_source_code` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -739,12 +739,12 @@ CREATE TABLE IF NOT EXISTS `cmr_source_code` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_comment`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_comment` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -761,12 +761,12 @@ CREATE TABLE IF NOT EXISTS `cmr_comment` (
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_policy`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_policy` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -787,13 +787,13 @@ CREATE TABLE IF NOT EXISTS `cmr_policy` (
 -- --------------------------------------------------------
 
 
--- 
--- 
+--
+--
 --  `cmr_query`
--- 
---  
--- 
--- 
+--
+--
+--
+--
 
 CREATE TABLE IF NOT EXISTS `cmr_query` (
   `id` bigint(20) NOT NULL auto_increment,
@@ -819,7 +819,7 @@ CREATE TABLE  IF NOT EXISTS `cmr_cve` (
  `last_revision` datetime NOT NULL,
  `my_master` varchar(254) NOT NULL,
   `date_time` timestamp(14) NOT NULL,
-  PRIMARY KEY (`id`) 
+  PRIMARY KEY (`id`)
  ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='table of vulnerabilities';
 
 
@@ -831,11 +831,11 @@ CREATE TABLE  IF NOT EXISTS `cmr_cve_action` (
  `user_email` varchar(254) NOT NULL default 'extern_user.email',
  `asset_ip` varchar(254) NOT NULL default 'extern_asset.ip',
  `service_name` varchar(254) NOT NULL default 'extern_service.name',
- `action` varchar(254) NOT NULL, 
+ `action` varchar(254) NOT NULL,
  `ticket_number` varchar(254) NOT NULL default 'extern_ticket.number',
  `my_master` varchar(254) NOT NULL default 'extern_cve_actiom.cve_number',
   `date_time` timestamp(14) NOT NULL,
-  PRIMARY KEY (`id`) 
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='table of vulnerabilities';
 
 
@@ -861,18 +861,18 @@ CREATE TABLE IF NOT EXISTS `cmr_config` (
 -- Host: localhost
 -- Generato il: 16 Giu, 2007 at 12:45 PM
 -- Versione MySQL: 4.1.9
--- 
+--
 -- Database: `camaroes`
--- 
+--
 
 -- --------------------------------------------------------
 
--- 
+--
 --  `cmr_user`
--- 
---  
---  
--- 
+--
+--
+--
+--
 INSERT IGNORE INTO `cmr_user` VALUES ('', 'developer', 'developer', 'developer', 'developer', '', 'developer', '', MD5('developer'), 'developer@localhost', '', '', '', 'home/users/developer', '', '', 'locked', 'disconnect', '7_developer', 'english', 'default', '', 'extern_certificate.user_email', '', '', NOW());
 INSERT IGNORE INTO `cmr_user` VALUES ('', 'admin', 'admin', 'admin', 'admin', '', 'admin', '', MD5('admin'), 'admin@localhost', '', '', '', 'home/users/default', '', '', 'enable', 'disconnect', '6_admin', 'english', 'default', '', 'extern_certificate.user_email', '', '', NOW());
 INSERT IGNORE INTO `cmr_user` VALUES ('', 'operator', 'operator', 'operator', 'operator', '', 'operator', '', MD5('operator'), 'operator@localhost', '', '', '', 'home/users/operator', '', '', 'enable', 'disconnect', '5_operator', 'english', 'default', '', 'extern_certificate.user_email', '', '', NOW());
@@ -883,12 +883,12 @@ INSERT IGNORE INTO `cmr_user` VALUES ('', 'demo', 'demo', 'demo', 'demo', '', 'd
 
 
 
--- 
+--
 --  `cmr_groups`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 INSERT IGNORE INTO `cmr_groups` VALUES ('', 'developer', 'enable', '7_developer', '', NOW(), '', '', '', '', 'extern_user.email', 'extern_user.email', 'home/groups/developer', 'by_email', '', '', '', '', NOW());
 INSERT IGNORE INTO `cmr_groups` VALUES ('', 'admin', 'enable', '6_admin', '', NOW(), '', '', '', '', 'extern_user.email', 'extern_user.email', 'home/groups/admin', 'by_email', '', '', '', '', NOW());
@@ -901,12 +901,12 @@ INSERT IGNORE INTO `cmr_groups` VALUES ('', 'demo', 'enable', '0_guest', '', NOW
 INSERT IGNORE INTO `cmr_groups` VALUES ('', 'guest', 'enable', '0_guest', '', NOW(), '', '', '', '', 'extern_user.email', 'extern_user.email', 'home/groups/guest', 'by_email', '', '', '', '', NOW());
 
 
--- 
+--
 --  `cmr_user_groups`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 INSERT IGNORE INTO `cmr_user_groups` VALUES ('', 'admin@localhost', 'admin', 'enable', NOW());
 INSERT IGNORE INTO `cmr_user_groups` VALUES ('', 'developer@localhost', 'developer', 'enable', NOW());
@@ -918,12 +918,12 @@ INSERT IGNORE INTO `cmr_user_groups` VALUES ('', 'guest@localhost', 'guest', 'en
 
 
 
--- 
+--
 --  `cmr_father_groups`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 INSERT IGNORE INTO `cmr_father_groups` VALUES ('', 'admin', 'admin', 'enable', NOW());
 INSERT IGNORE INTO `cmr_father_groups` VALUES ('', 'admin', 'operator', 'enable', NOW());
@@ -960,29 +960,29 @@ INSERT IGNORE INTO `cmr_father_groups` VALUES ('', 'client', 'client', 'enable',
 INSERT IGNORE INTO `cmr_father_groups` VALUES ('', 'demo', 'demo', 'enable', NOW());
 INSERT IGNORE INTO `cmr_father_groups` VALUES ('', 'guest', 'guest', 'enable', NOW());
 
--- 
+--
 --  `cmr_asset`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 INSERT IGNORE INTO `cmr_asset` VALUES ('', '', '', 'localhost', '', '127.0.0.1', '', '', '', '', '', 'pc', '', 'enable', '', '', 'extern_command.name', 'extern_certificate.to_cn', '', '', 'localhost', NOW());
--- 
+--
 --  `cmr_account`
--- 
---  
---  
--- 
+--
+--
+--
+--
 INSERT IGNORE INTO `cmr_account` VALUES ('', 'http://localhost', 'admin@localhost', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'localhost', 'extern_service.name', 0, '', NOW());
 
 
--- 
+--
 --  `cmr_code`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 INSERT IGNORE INTO `cmr_code` VALUES ('', '{{date_time}}', '$eval_result=date("Y-M-D H:i:s");\r\nreturn $eval_result;', '', NOW());
 INSERT IGNORE INTO `cmr_code` VALUES ('', '{{date}}', '$eval_result=date("Y-m-d");\r\nreturn $eval_result;', '', NOW());
@@ -1034,29 +1034,29 @@ INSERT IGNORE INTO `cmr_code` VALUES ('', '{{ticket_attach}}', '$eval_result=get
 INSERT IGNORE INTO `cmr_code` VALUES ('', '{{iss_event_description}}', '$eval_result=0;\r\nreturn $eval_result;', '', NOW());
 
 
--- 
+--
 --  `cmr_ticket`
--- 
---  
---  
--- 
+--
+--
+--
+--
 
 INSERT IGNORE INTO `cmr_ticket` VALUES ('1', '0507001', 'italian', 'Segnalazione Ticket Normal', '', '', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', 'Ticket [{{ticket_number}}] Segnalazione: {{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'normal', '(breve descrizione se segnalato dal cliente oppure\r\n     descrizione dettagliata se e'' stato rilevato da noi)', '-------------[{{date_time}}]-------------\r\n\r\nSpett.le cliente,\r\nLa presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il\r\nTicket numero {{ticket_number}}.\r\n\r\n{{ticket_text}}\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer avere informazioni sullo stato  di  avanzamento dei lavori potrete\r\nrispondere  a  questo messaggio (senza  modificarne  l''oggetto) oppure\r\ncontattarci telefonicamente facendo riferimento al numero di Ticket.\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
 INSERT IGNORE INTO `cmr_ticket` VALUES ('2', '0507002', 'italian', 'Aggiornamento Ticket Normale', 'null', 'null', '', 'by_help_desk', 'update', 'update', 'null', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Aggiornamento: {{ticket_title}}', 'null', 'null', 'null', 'null', '', 'normal', '(breve descrizione dell''aggiornamento)\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\nLa presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia''\r\naperto {{ticket_number}}.\r\n\r\n{{ticket_text}}\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer avere informazioni sullo stato  di  avanzamento dei lavori potrete\r\nrispondere  a  questo messaggio (senza  modificarne  l''oggetto) oppure\r\ncontattarci telefonicamente facendo riferimento al numero di Ticket.\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
 INSERT IGNORE INTO `cmr_ticket` VALUES ('3', '0507003', 'italian', 'Chiusura Ticket Normale', 'null', 'null', '', 'by_help_desk', 'close', 'close', '', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Chiusura: {{ticket_title}}', 'null', 'null', 'null', 'null', '', 'normal', '(spiegazioni della chiusura)\r\n', '-------------[{{date_time}}]-------------\r\n Spett.le cliente,\r\nLa presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  {{ticket_number}}\r\n\r\n{{ticket_text}}\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l''oggetto) oppure contattarci telefonicamente facendo riferimento al numero di Ticket.\r\n\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
 INSERT IGNORE INTO `cmr_ticket` VALUES ('4', '0507004', 'italian', 'Segnalazione Ticket IDS', '', '', '', 'by_help_desk', 'open', 'open', '', '', '', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Segnalazione IDS: {{ticket_title}}', '', '', '', '', '', 'ids', 'Ticket numero : {{ticket_number}}\r\nNome Eventi :{{ticket_title}}\r\nSource IP : \r\nDestination IP : \r\nSeverity : {{ticket_severity}}\r\n\r\n\r\nPer maggiori dettagli sull''evento segnalato:\r\n{{download}}\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n    la presente per segnalare che il SOC di Camaroes ha rilevato un\r\nevento sospetto attraverso i nostri sistemi di monitoraggio.\r\n\r\n{{ticket_text}}\r\n\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer comunicare informazioni utili al declassamento del''evento (in caso\r\ndi falso positivo o a seguito di contromisure implementate al vostro\r\ninterno) rispondete a  questo messaggio (senza  modificarne l''oggetto)\r\noppure contattateci telefonicamente facendo riferimento al numero di Ticket.\r\n\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('5', '0507005', 'italian', 'Aggiornamento Ticket IDS', 'null', 'null', '', 'NULL', 'update', 'update', 'null', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Aggiornamento IDS: {{ticket_title}}', 'null', '', 'null', 'null', '', 'ids', '  in merito all''evento segnalato con il ticket {{ticket_number}}, vi preghiamo di\r\nverificare se l''impatto per la vostra rete risulta essere rilevante.\r\n\r\n\r\n\r\nIn caso contrario o di una mancata vostra risposta considereremo\r\nl''evento non impattante e provvederemo ad abbassare la priorità    di tali\r\neventi mediante l''inserimento di un''event filter.', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer avere informazioni sullo stato  di  avanzamento dei lavori potrete\r\nrispondere a questo messaggio (senza  modificarne  l''oggetto) oppure\r\ncontattarci telefonicamente facendo riferimento al numero di Ticket.\r\n\r\n{{groups_email_sign}}\r\n', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('6', '0507001', 'italian', 'Chiusura Ticket IDS', 'null', 'null', '', 'NULL', 'close', 'close', 'null', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Chiusura IDS: {{ticket_title}}', 'null', 'null', 'null', 'null', '', 'ids', 'E'' stato inserito un event filter sull''evento segnalato, avente come\r\ncampo destinazione l''indirizzo IP dell''host target.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n  La presente per segnalare che il SOC di Camaroes ha provveduto a\r\nchiudere il ticket {{ticket_number}}.\r\n\r\n{{ticket_text}}.\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer riaprire il Ticket e rialzare la severità   dell''evento potete\r\nrispondere a questo messaggio (senza modificarne l''oggetto) oppure\r\ncontattarci telefonicamente facendo riferimento al numero di Ticket.\r\n\r\n{{groups_email_sign}}.', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('5', '0507005', 'italian', 'Aggiornamento Ticket IDS', 'null', 'null', '', 'NULL', 'update', 'update', 'null', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Aggiornamento IDS: {{ticket_title}}', 'null', '', 'null', 'null', '', 'ids', '  in merito all''evento segnalato con il ticket {{ticket_number}}, vi preghiamo di\r\nverificare se l''impatto per la vostra rete risulta essere rilevante.\r\n\r\n\r\n\r\nIn caso contrario o di una mancata vostra risposta considereremo\r\nl''evento non impattante e provvederemo ad abbassare la prioritï¿½ï¿½   di tali\r\neventi mediante l''inserimento di un''event filter.', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer avere informazioni sullo stato  di  avanzamento dei lavori potrete\r\nrispondere a questo messaggio (senza  modificarne  l''oggetto) oppure\r\ncontattarci telefonicamente facendo riferimento al numero di Ticket.\r\n\r\n{{groups_email_sign}}\r\n', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('6', '0507001', 'italian', 'Chiusura Ticket IDS', 'null', 'null', '', 'NULL', 'close', 'close', 'null', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Chiusura IDS: {{ticket_title}}', 'null', 'null', 'null', 'null', '', 'ids', 'E'' stato inserito un event filter sull''evento segnalato, avente come\r\ncampo destinazione l''indirizzo IP dell''host target.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n  La presente per segnalare che il SOC di Camaroes ha provveduto a\r\nchiudere il ticket {{ticket_number}}.\r\n\r\n{{ticket_text}}.\r\n\r\nDistinti saluti\r\n\r\n-- \r\nPer riaprire il Ticket e rialzare la severitï¿½ï¿½  dell''evento potete\r\nrispondere a questo messaggio (senza modificarne l''oggetto) oppure\r\ncontattarci telefonicamente facendo riferimento al numero di Ticket.\r\n\r\n{{groups_email_sign}}.', 'cmr_model', 'model', NOW());
 INSERT IGNORE INTO `cmr_ticket` VALUES ('7', '0507008', 'italian', 'RealSecure XPU Update', 'operator@localhost', 'operator@localhost', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'xpu', 'Con la presente vi segnaliamo che Iss ha rilasciato la XPU xx.xx per\r\nRealSecure Network Sensor 7.0.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nRimaniamo a Vs. disposizione per ulteriori chiarimenti al riguardo.\r\n\r\nDistinti saluti.\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('8', '0507008', 'italian', 'SiteProtector - Aggiornamento XPU', 'operator@localhost', 'operator@localhost', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'xpu', '  le sonde di SiteProtector sono state aggiornate all''ultima release\r\ndell''XPU.\r\n\r\nInoltre, come concordato, sono stati attivati i ''drop'' sui seguenti\r\nattacchi con impatto classificato come HIGH.\r\nDi seguito viene fornito l''elenco delle nuove signature bloccate ed una\r\nloro breve descrizione, così come fornita da ISS:\r\n\r\n\r\n(descrizione dettagliata)\r\n', '-------------[{{date_time}}]-------------Buongiorno,\r\n{{ticket_text}}\r\nCordiali saluti\r\n\r\n-- \r\n{{groups_email_sign}}\r\n\r\n', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('8', '0507008', 'italian', 'SiteProtector - Aggiornamento XPU', 'operator@localhost', 'operator@localhost', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'xpu', '  le sonde di SiteProtector sono state aggiornate all''ultima release\r\ndell''XPU.\r\n\r\nInoltre, come concordato, sono stati attivati i ''drop'' sui seguenti\r\nattacchi con impatto classificato come HIGH.\r\nDi seguito viene fornito l''elenco delle nuove signature bloccate ed una\r\nloro breve descrizione, cosï¿½ come fornita da ISS:\r\n\r\n\r\n(descrizione dettagliata)\r\n', '-------------[{{date_time}}]-------------Buongiorno,\r\n{{ticket_text}}\r\nCordiali saluti\r\n\r\n-- \r\n{{groups_email_sign}}\r\n\r\n', 'cmr_model', 'model', NOW());
 INSERT IGNORE INTO `cmr_ticket` VALUES ('9', '0507007', 'italian', 'Riepilogo eventi IDS del 20xx-xx-xx', 'operator@localhost', 'operator@localhost', '', 'normal', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'ids', 'In allegato potete trovare due documenti in formato PDF:\r\n\r\n    1. il primo inerente il report giornaliero degli eventi HIGH e MEDIUM;\r\n\r\n    2. il secondo riguarda il dettaglio degli eventi HIGH con i\r\n       relativi indirizzi IP sorgenti e di destinazione.\r\n', '-------------[{{date_time}}]-------------Buongiorno,\r\n{{ticket_text}}\r\n\r\nRimaniamo a disposizione per eventuali chiarimenti.\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('10', '0507007', 'italian', 'Vulnerability Assessment Richiesta IP', 'operator@localhost', 'operator@localhost', '', 'normal', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', '  al fine di effettuare il previsto Vulnerabilty Assessment, inizieremo le scansioni dopo le 22.00 di oggi verso gli indirizzi IP da voi comunicati.\r\n\r\nQualora non ci siano modifiche rispetto al mese precedente o in caso di\r\nmancato riscontro, porteremo avanti l''attività    con le stesse modalità   \r\ndel mese precedente, dandovi comunque comunicazione via email prima di\r\niniziare una sessione di scan e al termine della stessa.\r\n\r\nGli indirizzi da cui potremmo effettuare il VA saranno i seguenti:\r\n\r\n- \r\n- \r\n', '-------------[{{date_time}}]-------------\r\nBuongiorno,\r\n\r\n{{ticket_text}}\r\nCordiali saluti\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('11', '0507007', 'italian', 'Vulnerability Assessment Inizio', 'operator@localhost', 'operator@localhost', '', 'normal', 'update', 'update', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che alle ore 22.00 avrà    inizio il\r\nprevisto Vulnerability Assessment.\r\n\r\nVi invieremo un''e-mail di conferma a VA effettuato; qualora non dovesse\r\nterminare entro questa notte, il lavoro verrà    interrotto domattina alle\r\n8.00 e ripreso alle 22.00 di domani.', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}.\r\n\r\n\r\nCordiali saluti\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('12', '0507007', 'italian', 'Vulnerability Assessment File zip', 'operator@localhost', 'operator@localhost', '', 'normal', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Buongiorno,\r\n\r\n  in allegato il Vulnerability Assessment effettuato verso la vostra rete. Il file è compresso in formato ZIP e cifrato con password. Per ottenterla potete chiamare il SOC in qualsiasi momento al numero 011 0700912.\r\n\r\n', '-------------[{{date_time}}]-------------\r\n\r\n{{ticket_text}}\r\n\r\nDistinti saluti\r\n\r\n-- \r\n\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('13', '0507007', 'italian', 'Vulnerability Assessment interotto', 'operator@localhost', 'operator@localhost', '', 'normal', 'update', 'update', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che alle ore 8.00  di questa mattina, è stato interotto come da accordi il Vulnerability Assessment, e vera ripreso soltanto\r\nalle 22.00 di questa notte.\r\n\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nCordiali saluti\r\n\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('14', '0507007', 'italian', 'Vulnerability Assessment continua', 'operator@localhost', 'operator@localhost', '', 'normal', 'update', 'update', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che dalle ore 22.00 continueremo il previsto Vulnerability Assessment a meno di un vostro contrordine.\r\nVi invieremo un''e-mail di conferma a VA effettuato; qualora non dovesse\r\nterminare entro questa notte, il lavoro verrà   interrotto domattina alle\r\n8.00 e ripreso alle 22.00 di domani.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nCordiali saluti\r\n-- \r\n\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('15', '0507007', 'italian', 'Vulnerability Assessment fine', 'operator@localhost', 'operator@localhost', '', 'normal', 'close', 'close', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che è da poco terminato il previsto Vulnerability Assessment mensile.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nDistinti Saluti.\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
-INSERT IGNORE INTO `cmr_ticket` VALUES ('16', '0507007', 'italian', 'Vulnerability Assessment Richiesta IP e Periodo', 'operator@localhost', 'operator@localhost', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', '  al fine di effettuare il previsto Vulnerabilty Assessment mensile,\r\nchiediamo l''autorizzazione per iniziare l''attività   .\r\nQualora ci siano esigenze diverse rispetto al mese scorso vi chiediamo\r\ndi fornirci gli indirizzi IP delle macchine da sottoporre al security probing ed un''indicazione del periodo in cui poter operare.\r\n\r\nQualora non ci siano modifiche rispetto al mese precedente o in caso di mancato riscontro, porteremo avanti l''attività    con le stesse modalità    (indirizzi IP e orario) del mese precedente, dandovi comunque comunicazione via email prima di iniziare una sessione di scan e al termine della stessa.\r\n', '-------------[{{date_time}}]-------------\r\nBuongiorno,\r\n\r\n\r\n\r\nCordiali saluti\r\n\r\n-- \r\n-------------[{{groups_email_sign}}]-------------', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('10', '0507007', 'italian', 'Vulnerability Assessment Richiesta IP', 'operator@localhost', 'operator@localhost', '', 'normal', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', '  al fine di effettuare il previsto Vulnerabilty Assessment, inizieremo le scansioni dopo le 22.00 di oggi verso gli indirizzi IP da voi comunicati.\r\n\r\nQualora non ci siano modifiche rispetto al mese precedente o in caso di\r\nmancato riscontro, porteremo avanti l''attivitï¿½ï¿½   con le stesse modalitï¿½ï¿½  \r\ndel mese precedente, dandovi comunque comunicazione via email prima di\r\niniziare una sessione di scan e al termine della stessa.\r\n\r\nGli indirizzi da cui potremmo effettuare il VA saranno i seguenti:\r\n\r\n- \r\n- \r\n', '-------------[{{date_time}}]-------------\r\nBuongiorno,\r\n\r\n{{ticket_text}}\r\nCordiali saluti\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('11', '0507007', 'italian', 'Vulnerability Assessment Inizio', 'operator@localhost', 'operator@localhost', '', 'normal', 'update', 'update', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che alle ore 22.00 avrï¿½ï¿½   inizio il\r\nprevisto Vulnerability Assessment.\r\n\r\nVi invieremo un''e-mail di conferma a VA effettuato; qualora non dovesse\r\nterminare entro questa notte, il lavoro verrï¿½ï¿½   interrotto domattina alle\r\n8.00 e ripreso alle 22.00 di domani.', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}.\r\n\r\n\r\nCordiali saluti\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('12', '0507007', 'italian', 'Vulnerability Assessment File zip', 'operator@localhost', 'operator@localhost', '', 'normal', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Buongiorno,\r\n\r\n  in allegato il Vulnerability Assessment effettuato verso la vostra rete. Il file ï¿½ compresso in formato ZIP e cifrato con password. Per ottenterla potete chiamare il SOC in qualsiasi momento al numero 011 0700912.\r\n\r\n', '-------------[{{date_time}}]-------------\r\n\r\n{{ticket_text}}\r\n\r\nDistinti saluti\r\n\r\n-- \r\n\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('13', '0507007', 'italian', 'Vulnerability Assessment interotto', 'operator@localhost', 'operator@localhost', '', 'normal', 'update', 'update', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che alle ore 8.00  di questa mattina, ï¿½ stato interotto come da accordi il Vulnerability Assessment, e vera ripreso soltanto\r\nalle 22.00 di questa notte.\r\n\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nCordiali saluti\r\n\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('14', '0507007', 'italian', 'Vulnerability Assessment continua', 'operator@localhost', 'operator@localhost', '', 'normal', 'update', 'update', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che dalle ore 22.00 continueremo il previsto Vulnerability Assessment a meno di un vostro contrordine.\r\nVi invieremo un''e-mail di conferma a VA effettuato; qualora non dovesse\r\nterminare entro questa notte, il lavoro verrï¿½ï¿½  interrotto domattina alle\r\n8.00 e ripreso alle 22.00 di domani.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nCordiali saluti\r\n-- \r\n\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('15', '0507007', 'italian', 'Vulnerability Assessment fine', 'operator@localhost', 'operator@localhost', '', 'normal', 'close', 'close', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', 'Con la presente intendiamo comunicarvi che ï¿½ da poco terminato il previsto Vulnerability Assessment mensile.\r\n', '-------------[{{date_time}}]-------------\r\nSpett.le cliente,\r\n\r\n{{ticket_text}}\r\n\r\nDistinti Saluti.\r\n\r\n-- \r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
+INSERT IGNORE INTO `cmr_ticket` VALUES ('16', '0507007', 'italian', 'Vulnerability Assessment Richiesta IP e Periodo', 'operator@localhost', 'operator@localhost', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', '{{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'va', '  al fine di effettuare il previsto Vulnerabilty Assessment mensile,\r\nchiediamo l''autorizzazione per iniziare l''attivitï¿½ï¿½  .\r\nQualora ci siano esigenze diverse rispetto al mese scorso vi chiediamo\r\ndi fornirci gli indirizzi IP delle macchine da sottoporre al security probing ed un''indicazione del periodo in cui poter operare.\r\n\r\nQualora non ci siano modifiche rispetto al mese precedente o in caso di mancato riscontro, porteremo avanti l''attivitï¿½ï¿½   con le stesse modalitï¿½ï¿½   (indirizzi IP e orario) del mese precedente, dandovi comunque comunicazione via email prima di iniziare una sessione di scan e al termine della stessa.\r\n', '-------------[{{date_time}}]-------------\r\nBuongiorno,\r\n\r\n\r\n\r\nCordiali saluti\r\n\r\n-- \r\n-------------[{{groups_email_sign}}]-------------', 'cmr_model', 'model', NOW());
 
 INSERT IGNORE INTO `cmr_ticket` VALUES ('17', '0507001', 'english', 'Open Normal Ticket', '', '', '', 'by_help_desk', 'open', 'open', 'soc', '', '', '', 'normal', '3 DAY', 'Ticket [{{ticket_number}}] Open: {{ticket_title}}', 'Operation Center <operator@localhost>', '', 'Tecnician<tecnician@localhost>', 'Soc <operator@localhost>', '', 'normal', '(Comment)', '-------------[{{date_time}}]-------------\r\n\r\nHi,\r\n Ticket was opened:\r\nTicket number {{ticket_number}}.\r\n\r\n{{ticket_text}}\r\n\r\nRegards,\r\n\r\n-- \r\n.\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());
 INSERT IGNORE INTO `cmr_ticket` VALUES ('18', '0507002', 'english', 'Update Normal Ticket', 'null', 'null', '', 'by_help_desk', 'update', 'update', 'null', 'null', 'null', 'null', '', '3 DAY', 'Ticket [{{ticket_number}}] Update: {{ticket_title}}', 'null', 'null', 'null', 'null', '', 'normal', '(Comment)\r\n', '-------------[{{date_time}}]-------------\r\nHi,\r\nTicket was updated: {{ticket_number}}.\r\n\r\n{{ticket_text}}\r\n\r\nRegards,\r\n\r\n-- \r\n.\r\n{{groups_email_sign}}', 'cmr_model', 'model', NOW());

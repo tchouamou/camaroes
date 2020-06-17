@@ -21,7 +21,7 @@ All rights reserved.
 
 
 
-function_output.php,Ver 3.0  2011-Nov-Wed 22:19:05  
+function_output.php,Ver 3.0  2011-Nov-Wed 22:19:05
 */
 
 // function change_a($strlink, $mod_middle){
@@ -35,7 +35,7 @@ function_output.php,Ver 3.0  2011-Nov-Wed 22:19:05
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /*=================================================================*/
 /*=================================================================*/
@@ -50,7 +50,7 @@ if(!(function_exists("cmr_print_token"))){
 function cmr_print_token($info)
 {
 echo "<ul>";
-if($info){    
+if($info){
 	foreach($info as $key => $value){
         if(is_array($value)){
             echo "[<b>" . $key . "</b>:" . token_name($key) . "<br />(<li>";
@@ -99,29 +99,32 @@ echo "</ul>";
 /*=================================================================*/
 if(!(function_exists("cmr_match_include"))){
 function cmr_match_include($template = "", $position = "")
-    {	
+    {
    return strpos($template, $position);
 }
 }
 /*=================================================================*/
 if(!(function_exists("cmr_print_template"))){
 function cmr_print_template($template, $position = "", $array_match = array())
-    {	
+    {
 		if(!empty($position)){
-		    preg_match("|<".$position.">(.*)</".$position.">|sieU", $template, $matches);
-		    (empty($matches[1])) ? $template = "" : $template = $matches[1];
-		    
+		    preg_match("|(<".$position.">)(.*)(</".$position.">)|siU", $template, $matches);
+		    (empty($matches[2])) ? $template = "" : $template = $matches[2];
+
 // 			$template1 = stristr($template, "<".$position.">");
 // 			$template2 = stristr($template, "</".$position.">");
 // 			$len0 = strlen($position);
 // 			$len1 = strlen($template1);
 // 			$len2 = strlen($template2);
 // 			$len = strlen($template);
-// 			$template = substr($template, $len1, $len - $len2);		    
+// 			$template = substr($template, $len1, $len - $len2);
 			}
-			
-	 if(!empty($array_match)) $template = preg_replace("/(\{)([^}{ ]*)(\})/sieU", "\$array_match['\\2']", $template);
-   return $template;
+     //if(!empty($array_match)) $template = preg_replace("/(\{)([^}{ ]*)(\})/siU", "\$array_match['\\2']", $template);
+	  if(!empty($array_match)) {
+	  $template = preg_replace_callback("/(\{)([^}{ ]*)(\})/siU", function ($m) use ($array_match) {return ($array_match[$m[2]]);}, ($template));
+    }
+
+		return str_replace("<template>", "", $template);
 }
 }
 /*=================================================================*/
@@ -204,16 +207,16 @@ function cmr_win_die($comment){
 if(!(function_exists("cmr_get_data_event"))){
 function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_event = array())
     {
-	
+
 	@ cmr_error_log($cmr_config, $cmr_session, "Script=" . $cmr_event["script"] . " Line=" . $cmr_event["line"] . " : " . $cmr_event["comment"]);
-	
+
 	switch($cmr_event["name"]){
-		    
+
 		    case "get_not_found":
 	            syslog (LOG_WARNING, "get_not_found");
 			 	die("<br />".$cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . $cmr_event["data"] . "\" > Here </a>  to login before continue ");
-		    break;		    
-		    
+		    break;
+
 		    case "login_request":
 		    case "login_apache":
 		    case "login_radius":
@@ -228,7 +231,7 @@ function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_
 //			    echo "<script language=\"javascript\">alert('" . $cmr_event["comment"] . "');</script>";
 			    cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
 		    break;
-		    
+
 		    case "wrong_account_object":
 		    case "wrong_cookie_account":
 		    case "wrong_guest_account":
@@ -239,22 +242,22 @@ function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_
 		    case "var_restrict":
 //			    echo "<script language=\"javascript\">alert('" . $cmr_event["comment"] . "');</script>";
 			 	cmr_win_die($cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . $cmr_event["data"] . "\" > Here </a>  to login before continue ");
-		    break;		
-		    
-		        
+		    break;
+
+
 		    case "wrong_sessionid":
 		    case "not_allow_session":
 			 	cmr_win_die($cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=login&force_login=yes\" > Here </a>  to login before continue ");
 		    break;
-		        
+
 		    case "wrong_sid_send":
 		    case "good_login":
 		    case "login_form":
 		    case "logout":
 		    default:
-		    break;		    
+		    break;
 		}
-		    
+
       return  true;
 }
 }

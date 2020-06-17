@@ -120,7 +120,7 @@ print($cmr->translate($mod->base_name."_title"));
 <tr><td valign="top">
 
 <?php
-// open_finestra($cmr->config, $cmr->language, $module_name, $module_positionx, $module_positiony,"<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/pallino_blue.gif\">"." about");
+// open_box($cmr->config, $cmr->language, $module_name, $module_positionx, $module_positiony,"<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/pallino_blue.gif\">"." about");
 /* TO USE RELATIVE PATHS: */
 $myDirPath = "phplayersmenu/";
 $myWwwPath = "phplayersmenu/";

@@ -34,14 +34,14 @@ func_windows.php,Ver 3.0  2011-July 10:36:59
 // function close_tab()
 // function open_tab($cmr_config = array(), $cmr_page = array(), $type = "0")
 // function open_module_tab($array_link = array(), $current = 1)
-// function close_finestra($module=array())
-// function open_finestra($cmr_page = array(), $module = array(), $themes=array())
+// function close_box($module=array())
+// function open_box($cmr_page = array(), $module = array(), $themes=array())
 // function change_page($cmr_page = array(), $module = array(), $themes = array(), $win_action, $win_pos)
 // function remove_module($win_posx = "head", $win_posy = "1",  $cmr_page)
 // function permute_module($win_pos1 = "head1", $win_pos2 = "head2",  $cmr_page)
 // function insert_module($win_pos = "head1", $cmr_page, $where="")
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../control.php"); //to control access 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -374,16 +374,16 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-if(!(function_exists("open_finestra"))){
+if(!(function_exists("open_box"))){
     /**
-     * open_finestra()
+     * open_box()
      *
      * @param array $cmr_page
      * @param array $module
      * @param array $themes
      * @return
      **/
-    function open_finestra($cmr_page = array(), $module = array(), $themes=array())
+    function open_box($cmr_page = array(), $module = array(), $themes=array())
     {
 			if(empty($module["position"]))  $module["position"] = "head1";      
 			if(empty($module["base_name"]))  $module["base_name"] = "page";      
@@ -516,13 +516,13 @@ if(!(function_exists("open_finestra"))){
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-if(!(function_exists("close_finestra"))){
+if(!(function_exists("close_box"))){
     /**
-     * close_finestra()
+     * close_box()
      *
      * @return
      **/
-    function close_finestra($module=array())
+    function close_box($module=array())
     {
         $output = "";
 

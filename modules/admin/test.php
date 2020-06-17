@@ -90,7 +90,7 @@ print("<b>" . $cmr->language['' . $mod->base_name . '_title']);
 print("</b><br /><p class=\"normal_text\">");
 print($cmr->language['' . $mod->base_name . '_text']);
 print("</p>");
-// open_finestra($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "Safe Mode");
+// open_box($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "Safe Mode");
 // print(open_tab($cmr->config, $cmr->language));
 /*==================*/
 

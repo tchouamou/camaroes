@@ -41,7 +41,7 @@ $cmr->prints["match_logo_icon"] = $cmr->get_conf("cmr_logo_icon");
 $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style");
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -79,9 +79,9 @@ if($title["title"]){
 $file_list = array();
 $file_list[] = $cmr->config["template_front_page"];
 $file_list[] = $cmr->get_path("template") . "templates/template_front_page" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_front_page" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_front_page" . $cmr->get_ext("template");
 $template_front_page_file = cmr_good_file($file_list);
-$template_front_page = file_get_contents($template_front_page_file);  
+$template_front_page = file_get_contents($template_front_page_file);
 $cmr->print_template("template1", $template_front_page);
 $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -93,7 +93,7 @@ $cmr->prints = array();
 // end head page -->
 // begin main page -->
 $cmr->prints["match_open_tab"] = "";
-if(($cmr->get_page("tab_mode"))) 
+if(($cmr->get_page("tab_mode")))
 $cmr->prints["match_open_tab"] = open_tab($cmr->config, $cmr->page, $cmr->user["authorisation"]);
 // begin left page -->
 
@@ -142,7 +142,7 @@ $cmr->prints = array();
 $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->prints["match_close_tab"] = "";
-if(($cmr->get_page("tab_mode"))) 
+if(($cmr->get_page("tab_mode")))
 $cmr->prints["match_close_tab"] = close_tab();
  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->print_template("template5", $template_front_page);
@@ -153,12 +153,12 @@ $cmr->page["layer"] = "foot";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(($cmr->get_page("task"))){
 $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]] = $cmr->get_path("module") . "modules/" . "task_bar.php";
-$cmr->page["path"] = $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]];        
-$cmr->page["count3"] = $cmr->page["count1"];        
+$cmr->page["path"] = $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]];
+$cmr->page["count3"] = $cmr->page["count1"];
 $cmr->page["count4"] = $cmr->page["count2"];
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(cmr_match_include($template_front_page, "match_include6")) include($cmr->get_path("index") ."system/loader/loader_module.php");        
+if(cmr_match_include($template_front_page, "match_include6")) include($cmr->get_path("index") ."system/loader/loader_module.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]] = "";
 }

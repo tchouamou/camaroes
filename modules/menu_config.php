@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-menu_config.php,Ver 3.0  2011-Aug-Mon 05:51:33  
+menu_config.php,Ver 3.0  2011-Aug-Mon 05:51:33
 */
 
 /**
@@ -102,7 +102,7 @@ print($cmr->translate($mod->base_name."_title"));
 </p>
 <br />
 
-<div id="left_config_div"> 
+<div id="left_config_div">
 <ul class="cmr_menu">
 
 
@@ -112,7 +112,7 @@ print($cmr->translate($mod->base_name."_title"));
  </li>
 
 
-<?php 
+<?php
 $im=0;
 $array_modules = array();
 $num_modules=0;
@@ -150,12 +150,12 @@ array_multisort(
 // ====================================================
 // ====================================================
     foreach ($array_modules["path"] as $key => $value){
-		
+
 		if(accept_mod($cmr->config, $cmr->user, $array_modules["name"][$key])){
 		print("<li>");
-		   print($cmr->module_icon($array_modules["path"][$key], "16") . $cmr->module_link($array_modules["path"][$key] . "?conf_name=conf.d/modules/conf_" . $array_modules["label"] . ".ini"));
+    print($cmr->module_icon($value, "16") . $cmr->module_link($value . "?conf_name=conf.d/modules/conf_" . $array_modules["label"][$key]. ".ini"));
 		print("</li>");
-		
+
     };
     };
 // ====================================================
@@ -164,11 +164,11 @@ array_multisort(
 // ====================================================
 // ====================================================
 
-		
+
 		print("<li>");
 		   print($cmr->module_icon("modules/menu_list.php", "16") . $cmr->module_link("modules/menu_list.php?conf_name=conf.d/modules/conf_general.ini"));
 		print("</li>");
-		
+
 ?>
 
 

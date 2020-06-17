@@ -1,0 +1,674 @@
+"id";"url";"user_email";"uid";"pw";"server";"service";"port";"protocol";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"1";"http://localhost";"admin@localhost";"admin";"21232f297a57a5a743894a0e4a801fc3";"localhost";"extern_service.name";"0";;"5_noc,5_soc,5_operator,6_admin,7_programer";;;;"20080929095600"
+"id";"serial";"mac_adress";"name";"location";"ip";"nat_ip";"mask";"gateway";"dns1";"dns2";"type";"os";"state";"login_id";"login_pw";"check_command";"certificate";"my_master";"allow_level";"allow_email";"allow_groups";"my_software";"my_service";"comment";"date_time"
+"1";;;"localhost";;"127.0.0.1";;;;;;"pc";;"active";;;"extern_command.name";"extern_certificate.to_cn";;"5_noc,5_soc,5_operator,6_admin,7_programer";;;;;"localhost";"20080929095600"
+"id";"serial";"user_email";"version";"to_cn";"to_o";"to_ou";"from_cn";"from_o";"from_ou";"valid_from";"valid_to";"state";"cert_pkcs";"pub_key_pkcs";"status";"type";"login_script";"public_key";"private_key";"pass_phrase";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"code";"script";"state";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"1";"{{date_time}}";"$eval_result=date(\"Y-M-D H:i:s\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"2";"{{date}}";"$eval_result=date(\"Y-m-d\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"3";"{{time}}";"$eval_result=date(\"h:i:s\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"4";"{{my_ip}}";"$eval_result=$_SERVER['REMOTE_ADDR'];
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"5";"{{user_email}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"6";"{{user_name}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"7";"{{user_last_name}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"8";"{{user_lang}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"9";"{{user_comment}}";"$eval_result=0;
+return $eval_result;";"active";"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"10";"{{user_tel}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"11";"{{user_cel}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"12";"{{user_function}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"13";"{{user_location}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"14";"{{user_email_sign}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"15";"{{groups_name}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"16";"{{groups_email_sign}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"17";"{{ticket_number}}";"$eval_result=get_post(\"number\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"18";"{{ticket_title}}";"$eval_result=get_post(\"title\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"19";"{{ticket_text}}";"$eval_result=get_post(\"text\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"20";"{{ticket_assign_to}}";"$eval_result=get_post(\"assign_to\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"21";"{{ticket_severity}}";"$eval_result=get_post(\"severity\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"22";"{{ticket_state}}";"$eval_result=get_post(\"state\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"23";"{{ticket_type}}";"$eval_result=get_post(\"type\");";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"24";"{{ticket_list_user_inpact}}";"$eval_result=get_post(\"list_user_inpact\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"25";"{{ticket_list_group_inpact}}";"$eval_result=get_post(\"list_group_inpact\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"26";"{{ticket_list_asset_inpact}}";"$eval_result=get_post(\"ticket_asset_inpact\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"27";"{{ticket_sla}}";"$eval_result=get_post(\"sla\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"28";"{{ticket_lang}}";"$eval_result=get_post(\"lang\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"29";"{{ticket_call_log_group}}";"$eval_result=get_post(\"call_log_group\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"30";"{{ticket_comment}}";"$eval_result=get_post(\"comment\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"31";"{{ticket_call_log_user}}";"$eval_result=get_post(\"call_log_group\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"32";"{{ticket_mail_from}}";"$eval_result=get_post(\"mail_from\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"33";"{{ticket_mail_to}}";"$eval_result=get_post(\"mail_to\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"34";"{{ticket_mail_cc}}";"$eval_result=get_post(\"mail_cc\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"35";"{{ticket_mail_bcc}}";"$eval_result=get_post(\"mail_bcc\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"36";"{{ticket_list_user_impact}}";"$eval_result=get_post(\"list_user_impact\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"37";"{{ticket_list_group_impact}}";"$eval_result=get_post(\"list_group_impact\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"38";"{{ticket_list_asset_impact}}";"$eval_result=get_post(\"list_asset_impact\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"39";"{{ticket_assing_to}}";"$eval_result=get_post(\"assing_to\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"40";"{{ticket_attach1}}";"$eval_result=get_post(\"attach1\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"41";"{{ticket_attach2}}";"$eval_result=get_post(\"attach2\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"42";"{{ticket_attach3}}";"$eval_result=get_post(\"attach3\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"43";"{{ticket_attach4}}";"$eval_result=get_post(\"attach4\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"44";"{{ticket_attach}}";"$eval_result=get_post(\"attach1\").\",\".get_post(\"attach2\").\",\".get_post(\"attach3\").\",\".get_post(\"attach4\");
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"45";"{{iss_event_description}}";"$eval_result=0;
+return $eval_result;";;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"id";"command_name";"command_line";"state";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"uid";"name";"last_name";"sexe";"function";"email";"email_sign";"tel";"cel";"adress";"location";"country";"type";"state";"status";"lang";"style";"public_key";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"name";"command";"at";"type";"state";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"url";"path";"file_name";"file_type";"file_size";"state";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"encoding";"lang";"header";"mail_title";"mail_from";"mail_to";"mail_cc";"mail_bcc";"attach";"text";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"1";;"italian";;"[0809001] Hello word";"Security Operation Center <etchouamou@sourceforge.net>";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+";"20080929100254"
+"2";;"italian";;"[0809001] Hello word";"Security Operation Center <etchouamou@sourceforge.net>";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:07:32]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+";"20080929100732"
+"3";;"italian";;"[0809001] Hello word";"Security Operation Center <etchouamou@sourceforge.net>";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:26:47]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+";"20080929102648"
+"4";;"italian";;"[0809001] Hello word";"Security Operation Center <etchouamou@sourceforge.net>";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+";"20080929103442"
+"5";;"italian";;"[0809001] Hello word";"Security Operation Center <etchouamou@sourceforge.net>";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:35:24]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+";"20080929103524"
+"6";;"italian";;"[0809004] Hello word";"etchouamou@sourceforge.net";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:41:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:40:52 Aggiornato Da [ admin@localhost]
+
+";"20080929104115"
+"7";;"italian";;"[0809001] Hello word";"etchouamou@sourceforge.net";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:42:01]-------------
+ Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  0809001
+
+Close test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l'oggetto) oppure contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+--
+
+-------------[2008-Sep-Mon 10:02:54]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:41:36 Chiuso Da [ admin@localhost]
+
+";"20080929104202"
+"8";;"italian";;"[0809003] Hello word";"etchouamou@sourceforge.net";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:50:53]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809003.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:26:47]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:50:31 Aggiornato Da [ admin@localhost]
+
+";"20080929105054"
+"9";;"default";;"[0809004] Hello word";"etchouamou@sourceforge.net";"etchouamou@sourceforge.net";;"tchouamoueric@yahoo.com";;"-------------[2008-Sep-Mon 10:59:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+(breve descrizione dell'aggiornamento)
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:41:15]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto 0809004.
+
+Update test
+
+
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+--
+
+-------------[2008-Sep-Mon 10:34:42]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero 0809001.
+
+Hello Word;
+Only a test
+
+
+
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+
+
+
+
+
+";;;;;"
+(*) 29-09-2008 10:01:38 Aperto Da [ admin@localhost] 
+
+
+(*) 29-09-2008 10:40:52 Aggiornato Da [ admin@localhost]
+
+
+(*) 29-09-2008 10:59:06 Aggiornato Da [ admin@localhost]
+
+";"20080929105915"
+"id";"ticket_number";"action";"id_ticket";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"name";"argoment";"question";"response";"state";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"group_father";"group_child";"state";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"1";"admin";"admin";"active";;;;;"20080929095600"
+"2";"admin";"operator";"active";;;;;"20080929095600"
+"3";"admin";"tecnician";"active";;;;;"20080929095600"
+"4";"admin";"guest";"active";;;;;"20080929095600"
+"5";"admin";"client";"active";;;;;"20080929095600"
+"6";"admin";"all_user";"active";;;;;"20080929095600"
+"7";"admin";"first_level";"active";;;;;"20080929095600"
+"8";"admin";"second_level";"active";;;;;"20080929095600"
+"9";"admin";"last_level";"active";;;;;"20080929095600"
+"10";"admin";"chat";"active";;;;;"20080929095600"
+"11";"admin";"forum";"active";;;;;"20080929095600"
+"12";"admin";"default";"active";;;;;"20080929095600"
+"13";"admin";"null";"active";;;;;"20080929095600"
+"14";"admin";"model";"active";;;;;"20080929095600"
+"15";"admin";"web";"active";;;;;"20080929095600"
+"16";"admin";"noc";"active";;;;;"20080929095600"
+"17";"admin";"soc";"active";;;;;"20080929095600"
+"18";"operator";"operator";"active";;;;;"20080929095600"
+"19";"operator";"tecnician";"active";;;;;"20080929095600"
+"20";"operator";"guest";"active";;;;;"20080929095600"
+"21";"operator";"client";"active";;;;;"20080929095600"
+"22";"operator";"all_user";"active";;;;;"20080929095600"
+"23";"operator";"first_level";"active";;;;;"20080929095600"
+"24";"operator";"second_level";"active";;;;;"20080929095600"
+"25";"operator";"last_level";"active";;;;;"20080929095600"
+"26";"operator";"chat";"active";;;;;"20080929095600"
+"27";"operator";"forum";"active";;;;;"20080929095600"
+"28";"operator";"default";"active";;;;;"20080929095600"
+"29";"operator";"null";"active";;;;;"20080929095600"
+"30";"operator";"model";"active";;;;;"20080929095600"
+"31";"operator";"web";"active";;;;;"20080929095600"
+"32";"operator";"noc";"active";;;;;"20080929095600"
+"33";"operator";"soc";"active";;;;;"20080929095600"
+"34";"tecnician";"tecnician";"active";;;;;"20080929095600"
+"35";"tecnician";"guest";"active";;;;;"20080929095600"
+"36";"tecnician";"client";"active";;;;;"20080929095600"
+"37";"tecnician";"all_user";"active";;;;;"20080929095600"
+"38";"tecnician";"first_level";"active";;;;;"20080929095600"
+"39";"tecnician";"second_level";"active";;;;;"20080929095600"
+"40";"tecnician";"last_level";"active";;;;;"20080929095600"
+"41";"tecnician";"chat";"active";;;;;"20080929095600"
+"42";"tecnician";"forum";"active";;;;;"20080929095600"
+"43";"tecnician";"default";"active";;;;;"20080929095600"
+"44";"tecnician";"null";"active";;;;;"20080929095600"
+"45";"tecnician";"model";"active";;;;;"20080929095600"
+"46";"tecnician";"web";"active";;;;;"20080929095600"
+"47";"tecnician";"noc";"active";;;;;"20080929095600"
+"48";"tecnician";"soc";"active";;;;;"20080929095600"
+"49";"developer";"developer";"active";;;;;"20080929095600"
+"50";"developer";"admin";"active";;;;;"20080929095600"
+"51";"developer";"operator";"active";;;;;"20080929095600"
+"52";"developer";"guest";"active";;;;;"20080929095600"
+"53";"developer";"client";"active";;;;;"20080929095600"
+"54";"developer";"all_user";"active";;;;;"20080929095600"
+"55";"developer";"first_level";"active";;;;;"20080929095600"
+"56";"developer";"second_level";"active";;;;;"20080929095600"
+"57";"developer";"last_level";"active";;;;;"20080929095600"
+"58";"developer";"chat";"active";;;;;"20080929095600"
+"59";"developer";"forum";"active";;;;;"20080929095600"
+"60";"developer";"default";"active";;;;;"20080929095600"
+"61";"developer";"null";"active";;;;;"20080929095600"
+"62";"developer";"model";"active";;;;;"20080929095600"
+"63";"developer";"web";"active";;;;;"20080929095600"
+"64";"developer";"noc";"active";;;;;"20080929095600"
+"65";"developer";"soc";"active";;;;;"20080929095600"
+"66";"client";"client";"active";;;;;"20080929095600"
+"67";"demo";"demo";"active";;;;;"20080929095600"
+"68";"guest";"guest";"active";;;;;"20080929095600"
+"id";"name";"argoment";"text";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"db";"table";"column";"code1";"code2";"code3";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"name";"state";"level";"location";"type";"sla";"public_key";"private_key";"pass_phrase";"email_sign";"referent_email";"admin_email";"home";"notify";"web_site";"login_script";"adress";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"1";"developer";"active";;;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/developer";"by_email";;;;;"5_noc,5_soc,5_operator,6_developer,7_programer";;;;"20080929095600"
+"2";"admin";"active";"6_admin";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/admin";"by_email";;;;;"5_noc,5_soc,5_operator,6_admin,7_programer";;;;"20080929095600"
+"3";"operator";"active";"5_operator";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/operator";"by_email";;;;;"5_noc,5_soc,5_operator,6_operator,7_programer";;;;"20080929095600"
+"4";"soc";"active";"5_soc";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/soc";"by_email";;;;;"5_noc,5_soc,5_operator,6_soc,7_programer";;;;"20080929095600"
+"5";"noc";"active";"5_noc";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/noc";"by_email";;;;;"5_noc,5_soc,5_operator,6_noc,7_programer";;;;"20080929095600"
+"6";"first_level";"active";"5_noc";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/first_level";"by_email";;;;;"5_noc,5_soc,5_operator,6_first_level,7_programer";;;;"20080929095600"
+"7";"second_level";"active";"5_noc";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/second_level";"by_email";;;;;"5_noc,5_soc,5_operator,6_second_level,7_programer";;;;"20080929095600"
+"8";"tecnician";"active";"4_tecnician";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/tecnician";"by_email";;;;;"5_noc,5_soc,5_operator,6_tecnician,7_programer";;;;"20080929095600"
+"9";"client";"active";"2_client";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/client";"by_email";;;;;"5_noc,5_soc,5_operator,6_client,7_programer";;;;"20080929095600"
+"10";"all_user";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/all_user";"by_email";;;;;"5_noc,5_soc,5_operator,6_all_user,7_programer";;;;"20080929095600"
+"11";"forum";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/forum";"by_email";;;;;"5_noc,5_soc,5_operator,6_forum,7_programer";;;;"20080929095600"
+"12";"chat";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/chat";"by_email";;;;;"5_noc,5_soc,5_operator,6_chat,7_programer";;;;"20080929095600"
+"13";"default";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/default";"by_email";;;;;"5_noc,5_soc,5_operator,6_default,7_programer";;;;"20080929095600"
+"14";"no_db";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/no_db";"by_email";;;;;"5_noc,5_soc,5_operator,6_no_db,7_programer";;;;"20080929095600"
+"15";"demo";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/demo";"by_email";;;;;"5_noc,5_soc,5_operator,6_demo,7_programer";;;;"20080929095600"
+"16";"guest";"active";"0_guest";;"normal";"20080929095600";;;;;"extern_user.email";"extern_user.email";"home/groups/guest";"by_email";;;;;"5_noc,5_soc,5_operator,6_guest,7_programer";;;;"20080929095600"
+"id";"user_email";"table_name";"line_id";"action";"date_time"
+"1";"admin@localhost";"cmr_user";"07a20bea8e92733d3991ef6c47e21d75";"login";"20080929100126"
+"2";"admin@localhost";"cmr_ticket";"0809001";"new";"20080929100254"
+"3";"admin@localhost";"cmr_ticket";"0809002";"new";"20080929100732"
+"4";"admin@localhost";"cmr_ticket";"0809003";"new";"20080929102647"
+"5";"admin@localhost";"cmr_ticket";"0809004";"new";"20080929103442"
+"6";"admin@localhost";"cmr_ticket";"0809005";"new";"20080929103524"
+"7";"admin@localhost";"cmr_ticket";"56";"read";"20080929103554"
+"8";"admin@localhost";"cmr_ticket";"56";"read";"20080929103557"
+"9";"admin@localhost";"cmr_ticket";"56";"read";"20080929103559"
+"10";"admin@localhost";"cmr_ticket";"57";"read";"20080929104045"
+"11";"admin@localhost";"cmr_ticket";"57";"read";"20080929104048"
+"12";"admin@localhost";"cmr_ticket";"57";"read";"20080929104050"
+"13";"admin@localhost";"cmr_ticket";"57";"update";"20080929104115"
+"14";"admin@localhost";"cmr_ticket";"54";"read";"20080929104129"
+"15";"admin@localhost";"cmr_ticket";"54";"read";"20080929104132"
+"16";"admin@localhost";"cmr_ticket";"54";"read";"20080929104134"
+"17";"admin@localhost";"cmr_ticket";"54";"close";"20080929104201"
+"18";"admin@localhost";"cmr_ticket";"55";"read";"20080929104221"
+"19";"admin@localhost";"cmr_ticket";"55";"read";"20080929104224"
+"20";"admin@localhost";"cmr_ticket";"55";"read";"20080929104226"
+"21";"admin@localhost";"cmr_ticket";"56";"read";"20080929105023"
+"22";"admin@localhost";"cmr_ticket";"56";"read";"20080929105026"
+"23";"admin@localhost";"cmr_ticket";"56";"read";"20080929105028"
+"24";"admin@localhost";"cmr_ticket";"56";"update";"20080929105053"
+"25";"admin@localhost";"{match_label_default_table>";"07a20bea8e92733d3991ef6c47e21d75";"search 0809004";"20080929105345"
+"26";"admin@localhost";"cmr_ticket";"07a20bea8e92733d3991ef6c47e21d75";"search 0809004";"20080929105837"
+"27";"admin@localhost";"cmr_ticket";"59";"read";"20080929105846"
+"28";"admin@localhost";"cmr_ticket";"59";"read";"20080929105849"
+"29";"admin@localhost";"cmr_ticket";"59";"read";"20080929105851"
+"30";"admin@localhost";"cmr_ticket";"59";"update";"20080929105915"
+"31";"admin@localhost";"report";"07a20bea8e92733d3991ef6c47e21d75";"new";"20080929110600"
+"32";"admin@localhost";"report";"07a20bea8e92733d3991ef6c47e21d75";"new";"20080929110602"
+"33";"admin@localhost";"report";"07a20bea8e92733d3991ef6c47e21d75";"new";"20080929110602"
+"34";"admin@localhost";"report";"07a20bea8e92733d3991ef6c47e21d75";"new";"20080929110602"
+"35";"admin@localhost";"report";"07a20bea8e92733d3991ef6c47e21d75";"new";"20080929110602"
+"36";"admin@localhost";"cmr_user";"d30471d09614cbcc1634ecebf26dc7b2";"login";"20080929113407"
+"37";"admin@localhost";"cmr_user";"1b3cf91b8de489d27171b179a6cc53d6";"login";"20080929114431"
+"38";"admin@localhost";"cmr_ticket";"'";"delete";"20080929122341"
+"39";"admin@localhost";"cmr_ticket";"'";;"20080929122343"
+"40";"admin@localhost";"cmr_ticket";"'";;"20080929122346"
+"id";"sender";"title";"attach";"text";"groups_dest";"users_dest";"modules_dest";"mail_to";"mail_cc";"mail_bcc";"begin_time";"end_time";"intervale";"priority";"type";"state";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"group_name";"nagios_group";"config";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"name";"language";"state";"text";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"version";"title";"link";"language";"rating";"state";"feed_adress";"type";"text";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"name";"port";"protocol";"check_command";"my_master";"my_slave";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"sessionid";"sessionip";"user_email";"status";"state";"time_out";"session_end";"date_time"
+"1";"07a20bea8e92733d3991ef6c47e21d75";"192.168.1.186";"admin@localhost";"connect";"active";"600 MINUTE";"00000000000000";"20080929100126"
+"2";"d30471d09614cbcc1634ecebf26dc7b2";"192.168.1.186";"admin@localhost";"connect";"active";"600 MINUTE";"00000000000000";"20080929113407"
+"3";"1b3cf91b8de489d27171b179a6cc53d6";"192.168.1.186";"admin@localhost";"connect";"active";"600 MINUTE";"00000000000000";"20080929114431"
+"id";"user_email";"group_name";"asset_ip";"user_type";"group_type";"asset_type";"ticket_type";"ticket_call_method";"ticket_state";"ticket_severity";"ticket_assign_to";"num_user_impact";"num_group_impact";"num_asset_impact";"sla";"comment";"date_time"
+"id";"name";"type";"copyrigth";"certificate";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"name";"type";"period_begin";"period_end";"data";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"id";"number";"lang";"title";"work_by";"call_log_user";"call_log_group";"call_method";"state";"state_now";"assign_to";"list_user_impact";"list_group_impact";"list_asset_impact";"severity";"sla";"mail_title";"mail_from";"mail_to";"mail_cc";"mail_bcc";"attach";"type";"text";"mail_text";"my_master";"allow_level";"allow_email";"allow_groups";"comment";"date_time"
+"1";"0507001";"italian";"Segnalazione Ticket Normal";;;;"by_help_desk";"open";"open";"soc";;;;"normal";"3 DAY";"Ticket [{{ticket_number}}] Segnalazione: {{ticket_title}}";"Operation Center <operator@localhost>";;"Tecnician<tecnician@localhost>";"Soc <operator@localhost>";;"normal";"(breve descrizione se segnalato dal cliente oppure
+     descrizione dettagliata se e' stato rilevato da noi)";"-------------[{{date_time}}]-------------
+
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha preso in carico il problema con il
+Ticket numero {{ticket_number}}.
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+{{groups_email_sign}}";"cmr_model";"5_noc,5_soc,5_operator,6_demo,7_programer";;;"model";"20080929095600"
+"2";"0507002";"italian";"Aggiornamento Ticket Normale";"null";"null";;"by_help_desk";"update";"update";"null";"null";"null";"null";;"3 DAY";"Ticket [{{ticket_number}}] Aggiornamento: {{ticket_title}}";"|null|";"|null|";"|null|";"|null|";;"normal";"(breve descrizione dell'aggiornamento)
+";"-------------[{{date_time}}]-------------
+Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha aggiornato lo stato del ticket gia'
+aperto {{ticket_number}}.
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+Per avere informazioni sullo stato  di  avanzamento dei lavori potrete
+rispondere  a  questo messaggio (senza  modificarne  l'oggetto) oppure
+contattarci telefonicamente facendo riferimento al numero di Ticket.
+{{groups_email_sign}}";"cmr_model";"5_noc,5_soc,5_operator,6_demo,7_programer";;;"model";"20080929095600"
+"3";"0507003";"italian";"Chiusura Ticket Normale";"null";"null";;"by_help_desk";"close";"close";;"null";"null";"null";;"3 DAY";"Ticket [{{ticket_number}}] Chiusura: {{ticket_title}}";"|null|";"|null|";"|null|";"|null|";;"normal";"(spiegazioni della chiusura)
+";"-------------[{{date_time}}]-------------
+ Spett.le cliente,
+La presente per segnalare che il SOC di Camaroes ha provveduto a chiudere il ticket  {{ticket_number}}
+
+{{ticket_text}}
+
+Distinti saluti
+
+-- 
+Per riaprire il Ticket potete rispondere a questo messaggio (senza modificarne l'oggetto) oppure contattatarci telefonicamente facendo riferimento al numero di Ticket.
+
+{{groups_email_sign}}";"cmr_model";"5_noc,5_soc,5_operator,6_demo,7_programer";;;"model";"20080929095600"
+"4";"0507004";"italian";"Segnalazione Ticket IDS";;;;"by_help_desk";"open";"open";;;;"null";;"3 DAY";"Ticket [{{ticket_number}}] Segnalazione IDS: {{ticket_title}}";;;;;;"ids";"Ticket numero : {{ticket_number}}
+Nome Eventi :{{ticket_title}}
+Source IP : 
+Destination IP : 
+Severity : {{ticket_severity}}
+
+
+Per maggiori dettagli sull'evento segnalato:
+{{download}}
+";"-------------[{{date_time}}]-------------
+Spett.le cliente,
+
+    la presente per segnalare che il SOC di Camaroes ha rilevato un
+evento sospetto attraverso i nostri sistemi di monitoraggio.
+
+{{ticket_text}}
+
+
+Distinti saluti
+
+-- 
+Per comunicare informazioni utili al declassamento del'evento (in caso
+di falso positivo o a seguito di contromisure implementate al vostro
+interno) rispondete a  questo messaggio (senza  modificarne l'oggetto)
+oppure contattateci telefonicamente facendo riferimento al numero di Ticket.
+
+{{groups_email_sign}}";"cmr_model";"5_noc,5_soc,5_operator,6_demo,7_programer";;;"model";"20080929095600"
+"5";"0507005";"italian";"Aggiornamento Ticket IDS";"null";"null";;"NULL";"update";"update";"null";"null";"null";"null";;"3 DAY";"Ticket [{{ticket_number}}] Aggiornamento IDS: {{ticket_title}}";"|null|";"||";"|null|";"|null|";;"ids";"  in merito all'evento segnalato con il ticket {{ticket_number}}, vi preghiamo di
+verificare se l'impatto per la vostra rete risulta essere rilevante.
+
+
+
+In caso contrario o di una mancata vostra risposta considereremo

@@ -13,40 +13,40 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
-
- 
- 
-
- 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 
- 
 
 
-module,Ver 3.0  @_date_time_@  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+module,Ver 3.0  @_date_time_@
 */
 
 
 /**
 * Information about
 * Is used for keeping
-* windowss (design for the layer usefull when running a module)  
+* windowss (design for the layer usefull when running a module)
 * @$t object istance of the class windowss
 */
 
@@ -70,7 +70,7 @@ include_once($cmr->get_path("index") . "system/run_result.php");
 
 
 
-// ----------------            
+// ----------------
 $cmr->language = $mod->load_lang($cmr->language, $cmr->page["language"], "module" . $cmr->get_ext("lang"));
 $cmr->config = $mod->load_conf("module" . $cmr->get_ext("conf"));
 $cmr->help=$cmr->load_help_need("module" . $cmr->get_ext("help"));
@@ -80,7 +80,7 @@ $cmr->action["to_load"] = "load_func_need";
 include($cmr->get_path("index") . "system/loader/loader_function.php");
 $cmr->action["to_load"] = "load_class_need";
 include($cmr->get_path("index") . "system/loader/loader_class.php");
-// ----------------            
+// ----------------
 
 if(empty($cmr->post_var["module_file"])) $cmr->post_var["module_file"] = "";
 
@@ -123,7 +123,7 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 // ==============================================================
 	$aut = $cmr->get_user("authorisation");
 	$list_group = $cmr->get_user("auth_list_group");
-	$tab_list_group = explode(", ", ereg_replace("'", "", $cmr->user["auth_list_group"]));
+	$tab_list_group = explode(", ", preg_replace("'", "", $cmr->user["auth_list_group"]));
 // -----------
 // -----------
   $division->prints["match_value_model_id"] = "";
@@ -136,7 +136,7 @@ $division->prints["match_open_windows"] = $division->show_noclose();
   $division->prints["match_value_comment"] = "";
   $division->prints["match_value_sender"] = $cmr->get_user("auth_email");
   $division->prints["match_value_mail_to"] = "";
-  $division->prints["match_value_mail_to"] = "";        
+  $division->prints["match_value_mail_to"] = "";
   $division->prints["match_value_mail_cc"] = "";
   $division->prints["match_value_mail_bcc"] = "";
   $division->prints["match_value_type"] = "";
@@ -148,7 +148,7 @@ $division->prints["match_open_windows"] = $division->show_noclose();
   $division->prints["match_value_allow_type"] = "";
   $division->prints["match_value_allow_email"] = "";
   $division->prints["match_value_allow_groups"] = "";
-	
+
 	foreach($tab_list_group as $key => $val){
     $groups_dest = $val;
 
@@ -157,12 +157,12 @@ $division->prints["match_open_windows"] = $division->show_noclose();
     $cmr->query["t_q"] .= " AND (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.group_name=" . $cmr->get_conf("cmr_table_prefix") . "groups.name) ";
     $cmr->query["t_q"] .= " AND (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.user_email=" . $cmr->get_conf("cmr_table_prefix") . "user.email) ";
     $cmr->query["t_q"] .= " AND (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.state='active') ";
-                                 
+
     $cmr->query["t_q"] .= " AND ((" . $cmr->get_conf("cmr_table_prefix") . "user_groups.type != 'contact') "; //-- company contact --
-    $cmr->query["t_q"] .= " OR (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.type = '') "; 
-    $cmr->query["t_q"] .= " OR (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.type = null) "; 
+    $cmr->query["t_q"] .= " OR (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.type = '') ";
+    $cmr->query["t_q"] .= " OR (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.type = null) ";
     $cmr->query["t_q"] .= ") "; //-- company contact --
-                                 
+
     $cmr->query["t_q"] .= " AND (" . $cmr->get_conf("cmr_table_prefix") . "user.state='active') ";
     $cmr->query["t_q"] .= " AND (" . $cmr->get_conf("cmr_table_prefix") . "groups.state='active') ";
     $cmr->query["t_q"] .= " AND (user_email not like '%localhost') ";
@@ -170,17 +170,19 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 //   -----------
 //   -----------
 
-    $result_te = &$cmr->db_connection->SelectLimit($cmr->query["t_q"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+    $result_te = $cmr->db_connection->query($cmr->query["t_q"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 //   -----------
 //   -----------
     $division->prints["match_list_email"] = "";
-    while ($r_email1 = $result_te->FetchRow()){
+if($cmr->db_connection)
+    while ($r_email1 = $result_te->fetch_row()){
         $division->prints["match_list_email"] .= ", " . $r_email1[0];
-        $result_te->MoveNext();
+        $result_te->next_result();
     }
 //   ==============================================================
 //   ==============================================================
-    
+
 //   ==============================================================
 //   =============inserimento riferimento cmr_company_name=========
 //   ==============================================================
@@ -200,11 +202,13 @@ $division->prints["match_open_windows"] = $division->show_noclose();
     $cmr->query["t_q_rif"] .= " AND  (" . $cmr->get_conf("cmr_table_prefix") . "groups.type<='$aut')  order by user_email;";
 //   -----------
 
-    $result_rif = &$cmr->db_connection->SelectLimit($cmr->query["t_q_rif"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+    $result_rif = $cmr->db_connection->query($cmr->query["t_q_rif"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 //   -----------
-    while ($r_email2 = $result_rif->FetchRow()){
+if($cmr->db_connection)
+    while ($r_email2 = $result_rif->fetch_row()){
         $division->prints["match_list_email_cc"] .= ", " . $r_email2[0];
-        $result_rif->MoveNext();
+        $result_rif->next_result();
     }
 //   -----------
     $list_email_cc .= ", " . $cmr->config["cmr_cc_email"];
@@ -215,20 +219,20 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 //   -----------
     $list_email_bcc .= ", " . $cmr->config["cmr_bcc_email"];
 //   -----------
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
 //   -----------
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //   -----------
-    $list_email = ereg_replace("^[,][ ]", "", $list_email); //--rimossione vigola all'inizio--
-    $list_email_cc = ereg_replace("^[,][ ]", "", $list_email_cc); //--rimossione vigola all'inizio--
-    $list_email_bcc = ereg_replace("^[,][ ]", "", $list_email_bcc); //--rimossione vigola all'inizio--
+    $list_email = preg_replace("^[,][ ]", "", $list_email); //--rimossione vigola all'inizio--
+    $list_email_cc = preg_replace("^[,][ ]", "", $list_email_cc); //--rimossione vigola all'inizio--
+    $list_email_bcc = preg_replace("^[,][ ]", "", $list_email_bcc); //--rimossione vigola all'inizio--
 //   ----List Client Email html object generetion---
   $division->prints["match_hidden_input"] = "";
     if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_noc_type")){
@@ -263,19 +267,21 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 // ==============================================================
 
 // ==============================================================
-	$result_group = &$cmr->db_connection->SelectLimit($cmr->query["t_group"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+	$result_group = $cmr->db_connection->query($cmr->query["t_group"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 	$const = $cmr->get_conf("cmr_noc_type");
-	
+
 	$cmr->query["t_group_name"] = "SELECT DISTINCT " . $cmr->get_conf("cmr_table_prefix") . "groups.name FROM " . $cmr->get_conf("cmr_table_prefix") . "groups ";
 	$cmr->query["t_group_name"] .= "WHERE (" . $cmr->get_conf("cmr_table_prefix") . "groups.type>='$const') ORDER BY  " . $cmr->get_conf("cmr_table_prefix") . "groups.name;";
-	
+
 	$cmr->query["t_user_email"] = "SELECT DISTINCT " . $cmr->get_conf("cmr_table_prefix") . "user.email FROM " . $cmr->get_conf("cmr_table_prefix") . "user, " . $cmr->get_conf("cmr_table_prefix") . "user_groups, " . $cmr->get_conf("cmr_table_prefix") . "groups ";
 	$cmr->query["t_user_email"] .= "WHERE (" . $cmr->get_conf("cmr_table_prefix") . "user.email=" . $cmr->get_conf("cmr_table_prefix") . "user_groups.user_email) ";
 	$cmr->query["t_user_email"] .= "AND (" . $cmr->get_conf("cmr_table_prefix") . "user_groups.group_name=" . $cmr->get_conf("cmr_table_prefix") . "groups.name) ";
 	$cmr->query["t_user_email"] .= "AND (" . $cmr->get_conf("cmr_table_prefix") . "groups.type>='$const') ORDER BY " . $cmr->get_conf("cmr_table_prefix") . "groups.name;";
-
-	$result_group_name = &$cmr->db_connection->SelectLimit($cmr->query["t_group_name"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	$result_user_email = &$cmr->db_connection->SelectLimit($cmr->query["t_user_email"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+  if($cmr->db_connection)
+	$result_group_name = $cmr->db_connection->query($cmr->query["t_group_name"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	if($cmr->db_connection)
+	$result_user_email = $cmr->db_connection->query($cmr->query["t_user_email"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // ==============================================================
 // ==============================================================
 // ===============end generate groups and emails=================
@@ -309,24 +315,24 @@ $division->prints["match_default_lang"] = $cmr->get_page("language");
 	$lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 	$lk->add_link("modules/new_module.php?conf_name=conf.d/modules/conf_module.ini&module_file = ".$cmr->post_var["module_file"]."", 1);
   $division->prints["match_link_list"] = $lk->list_link();
-	
+
 	$lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 	$lk->add_link("modules/update_module.php?conf_name=conf.d/modules/conf_module.ini&module_file = ".$cmr->post_var["module_file"]."", 1);
   $division->prints["match_link_list1"] = $lk->list_link();
-	
+
 	$lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 	$lk->add_link("modules/modules_map.php?conf_name=conf.d/modules/conf_modules_map.ini&module_file = ".$cmr->post_var["module_file"]."", 1);
   $division->prints["match_link_list1"] = $lk->list_link();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ==============case todo=======================================
 // ==============================================================
-  $division->prints["match_module_title1"] = ""; 
-  $division->prints["match_module_title2"] = ""; 
-	if(isset($cmr->language[$mod->base_name])) 
+  $division->prints["match_module_title1"] = "";
+  $division->prints["match_module_title2"] = "";
+	if(isset($cmr->language[$mod->base_name]))
   $division->prints["match_module_title1"] = $cmr->translate($mod->base_name);
-	if(isset($cmr->language[$mod->base_name."_title"])) 
+	if(isset($cmr->language[$mod->base_name."_title"]))
   $division->prints["match_module_title2"] = $cmr->translate($mod->base_name . "_title");
-	
+
   $division->prints["match_label_id"] = "";
   $division->prints["match_label_search_model"] = "";
   $division->prints["match_value_pre_email"] = "";
@@ -339,7 +345,7 @@ $division->prints["match_default_lang"] = $cmr->get_page("language");
   $division->prints["match_value_modules_dest"] = "";
   $division->prints["match_value_modules_dest"] = "";
   $division->prints["match_link_priority"] = "";
-	
+
   $division->prints["match_www_path"] = $cmr->get_path("www");
   $division->prints["match_label_lang"] = $cmr->translate("language");
   $division->prints["match_label_title"] = $cmr->translate("title");
@@ -356,7 +362,7 @@ $division->prints["match_default_lang"] = $cmr->get_page("language");
   $division->prints["match_label_extra_destination"] = $cmr->translate("extra_destination");
   $division->prints["match_label_owner"] = $cmr->translate("owner");
   $division->prints["match_label_module"] = $cmr->translate("module");
-	
+
   $division->prints["match_label_mail_title"] = $cmr->translate("mail_title");
   $division->prints["match_label_sender"] = $cmr->translate("sender");
   $division->prints["match_label_mail_to"] = $cmr->translate("mail_to");
@@ -370,15 +376,15 @@ $division->prints["match_default_lang"] = $cmr->get_page("language");
   $division->prints["match_label_allow_groups"] = $cmr->translate("allow_groups");
   $division->prints["match_label_comment"] = $cmr->translate("comment");
   $division->prints["match_label_date_time"] = $cmr->translate("date");
-	
+
   $division->prints["match_label_print"] = $cmr->translate("print");
   $division->prints["match_label_text"] = $cmr->translate("mail text");
   $division->prints["match_label_normal"] = $cmr->translate("normal");
   $division->prints["match_label_extend"] = $cmr->translate("extend");
   $division->prints["match_label_db"] = $cmr->translate("database");
-	
-	
-	
+
+
+
   $division->prints["match_options_action"] = "";
 if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
   $division->prints["match_options_action"] .= "<option value=\"new_model\" >" . $cmr->translate("New model") . "</option>";
@@ -390,37 +396,37 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
   $division->prints["match_input_hidden_conf"] = "";
   $division->prints["match_input_hidden_module"] = input_hidden("<input type=\"hidden\" value=\"modules/" . $cmr->action["todo"] . ".php\" name=\"middle1\" />");
   $division->prints["match_input_hidden_module_file"] = input_hidden("<input type=\"hidden\" value=\"".$cmr->post_var["module_file"]."\" name=\"module_file\" />");
-	
+
   $division->prints["match_label_code_insert"] = $cmr->translate("insert");
   $division->prints["match_link_code_insert"] = $cmr->module_link("modules/new_code.php?conf_name=conf.d/modules/conf_code.ini", "", "->");
 
 //   $division->prints["match_label_email"] = $cmr->translate("email");
   $division->prints["match_print"] = $cmr->translate("print");
   $division->prints["match_label_email"] = $cmr->translate("email");
-	
-	
+
+
   $division->prints["match_begin_time"] = date("Y-m-d H:i:s");
   $division->prints["match_end_time"] = date("2999-m-d H:i:s");
-	
+
   $division->prints["match_label_attach"] = $cmr->translate("attach");
   $division->prints["match_label_attach1"] = $cmr->translate("attach1");
   $division->prints["match_label_attach2"] = $cmr->translate("attach2");
   $division->prints["match_label_attach3"] = $cmr->translate("attach3");
   $division->prints["match_label_attach4"] = $cmr->translate("attach4");
-	
+
   $division->prints["match_label_model"] = $cmr->translate("model");
   $division->prints["match_link_model"] = $cmr->module_link("modules/module_from_model.php?conf_name=conf.d/modules/conf_module_from_model.ini", "", "->");
   $division->prints["match_label_header"] = $cmr->translate("header");
   $division->prints["match_label_action"] = $cmr->translate("action");
-	
+
   $division->prints["match_label_every"] = $cmr->translate("every");
   $division->prints["match_label_only"] = $cmr->translate("only");
-	
+
   $division->prints["match_label_day"] = $cmr->translate("day");
   $division->prints["match_label_microsecond"] = $cmr->translate("microsecond");
   $division->prints["match_label_second"] = $cmr->translate("second");
   $division->prints["match_label_minute"] = $cmr->translate("minute");
-	
+
   $division->prints["match_label_hour"] = $cmr->translate("hour");
   $division->prints["match_label_week"] = $cmr->translate("week");
   $division->prints["match_label_month"] = $cmr->translate("month");
@@ -437,7 +443,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
   $division->prints["match_label_day_minute"] = $cmr->translate("day_minute");
   $division->prints["match_label_day_hour"] = $cmr->translate("day_hour");
   $division->prints["match_label_year_month"] = $cmr->translate("year_month");
-  
+
 // ========================NEW================================
 	// $todo_type=$result_value["type"];
 	// $todo_state="open";
@@ -445,25 +451,26 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 	//   die($cmr->query["t_model_new"]);
 	$cmr->query["t_model"] = $cmr->query["t_model_new"];
 
-	$result_model = &$cmr->db_connection->SelectLimit($cmr->query["t_model"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	$r_model = $result_model->FetchNextObject(false);
+	if($cmr->db_connection)
+	$result_model = $cmr->db_connection->query($cmr->query["t_model"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	if($cmr->db_connection) $r_model = $result_model->fetch_object(false);
 	// =======================================
   $division->prints["match_value_model_id"] = $r_model->id;
 	// =======================================
-	
+
 	$id_input = "";
   $division->prints["match_options_code_insert"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "code", "code", "column");
-	
+
   $division->prints["match_class_module"]  = "new_module";
   $division->prints["match_func_list"] = $cmr->get_conf("cmr_new_function");
 	//   $model_title = $r_model->model_title;
-	
+
   $division->prints["match_options_state"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "module", "state", "type");
   $division->prints["match_value_priority"] = 3;
   $division->prints["match_options_type"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "module", "type", "type");
-	
-	
-	
+
+
+
 	// $groups_dest1="<option>". $cmr->get_user("auth_group")."</option>";
   $division->prints["match_options_users_dest"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "user", "email", "column");
   $division->prints["match_options_mail_to"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "user", "email", "column");
@@ -472,36 +479,39 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 
 	 $array_value1 = array();
 	 $array_value2 = array();
-	while ($groups_value = $result_group_name->FetchNextObject(false)){
+	 if($cmr->db_connection)
+	while ($groups_value = $result_group_name->fetch_object(false)){
 	 $array_value1[] = $groups_value->name;
 	 $array_value2[] = $groups_value->name;
 	};
-	
+
 	 $array_value1 = array();
 	 $array_value2 = array();
-	while ($user_value = $result_user_email->FetchNextObject(false)){
+	 if($cmr->db_connection)
+	while ($user_value = $result_user_email->fetch_object(false)){
 	 $array_value1[] = $user_value->email;
 	 $array_value2[] = $user_value->email;
 	};
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   $division->prints["match_options_groups_dest"] = "";
 	if(isset($_SESSION['module_groups_dest'])){
 	    $division->prints["match_options_groups_dest"] .= "<option value=\"" . $_SESSION['module_groups_dest'] . "\">" . $_SESSION['module_groups_dest'] . "</option>";
 	}
   $division->prints["match_options_groups_dest"] .= "<option>" . $cmr->get_conf("cmr_admin_group") . "</option>";
-	
+
 	 $array_value1 = array();
 	 $array_value2 = array();
-	while ($groups_value = $result_group->FetchNextObject(false)){
+	 if($cmr->db_connection)
+	while ($groups_value = $result_group->fetch_object(false)){
 	//       $division->prints["match_options_groups_dest"] .= "<option>" . $groups_value->name . "</option>";
 	 $array_value1[] = $groups_value->name;
 	 $array_value2[] = $groups_value->name;
 	};
   $division->prints["match_options_groups_dest"] .= select_order($cmr->language, $array_value1,  $array_value2, "");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   $division->prints["match_options_allow_groups"] = select_order($cmr->language, $array_value1,  $array_value2, "");
   $division->prints["match_options_my_master"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "module", "title", "column");
@@ -534,30 +544,30 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 	    $division->prints["match_options_modules_dest"] .= "<option>" . substr($file, 0, 28) . "</option>";
 	    };
 	}
-	        
-	
+
+
 	// ==============================================================
   $division->prints["match_default_lang"] = $cmr->translate("default");
   $division->prints["match_options_lang"] = "";
   $division->prints["match_options_lang"] = $cmr->print_select($cmr->get_conf("cmr_table_prefix") . "module", "lang", "type");
   $division->prints["match_value_priority"] = 3;
-	
+
 	// ==============================================================
-	
-	
-	
+
+
+
   $division->prints["match_value_begin_time"] = "";//$cmr->user["auth_group"];
   $division->prints["match_value_end_time"] = "";
-	
-	
-	
+
+
+
   $division->prints["match_value_title"]  = "";
   $division->prints["match_value_pre_text"] = "";
   $division->prints["match_value_pre_text"] = "";
-	
+
   $division->prints["match_value_text"] = $r_model->text . "\n\n";
 	(empty($r_model->mail_title)) ? $mail_title =  "module:{{module_title}}" : $mail_title = $r_model->mail_title ;
-	
+
   $division->prints["match_value_comment"] .= "\n* " . date("Y-m-d H:i:s") . $cmr->translate(" Write by [") . $cmr->get_user("auth_email") . "] \n";
   $division->prints["match_submit_text"]  = $cmr->translate("send_module");
   $division->prints["match_load_script"]  = "<script language=\"javascript\" type=\"text/javascript\">load_model(this.form,'model', 'module_');</script>";
@@ -575,17 +585,17 @@ if(empty($cmr->post_var["module_file"])){
 	print($cmr->module_link("modules/modules_map.php?conf_name=conf_modules_map.ini&module_file = " . $cmr->post_var["module_file"] . "", 1));
 	print($cmr->translate(" to select one."));
     return;
-} 
+}
     $todo_type = $result_value["type"];
     $todo_title = $result_value["title"];
     $todo_state = "open";
-		
+
 
 //   $cmr->query["t_model_model"] = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "module where ((title= '$todo_title') or (my_master='cmr_model')) and (type='$todo_type') and (state='$todo_state') and ((groups_dest in ($list_group)) or (groups_dest='') or (groups_dest=NULL))  order by id;";
 //   $cmr->query["t_model"] = $cmr->query["t_model_model"];
 
 //   $result_model = &$cmr->db_connection->SelectLimit($cmr->query["t_model"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-//   $r_model = $result_model->FetchNextObject(false);
+//   $r_model = $result_model->fetch_object(false);
 //   =======================================
     $division->prints["match_module_title1"] = $cmr->translate("new module from model");
 //   $division->prints["match_module_title1"]  = $cmr->language[$mod->base_name . "_title"];
@@ -615,39 +625,42 @@ if(empty($cmr->post_var["module_file"])){
     $division->prints["match_intervale"] = trim($intervale);
     (empty($value_intervale)) ? $division->prints["match_value_ripetitive"] = "0" : $division->prints["match_value_ripetitive"] = "1";
 //   $groups_dest1="<option>". $cmr->get_user("auth_group")."</option>";
-    
+
     $division->prints["match_value_users_dest"] .= $cmr->config["cmr_bcc_email"];
     if(isset($_SESSION['module_users_dest'])) $division->prints["match_value_users_dest"] .= $_SESSION['module_users_dest'];
     if(!empty($result_value["users_dest"])) $division->prints["match_value_users_dest"] =  $result_value["users_dest"];
 
 
-    
-    
+
+
      $array_value1 = array();
      $array_value2 = array();
-    while ($groups_value = $result_group_name->FetchNextObject(false)){
+		 if($cmr->db_connection)
+    while ($groups_value = $result_group_name->fetch_object(false)){
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
     };
-    
-    
+
+
      $array_value1 = array();
      $array_value2 = array();
-    while ($user_value = $result_user_email->FetchNextObject(false)){
+		 if($cmr->db_connection)
+    while ($user_value = $result_user_email->fetch_object(false)){
      $array_value1[] = $user_value->name;
      $array_value2[] = $user_value->name;
     };
-    
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     $division->prints["match_value_groups_dest"] .= $cmr->get_conf("cmr_admin_group");
     if(isset($_SESSION['module_groups_dest'])) $division->prints["match_value_groups_dest"] .= $_SESSION['module_groups_dest'];
     if(!empty($result_value["groups_dest"])) $division->prints["match_value_groups_dest"] =  $result_value["groups_dest"];
-    
+
      $array_value1 = array();
      $array_value2 = array();
-    while ($groups_value = $result_group->FetchNextObject(false)){
+		 if($cmr->db_connection)
+    while ($groups_value = $result_group->fetch_object(false)){
 //       $division->prints["match_options_groups_dest"] .= "<option>" . $groups_value->name . "</option>";
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
@@ -657,7 +670,7 @@ if(empty($cmr->post_var["module_file"])){
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    
+
 
     $division->prints["match_value_modules_dest"] = $r_model->modules_dest;
     $division->prints["match_value_begin_time"] = $r_model->begin_time;
@@ -693,7 +706,7 @@ if(empty($cmr->post_var["module_file"])){
 	print($cmr->module_link("modules/modules_map.php?conf_name=conf_modules_map.ini&module_file = " . $cmr->post_var["module_file"] . "", 1));
 	print($cmr->translate(" to select one."));
     return;
-} 
+}
 
     $todo_type = $result_value["type"];
     $todo_state = "update";
@@ -707,7 +720,7 @@ if(empty($cmr->post_var["module_file"])){
 //   $cmr->query["t_model"] = $cmr->query["t_model_update"];
 
 //   $result_model = &$cmr->db_connection->SelectLimit($cmr->query["t_model"], $cmr->get_conf("cmr_max_view") /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-//   $r_model = $result_model->FetchNextObject(false);
+//   $r_model = $result_model->fetch_object(false);
 //   =======================================
     $division->prints["match_value_model_id"] = $r_model->id;
 //   =======================================
@@ -716,7 +729,7 @@ if(empty($cmr->post_var["module_file"])){
     $division->prints["match_module_title2"]  = $cmr->translate("reply_module_text");
 
 //   if(empty($cmr->post_var["module_file"])) exit;
-    
+
     $division->prints["match_class_module"]  = "reply_module";
     $division->prints["match_func_list"] = $cmr->get_conf("cmr_update_function");
 //   $model_title = $result_value["model_title"];
@@ -737,7 +750,7 @@ if(empty($cmr->post_var["module_file"])){
     $division->prints["match_intervale"] = trim($intervale);
     (empty($value_intervale)) ? $division->prints["match_value_ripetitive"] = "0" : $division->prints["match_value_ripetitive"] = "1";
 //   $groups_dest1="<option>". $cmr->get_user("auth_group")."</option>";
-    
+
     $division->prints["match_value_users_dest"] .= $cmr->config["cmr_bcc_email"];
     if(isset($_SESSION['module_users_dest'])) $division->prints["match_value_users_dest"] .= $_SESSION['module_users_dest'];
     if(!empty($result_value["users_dest"])) $division->prints["match_value_users_dest"] =  $result_value["users_dest"];
@@ -745,25 +758,27 @@ if(empty($cmr->post_var["module_file"])){
     $division->prints["match_value_groups_dest"] .= $cmr->get_conf("cmr_admin_group");
     if(isset($_SESSION['module_groups_dest'])) $division->prints["match_value_groups_dest"] .= $_SESSION['module_groups_dest'];
     if(!empty($result_value["groups_dest"])) $division->prints["match_value_groups_dest"] =  $result_value["groups_dest"];
-     
+
     $array_value1 = array();
      $array_value2 = array();
-    while ($groups_value = $result_group_name->FetchNextObject(false)){
+		 if($cmr->db_connection)
+    while ($groups_value = $result_group_name->fetch_object(false)){
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
     };
-    
-    
+
+
      $array_value1 = array();
      $array_value2 = array();
-    while ($user_value = $result_user_email->FetchNextObject(false)){
+		 if($cmr->db_connection)
+    while ($user_value = $result_user_email->fetch_object(false)){
      $array_value1[] = $user_value->email;
      $array_value2[] = $user_value->email;
     };
 
-    
-    
-    
+
+
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -773,10 +788,11 @@ if(empty($cmr->post_var["module_file"])){
         $division->prints["match_options_groups_dest"] .= "<option value=\"" . $_SESSION['module_groups_dest'] . "\">" . $_SESSION['module_groups_dest'] . "</option>";
     }
     $division->prints["match_options_groups_dest"] .= "<option>" . $cmr->get_conf("cmr_admin_group") . "</option>";
-    
+
      $array_value1 = array();
      $array_value2 = array();
-    while ($groups_value = $result_group->FetchNextObject(false)){
+		 if($cmr->db_connection)
+    while ($groups_value = $result_group->fetch_object(false)){
 //       $division->prints["match_options_groups_dest"] .= "<option>" . $groups_value->name . "</option>";
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
@@ -830,8 +846,10 @@ if(empty($cmr->post_var["module_file"])){
 // ===============loading model in html object====================
 // ==============================================================
   $division->prints["match_options_model"] = "";
-	$result_model = &$cmr->db_connection->Execute($cmr->query["t_model"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	while ($r_model = $result_model->FetchNextObject(false)){
+	if($cmr->db_connection)
+	$result_model = $cmr->db_connection->query($cmr->query["t_model"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	if($cmr->db_connection)
+	while ($r_model = $result_model->fetch_object(false)){
 	    $division->prints["match_options_model"] .= "<option value=\"" . $r_model->id . "\" >" . htmlentities(substr($r_model->module["title"], 0, 66)) . "</option>";
 	}
 // ==============================================================
@@ -870,15 +888,17 @@ if(empty($cmr->post_var["module_file"])){
 // ==============================================================
 // $cmr->query["t_model"] = "SELECT * FROM ". $cmr->get_conf("cmr_table_prefix") ."module where (model_title like 'cmr_model:%') order by id ;";
 
-	$result_model = &$cmr->db_connection->SelectLimit($cmr->query["t_model"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	if($cmr->db_connection)
+	$result_model = $cmr->db_connection->query($cmr->query["t_model"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
   $division->prints["match_hidden_model"] = "";
-	while ($r_model = $result_model->FetchRow()){
+	if($cmr->db_connection)
+	while ($r_model = $result_model->fetch_row()){
 	    $module_value = "";
-	    for($j = 0; $j < $result_model->FieldCount( ); $j++){
-	        $module_value .= $result_model->FetchField($j) . ":,:" . $r_model[$j] . ":.:";
+	    for($j = 0; $j < $result_model->field_count; $j++){
+	        $module_value .= $result_model->fetch_field($j) . ":,:" . $r_model[$j] . ":.:";
 	    }
 	    $division->prints["match_hidden_model"] .= "<input  type=\"hidden\" name=\"module_" . $r_model[0] . "\" id=\"module_" . $r_model[0] . "\" value=\"" . $module_value . "\" />\r\n";
-	$result_model->MoveNext();
+	$result_model->next_result();
 	}
 // ==============================================================
 // ==============================================================
@@ -886,7 +906,7 @@ if(empty($cmr->post_var["module_file"])){
 // ==============================================================
 // ==============================================================
 // ==============================================================
-  $division->prints["match_close_windows"] = $division->close(); 
+  $division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   $division->prints["match_hidden_from"] = input_hidden("<input type=\"hidden\" value=\"".$cmr->config["cmr_from_email"]."\" name=\"sender\"  id=\"sender\" />");
@@ -897,11 +917,11 @@ if(empty($cmr->post_var["module_file"])){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-  $division->prints["match_module_title1"] = ""; 
-  $division->prints["match_module_title2"] = ""; 
-	if(isset($cmr->language[$mod->base_name])) 
+  $division->prints["match_module_title1"] = "";
+  $division->prints["match_module_title2"] = "";
+	if(isset($cmr->language[$mod->base_name]))
   $division->prints["match_module_title1"] = $cmr->translate($mod->base_name);
-	if(isset($cmr->language[$mod->base_name."_title"])) 
+	if(isset($cmr->language[$mod->base_name."_title"]))
   $division->prints["match_module_title2"] = $cmr->translate($mod->base_name . "_title");
 
 
@@ -913,8 +933,8 @@ if(empty($cmr->post_var["module_file"])){
 	$file_list[] = $cmr->get_path("template") . "templates/modules/template_module" . $cmr->get_ext("template");
 	$file_list[] = $cmr->get_path("template") . "templates/modules/auto/template_module" . $cmr->get_ext("template");
 	$division->template = $division->load_template($file_list);
-	
-	  
+
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if(($cmr->get_conf("module_tiny_editor"))){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -937,7 +957,7 @@ if(empty($cmr->post_var["module_file"])){
   $division->prints["match_label_module_alert14"] = $cmr->translate("module_alert14");
   $division->prints["match_label_module_alert15"] = $cmr->translate("module_alert15");
   $division->prints["match_label_module_alert16"] = $cmr->translate("module_alert16");
-	
+
   $division->prints["match_label_module_alert16"] = $cmr->translate("module_alert16");
   $division->prints["match_label_module_alert17"] = $cmr->translate("module_alert17");
   $division->prints["match_label_module_alert18"] = $cmr->translate("module_alert18");

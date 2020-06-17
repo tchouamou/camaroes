@@ -111,21 +111,21 @@ var $imap_current_body = "";
 var $imap_current_uid = 0;
 var $imap_current_num = 1;
 
-//00000000000000000000000000 
+//00000000000000000000000000
 function __construct() // --constructor--
 {
-   return $this->class_imap;
+   return $this->class_imap();
 }
-//00000000000000000000000000 
+//00000000000000000000000000
 
 function class_imap(){
 	return  $this->mbox;
 	}
-	
-	
+
+
 function get_mailbox($mailbox=""){
 	switch ($this->imap_service){
-	    
+
 	    case "imap":
 			// empty($mailbox) ? $this->mailbox = "{" . $this->imap_server . ":" . $this->imap_port . "/imap/tls/novalidate-cert}" . $this->imap_default_folder : $this->mailbox=$mailbox;
 	        // $this->mailbox="{".$this->imap_server"].":".$this->imap_port"]."}";
@@ -150,12 +150,12 @@ function get_mailbox($mailbox=""){
 	}
 	return  $this->mailbox;
 	}
-	
-	
+
+
 function connect($mailbox=""){
-	
+
 	$this->mailbox = $this->get_mailbox($mailbox);
-	
+
 	switch ($this->imap_service){
 	    case "imap" : $this->mbox = imap_open($this->mailbox, $this->imap_user_name, $this->imap_password) or print("can't connect: " . imap_last_error());break;
 	    case "pop3" : $this->mbox = imap_open($this->mailbox, $this->pop3_user_name, $this->pop3_password) or print("can't connect: " . imap_last_error());break;
@@ -164,24 +164,24 @@ function connect($mailbox=""){
 	    case "nntp" : $this->mbox = imap_open($this->mailbox, $this->nntp_user_name, $this->nntp_password) or print("can't connect: " . imap_last_error());break;
 	    default : $this->mbox = imap_open($this->mailbox, $this->imap_user_name, $this->imap_password) or print("can't connect: " . imap_last_error());break;// imap
 	}
-	
+
 
 // 	$this->info = $this->get_mailboxmsginfo();
 // 	$this->current_status = $this->get_status();
 // 	$this->current_alerts = $this->get_alerts();
 // 	$this->current_error = $this->get_last_error();
-// 	$this->imap_checks = $this->get_check();	
+// 	$this->imap_checks = $this->get_check();
 // 	$this->get_check();
 // 	$this->get_num_recent();
-// 	
-	
+//
+
 // 	$this->imap_headers_list = $this->get_headerinfos();
 // 	$this->imap_current_uid = $this->get_uid(0);
 // 	$this->imap_current_message = $this->get_message(0);
 // 	$this->imap_current_header = $this->get_headerinfo(0)
 // 	$this->imap_current_body = $this->get_body(0);
 
-	
+
 	return  $this->mbox;
 
 }
@@ -240,7 +240,7 @@ function get_sort($orderbox="SORTARRIVAL", $searchbox="ALL", $reverse="0"){
 
 
 
-	
+
 function get_body($uid = 0){
 	if(empty($uid)) $uid = $this->imap_current_uid;
 	if(!empty($this->mbox)){
@@ -262,7 +262,7 @@ function get_fetchstructure($uid = 0){
 	}
 
 function get_bodystruct($num=1, $part_number = 0){
-	
+
 	if(empty($num)) $num = $this->imap_current_num;
 	if(!empty($this->mbox)){
 	$this->imap_current_body = imap_bodystruct($this->mbox, $num, $part_number);
@@ -271,7 +271,7 @@ function get_bodystruct($num=1, $part_number = 0){
 	return 	array();
 	}
 	}
-	
+
 function get_fetchbody($uid = 1, $part_number = 0){
 	if(empty($uid)) $uid = $this->imap_current_uid;
 	if(!empty($this->mbox)){
@@ -287,23 +287,23 @@ function get_download_link_default($uid = 1, $part_number = 1){
 	$to_return = "";
 	if(empty($uid)) $uid = $this->imap_current_uid;
 	if(!empty($this->mbox)){
-		
+
 	    if($this->imap_current_body->ifsubtype) $to_return .= "<br />" . cmr_translate('subtype') . ": " . $this->imap_current_body->subtype;
 	    if($this->imap_current_body->ifdescription) $to_return .= "<br />" . cmr_translate('description') . ": " . $this->imap_current_body->description;
 	    if($this->imap_current_body->ifid)  $to_return .= "<br />" . cmr_translate('id') . ": " . $this->imap_current_body->id;
 	    if($this->imap_current_body->ifdisposition)  $to_return .= "<br />" . cmr_translate('disposition') . ": " . $this->imap_current_body->disposition;
-		
-	    
+
+
 	    cmr_set_post_var("current_file", "email_attachment" . $part_number);
 		cmr_set_post_var("current_file", $this->imap_current_body->parameters[0]->value);
 		cmr_set_post_var("current_file", $this->get_fetchbody($uid, $part_number));
-	    
-		
+
+
 		$to_return .= "<br />" . "<a class=\"cmr_link\" href=\"index.php?conf=com_attachment&current_file=" . cmr_get_post_var("current_file") . "\" >" . $this->imap_current_body->parameters[0]->value . "</a>";
-	
-	
+
+
 	return  $to_return;
-	
+
 	}else{
 	return  $to_return;
 	}
@@ -322,7 +322,7 @@ function get_uid($num=1){
 	return  $this->imap_current_uid;
 	}
 	}
-	
+
 
 function get_msgno($uid = 0){
 	if(empty($uid)) $uid = $this->imap_current_uid;
@@ -334,19 +334,19 @@ function get_msgno($uid = 0){
 	return  $this->imap_current_num;
 	}
 	}
-	
+
 
 function get_all_uid($num=1){
 	$this->imap_current_uid = get_uid($num);
 	return  $this->imap_current_uid;
 	}
-	
+
 
 function get_all_num($uid = 0){
 	$this->imap_current_num = get_msgno($uid);
 	return  $this->imap_current_num;
 	}
-	
+
 
 function send_email(){
 	if(function_exists("imap_mail")){
@@ -355,7 +355,7 @@ function send_email(){
 	return 	"";
 	}
 	}
-	
+
 
 
 function get_message($uid = 0){
@@ -382,7 +382,7 @@ function get_num_recent(){
 	}
 	}
 
-	
+
 function get_getmailboxes($folder=""){
 	if(empty($folder)) $folder = $this->imap_list_folder;
 	if(!empty($this->mbox)){
@@ -393,7 +393,7 @@ function get_getmailboxes($folder=""){
 	}
 	}
 
-	
+
 function get_status(){
 	if(!empty($this->mbox)){
 	$this->current_status = imap_status($this->mbox, $this->mailbox, SA_ALL);
@@ -433,8 +433,8 @@ function get_alerts(){
 	}
 	}
 
-	
-	
+
+
 function make_deletemailbox($mailbox=""){
 	if(empty($mailbox)) $mailbox = $this->mailbox;
 	if(!empty($this->mbox)){
@@ -462,8 +462,8 @@ function make_createmailbox($mailbox=""){
 	}
 	}
 
-	
-	
+
+
 function close(){
 	if(!empty($this->mbox)){
 	return  imap_close($this->mbox);
@@ -471,7 +471,7 @@ function close(){
 	return 	"";
 	}
 	}
-	
+
  }
 }
 ?>

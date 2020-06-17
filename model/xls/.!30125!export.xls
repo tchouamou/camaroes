@@ -1,0 +1,141 @@
+<!--
+-- Generated : @_date_time_@
+-- Version TSTM: 2.0
+-- Version MySQL: 4.0.24
+-- Version PHP: 4.3.10-16
+-- 
+-->
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Excel.Sheet>
+<meta name=Generator content="Microsoft Excel 11">
+<link rel=File-List href="xls_file/filelist.xml">
+<link rel=Edit-Time-Data href="xls_file/editdata.mso">
+<link rel=OLE-Object-Data href="xls_file/oledata.mso">
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:LastAuthor>Administrator</o:LastAuthor>
+  <o:Created>2006-11-01T10:16:16Z</o:Created>
+  <o:LastSaved>2006-11-01T10:16:16Z</o:LastSaved>
+  <o:Version>11.6568</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]-->
+<style>
+<!--table
+	{mso-displayed-decimal-separator:"\,";
+	mso-displayed-thousand-separator:"\.";}
+@page
+	{margin:.98in .79in .98in .79in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;}
+tr
+	{mso-height-source:auto;}
+col
+	{mso-width-source:auto;}
+br
+	{mso-data-placement:same-cell;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normale;
+	mso-style-id:0;}
+td
+	{mso-style-parent:style0;
+	padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl24
+	{mso-style-parent:style0;
+	mso-number-format:"General Date";}
+.xl25
+	{mso-style-parent:style0;
+	mso-number-format:"Short Time";}
+.xl26
+	{mso-style-parent:style0;
+	mso-number-format:"\[h\]\:mm\:ss";}
+-->
+</style>
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>xls</x:Name>
+    <x:WorksheetOptions>
+     <x:Selected/>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:WindowHeight>9855</x:WindowHeight>
+  <x:WindowWidth>19020</x:WindowWidth>
+  <x:WindowTopX>120</x:WindowTopX>
+  <x:WindowTopY>30</x:WindowTopY>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+</xml><![endif]-->
+</head>
+
+
+<body lang=IT style='tab-interval:35.4pt'>
+
+
+<div class=Section1>
+
+<p class=MsoNormal>
+
+
+<h1>
+ <label>Database</label>:<u>@_database_@</u>
+</h1>
+
+<br />
+<ul>
+ <li><label>Privileges</label>:@_db_privileges_@</li>
+ <li><label>Caracter set</label>:@_db_caracter_set_@</li>
+ <li><label>Collation</label>:<u>@_db_collation_@</u></li>
+ <li><label>Type</label>:<u>@_db_type_@</u></li>
+ <li><label>Date_time</label>:<u>@_date_time_@</u></li>
+</ul>
+<br />
+
+

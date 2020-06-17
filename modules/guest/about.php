@@ -69,7 +69,7 @@ print($division->show_noclose());
 // print("</b><br /><p class=\"normal_text\">");
 // print($cmr->translate("" . $mod->base_name . "_text"));
 // print("</p>");
-// open_finestra($cmr->config, $cmr->language, $module_name, $module_positionx, $module_positiony,"<img alt=\"=> \" src=\"".$cmr->get_path("www") ."images/pallino_blue.gif\">"." about");
+// open_box($cmr->config, $cmr->language, $module_name, $module_positionx, $module_positiony,"<img alt=\"=> \" src=\"".$cmr->get_path("www") ."images/pallino_blue.gif\">"." about");
 ?>
 <div id="about_div">
 

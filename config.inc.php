@@ -19,7 +19,7 @@
 	# the database connection configuation is in ./home/{group}/connect.php (the default one is in config.inc.php, ./conf.d/conf.ini )
 	
 //####################################################
-define("cmr_version", "2.0.3");
+define("cmr_version", "3.0");
 
 //---------[Initial files Settings]-------------
 $cmr->config["cmr_main_config"] = dirname(__FILE__) . "/conf.d/conf.ini"; //-- es: /etc/camaroes/camaroes.conf
@@ -29,13 +29,13 @@ $cmr->config["cmr_smtp_config"] = dirname(__FILE__) . "/conf.d/conf_smtp.ini"; /
 //---------[Initial files Settings]-------------
 
 //---------[Database Settings]-------------
-$cmr->config["cmr_guest_mode"] = "0";
+$cmr->config["cmr_guest_mode"] = "1";
 $cmr->config["cmr_table_prefix"] = "cmr_";
 $cmr->config["cmr_default_table"] = "ticket";
 //---------[Database Settings]-------------
 
 //---------[Database Settings]-------------
-$cmr->config["db_type"] = "mysql";
+$cmr->config["db_type"] = "mysqli";
 $cmr->config["db_name"] = "camaroes_db";
 $cmr->config["db_host"] = "localhost";
 $cmr->config["db_port"] = "3306";

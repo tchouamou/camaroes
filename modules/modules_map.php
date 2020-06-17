@@ -58,7 +58,7 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// open_finestra($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, " Application Bar");
+// open_box($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, " Application Bar");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 

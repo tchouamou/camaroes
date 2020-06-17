@@ -38,7 +38,7 @@ include_once($cmr->get_path("index") . "system/run_result.php");
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// open_finestra($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/pallino_blue.gif\">"." query");
+// open_box($cmr->config, $cmr->language, $mod->name, $mod->rown_position, $mod->col_position, "<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/pallino_blue.gif\">"." query");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 
 

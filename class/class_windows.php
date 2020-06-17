@@ -34,7 +34,7 @@ class_windows.php,Ver 3.0  2011-July 10:36:59
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once(dirname(__FILE__) . "/../control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -52,7 +52,7 @@ if(!(class_exists("class_windows"))){
  * @access public
  **/
 class class_windows {
-    
+
 //     var $config = array();
     var $page = array();
     var $module = array();
@@ -63,12 +63,12 @@ class class_windows {
     var $template = "";
     // ------------
     // ------------
-//00000000000000000000000000 
+//00000000000000000000000000
 function __construct($page = array(), $module = array(), $themes = array()) // --constructor--
 {
    return $this->class_windows($page, $module, $themes);
 }
-//00000000000000000000000000 
+//00000000000000000000000000
     /**
      * windows::windows($themes)
      *
@@ -79,7 +79,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
     $this->page = $page;
     $this->module = $module;
     $this->themes = $themes;
-    
+
     // ------------
     }
     // ------------
@@ -90,19 +90,19 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
      * @return
      **/
     function load_themes($themes=array())
-    {	
+    {
 	    if(count($themes)){
 //          $this->module["title"] = $this->module["title"];
 //          $this->module["text"] = $this->module["text"];
 
-         
+
          $this->themes["win_type"] = $themes["win_type"];
          $this->themes["html_class"] = $themes["html_class"];
          $this->themes["header_visible"] = $themes["header_visible"];
          $this->themes["header_tools_left"] = $themes["header_tools_left"];
          $this->themes["header_tools_right"] = $themes["header_tools_right"];
          $this->themes["header_mouse_effect"] = $themes["header_mouse_effect"];
-        
+
          $this->themes["text_align"] = $themes["text_align"];
          $this->themes["text_font"] = $themes["text_font"];
          $this->themes["text_size"] = $themes["text_size"];
@@ -141,7 +141,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
                 print("<fieldset  class=\"cmr_win_table\" ><legend>" . $this->module["title"] . "</legend>");
 //                 print($this->module["text"]);
                 break;
-            case "default":; //can call another function ($config = array(), open_finestra)
+            case "default":; //can call another function ($config = array(), open_box)
             case "normal":;
             case "black":;
             case "hacker":;
@@ -152,7 +152,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
             case "linux":;
             case "windows":;
             default:
-                return open_finestra($this->page, $this->module, $this->themes);
+                return open_box($this->page, $this->module, $this->themes);
             break;
 
         }
@@ -183,7 +183,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
                 print("</frameset>");
                 break;
 
-            case "default":; //can call another function ($config = array(), open_finestra)
+            case "default":; //can call another function ($config = array(), open_box)
             case "normal":;
             case "black":;
             case "hacker":;
@@ -194,7 +194,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
             case "linux":;
             case "windows":;
             default:
-               return close_finestra($this->module);
+               return close_box($this->module);
             break;
         }
      return "";
@@ -213,7 +213,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
      return $this->template;
     }
     // ------------
- 
+
     // ------------
     /**
      * windows::print_template()
@@ -224,8 +224,10 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
     {
 		if(empty($template)) $template = $this->template;
 		if(empty($prints)) $prints = $this->prints;
-		print(cmr_print_template($template, $part, $prints));
-     return "";
+    //$box1 = preg_replace_callback("/([^}{]*)(\{match_)([^}{ ]*)(\})([^}{]*)/siU", function ($m) use ($prints) {return print($m[1]);print($prints["match_".$m[3]]);print($m[5]);}, ($template));
+    //return ($box1);
+    //return cmr_print_r($prints);
+    return print(cmr_print_template($template, $part, $prints));
     }
     // ------------
     // ------------
@@ -237,8 +239,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
     function show() // ----
     {
 	    print($this->show_noclose());
-	    print($this->close());
-     return "";
+     return print($this->close());
     }
 	// ------------
     // ------------
@@ -247,7 +248,7 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
      *
      * @return
      **/
-    
+
 	function layers_init($code1 = "", $form = "")
 	    {
         return layers_init($this->page = array(), $code1, $form);
@@ -284,8 +285,8 @@ function __construct($page = array(), $module = array(), $themes = array()) // -
     {
      return close_tab();
     }
-    
-    
+
+
 }
 
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined("cmr_online") or die("hacking attempt, application is not online, click <a href=\"index.php?cmr_mode=login\" > Here </a>  to login before continue ");
 /**
  * func_image.php
@@ -29,7 +29,6 @@ All rights reserved.
 
 
 
- 
 
 
 
@@ -39,12 +38,13 @@ All rights reserved.
 
 
 
-func_image.php,Ver 3.0  2011-Oct-Mon 15:23:08  
+
+func_image.php,Ver 3.0  2011-Oct-Mon 15:23:08
 */
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -54,7 +54,7 @@ function class_module_icon($cmr_config = array(), $module, $size = "16")
     (empty($cmr_config["image" . cmr_basename($module)])) ? $image = cmr_get_path("www") . "images/" . $size . "x" . $size . ".png" : $image = cmr_get_path("www") . $cmr_config["image" . cmr_basename($module)];
 	$image = trim($image);
 //     if(!file_exists($image)) $image = dirname($image) . "/auto/" . basename($image);
-//     if(!file_exists($image)) return "|";           
+//     if(!file_exists($image)) return "|";
    return ("<img src=\"" . $image . "\" alt=\"|\" />");
 } /*=================================================================*/
 } /*=================================================================*/
@@ -77,38 +77,38 @@ function try_create_image($cmr_config = array(), $cmr_language = array(), $mod_n
 $src_image = "";
 $return_link = "";
 
-		// $a_link.="<img src=\"".cmr_get_path("www") ."images/ServiceContract.ico\" border=\"0\" />";
+		// $a_link.="<img src=\"".cmr_get_path("www") ."images/ServiceContract.ico\" />";
         // $a_link.="<img src=\"button.php?text=".ucfirst($base_modname)."\" ";
         // $a_link.=ucfirst($base_modname);
 if(($image != "1")){
 	$return_link = "<img height=\"".$img_heigth."\" width=\"".$img_right."\"  src=\"".$image."\" ";
-	$return_link .= " alt=\"|" . ucfirst($image_key_inf) . "|\" border=\"0\" / >";
+	$return_link .= " alt=\"|" . ucfirst($image_key_inf) . "|\" />";
 	return $return_link;
     }
 
-    
+
 if($cmr_config["cmr_use_button"]=="force_image"){
 	if(!file_exists(cmr_get_path("www") . "images/button/" . $image_lang . "/auto/" . $mod_name . ".png")){
 		if(function_exists("image_save")){
 			image_save($cmr_config, $image_key_inf,  cmr_get_path("www") . "images/button/" . $image_lang . "/auto/" . $mod_name . ".png");
 		}
 	}
-}	
-	
+}
+
 	// =========================================
-	
+
 switch($cmr_config["cmr_use_button"]){
  case "image_text":
  case "text":
 			$return_link = language_text("", $image_key_inf);
  break;
-	
+
  case "header_image":
-	$src_image=cmr_get_path("www") . "index.php?cmr_mode=image&img_text=".$image_key_inf."&img_color=".$cmr_config["cmr_button_color"]."&img_dim=".$cmr_config["cmr_button_dim"];  
+	$src_image=cmr_get_path("www") . "index.php?cmr_mode=image&img_text=".$image_key_inf."&img_color=".$cmr_config["cmr_button_color"]."&img_dim=".$cmr_config["cmr_button_dim"];
 	$return_link = "<img height=\"".$img_heigth."\" width=\"".$img_right."\"  src=\"".$src_image."\" ";
-	$return_link .= " alt=\"|" . ucfirst($image_key_inf) . "|\" border=\"0\" / >";
+	$return_link .= " alt=\"|" . ucfirst($image_key_inf) . "|\" />";
  break;
-	
+
  case "force_image":
  case "exist_image":
  default:
@@ -117,16 +117,16 @@ switch($cmr_config["cmr_use_button"]){
    $file_list[] = cmr_get_path("www") . "images/button/" . "default" . "/" . $mod_name . ".png";
    $file_list[] = cmr_get_path("www") . "images/button/" . $image_lang . "/auto/" . $mod_name . ".png";
    $src_image = cmr_good_file($file_list);
-	
+
 	if(empty($src_image)){
 			$return_link = language_text("", $image_key_inf);
 		}else{
 	$return_link = "<img height=\"".$img_heigth."\" width=\"".$img_right."\"  src=\"".$src_image."\" ";
-	$return_link .= " alt=\"|" . ucfirst($image_key_inf) . "|\" border=\"0\" / >";
+	$return_link .= " alt=\"|" . ucfirst($image_key_inf) . "|\" />";
 	}
  break;
-	
-	}	
+
+	}
 
 return $return_link;
 }
@@ -156,7 +156,7 @@ function image_save($cmr_config = array(), $image_text, $button_dest)
 	$white = imagecolorallocate($im, 255, 255, 255);
 	$grey = imagecolorallocate($im, 128, 128, 128);
 	$black = imagecolorallocate($im, 0, 0, 0);
-	imagefilledrectangle($im, 0, 0, 99, 49, $white);	
+	imagefilledrectangle($im, 0, 0, 99, 49, $white);
 	}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -166,7 +166,7 @@ function image_save($cmr_config = array(), $image_text, $button_dest)
 	}else{
 		list($col1, $col2, $col3) = explode(",", $cmr_config["cmr_button_color"]);
 		$text_color  = ImageColorAllocate  ($im, trim($col1),  trim($col2), trim($col3));
-		}	
+		}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -185,7 +185,7 @@ function image_save($cmr_config = array(), $image_text, $button_dest)
 		list($font, $x_pos, $y_pos, $font_size) = explode(",", $cmr_config["cmr_button_dim"]);
 		if(!is_numeric($font)) $font = imageloadfont(realpath($font));
 		Imagestring  ($im, trim($font), trim($x_pos), trim($y_pos),  $image_text, $text_color );
-	}	
+	}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -289,7 +289,7 @@ function cmr_img_by_text($cmr_imgtext = "")
                 break;
             case "down" : $imgtext = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1QsKDTgPGbLEcAAAAIx0RVh0Q29tbWVudABNZW51LXNpemVkIGljb24KPT09PT09PT09PQoKKGMpIDIwMDMgSmFrdWIgJ2ppbW1hYycgU3RlaW5lciwgCmh0dHA6Ly9qaW1tYWMubXVzaWNoYWxsLmN6CgpjcmVhdGVkIHdpdGggdGhlIEdJTVAsCmh0dHA6Ly93d3cuZ2ltcC5vcmdnisdHAAACV0lEQVQ4y52ST0iTYRzHP+/b/DNz8s7ha1q2iZpIHSI0tgQND2mQROEhhMQiqFiNeepgYR4MIQPxIEWHpCCEFQVF3SKhg2Z5KLKDmmhZhuRwbqXb3vfXYbYSLcjP6XmeL8+H7/PjUc51XLg4Fc5X5+ajC0ABUAfsTFFl2Zb+/VtWWrSvv/NKK39BqfH3NLl2lLmcufrk7sIcv9Nu3ROJG4x+WeT10IA59nGWUvub7b3td2fWFXjbOntjobmzcVGZNTR+pOWwyZJCY+0+ivKz6b7/AuPTCK7U+fXut+Nt8cn05wkREZmYGpWh0Qnx3Xgi7tNXJTA8LT1P30rDpZvybnJG/iQcDovP7xVLmsVga66LYDCIlpmLqixglSgAI+Oz6JkWvs4v8n7iA1uyrKAACKmpqQBY4jEQUzBMk/rWW2s6Dk0GicUNugKDdAUGAXjccQIkkasAppiYhknPGQ8AzceO4HGXs7QUIc+mUumuoKmhHoDjNcWYhomI/BaICHa7Rn6Oi2unyunrf0CpqwAVBRUFd5mT2/ce0VhdyOHKCjI2Z6wWAITDYXRdx5lXkpR4dhVR4tpG952HNFYXcrTKja7rRKPR5BMtAKZpEolEANB1HV3X6T1vpeV6gOWYwcnaMpoPHUBVVUKhEJFIBJvNlvgHPr9XKsr3IqwM+D8YfvUy0cDjrgSRFYOSmLAiIMrKNqEvKS5mfHwMQUH5U+BwOHg+8CwZCLKmzf6qGgCyHQ4QJZlbADRNIz3d+s+6ml0DwK7ZV51bfi3qag+yERSf33sZaGNjtP8Elb70qz97tp0AAAAASUVORK5CYII=";
                 break;
-            case "tar":    
+            case "tar":
             case "compressed" : $imgtext = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH1QYQEhgJtRvS4AAAAalJREFUOMutkjFoVEEQhr/Z2913d8k9YgxBrhARBJEgSSOKTcTGUgkoh41YKJYRCzuvSCkepBGUFLEJaBUsBEUPtRT0mohibIyYIipRouFd3tuxeDkVI3hRp5nZgf+b2ZmBfzQBaNTMMPBsk9qR8ZnQkkbNNIHRs1cX9P38YxVbNqAAGCO5F0g+L2JKAxlpIi+e3jNzD6cB6hbg9OVWliy/MbOTp8Q7B8DaWhsfRQiCcw5TcPi4Wjh28Q5Lb5+z+8AYr1v3Ry2wQ4yYkKViCp405P1FvQMAVPqrIAaA6q59tFfeEShQ2bINDdmwBfqSlQ+8fHKbkxemQLMNn1UFUAht0o+vSFY/4YoxABYoPro5IYePnoP0C2SroAHVDEKKash9WAdrYM/e/TyYvQ5o0QJ+cPuQYozgK0Dlx3pQJK+9/qYzX4ZGDrIw14ykUTOXgPpfnkG9cwd65MR5luebXaninYe4e+sK4zNBbCfpozI98dauAM5H3+OfACWI+7sCmKi4EeBKPdguAan7XQdxleB7/yDN9xGC/AKw5WvTE8fPbGb8XxO9wf+wb+DSh8wTKaW0AAAAAElFTkSuQmCC";
                 break;
             case "compress" : $imgtext = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1QYVFCkaxKsYDAAAADV0RVh0Q29tbWVudAAoYykgMjAwNCBKYWt1YiBTdGVpbmVyCgpDcmVhdGVkIHdpdGggVGhlIEdJTVCQ2YtvAAACtUlEQVQ4y22TS2xMcRTGf/97p2aq8+yMRxGtpl5FBEG8FoQFkdDUW7ASgkTYCAsJiW0tiJUFKxLEIyLeYqEhilb6Ho/U0Kmaaaczc++duXfu/dtQfTirk3PO9+X7Ts4R/CfO71TmA41DSlFg67FrTtPIWTECuBHYA2LbvkOnCQQjAAykEly9dKYA1B275pwYilH/JnU7xGYhxN3dJ29O94+x1PIFmxDF48ATwTU2TLTljbLh8JUls5WXZ9dUZZseNdM+qKBuh1gnhHh89MIH6GvmS8sr0jlBZPJMAOJdrYR9Liqrl2GHF3HxSDVSys3Hr8u7CoAQonbtkVuQ+ADmAJXT51JVMRlFj6HoMSomRaisqgZzAPXXa1YdvIkQYheA64+DAzMrJoDlgqwOgNcXxOsLjlqwLPIyKVgEsA3Y/pcA6+d7FO84xPilCEsD/Qfk+0F1g2ssBfcEcgWFns8NdEffDhK6/lEXsN+dQ114CuEvh5IpFDxlWEYWI5Ogr+kG3S1PyGoGoVnrRxNoep5gcRhsE5n6BLH7GKZA03Okkz/IasYgKFtwD+YKQL1TQ6tWga36IfMZ0h2AROb6cIzksB30WQFisop6p2a4gpRuczm+mpUix+ySLqRTRIZSkrZFwpLEjCI6UyXEUzaLC+poC46UuMe4ac9G0ELL0Qs6/U4/yXySTC5DOp9GczJABinlcAsAHo/HLg2H0TSNRCKBbdv/exMCgQABb7Ez7JQ9btftru/dh+ZVz5FTp5YLBDiOg2maGIaBaZoEgyHKJpYRDgXkw2fPlWh7296en78+qgDxeG+vW7UfdPcm9ndGO5kzY5oTDJUKr8+Pz+fDNk1yer/d1NyqtHV0iHdv6mvaOr4+BQwxQqF/xcpltWGf2OL2l20Y2tCS3+71pKwX7xsa7wBxIA/wG8WmJi24cShhAAAAAElFTkSuQmCC";
@@ -398,22 +398,22 @@ function cmr_img_by_path($cmr_imgpath = "")
        $imgtext .= "F0WLbwYlb8n7gr7//EjeOAwjrsIovkZwxFeHq3DRd4i+eWiTizODXCTFZfnkhQgxxdQjsqqACQ4O";
        $imgtext .= "xLkyqQkOrhgquQooSU7jakoslQmLPKf4NOe77iPYCYzVnMbTilF7pkte+hv8fwDj2WSHhooY+QAA";
        $imgtext .= "AABJRU5ErkJggg==";
-		
+
         $iconcontent = base64_decode($imgtext);
 //         cmr_header("Content-type: image/png");
 //         cmr_header('Content-length: ' . strlen($iconcontent));
 //         print($iconcontent);
 //         die(0);
-// 	    
+//
 		$image_text = get_post("image_text");
-		
+
 		$text_color  = ImageColorAllocate  ($iconcontent, 255,  255, 200);
 		Imagestring  ($iconcontent, 7, 3, 3,  $image_text, $text_color );
 		header ("Content-type: image/png" );
 		imagepng ($iconconten);
        die(0);
 	    }
-    
+
     return false;
 }
 }

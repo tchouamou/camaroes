@@ -9,12 +9,12 @@ document.write(document.anchors.length)
 document.write("This document contains: " + document.forms.length + " forms.")
 </script-->
 <!--if(($cmr->get_user("authorisation")) && ($cmr->user["authorisation"] .= $cmr->config["cmr_admin"])) -->
-<br />[{match_your_ip}:{match_remote_addr}:{match_remote_port}]
+<!--br />[{match_your_ip}:{match_remote_addr}:{match_remote_port}]
 [{match_browser}:{match_user_agent}]
 <br />[{match_server}:{match_software}-{match_protocol}:{match_port}]
 
 [{match_current_user}:{match_user_email}]
-[<label for="from">{match_label_from}</label>{match_connect_from}]<br />
+[<label for="from">{match_label_from}</label>{match_connect_from}]<br /-->
 <!--[_match_last_connection]:
 [_match_connected_user]:-->
 <!--};-->
@@ -22,7 +22,7 @@ document.write("This document contains: " + document.forms.length + " forms.")
 </p>
 
 <p align="center" class="small_note">
- &copy <a href="{match_company_website}">{match_company_name}</a> - {match_all_rights} <br /> {match_company_address}
+ &copy <a href="{match_company_website}">{match_company_name}</a> - {match_all_rights} <!--br /> {match_company_address}<br /--> 
 </p>
 
 </div>

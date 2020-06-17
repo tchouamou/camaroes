@@ -48,68 +48,68 @@ camaroes_class.php,  2011-Oct
 class camaroes {
       /*==================*/
     var $db_connection = NULL; //database connection
-    
-    
+
+
     var $config = array("cmr_version" => '3.1'); //config array()
-    var $user = array("user_email" => '', "auth_email" => '', "auth_group" => '', "auth_group_path" => '', "auth_user_path" => '', "group_name" => '', "authorisation" => '') ; //user array()
+    var $user = array("user_email" => '', "auth_email" => '', "auth_id" => '', "auth_uid" => '', "auth_group" => '', "auth_group_path" => '', "auth_user_path" => '', "group_name" => '', "authorisation" => '') ; //user array()
     var $page = array("html_meta_author" => '', "html_meta_date" => '', "html_meta_content_type=" => '', "html_meta_content_type=" => '', "html_meta_keyword" => '', "html_meta_description" => '', "html_header_lang" => '', "html_general_align" => '', "page_title=" => '', "refresh" => '', "tab" => '', "dekstop" => '', "tab_mode" => '', "current_tab" => '', "default_search" => '', "task" => '',  "right1" => '', "foot1" => '', "middle1" => '', "head1" => '', "left1" => '', "cmr_jscrip" => '', "cmr_themes=" => '', "cmr_see_time=" => '', "cmr_see_lang=" => '', "cmr_see_refresh=" => '', "cmr_see_theme=" => '', "cmr_see_action=" => '', "cmr_see_tab=" => '', "cmr_tiny_editor=" => '', "cmr_image_1" => '', "cmr_image_2" => '', "cmr_image_3" => '', "cmr_image_4" => '', "cmr_ajax_engine" => '', "cmr_clock_engine" => ''); //page array()
     var $language = array("cmr_charset" => ''); //language array()
     var $themes = array("win_type" => '', "html_class" => '', "cmr_style" => '', "header_visible" => '', "header_tools_left" => '', "header_tools_right" => '', "header_mouse_effect" => '', "background" => '', "width" => '', "bgcolor" => '', "border" => '', "bordercolor" => '', "text_font" => '', "text_color" => '', "text_size" => '', "text_align" => '', "header_bgcolor" => '', "header_color" => '', "header_align" => '', "header_border" => '', "header_bgimage_left" => '', "header_bgimage_middle" => '', "header_bgimage_right" => ''); //themes array()
-    
+
     var $query = array("report" => ''); //alll current sql query
-    
+
     var $post_var = array("conf" => '', "cod" => '', "keys" => '', "values" => '', "vals" => '', "action_cod" => '', "middle1" => '') ; //post_var array()
     var $session = array("user_email" => '', "connect_from" => '', "type" => '', "pre_match" => '') ; //session array()
     var $db = array("db_type" => '', "db_host" => '', "db_name" => '', "db_user" => '', "db_pw" => '') ; //db array()
-    var $action = array("cron_text" => '', "form_action_run" => '', "form_action_include" => '') ; //action array() 
-    var $post_files = array("attachment" => '', "attachment_location" => '') ; //post_files array() 
+    var $action = array("cron_text" => '', "form_action_run" => '', "form_action_include" => '') ; //action array()
+    var $post_files = array("attachment" => '', "attachment_location" => '') ; //post_files array()
     var $notify = array("to_page" => array(), "to_email" => array(), "to_log" => array()) ; //notify array()
     var $module = array("name" => '', "path" => '', "base_name" => '', "text" => '', "title" => '', "url" => '', "conf_file" => '', "script" => '', "param" => '', "position" => '', "header_icon" => '', "need_type" => '') ; //module array()
-    var $group = array("name" => '') ; //group array()
+    var $group = array("name" => '', "authorisation" => '') ; //group array()
     var $prints = array() ; //prints array()
     var $buffer = array(); //buffer html content
-    
+
     var $help = array(); //help array()
     var $cookies = array() ; //cookies array()
     var $email = array() ; //email array()
     var $imap = array() ; //imap array()
     var $event = array() ; //event array()
-    var $report = array(); //report array()  
-    var $debug = array() ; //debug array()  
+    var $report = array(); //report array()
+    var $debug = array() ; //debug array()
 
     var $input = array(); //all input array()
     var $output = array(); //all output array()
     var $object = array() ; //action array()
-    
-    
-    
-    
-    //00000000000000000000000000 
-    //00000000000000000000000000 
+
+
+
+
+    //00000000000000000000000000
+    //00000000000000000000000000
 function __construct($cmr_global = array()) // --constructor--
 {
    return $this->camaroes($cmr_global);
 }
-    //00000000000000000000000000 
-    //00000000000000000000000000 
+    //00000000000000000000000000
+    //00000000000000000000000000
 function camaroes($cmr_global = array()) // --constructor--
 {
 	if(!empty($cmr_global)){
-    
+
     $this->config = $cmr_global["config"];//config array()
     $this->themes = $cmr_global["themes"];//themes array()
     $this->page = $cmr_global["page"];//page array()
     $this->language = $cmr_global["language"];//language array()
     $this->help = $cmr_global["help"];//help array()
-    
+
     $this->buffer = $cmr_global["buffer"];  //buffer html content
     $this->db_connection = $cmr_global["db_connection"]; ; //database connection
     $this->db = $cmr_global["db"];//db array()
     $this->user = $cmr_global["user"];//user array()
     $this->group = $cmr_global["group"];//group array()
-    
+
     $this->report = $cmr_global["report"];//report array()
-    
+
     $this->post_files = $cmr_global["post_files"];//post_files array()
     $this->post_var = $cmr_global["post_var"];//post_var array()
     $this->session = $cmr_global["session"];//session array()
@@ -120,18 +120,18 @@ function camaroes($cmr_global = array()) // --constructor--
     $this->event = $cmr_global["event"];//event array()
     $this->prints = $cmr_global["prints"];//event array()
     $this->debug = $cmr_global["debug"];//event array()
-    
+
     $this->action = $cmr_global["action"];//action array()
     $this->module = $cmr_global["module"];//module array()
 	}
-	
+
 
    return $this;
 }
-    //00000000000000000000000000 
-    //00000000000000000000000000 
+    //00000000000000000000000000
+    //00000000000000000000000000
       /*==================*/
-function load_session_mode() 
+function load_session_mode()
 {
 	if(function_exists("cmr_load_session_mode")) cmr_load_session_mode($this->config);
    return true;
@@ -139,20 +139,20 @@ function load_session_mode()
       /*==================*/
       /*==================*/
       /*==================*/
-function input_session($param = "") 
+function input_session($param = "")
 {
    return cmr_load_session($param, $this->config);
 }
       /*==================*/
-function put_session($cmr_data = array(), $param = "") 
+function put_session($cmr_data = array(), $param = "")
 {
-   cmr_put_session($this->config, $cmr_data, $param);
-   return true;
+   return cmr_put_session($this->config, $cmr_data, $param);
 }
       /*==================*/
 
-function save_session()
+function save_session($option1 = "")
 {
+  if($option1) return cmr_put_session($this->config, $this->$option1, $option1);
 	cmr_put_session($this->config, $this->config, "config");
 	cmr_put_session($this->config, $this->themes, "themes");
 	cmr_put_session($this->config, $this->page, "page");
@@ -164,12 +164,13 @@ function save_session()
 	cmr_put_session($this->config, $this->post_var, "post_var");
 	cmr_put_session($this->config, $this->session, "session");
 // 	cmr_put_session($this->config, $this->others, "others");
-	
+
    return  true;
 }
       /*==================*/
-function load_session()
+function load_session($option1 = "")
 {
+       if($option1) return $this->config = cmr_load_session($option1, $this->$option1);
        $this->config = cmr_load_session("config", $this->config);
        $this->themes = cmr_load_session("themes", $this->config);
        $this->page = cmr_load_session("page", $this->config);
@@ -185,21 +186,19 @@ function load_session()
       /*==================*/
 function get_param($arg = "")
 {
-   $param = cmr_get_param($arg);
-   return $param;
+   return cmr_get_param($arg);
 }
       /*==================*/
       /*==================*/
 function cli()
 {
-   $param = cmr_cli();
-   return $param;
+   return cmr_cli();
 }
       /*==================*/
 function translate($text)
 {
    if(empty($this->page["language"])) $this->page["language"] = "english";
-   if(function_exists("cmr_translate")) 
+   if(function_exists("cmr_translate"))
    $param = cmr_translate($text, "english", $this->page["language"], $this->language);
    return $param;
 }
@@ -385,9 +384,9 @@ function load_cookie()
       /*==================*/
 function debug_print()
 {
-	if(!isset($this->user["authorisation"]) || (intval($this->user["authorisation"]) >= intval($this->config["cmr_admin_type"]))){
+	if(!isset($this->user["authorisation"]) || (intval($this->user["authorisation"]) >= intval($this->config["cmr_guest_type"]))){
 // 	cmr_debug_print($this->debug, $this->module, $this->config, $this->themes, $this->page, $this->db, $this->user, $this->group, $this->post_var, $this->post_files, $this->session, $this->query, $this->language);
-	
+
 	cmr_prints($this->translate("BEGIN"));
 	cmr_prints($this->translate("INCLUDED FILES"), get_included_files());
 	cmr_prints($this->translate("CMR DEBUG"), $this->debug);
@@ -408,12 +407,12 @@ function debug_print()
 	cmr_prints($this->translate("PHP EXTENTION LOAD"), get_loaded_extensions());
 	cmr_prints($this->translate("PHP CONFIGURATION OPTION"), ini_get_all());
 	cmr_prints($this->translate("END"));
-	
+
 	}else{
-		print("<br />" . $this->translate("User not allow") . "<br />" . $this->translate("current type") . "=" . $this->user["auth_type"] . "<br />");
-		print($this->translate("need type") . "=" . $this->get_conf("cmr_admin_type") . "<br />");
+		print("<br />" . $this->translate("User not allow") . "<br />" . $this->translate("current type") . "=" . $this->get_user("auth_type") . "<br />");
+		print($this->translate("need type") . "=" . $this->get_conf("cmr_guest_type") . "<br />");
 	}
-	
+
 return $this;
 }
       /*==================*/
@@ -431,10 +430,10 @@ function good_file($type = "", $action = "")
 				$file_list[] = $this->get_path("template") . $this->get_conf("notify_" . $action);
 			}
 			$file_list[] = $this->get_path("notify") . "templates/notify/" . $this->get_page("language") . "/notify_" . $action . $this->get_ext("notify");
-			$file_list[] = $this->get_path("notify") . "templates/notify/" . $this->get_page("language") . "/auto/notify_" . $action . $this->get_ext("notify"); 
+			$file_list[] = $this->get_path("notify") . "templates/notify/" . $this->get_page("language") . "/auto/notify_" . $action . $this->get_ext("notify");
 			$file_list[] = $this->get_path("notify")  ."templates/notify/auto/notify_" . $action . $this->get_ext("notify");
 			break;
-			
+
 	 		case "template":
 			$file_list[] = $this->get_user("auth_user_path") . "templates/modules/template_" . $action . $this->get_ext("template");
 			$file_list[] = $this->get_user("auth_group_path") . "templates/modules/template_" . $action . $this->get_ext("template");
@@ -445,34 +444,34 @@ function good_file($type = "", $action = "")
 			$file_list[] = $this->get_path("template") . "templates/modules/template_" . $action . $this->get_ext("template");
 			$file_list[] = $this->get_path("template") . "templates/modules/auto/template_" . $action . $this->get_ext("template");
 			break;
-			
+
 			default:
 			break;
 		}
 		return cmr_good_file($file_list);
-} 
+}
       /*==================*/
       /*==================*/
 function run_event()
 {
    return cmr_get_data_event($this->config, $this->session, $this->event);
-} 
+}
       /*==================*/
       /*==================*/
 function download_data($data = "\n", $the_file)
 {
    return export($this->config, $data, substr($the_file, strrpos($the_file, ".")), $the_file);
-} 
+}
       /*==================*/
 function module_icon($module, $size = "16")
 {
 	return class_module_icon($this->config, $module, $size = "16");
-} 
+}
       /*==================*/
 function module_link($module, $image = "", $text = "", $img_heigth = "20", $img_right = "90", $link_layer = "middle1", $other_a_link = "", $other_img = "")
 {
    return code_link($this->config, $this->page, $this->language, $module, $image, $text, $img_heigth, $img_right, $link_layer, $other_a_link, $other_img);
-} 
+}
       /*==================*/
     function update_page($win_action = "", $win_pos = "") // ----
 {
@@ -484,7 +483,7 @@ function link_default($val_table)
 	 $mode = $this->page["__mode__"];
 	 $table = $this->page["__table__"];
 	 if((($mode == "link_update") || ($mode == "link_print")) && ($table != "table")) $table = "";
-	 
+
 	 switch($table){
 		 case "ticket":
 		    if(function_exists("ticket_link_tab")) if($mode == "link_tab") return ticket_link_tab($this->config, $this->page, $this->language, $val_table);
@@ -517,9 +516,9 @@ function link_default($val_table)
 			return cmr_link_default($this->config, $this->page, $this->language, $val_table);
 		 break;
 	 }
-    
+
 	   return cmr_link_default($this->config, $this->page, $this->language, $val_table);
-} 
+}
       /*==================*/
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -529,7 +528,7 @@ function get_title($base_name = "")
     $title = "-";
 	if(isset($this->language[$base_name]))
     $title = ($this->translate($base_name));
-    
+
 // 	if(isset($this->language[$base_name . "_title"]))
 	if(0){
 	    $text = "</br><fieldset class=\"bubble\"><legend>" . $title . "</legend>";
@@ -539,160 +538,160 @@ function get_title($base_name = "")
 	    $text = "<br /><b>" . $title . "</b><br />";
 	}
    return $text;
-} 
+}
       /*==================*/
       /*==================*/
 function get_column($table = "", $col_need = "", $key = "", $value = "")
 {
    return return_key($this->config, $this->user, $this->db_connection, $table, $col_need, $key, $value);
-} 
+}
       /*==================*/
       /*==================*/
 function print_select($table = "cmr_user", $column = "name", $action = "type", $db_name = "mysql", $col_id = "", $limit = "1000", $order = "id", $width = "100")
 {
    return cmr_print_select($this->config, $this->language, $this->db_connection, $table, $column , $action , $db_name, $col_id, $limit, $order, $width);
-} 
+}
       /*==================*/
       /*==================*/
 function print_value($table_name = "cmr_user", $column_name = "", $column_val = "", $column_type = "type", $column_foreign = "0", $col_id = "", $limit = "1000", $order = "id", $width = "100")
 {
    return cmr_print_value($this->config, $this->language, $this->db_connection, $table_name, $column_name, $column_val, $column_type, $column_foreign, $col_id, $limit, $order, $width);
-} 
+}
       /*==================*/
       /*==================*/
 function next_preview_bar($base_name = "", $num_page = 2)
 {
    return show_next_preview_bar($this->config, $this->language, $this->page, $this->module["name"], $this->post_var[$base_name . "_page"], $num_page, $this->module["position"], "&search_text=" . $this->post_var["search_text"] . "");
-} 
+}
       /*==================*/
       /*==================*/
 function view_assign_del($base_mode = "", $run_mode = array())
 {
    return button_assign_del($this->config, $this->language, $this->page, $this->module["name"], $base_mode, $this->module["position"], $run_mode);
-} 
+}
       /*==================*/
       /*==================*/
 function readed_line($table = "")
 {
    return cmr_readed_line($this->config, $this->user, $this->db_connection, $table);
-} 
+}
       /*==================*/
       /*==================*/
 function where_query()
 {
    return cmr_where_query($this->config, $this->user, $this->action, $this->db_connection);
-} 
+}
       /*==================*/
       /*==================*/
 function sql_view($cmr_query = "", $table_name = "", $base_name = "", $date_time1 = "")
 {
    return cmr_sql_view($this->config, $this->post_var, $this->action, $this->db_connection, $cmr_query, $table_name, $base_name, $date_time1);
-} 
+}
       /*==================*/
       /*==================*/
       /*====== GET =======*/
       /*==================*/
       /*==================*/
 function get_path($param = "")
-{ 
+{
 	if($param == "index") return $this->config["cmr_path"];
 	if(empty($param)) return $this->config["cmr_path"];
    return $this->config["cmr_" . $param . "_path"];
 } // function to get the config  value of the key ($param).
 function get_ext($param = "")
-{ 
+{
    return $this->config["cmr_" . $param . "_ext"];
 } // function to get the config  value of the key ($param).
 function get_conf($param = "")
-{ 
+{
    if(isset($this->config[$param])) return $this->config[$param];
 } // function to get the config  value of the key ($param).
 function get_theme($param = "")
-{ 
+{
    return $this->themes[$param];
 } // function to get the themes  value of the key ($param).
 function get_page($param = "")
-{ 
+{
    return $this->page[$param];
 } // function to get the page  value of the key ($param).
 function get_language($param = "")
-{ 
+{
    return $this->language[$param];
 } // function to get the language  value of the key ($param).
 function get_help($param = "")
-{ 
+{
    return $this->help[$param];
 } // function to get the help  value of the key ($param).
-    
+
 function get_buffer($param = "")
-{ 
+{
    return $this->buffer[$param];
 } // function to get the buffer html content of the key ($param).
 function get_db_connection()
-{ 
+{
    return $this->db_connection;
 } // function to get the database connection
 function get_db($param = "")
-{ 
+{
    return $this->db[$param];
 } // function to get the db  value of the key ($param).
 function get_user($param = "")
-{ 
-   return $this->user[$param];
+{
+   return ($this->user[$param])?($this->user[$param]):"";
 } // function to get the user  value of the key ($param).
 function get_group($param = "")
-{ 
+{
    return $this->group[$param];
 } // function to get the group  value of the key ($param).
-    
+
 function get_report($param = "")
-{ 
+{
    return $this->report[$param];
 } // function to get the report  value of the key ($param).
-    
+
 function get_post_files($param = "")
-{ 
+{
    return $this->post_files[$param];
 } // function to get the post_files  value of the key ($param).
 function get_post_var($param = "")
-{ 
+{
    return $this->post_var[$param];
 } // function to get the post_var  value of the key ($param).
 function get_session($param = "")
-{ 
+{
    return $this->session[$param];
 } // function to get the session  value of the key ($param).
 function get_cookies($param = "")
-{ 
+{
    return $this->cookies[$param];
 } // function to get the cookies  value of the key ($param).
 function get_imap($param = "")
-{ 
+{
    return $this->imap[$param];
 } // function to get the imap  value of the key ($param).
 function get_email($param = "")
-{ 
+{
    return $this->email[$param];
 } // function to get the email  value of the key ($param).
 function get_notify($param = "")
-{ 
+{
    return $this->notify[$param];
 } // function to get the email  value of the key ($param).
 function get_event($param = "")
-{ 
+{
    return $this->event[$param];
 } // function to get the event  value of the key ($param).
 function get_prints($param = "")
-{ 
+{
    return $this->prints[$param];
 } // function to get the event  value of the key ($param).
-    
+
 function get_action($param = "")
-{ 
+{
    return $this->action[$param];
 } // function to get the action  value of the key ($param).
 function get_module($param = "")
-{ 
+{
    return $this->module[$param];
 } // function to get the module  value of the key ($param).
 function print_template($part = "", $template = "", $prints = array()) // ----
@@ -707,124 +706,130 @@ function print_template($part = "", $template = "", $prints = array()) // ----
       /*==================*/
       /*==================*/
 function set_config($param, $value = "")
-{ 
+{
    return ($this->config[$param] = $value);
 } // function to set $this->config[$param] with the value ($value).
 function set_themes($param, $value = "")
-{ 
+{
    return ($this->themes[$param] = $value);
 } // function to set $this->themes[$param] with the value ($value).
 function set_page($param, $value = "")
-{ 
+{
    return ($this->page[$param] = $value);
 } // function to set $this->page[$param] with the value ($value).
 function set_language($param, $value = "")
-{ 
+{
    return ($this->language[$param] = $value);
 } // function to set $this->language[$param] with the value ($value).
 function set_help($param, $value = "")
-{ 
+{
    return ($this->help[$param] = $value);
 } // function to set $this->help[$param] with the value ($value).
-    
+
 function set_buffer($param, $value = "")
-{ 
+{
    return ($this->buffer[$param] = $value);
 } // function to set $this->buffer html content
 function set_db_connection($value = "")
-{ 
+{
    return ($this->db_connection= $value);
 } // function to set $this->database connection
 function set_db($param, $value = "")
-{ 
+{
    return ($this->db[$param] = $value);
 } // function to set $this->db[$param] with the value ($value).
 function set_user($param, $value = "")
-{ 
+{
    return ($this->user[$param] = $value);
 } // function to set $this->user[$param] with the value ($value).
 function set_group($param, $value = "")
-{ 
+{
    return ($this->group[$param] = $value);
 } // function to set $this->group[$param] with the value ($value).
-    
+
 function set_report($param, $value = "")
-{ 
+{
    return ($this->report[$param] = $value);
-} // function to set $this->report[$param] with the value ($value).    
+} // function to set $this->report[$param] with the value ($value).
 function set_post_files($param, $value = "")
-{ 
+{
    return ($this->post_files[$param] = $value);
 } // function to set $this->post_files[$param] with the value ($value).
 function set_post_var($param, $value = "")
-{ 
+{
    return ($this->post_var[$param] = $value);
 } // function to set $this->post_var[$param] with the value ($value).
 function set_session($param, $value = "")
-{ 
+{
    return ($this->session[$param] = $value);
 } // function to set $this->session[$param] with the value ($value).
 function set_cookies($param, $value = "")
-{ 
+{
    return ($this->cookies[$param] = $value);
 } // function to set $this->cookies[$param] with the value ($value).
 function set_imap($param, $value = "")
-{ 
+{
    return ($this->imap[$param] = $value);
 } // function to set $this->imap[$param] with the value ($value).
 function set_email($param, $value = "")
-{ 
+{
    return ($this->email[$param] = $value);
 } // function to set $this->email[$param] with the value ($value).
 function set_notify($param, $value = "")
-{ 
+{
    return ($this->notify[$param] = $value);
 } // function to set $this->email[$param] with the value ($value).
 function set_event($param, $value = "")
-{ 
+{
    return ($this->event[$param] = $value);
 } // function to set $this->event[$param] with the value ($value).
 function set_prints($param, $value = "")
-{ 
+{
    return ($this->prints[$param] = $value);
 } // function to set $this->event[$param] with the value ($value).
-    
+
 function set_action($param, $value = "")
-{ 
+{
    return ($this->action[$param] = $value);
 } // function to set $this->action[$param] with the value ($value).
 function set_module($param, $value = "")
-{ 
+{
    return ($this->module[$param] = $value);
 } // function to set $this->module[$param] with the value ($value).
       /*==================*/
       /*==================*/
       /*==================*/
-    //00000000000000000000000000 
-function show()
+    //00000000000000000000000000
+function show($param="")
 {
+  if ($param) {
+    cmr_print_r($this->$param);
+    }else{
 		cmr_print_r(get_declared_classes());
-		cmr_print_r(get_object_vars('camaroes'));
-		cmr_print_r(get_class_methods('camaroes'));
+		cmr_print_r(get_object_vars($this));
+		cmr_print_r(get_class_methods($this));
 		$this->debug_print();
+    }
    return true;
 }
-    //00000000000000000000000000 
-    //00000000000000000000000000 
+    //00000000000000000000000000
+    //00000000000000000000000000
 function close()
 {
      /*==================*/
 // 	unset($_SESSION["info"]);
      /*==================*/
     /*==================*/
-	$this->save_session(); 
+	$this->save_session();
     /*==================*/
 	$this->email = array();
 	$this->buffer = array();
+  //$_SESSION = array();
+  //$_COOKIE = array();
    return true;
 }
-    //00000000000000000000000000 
-    
+    //00000000000000000000000000
+
 }
 //0000000000000000000000000000000000000000000000000000000000000000000000000000
 //000000000000000000000000000         End       000000000000000000000000000000

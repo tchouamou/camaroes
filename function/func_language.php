@@ -62,9 +62,11 @@ function cmr_translate($text, $from_language = "english", $to_language = "", $cm
 	    if((cmr_get_page("language"))) $to_language = cmr_get_page("language");
 		$cut_text = str_replace(" ", "_", strtolower(trim(substr($text,0,25))));
 	 	if(isset($cmr_language[$cut_text])) $r_text = $cmr_language[$cut_text];
-
+	 	
+	 	if(empty($r_text)) return $text;
+	 	
 	 	if(empty($r_text)){
-			    $r_text = preg_replace("/([a-z]+)([^a-z])/sieU", "cmr_global_translate('\\1','\\2','$from_language','$to_language')", str_replace("_", " ", $text) . " ");
+			    $r_text = preg_replace("/([a-z]+)([^a-z])/siU", "cmr_global_translate('\\1','\\2','$from_language','$to_language')", str_replace("_", " ", $text) . " ");
 		    }else{
 // 			    	 	echo "[" . str_replace(" ", "_", strtolower(trim(substr($text,0,25)))) . "]=[$r_text]";
 			    }
