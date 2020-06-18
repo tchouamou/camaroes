@@ -156,7 +156,7 @@
 		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\commands.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\email_message.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\email_ticket.php" />
-		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\escalate_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\move_ticket.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\imap.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\index.html" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\modules\load_configure.php" />
@@ -315,7 +315,7 @@
 		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_menu.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_policy.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_email_ticket.php" />
-		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_escalate_ticket.php" />
+		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_move_ticket.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_export_imap.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_forget_account.php" />
 		<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_form_generator.php" />
@@ -778,7 +778,7 @@
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config.php" linenum="87" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_config_menu.php" linenum="93" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_email_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
-	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_escalate_ticket.php" linenum="59" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_move_ticket.php" linenum="59" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_export_imap.php" linenum="1" placement="0:1:-1:-1:-8:-30:44:58:733:431" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_forget_account.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_inscription.php" linenum="106" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
@@ -935,7 +935,7 @@
 	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_generators.php" linenum="24" placement="0:1:-1:-1:-8:-30:22:29:734:392" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\get_data\get_view_groups.php" linenum="54" placement="0:1:-1:-1:-8:-30:22:29:711:402" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\take_ticket.php" linenum="1" placement="0:1:-1:-1:-8:-30:66:87:755:460" />
-	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\escalate_ticket.php" linenum="183" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
+	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\move_ticket.php" linenum="183" placement="0:1:-1:-1:-8:-30:88:116:777:489" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\function\func_pdf.php" linenum="105" placement="0:1:-1:-1:-8:-30:110:145:799:518" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\system\loader\loader_class.php" linenum="1" placement="0:1:-1:-1:-8:-30:0:0:689:373" />
 	<localfile path="C:\Users\Eric\Desktop\camaroes\modules\database\conf.d\conf_table.ini" linenum="439" placement="0:1:-1:-1:-8:-30:22:29:711:402" />

@@ -140,7 +140,7 @@ $lk->add_link("modules/update_ticket.php?conf_name=conf.d/modules/conf_ticket.in
 $lk->add_link("modules/close_ticket.php?conf_name=conf.d/modules/conf_close_ticket.ini&id_ticket=" . $cmr->post_var["id_ticket"], 1);
 $lk->add_link("modules/email_ticket.php?conf_name=conf.d/modules/conf_email_ticket.ini&id_ticket=" . $cmr->post_var["id_ticket"], 1);
 $lk->add_link("modules/take_ticket.php?conf_name=conf.d/modules/conf_take_ticket.ini&id_ticket=" . $cmr->post_var["id_ticket"], 1);
-$lk->add_link("modules/escalate_ticket.php?conf_name=conf.d/modules/conf_escalate_ticket.ini&id_ticket=" . $cmr->post_var["id_ticket"], 1);
+$lk->add_link("modules/move_ticket.php?conf_name=conf.d/modules/conf_move_ticket.ini&id_ticket=" . $cmr->post_var["id_ticket"], 1);
 $division->prints["match_list_link"] = $lk->list_link();
 
 $lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);

@@ -269,7 +269,7 @@ CREATE TABLE `cmr_email` (
 CREATE TABLE `cmr_escalation` (
   `id` int(11) NOT NULL default '0',
   `ticket_number` varchar(254) NOT NULL default 'extern_ticket.number',
-  `action` set('open','update','close','in_progress','pending','unknow','sospend','waiting_for','deleted','escalate') NOT NULL default 'update',
+  `action` set('open','update','close','in_progress','pending','unknow','sospend','waiting_for','deleted','move') NOT NULL default 'update',
   `id_ticket` int(11) NOT NULL default '0',
   `allow_level` varchar(254) NOT NULL default '5_noc,5_soc,5_operator,6_admin,7_programer',
   `allow_email` text NOT NULL,

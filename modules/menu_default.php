@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-menu_default.php,Ver 3.0  2011-Sep 22:32:40  
+menu_default.php,Ver 3.0  2011-Sep 22:32:40
 */
 
 /**
@@ -113,7 +113,7 @@ foreach($module as $key => $value){
 		// ====================================================
 		if(accept_mod($cmr->config, $cmr->user, $mod_name)){
         print("<li class=\"" . "row" . ($key % 2) . " \" onmouseover=\"this.style.backgroundcolor='#00eeee'\" onmouseout=\"this.style.backgroundcolor=''\"> ");
-        (file_exists($image))?print("<img src=\"" . $cmr_config["cmr_www_path"] . $image . "\" alt=\"|\" />"):print($cmr->module_icon($mod_name, "16");           
+        (file_exists($image))?print("<img src=\"" . $cmr->config["cmr_www_path"] . $image . "\" alt=\"|\" />"):print($cmr->module_icon($mod_name, "16"));           
         print($cmr->module_link($mod_name, "", $label));
         print("</li>");
     };
@@ -137,7 +137,3 @@ print("</ul></div> ");
 print($division->close());
 
 ?>
-
-
-
-

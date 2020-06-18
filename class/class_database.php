@@ -967,7 +967,7 @@ switch($action){
 // 	break;
 //
 // 	case "save_attachment":
-// *************************get escalate ticket************************
+// *************************get move ticket************************
 // 	break;
 
 	case "ticket_assign_to":
@@ -1462,10 +1462,10 @@ switch($action){
 	$this->sql = sprintf("SELECT * FROM " . $this->prefix . "user WHERE ((uid='%s' or email='%s') AND pw='%s');", cmr_escape($this->cmr_user["auth_user_send"]), cmr_escape($this->cmr_user["auth_user_send"]), cmr_escape(pw_encode($this->cmr_user["auth_pw_send"])));
 	break;
 
-	case "escalate_ticket":
-// *************************escalate ticket************************
-// *************************escalate ticket************************
-// *************************escalate ticket************************
+	case "move_ticket":
+// *************************move ticket************************
+// *************************move ticket************************
+// *************************move ticket************************
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$this->sql = "SELECT " . $this->prefix . "groups.name FROM " . $this->prefix . "groups ";

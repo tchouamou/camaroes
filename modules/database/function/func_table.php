@@ -48,7 +48,7 @@ func_table.php,Ver 3.0  2011-Nov-Wed 22:18:53
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -66,18 +66,18 @@ if(!(function_exists("table_link_default"))){
 	    $table_id = $cmr_page["__column_id__"];
 		$table_style = "";
         $table_link = "";
-        
+
 	    $table = $cmr_page["__table__"];
 	    $num_view = $cmr_page["__number__"];
 		$array_column = $cmr_page["__array_column__"];
         $column_id = $val[$table_id];
-        
+
 	        if($table_id){
 	            $table_link = input_hidden("<input type=\"checkbox\" name=\"" . $cmr_page["_table_"] . "_check_" . $cmr_page["___number___"] . "\" value=\"" . $val[$table_id] . "\" />");
-	            
+
 	        $image1 = cmr_get_path("image") . "images/icon/readed_icon.png";
 	        $image2 = cmr_get_path("image") . "images/icon/to_read_icon.png";
-	        
+
 	        if(in_array ($table_id, $GLOBALS[$cmr_page["_table_"] . "_read"])){
 	            if($image1) $table_link .= "<img alt=\">\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("unreaded")  . "\" />";
 		            $table_style .= " class=\"readed\" ";
@@ -85,11 +85,11 @@ if(!(function_exists("table_link_default"))){
 	            if($image2) $table_link .= "<img  alt=\"<\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("readed")  . "\" />";
 		            $table_style .= " class=\"unreaded\" ";
 	        };
-            
+
 	        if((isset($GLOBALS["current_" . $cmr_page["_table_"] . "_id"])) && ($table_id == $GLOBALS["current_" . $cmr_page["_table_"] . "_id"])){
 	            $table_style .= " class=\"current\" ";
 	        }
-	        
+
 			$num=0;
 	        foreach($val as $key => $value){
 		        if(($num <= $cmr_page["__columns__"])&&($key != "_columns_")&&($key != "_column_id_")&&($key != "_date_time1")&&($key != "_table_")&&($key != "_database_"))
@@ -97,10 +97,10 @@ if(!(function_exists("table_link_default"))){
 	            $table_link .= "<br />";
 				$num++;
             }
-            
+
             if(isset($val[$val["_date_time1"]])) $table_link .= "[" . strval($val[$val["_date_time1"]]) . "] ";
             $table_link .= "<br />";
-            
+
 
             cmr_set_session("pre_match",  cmr_get_session("pre_match") . $cmr_page["_table_"] . "_check_" . $val[$table_id] . "@,@.*@,@10@;@");
 
@@ -131,7 +131,7 @@ if(!(function_exists("table_link_tab"))){
         $table_link = "";
 	    $table_style = "";
         $table_id = $cmr_page["__column_id__"];
-        
+
 	    $table = $cmr_page["__table__"];
 	    $num_view = $cmr_page["__number__"];
 		$array_column = $cmr_page["__array_column__"];
@@ -143,7 +143,7 @@ if(!(function_exists("table_link_tab"))){
 
 	        $image1 = cmr_get_path("image") . "images/icon/readed_icon.png";
 	        $image2 = cmr_get_path("image") . "images/icon/to_read_icon.png";
-	        
+
 	        if(in_array ($table_id, $GLOBALS[$cmr_page["_table_"] . "_read"])){
 	            if($image1) $table_link .= "<img alt=\">\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("unreaded")  . "\" />";
 		            $table_style .= " class=\"readed\" ";
@@ -151,15 +151,15 @@ if(!(function_exists("table_link_tab"))){
 	            if($image2) $table_link .= "<img  alt=\"<\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("readed")  . "\" />";
 		            $table_style .= " class=\"unreaded\" ";
 	        };
-            
+
 	        $table_link .= "</td>";
 	        if((isset($GLOBALS["current_" . $cmr_page["_table_"] . "_id"])) && ($table_id == $GLOBALS["current_" . $cmr_page["_table_"] . "_id"])){
 	            $table_style .= " class=\"current\" ";
 	        }
-	        
+
 			$num=0;
 	        foreach($val as $key => $value){
-		        		        
+
                 $text_empty = "";
                 $text_full =  code_link($cmr_config, $cmr_page, $cmr_language, "modules/database/preview_table.php?id_table=" . $val[$table_id], "", htmlentities(trim(substr($value, 0, 20))), "", "", "middle1", $table_style);
                 if($cmr_page["__mode__"] == "link_print") $text_full =  htmlentities($value);
@@ -167,8 +167,8 @@ if(!(function_exists("table_link_tab"))){
 	                $text_full =  "<input type=\"text\" size=\"20\" name=\"" . $table . "_" . $num_view . "_table\" value=\"" . htmlentities($value) . "\" >";
 	                $text_empty = "<input type=\"text\" name=\"" . $table . "_" . $num_view . "_table\" value=\"\"  size=\"20\">";
                 }
-		        
-		        
+
+
 		        if(($num <= $cmr_page["__columns__"])&&($key != "_columns_")&&($key != "_column_id_")&&($key != "_date_time1")&&($key != "_table_")&&($key != "_database_"))
                 if((!empty($value) || ($value == 0)) && ($value != null)){
                     $table_link .= "<td class=\"rown" . ($num % 2 + 1) . "\">" . $text_full . "</td>";
@@ -177,7 +177,7 @@ if(!(function_exists("table_link_tab"))){
                 }
 			$num++;
             }
-            
+
 
             $table_link .= "<td class=\"rown2\" >" . strval($val[$val["_date_time1"]]) . "</td>";
 
@@ -208,14 +208,14 @@ if(!(function_exists("table_link_detail"))){
     function table_link_detail($cmr_config = array(), $cmr_page = array(), $cmr_language = array(), $val)
     {
         $table_id = $cmr_page["__column_id__"];
-        
+
 	    $table = $cmr_page["__table__"];
 	    $num_view = $cmr_page["__number__"];
 		$array_column = $cmr_page["__array_column__"];
         $column_id = $val[$table_id];
 
         $table_link_d = table_link_default($cmr_config, $cmr_page, $cmr_language, $val);
-        $table_link_d .= "<br /> ["; 
+        $table_link_d .= "<br /> [";
         $table_link_d .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/new_comment.php?table_name=" . $table . "&line_id=" . $column_id, "", " [C] ", "", "", "", " class=\"link\" ");
         $table_link_d .= " - ";
         $table_link_d .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/new_policy.php?table_name=" . $table . "&line_id=" . $column_id, "", " [P] ", "", "", "", " class=\"link\" ");
@@ -245,8 +245,8 @@ if(!function_exists("print_collation")){
 	    $array_col2 = explode(";", $cmr_collation_title);
 	    foreach($array_col1 as $key => $value) $array_value1[] = substr($value, 0, strpos($value, ","));
 	    foreach($array_col2 as $key => $value) $array_value2[] = substr($value, 0, strpos($value, ","));
-	    
-	    
+
+
 	    $cmr_language["cmr_alphabet"] = implode(",", $array_value2);
         return select_order($cmr_language, $array_value1,  $array_value1);
     }
@@ -391,9 +391,9 @@ if(!function_exists("print_column")){
                     $form_elmt = "<input type=\"text\" value=\"" . $value_column . "\" id=\"date_time_" . $name_column . "\" name=\"" . $name_column . "\" onclick=\"large_id('" . $table_name. "," . $name_column . "')\" onfocus=\"this.select()\" />";
 //                     $form_elmt .= "<button id=\"button_$name_column" . $name_column . "\">...</button>";
                     $GLOBALS["array_calendar"][] = $name_column;
-                
+
             break;
-            
+
             case "set":
             case "enum":
 //                     $form_elmt = "<select name=\"" . $name_column . "\" id=\"" . $name_column . "\"  onclick=\"large_id('" . $table_name . "," . $name_column . "')\">" . "<option selected value=\"" . $value_column . "\">" . $value_column . "</option>";
@@ -423,7 +423,7 @@ function cmr_menu_db($conn, $result_type = "", $current_database = "", $current_
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$menustring = "<ul class=\"cmr_menu\">";
 	$menustring .= "<li>" . "<a href=\"index.php?module_name=modules/database/login_db.php\">" . cmr_translate("Login") . "</a>" . "</li>";
-	$menustring .= "<li>"; 
+	$menustring .= "<li>";
 	$menustring .= "<a href=\"index.php?module_name=modules/database/databases.php\"><b>" . cmr_translate("DATABASE") . "</b></a>";
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$menustring .= "<ul>";
@@ -431,7 +431,7 @@ function cmr_menu_db($conn, $result_type = "", $current_database = "", $current_
 	$object_database = (sql_run("array", $conn, "show_databases"));
 	if(!empty($object_database))
 	foreach($object_database[0] as $val_database){
-		$menustring .= "<li>"; 
+		$menustring .= "<li>";
 		$menustring .= "<a href=\"index.php?module_name=modules/database/tables.php&current_database=" . $val_database . "\">[<b>" . strtoupper($val_database) . "]</b></a>";
 		if($current_database == $val_database){
 		$object_tables = sql_run("array", $conn, $action = "show_tables", "", $val_database);
@@ -482,7 +482,7 @@ function cmr_menu_db($conn, $result_type = "", $current_database = "", $current_
 	$menustring .= "<li>" . "<a href=\"index.php?conf=exit\">" . cmr_translate("Exit") . "</a>" . "</li>";
 	$menustring .= "</ul>";
 	return $menustring;
-	} 
+	}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 }
@@ -530,7 +530,7 @@ function cmr_db_init_data($cmr_db_connection, $cmr_config = array(), $cmr_post_v
 	$data["array_columns"] = $array_columns;
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	return $data;
-	} 
+	}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -542,11 +542,13 @@ if(!(function_exists("get_data_table"))){
      * @param array $data_table
      * @return
      **/
-function get_data_table($table_name, $table_name, $data_table = array())
+
+function get_data_table($table_name, $data_table = array())
 {
 	return $table_name;
-	} 
+	}
 }
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -579,7 +581,7 @@ if(!empty($data["SELECT"])){
 	$select_statement .= $data["ignore_replace"] . $data["AS"] . $data["SELECT"];//   [IGNORE | REPLACE] [AS] SELECT ...   (Some legal select statement)
 }
 
-	
+
 
 $sql_string .= "CREATE " . $data["TEMPORARY"] . " TABLE " . $data["IF_NOT_EXISTS"] . $table_name;
 if(empty($data["old_tbl_name"])){
@@ -608,9 +610,9 @@ $sql_string .= $data["old_tbl_name"];//     [like_old_tbl_name]
 
 // CREATE [TEMPORARY] TABLE [IF NOT EXISTS] tbl_name
 //     { LIKE old_tbl_name | (LIKE old_tbl_name) }
-	
+
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -634,7 +636,7 @@ if(empty($data["symbol"])) $data["symbol"] = "";
 (empty($data["FULLTEXT"])) ? $data["FULLTEXT"] = "" : $data["FULLTEXT"] = " FULLTEXT ";
 (empty($data["SPATIAL"])) ? $data["SPATIAL"] = "" : $data["SPATIAL"] = " SPATIAL ";
 // create_definition:
-$sql_string .= $col_name . " "; //  col_name 
+$sql_string .= $col_name . " "; //  col_name
 $sql_string .= column_definition($data["column_definition"]);
 //column_definition
 $sql_string .= $data["expr"] . $data["FULLTEXT"] . $data["SPATIAL"] . $data["CONSTRAINT"];
@@ -651,7 +653,7 @@ $sql_string .= index_col_name($data["INDEX"]);
 // $sql_string .= reference_definition($data["REFERENCE"]);//reference_definition
 
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -672,7 +674,7 @@ $sql_string = "";
 	(empty($data["COLUMN_FORMAT"])) ? $data["COLUMN_FORMAT"] = "" : $data["COLUMN_FORMAT"] = " COLUMN_FORMAT " . $data["COLUMN_FORMAT"];
 	(empty($data["STORAGE"])) ? $data["STORAGE"] = "" : $data["STORAGE"] = " STORAGE " . $data["STORAGE"];
 $sql_string .= data_type($data["data_type"]); //data_type
-$sql_string .= $data["NULL"] . $data["AUTO_INCREMENT"] . $data["PRIMARY"] . $data["COMMENT"] . $data["COLUMN_FORMAT"] . $data["STORAGE"]; 
+$sql_string .= $data["NULL"] . $data["AUTO_INCREMENT"] . $data["PRIMARY"] . $data["COMMENT"] . $data["COLUMN_FORMAT"] . $data["STORAGE"];
 //   [NOT NULL | NULL] [DEFAULT default_value]
 //    [AUTO_INCREMENT] [UNIQUE [KEY] | [PRIMARY] KEY]
 //    [COMMENT 'string']
@@ -680,7 +682,7 @@ $sql_string .= $data["NULL"] . $data["AUTO_INCREMENT"] . $data["PRIMARY"] . $dat
 //    [STORAGE {DISK|MEMORY|DEFAULT}]
 $sql_string .= reference_definition($data["REFERENCE"]);//       [reference_definition]
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -699,7 +701,7 @@ $sql_string = "";
 	(empty($data["BINARY"])) ? $data["BINARY"] = "" : $data["BINARY"] = " BINARY ";
 	(empty($data["charset_name"])) ? $data["charset_name"] = "" : $data["charset_name"] = " CHARACTER SET  " . $data["charset_name"];
 	(empty($data["collation_name"])) ? $data["collation_name"] = "" : $data["collation_name"] = "COLLATE   " . $data["collation_name"];
-	
+
 $sql_string .= $data["data_type"] . $data["length"] . $data["UNSIGNED"] . $data["ZEROFILL"] . $data["charset_name"] . $data["collation_name"];
  //  BIT[(length)]
  //| TINYINT[(length)] [UNSIGNED] [ZEROFILL]
@@ -735,7 +737,7 @@ $sql_string .= $data["data_type"] . $data["length"] . $data["UNSIGNED"] . $data[
  //| spatial_type
 
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -767,7 +769,7 @@ $sql_string .= $data["index_name"] . $data["index_type"] . $sql_string . $data["
 //   | index_type
 //   | WITH PARSER parser_name
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -783,7 +785,7 @@ if(!empty($data["reference_option"])){
 	(empty($data["UPDATE"])) ? $data["UPDATE"] = "" : $data["UPDATE"] = " ON UPDATE " . $data["reference_option"];
 }else{
 	$data["reference_option"] = "";
-} 
+}
 if(!empty($data["tbl_name"]));
 $sql_string = "REFERENCES " . $data["tbl_name"] . index_col_name($data["INDEX"]) . $data["MATCH"] . $data["DELETE"] . $data["UPDATE"];
 // reference_definition:
@@ -795,7 +797,7 @@ $sql_string = "REFERENCES " . $data["tbl_name"] . index_col_name($data["INDEX"])
 // reference_option:
 //  RESTRICT | CASCADE | SET NULL | NO ACTION
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -831,10 +833,10 @@ $sql_string .= $data["DEFAULT"] . $data["option_type"] . $data["option_value"] .
 //| ROW_FORMAT [=] {DEFAULT|DYNAMIC|FIXED|COMPRESSED|REDUNDANT|COMPACT}
 //| TABLESPACE tablespace_name [STORAGE {DISK|MEMORY|DEFAULT}]
 //| UNION [=] (tbl_name[,tbl_name]...)
-} 
+}
 
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -864,7 +866,7 @@ $sql_string .= $data["PARTITION"] . $data["PARTITIONS"] . $data["SUBPARTITION"] 
 $sql_string .= partition_definition($data["partition"]);
 //      [(partition_definition [, partition_definition] ...)]
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -882,9 +884,9 @@ $sql_string = "";
 $sql_string .= $data["NAME"] . $data["VALUES"] . " " . $data["definition"];
 // partition_definition:
 //  PARTITION partition_name
-//      [VALUES 
-//          {LESS THAN {(expr) | MAXVALUE} 
-//          | 
+//      [VALUES
+//          {LESS THAN {(expr) | MAXVALUE}
+//          |
 //          IN (value_list)}]
 //      [[STORAGE] ENGINE [=] engine_name]
 //      [COMMENT [=] 'comment_text' ]
@@ -897,7 +899,7 @@ $sql_string .= $data["NAME"] . $data["VALUES"] . " " . $data["definition"];
 $sql_string .= subpartition_definition($data["subpartition"]);
 //          [(subpartition_definition [, subpartition_definition] ...)]
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -921,7 +923,7 @@ $sql_string .= $data["logical_name"] . $data["definition"];
 //      [TABLESPACE [=] tablespace_name]
 //      [NODEGROUP [=] node_group_id]
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -945,10 +947,10 @@ $sql_string = "";
 $sql_string .= "ALTER " . $data["LINE"] . $data["IGNORE"] . $table_name; // ALTER [ONLINE | OFFLINE] [IGNORE] TABLE tbl_name
 foreach($data["column"] as $key => $value){
 	$sql_string .= alter_specification($data, $data_column1[$value], $data_column2[$value]);//     alter_specification [, alter_specification] ...
-} 
+}
 
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -970,7 +972,7 @@ function alter_specification($data = array(), $data_column1 = array(), $data_col
 $sql_string = "";
 // table_options:
 //     table_option [[,] table_option] ...  (see CREATE TABLE options)
-// 	
+//
 $sql_string .= table_options($data["table_options"]);//     table_options
 $sql_string .= $data["ALTER"] . $data["PARTITION"] . $data["symbol"] . $data["KEY"];
 $sql_string .= index_col_name($data["INDEX"]);
@@ -1021,7 +1023,7 @@ $sql_string .= index_col_name($data["INDEX"]);
 //   | PARTITION BY partitioning_expression
 //   | REMOVE PARTITIONING
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1048,7 +1050,7 @@ if($value = array_pop($data["priv_type"])){
 $sql_string .= " " . $value["type"] . " " . $value["column_list"];
 foreach($data["priv_type"] as $key => $value){
  $sql_string .=  ", " . $value["type"] . " " . $value["column_list"];
-} 
+}
 }
 
 if(empty($data["object_type"])) $data["object_type"] = "";
@@ -1061,25 +1063,25 @@ if($value = array_pop($data["IDENTIFIED"])){
 $sql_string .= $value["user"] . " " . $value["password"];
 foreach($data["IDENTIFIED"] as $key => $value){
  $sql_string .= ", " . $value["user"] . " " . $value["password"];
-} 
-} 
-} 
+}
+}
+}
 if(!empty($data["ssl_option"])){
 $sql_string .= "REQUIRE ";
 if($value = array_pop($data["ssl_option"])){
 $sql_string .= $value["option"] . $value["value"];
 foreach($data["ssl_option"] as $key => $value){
  $sql_string .= " " . $value["option"] . " " . $value["value"];
-} 
-} 
-} 
+}
+}
+}
 if(!empty($data["with_option"])){
 $sql_string .= "WITH ";
 foreach($data["with_option"] as $key => $value){
  $sql_string .= " " . $value["option"] . " " . $value["value"];
-} 
-} 
-} 
+}
+}
+}
 // GRANT
 //     priv_type [(column_list)]
 //       [, priv_type [(column_list)]] ...
@@ -1088,12 +1090,12 @@ foreach($data["with_option"] as $key => $value){
 //         [, user [IDENTIFIED BY [PASSWORD] 'password']] ...
 //     [REQUIRE {NONE | ssl_option [[AND] ssl_option] ...}]
 //     [WITH with_option ...]
-// 
+//
 // object_type:
 //     TABLE
 //   | FUNCTION
 //   | PROCEDURE
-// 
+//
 // priv_level:
 //     *
 //   | *.*
@@ -1101,14 +1103,14 @@ foreach($data["with_option"] as $key => $value){
 //   | db_name.tbl_name
 //   | tbl_name
 //   | db_name.routine_name
-// 
+//
 // ssl_option:
 //     SSL
 //   | X509
 //   | CIPHER 'cipher'
 //   | ISSUER 'issuer'
 //   | SUBJECT 'subject'
-// 
+//
 // with_option:
 //     GRANT OPTION
 //   | MAX_QUERIES_PER_HOUR count
@@ -1116,7 +1118,7 @@ foreach($data["with_option"] as $key => $value){
 //   | MAX_CONNECTIONS_PER_HOUR count
 //   | MAX_USER_CONNECTIONS count
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1164,10 +1166,10 @@ $sql_string = "";
 
 // routine_body:
 //     Valid SQL routine statement
- 
-	
+
+
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -1190,9 +1192,9 @@ $sql_string = "";
 //     [DEFINER = { user | CURRENT_USER }]
 //     TRIGGER trigger_name trigger_time trigger_event
 //     ON tbl_name FOR EACH ROW trigger_body
-	
+
 	return $sql_string;
-} 
+}
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

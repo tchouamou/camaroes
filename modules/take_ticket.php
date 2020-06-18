@@ -117,7 +117,7 @@ print($division->show_noclose());
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);
 $lk->add_link("modules/take_ticket.php?conf_name=conf.d/modules/conf_take_ticket.ini&id_ticket=" . $id_ticket . "&refresh=", 1);;
-$lk->add_link("modules/escalate_ticket.php?conf_name=conf.d/modules/conf_escalate_ticket.ini&id_ticket=" . $id_ticket . "&refresh=", 1);;
+$lk->add_link("modules/move_ticket.php?conf_name=conf.d/modules/conf_move_ticket.ini&id_ticket=" . $id_ticket . "&refresh=", 1);;
 print($lk->open_module_tab(1));
 
 $lk = new class_module_link($cmr->config, $cmr->page, $cmr->language);

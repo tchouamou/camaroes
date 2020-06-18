@@ -103,14 +103,6 @@ function cmr_match_include($template = "", $position = "")
    return strpos($template, $position);
 }
 }
-/*=================================================================*/
-if(!(function_exists("cmr_print_template"))){
-function cmr_print_template($template, $position = "", $array_match = array())
-    {
-		if(!empty($position)){
-		    preg_match("|(<".$position.">)(.*)(</".$position.">)|siU", $template, $matches);
-		    (empty($matches[2])) ? $template = "" : $template = $matches[2];
-
 // 			$template1 = stristr($template, "<".$position.">");
 // 			$template2 = stristr($template, "</".$position.">");
 // 			$len0 = strlen($position);
@@ -118,13 +110,20 @@ function cmr_print_template($template, $position = "", $array_match = array())
 // 			$len2 = strlen($template2);
 // 			$len = strlen($template);
 // 			$template = substr($template, $len1, $len - $len2);
+//if(!empty($array_match)) $template = preg_replace("/(\{)([^}{ ]*)(\})/siU", "\$array_match['\\2']", $template);
+
+/*=================================================================*/
+if(!(function_exists("cmr_print_template"))){
+function cmr_print_template($template, $position = "", $array_match = array())
+    {
+		if(($position)){
+		    preg_match("|(<".$position.">)(.*)(</".$position.">)|siU", $template, $matches);
+		    (empty($matches[2])) ? $template = "" : $template = $matches[2];
 			}
-     //if(!empty($array_match)) $template = preg_replace("/(\{)([^}{ ]*)(\})/siU", "\$array_match['\\2']", $template);
-	  if(!empty($array_match)) {
+	  if(($array_match)) {
 	  $template = preg_replace_callback("/(\{)([^}{ ]*)(\})/siU", function ($m) use ($array_match) {return ($array_match[$m[2]]);}, ($template));
     }
-
-		return str_replace("<template>", "", $template);
+		return str_replace(array("<template>","<template1>","</template>","</template1>"), array("","","",""), $template);
 }
 }
 /*=================================================================*/

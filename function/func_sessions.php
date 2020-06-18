@@ -96,7 +96,7 @@ if(!(function_exists("cmr_put_session"))){
 function cmr_put_session($cmr_config = array(), $cmr_save = array(), $param = "")
     {
 
-    return ($_COOKIE["cmr_array_" . $param] = $cmr_save);
+    return ($_SESSION["cmr_array_" . $param] = $cmr_save);
     //foreach ($cmr_save  as $key => $value) setcookie("cmr_" . $param . "_" . $key, $value, time()+3600);
     //print("key=" . $key . ",value=" . $value . "; ");
 
@@ -110,6 +110,7 @@ function cmr_put_session($cmr_config = array(), $cmr_save = array(), $param = ""
 		}elseif($cmr_config["cmr_save_session"]=="cookies"){
       return true;
 		if(!empty($cmr_config["cmr_use_cookie"])){
+          $_COOKIE["cmr_array_" . $param] = $cmr_save;
        		cmr_setcookie ("cmr_" . $param . "[]", strval($cmr_save) , time() - intval($cmr_config["cmr_cookie_time_out"]));
        		cmr_setcookie ("cmr_" . $param . "[]", strval($cmr_save) , time() + intval($cmr_config["cmr_cookie_time_out"]));
           return true;
@@ -150,7 +151,7 @@ if(!(function_exists("cmr_load_session"))){
 function cmr_load_session($cmr_object, $cmr_config = array())
   {
     $cmr_return = array();
-    if($_COOKIE["cmr_array_" . $cmr_object]) return $_COOKIE["cmr_array_" . $cmr_object];
+    if($_SESSION["cmr_array_" . $cmr_object]) return $_SESSION["cmr_array_" . $cmr_object];
 		if($cmr_config["cmr_save_session"]=="files"){
       $cmr_return = array();
 		}elseif($cmr_config["cmr_save_session"]=="database"){

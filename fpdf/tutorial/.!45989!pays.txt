@@ -1,0 +1,7 @@
+Allemagne;Berlin;357022;82057
+Autriche;Vienne;83859;8075
+Belgique;Bruxelles;30518;10192
+Danemark;Copenhague;43094;5295
+Espagne;Madrid;504790;39348
+Finlande;Helsinki;304529;5147
+France;Paris;543965;58728

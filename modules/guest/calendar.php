@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-calendar.php,Ver 3.0  2011-Sep-Wed 12:32:30  
+calendar.php,Ver 3.0  2011-Sep-Wed 12:32:30
 */
 
 /**
@@ -136,17 +136,17 @@ print($cmr->translate($cmr->module["base_name"]."_title"));
  *    (at your option) any later version.
  */
 // ## French Version
-$calendar_txt['italian']['monthes'] = array('', 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
-    'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+$calendar_txt['italian']['monthes'] = array('', 'Janvier', 'Fï¿½vrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
+    'Aoï¿½t', 'Septembre', 'Octobre', 'Novembre', 'Dï¿½cembre');
 $calendar_txt['italian']['days'] = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
 $calendar_txt['italian']['first_day'] = 0;
-$calendar_txt['italian']['misc'] = array('Mois précédent', 'Mois suivant', 'Jour précédent', 'Jour suivant');
+$calendar_txt['italian']['misc'] = array('Mois prï¿½cï¿½dent', 'Mois suivant', 'Jour prï¿½cï¿½dent', 'Jour suivant');
 // ## French Version
-$calendar_txt['french']['monthes'] = array('', 'Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
-    'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre');
+$calendar_txt['french']['monthes'] = array('', 'Janvier', 'Fï¿½vrier', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet',
+    'Aoï¿½t', 'Septembre', 'Octobre', 'Novembre', 'Dï¿½cembre');
 $calendar_txt['french']['days'] = array('Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche');
 $calendar_txt['french']['first_day'] = 0;
-$calendar_txt['french']['misc'] = array('Mois précédent', 'Mois suivant', 'Jour précédent', 'Jour suivant');
+$calendar_txt['french']['misc'] = array('Mois prï¿½cï¿½dent', 'Mois suivant', 'Jour prï¿½cï¿½dent', 'Jour suivant');
 // ## English version
 $calendar_txt['english']['monthes'] = array('', 'January', 'February', 'March', 'April', 'May', 'June', 'July',
     'August', 'September', 'October', 'November', 'December');
@@ -179,7 +179,7 @@ function calendar($cmr_config, $cmr_page, $cmr_language, $date = '')
     $param_d['nav_link'] = 1; // Add a nav bar below
     $param_d['link_after_date'] = 1; // Enable link on days after the current day
     $param_d['link_before_date'] = 1; // Enable link on days before the current day
-    
+
 
     $param_d['link_on_day'] = code_href($cmr_config, $cmr_page, "preview_date.php").'&date=%%dd%%&send_date=%%dd%%';
 //  code_href($cmr_config = array(), $cmr_page = array(), $mod_name, $cod = 1, $param = "", $keys = "", $vals = "", $link_layer = "middle1")
@@ -536,7 +536,7 @@ hide('no_java_calendar_div');
 
 
 </div>
-<?php  
+<?php
 print($lk->close_module_tab());
 print($division->close());
 ?>

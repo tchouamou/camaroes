@@ -214,7 +214,7 @@ CREATE TABLE IF NOT EXISTS `tstm_download_group` (
 CREATE TABLE IF NOT EXISTS `tstm_escalation` (
   `id` int(11) NOT NULL default '0',
   `ticket_number` varchar(64) NOT NULL default '',
-  `action` set('open','update','close','in_progress','pending','unknow','sospend','waiting_for','deleted','escalate') NOT NULL default 'update',
+  `action` set('open','update','close','in_progress','pending','unknow','sospend','waiting_for','deleted','move') NOT NULL default 'update',
   `id_ticket` int(11) NOT NULL default '0',
   `comment` text NOT NULL,
   `date_time` timestamp NOT NULL,

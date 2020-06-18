@@ -106,7 +106,7 @@ print($cmr->get_title($mod->base_name));
 
 
 <form  action="index.php" method="post">
-<?php 
+<?php
 // print(input_hidden("<input type=\"hidden\" value=\"calendario\" name=\"cmr_get_data\" />"));
 ?>
 <?php print(input_hidden("<input type=\"hidden\" value=\"" . $cmr->post_var["calendar_mode"] . "\" name=\"cmr_calendar\" />"));?>
@@ -119,7 +119,7 @@ print($cmr->get_title($mod->base_name));
  <td align="center" colspan="4">
  <?php  print($cmr->translate("to table"));?>:
 	<select class="select_class" name="dest_table" width="200">
-	<?php 
+	<?php
 	print("<option value=\"" . $cmr->post_var["send_table"] . "\">" . $cmr->translate($cmr->post_var["send_table"]) . "</option>");
 // 	print($cmr->print_select($cmr->get_conf('cmr_table_prefix') . 'table', 'uid,state', 'column', $cmr->config['db_name'], 'iud', $cmr->config['cmr_max_view'], 'uid', '35') );
 	?>
@@ -131,7 +131,7 @@ print($cmr->get_title($mod->base_name));
  <td align="center" colspan="4">
  <?php  print($cmr->translate("to user"));?>:
 	<select class="select_class" name="dest_user" width="200">
-	<?php 
+	<?php
 	print("<option value=\"\">" . $cmr->translate("My") . "</option>");
 	print($cmr->print_select($cmr->get_conf('cmr_table_prefix') . 'user', 'email,state', 'column', $cmr->config['db_name'], 'iud', $cmr->config['cmr_max_view'], 'uid', '35') );
 	?>
@@ -142,7 +142,7 @@ print($cmr->get_title($mod->base_name));
  <td align="center" colspan="4">
  <?php  print($cmr->translate("to group"));?>:
 	<select class='select_class' name='dest_group' width='200'>
-	<?php 
+	<?php
 	print("<option value=\"\">" . $cmr->translate("My") . "</option>");
 	print($cmr->print_select($cmr->get_conf("cmr_table_prefix") . "groups", "name,state", "column", $cmr->config["db_name"], "name", $cmr->config["cmr_max_view"], "name", "35") );
 	?>
@@ -203,15 +203,16 @@ $cmr->query[$cmr->action["table_name"]] .= ") AND " . $cmr->action["where"];
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-$result_query = &$cmr->db_connection->SelectLimit($cmr->query[$cmr->action["table_name"]], 1000) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-while ($value = $result_query->FetchRow()){
+if($cmr->db_connection)
+$result_query = $cmr->db_connection->query($cmr->query[$cmr->action["table_name"]]);//, 1000) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+while ($value = $result_query->fetch_row()){
 	$key1 = date("Y", unix_timestamp($value["date_time"]));
 	$key2 = date("m", unix_timestamp($value["date_time"]));
 	$key3 = date("d", unix_timestamp($value["date_time"]));
 	$key4 = date("h", unix_timestamp($value["date_time"]));
 	$array_calendar[$key1][$key2][$key3][$key4][] = $value;
-	$result_query->MoveNext();
+	$result_query->next_result();
  }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -231,7 +232,7 @@ switch($cmr->post_var["calendar_mode"]){
 		$format1 = "l d F Y";
 		$rown_class = "";
 	break;
-	
+
 	case "week":;
 		$i=0;
 		while((strtolower(date("D", $calendar_begin)) != "mon")&&($i < 10)){
@@ -246,7 +247,7 @@ switch($cmr->post_var["calendar_mode"]){
 		$format1 = "d F Y";
 		$rown_class = "";
 	break;
-	
+
 	case "year":;
 		$block_count = (12 * 31 * 24 * 60 * 60);
 		$begin_count = mktime(0, 0, 0, 1, 1, date("Y", $calendar_begin));
@@ -256,7 +257,7 @@ switch($cmr->post_var["calendar_mode"]){
 		$format1 = "Y";
 		$rown_class = "";
 	break;
-	
+
 	case "month":;
 	default:;
 		$block_count = (31 * 24 * 60 * 60);
@@ -292,8 +293,8 @@ print(show_next_preview_bar($cmr->config, $cmr->language, $cmr->page, $mod->name
 </tr>
 
 <tr>
-<?php 
-	    
+<?php
+
 //----------------------
 // sort($array_calendar, SORT_STRING);
 //----------------------
@@ -308,18 +309,18 @@ while ($key_col < intval($cmr->post_var["calendar_period"])){
     <tr>
     <th colspan="3"><?php print($cmr->translate(date($format1, $beginning)));?></th>
     </tr>
-    
+
     <tr>
     <td><b>-</b></td>
     <td><b><?php print($cmr->translate($cmr->post_var["calendar_mode"] . " " . ($key_col + 1)));?></b></td>
     <td><b><?php print($cmr->translate("Event"));?></b></td>
     </tr>
-                
-    <?php 
+
+    <?php
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	if($cmr->post_var["calendar_mode"] == "month") $rown_count = cal_days_in_month(CAL_GREGORIAN, date("m", $beginning), date("Y", $beginning)); 
+	if($cmr->post_var["calendar_mode"] == "month") $rown_count = cal_days_in_month(CAL_GREGORIAN, date("m", $beginning), date("Y", $beginning));
     $key = 0;
     while (($key < $rown_count)){
             $total_count = $beginning + ($key * $base_count);
@@ -331,31 +332,31 @@ while ($key_col < intval($cmr->post_var["calendar_period"])){
 			$key2 = date("m", $total_count);
 			$key3 = date("d", $total_count);
 			$key4 = date("h", $total_count);
-			
+
 // 			switch($cmr->post_var["calendar_mode"]){
 // 			  case "day" : $array_calendar[$key1][$key2][$key3][$key4] = "\$array_calendar[$key1][$key2][$key3][$key4]";break;
 // 			  case "week" : $array_calendar[$key1][$key2][$key3] = "\$array_calendar[$key1][$key2][$key3]";break;
 // 			  case "year" : $array_calendar[$key1][$key2] = "\$array_calendar[$key1][$key2]"; break;
-// 			  case "month":	  
+// 			  case "month":
 // 			  default : $array_calendar[$key1][$key2][$key3] = "\$array_calendar[$key1][$key2][$key3]";break;
 // 			}
-			
+
 			switch($cmr->post_var["calendar_mode"]){
 			  case "day":
-				  if(!empty($array_calendar[$key1][$key2][$key3][$key4])) 
+				  if(!empty($array_calendar[$key1][$key2][$key3][$key4]))
 				  $data_print = ($array_calendar[$key1][$key2][$key3][$key4]);
 			  break;
 			  case "week":
-				  if(!empty($array_calendar[$key1][$key2][$key3])) 
+				  if(!empty($array_calendar[$key1][$key2][$key3]))
 				  $data_print = ($array_calendar[$key1][$key2][$key3]);
 			  break;
 			  case "year":
-				  if(!empty($array_calendar[$key1][$key2])) 
-				  $data_print = ($array_calendar[$key1][$key2]); 
+				  if(!empty($array_calendar[$key1][$key2]))
+				  $data_print = ($array_calendar[$key1][$key2]);
 			  break;
-			  case "month":	  
+			  case "month":
 			  default:
-				  if(!empty($array_calendar[$key1][$key2][$key3])) 
+				  if(!empty($array_calendar[$key1][$key2][$key3]))
 				  $data_print = ($array_calendar[$key1][$key2][$key3]);
 			  break;
 			}
@@ -368,7 +369,7 @@ while ($key_col < intval($cmr->post_var["calendar_period"])){
             print("<td class=\"" . $rown_class . "\">");
 			print($cmr->module_link("modules/preview_date.php?send_date=" . date("YmdHis", $total_count) . "&middle2=", "", $cmr->translate(date($format, $total_count))));
             print("</td>");
-            
+
             print("<td>.");
 			if(!empty($data_print)) print($cmr->module_link("modules/preview_date.php?send_date=" . date("YmdHis", $total_count) . "&send_mode=" . $cmr->post_var["calendar_mode"] . "&send_table=" . $cmr->action["table_name"] . "&middle2=", "", $to_print));
             print("</td>");
@@ -404,7 +405,7 @@ print(show_next_preview_bar($cmr->config, $cmr->language, $cmr->page, $mod->name
 
 </div>
 
-<?php 
+<?php
 print($lk->close_module_tab());
 print($division->close());
 ?>

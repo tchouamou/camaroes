@@ -102,7 +102,7 @@ print($division->show_noclose());
 
 <td class="menu_row"  width="150" height="30" valign="middle" align="center" onmouseover="this.style.backgroundColor='#00EEEE'" onmouseout="this.style.backgroundColor=''">
 
-<a href="index.php?conf=init"> 
+<a href="index.php?conf=init">
 
 <?php print(try_create_image($cmr->config, $cmr->language, "home", "home", $cmr->user["auth_lang"], "20", "90"));?>
 <!--img src=<-php print("\"" . $cmr->get_path("image") . "images/button/" . $cmr->get_user("auth_lang") . "/home.png\"");
@@ -127,7 +127,11 @@ foreach($module as $key => $value){
 
 		if(accept_mod($cmr->config, $cmr->user, $mod_name)){
         print("<td class=\"rown\"  width=\"150\" height=\"30\" valign=\"middle\" align=\"center\" onmouseover=\"this.style.backgroundcolor='#00eeee'\" onmouseout=\"this.style.backgroundcolor=''\"> ");
-        (file_exists($image))?print("<img src=\"" . $cmr_config["cmr_www_path"] . $image . "\" alt=\"|\" />"):print($cmr->module_icon($mod_name, "16");           
+        if(file_exists($image)){
+        print("<img src=\"" . $cmr_config["cmr_www_path"] . $image . "\" alt=\"|\" />");
+      }else{
+        print($cmr->module_icon($mod_name, "16"));  
+      }
         print(" " . $cmr->module_link($mod_name, "1", $label));
         // }
         print("</td>");
@@ -137,7 +141,7 @@ foreach($module as $key => $value){
 
 ?>
 <td class="menu_row" width="150" height="30" valign="middle" align="center" onmouseover="this.style.backgroundColor='#00EEEE'" onmouseout="this.style.backgroundColor=''">
-<a href="index.php?cmr_mode=logout" ><!--href="#" <onClick="window.close ();"--> 
+<a href="index.php?cmr_mode=logout" ><!--href="#" <onClick="window.close ();"-->
 <?php print(try_create_image($cmr->config, $cmr->language, "exit", "exit", $cmr->user["auth_lang"], "20", "90"));?>
 <!--img src=<-php print("\"" . $cmr->get_path("lang") . "images/button/" . $cmr->get_user("auth_lang") . "/exit.png\"");
 _> alt="|Exit|" border="0" width="90" / -->
@@ -146,7 +150,7 @@ _> alt="|Exit|" border="0" width="90" / -->
 </tr>
 </table>
 </div>
-<?php 
- 
+<?php
+
 print($division->close());
 ?>

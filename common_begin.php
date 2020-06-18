@@ -106,8 +106,8 @@ $cmr = new camaroes();
         /*==================*/
 
         /*==================*/
-            $cmr->load_session_mode();
-            //session_start();/* start the session */
+        $cmr->load_session_mode();
+        //session_start();/* start the session */
         /*==================*/
 // $cmr->debug_print();exit;
 
@@ -180,11 +180,12 @@ $cmr = new camaroes();
         //}
         }
         /*==================*/
+
         /*==================*/
 //         if(!$cmr->new_login())
         include($cmr->get_path("get_data") . "get_data/guest/get_default_data.php");
         /*==================*/
-
+        $cmr->load_session();
         /*==================*/
         $cmr->post_var["class_module"] = get_post("class_module");
         $cmr->post_var["cmr_get_data"] = get_post("cmr_get_data");

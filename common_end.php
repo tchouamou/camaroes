@@ -61,7 +61,7 @@ if(($cmr->get_user("authorisation") < $cmr->get_conf("cmr_noc_type"))) $cmr->buf
         /*==================*/
 
         /*==================*/
-print($cmr->buffer[0]);
+if(0) print($cmr->buffer[0]);
         /*==================*/
 
 

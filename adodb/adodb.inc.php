@@ -888,11 +888,11 @@ if (!defined('_ADODB_LAYER')) {
 	}
 
 	/**
-	 * Lock a row, will escalate and lock the table if row locking not supported
+	 * Lock a row, will move and lock the table if row locking not supported
 	 * will normally free the lock at the end of the transaction
 	 *
 	 * @param $table	name of table to lock
-	 * @param $where	where clause to use, eg: "WHERE row=12". If left empty, will escalate to table lock
+	 * @param $where	where clause to use, eg: "WHERE row=12". If left empty, will move to table lock
 	 */
 	function RowLock($table,$where,$col='1 as adodbignore') {
 		return false;

@@ -724,7 +724,7 @@ function cmr_error_log($cmr_config = array(), $cmr_session = array(), $log_text)
 	   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if(!empty($cmr_config["cmr_use_log"])){
 	    if(!empty($cmr_config["cmr_log_to_file"])){
-			if(!is_writable($log_file)) fopen($log_file, "w");
+			if(!is_writable($log_file)) fopen($log_file, "r");
 		    if(is_writable($log_file)){
 			    touch($log_file);
 			    error_log ($log_text, 3, $log_file);
