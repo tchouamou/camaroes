@@ -21,7 +21,7 @@ All rights reserved.
 
 
 
-class_generators.php, Ver 3.03 
+class_generators.php, Ver 3.03
 */
 
 
@@ -133,14 +133,14 @@ class_generators.php, Ver 3.03
 // {@_table[0-9]+_@}
 // {@_rown[0-9]+_@}
 
-// (£_foreach_comment_£)(.*)(££_foreach_comment_££)
-// (£_foreach_db_£)(.*)(££_foreach_db_££)
-// (£_foreach_table_£)(.*)(££_foreach_table_££)
-// (£_foreach_column_£)(.*)(££_foreach_column_££)
-// (£_foreach_rown_£)(.*)(££_foreach_rown_££)
+// (ï¿½_foreach_comment_ï¿½)(.*)(ï¿½ï¿½_foreach_comment_ï¿½ï¿½)
+// (ï¿½_foreach_db_ï¿½)(.*)(ï¿½ï¿½_foreach_db_ï¿½ï¿½)
+// (ï¿½_foreach_table_ï¿½)(.*)(ï¿½ï¿½_foreach_table_ï¿½ï¿½)
+// (ï¿½_foreach_column_ï¿½)(.*)(ï¿½ï¿½_foreach_column_ï¿½ï¿½)
+// (ï¿½_foreach_rown_ï¿½)(.*)(ï¿½ï¿½_foreach_rown_ï¿½ï¿½)
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -160,27 +160,27 @@ include_once($cmr->get_path("index") . "control.php"); //to control access
  *
  * @return
  **/
- 
+
 if(!class_exists("class_generators")){
 
 class class_generators {
-	
-	var  $button_dest = ""; // @param string 
-	var  $button_model = ""; // @param string 
-	var  $button_color = ""; // @param string 
-	var  $button_dim = ""; // @param string 
-	var  $button_text_font = ""; // @param string 
-	var  $button_text_size = ""; // @param string 
-	
-	var  $short_table_name = ""; // @param string 
-	var  $dbms_pw = ""; // @param string 
-	var  $dbms_user = "root"; // @param string 
-	var  $dbms_name = "camaroes_db"; // @param string 
-	var  $dbms_port = ""; // @param string 
-	var  $dbms_host = "localhost"; // @param string 
-	var  $dbms_type = "mysql"; // @param string 
-	var  $theme = "default"; // @param string 
-	var  $limit = "10"; // @param string 
+
+	var  $button_dest = ""; // @param string
+	var  $button_model = ""; // @param string
+	var  $button_color = ""; // @param string
+	var  $button_dim = ""; // @param string
+	var  $button_text_font = ""; // @param string
+	var  $button_text_size = ""; // @param string
+
+	var  $short_table_name = ""; // @param string
+	var  $dbms_pw = ""; // @param string
+	var  $dbms_user = "root"; // @param string
+	var  $dbms_name = "camaroes_db"; // @param string
+	var  $dbms_port = ""; // @param string
+	var  $dbms_host = "localhost"; // @param string
+	var  $dbms_type = "mysql"; // @param string
+	var  $theme = "default"; // @param string
+	var  $limit = "10"; // @param string
 
 	var  $config = array(); // @param array
 	var  $array_tables = array(); // @param array
@@ -189,39 +189,39 @@ class class_generators {
 	var  $table_columns = array(); // @param array
 	var  $rows_columns = array(); // @param array
 	var  $columns = array(); // @param array
-	
+
 	var  $list_column = ""; // @param array
 	var  $language = "english"; // @param array
 
 	var  $connection = NULL; // @param mixed
-	var  $form_name = ""; // @param string 
-	var  $gen_type = "other,php"; // @param string 
-	var  $send_type = "other"; // @param string 
-	var  $table_name = "table"; // @param string 
-	var  $prefix = ""; // @param string 
-	var  $column_name = ""; // @param string 
-	
-	var  $db_source = "server"; // @param string 
-	var  $output_type = "application_temp"; // @param string 
-	var  $model_group = "php"; // @param string 
-	
-	var  $match = ""; // @param string 
-	var  $models_text = ""; // @param string 
-	var  $save_mode = false; // @param string 
-	var  $create_path = ""; // @param string 
-	var  $destination = ""; // @param string 
-	var  $backup_extention = ""; // @param string 
-	var  $write_extension = ""; // @param string 
-	var  $where = "1"; // @param string 
-	var  $modes = "w+"; // @param string 
+	var  $form_name = ""; // @param string
+	var  $gen_type = "other,php"; // @param string
+	var  $send_type = "other"; // @param string
+	var  $table_name = "table"; // @param string
+	var  $prefix = ""; // @param string
+	var  $column_name = ""; // @param string
+
+	var  $db_source = "server"; // @param string
+	var  $output_type = "application_temp"; // @param string
+	var  $model_group = "php"; // @param string
+
+	var  $match = ""; // @param string
+	var  $models_text = ""; // @param string
+	var  $save_mode = false; // @param string
+	var  $create_path = ""; // @param string
+	var  $destination = ""; // @param string
+	var  $backup_extention = ""; // @param string
+	var  $write_extension = ""; // @param string
+	var  $where = "1"; // @param string
+	var  $modes = "w+"; // @param string
 
 
-//00000000000000000000000000 
+//00000000000000000000000000
 function __construct() // --constructor--
 {
    return true;
 }
-//00000000000000000000000000 
+//00000000000000000000000000
 function gen_model_array()
 {
     if(!empty($this->config["gen_model_array"])){
@@ -284,7 +284,7 @@ function gen_model_array()
         );
 
     return $a;
-} 
+}
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     /**
@@ -295,9 +295,12 @@ function gen_model_array()
     function get_array_status()
     {
         // =======================================
-		$sql_status_result = sql_run("result", $this->connection, "", "show status;");
+    $array_status = array();
+    if($this->connection)
+		   $sql_status_result = sql_run("result", $this->connection, "", "show status;");
 //         $sql_status_result = &$this->connection->Execute("show status;")  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $this->connection->ErrorMsg());
-        while (($status = $sql_status_result->FetchRow())){
+    if($sql_status_result)
+        while (($status = $sql_status_result->fetch_row())){
             $array_status[$status[0]] = $status;
 //             $sql_status_result->MoveNext();
         }
@@ -312,9 +315,12 @@ function gen_model_array()
     function get_array_variable()
     {
         // =======================================
+    $array_status = array();
+    if($this->connection)
 		$sql_variable_result = sql_run("result", $this->connection, "", "show variables;");
 //         $sql_variable_result = &$this->connection->Execute("show variables;")  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $this->connection->ErrorMsg());
-        while (($variable = $sql_variable_result->FetchRow())){
+    if($sql_variable_result)
+        while (($variable = $sql_variable_result->fetch_row())){
             $array_variable[$variable[0]] = $variable;
 //             $sql_variable_result->MoveNext();
         }
@@ -330,11 +336,12 @@ function gen_model_array()
     function get_array_db()
     {
        $array_db = array();
-       $this->connection->SetFetchMode(ADODB_FETCH_NUM);
+       // $this->connection->SetFetchMode(ADODB_FETCH_NUM);
+   if($this->connection)
        $sql_db_result = sql_run("result", $this->connection, "show_databases");
 //         $sql_db_result = $this->connection->Execute("show databases;")  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $this->connection->ErrorMsg());
-        if($sql_db_result) 
-        while (($db = $sql_db_result->FetchRow())){
+    if($sql_db_result)
+        while (($db = $sql_db_result->fetch_row())){
             $array_db[$db[0]] = $db;
 //             $sql_db_result->MoveNext();
         }
@@ -345,18 +352,20 @@ function gen_model_array()
     {
 
        $array_table = array();
-        $this->connection->SetFetchMode(ADODB_FETCH_NUM);
+        // $this->connection->SetFetchMode(ADODB_FETCH_NUM);
+
+        if($this->connection)
         $sql_table_result = sql_run("result", $this->connection, "show_tables", "", $dbms_name);
 //         $sql_table_result = $this->connection->Execute("show tables from " . $dbms_name . ";")  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $this->connection->ErrorMsg());
-        $count = 0;       
-        if($sql_table_result) 
-        while (($table = $sql_table_result->FetchRow())){
+        $count = 0;
+        if($sql_table_result)
+        while (($table = $sql_table_result->fetch_row())){
             //$array_table[$table[0]][0] = $table;
            $array_table[$count]["Name"] = $table[0];
            $array_table[$count]["Privileges"] = "*";
            $array_table[$table[0]]["Name"] = $table[0];
            $array_table[$table[0]]["Privileges"] = $table[0];
-           
+
             $count++;
 //             $sql_db_result->MoveNext();
         }
@@ -377,17 +386,17 @@ function gen_model_array()
 function write_gen_file()
 {
     // =========================
-    if($this->write_extension=="png"){ 
+    if($this->write_extension=="png"){
 		$button_data = cmr_get_path("image") . "," . $this->button_dest . "," . $this->button_model . "," . $this->button_color . "," . $this->button_dim;
 // 		$button_data .= "," . $this->button_text_font . "," . $this->button_text_size;
-        preg_replace("/(£_button_£)(.*)(££_button_££)/seU", "gen_image_save('\\2', '$button_data')", $this->models_text);
+        preg_replace("/(ï¿½_button_ï¿½)(.*)(ï¿½ï¿½_button_ï¿½ï¿½)/seU", "gen_image_save('\\2', '$button_data')", $this->models_text);
         return true;
 	}
-        
+
         $output = "";
     if(!strlen($this->form_name)) return false;
     $output .= ($this->form_name);
-            
+
     if($this->backup_extention!="database"){
         if(!file_exists($this->create_path)){
             if(!is_writable($this->create_path)) $this->create_path=dirname(tempnam ($this->create_path, "cmr_")) . "/";
@@ -425,7 +434,7 @@ function write_gen_file()
             echo "<br /> ".cmr_translate("File", "english", $this->language) . " [" . $this->create_path . $this->form_name . "." . $this->write_extension . "] ".cmr_translate(" not created ", "english", $this->language) . " ??!!!!<br />";
 
             $name = $this->form_name . "." . $this->write_extension;
-            
+
             $affected_rows = $this->gen_database($name);
 
             if($affected_rows){
@@ -453,7 +462,7 @@ function write_gen_file()
     {
             if(!file_exists($this->destination) && ($this->save_mode))  mkdir($this->destination);
             $this->gen_type = $this->gen_type . "_";
-//         switch (substr($this->gen_type, 0, 3)) 
+//         switch (substr($this->gen_type, 0, 3))
 //             case "get":
         if(substr($this->gen_type, 0, 4) == "get_"){
             $this->send_type = "get_data";
@@ -574,7 +583,7 @@ function write_gen_file()
             if(!file_exists($this->create_path) && ($this->save_mode)) mkdir($this->create_path);
             if(!file_exists($create_realpath) && !($this->save_mode)) mkdir($create_realpath);
             if(!file_exists($create_realpath . "auto/") && !($this->save_mode)) mkdir($create_realpath . "auto/");
-            
+
         if(!($this->save_mode)) return $create_realpath . "auto/";
 
         return $this->create_path;
@@ -656,9 +665,9 @@ function write_gen_file()
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// 			$this->short_table_name=cmr_searchi_replace("^" . $this->prefix, "", $this->table_name);     
+// 			$this->short_table_name=cmr_searchi_replace("^" . $this->prefix, "", $this->table_name);
 	        $this->work_model = $this->models_text;
-	        $temp_str = stristr($this->work_model, "£_foreach_");
+	        $temp_str = stristr($this->work_model, "ï¿½_foreach_");
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -666,18 +675,18 @@ function write_gen_file()
 	        while ($temp_str){
 	            $choose = substr($temp_str, 10, 2);
 	            $temp_str = substr($temp_str, 1);
-	            $temp_str = stristr($temp_str, "£_foreach_");
+	            $temp_str = stristr($temp_str, "ï¿½_foreach_");
 	            // $output .= ("<br />--" . $choose . "--<br />");
 	            switch ($choose){
-                case "ct" : $this->work_model = preg_replace("/(£_foreach_comment_£)(.*)(££_foreach_comment_££)/seU", "", $this->work_model);
+                case "ct" : $this->work_model = preg_replace("/(ï¿½_foreach_comment_ï¿½)(.*)(ï¿½ï¿½_foreach_comment_ï¿½ï¿½)/seU", "", $this->work_model);
                     break;
-                case "db" : $this->work_model = preg_replace("/(£_foreach_db_£)(.*)(££_foreach_db_££)/seU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $this->work_model);
+                case "db" : $this->work_model = preg_replace("/(ï¿½_foreach_db_ï¿½)(.*)(ï¿½ï¿½_foreach_db_ï¿½ï¿½)/seU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $this->work_model);
                     break;
-                case "ta" : $this->work_model = preg_replace("/(£_foreach_table_£)(.*)(££_foreach_table_££)/seU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $this->work_model);
+                case "ta" : $this->work_model = preg_replace("/(ï¿½_foreach_table_ï¿½)(.*)(ï¿½ï¿½_foreach_table_ï¿½ï¿½)/seU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $this->work_model);
                     break;
-                case "co" : $this->work_model = preg_replace("/(£_foreach_column_£)(.*)(££_foreach_column_££)/seU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
+                case "co" : $this->work_model = preg_replace("/(ï¿½_foreach_column_ï¿½)(.*)(ï¿½ï¿½_foreach_column_ï¿½ï¿½)/seU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
                     break;
-                case "ro" : $this->work_model = preg_replace("/(£_foreach_rown_£)(.*)(££_foreach_rown_££)/seU", "eval_rowns_in_col('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
+                case "ro" : $this->work_model = preg_replace("/(ï¿½_foreach_rown_ï¿½)(.*)(ï¿½ï¿½_foreach_rown_ï¿½ï¿½)/seU", "eval_rowns_in_col('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
 	                    break;
 	                default:break;
 	            }
@@ -685,8 +694,8 @@ function write_gen_file()
 	        }
 
 	        $this->work_model = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
-        	preg_replace("/(£_button_£)(.*)(££_button_££)/seU", "gen_image_save('\\2', '\\2')", $this->work_model);
-// 			preg_replace("/(£_link_£)(.*)(££_link_££)/seU", "gen_link('\\2', '\\2')", $this->work_model);
+        	preg_replace("/(ï¿½_button_ï¿½)(.*)(ï¿½ï¿½_button_ï¿½ï¿½)/seU", "gen_image_save('\\2', '\\2')", $this->work_model);
+// 			preg_replace("/(ï¿½_link_ï¿½)(.*)(ï¿½ï¿½_link_ï¿½ï¿½)/seU", "gen_link('\\2', '\\2')", $this->work_model);
 	        // ========== correction ====================
 	        $this->work_model = $this->gen_correction();
 	        // ========== language ====================
@@ -699,9 +708,9 @@ function write_gen_file()
 	        $GLOBALS["array_index"] = array();
 	        $GLOBALS["array_calendar"] = array();
 
-	        
-	        
-	        return $this->work_model;	    
+
+
+	        return $this->work_model;
 	        }
 	  }
 }

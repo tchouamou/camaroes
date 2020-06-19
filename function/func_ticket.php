@@ -50,7 +50,7 @@ func_ticket.php,Ver 3.0  2011-Sep-Sun 15:51:09
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -83,12 +83,12 @@ if(!(function_exists("ticket_link"))){
         $ticket_link = "";
         //
         // if($nums[0])
-       
+
         // $nums=$cmr_config->FetchRow(, $cmr_language,&$conn->Execute($sql_id, $conn));
         //
         $ticket_link .= input_hidden("<input type=\"checkbox\" name=\"ticket_check_" . $cmr_page["__number__"] . "\" value=\"" . $id_ticket . "\" />");
 
-        
+
         if(in_array ($id_ticket, $GLOBALS["ticket_read"])){
            if($image1) $ticket_link .= "<img alt=\">\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("readed")  . "\" />";
            $ticket_style = "readed";
@@ -100,7 +100,7 @@ if(!(function_exists("ticket_link"))){
         if(($val["attach"])){
             $ticket_link .= list_attach_link(str_replace(", ", ":", $val["attach"]), "<img alt=\"&\" src=\"" . cmr_get_path("www") . "images/icon/attachment_icon.png\" border=\"0\"  title=\"" . cmr_translate("Attachment")  . "\" />", ":");
         }
-        
+
         switch(($val["severity"])){
            case "low":
            $ticket_link .= "<img alt=\"?\" src=\"" . cmr_get_path("www") . "images/icon/record_icon_yellow.png\" border=\"0\"  title=\"" . cmr_translate("low")  . "\" />";
@@ -127,17 +127,17 @@ if(!(function_exists("ticket_link"))){
            $ticket_link .= "<img alt=\"*\" src=\"" . cmr_get_path("www") . "images/icon/record_icon_green.png\" border=\"0\"  title=\"" . cmr_translate("normal")  . "\" />";
            break;
         }
-         
+
         if(!in_array ($id_ticket, $GLOBALS["ticket_read"]) || $val["state"]=="close") $ticket_style = "unreaded";
-	        
+
         if((isset($GLOBALS["current_ticket_id"])) && ($id_ticket == cmr_get_global("current_ticket_id"))){
            $ticket_style = "current";
         }
-        
-        
+
+
         $ticket_link .= "<a class=\"" . $ticket_style . "\" title=\"" . $val["title"] . "\"  href=\"" . code_href($cmr_config, $cmr_language, "modules/preview_ticket.php", "id_ticket=" . $id_ticket . "&page_title=Ticket[" . $val["number"] . "]:" . $val["title"]) . "\"";
         $ticket_link .= " >";
-        
+
         $ticket_link .= $val["number"];
         $ticket_link .= "<br /> " . wordwrap($val["title"],40,"\n",1) . "</a><br />";
         $ticket_link .= "" . cmr_translate("of") . ": [" . group_info_link($cmr_config, $cmr_page, $cmr_language, $val["call_log_group"]) . "] " . cmr_translate("Assign a ") . ": (" . list_user_groups_link($cmr_config, $cmr_page, $cmr_language, $val["assign_to"]) . ")";
@@ -163,7 +163,7 @@ if(!(function_exists("ticket_tab_link"))){
 	    $ticket_link = "<tr><td class=\"rown3\">" . $cmr_page["__number__"] . "</td>";
         if(!empty($id_ticket)){
             $ticket_link .= "<td class=\"rown1\" >" . input_hidden("<input type=\"checkbox\" name=\"ticket_check_" . $cmr_page["__number__"] . "\" value=\"" . $id_ticket . "\" />");
-        
+
         if(in_array ($id_ticket, $GLOBALS["ticket_read"])){
            if($image1) $ticket_link .= "<img alt=\">\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("readed")  . "\" />";
            $ticket_style = "readed";
@@ -171,11 +171,11 @@ if(!(function_exists("ticket_tab_link"))){
            $ticket_style = "unreaded";
             if($image2) $ticket_link .= "<img  alt=\"<\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("unreaded")  . "\" />";
         };
-        
+
         if(($val["attach"])){
             $ticket_link .= list_attach_link(str_replace(", ", ":", $val["attach"]), "<img alt=\"&\" src=\"" . cmr_get_path("www") . "images/icon/attachment_icon.png\" border=\"0\"  title=\"" . cmr_translate("Attachment")  . "\" />", ":");
         }
-        
+
         switch(($val["severity"])){
            case "low":
            $ticket_link .= "<img alt=\"?\" src=\"" . cmr_get_path("www") . "images/icon/record_icon_yellow.png\" border=\"0\"  title=\"" . cmr_translate("low")  . "\" />";
@@ -202,16 +202,16 @@ if(!(function_exists("ticket_tab_link"))){
            $ticket_link .= "<img alt=\"*\" src=\"" . cmr_get_path("www") . "images/icon/record_icon_green.png\" border=\"0\"  title=\"" . cmr_translate("normal")  . "\" />";
            break;
         }
-         
+
         if(!in_array ($id_ticket, $GLOBALS["ticket_read"]) || $val["state"]=="close") $ticket_style = "unreaded";
-	        
+
         if((isset($GLOBALS["current_ticket_id"])) && ($id_ticket == cmr_get_global("current_ticket_id"))){
            $ticket_style = "current";
         }
            $ticket_link .= "</td>";
 
-           
-           
+
+
             $i_col = 1;
             while ((isset($cmr_config["column" . $i_col . "_ticket"])) && ($i_col <= $cmr_page["__columns__"])){
                 $val_const = $val[$cmr_config["column" . $i_col . "_ticket"]];
@@ -255,10 +255,10 @@ if(!(function_exists("ticket_link_detail"))){
     {
         $id_ticket = $val[$cmr_config["column_id_ticket"]];
         $ticket_link_d = "<fieldset class=\"bubble\"><legend>" . $val["number"] . "</legend>";
-        
+
         if(($cmr_config["column_image1_ticket"]) && ($val[$cmr_config["column_image1_ticket"]]))
         $ticket_link_d .= "<img alt=\"" . translate($cmr_config["column_image1_ticket"]) . "\" src=\"" . $val[$cmr_config["column_image1_ticket"]] . "\" class=\"cmr_image\" />";
-        
+
 
         $ticket_link_d .= "<ul>";
 		$ticket_link_d .= "<li>" . ticket_link_default($cmr_config, $cmr_page, $cmr_language, $val) . "</li>";
@@ -286,10 +286,12 @@ if(!(function_exists("cmr_ticket_number"))){
     function cmr_ticket_number($cmr_config = array(), $conn = null)
     {
     // ----calcolo del numero ticket--------
+    $temp_number = 0;
     $sql_number = "SELECT MAX(CONVERT(number, UNSIGNED INTEGER)) FROM " . $cmr_config["cmr_table_prefix"] . "ticket;";
-    $conn->SetFetchMode(ADODB_FETCH_NUM);
-    $result_number = &$conn->Execute($sql_number)/*, $conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
-    $temp_number = $result_number->FetchRow();
+    //$conn->SetFetchMode(ADODB_FETCH_NUM);
+    if($conn)
+    $result_number = $conn->query($sql_number) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);
+    if($result_number) $temp_number = $result_number->fetch_row();
 
     if((substr($temp_number[0], 0, 4)) == date("ym")){
         $temp_n = "00" . ($temp_number[0] + 1);
@@ -300,7 +302,7 @@ if(!(function_exists("cmr_ticket_number"))){
         $temp_numero = date("ym") . "001";
     };
         return $temp_numero;
-    } 
+    }
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 }
 

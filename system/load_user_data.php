@@ -117,7 +117,8 @@ $qr = new class_database($cmr->config, $cmr->user, $cmr->action, $cmr->db_connec
 $qr->email = $user_object->email;
 $sql_session = $qr->get_query("delete_session");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$result_sql = &$cmr->db_connection->Execute($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+$result_sql = $cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // *************************
 // *************************
 // $sql_session = "INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "session ( id, sessionid, sessionip, user_email, status, state,  time_out,  session_end, date_time ) ";
@@ -125,7 +126,8 @@ $result_sql = &$cmr->db_connection->Execute($sql_session) or db_die(__LINE__  . 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $sql_session = $qr->get_query("insert_session");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$result_sql = &$cmr->db_connection->Execute($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+$result_sql = $cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
     // *************************
 // ======================================================================
 // ======================================================================
@@ -148,8 +150,8 @@ $result_sql = &$cmr->db_connection->Execute($sql_session) or db_die(__LINE__  . 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $sql_group = $qr->get_query("user_list_group");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-$result_group = &$cmr->db_connection->Execute($sql_group) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+$result_group = $cmr->db_connection->query($sql_group) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // ---- Default value for all user authentificated --------
 $cmr->group["name"] = $cmr->user["auth_group"];
 $auth_list_group = "'" . $cmr->user["auth_group"] . "'";
@@ -175,7 +177,7 @@ $max_group_type = 0;
 $auth_group = NULL;
 // =======================================================================
 if(!empty($result_group))
-while ($my_group = $result_group->FetchNextObject(false)){
+while ($my_group = $result_group->fetch_object()){
     // ------------
   if((!(cmr_search("'" . $my_group->group_name . "'", $auth_list_group))) && (($my_group->state == 'enable') || ($my_group->state == 'active'))){
     $auth_list_group .= ", '" . $my_group->group_name . "'";

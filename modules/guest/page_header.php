@@ -209,8 +209,11 @@ $division->prints["match_head_see_time"] = " <input type=\"text\" onMouseMove=\"
 
 
 
+
 if(($cmr->get_user("authorisation"))){
-$division->module["title"] = " (" .  $cmr->get_user("auth_email") . ")&nbsp;&nbsp;" . $str_title;
+$division->module["title"] = $cmr->module_link("my_account.php" . "?module_file = " . "my_account.php", "", " (" .  $cmr->get_user("auth_email") . ")" , "", "", 1);
+$division->module["title"] .= "&nbsp;&nbsp;" . $str_title;
+
 }else{
 $division->module["title"] = substr($cmr->get_conf("cmr_company_name3") . " ver. " . $cmr->get_conf("cmr_version") . " &copy; ", 0, 120) . "&nbsp;&nbsp;&nbsp;&nbsp;" . $str_title;
 	}

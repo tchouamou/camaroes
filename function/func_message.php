@@ -328,11 +328,11 @@ function update_messages($cmr_config = array(), $conn)
     $sql_upd1 .=  " WHERE (intervale != '0') AND (intervale != '') AND (end_time + 0 < CURRENT_TIMESTAMP + 0) ";
     $sql_upd1 .=  " AND (begin_time + 0 > CURRENT_TIMESTAMP + 0);";
 
-     if($conn) $result_upd1 = &$conn->query($sql_upd1) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
+     if($conn) $result_upd1 = $conn->query($sql_upd1) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);
 //     $num_result1 = @ $result_upd->RecordCount(1);
 
     if($num_result1){
-        while ($val1 = $result_upd1->FetchNextObject(false)){
+        while ($val1 = $result_upd1->fetch_object()){
 
             $sql_upd2 = " UPDATE " . $cmr_config["cmr_table_prefix"] . "message set ";
             $sql_upd2 .=  " begin_time = DATE_ADD(begin_time, INTERVAL " . $val1->intervale . "), ";
@@ -343,8 +343,8 @@ function update_messages($cmr_config = array(), $conn)
             $sql_upd3 .=  " WHERE table_name='" . $cmr_config["cmr_table_prefix"] . "message' ";
             $sql_upd3 .=  " AND line_id='" . $val1->id . "';";
 
-            if($conn) $result_upd2 = &$conn->query($sql_upd2) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
-            if($conn) $result_upd3 = &$conn->query($sql_upd3) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
+            if($conn) $result_upd2 = $conn->query($sql_upd2) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);
+            if($conn) $result_upd3 = $conn->query($sql_upd3) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);
 
         }
     }
@@ -418,9 +418,9 @@ function show_message($cmr_config = array(), $conn, $module = "", $user = "", $g
 
     $sql .=  " ORDER BY begin_time;";
 
-    if($conn) $result = &$conn->query($sql) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
-
-    while ($val = $result->FetchNextObject(false)){
+    if($conn) $result = $conn->query($sql) /*, $conn) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);
+    if($result)
+    while ($val = $result->fetch_object()){
         if(($val->type) == "php"){
             $str_return .=  $cmr_config["cmr_mod_mess_separ"] . eval($val->text);
         }else{

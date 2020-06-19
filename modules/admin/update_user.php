@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-update_user.php,Ver 3.0  2011-Sep-Fri 21:50:35  
+update_user.php,Ver 3.0  2011-Sep-Fri 21:50:35
 */
 
 /**
@@ -156,8 +156,8 @@ $_SESSION["__update__"][$key] = $val_user[$key];
 $sql_ugroup = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user_groups ";
 $sql_ugroup .= " WHERE user_email='" . $val_user["email"] . "'";
 
-$result_ugroup = &$cmr->db_connection->SelectLimit($sql_ugroup, 1) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-$val_user_group = $result_ugroup->FetchNextObject(false);
+$result_ugroup = &$cmr->db_connection->query($sql_ugroup) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$val_user_group = $result_ugroup->fetch_object();
 // -----------
 // -----------
 $list_group = $cmr->get_user("auth_list_group");
@@ -259,7 +259,7 @@ $division->prints["match_val_private_key"] = "";
 $division->prints["match_val_pass_phrase"] = "";
 $division->prints["match_label_lang"] = $cmr->translate("langage");
 $division->prints["match_label_type"] = $cmr->translate("privilege");
-$division->prints["match_label_login_script"] = $cmr->translate("login script"); 
+$division->prints["match_label_login_script"] = $cmr->translate("login script");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_val_lang"] = htmlentities($val_user["lang"]);
 $division->prints["match_val_style"] = htmlentities($val_user["style"]);
@@ -349,7 +349,7 @@ $division->prints["match_submit_java"] = $cmr->translate("confirm that you want 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

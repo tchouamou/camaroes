@@ -609,7 +609,7 @@ switch ($todo){
 
 if($cmr->db_connection)
 $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        $r_model = $result_t_model->fetch_object(false);
+        $r_model = $result_t_model->fetch_object();
         // ========== Solution ===================
         $division->prints["match_value_model_id"] = $r_model->id;
         $r_model_number = $r_model->number;
@@ -620,7 +620,7 @@ $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) /*, $cmr->d
 
   if($cmr->db_connection)
 $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solution"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object(false);
+        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object();
         if(!empty($r_model_solution)) $division->prints["match_solution"] = $r_model_solution->text;
 //         $result_model_solution->Close();
         // =======================================
@@ -660,7 +660,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
          $array_value1 = array();
          $array_value2 = array();
 		if($result_group_name)
-        while ($groups_value = $result_group_name->fetch_object(false)){
+        while ($groups_value = $result_group_name->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $groups_value->name . "</option>";
          $array_value1[] = $groups_value->name;
          $array_value2[] = $groups_value->name;
@@ -671,7 +671,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
          $array_value1 = array();
          $array_value2 = array();
 		if($result_user_email)
-        while ($user_value = $result_user_email->fetch_object(false)){
+        while ($user_value = $result_user_email->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $user_value->email . "</option>";
          $array_value1[] = $user_value->email;
          $array_value2[] = $user_value->email;
@@ -692,7 +692,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
          $array_value1 = array();
          $array_value2 = array();
 		if($result_group)
-		while ($groups_value = $result_group->fetch_object(false)){
+		while ($groups_value = $result_group->fetch_object()){
 //             $division->prints["match_options_call_log_group"] .= "<option>" . $groups_value->name . "</option>";
          $array_value1[] = $groups_value->name;
          $array_value2[] = $groups_value->name;
@@ -773,7 +773,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
 
   if($cmr->db_connection)
 $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        $r_model = $result_t_model->fetch_object(false);
+        $r_model = $result_t_model->fetch_object();
         // ========== Solution ===================
         $division->prints["match_value_model_id"] = $r_model->id;
         $r_model_number = $r_model->number;
@@ -783,7 +783,7 @@ $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) or db_die(_
 
     if($cmr->db_connection)
 $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solution"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object(false);
+        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object();
         if(!empty($r_model_solution)) $division->prints["match_solution"] = $r_model_solution->text;
 //         $result_model_solution->Close();
         // =======================================
@@ -822,7 +822,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
          $array_value1 = array();
          $array_value2 = array();
 		if($result_group_name)
-        while ($groups_value = $result_group_name->fetch_object(false)){
+        while ($groups_value = $result_group_name->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $groups_value->name . "</option>";
          $array_value1[] = $groups_value->name;
          $array_value2[] = $groups_value->name;
@@ -835,7 +835,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
          $array_value1 = array();
          $array_value2 = array();
 		if($result_user_email)
-        while ($user_value = $result_user_email->fetch_object(false)){
+        while ($user_value = $result_user_email->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $user_value->email . "</option>";
          $array_value1[] = $user_value->email;
          $array_value2[] = $user_value->email;
@@ -919,7 +919,7 @@ $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solutio
 //         $cmr->query["t_model"] = $cmr->query["t_model_close"];
 if($cmr->db_connection)
         $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        $r_model = $result_t_model->fetch_object(false);
+        $r_model = $result_t_model->fetch_object();
 
         $division->prints["match_ticket_title1"] = $cmr->translate("close ticket");
         // ========== Solution ===================
@@ -931,7 +931,7 @@ if($cmr->db_connection)
 
     if($cmr->db_connection)
         $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solution"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object(false);
+        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object();
         if(!empty($r_model_solution)) $division->prints["match_solution"] = $r_model_solution->text;
 //         $result_model_solution->Close();
         // =======================================
@@ -964,7 +964,7 @@ if($cmr->db_connection)
          $array_value1 = array();
          $array_value2 = array();
 		if($result_group_name)
-        while ($groups_value = $result_group_name->fetch_object(false)){
+        while ($groups_value = $result_group_name->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $groups_value->name . "</option>";
          $array_value1[] = $groups_value->name;
          $array_value2[] = $groups_value->name;
@@ -975,7 +975,7 @@ if($cmr->db_connection)
          $array_value1 = array();
          $array_value2 = array();
 		if($result_user_email)
-        while ($user_value = $result_user_email->fetch_object(false)){
+        while ($user_value = $result_user_email->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $user_value->email . "</option>";
          $array_value1[] = $user_value->email;
          $array_value2[] = $user_value->email;
@@ -1045,7 +1045,7 @@ if($cmr->db_connection)
 
 if($cmr->db_connection)
         $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        $r_model = $result_t_model->fetch_object(false);
+        $r_model = $result_t_model->fetch_object();
 
         $division->prints["match_ticket_title1"] = $cmr->translate($mod->base_name);
         // ========== Solution ===================
@@ -1160,7 +1160,7 @@ if($cmr->db_connection)
 
     if($cmr->db_connection)
       $result_t_model = $cmr->db_connection->query($cmr->query["t_model"])  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        $r_model = $result_t_model->fetch_object(false);
+        $r_model = $result_t_model->fetch_object();
         $division->prints["match_ticket_title1"] = $cmr->translate($mod->base_name);
         // ========== Solution ===================
         $division->prints["match_value_model_id"] = $r_model->id;
@@ -1173,7 +1173,7 @@ if($cmr->db_connection)
 
   if($cmr->db_connection)
       $result_model_solution = $cmr->db_connection->query($cmr->query["t_model_solution"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
-        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object(false);
+        if(!empty($result_model_solution)) $r_model_solution = $result_model_solution->fetch_object();
         if(!empty($r_model_solution)) $division->prints["match_solution"] = $r_model_solution->text;
 //         $result_model_solution->Close();
         // =======================================
@@ -1208,7 +1208,7 @@ if($cmr->db_connection)
         $array_value1 = array();
         $array_value2 = array();
         if($result_group_name)
-        while ($groups_value = $result_group_name->fetch_object(false)){
+        while ($groups_value = $result_group_name->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $groups_value->name . "</option>";
          $array_value1[] = $groups_value->name;
          $array_value2[] = $groups_value->name;
@@ -1218,7 +1218,7 @@ if($cmr->db_connection)
         $array_value1 = array();
         $array_value2 = array();
         if($result_user_email)
-        while ($user_value = $result_user_email->fetch_object(false)){
+        while ($user_value = $result_user_email->fetch_object()){
 //             $division->prints["match_options_assign_to"] .= "<option>" . $user_value->email . "</option>";
          $array_value1[] = $user_value->email;
          $array_value2[] = $user_value->email;
@@ -1232,7 +1232,7 @@ if($cmr->db_connection)
         $array_value1 = array();
         $array_value2 = array();
         if($result_group)
-        while ($groups_value = $result_group->fetch_object(false)){
+        while ($groups_value = $result_group->fetch_object()){
 //             $division->prints["match_options_call_log_group"] .= "<option>" . $groups_value->name . "</option>";
          $array_value1[] = $groups_value->name;
          $array_value2[] = $groups_value->name;
@@ -1289,7 +1289,7 @@ $division->prints["match_options_model"] = "";
 if($cmr->db_connection)
 $result_t_model = $cmr->db_connection->query($cmr->query["t_model"]) or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->error);
 if($result_t_model)
-while ($r_model = $result_t_model->fetch_object(false)){
+while ($r_model = $result_t_model->fetch_object()){
 	$array_value1[] = $r_model->id;
 	$array_value2[] = (substr($r_model->title, 0, 66));
 };

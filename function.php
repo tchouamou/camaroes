@@ -124,9 +124,9 @@ function cmr_escape($arg = "")
 
    if((cmr_get_db_connection())){
 	switch(cmr_get_config("db_type")){
-      case "mysqli":  return mysqli_real_escape_string(null, $arg);
+      case "mysqli":  return addslashes($arg);
       break;
-      case "mysql":  return mysqli_real_escape_string(null, $arg);
+      case "mysql":  return addslashes($arg);
       break;
       case "maxdb":  return maxdb_real_escape_string($arg);
       break;

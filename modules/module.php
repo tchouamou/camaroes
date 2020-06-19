@@ -453,7 +453,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 
 	if($cmr->db_connection)
 	$result_model = $cmr->db_connection->query($cmr->query["t_model"]);//, $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	if($cmr->db_connection) $r_model = $result_model->fetch_object(false);
+	if($cmr->db_connection) $r_model = $result_model->fetch_object();
 	// =======================================
   $division->prints["match_value_model_id"] = $r_model->id;
 	// =======================================
@@ -480,7 +480,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 	 $array_value1 = array();
 	 $array_value2 = array();
 	 if($cmr->db_connection)
-	while ($groups_value = $result_group_name->fetch_object(false)){
+	while ($groups_value = $result_group_name->fetch_object()){
 	 $array_value1[] = $groups_value->name;
 	 $array_value2[] = $groups_value->name;
 	};
@@ -488,7 +488,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 	 $array_value1 = array();
 	 $array_value2 = array();
 	 if($cmr->db_connection)
-	while ($user_value = $result_user_email->fetch_object(false)){
+	while ($user_value = $result_user_email->fetch_object()){
 	 $array_value1[] = $user_value->email;
 	 $array_value2[] = $user_value->email;
 	};
@@ -504,7 +504,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 	 $array_value1 = array();
 	 $array_value2 = array();
 	 if($cmr->db_connection)
-	while ($groups_value = $result_group->fetch_object(false)){
+	while ($groups_value = $result_group->fetch_object()){
 	//       $division->prints["match_options_groups_dest"] .= "<option>" . $groups_value->name . "</option>";
 	 $array_value1[] = $groups_value->name;
 	 $array_value2[] = $groups_value->name;
@@ -595,7 +595,7 @@ if(empty($cmr->post_var["module_file"])){
 //   $cmr->query["t_model"] = $cmr->query["t_model_model"];
 
 //   $result_model = &$cmr->db_connection->SelectLimit($cmr->query["t_model"], $cmr->get_conf("cmr_max_view")) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-//   $r_model = $result_model->fetch_object(false);
+//   $r_model = $result_model->fetch_object();
 //   =======================================
     $division->prints["match_module_title1"] = $cmr->translate("new module from model");
 //   $division->prints["match_module_title1"]  = $cmr->language[$mod->base_name . "_title"];
@@ -636,7 +636,7 @@ if(empty($cmr->post_var["module_file"])){
      $array_value1 = array();
      $array_value2 = array();
 		 if($cmr->db_connection)
-    while ($groups_value = $result_group_name->fetch_object(false)){
+    while ($groups_value = $result_group_name->fetch_object()){
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
     };
@@ -645,7 +645,7 @@ if(empty($cmr->post_var["module_file"])){
      $array_value1 = array();
      $array_value2 = array();
 		 if($cmr->db_connection)
-    while ($user_value = $result_user_email->fetch_object(false)){
+    while ($user_value = $result_user_email->fetch_object()){
      $array_value1[] = $user_value->name;
      $array_value2[] = $user_value->name;
     };
@@ -660,7 +660,7 @@ if(empty($cmr->post_var["module_file"])){
      $array_value1 = array();
      $array_value2 = array();
 		 if($cmr->db_connection)
-    while ($groups_value = $result_group->fetch_object(false)){
+    while ($groups_value = $result_group->fetch_object()){
 //       $division->prints["match_options_groups_dest"] .= "<option>" . $groups_value->name . "</option>";
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
@@ -720,7 +720,7 @@ if(empty($cmr->post_var["module_file"])){
 //   $cmr->query["t_model"] = $cmr->query["t_model_update"];
 
 //   $result_model = &$cmr->db_connection->SelectLimit($cmr->query["t_model"], $cmr->get_conf("cmr_max_view") /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-//   $r_model = $result_model->fetch_object(false);
+//   $r_model = $result_model->fetch_object();
 //   =======================================
     $division->prints["match_value_model_id"] = $r_model->id;
 //   =======================================
@@ -762,7 +762,7 @@ if(empty($cmr->post_var["module_file"])){
     $array_value1 = array();
      $array_value2 = array();
 		 if($cmr->db_connection)
-    while ($groups_value = $result_group_name->fetch_object(false)){
+    while ($groups_value = $result_group_name->fetch_object()){
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
     };
@@ -771,7 +771,7 @@ if(empty($cmr->post_var["module_file"])){
      $array_value1 = array();
      $array_value2 = array();
 		 if($cmr->db_connection)
-    while ($user_value = $result_user_email->fetch_object(false)){
+    while ($user_value = $result_user_email->fetch_object()){
      $array_value1[] = $user_value->email;
      $array_value2[] = $user_value->email;
     };
@@ -792,7 +792,7 @@ if(empty($cmr->post_var["module_file"])){
      $array_value1 = array();
      $array_value2 = array();
 		 if($cmr->db_connection)
-    while ($groups_value = $result_group->fetch_object(false)){
+    while ($groups_value = $result_group->fetch_object()){
 //       $division->prints["match_options_groups_dest"] .= "<option>" . $groups_value->name . "</option>";
      $array_value1[] = $groups_value->name;
      $array_value2[] = $groups_value->name;
@@ -849,7 +849,7 @@ if(empty($cmr->post_var["module_file"])){
 	if($cmr->db_connection)
 	$result_model = $cmr->db_connection->query($cmr->query["t_model"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 	if($cmr->db_connection)
-	while ($r_model = $result_model->fetch_object(false)){
+	while ($r_model = $result_model->fetch_object()){
 	    $division->prints["match_options_model"] .= "<option value=\"" . $r_model->id . "\" >" . htmlentities(substr($r_model->module["title"], 0, 66)) . "</option>";
 	}
 // ==============================================================

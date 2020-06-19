@@ -19,7 +19,7 @@ All rights reserved.
 
 
 
-replace,Ver 3.0  @_date_time_@  
+replace,Ver 3.0  @_date_time_@
 */
 
 /**
@@ -157,7 +157,7 @@ $division->prints["match_submit_java"] = $cmr->translate("confirm that you want 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -169,7 +169,7 @@ $file_list[] = $cmr->get_path("template") . "templates/modules/template_replace"
 $file_list[] = $cmr->get_path("template") . "templates/modules/auto/template_replace" . $cmr->get_ext("template");
 $division->template = $division->load_template($file_list);
 
-  
+
 $division->print_template();
 $division->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

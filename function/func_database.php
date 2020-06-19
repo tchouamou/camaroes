@@ -92,12 +92,13 @@ if(!(function_exists("connect_to_db"))){
 function connect_to_db($cmr_config, $cmr_db=array())
 {
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-return null;
+//return null;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		if(($cmr_db)){
 			//$conn = NewADOConnection($cmr_db["db_type"]);
 			//$connected = $conn->Connect($cmr_db["db_host"], $cmr_db["db_user"], $cmr_db["db_pw"], $cmr_db["db_name"]);
 			$conn = new mysqli($cmr_db["db_host"], $cmr_db["db_user"], $cmr_db["db_pw"], $cmr_db["db_name"]);
+      if ($conn->connect_errno) print($conn->connect_error);
 			//if(empty($connected))
 			//if(($connected))
 			if(($conn)){
@@ -111,6 +112,7 @@ return null;
 			//$conn = NewADOConnection($cmr_db["db_type"]);
 			//$connected = $conn->Connect($cmr_db["db_host"], $cmr_db["db_user"], $cmr_db["db_pw"], $cmr_db["db_name"]);
 			$conn = new mysqli($cmr_config["db_host"], $cmr_config["db_user"], $cmr_config["db_pw"], $cmr_config["db_name"]);
+      if ($conn->connect_errno) print($conn->connect_error);
 			//if(empty($connected))
 			//if(($connected))
 			if(($conn)) return $conn;
@@ -118,7 +120,7 @@ return null;
 		}
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(empty($conn)){
+
 		if(empty($cmr_config["db_type"])) $cmr_config["db_type"] = "mysqli";
 		if(empty($cmr_config["db_name"])) $cmr_config["db_name"] = "camaroes_db";
 		if(empty($cmr_config["db_host"])) $cmr_config["db_host"] = "localhost";
@@ -128,9 +130,8 @@ if(empty($conn)){
 		//$conn = NewADOConnection($cmr_config["db_type"]);
 		//$connected = $conn->Connect($cmr_config["db_host"], $cmr_config["db_user"], $cmr_config["db_pw"], $cmr_config["db_name"]);
 		$conn = new mysqli($cmr_config["db_host"], $cmr_config["db_user"], $cmr_config["db_pw"]);
+    if ($conn->connect_errno) print($conn->connect_error);
 		//if(empty($connected))
-		if(empty($conn)) $connected = null;
-}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 		//if(empty($connected)) echo "<br />error: " . $conn->connect_error . "<br />";
@@ -138,9 +139,9 @@ if(empty($conn)){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		if(empty($connected)) print("<br />Database connection problem!, click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=install_need\" > Here </a>  to correct before continue ");
+		if($conn->connect_errno) print("<br />Database connection problem!, click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=install_need\" > Here </a>  to correct before continue ");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		if(empty($connected)) db_die(__LINE__  . " - "  . __FILE__ . ": " . "<br />Database connection problem!, click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=install_need\" > Here </a>  to correct before continue ");
+		if($conn->connect_errno) db_die(__LINE__  . " - "  . __FILE__ . ": " . "<br />Database connection problem!, click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=install_need\" > Here </a>  to correct before continue ");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 		if(($connected)) return $conn;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -467,8 +468,8 @@ $sql_query = "";
 		$rs = $conn->query($sql_query); // $sql_data["limit"], $sql_data["limit_begin"]) or  db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 	}
 	}
-     $result = array(); /*$s->fetch_object(false)*/
-    if($rs)  while ($result[$i] = $rs->fetch_object(false)){
+     $result = array(); /*$s->fetch_object()*/
+    if($rs)  while ($result[$i] = $rs->fetch_object()){
   $i++;
 //   $rs->MoveNext();
      }
@@ -493,13 +494,16 @@ $sql_query = "";
 	if($conn){
 	if(empty($sql_data["limit"])) {
 	     //print("<br />" . $sql_query);
-		/*$rs = $conn->Execute*/ if(!($rs = $conn->query($sql_query))) db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
-		}else{
+		/*$rs = $conn->Execute*/
+    $rs = $conn->query($sql_query);
+	}else{
 		$rs = $conn->query($sql_query); // $rs = $conn->SelectLimit($sql_query, $sql_data["limit"], $sql_data["limit_begin"]) or  db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 	}
+  //       if($rs) $cmr_action["affected_rows"] = $rs->RecordCount();
+    if(!($rs)) db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
+    $result = $rs;
 	}
-//       if($rs) $cmr_action["affected_rows"] = $rs->RecordCount();
-     $result = $rs;
+
  }else{ // array
 // 			$ADODB_FETCH_MODE = ADODB_FETCH_NUM;
 	if($conn)
@@ -625,7 +629,7 @@ function calcul_tree_group($cmr_config, $conn, $str_list)
     $tab_child = array();
     $temp_tab = explode(",", cmr_search_replace("'", "", $str_list));
     // -----------------------
-    if($data)
+  if($data)
 	 foreach($data as $key => $f_group){
 	 if(isset($tab_child[trim($f_group["group_father"])])){
 	     $tab_child[trim($f_group["group_father"])] .= ", '" . trim($f_group["group_child"]) . "'";
@@ -1196,10 +1200,10 @@ if(!(function_exists("cmr_update_pw"))){
     function cmr_update_pw($conn, $table, $user, $pw)
     {
 	    $sql_query = "UPDATE " . $table . " SET pw = '" . cmr_escape($pw) . "', date_time = NOW() WHERE uid ='" . $user . "' ;";
-		if($conn)
-		$result_query = sql_run("result", $conn, "", $sql_query);
+		  if($conn) $result_query = sql_run("result", $conn, "", $sql_query);
 // 	    $result_query = $conn->Execute($sql_query) /*, $db_con)*/ or print("<li>!!! " . $conn->ErrorMsg() . " !!!? </li>");
-	    (empty($result_query)) ? $total = 0 : $total = $result_query->RecordCount();
+	    if(!($result_query)) $total = 0 ;
+      if($result_query) $total = $result_query->affected_rows;
 	  return $total;
 	}
 }
@@ -1222,7 +1226,8 @@ if(!(function_exists("run_install_query"))){
 		if($conn)
 		$result_query = sql_run("result", $conn, "", $sql_query . ";");
 //             $result_query = $conn->Execute($sql_query . ";")  or $install_prints .= ("<li><b><p>!!! " . $conn->ErrorMsg() . " !!!?</p></b><li>");
-            (empty($result_query))?$install_prints .= ("<li class=\"alert\">" . $sql_query . ";</li>") : $total += $result_query->RecordCount();/*, $db_con)*/
+            if(!($result_query)) $install_prints .= ("<li class=\"alert\">" . $sql_query . ";</li>");
+            if($result_query) $total += $result_query->affected_rows;/*, $db_con)*/
         }
         $install_prints .= ("<li>" . $sql_query . ";</li>");
     }
@@ -1612,7 +1617,7 @@ $view_result=null;
 if($conn) $view_result = sql_run("result", $conn, "", $view_query);
 // $view_result = $conn->Execute($view_query) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 //if($view_result) $matrix["total"] = $view_result->RecordCount();
-if($view_result) $matrix["total"] = $view_result->field_count;
+if($view_result) $matrix["total"] = $view_result->affected_rows;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if(empty($matrix["total"])) $matrix["total"] = 0;
@@ -1640,7 +1645,7 @@ $count_result = sql_run("result", $conn, "", $view_query, "", "", "", $sql_data)
 }
 // $count_result = $conn->SelectLimit($view_query, $view_limit, $view_begin);
 //if($count_result) $matrix["num_view"] = $count_result->RecordCount();
-if($count_result) $matrix["num_view"] = $count_result->field_count;
+if($count_result) $matrix["num_view"] = $count_result->affected_rows;
 /**
  * calculate number off page
  */
@@ -1979,7 +1984,7 @@ if($conn)
 $result_query = sql_run("result", $conn, "", $cmr_query);
 // $result_query = $conn->Execute($cmr_query) /*, $conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 //if($result_query) $affected_rows = $result_query->RecordCount();
-if($result_query) $affected_rows = $result_query->field_count;
+if($result_query) $affected_rows = $result_query->affected_rows;
 
 
 
@@ -2191,10 +2196,10 @@ if(!function_exists("get_array_variable")){
         // ======database connection==============
         //$conn = NewADOConnection($GLOBALS["dbms_type"]);
         //$conn->Connect($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
-        $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
         // =======================================
-		if($conn)
-		$sql_variable_result = sql_run("result", $conn, "", "SHOW VARIABLES;");
+    if ($conn->connect_errno) return array();
+		if($conn) $sql_variable_result = sql_run("result", $conn, "", "SHOW VARIABLES;");
 //         $sql_variable_result = $conn->Execute("show variables;") /*, $php_con_new) */ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 		if($sql_variable_result)
         while (($variable = $sql_variable_result->fetch_row())){
@@ -2217,7 +2222,8 @@ if(!function_exists("get_array_db")){
         // ======database connection==============
         //$conn = NewADOConnection($GLOBALS["dbms_type"]);
         //$conn->Connect($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
-        $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    if ($conn->connect_errno) return array();
         // =======================================
 		if($conn)
 		$sql_db_result = sql_run("result", $conn, "", "SHOW DATABASES;");
@@ -2245,7 +2251,8 @@ if(!function_exists("get_array_tables")){
         // ======database connection==============
         //$conn = NewADOConnection($GLOBALS["dbms_type"]);
         //$conn->Connect($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
-        $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    if ($conn->connect_errno) return array();
         // =======================================
 		if($conn)
 		$sql_tables_result = sql_run("result", $conn, "", "SHOW TABLE STATUS FROM " . $db_name . ";");
@@ -2270,13 +2277,14 @@ if(!function_exists("get_array_index")){
     function get_array_index($cmr_prefix, $table_name)
     {
 		$array_columns = array();
-        $short_table_name=cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
+    $short_table_name=cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         // ======database connection==============
         // $all_rown_table=sql( "array_assoc", $php_con_new, "show_index", "", $GLOBALS["dbms_name"],  $table_name, "", cmr_get_config("cmr_max_view"), "", $GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"]);
         // print_r($all_rown_table);
         //$conn = NewADOConnection($GLOBALS["dbms_type"]);
         //$conn->Connect($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
-        $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+    if ($conn->connect_errno) return array();
         // =======================================
 		if($conn)
 		$sql_column_result = sql_run("result", $conn, "", "SHOW INDEX FROM  " . $cmr_prefix . trim($short_table_name) . ";");
@@ -2419,7 +2427,7 @@ if(!function_exists("get_table_columns")){
 		if($conn)
 		$query_result = sql_run("result", $conn, "", $sql_query);
 //             $query_result = $conn->Execute($sql_query)  or print($conn->error);//$conn->ErrorMsg());
-            if($query_result) $affected_rows = $query_result->RecordCount();
+            if($query_result) $affected_rows = $query_result->affected_rows;
 // 	        $query_result->Close();
 		    return $affected_rows;
 	}

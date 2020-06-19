@@ -67,7 +67,7 @@ if(empty($cmr->user)){
 	    $cmr->event["data"] = "?cmr_mode=login&force_login=yes";
 	    $cmr->event["comment"] = "Wrong Account object, the session  or the user object is empty !!? (control session.cache_limiter, session.cache_expire) ";
 	    $cmr->run_event();
-	
+
 	}
         // ------------------------------------------
 
@@ -106,9 +106,10 @@ if((($cmr->get_session("id"))) && (($cmr->get_session("id")) != (session_id())))
         // ------------------------------------------
         // ------------------------------------------
         // ------------------------------------------
-    $result_session = &$cmr->db_connection->Execute($sql_session) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-    if($result_session) $obj_session = $result_session->FetchNextObject(false);
-    
+		if($cmr->db_connection)
+    $result_session = $cmr->db_connection->query($sql_session) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+    if($result_session) $obj_session = $result_session->fetch_object();
+
 	if($obj_session)
     if(!(((isset($obj_session)) && ($obj_session->sessionid)) || (get_post('cmr_sid', 'get')==session_id()))){
 	    $cmr->event["id"] = "12";

@@ -65,7 +65,7 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 		cmr_escape(pw_encode($cmr->get_user("auth_pw_send"))));
 
         if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
 // ======================================================================
 // ======================================================================
 // ======================================================================
@@ -115,7 +115,7 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 //         $auth_pw=pw_encode($cmr->get_user("auth_pw_send"));
 //      $cmr->query["login"] = "SELECT * from " . $cmr->get_conf("cmr_table_prefix") . "user where (uid='$auth_uid');"; //and (pw='$auth_pw')
         if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
         if(!($user_object)) $cmr->user = cmr_load_session("user", $cmr->config);
         // ======================================================================
         if(!($user_object)){
@@ -142,8 +142,8 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 		cmr_escape($cmr->get_user("auth_user_send")),
 		cmr_escape($cmr->get_user("auth_user_send")));
 
-        if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($cmr->db_connection) $result_user = $cmr->db_connection->query($cmr->query["login"]);
+        if($result_user) $user_object = $result_user->fetch_object();
 //         // ======================================================================
         if(!($user_object)){
 	    $cmr->event["id"] = "16";
@@ -175,7 +175,7 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 		cmr_escape($cmr->get_user("auth_user_send")));
 
         if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
         // ======================================================================
         if(!($user_object)){
 	    $cmr->event["id"] = "15";
@@ -207,7 +207,7 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 //         $auth_pw = pw_encode($cmr->get_user("auth_pw_send"));
 //         $cmr->query["login"] = "SELECT * from " . $cmr->get_conf("cmr_table_prefix") . "user where (uid='$auth_uid') and (pw='$auth_pw');"; //and (pw='$auth_pw')
         if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
         // ======================================================================
         if(!($user_object)){
 	    $cmr->event["id"] = "14";
@@ -240,7 +240,7 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 
         // ======================================================================
         if($cmr->db_connection) $result_user = $cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
         if(!($user_object)) $cmr->user = cmr_load_session("user", $cmr->config);
         // ======================================================================
 		if(empty($cmr->user["auth_user_send"]) && empty($cmr->user["auth_pw_send"]))
@@ -254,7 +254,7 @@ if(($db_connect)) $cmr->db_connection = $db_connect;
 			cmr_escape($cmr->get_user("auth_user_send")));
 
 	        if($cmr->db_connection) $result_user = $cmr->db_connection->query($cmr->query["login"]);
-	        if($result_user) $user_object = $result_user->fetch_object(false);
+	        if($result_user) $user_object = $result_user->fetch_object();
 		}
         // ======================================================================
         if((!($user_object)) || ((($cmr->get_conf("cmr_login_code")))&&($cmr->session["cmr_code"] =! pw_encode($cmr->get_user("auth_code_send")))))  {
@@ -309,8 +309,8 @@ cmr_escape($cmr->get_user("auth_user_send")),
 cmr_escape($cmr->get_user("auth_user_send")));
 
 //and (pw='$auth_pw')
-if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-if($result_user) $user_object = $result_user->fetch_object(false);
+if($cmr->db_connection) $result_user = $cmr->db_connection->query($cmr->query["login"]);
+if($result_user) $user_object = $result_user->fetch_object();
 // ======================================================================
 // ======================================================================
 // =====================GOOD OR BAD AUTHENTIFICATION=====================
@@ -336,7 +336,7 @@ if(!($user_object)){
 		cmr_escape($cmr->get_user("auth_user_send")));
 
         if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
     }else {
 	    $cmr->event["id"] = "22";
 	    $cmr->event["name"] = "user_not_found";
@@ -391,7 +391,7 @@ switch($cmr->get_user("auth_mode")){
 		cmr_escape($cmr->get_user("auth_user_send")));
 
         if($cmr->db_connection) $result_user = &$cmr->db_connection->query($cmr->query["login"]);
-        if($result_user) $user_object = $result_user->fetch_object(false);
+        if($result_user) $user_object = $result_user->fetch_object();
 	break;
 
 	case "cert":

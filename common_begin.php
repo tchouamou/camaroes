@@ -45,7 +45,6 @@ $cmr = new camaroes();
 // print_r($cmr);
 // exit;
         /*==================*/
-
         /*==================*/
             include_once(dirname(__FILE__) . "/control.php"); //to control access in the module
             if(file_exists(dirname(__FILE__) . "/config.inc.php")){
@@ -68,7 +67,10 @@ $cmr = new camaroes();
 //          $cmr->config = $cmr->include_conf("conf.d/conf_login.ini", $cmr->config, "var");
 //          $cmr->config = $cmr->include_conf("conf.d/conf_security.ini", $cmr->config, "var");
         /*==================*/
-
+                /*==================*/
+                $cmr->load_session_mode();
+                session_start();/* start the session */
+                /*==================*/
         /*==================*/
             if(!($cmr->get_conf("cmr_path"))) $cmr->config["cmr_path"] = realpath("./");
             $cmr->config["cmr_path"] = realpath($cmr->get_conf("cmr_path"))  . "/";
@@ -105,10 +107,6 @@ $cmr = new camaroes();
 //         	if(cmr_cli()) $cmr->post_var=$cmr->get_param();
         /*==================*/
 
-        /*==================*/
-        $cmr->load_session_mode();
-        //session_start();/* start the session */
-        /*==================*/
 // $cmr->debug_print();exit;
 
         /*==================*/
@@ -120,11 +118,11 @@ $cmr = new camaroes();
         /*==================*/
          if(!($cmr->get_session("type"))) $cmr->session["type"] = "normal"; //read_only
         /*==================*/
-//         $cmr->language = auto_language($cmr->config, $cmr->language, $cmr->db_connection); //__automatic create language traduction
+//      $cmr->language = auto_language($cmr->config, $cmr->language, $cmr->db_connection); //__automatic create language traduction
         $cmr->language = $cmr->include_conf($cmr->get_conf("cmr_begin_lang_file"), $cmr->language, "var");
         $cmr->page = $cmr->include_conf($cmr->get_conf("cmr_begin_pager_file"), $cmr->page, "var");// =========== default config ==================
         $cmr->themes = $cmr->include_conf($cmr->get_conf("cmr_begin_theme_file"), $cmr->themes, "var");
-		$cmr->themes = cmr_include_conf($cmr->config, $cmr->get_path("theme") . $cmr->get_page("cmr_themes"), $cmr->themes, "var");
+		    $cmr->themes = $cmr->include_conf($cmr->get_path("theme") . $cmr->get_page("cmr_themes"), $cmr->themes, "var");
         /*==================*/
         cmr_init_mode($cmr->config, trim($cmr->translate("cmr_charset")));
         /*==================*/
@@ -144,48 +142,52 @@ $cmr = new camaroes();
 
         /*========main=======*/
         if($cmr->get_conf("cmr_output_buffering"))  ob_start(); // start output buffering//  ob_start('cmr_callback');
-
-
-        include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
+        /*==================*/
+        /*==================*/
+        if($cmr->get_conf("cmr_use_db")){
+        //include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
         $cmr->db_connection = $cmr->connect();
         //$cmr->db = $cmr->input_session("db");
         if(!empty($cmr->db["db_host"])) $cmr->db_connection = $cmr->connect($cmr->db);//or $cmr->config["cmr_guest_mode"] = 0; //-----database connection------
-        if(empty($cmr->db_connection)) $cmr->config["cmr_guest_mode"] = 1;
+        }
+
+        if($cmr->db_connection) {
+          include($cmr->get_path("index") . "system/load_user_data.php");
+          include_once($cmr->get_path("index") . "system/control_session.php");
+        }else{
+          $cmr->config["cmr_guest_mode"] = 1;
+        }
         /*==================*/
         /*==================*/
         //$cmr->user = $cmr->input_session("user");
-        if(!($cmr->get_conf("cmr_guest_mode")) && (get_post("cmr_mode") != "guest_mode")){
+        //if(!($cmr->get_conf("cmr_guest_mode")) && (get_post("cmr_mode") != "guest_mode")){
         //if($cmr->new_login()){// ======================get authentificazione first==================
-        include($cmr->get_path("index") . "system/load_user_data.php");
         //}else{
-           //$cmr->session = $cmr->input_session("session");
-//            $cmr->db = $cmr->input_session("db");
-//            if(!empty($cmr->db["db_host"])) $cmr->db_connection = $cmr->connect($cmr->db);
-        include_once($cmr->get_path("index") . "system/control_session.php");
-           //$cmr->load_session();
-// $cmr->debug_print();exit;
-// $cmr->debug_print();exit;
+        //$cmr->session = $cmr->input_session("session");
+        //$cmr->db = $cmr->input_session("db");
+        //if(!empty($cmr->db["db_host"])) $cmr->db_connection = $cmr->connect($cmr->db);
         //}
-
-        }
+        //}
         /*==================*/
-
         /*==================*/
         if(($cmr->get_conf("cmr_guest_mode")) || (get_post("cmr_mode") == "guest_mode")){
         //if($cmr->new_login()){// ======================get authentificazione first==================
-        $_SESSION["cmr_id"] = session_id();
         include($cmr->get_path("index") . "system/load_guest_mode.php");
         //}else{
         //$cmr->load_session();
         //}
         }
         /*==================*/
-
+        if($_POST["auth_user"]) $_SESSION = array();
+        /*==================*/
+        (isset($_SESSION["cmr_id"]))?$cmr->load_session():$_SESSION["cmr_id"] = session_id();
+        /*==================*/
+        //$cmr->show();exit;
+        // $cmr->debug_print();exit;
         /*==================*/
 //         if(!$cmr->new_login())
         include($cmr->get_path("get_data") . "get_data/guest/get_default_data.php");
         /*==================*/
-        $cmr->load_session();
         /*==================*/
         $cmr->post_var["class_module"] = get_post("class_module");
         $cmr->post_var["cmr_get_data"] = get_post("cmr_get_data");
