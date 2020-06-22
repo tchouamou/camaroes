@@ -141,7 +141,7 @@ $division->prints["match_label_passphrase"] = $cmr->translate("pass phrase");
 // -----------
 // $sql_user = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user ";
 // $sql_user .= " WHERE id='" . $id_user . "'";
-// $result_user = &$cmr->db_connection->Execute($sql_user) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+// $result_user = &$cmr->db_connection->query($sql_user) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // $val_user = $result_user->FetchNextObject(false);
 // -----------
 // -----------

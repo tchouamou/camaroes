@@ -631,6 +631,7 @@ function calcul_tree_group($cmr_config, $conn, $str_list)
     // -----------------------
   if($data)
 	 foreach($data as $key => $f_group){
+   if(isset($f_group["group_father"]) && isset($f_group["group_child"]))
 	 if(isset($tab_child[trim($f_group["group_father"])])){
 	     $tab_child[trim($f_group["group_father"])] .= ", '" . trim($f_group["group_child"]) . "'";
 	 }else{
@@ -1203,7 +1204,7 @@ if(!(function_exists("cmr_update_pw"))){
 		  if($conn) $result_query = sql_run("result", $conn, "", $sql_query);
 // 	    $result_query = $conn->Execute($sql_query) /*, $db_con)*/ or print("<li>!!! " . $conn->ErrorMsg() . " !!!? </li>");
 	    if(!($result_query)) $total = 0 ;
-      if($result_query) $total = $result_query->affected_rows;
+      if($result_query) $total = $result_query->num_rows;
 	  return $total;
 	}
 }
@@ -1227,7 +1228,7 @@ if(!(function_exists("run_install_query"))){
 		$result_query = sql_run("result", $conn, "", $sql_query . ";");
 //             $result_query = $conn->Execute($sql_query . ";")  or $install_prints .= ("<li><b><p>!!! " . $conn->ErrorMsg() . " !!!?</p></b><li>");
             if(!($result_query)) $install_prints .= ("<li class=\"alert\">" . $sql_query . ";</li>");
-            if($result_query) $total += $result_query->affected_rows;/*, $db_con)*/
+            if($result_query) $total += $result_query->num_rows;/*, $db_con)*/
         }
         $install_prints .= ("<li>" . $sql_query . ";</li>");
     }
@@ -1617,13 +1618,13 @@ $view_result=null;
 if($conn) $view_result = sql_run("result", $conn, "", $view_query);
 // $view_result = $conn->Execute($view_query) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 //if($view_result) $matrix["total"] = $view_result->RecordCount();
-if($view_result) $matrix["total"] = $view_result->affected_rows;
+if($view_result) $matrix["total"] = $view_result->num_rows;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 if(empty($matrix["total"])) $matrix["total"] = 0;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(!empty($matrix["total"])){
+if($matrix["total"]){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /**
  * jumping to page
@@ -1645,17 +1646,21 @@ $count_result = sql_run("result", $conn, "", $view_query, "", "", "", $sql_data)
 }
 // $count_result = $conn->SelectLimit($view_query, $view_limit, $view_begin);
 //if($count_result) $matrix["num_view"] = $count_result->RecordCount();
-if($count_result) $matrix["num_view"] = $count_result->affected_rows;
+if($count_result) $matrix["num_view"] = $count_result->num_rows;
+//print("matrix[num_view]=" . $matrix["num_view"]);
 /**
  * calculate number off page
  */
 ($matrix["num_view"])?($matrix["num_page"] = $matrix["total"] / $view_limit):($matrix["num_page"] = 0);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $num_view  = 0;
-while (($val_table = $count_result->fetch_row()) && ($num_view < $view_limit)){
+while (($val_table = $count_result->fetch_assoc()) && ($num_view < $view_limit)){
 	$num_view++;
 	if(!empty($val_table)) $matrix["table"][] = $val_table;
 	}
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -1984,7 +1989,7 @@ if($conn)
 $result_query = sql_run("result", $conn, "", $cmr_query);
 // $result_query = $conn->Execute($cmr_query) /*, $conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->error);//$conn->ErrorMsg());
 //if($result_query) $affected_rows = $result_query->RecordCount();
-if($result_query) $affected_rows = $result_query->affected_rows;
+if($result_query) $affected_rows = $result_query->num_rows;
 
 
 
@@ -2427,7 +2432,7 @@ if(!function_exists("get_table_columns")){
 		if($conn)
 		$query_result = sql_run("result", $conn, "", $sql_query);
 //             $query_result = $conn->Execute($sql_query)  or print($conn->error);//$conn->ErrorMsg());
-            if($query_result) $affected_rows = $query_result->affected_rows;
+            if($query_result) $affected_rows = $query_result->num_rows;
 // 	        $query_result->Close();
 		    return $affected_rows;
 	}

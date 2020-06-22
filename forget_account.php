@@ -25,7 +25,7 @@ forget_account.php,  2011-Oct
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
+//include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
 $cmr->session["cmr_img_code"] = $cmr->gener_code("Camaroes");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -63,7 +63,7 @@ $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -90,9 +90,9 @@ if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
 $file_list = array();
 $file_list[] = $cmr->config["template_forget_account"];
 $file_list[] = $cmr->get_path("template") . "templates/template_forget_account" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_forget_account" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_forget_account" . $cmr->get_ext("template");
 $template_forget_account_file = cmr_good_file($file_list);
-$template_forget_account = file_get_contents($template_forget_account_file);  
+$template_forget_account = file_get_contents($template_forget_account_file);
 $cmr->print_template("template1", $template_forget_account);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -195,7 +195,7 @@ $cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-$cmr->prints["match_close_windows"] = $division->close(); 
+$cmr->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

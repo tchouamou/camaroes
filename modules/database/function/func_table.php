@@ -73,7 +73,7 @@ if(!(function_exists("table_link_default"))){
         $column_id = $val[$table_id];
 
 	        if($table_id){
-	            $table_link = input_hidden("<input type=\"checkbox\" name=\"" . $cmr_page["_table_"] . "_check_" . $cmr_page["___number___"] . "\" value=\"" . $val[$table_id] . "\" />");
+	            $table_link = input_hidden("<input type=\"checkbox\" name=\"" . $cmr_page["_table_"] . "_check_" . $cmr_page["__number__"] . "\" value=\"" . $val[$table_id] . "\" />");
 
 	        $image1 = cmr_get_path("image") . "images/icon/readed_icon.png";
 	        $image2 = cmr_get_path("image") . "images/icon/to_read_icon.png";
@@ -131,7 +131,6 @@ if(!(function_exists("table_link_tab"))){
         $table_link = "";
 	    $table_style = "";
         $table_id = $cmr_page["__column_id__"];
-
 	    $table = $cmr_page["__table__"];
 	    $num_view = $cmr_page["__number__"];
 		$array_column = $cmr_page["__array_column__"];
@@ -139,7 +138,7 @@ if(!(function_exists("table_link_tab"))){
         if(!empty($val))
         if(!empty($val[$table_id])){
         $column_id = $val[$table_id];
-            $table_link = "<td class=\"rown1\" >" . input_hidden("<input type=\"checkbox\" name=\"" . $cmr_page["_table_"] . "_check_" . $cmr_page["___number___"] . "\" value=\"" . $val[$table_id] . "\" />");
+            $table_link = "<td class=\"rown1\" >" . input_hidden("<input type=\"checkbox\" name=\"" . $cmr_page["_table_"] . "_check_" . $cmr_page["__number__"] . "\" value=\"" . $val[$table_id] . "\" />");
 
 	        $image1 = cmr_get_path("image") . "images/icon/readed_icon.png";
 	        $image2 = cmr_get_path("image") . "images/icon/to_read_icon.png";
@@ -181,7 +180,7 @@ if(!(function_exists("table_link_tab"))){
 
             $table_link .= "<td class=\"rown2\" >" . strval($val[$val["_date_time1"]]) . "</td>";
 
-            cmr_set_session("pre_match",  cmr_get_session("pre_match") . $cmr_page["_table_"] . "_check_" . $cmr_page["___number___"] . "@,@.*@,@10@;@");
+            cmr_set_session("pre_match",  cmr_get_session("pre_match") . $cmr_page["_table_"] . "_check_" . $cmr_page["__number__"] . "@,@.*@,@10@;@");
 
             $table_link .= "<td class=\"rown1\" >";
         	if($cmr_page["__mode__"] != "link_print"){
@@ -264,7 +263,7 @@ if(!function_exists("print_collation")){
 if(!function_exists("database_connect")){
     function database_connect($conn, $db_conn, $cmr_db = array())
     {
-		if(empty($db_conn)) $db_conn = NewADOConnection($cmr_db["db_type"]);
+		//if(empty($db_conn)) $db_conn = NewADOConnection($cmr_db["db_type"]);
 		if(!empty($cmr_db["db_name"])) $db_conn->Connect($cmr_db["db_host"], $cmr_db["db_user"], $cmr_db["db_pw"], $cmr_db["db_name"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $db_conn->ErrorMsg());
 		if(empty($db_conn)) $db_conn = $conn;
         return $db_conn;
@@ -356,13 +355,12 @@ if(!function_exists("column_date_time")){
 if(!function_exists("type_column")){
     function type_column($columns = array())
     {
-	if(empty($columns["Type"])) $columns["Type"] = "INT";
-        $pst = strpos($columns["Type"], "(");
-
+	      (isset($columns["Type"]))?$Type = $columns["Type"]:$Type = "INT";
+        $pst = strpos($Type , "(");
         if($pst){
-            return strtolower(substr($columns["Type"], 0, $pst));
+            return strtolower(substr($Type, 0, $pst));
         }else{
-            return strtolower($columns["Type"]);
+            return strtolower($Type);
         }
     };
  }

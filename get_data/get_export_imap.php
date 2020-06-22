@@ -286,7 +286,7 @@ switch($export_type){
 	break;
 	default:
 	// ------------
-    $cmr->db["result"][0] = &$cmr->db_connection->Execute($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+    $cmr->db["result"][0] = &$cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 	$export_data = file_get_contents($into_outfile);
 	// ------------
 	break;

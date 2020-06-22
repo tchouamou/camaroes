@@ -26,7 +26,7 @@ run_result.php,  2011-Oct
 */
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -36,16 +36,16 @@ $division->module["name"] = $mod->name;
 $division->module["base_name"] = strtolower(substr($mod->name, 0, strrpos($mod->name, ".")));
 // $division->module["text"] = "";
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
-$division->module["title"] = date("l d, M Y"); 
+$division->module["title"] = date("l d, M Y");
 $division->prints["match_open_windows"] = $division->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$division->prints["match_@_table_@_title1"] = ""; 
-$division->prints["match_@_table_@_title2"] = ""; 
-if(($cmr->translate($mod->base_name))) 
+$division->prints["match_@_table_@_title1"] = "";
+$division->prints["match_@_table_@_title2"] = "";
+if(($cmr->translate($mod->base_name)))
 $division->prints["match_@_table_@_title1"] = $cmr->translate($mod->base_name);
-if(isset($cmr->language[$mod->base_name."_title"])) 
+if(isset($cmr->language[$mod->base_name."_title"]))
 $division->prints["match_@_table_@_title2"] = $cmr->translate($mod->base_name . "_title");
 
 
@@ -59,11 +59,11 @@ $division->template = $division->load_template($file_list);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 
-$division->prints["match_execute_query"] = ""; 
-$division->prints["match_result_query"] = ""; 
-$division->prints["match_output_message"] = ""; 
+$division->prints["match_execute_query"] = "";
+$division->prints["match_result_query"] = "";
+$division->prints["match_output_message"] = "";
 
 // $division->prints["match_execute_query"] .= $mod->sql_run($cmr->query, $cmr->output, $cmr->session, $cmr->db_connection);
 // ============ ".action_db." ==============
@@ -78,14 +78,15 @@ while(isset($cmr->query[$count])){
 		 }else{
 //     $division->prints["match_execute_query"] .= "("<br /><b>".$cmr->translate("query")."(".$count."):</b>" . substr($cmr->query[$count], 0, 25) . "   ....<br />");
     $result_query = sql_run("result", $cmr->db_connection, "sql", $cmr->query[$count]);
-//     $result_query = &$cmr->db_connection->Execute($cmr->query[$count]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	    if($result_query) 
+    print_r($result_query);
+//     $result_query = &$cmr->db_connection->query($cmr->query[$count]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	    if($result_query)
 	    {
-		    $cmr->db["affected_row"][$count] = $result_query->RecordCount();;
+		    $cmr->db["affected_row"][$count] = $result_query->affected_rows;
 		    $cmr->action["affected_rows"] += $cmr->db["affected_row"][$count];
 		}
 	}
-	
+
 }
     $count++;
 }
@@ -94,7 +95,7 @@ while(isset($cmr->query[$count])){
 // $division->prints["match_result_query"] .= $mod->run_message($cmr->query, $cmr->db, $cmr->session, $cmr->output, $cmr->db_connection);
 // =======================
 if(!empty($cmr->db["result"][0])){
-    //  Query to be run 
+    //  Query to be run
     // if( (!cmr_searchi("^search", $cmr->form))&&($cmr->form !="report_periodic"))
 	    if(isset($cmr->query[0]) && ($cmr->query[0])){
 	        // ----successo------------------
@@ -103,7 +104,7 @@ if(!empty($cmr->db["result"][0])){
 	        // --log action-----
 	        $cmr->event_log("Script=" . __FILE__ . " : " . $cmr->translate("action_db") . " : " . substr($cmr->output[1], 0, 80));
 	    } //--------fallito-----------
-	    else { 
+	    else {
 	        $division->prints["match_result_query"] .= ("<br /><span class=\"blink\"> " . $cmr->translate("no_write_db") . "  .</span><br />");
 	        // --log action-----
 	        $cmr->event_log("Script=" . __FILE__ . " : " . $cmr->translate("no_write_db") . " : " . substr($cmr->output[1], 0, 80));
@@ -116,7 +117,7 @@ if(!empty($cmr->db["result"][0])){
 // $division->prints["match_output_message"] .= $mod->output_text($cmr->output);
 // =======================
 if(!empty($cmr->output[0])){
-    // Text to be write 
+    // Text to be write
     // -- run result (preview) from loader_get.php ---------
     $division->prints["match_output_message"] .= ("<pre>" . html_control(wordwrap(substr($cmr->output[0], 0, 10000), 100, "\n")) . "</pre>");
 }
@@ -130,21 +131,21 @@ if(empty($cmr->output[1])) $cmr->output[1] = $cmr->output[0];
 // =======================
 if(($cmr->get_action("form_action_run"))){
 $division->print_template("template2");
-    // Script to be run 
-	if(cmr_match_include($division->template, "match_include1")) 
+    // Script to be run
+	if(cmr_match_include($division->template, "match_include1"))
     print(eval($cmr->get_action("form_action_run")));
 $division->print_template("template3");
 }
 // =======================
- 
+
 
 // $mod->action_include($cmr->query, $cmr->action);
 // =======================
 if(($cmr->get_action("form_action_include"))){
-    // Script to be include 
+    // Script to be include
 $division->print_template("template2");
-	if(file_exists($cmr->get_action("form_action_include"))) 
-	if(cmr_match_include($division->template, "match_include2")) 
+	if(file_exists($cmr->get_action("form_action_include")))
+	if(cmr_match_include($division->template, "match_include2"))
     include($cmr->get_action("form_action_include"));
 $division->print_template("template3");
 }
@@ -155,7 +156,7 @@ $division->print_template("template3");
 // =======================
 if((!empty($cmr->email["subject"])) && (!empty($cmr->email["message"]) && (!empty($cmr->config["cmr_use_email"])))){
 $division->print_template("template2");
-	if(cmr_match_include($division->template, "match_include3")) 
+	if(cmr_match_include($division->template, "match_include3"))
 	include($cmr->get_path("index") . "system/generate/email.php");
 $division->print_template("template3");
 }
@@ -165,16 +166,16 @@ $division->print_template("template3");
 // $mod->sincronise($cmr->query, $cmr->db, $cmr->db_connection);
 
 // =======================
-if(!empty($cmr->db["result"][0])) 
-if(!empty($cmr->query[0]) && ($cmr->get_conf("cmr_sincronisation"))){	
+if(!empty($cmr->db["result"][0]))
+if(!empty($cmr->query[0]) && ($cmr->get_conf("cmr_sincronisation"))){
 $division->print_template("template2");
-    // usefull for sincronisation use 
+    // usefull for sincronisation use
 	@ list($type_migration, $migration) = explode("|", $cmr->get_conf("cmr_sincronisation"));
-	if(!empty($migration)) 
-	if(file_exists($migration)) 
-	if(cmr_match_include($division->template, "match_include4")) 
+	if(!empty($migration))
+	if(file_exists($migration))
+	if(cmr_match_include($division->template, "match_include4"))
 	include_once($migration);
-    // usefull for sincronisation use 
+    // usefull for sincronisation use
 $division->print_template("template3");
 }
 // =======================

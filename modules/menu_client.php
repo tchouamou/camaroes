@@ -114,7 +114,7 @@ $array_modules = array();
 $num_modules=0;
 // $cmr->query["sql"] = "SELECT * FROM  " . $cmr->get_conf("cmr_table_prefix") . "groups WHERE ( " . $cmr->get_conf("cmr_table_prefix") . "groups.name IN (" . $cmr->get_user("auth_list_group") . "));";
 // 
-// $result_query = &$cmr->db_connection->Execute($cmr->query["sql"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+// $result_query = &$cmr->db_connection->query($cmr->query["sql"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // //-----------
 // if($result_query)
 // while ($val = $result_query->FetchNextObject(false)){

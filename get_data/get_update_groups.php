@@ -251,7 +251,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "user_grou
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND user_email NOT IN (" . $user_email_set . ") ";
 $query_delete .= " AND group_name = '" . cmr_escape($group_name) . "';";
-$sql_delete = &$cmr->db_connection->Execute($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "user_groups", $cmr_accept);
@@ -266,7 +266,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "father_gr
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND group_child NOT IN (" . $group_child_set . ") ";
 $query_delete .= " AND group_father = '" . cmr_escape($group_name) . "';";
-$sql_delete = &$cmr->db_connection->Execute($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "father_groups", $cmr_accept);
@@ -281,7 +281,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "father_gr
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND group_father NOT IN (" . $group_father_set . ") ";
 $query_delete .= " AND group_child = '" . cmr_escape($group_name) . "';";
-$sql_delete = &$cmr->db_connection->Execute($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "father_groups", $cmr_accept);

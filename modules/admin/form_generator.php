@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-form_generator.php, Ver 3.03 
+form_generator.php, Ver 3.03
 */
 
 /**
@@ -109,7 +109,7 @@ $lk->add_link("modules/desktop.php?left1=&middle2=", 1);
 $division->prints["match_link_list"] = $lk->list_link();
 
 
-	
+
 
 $division->prints["match_link_list"] = "";
 $division->prints["match_input_hidden_id"] = "";
@@ -609,7 +609,7 @@ $division->prints["match_input_hidden_conf"] = "";
 	if(empty($db_source)) $db_source = "local";
 	if(empty($model_source)) $model_source = "local";
 	if(empty($output_type)) $output_type = "download";
-	
+
 	($the_db_name == "camaroes_db") ? $division->prints["match_table_prefix"] = "cmr_" : $division->prints["match_table_prefix"] = "";
 
 $division->prints["match_label_main"] = ($cmr->translate("main"));
@@ -745,7 +745,7 @@ $num_tab = count($database_p);
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_select_db_name"] = select_order($cmr->language, $database_p,  $database_p, "0", "100");
 
-// $sql_db_result = &$cmr->db_connection->Execute("show databases;") or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+// $sql_db_result = &$cmr->db_connection->query("show databases;") or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // while (($db = $sql_db_result->FetchRow())){
 //	$db_name = $db[0];
 //  $division->prints["match_select_db_name"] .= "<option>" . $db_name . "</option>";
@@ -785,7 +785,7 @@ $num_type = 0;
 $model_dir = $model_group . "/";
 $dir = @opendir($model_dir);
 while ($fich = readdir($dir)){
-  if(($fich != ".") && ($fich != "..") && (is_file($model_dir . $fich))){ 
+  if(($fich != ".") && ($fich != "..") && (is_file($model_dir . $fich))){
 //   $list_files[] = $fich;
 //     $form_model = str_replace(strstr($fich, "_model"),"",$fich);
     $num_type++;
@@ -803,7 +803,7 @@ if(empty($array_model_type)) $array_model_type = array("administrate", "button",
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // foreach($array_model_type as $pref){
 // // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// // foreach($array_model_type as $form_model) 
+// // foreach($array_model_type as $form_model)
 // reset($list_files);
 // foreach($list_files as $key => $file){
 //     if((!empty($file)) && cmr_searchi("^" . $pref . "[^\.]*_model\.", $file)){
@@ -854,7 +854,7 @@ $division->prints["match_label_files"] = ($cmr->translate("file(s) to create"));
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // cmrdb_select_db($cmr->db["db_name"], $cmr->db_connection);
-$cmr->db_connection->Connect($cmr->get_conf("db_host"), $cmr->config["db_user"], $cmr->config["db_pw"], $cmr->db["db_name"]);
+$cmr->db_connection->Connect($cmr->get_conf("db_host"), $cmr->config["db_user"], $cmr->config["db_pw"], $cmr->config["db_name"]);
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -864,7 +864,7 @@ $division->prints["match_submit_java"] = $cmr->translate("generate script?");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

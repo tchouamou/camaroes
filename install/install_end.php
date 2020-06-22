@@ -144,7 +144,7 @@ $install_prints = "";
    $install_prints .= $run_install_query[1];
 //     foreach($sql_query_array as $sql_query){
 //         if($sql_query){
-//             $result_query = &$cmr->db_connection->Execute($sql_query . ";")  or $install_prints .= ("<li><b><p>!!! " . $cmr->db_connection->ErrorMsg() . " !!!?</p></b><li>");
+//             $result_query = &$cmr->db_connection->query($sql_query . ";")  or $install_prints .= ("<li><b><p>!!! " . $cmr->db_connection->ErrorMsg() . " !!!?</p></b><li>");
 //             (empty($result_query)) ? $install_prints .= ("<li class=\"alert\">" . $sql_query . ";</li>") : $total += $result_query->RecordCount();/*, $db_con)*/
 //         }
 //         $install_prints .= ("<li>" . $sql_query . ";</li>");

@@ -56,7 +56,7 @@ if(!(function_exists("message_link"))){
       **/
      function message_link($cmr_config = array(), $cmr_page = array(), $cmr_language = array(), $val)
     {
-         $id_message = $val[$cmr_config["column_id_message"]];
+       $id_message = $val[$cmr_config["column_id_message"]];
 	     $message_link="";
 	     $message_style="";
       if($id_message){

@@ -81,7 +81,7 @@ include_once("common_begin.php");
     // -----------
     // -----------
     $sql_f = "SELECT uid , pw FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE email = '" . cmr_escape($email1) . "'  ;";
-    $result_f = &$cmr->db_connection->Execute($sql_f, $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
+    $result_f = &$cmr->db_connection->query($sql_f, $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
     // -----------
     if(!($vf = $result_f->FetchRow())){
         $cmr->prints["match_title2"] .= "<hr />" . $cmr->translate("Email unknown contact") . " " . $cmr->get_conf("cmr_company_name");
@@ -100,7 +100,7 @@ include_once("common_begin.php");
         $query .= " WHERE (" . $cmr->get_conf("cmr_table_prefix") . "user.email='" . cmr_escape($email1) . "') ";
 
                 // -----------
-        $sql_tmp = &$cmr->db_connection->Execute($query, $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
+        $sql_tmp = &$cmr->db_connection->query($query, $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
         // -----------
         $cmr->email["recipient"] = $email1;
         $cmr->email["subject"] = "" . $cmr->translate("user information sended") . "";

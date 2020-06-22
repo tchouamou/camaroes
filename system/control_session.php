@@ -127,7 +127,7 @@ if((($cmr->get_session("id"))) && (($cmr->get_session("id")) != (session_id())))
 //     // *************************
 //     $sql_session = "update " . $cmr->get_conf("cmr_table_prefix") . "session  set  , status='connect' , state='enable',   time_out='$time_out' ,  session_end=NOW()
 //     $sql_session .= " WHERE    sessionid= '$sessionid' and  sessionip= '$sessionip' and   user_email= '$user_email';";
-//     &$cmr->db_connection->Execute($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+//     &$cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 //     // *************************
  	    }
 // ======================================================================

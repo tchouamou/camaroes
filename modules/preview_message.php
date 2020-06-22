@@ -185,7 +185,7 @@ $cmr->action["where"] = $cmr->where_query();
 // $cmr->query["preview"] .= " AND " . $cmr->action["where"];
 
 // // -----------
-// $cmr->db["result"]["preview"] = &$cmr->db_connection->Execute($cmr->query["preview"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+// $cmr->db["result"]["preview"] = &$cmr->db_connection->query($cmr->query["preview"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // -----------
 
 $GLOBALS["current_message_id"] = $cmr->post_var["id_message"];
@@ -303,7 +303,7 @@ $division->prints["match_pdf_confirm"] = $cmr->translate("confirm");
 if(empty($GLOBALS["message_read"])) $GLOBALS["message_read"] = array();
     $GLOBALS["current_message_id"] = $result_value["id"];
 if(!in_array ($result_value["id"], $GLOBALS["message_read"])){
-    $cmr->db_connection->Execute("INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "history (id, user_email, table_name, line_id, action, date_time) VALUES ('', '" . $cmr->get_user("auth_email") . "', '" . $cmr->get_conf("cmr_table_prefix") . "message', '" . $result_value["id"] . "' ,'read'");
+    $cmr->db_connection->query("INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "history (id, user_email, table_name, line_id, action, date_time) VALUES ('', '" . $cmr->get_user("auth_email") . "', '" . $cmr->get_conf("cmr_table_prefix") . "message', '" . $result_value["id"] . "' ,'read'");
     $cmr->post_var["current_message_id"] = $cmr->post_var["id_message"];
     array_push ($GLOBALS["message_read"], $result_value["id"]);
 }

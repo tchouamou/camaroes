@@ -128,7 +128,7 @@ include_once("common_begin.php");
 		
 		// -----------------------------------------------------
 		$cmr->query[0] = $post->query_insert();
-		$cmr->db["result"][0] = &$cmr->db_connection->Execute($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+		$cmr->db["result"][0] = &$cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 		$cmr->prints["title2"] .=$cmr->translate("End inscription ");
         // ================================================
         $cmr->email["headers_from"] =  $cmr->config["cmr_from_email"];

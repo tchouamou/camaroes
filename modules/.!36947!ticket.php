@@ -339,7 +339,7 @@ foreach($tab_list_group as $key => $val){
     $list_email_bcc = "";
     // -----------
 
-    $result_te = &$cmr->db_connection->Execute($cmr->query["list_email"]) or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); /*, $cmr->db_connection)*/ ;
+    $result_te = &$cmr->db_connection->query($cmr->query["list_email"]) or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); /*, $cmr->db_connection)*/ ;
     if(!empty($result_te))
     while ($r_email1 = $result_te->FetchRow()){
         $list_email .= ", " . $r_email1[0];
@@ -367,7 +367,7 @@ foreach($tab_list_group as $key => $val){
 	$cmr->query["list_email_cc"] = $qr->get_query("list_email_cc");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if($cmr->query["list_email_cc"]){
-	    $result_te_rif = &$cmr->db_connection->Execute($cmr->query["list_email_cc"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	    $result_te_rif = &$cmr->db_connection->query($cmr->query["list_email_cc"]) /*, $cmr->db_connection)*/  or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 	    // -----------
 	    if($result_te_rif)
 	    while ($r_email2 = $result_te_rif->FetchRow()){

@@ -13,7 +13,7 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
-view_core.php, Ver 3.03, 2011-08-22 18:00:00  
+view_core.php, Ver 3.03, 2011-08-22 18:00:00
 */
 
 /**
@@ -93,6 +93,7 @@ $cmr->action["action"] = "select";
 $cmr->action["where"] = $cmr->where_query();
 if(empty($cmr->query[$table_name])) $cmr->query[$table_name] = "";
 $cmr->query[$table_name] = $cmr->sql_view($cmr->query[$table_name], $cmr->config["cmr_table_prefix"] . $table_name, $base_name, $date_time1);
+//print($table_name . "=". $cmr->query[$table_name]);
 /**
  * complete  the sql string with the limit condition
  */
@@ -101,6 +102,7 @@ $cmr->query[$table_name] = $cmr->sql_view($cmr->query[$table_name], $cmr->config
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $matrix = cmr_view_matrix($cmr->db_connection, $cmr->query[$table_name], intval($cmr->post_var[$base_name . "_limit"]), intval($cmr->post_var[$base_name . "_page"]));
+//print_r($matrix);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -152,7 +154,7 @@ $view_win->prints["match_view_order"] = "";
 $view_win->prints["match_table_link_titles"] = "";
 $view_win->prints["match_view_date_time"] = "";
 $view_win->prints["match_view_link"] = "";
-$view_win->prints["match_list_link"] = ""; 
+$view_win->prints["match_list_link"] = "";
 $view_win->prints["match_last_line"] = "";
 $view_win->prints["match_checked"] = "";
 $view_win->prints["match_value_search"] = "";
@@ -195,7 +197,7 @@ $view_win->prints["match_value_columns"] = $cmr->post_var[$base_name . "_columns
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // $view_win->themes["win_type"] = "default";
 // $view_win->module["name"] = $mod->name;
-// $view_win->module["title"] = $cmr->translate($base_name); 
+// $view_win->module["title"] = $cmr->translate($base_name);
 $view_win->module["title"] = $cmr->translate($base_name) . " (" . $matrix["total"] . ")";
 
 if(!empty($cmr->action[$table_name . "_title"])) $view_win->module["title"] = $cmr->action[$table_name . "_title"];
@@ -204,8 +206,8 @@ $view_win->prints["match_open_windows"] = $view_win->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$view_win->prints["match_" . $table_name . "_title1"] = ""; 
-$view_win->prints["match_" . $table_name . "_title2"] = ""; 
+$view_win->prints["match_" . $table_name . "_title1"] = "";
+$view_win->prints["match_" . $table_name . "_title2"] = "";
 if(isset($cmr->language[$base_name])) $view_win->prints["match_" . $table_name . "_title1"] = $cmr->translate($base_name);
 if(isset($cmr->language[$base_name."_title"])) $view_win->prints["match_" . $table_name . "_title2"] = $cmr->translate($base_name . "_title");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -242,6 +244,7 @@ $view_win->prints["match_input_hidden_page"] = input_hidden("<input type=\"hidde
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $array_column = cmr_get_view_columns($cmr->config, $cmr->page["__columns__"], $table_name);
 $cmr->page["__array_column__"] = $array_column;
+//print_r($array_column);
 $i_col = count($array_column) + 1;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -263,7 +266,7 @@ foreach($array_column as $key => $one_column){
 	$module_column = $one_column . "_" . $base_name;
 	if(empty($cmr->action[$module_column])) $cmr->action[$module_column] = "";
     empty($cmr->post_var[$module_column]) ? $get_column = "" : $get_column = $cmr->post_var[$module_column];
-    
+
 	$module_link = ucfirst($cmr->translate("" . $one_column));
 	$module_link .= $cmr->module_link($mod->name . "?" . $base_name . "_order=" . $one_column . "&" . $base_name . "_desc=ASC", "", chr(94), "", "", $mod->position, " class=\"header\" ");
 	$module_link .= $cmr->module_link($mod->name . "?" . $base_name . "_order=" . $one_column . "&" . $base_name . "_desc=DESC", "", "v", "", "", $mod->position, " class=\"header\" ");
@@ -355,7 +358,7 @@ $view_win->prints["match_base_name"] = $base_name;
  * declaration
  */
 file_exists($cmr->config["get_view_" . $table_name]) ? $get_file = $cmr->config["get_view_" . $table_name] : $get_file = $cmr->get_path("get_data") . "get_data/get_view_" . $table_name . ".php";
-// file_exists($cmr->config["path_view_" . $table_name]) ? $path_file = $cmr->config["path_view_" . $table_name] : 
+// file_exists($cmr->config["path_view_" . $table_name]) ? $path_file = $cmr->config["path_view_" . $table_name] :
 $path_file = $cmr->action[$table_name . "_module"];
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -402,18 +405,18 @@ if(empty($cmr->action[$table_name . "_tab"])){
 	$lk->add_link("modules/report_" . $table_name . ".php?conf_name=conf.d/conf_" . $table_name . $cmr->get_ext("conf") . "&id_" . $table_name . "=" . $cmr->post_var["id_" . $table_name], 1, "report");
 	$lk->add_link("modules/view_" . $table_name . ".php?conf_name=conf.d/conf_" . $table_name . $cmr->get_ext("conf") . "&id_" . $table_name . "=" . $cmr->post_var["id_" . $table_name], 1, "view");
   $division->prints["match_open_tab"] = $lk->open_module_tab(3);
-	$view_win->prints["match_close_tab"] = close_module_tab(); 
+	$view_win->prints["match_close_tab"] = close_module_tab();
 }elseif($cmr->action[$table_name . "_tab"] == "."){
-	$view_win->prints["match_open_tab"] = ""; 
-	$view_win->prints["match_close_tab"] = ""; 
+	$view_win->prints["match_open_tab"] = "";
+	$view_win->prints["match_close_tab"] = "";
 }else{
-	$view_win->prints["match_open_tab"] = $cmr->action[$table_name . "_tab"]; 
-	$view_win->prints["match_close_tab"] = close_module_tab(); 
+	$view_win->prints["match_open_tab"] = $cmr->action[$table_name . "_tab"];
+	$view_win->prints["match_close_tab"] = close_module_tab();
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$view_win->prints["match_close_windows"] = $view_win->close(); 
+$view_win->prints["match_close_windows"] = $view_win->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -127,7 +127,10 @@ $cmr = new camaroes();
         cmr_init_mode($cmr->config, trim($cmr->translate("cmr_charset")));
         /*==================*/
 
+        //$cmr->show();
+
         /*==================*/
+        if(get_post("cmr_mode"))
         include($cmr->get_path("index") . "system/select_mode.php");//login, logout, forget_account, inscription, install..etc
         /*==================*/
 
@@ -178,24 +181,28 @@ $cmr = new camaroes();
         //}
         }
         /*==================*/
-        if($_POST["auth_user"]) $_SESSION = array();
+        if(isset($_POST["auth_user"])) $_SESSION = array();
         /*==================*/
         (isset($_SESSION["cmr_id"]))?$cmr->load_session():$_SESSION["cmr_id"] = session_id();
         /*==================*/
-        //$cmr->show();exit;
         // $cmr->debug_print();exit;
         /*==================*/
-//         if(!$cmr->new_login())
+        //if(!$cmr->new_login())
         include($cmr->get_path("get_data") . "get_data/guest/get_default_data.php");
         /*==================*/
         /*==================*/
+        $cmr->save_session();
+        /*==================*/
+        /*==================*/
+        //$cmr->post_var["cmr_mode"] = "";
         $cmr->post_var["class_module"] = get_post("class_module");
         $cmr->post_var["cmr_get_data"] = get_post("cmr_get_data");
-
 
         if(($cmr->post_var["class_module"]) || ($cmr->post_var["cmr_get_data"])){
              include_once($cmr->get_path("index") . "system/loader/loader_get.php");
         }
+        /*==================*/
+        /*==================*/
         /*==================*/
         /*==================*/
         $cmr->session["pre_match"] = "";//$code1="1";

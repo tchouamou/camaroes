@@ -12,11 +12,11 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
+
+
+
 
 get_form_generator.php,Ver 3.0  2011-Sep 22:32:32
 */
@@ -25,16 +25,16 @@ get_form_generator.php,Ver 3.0  2011-Sep 22:32:32
  * Information about
  * $cmr->query[0] Is used for keeping
  * the query string you will be run in the module run_result.php
- * 
+ *
  * $output_type Is used for keeping
  * the string value you will be see after running run_result.php
- * 
+ *
  * $cmr->email["subject"] Is used for keeping
  * the title off the message you will be send after running run_result.php
- * 
+ *
  * $cmr->email["message"] Is used for keeping
  * the text value off the message you will be send after running run_result.php
- */ 
+ */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 include_once("camaroes_class.php");
@@ -42,7 +42,7 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // case "form_generator":
-// 
+//
 
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -66,7 +66,7 @@ include_once("common_begin.php");
     $model_group = get_post("model_group");
     $output_type = get_post("output_type");
     $destination = realpath(get_post("destination"));
-    
+
     $check_backup = get_post("check_backup");
     $backup_extention = get_post("backup_extention");
 
@@ -75,7 +75,7 @@ include_once("common_begin.php");
     $cmr_core = get_post("cmr_core");
     $dbms_core = get_post("db_core");
     $dbms_core_table_prefix = get_post("db_core_table_prefix");
-    
+
     $dbms_host = get_post("db_host");
     $dbms_port = get_post("db_port");
     $dbms_type = get_post("db_type");
@@ -83,13 +83,13 @@ include_once("common_begin.php");
     $dbms_user = get_post("db_user");
     $dbms_pw = get_post("db_pw");
     $prefix = get_post("table_prefix");
-    
+
     $select_tables = get_post("select_tables");
     $select_models = get_post("select_models");
-    
+
     $remote_file_db = get_post("remote_file_db");
     $remote_file_model = get_post("remote_file_model");
-    
+
     $for_incomplete_module = get_post("check_other_model");
     $check_extra_model = get_post("check_other_model");
     $check_administrate = get_post("check_other_model");
@@ -166,7 +166,7 @@ $gen->config = $cmr->config;
 		    $check_backup = get_post("check_backup");
 		    if($check_backup) $gen->backup_extention = $backup_extention;
 	        break;
-	
+
 	        case "application_update":;
 	        $gen->destination = realpath("./") . "/";
 	        $gen->backup_extention = "";
@@ -174,7 +174,7 @@ $gen->config = $cmr->config;
 		    $check_backup = get_post("check_backup");
 		    if($check_backup) $gen->backup_extention = $backup_extention;
 	        break;
-	
+
 	        case "remote_folder":;
 	        case "application_auto":;
 	        case "download":;
@@ -184,7 +184,7 @@ $gen->config = $cmr->config;
 	        $gen->backup_extention = "";
 	        $gen->modes = "w+";
 	        break;
-	
+
 }
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -223,7 +223,7 @@ switch($gen->db_source){
         $dbms_sql_text = get_post("db_sql_text");
         break;
 
-        
+
         case "default":;
         case "local_file":;
         $gen->dbms_name = $gen->dbms_name . "_gen" . date("Ymdhis");
@@ -232,8 +232,8 @@ switch($gen->db_source){
         $dbms_sql_text = file_get_contents($db_source_file);
         $select_all_table = true;
         break;
-        
-        
+
+
         case "none":;
         $gen->dbms_name = "";
         $select_all_table = false;
@@ -241,7 +241,7 @@ switch($gen->db_source){
         $dbms_sql_text_file = "";
         break;
 
-        
+
         case "server":;
         default:;
 	    if(empty($gen->dbms_name)) $gen->dbms_name = $the_db_name;
@@ -271,12 +271,12 @@ if(($db_source!="server")||($db_source=="text")){
     if((file_exists($db_source_file))||(!empty($dbms_sql_text))){
 	    if(!empty($dbms_sql_text)){
 		$sql_query="CREATE DATABASE IF NOT EXISTS " . $gen->dbms_name . ";";
-        $result_query = &$cmr->db_connection->Execute($sql_query, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
+        $result_query = &$cmr->db_connection->query($sql_query, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error . "\n");
     	$gen->connection = $cmr->db_connection->Connect($gen->dbms_host, $gen->dbms_user, $gen->dbms_pw, $gen->dbms_name);
     	}
-    	
-        $result_query = &$cmr->db_connection->Execute($dbms_sql_text, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
-        
+
+        $result_query = &$cmr->db_connection->query($dbms_sql_text, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error . "\n");
+
         $dbms_sql_text = cmr_searchi_replace("^\s*--[^\n]*[\n]", " ", $dbms_sql_text);
         $sql_query_array = cmr_split(";\s*\n", $dbms_sql_text);
         foreach($sql_query_array as $key => $sql_query){
@@ -289,8 +289,8 @@ if(($db_source!="server")||($db_source=="text")){
         $total = 0;
         foreach($sql_query_array as $sql_query){
             if($sql_query){
-                $result_query = &$cmr->db_connection->Execute($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
-                $total += $result_query->RecordCount();;
+                $result_query = &$cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error. "\n");
+                $total += $result_query->num_rows;
             }
             $cmr->output[0] .= ("<hr />" . substr(0, 50, $sql_query) . "<hr />");
         }
@@ -336,44 +336,44 @@ switch($model_source){
 		$model_dir = "";
         break;
 
-        
+
         case "button_generator":;
 		$model_dir = "";
         $list_models[] = "button_model.png";
 		list($col1, $col2, $col3) = explode(",", $cmr->get_conf("cmr_button_color"));
 		list($font, $x_pos, $y_pos, $size) = explode(",", $cmr->get_conf("cmr_button_dim"));
-        
+
 		$button_color = get_post("button_color");
 		if(!is_numeric($button_color)) $button_color = intval($button_color, 16);
-// 		hexdec($button_color), intval("0x".$button_color"), base_convert($button_color, 16, 10);octdec(), decbin(), dechex() 
+// 		hexdec($button_color), intval("0x".$button_color"), base_convert($button_color, 16, 10);octdec(), decbin(), dechex()
 
-		
+
 		$button_col1 = substr($button_color,0,3);
 		$button_col2 = substr($button_color,3,3);
 		$button_col3 = substr($button_color,6,3);
-		
+
 		$button_x_pos = get_post("button_x_pos");
 		$button_y_pos = get_post("button_y_pos");
-		
+
 		$text_font = get_post("text_font");
 		$text_size = get_post("text_size");
 		$button_model = get_post("button_model");
-		
+
 		if(empty($button_model)) $button_model = $cmr->get_conf("cmr_button_model");
 		$cmr->post_files = get_post_files($cmr->config, $cmr->post_files, basename(get_post("button_model")));
         if($cmr->post_files["attachment"]) $button_model = $cmr->post_files["attachment_location"] . "/" . $cmr->post_files["attachment"];
-		
+
 		if(empty($button_col1)) $button_col1 = $col1;
 		if(empty($button_col2)) $button_col2 = $col2;
 		if(empty($button_col3)) $button_col3 = $col3;
-		
+
 		if(empty($text_font)) $text_font = $font;
 		if(empty($button_x_pos)) $button_x_pos = $x_pos;
 		if(empty($button_y_pos)) $button_y_pos = $y_pos;
 		if(empty($text_size)) $text_size = $size;
-		
+
         $gen->models_text = get_post("models_text");
-        $gen->models_text = "£_button_£" . str_replace("\n", "££_button_££ £_button_£", $gen->models_text) . "££_button_££";
+        $gen->models_text = "ï¿½_button_ï¿½" . str_replace("\n", "ï¿½ï¿½_button_ï¿½ï¿½ ï¿½_button_ï¿½", $gen->models_text) . "ï¿½ï¿½_button_ï¿½ï¿½";
 		$gen->button_model = $button_model;
 		$gen->button_color = implode(",", array($button_col1,$button_col2,$button_col3));
 		$gen->button_dim = implode(",", array($text_font,$button_x_pos,$button_y_pos,$text_size));
@@ -382,7 +382,7 @@ switch($model_source){
 		$gen->button_text_size = $text_size;
         break;
 
-        
+
         case "default":;
         case "local_file":;
         $cmr->post_files = get_post_files($cmr->config, $cmr->post_files, basename(get_post("model_file")));
@@ -390,7 +390,7 @@ switch($model_source){
         $list_models[] = $cmr->post_files["attachment"];
 		$model_dir = $cmr->post_files["attachment_location"];
         break;
-        
+
         case "server":;
         default:;
 	    is_array($select_tables) ? $list_tables = $select_tables : $list_tables = array($select_tables);
@@ -415,7 +415,7 @@ $cmr->output[0] = nl2br($cmr->output[0]);
 			// if(($cmr->get_conf("log_to_flux_generaror")));
 			// if(($cmr->get_conf("log_to_rss_generaror")));
 			// if(($cmr->get_conf("log_to_other_generaror")));
-			
+
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

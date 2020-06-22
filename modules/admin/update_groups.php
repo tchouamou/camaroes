@@ -162,7 +162,7 @@ $division->prints["match_list_link"] = $lk->list_link();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $list_group = $cmr->get_user("auth_list_group");
 // $sql_group = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "groups WHERE (id='" . $cmr->post_var["id_groups"] . "')";
-// $result_group = &$cmr->db_connection->Execute($sql_group) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+// $result_group = &$cmr->db_connection->query($sql_group) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // $val_group = $result_group->FetchNextObject(false);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

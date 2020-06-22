@@ -29,7 +29,7 @@ $cmr->config["cmr_smtp_config"] = dirname(__FILE__) . "/conf.d/conf_smtp.ini"; /
 //---------[Initial files Settings]-------------
 
 //---------[Database Settings]-------------
-$cmr->config["cmr_guest_mode"] = "1";
+$cmr->config["cmr_use_db"] = "1";
 $cmr->config["cmr_guest_mode"] = "1";
 $cmr->config["cmr_table_prefix"] = "cmr_";
 $cmr->config["cmr_default_table"] = "ticket";

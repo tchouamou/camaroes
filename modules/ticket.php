@@ -397,7 +397,7 @@ foreach($tab_list_group as $key => $val){
 // 	$cmr->query["client_email"] = $qr->get_query("client_email");
 // 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-//     $resulte = $cmr->db_connection->Execute($cmr->query["client_email"]) or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+//     $resulte = $cmr->db_connection->query($cmr->query["client_email"]) or db_die(__LINE__ . " - " . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 //     // -----------
 //     if($resulte)
 //     while ($elt_bcc = $resulte->FetchRow()){
@@ -1328,9 +1328,9 @@ $division->prints["match_hidden_model"] = "";
 
 
 if($result_t_model)
-while ($r_model = $result_t_model->FetchRow()){
+while ($r_model = $result_t_model->fetch_row()){
     $ticket_value = "";
-    for($j = 0; $j < $result_t_model->FieldCount( ); $j++){
+    for($j = 0; $j < $result_t_model->field_count; $j++){
 	    if(($j == 16)&&(empty($r_model[$j]))) $r_model[$j] = "{{ticket_title}}";
 	    if(($j == 24)&&(empty($r_model[$j]))) $r_model[$j] = "\n-------------[{{date_time}}]-------------\n{{ticket_text}} \n--\n{{groups_email_sign}}";
         if(empty($array_columns[$j]["Field"])) $array_columns[$j]["Field"] = "";

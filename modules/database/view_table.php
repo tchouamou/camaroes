@@ -40,7 +40,7 @@ All rights reserved.
 
 
 
-view_table.php, Ver 3.03   
+view_table.php, Ver 3.03
 */
 
 /**
@@ -97,9 +97,9 @@ $val_table["__table__"] = $table_name;
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-	
-	
-	
+
+
+
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -214,15 +214,15 @@ $view_win->prints["match_open_windows"] = $view_win->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$view_win->prints["match_table_title1"] = ""; 
-$view_win->prints["match_table_title2"] = ""; 
-if(isset($cmr->language[$base_name])) 
+$view_win->prints["match_table_title1"] = "";
+$view_win->prints["match_table_title2"] = "";
+if(isset($cmr->language[$base_name]))
 $view_win->prints["match_table_title1"] = $cmr->translate($base_name);
-if(isset($cmr->language[$base_name."_title"])) 
+if(isset($cmr->language[$base_name."_title"]))
 $view_win->prints["match_table_title2"] = $cmr->translate($base_name . "_title");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$view_win->prints["match_menu_db"] = ""; 
+$view_win->prints["match_menu_db"] = "";
 if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_noc_type"))
 $view_win->prints["match_menu_db"] = cmr_menu_db($database_conn, "", $cmr->post_var["current_database"], $cmr->post_var["current_table"], $cmr->post_var["current_column"]);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -254,7 +254,7 @@ $view_win->prints["match_list_link"] = $lk->list_link();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$view_win->prints["match_close_windows"] = $view_win->close(); 
+$view_win->prints["match_close_windows"] = $view_win->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -418,7 +418,7 @@ foreach($array_columns as $key => $value){
 if($key <= intval($cmr->post_var[$base_name . "_columns"])){
     $module_column = $value . "_" . $base_name;
 	$cmr->action[$module_column] = "";
-    
+
 	(empty($cmr->post_var[$module_column])) ? $value = "" : $value = $cmr->post_var[$module_column];
 	 $cmr->action[$table_name][$value] = $value;
     if(strlen($value) > 0){
@@ -463,8 +463,9 @@ $cmr->query[$table_name] .= " ORDER BY " . $database . "." . $table_name . "." .
  * execute  the sql query and count the total
  */
 $total = 0;
-$result_query = &$database_conn->Execute($cmr->query[$table_name]) /*, $database_conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->ErrorMsg());
-if($result_query) $total = $result_query->RecordCount();
+if($database_conn)
+$result_query = $database_conn->query($cmr->query[$table_name]); /*, $database_conn)*/ //or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->error;
+if($result_query) $total = $result_query->num_rows;
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -491,9 +492,8 @@ if(!empty($total)){
  * num row to be show
  */
 // $result_table_name = &$database_conn->Execute($cmr->query[$table_name]) /*, $database_conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->ErrorMsg());
-$result_table_name = &$database_conn->SelectLimit($cmr->query[$table_name], intval($cmr->action[$table_name]["limit"]), intval($cmr->action[$table_name]["page"]));
-$num_row = $result_table_name->RecordCount();
-
+$result_table_name = $database_conn->query($cmr->query[$table_name]);//, intval($cmr->action[$table_name]["limit"]), intval($cmr->action[$table_name]["page"]));
+$num_row = $result_table_name->num_rows;
 /**
  * calculate number off page
  */
@@ -501,7 +501,7 @@ $num_row = $result_table_name->RecordCount();
 /**
  * jumping  by current page
  */
-// if((intval($cmr->action[$table_name]["limit"]) * intval($cmr->action[$table_name]["page"])) < intval($total)) 
+// if((intval($cmr->action[$table_name]["limit"]) * intval($cmr->action[$table_name]["page"])) < intval($total))
 // $database_conn->SelectLimit($result_table_name, intval($cmr->post_var[$base_name . "_limit"]), intval($cmr->post_var[$base_name . "_page"]));
 // cmrdb_data_seek($result_query, intval($cmr->action[$table_name]["limit"]) * intval($cmr->action[$table_name]["page"]));
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -520,7 +520,7 @@ $view_win->prints["match_input_hidden_search"] = input_hidden("<input type=\"hid
  */
 if($cmr->action[$table_name]["mode"] == "link_tab"){
 	$view_win->prints["match_input_hidden_page"] = input_hidden("<input type=\"hidden\" value=\"".$mod->position."\" name=\"".$mod->path."\" />");
-	
+
 	$view_win->prints["match_table_page"] = $cmr->action[$table_name]["page"];
 	$view_win->prints["match_page_0"] = $cmr->translate("Page 0");
     for($ip = 1; $ip < $num_page; $ip++){
@@ -535,7 +535,7 @@ if($cmr->action[$table_name]["mode"] == "link_tab"){
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if($cmr->action[$table_name]["mode"] == "link_tab"){
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$view_win->prints["match_table_link_input"] = "";
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -568,15 +568,15 @@ if($key <= intval($cmr->post_var[$base_name . "_columns"])){
 	$view_win->prints["match_date_value2"] = $value2;
 	if(strlen($value2) == 0) $view_win->prints["match_date_style2"] = "class=\"hidded\" ";
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$view_win->prints["match_view_order"] = $cmr->module_link($mod->name . "?" . $base_name . "_order=id&" . $base_name . "_desc=" . $cmr->action[$table_name]["desc"], "", $val_table["__column_id__"], "", "", $mod->position, "  class=\"header\" ");
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$view_win->prints["match_table_link_titles"] = "";
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	//  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if($array_columns)
 foreach($array_columns as $key => $value){
@@ -609,7 +609,8 @@ if($key <= intval($cmr->post_var[$base_name . "_columns"])){
 $last_id = "";
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $num_view=1;
-while (($val_table = $result_query->FetchRow()) && ($num_view < $cmr->action[$table_name]["limit"])){
+if($result_query)
+while (($val_table = $result_query->fetch_assoc()) && ($num_view < $cmr->action[$table_name]["limit"])){
 	$num_view++;
 	$val_table["__column_id__"] = $column_id;
 	$val_table["_date_time1"] = $_date_time1;
@@ -679,7 +680,7 @@ $view_win->prints["match_button_assign_del"] = $cmr->view_assign_del($base_name 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(empty($cmr->post_var["search_text"])) $cmr->post_var["search_text"] = "";
 
-if(!empty($last_id)) 
+if(!empty($last_id))
 $view_win->prints["match_show_next_preview_bar"] = show_next_preview_bar($cmr->config, $cmr->language, $cmr->page, $mod->name, $cmr->action[$table_name]["page"], $num_page, $mod->position, "&search_text=" . $cmr->post_var["search_text"] . "");
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -708,7 +709,8 @@ $cmr->action[$table_name]["order"] = "";
 $cmr->post_var["id_table"] = "";
 $cmr->query[$table_name] = "";
 $cmr->post_var[$base_name . "_check"] = "";
-if($result_query) $result_query->Close();
+//if($result_query) $result_query->Close();
+if($result_query) $result_query->free();
 // if($result_table_name) $result_table_name->Close();
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -716,7 +718,7 @@ $file_list = array();
 $file_list[] = $cmr->get_user("auth_user_path") . "templates/template_view_table" . $cmr->get_ext("template");
 $file_list[] = $cmr->get_user("auth_group_path") . "templates/template_view_table" . $cmr->get_ext("template");
 $file_list[] = $cmr->get_path("module") . "modules/database/templates/template_view_table" . $cmr->get_ext("template");
-$view_win->template = $view_win->load_template($file_list);  
+$view_win->template = $view_win->load_template($file_list);
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

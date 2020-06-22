@@ -23,7 +23,7 @@ All rights reserved.
 
 
 
-get_update_user.php,Ver 3.0  2011-Sep-Fri 21:50:34  
+get_update_user.php,Ver 3.0  2011-Sep-Fri 21:50:34
 */
 
 /**
@@ -74,14 +74,14 @@ $cmr->action["to_load"] = "user_groups.php";
 include($cmr->get_path("index") . "system/loader/loader_class.php");
 $post1 = new user_groups_class();
 
-$post1->set_cmr_prefix($cmr->get_conf("cmr_table_prefix"));
-$post1->set_cmr_email($cmr->get_user("auth_email"));
-$post1->set_cmr_group($cmr->get_user("auth_group"));
-$post1->set_cmr_type($cmr->get_user("auth_type"));
-$post1->set_cmr_list_group($cmr->get_user("auth_list_group"));
+$post1->cmr_prefix=$cmr->get_conf("cmr_table_prefix");
+$post1->cmr_email=$cmr->get_user("auth_email");
+$post1->cmr_group=$cmr->get_user("auth_group");
+$post1->cmr_type=$cmr->get_user("auth_type");
+$post1->mr_list_group=$cmr->get_user("auth_list_group");
 
-$post1->set_cmr_config($cmr->config);
-$post1->set_cmr_user($cmr->user);
+$post1->cmr_config=$cmr->config;
+$post1->cmr_user=$cmr->user;
 // -----------------------------------------------------
 
 
@@ -225,7 +225,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "user_grou
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND group_name NOT IN (" . $group_name_set . ") ";
 $query_delete .= " AND user_email = '" . cmr_escape($user_email) . "';";
-$sql_delete = &$cmr->db_connection->Execute($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "user_groups", $cmr_accept);

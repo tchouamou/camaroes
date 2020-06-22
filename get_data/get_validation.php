@@ -120,7 +120,7 @@ include_once("common_begin.php");
 			    $post->set_state('active'); //Getting variable [$post->state] sended by form [validation.php]
 				$post->set_id($id); //Getting variable [$post->id] sended by form [validation.php]
 				$cmr->query[0]  = $post->query_update();
-	    		$cmr->db["result"][0] = &$cmr->db_connection->Execute($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	    		$cmr->db["result"][0] = &$cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 			 $cmr->prints["match_title1"] .=$cmr->translate("Account activated for (") . $user_data . ")";
 			}else{
 			 $cmr->prints["match_title1"] .=$cmr->translate("Account not activated for (") . $user_data . ")";

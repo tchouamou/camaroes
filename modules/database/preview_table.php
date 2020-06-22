@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-preview_table.php, Ver 3.03 
+preview_table.php, Ver 3.03
 */
 
 /**
@@ -100,7 +100,7 @@ $val_table["_date_time1"] = $_date_time1;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // $cmr->post_var["class_module"] = get_post("class_module");
-// 
+//
 // if((!empty($cmr->post_var["class_module"]))||(!empty($cmr->post_var["cmr_get_data"]))){
 //      include_once($cmr->get_path("index") . "system/loader/loader_get.php");
 // }
@@ -115,7 +115,7 @@ if(empty($cmr->post_var["id_table"])){
 	print($cmr->module_link("modules/view_table.php?conf_name=conf_table" . $cmr->get_ext("conf") . "&id_table=", 1));
 	print($cmr->translate(" to select one."));
 //     return;
-} 
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -159,11 +159,11 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-$division->prints["match_table_title1"] = $cmr->translate($mod->base_name . " " . $table_name); 
-$division->prints["match_table_title2"] = ""; 
- 
+$division->prints["match_table_title1"] = $cmr->translate($mod->base_name . " " . $table_name);
+$division->prints["match_table_title2"] = "";
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$division->prints["match_menu_db"] = ""; 
+$division->prints["match_menu_db"] = "";
 if(empty($cmr->post_var["current_table"])) $cmr->post_var["current_table"] = "";
 if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_noc_type"))
 $division->prints["match_menu_db"] = cmr_menu_db($database_conn, "", $cmr->post_var["current_database"], $cmr->post_var["current_table"], $cmr->post_var["current_column"]);
@@ -223,7 +223,7 @@ $cmr->query["preview"] .= " AND " . $cmr->action["where"];
 //$cmr->query["preview"] .= " LIMIT 1;";
 // -----------
 
-$result_preview = &$database_conn->SelectLimit($cmr->query["preview"], $cmr->get_conf("cmr_max_view")) /*, $database_conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->ErrorMsg());
+$result_preview = &$database_conn->query($cmr->query["preview"]);//, $cmr->get_conf("cmr_max_view")) /*, $database_conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->error());
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -238,7 +238,7 @@ $pdf_data_text .= "\n" . $cmr->translate("DATE:") . date("e") ."\n\n" . $cmr->tr
 
 $division->prints["match_value_column"] = "";
  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if($result = $result_preview->FetchNextObject(false)){
+if($result = $result_preview->fetch_object()){
 	if($result->$column_id ) $cmr->post_var["id_table"] = $result->$column_id;
 	foreach($result as $key => $value){
 	$division->prints['match_value_column'] .= '<li><b>' .$cmr->translate($key) . ':</b>';
@@ -252,7 +252,7 @@ if($result = $result_preview->FetchNextObject(false)){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $GLOBALS["current_" . $table_name . "_id"] = $cmr->post_var["id_table"];
 if(empty($GLOBALS[$table_name . "_read"])) $GLOBALS[$table_name . "_read"] = array();
-	
+
 if(!in_array ($cmr->post_var["id_table"], $GLOBALS[$table_name . "_read"])){
     $cmr->log_to_db("'" . $cmr->get_user("auth_email") . "', '" . $cmr->get_conf("cmr_table_prefix") . $table_name . "', '" . $cmr->post_var["id_table"] . "' ,'read'");
     $cmr->post_var["current_" . $table_name . "_id"] = $cmr->post_var["id_table"];
@@ -278,7 +278,7 @@ $division->prints["match_pdf_confirm"] = $cmr->translate("confirm");
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

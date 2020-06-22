@@ -234,7 +234,7 @@ $cmr->action["where"] = $cmr->where_query();
 // $cmr->query["preview"] .= " AND " . $cmr->action["where"];
 
 // // -----------
-// $cmr->db["result"]["preview"] = &$cmr->db_connection->Execute($cmr->query["preview"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+// $cmr->db["result"]["preview"] = &$cmr->db_connection->query($cmr->query["preview"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -1,4 +1,4 @@
-<?php 
+<?php
 defined("cmr_online") or die("hacking attempt, application is not online, click <a href=\"index.php?cmr_mode=login\" > Here </a>  to login before continue ");
 /**
  * view_event.php
@@ -39,7 +39,7 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// 
+//
 // if($cmr->post_var["cmr_get_data"] == "get_data/get_" . $mod->base_name . ".php")
 // include_once($cmr->get_path("index") . "system/loader/loader_get.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -65,11 +65,11 @@ $division->themes["header_visible"] = 0;
 
 $division->prints["match_open_windows"] = $division->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// $division->prints["match_view_event_title1"] = ""; 
-// $division->prints["match_view_event_title2"] = ""; 
-// if(($cmr->translate($mod->base_name))) 
+// $division->prints["match_view_event_title1"] = "";
+// $division->prints["match_view_event_title2"] = "";
+// if(($cmr->translate($mod->base_name)))
 // $division->prints["match_view_event_title1"] = $cmr->translate($mod->base_name);
-// if(isset($cmr->language[$mod->base_name."_title"])) 
+// if(isset($cmr->language[$mod->base_name."_title"]))
 // $division->prints["match_view_event_title2"] = $cmr->translate($mod->base_name . "_title");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -104,7 +104,7 @@ $result = sql_run("array", $cmr->db_connection, "sql", $cmr->query["cron_message
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(!empty($result)) 
+if(!empty($result))
 foreach($result as $data){
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		$cmr->action["cron_text"] = $data[0]["text"];
@@ -129,17 +129,17 @@ $cmr->query["cron_message2"] = $qr->get_query("cron_message2");
 // 		$cmr->query["cron_message2"] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "message ";
 // 		$cmr->query["cron_message2"] .= " SET state  =  'disable' ";
 // 		$cmr->query["cron_message2"] .= " WHERE ( ";
-// 		
+//
 // 		$cmr->query["cron_message2"] .= "((CURRENT_TIMESTAMP BETWEEN begin_time AND end_time)) ";
-// 		
+//
 // 		$cmr->query["cron_message2"] .=" AND (state <> 'disable') ";
 // 		$cmr->query["cron_message2"] .=" AND (modules_dest = 'cron.php') ";
-// 		
+//
 // 		$cmr->query["cron_message2"] .= ") AND " . $cmr->action["where"];
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		
+
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		$result_message = &$cmr->db_connection->Execute($cmr->query["cron_message2"]) /*, $cmr->db_connection)*/  or print($cmr->db_connection->ErrorMsg());
+		$result_message = $cmr->db_connection->query($cmr->query["cron_message2"]) /*, $cmr->db_connection)*/  or print($cmr->db_connection->ErrorMsg());
 		// ========================Cleaning=======================
 }
 }
@@ -224,13 +224,15 @@ $cmr->query["num_ticket"] = $qr->get_query("num_ticket");
 // // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$result_message = &$cmr->db_connection->Execute($cmr->query["num_message"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-$result_ticket = &$cmr->db_connection->Execute($cmr->query["num_ticket"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+$result_message = $cmr->db_connection->query($cmr->query["num_message"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+if($cmr->db_connection)
+$result_ticket = $cmr->db_connection->query($cmr->query["num_ticket"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // ------------------------
 if($result_message)
- if(!($division->prints["match_value_num_message"] = $result_message->RecordCount())) $division->prints["match_value_num_message"] = 0;
+ if(!($division->prints["match_value_num_message"] = $result_message->field_count)) $division->prints["match_value_num_message"] = 0;
 if($result_ticket)
- if(!($division->prints["match_value_num_ticket"] = $result_ticket->RecordCount())) $division->prints["match_value_num_ticket"] = 0;
+ if(!($division->prints["match_value_num_ticket"] = $result_ticket->field_count)) $division->prints["match_value_num_ticket"] = 0;
 // if(!($division->prints["match_value_num_email"] = $result_email->RecordCount())) $division->prints["match_value_num_email"] = 0;
 // ------------------------
 // $division->prints["match_value_num_message"] = $result_message[0][0];
@@ -247,9 +249,9 @@ if($result_ticket)
 // $m->imap_user_name = $cmr->email["imap_user_name"];
 // $m->imap_password = $cmr->email["imap_password"];
 // $m->imap_default_folder = $cmr->email["imap_default_folder"];
-//         
+//
 // $cmr->email["imap_default_folder"] = $m->imap_default_folder;
-// $m->mailbox=$m->get_mailbox();        
+// $m->mailbox=$m->get_mailbox();
 // // $name = strtoupper(str_replace($m->mailbox, "", $m->mailbox));
 // $cmr->post_var["Unread" . $name] = "0";
 (empty($cmr->post_var["UnreadINBOX"])) ? $division->prints["match_value_num_email"] = "0" : $division->prints["match_value_num_email"] = $cmr->post_var["UnreadINBOX"];
@@ -286,15 +288,15 @@ $division->template = $division->load_template($file_list);
  if(($division->prints["match_value_num_message"] != $cmr->get_user("value_num_message"))  && (!empty($division->prints["match_value_num_message"])))
  if(!($cmr->get_user("value_num_message")))
  $division->prints["match_alert_text"] .= $cmr->translate($division->prints["match_value_num_message"] . " !!! New Messages Unread !!!") . "\\n";
- 
+
  if(($division->prints["match_value_num_ticket"] != $cmr->get_user("value_num_ticket"))  && (!empty($division->prints["match_value_num_ticket"])))
  if(!($cmr->get_user("value_num_ticket")))
  $division->prints["match_alert_text"] .= $cmr->translate($division->prints["match_value_num_ticket"] . " !!! New Ticket Unread !!!") . "\\n";
- 
+
  if(($division->prints["match_value_num_email"] != $cmr->get_user("value_num_email")) && (!empty($division->prints["match_value_num_email"])))
  if(!($cmr->get_user("value_num_email")))
  $division->prints["match_alert_text"] .= $cmr->translate($division->prints["match_value_num_email"] . " !!! New Email Unread !!!") . "\\n";
- 
+
  $cmr->user["value_num_message"] = $division->prints["match_value_num_message"];
  $cmr->user["value_num_ticket"] = $division->prints["match_value_num_ticket"];
  $cmr->user["value_num_email"] = $division->prints["match_value_num_email"];
@@ -349,7 +351,7 @@ $db_result = sql_run("array_assoc", $cmr->db_connection, "sql", $cmr->query["loc
                     $array_pw[] = $value["pw"];
             }
         }
-            
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -367,11 +369,11 @@ $db_result = sql_run("array_assoc", $cmr->db_connection, "sql", $cmr->query["loc
   $division->prints["match_www_path"] = $cmr->get_path("www");
   $division->prints["match_form_param"] = "";
   $division->prints["match_form_id"] = "view_event";
-	
+
   $division->prints["match_input_hidden_module"] = input_hidden("<input type=\"hidden\" value=\"" . __FILE__ . "\" name=\"middle1\" />");
   $division->prints["match_input_hidden_get"] = input_hidden("<input type=\"hidden\" value=\"view_event.php\" name=\"cmr_get_data\" />");
   $division->prints["match_input_hidden_conf"] = "";
-	
+
   $division->prints["match_legend"] = $cmr->translate("User to unlock ");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -387,7 +389,7 @@ $db_result = sql_run("array_assoc", $cmr->db_connection, "sql", $cmr->query["loc
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   $division->prints["match_input_hidden_list_email"] = input_hidden("<input type=\"hidden\" value=\"" . implode(",", $array_email) . "\" name=\"list_email\" />");
-  $division->prints["match_list_user_groups"] = ""; 
+  $division->prints["match_list_user_groups"] = "";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -400,34 +402,34 @@ $db_result = sql_run("array_assoc", $cmr->db_connection, "sql", $cmr->query["loc
                     $division->prints["match_list_user_groups"] .= "<td>" . $key . "</td>";
                     $division->prints["match_list_user_groups"] .= "<td>" . $array_uid[$key] . "</td>";
                     $division->prints["match_list_user_groups"] .= "<td>" . list_user_groups_link($cmr->config, $cmr->page, $cmr->language, $array_email[$key]) . "</td>";
-                    
-                    
+
+
                     $division->prints["match_list_user_groups"] .= "<td>";
                     $division->prints["match_list_user_groups"] .= "<select name=\"group_" . $array_email[$key] . "\" >";
                     $division->prints["match_list_user_groups"] .= "<option value=\"guest\" >guest</option>";
 				  $division->prints["match_list_user_groups"] .= $options_group;
                     $division->prints["match_list_user_groups"] .= "</select>";
                     $division->prints["match_list_user_groups"] .= "</td>";
-                    
-                    
+
+
                     $division->prints["match_list_user_groups"] .= "<td>";
                     $division->prints["match_list_user_groups"] .= "<select name=\"type_" . $array_email[$key] . "\" >";
                     $division->prints["match_list_user_groups"] .= "<option value=\"" . $array_type[$key] . "\" >" . $array_type[$key] . "</option>";
 				  $division->prints["match_list_user_groups"] .= $options_type;
                     $division->prints["match_list_user_groups"] .= "</select>";
                     $division->prints["match_list_user_groups"] .= "</td>";
-                    
-                    
-                    
-                    
+
+
+
+
                     $division->prints["match_list_user_groups"] .= "<td>";
                     $division->prints["match_list_user_groups"] .= "<select name=\"state_" . $array_email[$key] . "\" >";
                     $division->prints["match_list_user_groups"] .= "<option value=\"" . $array_state[$key] . "\" >" . $array_state[$key] . "</option>";
 				  $division->prints["match_list_user_groups"] .= $options_state;
                     $division->prints["match_list_user_groups"] .= "</select>";
                     $division->prints["match_list_user_groups"] .= "</td>";
-                    
-                    
+
+
                     $division->prints["match_list_user_groups"] .= "<td>" . "<input type=\"text\" value=\"" . "index.php?cmr_mode=validation&cmr_get_data=validation&uid=" . $array_uid[$key] . "&code1=" . md5("cmr_" . $array_pw[$key]) . "\" size=\"16\" /></td>";
                     $division->prints["match_list_user_groups"] .= "<td>" . date_link($cmr->config, $cmr->page, $cmr->language, $array_date_time[$key]) . " </td>";
                     $division->prints["match_list_user_groups"] .= "</tr>";
@@ -453,7 +455,7 @@ $db_result = sql_run("array_assoc", $cmr->db_connection, "sql", $cmr->query["loc
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 

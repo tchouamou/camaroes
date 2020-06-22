@@ -508,7 +508,7 @@ if(!empty($check_extra_model)){
         $total = 0;
         foreach($sql_query_array as $sql_query){
             if($sql_query){
-                $result_query = &$cmr->db_connection->Execute($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
+                $result_query = &$cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
     			if($result_query) $total += $result_query->RecordCount();;
             }
             print("<hr />" . substr(0, 50, $sql_query) . "<hr />");

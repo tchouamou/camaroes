@@ -228,7 +228,7 @@ function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_
 		    case "wrong_ip_account":
 		    case "wrong_account":
 //			    echo "<script language=\"javascript\">alert('" . $cmr_event["comment"] . "');</script>";
-			    cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
+			    // cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
 		    break;
 
 		    case "wrong_account_object":

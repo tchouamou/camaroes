@@ -716,7 +716,7 @@ function cmr_error_log($cmr_config = array(), $cmr_session = array(), $log_text)
 	   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if(empty($cmr_config["cmr_log_path"])) $cmr_config["cmr_log_path"] = "";
     if(empty($cmr_session["user_email"])) $cmr_session["user_email"] = "guest@localhost";
-    $log_text = date("Y-m-d H:i:s") . "|" . $_SERVER['REMOTE_ADDR'] . "| User=[" . $cmr_session["user_email"] . "]| " . $log_text . "\n";;
+    $log_text = date("Y-m-d H:i:s") . " " . $_SERVER['REMOTE_ADDR'] . " User=" . $cmr_session["user_email"] . " " . $log_text . "\n";;
     // --3 log files  every monthh----------
     $log_file = $cmr_config["cmr_log_path"] . "log/cmr_" . substr(date("Y_m_d"), 0, 9) . "x.log";
 	   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -724,7 +724,7 @@ function cmr_error_log($cmr_config = array(), $cmr_session = array(), $log_text)
 	   // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     if(!empty($cmr_config["cmr_use_log"])){
 	    if(!empty($cmr_config["cmr_log_to_file"])){
-			if(!is_writable($log_file)) fopen($log_file, "r");
+			if(!is_writable($log_file)) fopen($log_file, "w");
 		    if(is_writable($log_file)){
 			    touch($log_file);
 			    error_log ($log_text, 3, $log_file);

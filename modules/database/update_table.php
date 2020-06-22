@@ -40,7 +40,7 @@ All rights reserved.
 
 
 
-Update_table.php, Ver 3.03   
+Update_table.php, Ver 3.03
 */
 
 /**
@@ -122,7 +122,7 @@ if(empty($cmr->post_var["id_table"])){
 	print($cmr->module_link("modules/view_table.php?conf_name=conf_table" . $cmr->get_ext("conf") . "&id_table=", 1));
 	print($cmr->translate(" to select one."));
 //     return;
-} 
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
@@ -162,12 +162,12 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_class_div"] = "update_form";
 
-$division->prints["match_table_title1"] = $cmr->translate($mod->base_name . " " . $table_name); 
-$division->prints["match_table_title2"] = ""; 
- 
+$division->prints["match_table_title1"] = $cmr->translate($mod->base_name . " " . $table_name);
+$division->prints["match_table_title2"] = "";
+
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$division->prints["match_menu_db"] = ""; 
+$division->prints["match_menu_db"] = "";
 if(empty($cmr->post_var["current_table"])) $cmr->post_var["current_table"] = "";
 if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_noc_type"))
 $division->prints["match_menu_db"] = cmr_menu_db($database_conn, "", $cmr->post_var["current_database"], $cmr->post_var["current_table"], $cmr->post_var["current_column"]);
@@ -199,8 +199,8 @@ $division->prints["match_list_link"] = $lk->list_link();
 $cmr->query["table"] = sprintf("SELECT * FROM  " . $database . ".$table_name where $column_id='%s'", cmr_escape($cmr->post_var["id_table"]));
 
 
-$result_table = &$database_conn->SelectLimit($cmr->query["table"], 1) /*, $database_conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->ErrorMsg());
-$val_u = $result_table->FetchRow();
+$result_table = &$database_conn->query($cmr->query["table"]); // /*, $database_conn)*/ or db_die(__LINE__  . " - "  . __FILE__ . ": " . $database_conn->ErrorMsg());
+$val_u = $result_table->fetch_assoc();
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -246,7 +246,7 @@ $division->prints["match_submit_java2"] = $cmr->translate("confirm that you want
 $division->prints["match_reset_form"] = $cmr->translate("confirm that you want to empty this form");
 
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -257,7 +257,7 @@ $file_list[] = $cmr->get_path("module") . "modules/database/templates/template_u
 // $file_list[] = $cmr->get_path("template") . "templates/modules/auto/template_update_table" . $cmr->get_ext("template");
 
 $division->template = $division->load_template($file_list);
-  
+
 $division->print_template();
 $division->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

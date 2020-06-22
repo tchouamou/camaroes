@@ -810,20 +810,23 @@ function show($param="")
   if ($param) {
     cmr_print_r($this->$param);
     }else{
-		cmr_print_r($this->translate("CMR get_declared_classes"), get_declared_classes());
-		cmr_print_r($this->translate("CMR get_object_vars"), get_object_vars($this));
-		cmr_print_r($this->translate("CMR get_class_methods"), get_class_methods($this));
+    cmr_prints($this->translate("BEGIN"));
+    cmr_prints($this->translate("INCLUDED FILES"), get_included_files());
+		//cmr_print_r($this->translate("CMR get_declared_classes"), get_declared_classes());
+		//cmr_print_r($this->translate("CMR get_object_vars"), get_object_vars($this));
+		//cmr_print_r($this->translate("CMR get_class_methods"), get_class_methods($this));
+  	cmr_prints($this->translate("CMR DB"), $this->db);
+  	cmr_prints($this->translate("CMR USER"), $this->user);
+  	cmr_prints($this->translate("CMR GROUP"), $this->group);
   	cmr_prints($this->translate("CMR _GET"), $_GET);
   	cmr_prints($this->translate("CMR _POST"), $_POST);
   	cmr_prints($this->translate("CMR _SESSION"), $_SESSION);
   	cmr_prints($this->translate("CMR _COOKIE"), $_COOKIE);
   	cmr_prints($this->translate("CMR _SERVER"), $_SERVER);
-  	cmr_prints($this->translate("CMR DB"), $this->db);
-  	cmr_prints($this->translate("CMR USER"), $this->user);
-  	cmr_prints($this->translate("CMR GROUP"), $this->group);
-  	cmr_prints($this->translate("CMR CONFIG"), $this->config);
-  	cmr_prints($this->translate("CMR PAGE"), $this->page);
+  	cmr_prints($this->translate("CMR POST_VAR"), $this->post_var);
   	cmr_prints($this->translate("CMR THEMES"), $this->themes);
+  	cmr_prints($this->translate("CMR PAGE"), $this->page);
+  	cmr_prints($this->translate("CMR CONFIG"), $this->config);
     }
    return true;
 }

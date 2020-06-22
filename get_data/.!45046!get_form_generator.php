@@ -271,11 +271,11 @@ if(($db_source!="server")||($db_source=="text")){
     if((file_exists($db_source_file))||(!empty($dbms_sql_text))){
 	    if(!empty($dbms_sql_text)){
 		$sql_query="CREATE DATABASE IF NOT EXISTS " . $gen->dbms_name . ";";
-        $result_query = &$cmr->db_connection->Execute($sql_query, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
+        $result_query = &$cmr->db_connection->query($sql_query, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
     	$gen->connection = $cmr->db_connection->Connect($gen->dbms_host, $gen->dbms_user, $gen->dbms_pw, $gen->dbms_name);
     	}
     	
-        $result_query = &$cmr->db_connection->Execute($dbms_sql_text, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
+        $result_query = &$cmr->db_connection->query($dbms_sql_text, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
         
         $dbms_sql_text = cmr_searchi_replace("^\s*--[^\n]*[\n]", " ", $dbms_sql_text);
         $sql_query_array = cmr_split(";\s*\n", $dbms_sql_text);
@@ -289,7 +289,7 @@ if(($db_source!="server")||($db_source=="text")){
         $total = 0;
         foreach($sql_query_array as $sql_query){
             if($sql_query){
-                $result_query = &$cmr->db_connection->Execute($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
+                $result_query = &$cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
                 $total += $result_query->RecordCount();;
             }
             $cmr->output[0] .= ("<hr />" . substr(0, 50, $sql_query) . "<hr />");

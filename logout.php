@@ -39,7 +39,7 @@ $cmr->prints["match_module_message"] = "";
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
+	//include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
 	include_once($cmr->get_path("func") . "function/func_database.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -47,10 +47,10 @@ $cmr->prints["match_module_message"] = "";
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ========================Cleaning=======================
-if(($cmr->get_conf("cmr_cleaning_at_logout"))) 
+if(($cmr->get_conf("cmr_cleaning_at_logout")))
 if($cmr->db_connection = $cmr->connect()){
-$cmr->db_connection->Execute("delete from " . $cmr->get_conf("cmr_table_prefix") . "history where ((user_email='".$user_email."') and (type <> 'ticket_close') (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
-$cmr->db_connection->Execute("delete from " . $cmr->get_conf("cmr_table_prefix") . "session where ((user_email='".$user_email."') and (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
+$cmr->db_connection->query("delete from " . $cmr->get_conf("cmr_table_prefix") . "history where ((user_email='".$user_email."') and (type <> 'ticket_close') (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
+$cmr->db_connection->query("delete from " . $cmr->get_conf("cmr_table_prefix") . "session where ((user_email='".$user_email."') and (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
 // ========================Cleaning=======================
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -65,7 +65,7 @@ $sql_session .= "status  =  '$status',  state  =  '$state' ,  session_end  =  NO
 $sql_session .= "where (((status =  'connect') and (sessionid =  '".$sessionid."') and (sessionip  =  '".$sessionip."')) ";
 $sql_session .= " or ((status =  'connect')   and  (date_sub(curdate(),interval " . $time_out . ") >  date_time ))) ;";
 // $cmr->prints[""] .=$sql_session ;
-$result_session = &$cmr->db_connection->Execute($sql_session)  or print($cmr->db_connection->ErrorMsg());
+$result_session = &$cmr->db_connection->query($sql_session)  or print($cmr->db_connection->ErrorMsg());
 }
 // ========================Cleaning=======================
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -108,7 +108,7 @@ $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_j
 
 $cmr->prints["match_legend_link"] = "";
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -134,9 +134,9 @@ if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
 $file_list = array();
 $file_list[] = $cmr->config["template_logout"];
 $file_list[] = $cmr->get_path("template") . "templates/template_logout" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_logout" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_logout" . $cmr->get_ext("template");
 $template_logout_file = cmr_good_file($file_list);
-$template_logout = file_get_contents($template_logout_file);  
+$template_logout = file_get_contents($template_logout_file);
 $cmr->print_template("template1", $template_logout);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -207,7 +207,7 @@ $cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr->prints["match_close_windows"] = $division->close(); 
+$cmr->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

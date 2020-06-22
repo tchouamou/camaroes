@@ -56,26 +56,7 @@ $division->module["title"] = $cmr->translate($mod->base_name); //" query";
 
 print($division->show_noclose());
 // =======================================================================
-?>
-<br />
-<p align="center">
-<b>
-<?php
-if($cmr->action["table_name"])
-if(($cmr->action[$cmr->action["table_name"] . "_title1"]))
-print($cmr->action[$cmr->action["table_name"] . "_title1"]);
-?>
-</b>
-</p>
-<p class="normal_text">
-<?php
-if($cmr->action["table_name"])
-if(($cmr->action[$cmr->action["table_name"] . "_title2"]))
-print($cmr->action[$cmr->action["table_name"] . "_title2"]);
-?>
-</p>
-<br />
-<?php
+
 // =======================================================================
 ?>
 <fieldset class="bubble"><legend><?php  print($cmr->translate("links:"));?></legend>

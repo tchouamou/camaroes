@@ -157,8 +157,8 @@ $cmr->query["user"] .= ") ";
 $cmr->query["user"] .= " AND " . $cmr->action["where"];
 //$cmr->query["user"] .= "limit " . $cmr->get_conf("cmr_max_view") . ";";
 
-$result_query1 = &$cmr->db_connection->Execute($cmr->query["groups"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-$result_query2 = &$cmr->db_connection->Execute($cmr->query["user"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$result_query1 = &$cmr->db_connection->query($cmr->query["groups"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$result_query2 = &$cmr->db_connection->query($cmr->query["user"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 // -----------
 ?>
 

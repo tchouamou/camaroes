@@ -44,7 +44,7 @@ func_asset.php,Ver 3.0  2011-Oct-Sat 23:42:49
 */
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
+include_once($cmr->get_path("index") . "control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -67,14 +67,14 @@ function code_href($cmr_config = array(), $cmr_page = array(), $mod_name, $param
     $final_keys = $keys;
     $final_vals = $vals;
 	if(empty($cmr_config)) $cmr_config = cmr_get_config();
-    
+
 // 	is_numeric($base_url) ? $base_url="index.php?";
 // 	page_title=
     if(($mod_name != "") || ($param != "") && (accept_mod($cmr_config, array(), $mod_name))){
 // 	    $module = parse_module($mod_name); // parse_url()
 // 	    (empty($param)) ? $str_module=$mod_name . "&" . $vals : $str_module=$mod_name . "?" . $param . "&" . $vals;
 	    (empty($param)) ? $str_module=$mod_name . "&" . $vals : $str_module=$mod_name . "&" . $param . "&" . $vals;
-	    
+
         $final_keys = $link_layer . $keys;
         $final_vals = $str_module;
     }else{
@@ -84,7 +84,7 @@ function code_href($cmr_config = array(), $cmr_page = array(), $mod_name, $param
 
 // 	$to_return = $base_url . "&amp;keys=" . encode_url($cmr_config, $final_keys) . "&amp;vals=" . encode_url($cmr_config,  $final_vals);
 	$to_return = "index.php?module_name=" . $final_vals;
-	
+
 
 //    	return $to_return;
    	return secure_return_href($cmr_config["cmr_secure_mode"], $to_return);
@@ -155,9 +155,9 @@ function file_link($the_file, $links = "")
     $file_name = str_replace("/", "", $file_name);
     $already_exist = false;
     $url_file = md5($the_file);
-    
-    
-    
+
+
+
     $_SESSION[$url_file] = $the_file;
     if($links){
     return "<a class=\"cmr_link\" href=\"index.php?conf=com_download&current_file=" . $url_file . "\" >" . $links . "</a>";
@@ -165,10 +165,10 @@ function file_link($the_file, $links = "")
     return "<a class=\"cmr_link\" href=\"index.php?conf=com_download&current_file=" . $url_file . "\" >" . $file_name . "</a>";
 	}
     // return "<a class=\"cmr_link\" href=\"download.php?cod=1&path=".encode_url($cmr_config,  $the_file)."\" >".$file_name."</a>";
-    
-    
-    
-    
+
+
+
+
     }
 }
 /*=================================================================*/
@@ -448,8 +448,8 @@ function client_link($cmr_config = array(), $cmr_page = array(), $cmr_language =
 if(!function_exists("menu_tree_link")){
 function menu_tree_link($tolink, $cmr_config = array(), $cmr_language = array(), $cmr_page=array()){
 	return code_href(cmr_get_config(), cmr_get_page(), $tolink) . "|";
-	}    
-}    
+	}
+}
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("show_next_preview_bar"))){
@@ -457,12 +457,12 @@ function show_next_preview_bar($cmr_config = array(), $cmr_language = array(), $
 {
     $class_module["base_name"] = substr($module, 0, strpos($module, "."));
 //     $current_layer = "middle1";
-    
+
     $preview_page = $current_page;
     $next_page = $current_page;
 	 if($current_page > 0) $preview_page = $current_page - 1;
 	 if($current_page < $num_page) $next_page = $current_page + 1;
-	  
+
     $str = "<p align=\"center\">";
     $str .= code_link($cmr_config, $cmr_page, $cmr_language, $module . "?" . $class_module["base_name"] . "_page=0", cmr_get_path("www") . "images/icon/go_first_icon.png", "<<", 16, 16, $current_layer, " title=\"" . (cmr_translate("Begin")) . "\"");
     $str .= code_link($cmr_config, $cmr_page, $cmr_language, $module . "?" . $class_module["base_name"] . "_page=" . $preview_page, cmr_get_path("www") . "images/icon/go_previous_icon.png", "<", 16, 16, $current_layer, " title=\"" . (cmr_translate("Before")) . "\"");
@@ -500,7 +500,7 @@ function button_assign_del($cmr_config = array(), $cmr_language = array(), $cmr_
     $str = "";
 //     $str .= code_link($cmr_config, $cmr_page, $cmr_language, $module . "?" . $view_mode . "=link_refresh", cmr_get_path("www") . "images/icon/refresh_icon.png", "refresh view", 15, 20, "", "", " title=\"refresh\"");
 
-// 	if(empty($run_mode)) 
+// 	if(empty($run_mode))
 	$run_mode = array("check_box", "view_link", "view_detail", "view_table", "print", "update");
    $form_id = "form_" . substr($module, 0, strpos($module, "."));
 //     $str = "<p align=\"left\">";
@@ -519,21 +519,21 @@ function button_assign_del($cmr_config = array(), $cmr_language = array(), $cmr_
 	if(in_array("print", $run_mode))
     $str .= code_link($cmr_config, $cmr_page, $cmr_language, $module . "?" . $view_mode . "=link_print", cmr_get_path("www") . "images/icon/print_icon.png", cmr_translate("Print view"), 20, 20, $module_position, "", " title=\"" . (cmr_translate("Print")) . " alt=\"" . (cmr_translate("Print")) . "\"");
     $str .= "&nbsp;";
-    
-    
-	
+
+
+
 	if(in_array("delete", $run_mode)){
     $str .= "<input type=\"image\" src=\"".cmr_get_path("www") . "images/icon/delete_icon.png\" ";
     $str .= " onclick=\"return confirm_check_action(this.form,'" . (cmr_translate("Delete object selected ?")) . "',";
     $str .= " 'check_action','delete');\"  title=\"".(cmr_translate("Delete")). "\" />";
 	}
-	
+
 //     $str .= code_link($cmr_config, $cmr_page, $cmr_language, $module . "?" . $view_mode . "=link_pdf", cmr_get_path("www") . "images/icon/pdf_icon.png", "pdf list view", 15, 20, "", "", " title=\""
 //     . (cmr_translate("View pdf Mode"))."\"");
-    
-    
-    
-    
+
+
+
+
 //     $str .= "</p>";
     return $str;
 }
@@ -557,22 +557,22 @@ if(!(function_exists("cmr_link_default"))){
 	    $num_view = $cmr_page["__number__"];
         if(empty($GLOBALS["" . $table . "_read"])) $GLOBALS["" . $table . "_read"] = array();
 	    $table_read = $GLOBALS["" . $table . "_read"];
-	    
-	    
+
+
 	      if($column_id){
 	        $table_link = input_hidden("<input type=\"checkbox\" name=\"" . $table . "_check_" . $num_view . "\" value=\"" . $val[$cmr_config["column_id_" . $table]] . "\" />");
-	            
+
 	        $image1 = cmr_get_path("image") . "images/icon/readed_icon.png";
 	        $image2 = cmr_get_path("image") . "images/icon/to_read_icon.png";
-	        
+
             if($image2) $table_link .= "<img  alt=\"<\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("unreaded")  . "\" />";
 	        $table_style .= " class=\"unreaded\" ";
-	        
+
 	        if(in_array ($column_id, $table_read)){
 	            if($image1) $table_link .= "<img alt=\">\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("readed")  . "\" />";
 		        $table_style .= " class=\"readed\" ";
 	        };
-            
+
 	        if((isset($GLOBALS["current_" . $table . "_id"])) && ($column_id == $GLOBALS["current_" . $table . "_id"]))
 	        $table_style .= " class=\"current\" ";
 
@@ -580,14 +580,14 @@ if(!(function_exists("cmr_link_default"))){
             $table_link .= ":";
             if(isset($val[$cmr_config["column2_" . $table]])) $table_link .= (trim(substr(show_column_value($cmr_config["column2_" . $table], $val[$cmr_config["column2_" . $table]]), 0, 20)));
             $table_link .= "<i>";
-            
+
         	empty($val["the_date"]) ? $times = strval($val[$cmr_config["column_date_time1_" . $table]]) : $times = $val["the_date"];
             if(isset($times)) $table_link .= "[" . date_link($cmr_config, $cmr_page, $cmr_language, $times) . "] ";
             if(isset($val[$cmr_config["column_text1_" . $table]])) $table_link .= "(" . (trim(substr(show_column_value($cmr_config["column1_" . $table], $val[$cmr_config["column_text1_" . $table]]), 0, 20))) . ")";
             $table_link .= "</i>";
             $table_link .= "<br />";
-            
-            
+
+
             $table_link .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/preview_" . $table . ".php?id_" . $table . "=" . $val[$cmr_config["column_id_" . $table]], "", $val[$cmr_config["column2_" . $table]], "", "", "", $table_style);
 
             cmr_set_session("pre_match",  cmr_get_session("pre_match") . $table . "_check_" . $val[$cmr_config["column_id_" . $table]] . "@,@.*@,@10@;@");
@@ -615,8 +615,8 @@ if(!(function_exists("cmr_link_tab"))){
         $column_id = $val[$cmr_config["column_id_" . $table]];
         if(empty($GLOBALS["" . $table . "_read"])) $GLOBALS["" . $table . "_read"] = array();
 	    $table_read = $GLOBALS["" . $table . "_read"];
-	    
-        
+
+
         if($column_id){
         	$table_link .= "<td class=\"rown3\">";
         	if($cmr_page["__mode__"] == "link_print"){
@@ -625,30 +625,30 @@ if(!(function_exists("cmr_link_tab"))){
             $table_link .=  code_link($cmr_config, $cmr_page, $cmr_language, "modules/preview_" . $table . ".php?id_" . $table . "=" . $val[$cmr_config["column_id_" . $table]], "", $num_view, "", "", "middle1");
 	        }
             $table_link .= "</td>";
-            
-            
+
+
             $table_link .= "<td class=\"rown1\" >";
             $table_link .= input_hidden("<input type=\"checkbox\" name=\"" . $table . "_check_" . $num_view . "\" value=\"" . $val[$cmr_config["column_id_" . $table]] . "\" />");
 
 	        $image1 = cmr_get_path("image") . "images/icon/readed_icon.png";
 	        $image2 = cmr_get_path("image") . "images/icon/to_read_icon.png";
-	        
+
             if($image2) $table_link .= "<img  alt=\"<\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("unreaded")  . "\" />";
 	        $table_style .= " class=\"unreaded\" ";
-	        
+
 	        if(in_array ($column_id, $table_read)){
 	            if($image1) $table_link .= "<img alt=\">\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("readed")  . "\" />";
 		        $table_style .= " class=\"readed\" ";
 	        };
-            
+
 	        $table_link .= "</td>";
 	        if((isset($GLOBALS["current_" . $table . "_id"])) && ($column_id == $GLOBALS["current_" . $table . "_id"])){
 	            $table_style .= " class=\"current\" ";
 	        }
-
+      $i_count = 1;
 			foreach($array_column as $i_col => $conf_val){
                 (empty($val[$conf_val])) ? $val_const = "" : $val_const = $val[$conf_val];
-                
+                $i_count++;
                 $text_empty = "";
                 $text_full =  code_link($cmr_config, $cmr_page, $cmr_language, "modules/preview_" . $table . ".php?id_" . $table . "=" . $val[$cmr_config["column_id_" . $table]], "", htmlentities(trim(substr($val_const, 0, 20))), "", "", "middle1", $table_style);
                 if($cmr_page["__mode__"] == "link_print") $text_full =  htmlentities($val_const);
@@ -656,21 +656,21 @@ if(!(function_exists("cmr_link_tab"))){
 	                $text_full =  "<input type=\"text\" size=\"20\" name=\"" . $table . "_" . $num_view . "_" . $conf_val . "\" value=\"" . htmlentities($val_const) . "\" >";
 	                $text_empty = "<input type=\"text\" name=\"" . $table . "_" . $num_view . "_" . $conf_val . "\" value=\"\"  size=\"20\">";
                 }
-                
-                
-                $table_link .= "<td class=\"rown" . ($i_col % 2 + 1) . "\" >";
-                
+
+
+                $table_link .= "<td class=\"rown_" . $i_col . ($i_count % 2 + 1) . "\" >";
+
                 if((!empty($val_const) || ($val_const == 0)) && ($val_const != null)){
 	                $table_link .= $text_full;
 	            }else{
 	                $table_link .= $text_empty;
 		        }
-                
+
                 $table_link .= "</td>";
             }
-            
+
         	empty($val["the_date"]) ? $times = conv_timestamp(strval($val[$cmr_config["column_date_time1_" . $table]])) : $times = $val["the_date"];
-            $table_link .= "<td class=\"rown" . ($i_col % 2 + 1) . "\" >" . $times . "</td>";
+            $table_link .= "<td class=\"rown" . $i_col . ($i_count % 2 + 1) . "\" >" . $times . "</td>";
 
             cmr_set_session("pre_match",  cmr_get_session("pre_match") . $table . "_check_" . $num_view . "@,@.*@,@10@;@");
 
@@ -700,7 +700,7 @@ if(!(function_exists("cmr_link_detail"))){
     {
 	    $table = $cmr_page["__table__"];
         $table_link_d = "<fieldset class=\"bubble\"><legend>" . $cmr_page["__number__"] . "</legend>";
-        
+
         if(!empty($cmr_config["column_image1_" . $table]) && (!image_exists($val[$cmr_config["column_image1_" . $table]])))
         $table_link_d .= "<img alt=\"" . translate($cmr_config["column_image1_" . $table]) . "\" src=\"" . $val[$cmr_config["column_image1_" . $table]] . "\" class=\"cmr_image\" />";
 
@@ -758,9 +758,9 @@ function line_link($cmr_config = array(), $cmr_page = array(), $cmr_language = a
 // if(isset($times)) $view_win->prints["match_link_date_time"] = date_link($cmr_config, $cmr_page, $cmr_language, $times);
 // $view_win->prints["match_text_column1"] =  htmlentities(trim(substr(show_column_value($cmr_config["column1_@_table_@"], $val[$cmr_config["column2_@_table_@"]]), 0, 20)));
 
-//     
+//
 // empty($val["the_date"]) ? $times = strval($val[$cmr_config["column_date_time1_@_table_@"]]) : $times = $val["the_date"];
-// if(isset($val[$cmr_config["column_text1_@_table_@"]])) 
+// if(isset($val[$cmr_config["column_text1_@_table_@"]]))
 // $view_win->prints["match_text_column1"] =  htmlentities(trim(substr(show_column_value($cmr_config["column1_@_table_@"], $val[$cmr_config["column_text1_@_table_@"]]), 0, 20))) . ")";
 // $view_win->prints["match_link_val"] =  code_link($cmr_config, $cmr_page, $cmr_language, "modules/preview_@_table_@.php?id_@_table_@=" . $val[$cmr_config["column_id_@_table_@"]], "", $val[$cmr_config["column2_@_table_@"]], "", "", "", $@_table_@_style);
 
@@ -783,7 +783,7 @@ function line_link($cmr_config = array(), $cmr_page = array(), $cmr_language = a
 // 	$view_win->prints["match_show_date_time"] = $times;
 // $cmr->session["pre_match"] .= "@_table_@_check_" . $val_table["__number__"] . "@,@.*@,@10@;@";
 // }
-//     
+//
 // return $view_win->print_template($template);
 }
 }

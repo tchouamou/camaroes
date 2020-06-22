@@ -53,7 +53,7 @@ if(empty($com_text)){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // $@_table_@_id_=next_max_id($cmr->get_conf("cmr_table_prefix") . "@_table_@", "id");
 // $x_comment_id_=next_max_id($cmr->get_conf("cmr_table_prefix") . "x_comment", "id");
-// &$cmr->db_connection->Execute("INSERT IGNORE INTO " . $cmr->get_conf("cmr_table_prefix") . "x_comment  (id, name, encoding, language, state, allow_type, allow_email,  allow_groups, date_time) values ('" $x_comment_id  "', '" . @_table_@id@" . $@_table_@_id_ . "', '', 'text', 'enable', '$post->comment', '$post->allow_type',   '$post->allow_email', '$post->allow_groups'");
+// &$cmr->db_connection->query("INSERT IGNORE INTO " . $cmr->get_conf("cmr_table_prefix") . "x_comment  (id, name, encoding, language, state, allow_type, allow_email,  allow_groups, date_time) values ('" $x_comment_id  "', '" . @_table_@id@" . $@_table_@_id_ . "', '', 'text', 'enable', '$post->comment', '$post->allow_type',   '$post->allow_email', '$post->allow_groups'");
 // $post->id = $@_table_@_id_;
 // $post->comment = "extern_@_table_@id@" . $x_comment_id_;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
