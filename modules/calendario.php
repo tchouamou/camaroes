@@ -205,7 +205,7 @@ $cmr->query[$cmr->action["table_name"]] .= ") AND " . $cmr->action["where"];
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if($cmr->db_connection)
 $result_query = $cmr->db_connection->query($cmr->query[$cmr->action["table_name"]]);//, 1000) /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-if($cmr->db_connection)
+if($result_query)
 while ($value = $result_query->fetch_row()){
 	$key1 = date("Y", unix_timestamp($value["date_time"]));
 	$key2 = date("m", unix_timestamp($value["date_time"]));

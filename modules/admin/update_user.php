@@ -22,23 +22,6 @@ All rights reserved.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 update_user.php,Ver 3.0  2011-Sep-Fri 21:50:35
 */
 
@@ -92,7 +75,7 @@ if(empty($cmr->post_var["id_user"])){
 	$cmr->post_var["id_user"] = $cmr->get_user("auth_id");
 }
 $id_user = $cmr->post_var["id_user"];
-
+//print("id_user=" . $cmr->post_var["id_user"]);exit;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -156,7 +139,7 @@ $_SESSION["__update__"][$key] = $val_user[$key];
 $sql_ugroup = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "user_groups ";
 $sql_ugroup .= " WHERE user_email='" . $val_user["email"] . "'";
 
-$result_ugroup = &$cmr->db_connection->query($sql_ugroup) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$result_ugroup = $cmr->db_connection->query($sql_ugroup) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 $val_user_group = $result_ugroup->fetch_object();
 // -----------
 // -----------

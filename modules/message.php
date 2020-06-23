@@ -63,7 +63,7 @@ include($cmr->get_path("index") . "system/loader/loader_function.php");
 $cmr->action["to_load"] = "load_class_need";
 include($cmr->get_path("index") . "system/loader/loader_class.php");
 // ----------------
-$todo = $cmr->action["todo"];
+(empty($cmr->action["todo"]))?$cmr->action["todo"] = "new_message":$todo = $cmr->action["todo"];
 if(empty($todo)) $todo = "new_message";
 // ----------------
 
@@ -168,7 +168,7 @@ $qr = new class_database($cmr->config, $cmr->user, $cmr->action, $cmr->db_connec
 	$qr->type = $aut;
 	$cmr->query["t_q"] = $qr->get_query("message_user_email");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    $result_te = &$cmr->db_connection->query($cmr->query["t_q"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+  $result_te = $cmr->db_connection->query($cmr->query["t_q"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 //   -----------
 //   -----------
     $division->prints["match_list_email"] = "";
@@ -202,7 +202,7 @@ $qr = new class_database($cmr->config, $cmr->user, $cmr->action, $cmr->db_connec
 	$qr->type = $aut;
 	$cmr->query["t_q_rif"] = $qr->get_query("message_rif_email");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    $result_rif = &$cmr->db_connection->query($cmr->query["t_q_rif"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+    $result_rif = $cmr->db_connection->query($cmr->query["t_q_rif"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 //   -----------
     if($result_rif)
     while ($r_email2 = $result_rif->fetch_row()){
@@ -270,7 +270,7 @@ $qr = new class_database($cmr->config, $cmr->user, $cmr->action, $cmr->db_connec
  // ==============================================================
 
 // ==============================================================
-	$result_group = &$cmr->db_conn->query($cmr->query["t_group"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_group = $cmr->db_connection->query($cmr->query["t_group"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error()); /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/
 	$const = $cmr->get_conf("cmr_noc_type");
 
 // 	$cmr->query["t_group_name"] = "SELECT DISTINCT " . $cmr->get_conf("cmr_table_prefix") . "groups.name FROM " . $cmr->get_conf("cmr_table_prefix") . "groups ";
@@ -292,8 +292,8 @@ $qr = new class_database($cmr->config, $cmr->user, $cmr->action, $cmr->db_connec
 	$cmr->query["t_user_email"] = $qr->get_query("message_user_email");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-	$result_group_name = &$cmr->db_conn->query($cmr->query["t_group_name"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	$result_user_email = &$cmr->db_conn->query($cmr->query["t_user_email"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_group_name = $cmr->db_connection->query($cmr->query["t_group_name"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
+	$result_user_email = $cmr->db_connection->query($cmr->query["t_user_email"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 // ==============================================================
 // ==============================================================
 // ===============end generate groups and emails=================
@@ -313,7 +313,7 @@ $qr = new class_database($cmr->config, $cmr->user, $cmr->action, $cmr->db_connec
 if(!empty($cmr->post_var["id_message"])){
 //     $cmr->query["t_message"] = "SELECT * FROM " . $cmr->get_conf("cmr_table_prefix") . "message WHERE id='" . $cmr->post_var["id_message"] . "'";
 
-	//     $result_message = &$cmr->db_conn->query($cmr->query["t_message"],$cmr->get_conf("cmr_max_view") /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	//     $result_message = &$cmr->db_connection->query($cmr->query["t_message"],$cmr->get_conf("cmr_max_view") /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 //     $message_todo = $result_message->fetch_object();
 $result_value = $cmr->get_column($cmr->get_conf("cmr_table_prefix") . "message", "*", "id", $cmr->post_var["id_message"]);
 //     $id_input = input_hidden("<input type=\"hidden\" value=\"".$cmr->post_var["id_message"]."\" name=\"id_message\" />");
@@ -478,7 +478,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_admin_type")){
 	$cmr->query["t_model"] = $qr->get_query("message_model");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-	$result_model = &$cmr->db_conn->query($cmr->query["t_model"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_model = $cmr->db_connection->query($cmr->query["t_model"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 	$r_model = $result_model->fetch_object();
 	// =======================================
   $division->prints["match_value_model_id"] = $r_model->id;
@@ -770,7 +770,9 @@ if(empty($cmr->post_var["id_message"])){
   $division->prints["match_begin_time"] = $result_value["begin_time"];
   $division->prints["match_end_time"] = $result_value["end_time"];
 
-	@ list($value_intervale, $intervale) = explode(" ", $result_value["intervale"]);
+		$value_intervale = "";
+		$intervale = "";
+	  if(($result_value["intervale"])) list($value_intervale, $intervale) = explode(" ", $result_value["intervale"]);
     $division->prints["match_value_intervale"]  = trim($value_intervale);
     $division->prints["match_intervale"] = trim($intervale);
     (empty($value_intervale)) ? $division->prints["match_value_ripetitive"] = "0" : $division->prints["match_value_ripetitive"] = "1";
@@ -957,7 +959,7 @@ case "email_message":
   $division->prints["match_options_model"] = "";
 	 $array_value1 = array();
 	 $array_value2 = array();
-	$result_model = &$cmr->db_conn->query($cmr->query["t_model"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_model = $cmr->db_connection->query($cmr->query["t_model"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 	while ($r_model = $result_model->fetch_object()){
 	 $array_value1[] = $r_model->id ;
 	 $array_value2[] = htmlentities(substr($r_model->title, 0, 66));
@@ -1000,7 +1002,7 @@ case "email_message":
 // $cmr->query["t_model"] = "SELECT * FROM ". $cmr->get_conf("cmr_table_prefix") ."message where (model_title like 'cmr_model:%') order by id;";
 
   //$cmr->db_connection->SetFetchMode(ADODB_FETCH_NUM);
-	$result_model = &$cmr->db_conn->query($cmr->query["t_model"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_model = $cmr->db_connection->query($cmr->query["t_model"]) /*, $cmr->get_conf("cmr_max_view")*/ /*, $cmr->db_connection)*/  or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
   $division->prints["match_hidden_model"] = "";
 	$array_columns=get_all_columns($cmr->db_connection, $cmr->get_conf("cmr_table_prefix"), "message");
 //     cmr_print_r($array_columns);exit;

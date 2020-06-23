@@ -24,21 +24,6 @@ All rights reserved.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 calendar.php,Ver 3.0  2011-Sep-Wed 12:32:30
 */
 
@@ -58,7 +43,7 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ?>
-<script type="text/javascript" src="calendar.js" ></script>
+<script type="text/javascript" src="javascrip/calendar.js" ></script>
 <?php
 // open_finestra($cmr->config, $cmr->language, $cmr->module["name"], $cmr->module["rown_position"], $cmr->module["col_position"], "<img alt=\"=> \" src=\"".$cmr->get_path("image") ."images/icon/pallino_blue.gif\">"." Calendar");
 $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
@@ -245,8 +230,11 @@ function calendar($cmr_config, $cmr_page, $cmr_language, $date = '')
     $first_decalage = ($first_decalage == 0) ? 7 : $first_decalage;
 
     $current_day_index = date('w', $timestamp) + $calendar_txt[$param['lang']]['first_day'] - 1;
-    $current_day_index = ($current_day_index == -1) ? 7 : $current_day_index;
+    //print("current_day_index" . $current_day_index );
+    //$current_day_index = ($current_day_index == -1) ? 7 : $current_day_index;
+    if($current_day_index == -1) $current_day_index = 6;
     $current_day_name = $calendar_txt[$param['lang']]['days'][$current_day_index];
+    //print_r($calendar_txt[$param['lang']]['days']);
     $current_month_name = $monthes_name[$current_month];
     $nb_days_month = date("t", $timestamp);
 
@@ -497,7 +485,7 @@ function priv_reg_glob_calendar($var)
 <?php
 // require_once ($cmr->get_path("module") .'modules/calendrier.php');
 if(empty($cmr->post_var["send_date"])) $cmr->post_var["send_date"] = "";
-print("<div id=\"no_java_calendar_div\">".calendar($cmr->config, $cmr->page, $cmr->language, $cmr->post_var["send_date"]) . "</div>");
+print("<div id=\"no_java_calendar_div\">" . calendar($cmr->config, $cmr->page, $cmr->language, $cmr->post_var["send_date"]) . "</div>");
 
 ?>
 <hr />

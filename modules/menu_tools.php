@@ -136,11 +136,23 @@ print("<br />");
 
 
 
+  <li>
+   <?php print($cmr->module_icon("login_imap.php", "16") . $cmr->module_link("modules/view_logs.php"));
+ ?>
+  </li>
 
- <li>
-  <?php print($cmr->module_icon("login_imap.php", "16") . $cmr->module_link("modules/login_imap.php"));
-?>
- </li>
+
+   <li>
+    <?php print($cmr->module_icon("login_imap.php", "16") . $cmr->module_link("modules/calendario.php"));
+  ?>
+   </li>
+
+
+
+  <li>
+   <?php print($cmr->module_icon("login_imap.php", "16") . $cmr->module_link("modules/login_imap.php"));
+ ?>
+  </li>
 
 
 

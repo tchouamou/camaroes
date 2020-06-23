@@ -848,7 +848,8 @@ if($conn)
      $tb1 = sql_run("array_assoc", $conn, "show_columns", "", $cmr_config["db_name"], $table);
 
 
-     foreach($tb1 as $key => $the_field){
+    foreach($tb1 as $key => $the_field){
+    if(isset($the_field['Field']))
 	  if(($the_field['Field']) == $column){
 	      $sql_data = $the_field['Type'];
 	      $sql_data = substr($sql_data, strpos($sql_data, "(") + 1);
@@ -914,7 +915,8 @@ if(!(function_exists("return_key"))){
 
 	 // -----------
 	 if($need_column == "*") return $data[0];
-	 return $data[0][$need_column];
+	 if(isset($data[0][$need_column])) return $data[0][$need_column];
+   return $data[0];
     }
 }
  /*=================================================================*/

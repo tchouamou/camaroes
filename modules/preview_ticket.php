@@ -429,7 +429,7 @@ $GLOBALS["current_ticket_id"] = $cmr->post_var["id_ticket"];
 if(empty($GLOBALS["ticket_read"])) $GLOBALS["ticket_read"] = array();
 
 if(!in_array ($result_value["id"], $GLOBALS["ticket_read"])){
-	$sql = "INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "history (id, user_email, table_name, line_id, action, date_time) VALUES ('', '" . $cmr->get_user("auth_email") . "', '" . $cmr->get_conf("cmr_table_prefix") . "ticket', '" . $result_value["id"] . "' ,'read',  NOW());";
+	$sql = "INSERT IGNORE INTO " . $cmr->get_conf("cmr_table_prefix") . "history (id, user_email, table_name, line_id, action, date_time) VALUES ('', '" . $cmr->get_user("auth_email") . "', '" . $cmr->get_conf("cmr_table_prefix") . "ticket', '" . $result_value["id"] . "' ,'read',  NOW());";
     $cmr->db_connection->query($sql) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
     $cmr->post_var["current_ticket_id"] = $result_value["id"];
 

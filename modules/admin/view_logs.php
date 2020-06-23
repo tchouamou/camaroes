@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-view_logs,Ver 3.0  2011-Sep-Wed 12:32:30  
+view_logs,Ver 3.0  2011-Sep-Wed 12:32:30
 */
 
 /**
@@ -72,12 +72,6 @@ $division = new class_windows($cmr->page, $cmr->module, $cmr->themes);
 $division->module["title"] = $cmr->translate($mod->base_name);
 // $division->module["title"] = "New Open ticket";
 // $division->module["text"] = "";
-
-
-
-
-
-
 
 
 
@@ -127,7 +121,7 @@ while ($file = readdir($dir)){
                     print("<td>" . fileperms($file_name) . "</td>");
                     print("<td>" . file_link($file_name) . "</td>");
                     print("</tr>");
-        
+
     };
 }
 ?>
@@ -173,8 +167,7 @@ if(!file_exists($file_name)){
 
 
 <br />
- 
+
 </div>
 <?php  print($division->close());
 ?>
-

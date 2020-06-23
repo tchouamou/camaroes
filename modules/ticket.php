@@ -29,7 +29,7 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
+if(empty($cmr->action["todo"])) $cmr->action["todo"] = "ticket";
 if($cmr->post_var["cmr_get_data"] == "get_data/get_" . $cmr->action["todo"] . ".php"){
 include_once($cmr->get_path("index") . "system/loader/loader_get.php");
 include_once($cmr->get_path("index") . "system/run_result.php");

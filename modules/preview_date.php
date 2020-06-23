@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-preview_date.php,Ver 3.0  2011-Sep 22:32:40  
+preview_date.php,Ver 3.0  2011-Sep 22:32:40
 */
 
 /**
@@ -74,7 +74,8 @@ if(!isset($cmr->post_var["id_user"])){
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $send_date = conv_unix_timestamp($cmr->post_var["send_date"]);
-$send_mode = ($cmr->post_var["send_mode"]);
+$send_mode = isset($cmr->post_var["send_mode"])?$cmr->post_var["send_mode"]:"";
+if(empty($cmr->post_var["send_table"])) $cmr->post_var["send_table"] = "user";
 $send_table = ($cmr->post_var["send_table"]);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

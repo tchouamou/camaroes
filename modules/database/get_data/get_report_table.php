@@ -38,7 +38,7 @@ All rights reserved.
 
 
 
-get_report_table.php, Ver 3.03   
+get_report_table.php, Ver 3.03
 */
 
 /**
@@ -127,7 +127,7 @@ $sql_property["where_query"] =  cmr_where_query($cmr->config, $cmr->user, $cmr->
 	//==============
 
 ((strlen(get_post("report_table_column"))) > 0) ? $sql_property["column"] = get_post("report_table_column") : $sql_property["column"] = $cmr->post_var["report_table_column"];
-if($sql_property["column"] == "*") 
+if($sql_property["column"] == "*")
 $array_check_table = $array_columns;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -145,7 +145,7 @@ $file_list = array();
 $file_list[] = $cmr->user["auth_user_path"] . "templates/notify/notify_report_table" . $cmr->get_ext("notify");
 $file_list[] = $cmr->user["auth_group_path"] . "templates/notify/notify_report_table" . $cmr->get_ext("notify");
 $file_list[] = $cmr->get_path("notify") . "modules/database/templates/notify/" . $cmr->get_page("language") . "/notify_report_table" . $cmr->get_ext("notify");
-$file_list[] = $cmr->config["notify_report_" . $table_name]
+$file_list[] = $cmr->config["notify_report_" . $table_name];
 $templates_notify = cmr_good_file($file_list);
 $cmr->notify = $cmr->load_notify($templates_notify, $table_name, "report");
 
@@ -168,4 +168,3 @@ Select next module to be run
 $cmr->page["middle1"] = $cmr->get_path("module") . "database/modules/report_table.php";
 
 ?>
-
