@@ -241,7 +241,7 @@ $division->prints["match_label_email_sign"] = $cmr->translate("email_sign");
 $division->prints["match_label_comment"] = $cmr->translate("comment");
 $division->prints["match_label_login script"] = $cmr->translate("login script");
 $division->prints["match_label_group"] = $cmr->translate("group");
-$division->prints["match_label_login_script"] = $cmr->translate("login script"); 
+$division->prints["match_label_login_script"] = $cmr->translate("login script");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_legend_needed"] = $cmr->translate("needed");
 $division->prints["match_legend_usefull"] = $cmr->translate("usefull");
@@ -332,7 +332,7 @@ $division->prints["match_submit_java"] = $cmr->translate("confirm that you want 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -343,7 +343,7 @@ $file_list[] = $cmr->get_path("template") . "templates/modules/template_user" . 
 $file_list[] = $cmr->get_path("template") . "templates/modules/auto/template_new_user" . $cmr->get_ext("template");
 $division->template = $division->load_template($file_list);
 
-  
+
 $division->print_template();
 $division->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

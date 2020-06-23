@@ -343,8 +343,8 @@ if($cmr->post_var["conf"] == "com_action"){ // ----gestione dei tab----------
         $cmr->language = $cmr->include_conf($cmr->get_conf("cmr_begin_lang_file"), $cmr->language, "var");
         $cmr->themes = $cmr->include_conf($cmr->get_conf("cmr_begin_theme_file"), $cmr->themes, "var");
         $cmr->page = $cmr->include_conf($cmr->get_conf("cmr_begin_pager_file"), $cmr->page, "var");// =========== default config ==================
-
-        @ include_once(($cmr->get_user("auth_group_path") . "login_rc.php"));// ===============file group login script================
+        if(file_exists($cmr->get_user("auth_group_path") . "login_rc.php"))
+        include_once(($cmr->get_user("auth_group_path") . "login_rc.php"));// ===============file group login script================
         @ eval($cmr->get_user("auth_group_script"));// ===============database login group script================
         $cmr->config = $cmr->include_conf($cmr->get_user("auth_group_path") . $cmr->get_conf("cmr_home_config"), $cmr->config, "var");
 

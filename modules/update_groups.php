@@ -7,7 +7,7 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
  * copyright   : Camaroes Ver 3.03 (C) 2004-2011 T.E.H
  * www     : http://sourceforge.net/projects/camaroes/
  */
- 
+
 /*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-update_groups.php,Ver 3.0  2011-Oct-Tue 15:13:38  
+update_groups.php,Ver 3.0  2011-Oct-Tue 15:13:38
 */
 
 /**
@@ -90,7 +90,7 @@ $division->module["title"] = $cmr->translate($mod->base_name);
 
 
 
-// 
+//
 
 
 
@@ -108,11 +108,11 @@ $division->prints["match_open_windows"] = $division->show_noclose();
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-$division->prints["match_groups_title1"] = ""; 
-$division->prints["match_groups_title2"] = ""; 
-if(($cmr->translate($mod->base_name))) 
+$division->prints["match_groups_title1"] = "";
+$division->prints["match_groups_title2"] = "";
+if(($cmr->translate($mod->base_name)))
 $division->prints["match_groups_title1"] = $cmr->translate($mod->base_name);
-if(isset($cmr->language[$mod->base_name."_title"])) 
+if(isset($cmr->language[$mod->base_name."_title"]))
 $division->prints["match_groups_title2"] = $cmr->translate($mod->base_name . "_title");
 
 
@@ -148,7 +148,7 @@ $lk->add_link("modules/menu_groups.php?conf_name=conf.d/conf_groups.ini&id_group
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(!isset($cmr->post_var["id_user"])){
     $cmr->post_var["id_user"] = $cmr->get_user("auth_id");
-} 
+}
 $lk->add_link("modules/admin/update_user.php?conf_name=conf.d/modules/conf_user.ini&id=" . $cmr->post_var["id_user"] . "&refresh=", 1);;
 $lk->add_link("modules/admin/new_user.php?conf_name=conf.d/modules/conf_user.ini&id=" . $cmr->post_var["id_user"] . "&refresh=", 1);;
 $lk->add_link("modules/admin/change_pw.php?conf_name=conf.d/modules/conf_change_pw.ini&id_user=" . $cmr->post_var["id_user"] . "&refresh=", 1);;
@@ -271,7 +271,7 @@ $division->prints["match_label_name"] = $cmr->translate("name");
 $division->prints["match_label_comment"] = $cmr->translate("comment");
 $division->prints["match_label_state"] = $cmr->translate("state");
 $division->prints["match_label_email_sign"] = $cmr->translate("email_sign");
-$division->prints["match_label_login_script"] = $cmr->translate("login script"); 
+$division->prints["match_label_login_script"] = $cmr->translate("login script");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_legend_needed"] = $cmr->translate("needed");
 $division->prints["match_legend_usefull"] = $cmr->translate("usefull");
@@ -355,7 +355,7 @@ $division->prints["match_submit_java"] = $cmr->translate("confirm that you want 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $division->prints["match_close_tab"] = $lk->close_module_tab();
-$division->prints["match_close_windows"] = $division->close(); 
+$division->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -366,7 +366,7 @@ $file_list[] = $cmr->get_path("template") . "templates/modules/template_groups" 
 $file_list[] = $cmr->get_path("template") . "templates/modules/auto/template_update_groups" . $cmr->get_ext("template");
 $division->template = $division->load_template($file_list);
 
-  
+
 $division->print_template();
 $division->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

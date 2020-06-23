@@ -172,4 +172,4 @@ $cmr->themes = $cmr->include_conf($cmr->get_path("theme") . "themes/" . $cmr->ge
 $cmr->language = $cmr->include_conf($cmr->get_path("lang") . "languages/" . $cmr->get_page("language"). "/" . $cmr->get_conf("cmr_lang_filename"), $cmr->language, "var");
 // ======================================================================
 // ======================================================================
-                                   ?>
+   ?>

@@ -40,24 +40,10 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 /*
 =================================================================
 **/
-$cmr = new camaroes();
-// $cmr->show();
 // print_r($cmr);
 // exit;
         /*==================*/
-        /*==================*/
             include_once(dirname(__FILE__) . "/control.php"); //to control access in the module
-            if(file_exists(dirname(__FILE__) . "/config.inc.php")){
-                include_once(dirname(__FILE__) . "/config.inc.php");
-            }else{
-                $cmr->config["cmr_main_config"] = dirname(__FILE__) . "/conf.d/conf.ini"; // conf_file_exist($cmr->get_conf("cmr_main_config"));
-            }
-        /*==================*/
-
-        /*==================*/
-            include_once(dirname(__FILE__) . "/function.php");
-        /*==================*/
-
         /*==================*/
             $cmr->config = $cmr->include_conf($cmr->get_conf("cmr_main_config"), $cmr->config, "var");
             $cmr->config = $cmr->include_conf($cmr->get_conf("cmr_database_config"), $cmr->config, "var");
@@ -67,15 +53,8 @@ $cmr = new camaroes();
 //          $cmr->config = $cmr->include_conf("conf.d/conf_login.ini", $cmr->config, "var");
 //          $cmr->config = $cmr->include_conf("conf.d/conf_security.ini", $cmr->config, "var");
         /*==================*/
-                /*==================*/
-                $cmr->load_session_mode();
-                session_start();/* start the session */
-                /*==================*/
-        /*==================*/
             if(!($cmr->get_conf("cmr_path"))) $cmr->config["cmr_path"] = realpath("./");
             $cmr->config["cmr_path"] = realpath($cmr->get_conf("cmr_path"))  . "/";
-        /*==================*/
-
         /*==================*/
             $cmr->action["to_load"] = $cmr->get_conf("cmr_preload_func");
             include($cmr->get_path("index") . "system/loader/loader_function.php");
@@ -102,21 +81,9 @@ $cmr = new camaroes();
 //         include_once($cmr->get_path("func") . "class/class_module_link.php");
 //         include_once($cmr->get_path("func") . "class/class_windows.php");
         /*==================*/
-
         /*==================*/
 //         	if(cmr_cli()) $cmr->post_var=$cmr->get_param();
         /*==================*/
-
-// $cmr->debug_print();exit;
-
-        /*==================*/
-	// --chosing authentification method by host ip or hostname---
-	 if(empty($_SESSION['host_name'])) $_SESSION['host_name'] = $_SERVER['REMOTE_ADDR'];
-	 $cmr->config = auth_method($cmr->config, $_SERVER['REMOTE_ADDR'], $_SESSION['host_name']);
-        /*==================*/
-
-        /*==================*/
-         if(!($cmr->get_session("type"))) $cmr->session["type"] = "normal"; //read_only
         /*==================*/
 //      $cmr->language = auto_language($cmr->config, $cmr->language, $cmr->db_connection); //__automatic create language traduction
         $cmr->language = $cmr->include_conf($cmr->get_conf("cmr_begin_lang_file"), $cmr->language, "var");
@@ -124,24 +91,23 @@ $cmr = new camaroes();
         $cmr->themes = $cmr->include_conf($cmr->get_conf("cmr_begin_theme_file"), $cmr->themes, "var");
 		    $cmr->themes = $cmr->include_conf($cmr->get_path("theme") . $cmr->get_page("cmr_themes"), $cmr->themes, "var");
         /*==================*/
-        cmr_init_mode($cmr->config, trim($cmr->translate("cmr_charset")));
         /*==================*/
-
+        $cmr->load_session_mode();
+        session_start();/* start the session */
+        /*==================*/        /*==================*/
+	      // --chosing authentification method by host ip or hostname---
+	      if(empty($_SESSION['host_name'])) $_SESSION['host_name'] = $_SERVER['REMOTE_ADDR'];
+	      $cmr->config = auth_method($cmr->config, $_SERVER['REMOTE_ADDR'], $_SESSION['host_name']);
+         if(!($cmr->get_session("type"))) $cmr->session["type"] = "normal"; //read_only
+        /*==================*/
+         cmr_init_mode($cmr->config, trim($cmr->translate("cmr_charset")));
+        /*==================*/
         //$cmr->show();
-
         /*==================*/
         if(get_post("cmr_mode"))
         include($cmr->get_path("index") . "system/select_mode.php");//login, logout, forget_account, inscription, install..etc
         /*==================*/
 
-				/*==================*/
-        /*==================*/
-
-        /*==================*/
-        /*==================*/
-
-        /*==================*/
-        /*==================*/
 
         /*========main=======*/
         if($cmr->get_conf("cmr_output_buffering"))  ob_start(); // start output buffering//  ob_start('cmr_callback');
@@ -153,10 +119,15 @@ $cmr = new camaroes();
         //$cmr->db = $cmr->input_session("db");
         if(!empty($cmr->db["db_host"])) $cmr->db_connection = $cmr->connect($cmr->db);//or $cmr->config["cmr_guest_mode"] = 0; //-----database connection------
         }
-
+        /*==================*/
         if($cmr->db_connection) {
+          // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+          include_once($cmr->get_path("get_data") . "get_data/guest/get_login.php");
+          // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           include($cmr->get_path("index") . "system/load_user_data.php");
+          // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
           include_once($cmr->get_path("index") . "system/control_session.php");
+          // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }else{
           $cmr->config["cmr_guest_mode"] = 1;
         }
@@ -185,7 +156,6 @@ $cmr = new camaroes();
         /*==================*/
         (isset($_SESSION["cmr_id"]))?$cmr->load_session():$_SESSION["cmr_id"] = session_id();
         /*==================*/
-        // $cmr->debug_print();exit;
         /*==================*/
         //if(!$cmr->new_login())
         include($cmr->get_path("get_data") . "get_data/guest/get_default_data.php");
@@ -197,7 +167,8 @@ $cmr = new camaroes();
         //$cmr->post_var["cmr_mode"] = "";
         $cmr->post_var["class_module"] = get_post("class_module");
         $cmr->post_var["cmr_get_data"] = get_post("cmr_get_data");
-
+        /*==================*/
+        /*==================*/
         if(($cmr->post_var["class_module"]) || ($cmr->post_var["cmr_get_data"])){
              include_once($cmr->get_path("index") . "system/loader/loader_get.php");
         }

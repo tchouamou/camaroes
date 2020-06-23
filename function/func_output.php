@@ -207,8 +207,8 @@ if(!(function_exists("cmr_get_data_event"))){
 function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_event = array())
     {
 
-	@ cmr_error_log($cmr_config, $cmr_session, "Script=" . $cmr_event["script"] . " Line=" . $cmr_event["line"] . " : " . $cmr_event["comment"]);
-
+	$msg1 = "Event_id:" . $cmr_event["id"] . " Event_name:" . $cmr_event["name"] . " Event_line:" . $cmr_event["line"] . " Event_script:" . $cmr_event["script"] . " Event_comment:" .$cmr_event["comment"];
+	cmr_error_log($cmr_config, $cmr_session, "Script=" . $cmr_event["script"] . " Line=" . $cmr_event["line"] . " : " . $cmr_event["comment"]);
 	switch($cmr_event["name"]){
 
 		    case "get_not_found":
@@ -227,8 +227,9 @@ function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_
 		    case "logout_request":
 		    case "wrong_ip_account":
 		    case "wrong_account":
-//			    echo "<script language=\"javascript\">alert('" . $cmr_event["comment"] . "');</script>";
-			    // cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
+				    //echo "<script language=\"javascript\">alert('" . $msg1 . "');</script>";
+					//cmr_win_die($cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . $cmr_event["data"] . "\" > Here </a>  to login before continue ");
+			    cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
 		    break;
 
 		    case "wrong_account_object":
