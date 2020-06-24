@@ -1,13 +1,13 @@
 # camaroes
-Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM).
+Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM).</br>
 
-info
-Default admin User: 	admin
-Default admin Password: 	admin
-Default operator User: 	operator
-Default operator Password: 	operator
-Default Visitatore User: 	guest
-Default Visitatore Password: 	guest
+info</br>
+Default admin User: 	admin</br>
+Default admin Password: 	admin</br>
+Default operator User: 	operator</br>
+Default operator Password: 	operator</br>
+Default Visitatore User: 	guest</br>
+Default Visitatore Password: 	guest</br>
 
 REQUIREMENTS
 ------------
