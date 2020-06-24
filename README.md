@@ -1,5 +1,6 @@
 # camaroes
 Camaroes is a professional and modular Trouble Shooting Ticket system(TSTM).</br>
+Camaroes Include: Database tool, File manager, Calendar, Webmail, a generator of module class button. Use a dynamique web interface.</br>
 
 info</br>
 Default admin User: 	admin</br>
