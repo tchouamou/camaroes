@@ -42,7 +42,7 @@ All rights reserved.
 
 
 
-function_loader.php,Ver 3.0  2011-Nov-Wed 22:19:05  
+function_loader.php,Ver 3.0  2011-Nov-Wed 22:19:05
 */
 
 // function load_ext($toload)
@@ -63,7 +63,6 @@ function_loader.php,Ver 3.0  2011-Nov-Wed 22:19:05
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/../control.php"); //to control access in the module
 include_once(dirname(__FILE__) . "/func_security.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -302,7 +301,7 @@ function cmr_get_param($arg="")
 		 if(cmr_search("^--", $arg[$i])){
 			 $param[cmr_search_replace("^--", "", $arg[$i])] = $arg[$i+1];
 			 $i++;
-			 } 
+			 }
 		elseif(cmr_search("^-", $arg[$i])){
 			 $param[cmr_search_replace("^-", "", $arg[$i])] = $arg[$i+1];
 			 $i++;
@@ -324,26 +323,26 @@ if(!(empty($_FILES))){
 	$filesize = get_post("MAX_FILE_SIZE");
     $cmr_post_files["email_attach"] = array();
 	get_post("call_log_group") ? $group_name = strtolower(get_post("call_log_group")) : $group_name = "";
-    
+
 	$dir_path = cmr_get_path("index") . "home/";
     if(!file_exists($dir_path)) mkdir($dir_path);
-    
+
 	$dir_path = cmr_get_path("index") . "home/groups/";
     if(!file_exists($dir_path)) mkdir($dir_path);
-    
+
 	$dir_path = cmr_get_path("index") . "home/users/";
     if(!file_exists($dir_path)) mkdir($dir_path);
-    
+
 	$dir_path = cmr_get_path("index") . "home/groups/" . $group_name;
     if(!file_exists($dir_path)) mkdir($dir_path);
-    
+
 	$dir_path = cmr_get_path("index") . "home/groups/" . $group_name . "/attach/";
     if(!file_exists($dir_path)) mkdir($dir_path);
-    
+
     if(empty($cmr_post_files["attachment_location"])) $cmr_post_files["attachment_location"] = cmr_get_path("index") . "home/groups/";
 	$dir_path = $cmr_post_files["attachment_location"];
     if(!file_exists($dir_path)) mkdir($dir_path);
-    
+
     // ==============================================================
     if(!is_writable($cmr_post_files["attachment_location"])) $cmr_post_files["attachment_location"] = dirname(tempnam ($cmr_post_files["attachment_location"], "cmr_")) . "/";
 	if(!is_writable($cmr_post_files["attachment_location"])) $cmr_post_files["attachment_location"] = getenv("TMP")."/";
@@ -414,7 +413,7 @@ function get_pre_match($pre_match)
                 if(($cmr_frm) && (($cmr_frm) == (get_post("class_module")))){
                     $array_var = explode("@;@", $rest_var);
 
-                    if(!empty($var_mactch)) 
+                    if(!empty($var_mactch))
                     foreach($array_var as $var_mactch){
                         if($var_mactch == $arg){
                             list($var_name, $match_exp, $var_len) = explode("@,@", $var_mactch);
@@ -446,7 +445,7 @@ return $pre_match;
 if(!(function_exists("get_post"))){
 function get_post($arg, $method = "", $pre_match = "")
 {
-    
+
 // ========================================
 if($pre_match) $parsed_match = get_pre_match($pre_match);
 //======
@@ -460,8 +459,8 @@ $return_val = null;
 		 if(cmr_search("^-" . $arg, $return_value)) return ($serv[intval($key) +1]);
 		}
 		 if($arg == "cmr_sid")  $return_val = session_id();
-		 
-		 
+
+
 //     if(version_compare(phpversion(),'4.3.0','<')){
 //         define('STDIN',fopen("php://stdin","r"));
 //         define('STDOUT',fopen("php://stout","r"));
@@ -478,31 +477,31 @@ $return_val = null;
 		$stdin = fopen('php://stdin', 'r');
 		$return_val = trim(fgets($stdin));
 		fclose($stdin);
-		
+
 		print("\n[value=" . $return_val."]");
-		
+
 		 $return_val = empty($return_val) ? "admin" : $return_val;
 // 		 ($arg != "cod") or $return_val = 2;
 // 		 ($arg != "vals") or $return_val = null;
 // 		 ($arg != "keys") or $return_val = null;
 // 		 ($arg != "conf") or $return_val = null;
 	    $return_val = isset($arg) ? $return_val : $_SESSION[$method . "_" . $arg];//--permit to set get var usefull for command mode--
-		
+
     //======
 }else{
     //======
 	    if(empty($method)) $method = isset($_GET[$arg]) ? "get" : "post";
-	    
+
 	    if($method == "get"){
 	        $return_val = isset($_GET[$arg]) ? $_GET[$arg] : $return_val;
 	    }else{
 	        $return_val = isset($_POST[$arg]) ? $_POST[$arg] : $return_val;
-	    } 
+	    }
 	    (is_array($return_val)) ? array_walk($return_val, 'html_control') : $return_val = html_control($return_val);
     //======
 }
     //======
-        
+
 //====== getting encode inputs
 if(empty($return_val)){
 	$name1 = "cmr_" . md5("cmr_" . $arg);
@@ -512,7 +511,7 @@ if(empty($return_val)){
 	}
 }
 //======
- 
+
 // 	print("\$name1=".htmlentities($name1).";<br />");
 // 	print("\$value1=".htmlentities($value1).";<br />");
 // 	print("$arg=".htmlentities($_session[$name1][$value1]).";<br />");
@@ -554,7 +553,7 @@ function cmr_conf_exist($cmr_conf_file = "config.inc.php")
 
 // Checks for configuration file, if none found loads installation page
 if(!file_exists($cmr_conf_file) || filesize($cmr_conf_file) < 10){
-	if(($_GET["cmr_mode"] != "install")&&($_POST["cmr_mode"] != "install")) 
+	if(($_GET["cmr_mode"] != "install")&&($_POST["cmr_mode"] != "install"))
 	cmr_header("Location: index.php?cmr_mode=install");
 // 	cmr_header("Location: " .  $_SERVER['PHP_SELF'] . "?cmr_mode=install");
    return  false;
@@ -571,7 +570,7 @@ function cmr_load_lang_need($cmr_config = array(), $cmr_language = array(), $cmr
 
     $root_name = cmr_pure_name($cmr_config, $cmrmodule);
     if(cmr_search(".", $root_name)) $root_name = substr($root_name, 0, strrpos($root_name, "."));
-    $lang_name = "lang_" . $root_name . $cmr_config["cmr_lang_ext"];    
+    $lang_name = "lang_" . $root_name . $cmr_config["cmr_lang_ext"];
 
 //     if(!empty($cmr_language["load_lang_" . cmr_basename($root_name)])) return $cmr_language;
     // -------
@@ -581,7 +580,7 @@ function cmr_load_lang_need($cmr_config = array(), $cmr_language = array(), $cmr
 	   $file_list[] = cmr_get_path("index") . $cmrmodule;
 	   $file_list[] = cmr_get_path("lang") . "languages/" . $cmr_page["language"] . "/" . $lang_name;
 	   $file_list[] = cmr_get_path("lang") . "languages/" . $cmr_page["language"] . "/auto/" . $lang_name;
-	   
+
 	   $file_lang = cmr_good_file($file_list, "file");
     // -------
 //     echo "<br />--[".cmr_get_path("lang") . "languages/" . $cmr_page["language"] . "/" . $lang_name."]--";
@@ -589,8 +588,8 @@ function cmr_load_lang_need($cmr_config = array(), $cmr_language = array(), $cmr
     if(file_exists($file_lang) && (empty($cmr_config["load_lang_" . $root_name])))  $cmr_language = cmr_include_conf($cmr_config, $file_lang, $cmr_language, "var");
     // -------
    return $cmr_language;
-} 
-} 
+}
+}
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("load_conf_"))){
@@ -601,11 +600,11 @@ function cmr_load_conf_need($cmr_config = array(), $cmrmodule = "user.ini")
 //     if(cmr_search("/", $conf_name)){
 //     $root_name = substr($root_name, strrpos($root_name, "/") + 1);
 // 	}
-	
+
     $root_name = cmr_pure_name($cmr_config, $cmrmodule);
     if(cmr_search(".", $root_name)) $root_name = substr($root_name, 0, strrpos($root_name, "."));
     $conf_name = "conf_" . $root_name . $cmr_config["cmr_conf_ext"];
-    
+
     // -------
 //     // if(!empty($cmr_config["version_" . cmr_basename($root_name)])) return $cmr_config;
     // -------
@@ -617,7 +616,7 @@ function cmr_load_conf_need($cmr_config = array(), $cmrmodule = "user.ini")
 	   $file_list[3] = cmr_get_path("conf") . "conf.d/modules/auto/" . $root_name . $cmr_config["cmr_conf_ext"];
 	   $file_list[4] = cmr_get_path("conf") . "conf.d/modules/" . $conf_name;
 	   $file_list[5] = cmr_get_path("conf") . "conf.d/modules/auto/" . $conf_name;
-	   
+
 	   $file_conf = cmr_good_file($file_list, "file");
     // -------
 	    if(is_file($file_list[5])) $cmr_config = cmr_include_conf($cmr_config, $file_list[5], $cmr_config, "var");
@@ -628,11 +627,11 @@ function cmr_load_conf_need($cmr_config = array(), $cmrmodule = "user.ini")
 	    if(is_file($file_list[0])) $cmr_config = cmr_include_conf($cmr_config, $file_list[0], $cmr_config, "var");
 	    if(is_file($file_conf)) $cmr_config = cmr_include_conf($cmr_config, $file_conf, $cmr_config, "var");
     // -------
-	    
+
 //     echo "<br />--[" . $conf_name."]--";
    return $cmr_config;
-} 
-} 
+}
+}
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("load_help_need"))){
@@ -653,15 +652,15 @@ function cmr_load_help_need($cmr_config = array(), $cmr_help = array(), $cmrmodu
 	   $file_list[] = cmr_get_path("help") . "help/auto/" . $help_name;
 	   $file_list[] = cmr_get_path("index") . $cmrmodule;
 	   $file_list[] = $cmrmodule;
-	   
+
 	   $file_help = cmr_good_file($file_list, "file");
     // -------
 // 	if(file_exists($file_help)) include_once($file_help);
     // -------
 
    return $cmr_help;
-} 
-} 
+}
+}
 /*=================================================================*/
 /*=================================================================*/
 /**
@@ -682,8 +681,8 @@ $cmr_config = cmr_load_conf_need($cmr_config, $cmrmodule);
 $cmr_help = cmr_load_help_need($cmr_config, $cmrmodule);
 
    return  array_merge($cmr_config, $cmr_language, $cmr_func, $cmr_class, $cmr_help);
-} 
-} 
+}
+}
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("cmr_getput_template"))){
@@ -736,7 +735,7 @@ $data = array();
 	$cmr_action["table_name"] = $cmr_config["cmr_table_prefix"] . "notify";
 	$cmr_action["column"] = "mail_from,mail_to,mail_cc,mail_bcc";
 	$cmr_action["action"] = "select";
-	
+
 if($conn){
 foreach(array("to_email", "to_page", "to_log", "to_db", "to_sms", "to_flux", "to_rss", "to_other") as $destination){
 	$sql_data["valid"] = cmr_where_query($cmr_config, $cmr_user, $cmr_action, $conn);
@@ -746,20 +745,28 @@ foreach(array("to_email", "to_page", "to_log", "to_db", "to_sms", "to_flux", "to
 	$data = sql_run("array_assoc", $conn, "select", "", $cmr_config["db_name"], $cmr_config["cmr_table_prefix"] . "notify", "*", $sql_data);
 	// =============================================
 	if($destination == "to_email"){
-	    if(!empty($data[0]["mail_to"])) $notify["to_email"]["headers_to"] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["mail_to"]);
-	    if(!empty($data[0]["mail_from"])) $notify["to_email"]["headers_from"] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["mail_from"]);
-	    if(!empty($data[0]["mail_cc"])) $notify["to_email"]["headers_cc"] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["mail_cc"]);
-	    if(!empty($data[0]["mail_bcc"])) $notify["to_email"]["headers_bcc"] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["mail_bcc"]);
-	    if(!empty($data[0]["title"])) $notify["to_email"]["subject"] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["title"]);
-	    if(!empty($data[0]["text"])) $notify["to_email"]["message"] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["text"]);
+	    if(!empty($data[0]["mail_to"]))
+			$notify["to_email"]["headers_to"] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["mail_to"]);
+	    if(!empty($data[0]["mail_from"]))
+			$notify["to_email"]["headers_from"] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["mail_from"]);
+	    if(!empty($data[0]["mail_cc"]))
+				$notify["to_email"]["headers_cc"] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["mail_cc"]);
+	    if(!empty($data[0]["mail_bcc"]))
+				$notify["to_email"]["headers_bcc"] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["mail_bcc"]);
+	    if(!empty($data[0]["title"]))
+			$notify["to_email"]["subject"] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["title"]);
+	    if(!empty($data[0]["text"]))
+				$notify["to_email"]["message"] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["text"]);
 	}else{
-		if(!empty($data[0]["text"])) $notify[$destination] = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["text"]);
+		if(!empty($data[0]["text"]))
+		$notify[$destination] = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", 0,$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $data[0]["text"]);
+		//$notify[$destination] = preg_replace("/(\{\{)([^}{]*)(\}\})/i", "run_code('{{\\2}}', 0, '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $data[0]["text"]);
 	}
 	// =============================================
 }
 }
 // =============================================
-		
+
 return $notify;
 }
 }
@@ -790,7 +797,7 @@ function cmr_load_notify($cmr_config = array(), $cmr_user = array(), $subject_te
         $notify["to_rss"] = "";
         $notify["to_other"] = "";
 		// =============================================
-			
+
 		// =============================================
 		$db_host = $cmr_config["db_host"];
 		$db_name = $cmr_config["db_name"];
@@ -801,36 +808,54 @@ function cmr_load_notify($cmr_config = array(), $cmr_user = array(), $subject_te
 		$cmr_prefix = $cmr_config["cmr_table_prefix"];
 		// =============================================
 		if(file_exists($subject_templates)){
-// 			$pattern=file_get_contents($pattern_templates);	
-			$subject = file_get_contents($subject_templates);	
+// 			$pattern=file_get_contents($pattern_templates);
+			$subject = file_get_contents($subject_templates);
 // 			array_push ($GLOBALS["cmr"]->debug, realpath($subject_templates));
 	    	cmr_set_debug("", realpath($subject_templates));
-			
+
 			if($action_limit){
 				preg_match("|<" . $action_limit . ">(?P<" . $action_limit . ">.*)</" . $action_limit . ">|sieU", $subject, $matches);
 		        $subject = $matches[$action_limit];
         	}
-			
+
 			preg_match("|<to_email>(?P<to_email>.*)</to_email>|sieU", $subject, $matches);
-	        $notify["to_email"]["template"] = $matches["to_email"];
+	    $notify["to_email"]["template"] = $matches["to_email"];
 			preg_match("|<headers_severity>(?P<headers_severity>.*)</headers_severity>|sieU", $subject, $matches);
-			if(!empty($matches["headers_severity"])) $notify["to_email"]["headers_severity"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_severity"]));
+			if(!empty($matches["headers_severity"]))
+			$notify["to_email"]["headers_severity"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["headers_severity"]));
+			//$notify["to_email"]["headers_severity"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_severity"]));
 			preg_match("|<headers_to>(?P<headers_to>.*)</headers_to>|sieU", $subject, $matches);
-			if(!empty($matches["headers_to"])) $notify["to_email"]["headers_to"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_to"]));
+			if(!empty($matches["headers_to"]))
+			$notify["to_email"]["headers_to"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["headers_to"]));
+			//$notify["to_email"]["headers_to"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_to"]));
 			preg_match("|<headers_from>(?P<headers_from>.*)</headers_from>|sieU", $subject, $matches);
-			if(!empty($matches["headers_from"])) $notify["to_email"]["headers_from"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_from"]));
+			if(!empty($matches["headers_from"]))
+			$notify["to_email"]["headers_from"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["headers_from"]));
+			//$notify["to_email"]["headers_from"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_from"]));
 			preg_match("|<headers_cc>(?P<headers_cc>.*)</headers_cc>|sieU", $subject, $matches);
-			if(!empty($matches["headers_cc"])) $notify["to_email"]["headers_cc"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_cc"]));
+			if(!empty($matches["headers_cc"]))
+			$notify["to_email"]["headers_cc"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["headers_cc"]));
+			//$notify["to_email"]["headers_cc"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_cc"]));
 			preg_match("|<headers_bcc>(?P<headers_bcc>.*)</headers_bcc>|sieU", $subject, $matches);
-			if(!empty($matches["headers_bcc"])) $notify["to_email"]["headers_bcc"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_bcc"]));
+			if(!empty($matches["headers_bcc"]))
+			$notify["to_email"]["headers_bcc"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["headers_bcc"]));
+			//$notify["to_email"]["headers_bcc"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["headers_bcc"]));
 			preg_match("|<subject>(?P<subject>.*)</subject>|sieU", $subject, $matches);
-			if(!empty($matches["subject"])) $notify["to_email"]["subject"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["subject"]));
+			if(!empty($matches["subject"]))
+			$notify["to_email"]["subject"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["subject"]));
+			//$notify["to_email"]["subject"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["subject"]));
 			preg_match("|<message>(?P<message>.*)</message>|sieU", $subject, $matches);
-			if(!empty($matches["message"])) $notify["to_email"]["message"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["message"]));
+			if(!empty($matches["message"]))
+			$notify["to_email"]["message"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["message"]));
+			//$notify["to_email"]["message"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["message"]));
 			preg_match("|<to_page>(?P<to_page>.*)</to_page>|sieU", $subject, $matches);
-			if(!empty($matches["to_page"])) $notify["to_page"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["to_page"]));
+			if(!empty($matches["to_page"]))
+			$notify["to_page"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["to_page"]));
+			//$notify["to_page"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["to_page"]));
 			preg_match("|<to_log>(?P<to_log>.*)</to_log>|sieU", $subject, $matches);
-			if(!empty($matches["to_log"])) $notify["to_log"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/sieU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["to_log"]));
+			if(!empty($matches["to_log"]))
+			$notify["to_log"] = stripslashes(preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group) {return run_code("{{" . $m[2] . "}}", "",$db_host,$db_user,$db_pw,$db_name,$cmr_prefix,$auth_email,$auth_group);}, $matches["to_log"]));
+			//$notify["to_log"] = stripslashes(preg_replace("/(\{\{)([^}{]*)(\}\})/siU", "run_code('{{\\2}}', '', '$db_host', '$db_user', '$db_pw', '$db_name', '$cmr_prefix', '$auth_email', '$auth_group')", $matches["to_log"]));
 			preg_match("|<to_db>(?P<to_db>.*)</to_db>|sieU", $subject, $matches);
 	        $notify["to_db"] = $matches["to_db"];
 			preg_match("|<to_sms>(?P<to_sms>.*)</to_sms>|sieU", $subject, $matches);
@@ -841,11 +866,11 @@ function cmr_load_notify($cmr_config = array(), $cmr_user = array(), $subject_te
 	        $notify["to_rss"] = $matches["to_rss"];
 			preg_match("|<to_other>(?P<to_other>.*)</to_other>|sieU", $subject, $matches);
 	        $notify["to_other"] = $matches["to_other"];
-	        
+
 		}
-		
-		
-		
+
+
+
 		if($action_type){
 			if(!($cmr_config["log_to_page" . $action_type])) $notify["to_page"] = "";
 			if(!($cmr_config["log_to_log" . $action_type])) $notify["to_log"] = "";
@@ -856,9 +881,9 @@ function cmr_load_notify($cmr_config = array(), $cmr_user = array(), $subject_te
 			if(!($cmr_config["log_to_rss" . $action_type]))$ $notify["to_email"] = "";
 			if(!($cmr_config["log_to_other" . $action_type])) $notify["to_email"] = "";
 		}
-		
-		
-		
+
+
+
    return $notify;
     }
     }
@@ -868,7 +893,7 @@ if(!(function_exists("cmr_load_cookie"))){
 function cmr_load_cookie($cmr_config = array())
     {
 		if(!empty($cmr_config["cmr_use_cookie"])){
-		foreach($_COOKIE as $key => $value){ 
+		foreach($_COOKIE as $key => $value){
 		 	$_SESSION[$key] = $value; //----loading cookies var in table _SESSION
 		}
 		}
@@ -918,10 +943,10 @@ function cmr_view_post_var($post_var = array(), $table_name = "", $base_name = "
 	if(get_post($date_time_base1 . "2")) $post_var[$date_time_base1 . "2"] = get_post($date_time_base1 . "2");
 	if(get_post($base_name . "_columns")) $post_var[$base_name . "_columns"] = get_post($base_name . "_columns");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 	if(empty($post_var[$base_name . "_not"])) $post_var[$base_name . "_not"] = "";
 	if(empty($post_var[$base_name . "_desc"])) $post_var[$base_name . "_desc"] = "desc";
@@ -942,14 +967,14 @@ function cmr_view_post_var($post_var = array(), $table_name = "", $base_name = "
 	if(intval($post_var[$base_name . "_limit"]) < 2) $post_var[$base_name . "_limit"] = 50;
 	if(intval($post_var[$base_name . "_page"] < 1)) $post_var[$base_name . "_page"] = 0;
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if($post_var["id_" . $table_name]=="_all_"){
 		$post_var[$date_time_base1 . "1"] = "";
 		$post_var[$date_time_base1 . "2"] = "";
 	}
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	
+
         return $post_var;
 }
 }

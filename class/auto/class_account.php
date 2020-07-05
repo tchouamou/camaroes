@@ -14,22 +14,19 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
-class_account.php, Ver 3.03, 2011-Apr-Thu 23:21:40
+class_account.php, Ver 3.03, 2020-Jul-Sun 16:46:05
 */
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // !!!!!!!!!!!Security and authorisation!!!!!!!!!!!!!!!
-// ==============================================        
+// ==============================================
     // ==========
     // ==========
     $GLOBALS["account_read"] = $cmr->readed_line("account");
     // ==========
     // ==========
-// ==============================================        
+// ==============================================
 if(!(class_exists("account_class"))){
     class account_class{
         
@@ -40,81 +37,18 @@ if(!(class_exists("account_class"))){
          */
         var $id;
         
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $url;
-        
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $user_email;
-        
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $uid;
-        
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $pw;
-        
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $server;
-        
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $service;
-        
-        /**
-         * @_column_name_@ bigint
-         *
-         * @var
-         */
-        var $port;
-        
-        /**
-         * @_column_name_@ varchar
-         *
-         * @var
-         */
-        var $protocol;
-        
-        /**
-         * @_column_name_@ datetime
-         *
-         * @var
-         */
-        var $date_time;
-        
 
          /**
          *
          * @var int
          */
         var $cmr_id;
-         
-         
-        
-        
-        
-                 
+
+
+
+
+
+
         /**
          *
          * @var array
@@ -194,26 +128,26 @@ if(!(class_exists("account_class"))){
         /**
          * Constructor
          **/
-    //00000000000000000000000000 
+    //00000000000000000000000000
 	function __construct($cmr_config = array(), $cmr_user = array()) // --constructor--
 	{
 	   return $this->account_class($cmr_config, $cmr_user);
 	}
-    //00000000000000000000000000 
+    //00000000000000000000000000
         function account_class($cmr_config = array(), $cmr_user = array())
         {
 	     if(empty($cmr_config)) $cmr_config = cmr_get_config();
 	     if(empty($cmr_user)) $cmr_user = cmr_get_user();
-	     
+
 	     if(($cmr_config)) $this->cmr_config = $cmr_config;
 	     if(($cmr_user)) $this->cmr_user = $cmr_user;
-	     
-	     
+
+
 	     $this->cmr_prefix = $this->cmr_config["cmr_table_prefix"];
 	     $this->cmr_email = $this->cmr_user["auth_email"];
 	     $this->cmr_group = $this->cmr_user["auth_group"];
 	     $this->cmr_list_group = $this->cmr_user["auth_list_group"];
-	     $this->cmr_type = $this->cmr_user["authorisation"];          
+	     $this->cmr_type = $this->cmr_user["authorisation"];
         return $this;
         }
 
@@ -226,25 +160,7 @@ if(!(class_exists("account_class"))){
             
             (empty($value)) ? $this->cmr_array_column['id'] = $this->id : $this->cmr_array_column['id'] = $value;
             
-            (empty($value)) ? $this->cmr_array_column['url'] = $this->url : $this->cmr_array_column['url'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['user_email'] = $this->user_email : $this->cmr_array_column['user_email'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['uid'] = $this->uid : $this->cmr_array_column['uid'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['pw'] = $this->pw : $this->cmr_array_column['pw'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['server'] = $this->server : $this->cmr_array_column['server'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['service'] = $this->service : $this->cmr_array_column['service'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['port'] = $this->port : $this->cmr_array_column['port'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['protocol'] = $this->protocol : $this->cmr_array_column['protocol'] = $value;
-            
-            (empty($value)) ? $this->cmr_array_column['date_time'] = $this->date_time : $this->cmr_array_column['date_time'] = $value;
-            
-            
+
             return $this->cmr_array_column;
         }
          /**
@@ -257,36 +173,9 @@ if(!(class_exists("account_class"))){
             $this->id = '';
             if(get_post('id')) $this->id = get_post('id', $action, $pre_match);
             
-            $this->url = '';
-            if(get_post('url')) $this->url = get_post('url', $action, $pre_match);
-            
-            $this->user_email = '';
-            if(get_post('user_email')) $this->user_email = get_post('user_email', $action, $pre_match);
-            
-            $this->uid = '';
-            if(get_post('uid')) $this->uid = get_post('uid', $action, $pre_match);
-            
-            $this->pw = '';
-            if(get_post('pw')) $this->pw = get_post('pw', $action, $pre_match);
-            
-            $this->server = '';
-            if(get_post('server')) $this->server = get_post('server', $action, $pre_match);
-            
-            $this->service = '';
-            if(get_post('service')) $this->service = get_post('service', $action, $pre_match);
-            
-            $this->port = '';
-            if(get_post('port')) $this->port = get_post('port', $action, $pre_match);
-            
-            $this->protocol = '';
-            if(get_post('protocol')) $this->protocol = get_post('protocol', $action, $pre_match);
-            
-            $this->date_time = '';
-            if(get_post('date_time')) $this->date_time = get_post('date_time', $action, $pre_match);
-            
-            
+
             $this->cmr_array_column = $this->get_array_datas();
-            
+
             return true;
         }
 
@@ -347,7 +236,7 @@ if(!(class_exists("account_class"))){
 //          $this->cmr_query["view"] = "SELECT * FROM " . $this->cmr_prefix . "account WHERE " . $this->accept("select") . "";
             return $this->cmr_query["view"];
         }
-        
+
         /**
          *query_import
          **/
@@ -359,11 +248,11 @@ if(!(class_exists("account_class"))){
 			$data["separator"] = "\\\n";
 		    $this->cmr_query["import"] = sql_run("query", "", "load_data", "", $this->cmr_config["db_name"], $this->cmr_prefix . $this->cmr_table, "", "", "", "", "", "", $data);
 //          $this->cmr_query["import"] = "LAOD DATA LOCAL INFILE " . $file_name . " into table " . $this->cmr_prefix . "account field terminate by '\\\n';";
-            
+
             return $this->cmr_query["import"];
         }
-        
-        
+
+
         /**
          *query_export
          **/
@@ -377,7 +266,7 @@ if(!(class_exists("account_class"))){
 //          $this->cmr_query["export"] = "SELECT * FROM " . $this->cmr_prefix . "account into outfile " . $file_name . " field terminate by '\\\n'";
             return $this->cmr_query["export"];
         }
-        
+
         /**
          *
          **/
@@ -389,7 +278,7 @@ if(!(class_exists("account_class"))){
 //          $this->cmr_query["report"] = "SELECT COUNT * FROM " . $this->cmr_prefix . "account WHERE " . $this->accept("select") . " and " . $where; //." LIMIT " . $this->cmr_limit;
             return $this->cmr_query["report"];
         }
-        
+
         /**
          *
          **/
@@ -399,7 +288,7 @@ if(!(class_exists("account_class"))){
 	        $this->cmr_query["search"] = cmr_query_search($this->cmr_array_column, $array_func, $this->cmr_prefix . $this->cmr_table, $this->accept("select"), get_post("search_text"));
             return $this->cmr_query["search"];
         }
-        
+
 
 
         /**
@@ -409,12 +298,12 @@ if(!(class_exists("account_class"))){
          **/
         function query_insert($col_id = "")
         {
+            if(isset($this->id) && empty($this->id)) $this->id = date("Y-m-d H:i:s");
             if(isset($this->date_time) && empty($this->date_time)) $this->date_time = date("Y-m-d H:i:s");
-            if(isset($this->date_time) && empty($this->date_time)) $this->date_time = date("Y-m-d H:i:s");
-            
+
             $this->id = $col_id;
 			$this->cmr_array_column = $this->get_array_datas();
-            
+
             $this->cmr_query["insert"] = cmr_query_insert($this->cmr_array_column, $this->cmr_prefix . $this->cmr_table, $this->accept("insert"));
             return $this->cmr_query["insert"];
         	}
@@ -442,7 +331,7 @@ if(!(class_exists("account_class"))){
         function query_delete($col_id = NULL)
         {
 // 		$this->cmr_query["delete"]  = "DELETE FROM " . $this->cmr_prefix . "account WHERE " . $this->accept("delete");
-// 		
+//
 // 		$list_id = "";
 // 		if(is_array($val_id)){
 // 				foreach($val_id as $key => $value){
@@ -452,7 +341,7 @@ if(!(class_exists("account_class"))){
 // 		}else{
 // 		$list_id = "'" . cmr_escape($val_id) . "'";
 // 		}
-// 				
+//
 // 		$this->cmr_query["delete"] .= " AND id IN " . sprintf("(%s);", $list_id);
 		empty($col_id) ? $val_id = $this->id : $val_id = $col_id;
 			$this->cmr_id = $this->id;
@@ -470,7 +359,7 @@ if(!(class_exists("account_class"))){
 	        if(is_resource($this->cmr_connection)) return $this->cmr_connection;
             return cmr_get_db_connection();
         }
-        
+
         /**
          * run query
          *
@@ -482,7 +371,7 @@ if(!(class_exists("account_class"))){
             $this->affect_rown = $result_query->RecordCount();
             return $result_query;
         }
-        
+
         /**
          * data_query()
          *
@@ -492,12 +381,12 @@ if(!(class_exists("account_class"))){
         {
             return sql_run("array", $this->connect(), "sql", $query);
         }
-// ==============================================        
-// ==============================================        
-// ==============================================        
-// ==============================================        
+// ==============================================
+// ==============================================
+// ==============================================
+// ==============================================
         /**
-         * close 
+         * close
          **/
         function close()
         {
@@ -513,6 +402,6 @@ if(!(class_exists("account_class"))){
         }
     }
 }
-// ==============================================        
-// ==============================================        
+// ==============================================
+// ==============================================
 ?>

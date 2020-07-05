@@ -19,7 +19,7 @@
 <message>
 {{lang_The record}}({{get_id_@_table_@}}){{lang_@_table_@ was deleted by}}: {{user_auth_email}}
 
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -34,7 +34,7 @@
 <br />
 {{lang_The record}}({{get_id_@_table_@}}){{lang_@_table_@ was deleted}}
 <br />
-{{lang_thanks}} 
+{{lang_thanks}}
 --
 <br />
 </p>
@@ -79,11 +79,11 @@
 <message>
 {{lang_A new  @_table_@ was created by}}: {{user_auth_email}}
 
-£_foreach_column_£
+%_foreach_column_%
 {{lang_@_column_@}}:{{get_@_column_@}}
-££_foreach_column_££
+%%_foreach_column_%%
 
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -98,9 +98,9 @@
 <b><u>{{lang_@_table_@ Created successfully}}</u></b>
 <br />
 
-£_foreach_column_£
+%_foreach_column_%
 <b>{{lang_@_column_@}}:</b>{{get_@_column_@}}<br />
-££_foreach_column_££
+%%_foreach_column_%%
 <br />
 {{lang_thanks}}
 --
@@ -145,11 +145,11 @@
 <message>
 {{lang_An update of the @_table_@ was runned by}}: {{user_auth_email}}
 
-£_foreach_column_£
+%_foreach_column_%
 {{lang_@_column_@}}:{{get_@_column_@}}
-££_foreach_column_££
+%%_foreach_column_%%
 
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -164,11 +164,11 @@
 <b><u>{{lang_@_table_@ updated successfully}}</u></b>
 <br />
 
-£_foreach_column_£
+%_foreach_column_%
 <b>{{lang_@_column_@}}:</b>{{get_@_column_@}}<br />
-££_foreach_column_££
+%%_foreach_column_%%
 <br />
-{{lang_thanks}} 
+{{lang_thanks}}
 --
 <br />
 </p>
@@ -246,7 +246,7 @@
 <message>
 {{lang_The action}} {{get_check_action}} {{lang_was run on @_table_@}} ({{glob_list_check}}) by:{{user_auth_email}}
 
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -262,7 +262,7 @@
 <br />
 {{lang_The action}} {{get_check_action}} {{lang_was run on @_table_@}} ({{glob_list_check}}) by:{{user_auth_email}}
 <br />
-{{lang_thanks}}  
+{{lang_thanks}}
 --<br />
 </p>
 </to_page>

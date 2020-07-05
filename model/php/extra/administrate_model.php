@@ -49,7 +49,7 @@ $win->themes["module_name"]= $cmr->get_module("name");
 $win->themes["module_positionx"]= $cmr->get_module("rown_position");
 $win->themes["module_positiony"]= $cmr->get_module("col_position");
 
-$win->module["title"]= $cmr->translate($cmr->module["base_name"]); 
+$win->module["title"]= $cmr->translate($cmr->module["base_name"]);
 // $win->module["text"] = "";
 // $win->themes["text_align"] = "left";
 // $win->themes["bgcolor"] = "#FFFFFF";
@@ -117,7 +117,7 @@ $win->prints["match_input_hidden_module"] = input_hidden("<input type=\"hidden\"
 $win->prints["match_input_hidden_get"] = "";
 $win->prints["match_input_hidden_conf"] = "";
 
-// 
+//
 $win->prints["match_legend_administrate"] = $cmr->translate("administrate");
 ;
 
@@ -140,13 +140,13 @@ $win->prints["match_select_dest"] = $cmr->translate('select_dest');
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-£_foreach_table_£
+%_foreach_table_%
 $win->prints['match_@_table_@'] = '<a href=' . code_href($cmr->config, $cmr->page, 'modules/view_@_table_@.php', 1) . '>' . $cmr->translate('@_table_@') . '</a>';
 $win->prints['match_all'] = $cmr->translate('all');
 $win->prints['match_option_@_table_@'] = $cmr->print_select($cmr->config['cmr_table_prefix'] . '@_table_@', '@_column1_@,@_column2_@,@_column3_@', 'column', $cmr->config['db_name'], '@_column_id_@', $cmr->config['cmr_max_view'], '@_column_id_@', '35') ;
 $win->prints['match_select_@_table_@_link'] = $cmr->module_link('modules/view_@_table_@.php?left1=&middle2=', 0, '+');
 
-££_foreach_table_££
+%%_foreach_table_%%
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -183,7 +183,7 @@ $win->prints["match_reset_form"] = $cmr->translate("confirm that you want to emp
 $win->prints["match_submit"] =  $cmr->translate("Go!");
 $win->prints["match_submit_java"] = $cmr->translate("confirm that you want to run this action");
 
-$win->prints["match_close_windows"] = $win->close(); 
+$win->prints["match_close_windows"] = $win->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

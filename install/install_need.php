@@ -52,10 +52,33 @@ template_install_need.php,  2011-Oct
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) ."/../control.php"); //to control access 
+include_once(dirname(__FILE__) ."/../control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*==================*/
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_main_config"), $cmr->config, "var");
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_database_config"), $cmr->config, "var");
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_smtp_config"), $cmr->config, "var");
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_compagny_config"), $cmr->config, "var");
+		$cmr->config = $cmr->preload_config($cmr->get_conf("cmr_preload_conf"));
+//          $cmr->config = $cmr->include_conf("conf.d/conf_login.ini", $cmr->config, "var");
+//          $cmr->config = $cmr->include_conf("conf.d/conf_security.ini", $cmr->config, "var");
+/*==================*/
+		if(!($cmr->get_conf("cmr_path"))) $cmr->config["cmr_path"] = realpath("./");
+		$cmr->config["cmr_path"] = realpath($cmr->get_conf("cmr_path"))  . "/";
+		$cmr->action["to_load"] = $cmr->get_conf("cmr_preload_func");
+		include($cmr->get_path("index") . "system/loader/loader_function.php");
+		$cmr->action["to_load"] = $cmr->get_conf("cmr_preload_class");
+		include($cmr->get_path("index") . "system/loader/loader_class.php");
+/*==================*/
+        $cmr->language = auto_language($cmr->config, $cmr->language, $cmr->db_connection); //__automatic create language traduction
+        $cmr->language = $cmr->include_conf($cmr->get_conf("cmr_begin_lang_file"), $cmr->language, "var");
+        $cmr->page = $cmr->include_conf($cmr->get_conf("cmr_begin_pager_file"), $cmr->page, "var");// =========== default config ==================
+        $cmr->themes = $cmr->include_conf($cmr->get_conf("cmr_begin_theme_file"), $cmr->themes, "var");
+		    $cmr->themes = $cmr->include_conf($cmr->get_path("theme") . $cmr->get_page("cmr_themes"), $cmr->themes, "var");
+/*==================*/
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -83,7 +106,7 @@ $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -109,9 +132,9 @@ if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $file_list = array();
 $file_list[] = $cmr->get_path("template") . "templates/template_install_need" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_install_need" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_install_need" . $cmr->get_ext("template");
 $template_install_need_file = cmr_good_file($file_list);
-$template_install_need = file_get_contents($template_install_need_file);  
+$template_install_need = file_get_contents($template_install_need_file);
 print(cmr_print_template($template_install_need, "template1", $cmr->prints));
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ======================================================================
@@ -170,21 +193,22 @@ $cmr->prints["match_link_db_scheme"] = $cmr->translate("Click here Complete data
 $cmr->prints["match_link_db_scheme1"] = $cmr->translate("Click here Database scheme stucture");
 $cmr->prints["match_link_db_scheme2"] = $cmr->translate("Click here Database inizial insertion");;
 
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\" ><big>" . $cmr->translate("Login") . "</big></a>";
-$cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\" ><big>" . $cmr->translate("logout") . "</big></a>";
+$cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\"  class=\"CmrButton\" >" . $cmr->translate("Login") . "</a>";
+$cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\"  class=\"CmrButton\" >" . $cmr->translate("logout") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_forget_account")))
-$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\" ><big>" . $cmr->translate("Forget Account") . "</big></a>";
+$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\"  class=\"CmrButton\" >" . $cmr->translate("Forget Account") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_inscription")))
-$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\" ><big>" . $cmr->translate("New account") . "</big></a>";
+$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\"  class=\"CmrButton\" >" . $cmr->translate("New account") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_validation")))
-$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" ><big>" . $cmr->translate("Account Validation") . "</big></a>";
+$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" class=\"CmrButton\" >" . $cmr->translate("Account Validation") . "</a>";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-$cmr->prints["match_close_windows"] = $division->close(); 
+$cmr->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

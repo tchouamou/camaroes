@@ -115,6 +115,22 @@ function cmr_info_print($value = "")
 }
 }
 /*=================================================================*/
+
+if(!(function_exists("get_post1"))){
+function get_post1($arg, $method = "")
+{
+$return_val = "";
+	    if(empty($method)) $method = isset($_GET[$arg]) ? "get" : "post";
+
+	    if($method == "get"){
+	        $return_val = isset($_GET[$arg]) ? $_GET[$arg] : $return_val;
+	    }else{
+	        $return_val = isset($_POST[$arg]) ? $_POST[$arg] : $return_val;
+	    }
+
+return $return_val;
+}
+}
 /*=================================================================*/
 if(!(function_exists("cmr_escape"))){
 function cmr_escape($arg = "")
@@ -531,6 +547,7 @@ function cmr_getdir_all($array_path, $only_property = "")
                 $num_files++;
                 $dir = opendir($the_path);
 
+								if($dir)
                 while ($file = readdir($dir)){
                     if(($file != ".") && ($file != "..")){
                         $array_content[] = realpath($the_path . "/" . $file);

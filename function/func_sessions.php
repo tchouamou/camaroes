@@ -56,9 +56,6 @@ func_session.php,Ver 3.0  2011-Nov-Wed 22:19:05
 // function cmr_load_session_mode($cmr_config = array()) // --constructor--
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("cmr_load_session_mode"))){
@@ -151,7 +148,7 @@ if(!(function_exists("cmr_load_session"))){
 function cmr_load_session($cmr_object, $cmr_config = array())
   {
     $cmr_return = array();
-    if($_SESSION["cmr_array_" . $cmr_object]) return $_SESSION["cmr_array_" . $cmr_object];
+    if(isset($_SESSION["cmr_array_" . $cmr_object])) return $_SESSION["cmr_array_" . $cmr_object];
 		if($cmr_config["cmr_save_session"]=="files"){
       $cmr_return = array();
 		}elseif($cmr_config["cmr_save_session"]=="database"){

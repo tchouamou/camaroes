@@ -3,7 +3,7 @@
 -- Version TSTM: 2.0
 -- Version MySQL: 4.0.24
 -- Version PHP: 4.3.10-16
--- 
+--
 -->
 <html xmlns:v="urn:schemas-microsoft-com:vml"
 xmlns:o="urn:schemas-microsoft-com:office:office"
@@ -128,12 +128,12 @@ div.Section1
 <br />
 
 
- £_foreach_table_£
+ %_foreach_table_%
 	<h3>
 	 <label>Table</label>:<u>@_table_@</u>
 	</h3>
 	<br />
-	
+
 		<br />
 		<ul>
 		 <li><label>Comment</label>:@_table_comment_@</li>
@@ -145,84 +145,84 @@ div.Section1
 		 <li><label>Date_time</label>:<u>@_table_date_time_@</u></li>
 		</ul>
 		<br />
-	
-	
+
+
         <table>
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                <th>
                 @_column_@
                 </th>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-            
+
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                 <td>
                 @_column_type_@
                 </td>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-            
+
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                 <td>
                 @_column_collation_@
                 </td>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-        
-            
+
+
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                 <td>
-                @_column_privileges_@ 
+                @_column_privileges_@
                 </td>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-        
-            
+
+
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                 <td>
-                @_column_null_@ 
+                @_column_null_@
                 </td>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-        
-            
+
+
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                 <td>
                 @_column_default_@
                 </td>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-        
-            
+
+
            <tr>
-            £_foreach_column_£
+            %_foreach_column_%
                 <td>
-                @_column_extra_@ 
+                @_column_extra_@
                 </td>
-            ££_foreach_column_££
+            %%_foreach_column_%%
            </tr>
-        
-            £_foreach_rown_£
+
+            %_foreach_rown_%
                 <tr>
-                £_foreach_cols_in_rown_£
+                %_foreach_cols_in_rown_%
                     <td>
-                        @_rown_@                 
+                        @_rown_@
                     </td>
-                ££_foreach_cols_in_rown_££
+                %%_foreach_cols_in_rown_%%
                 </tr>
-            ££_foreach_rown_££
+            %%_foreach_rown_%%
         </table>
-<br />        
-            
-    ££_foreach_table_££
-    
-                
+<br />
+
+    %%_foreach_table_%%
+
+
 	<h3>
 	 <label>Views</label>:<u></u>
 	</h3>
@@ -233,7 +233,7 @@ div.Section1
 	</h3>
 	<br />
 
-        
+
 	<h3>
 	 <label>Users</label>:<u></u>
 	</h3>

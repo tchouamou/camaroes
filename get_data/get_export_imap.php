@@ -22,7 +22,7 @@ All rights reserved.
 
 
 
-get_importclass_imap.php,Ver 3.0  2011 05:49:23  
+get_importclass_imap.php,Ver 3.0  2011 05:49:23
 */
 
 /**
@@ -46,9 +46,9 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // case "@_form_@"://When Working in data send by  form [export_imap.php]
-// ----------------            
+// ----------------
 
-// ----------------            
+// ----------------
 $cmr->language = $mod->load_lang($cmr->language, $cmr->page["language"], "imap.php");
 $cmr->config = $mod->load_conf("conf_export_imap.ini");
 $cmr->help = $mod->load_help("imap.php");
@@ -58,9 +58,9 @@ $cmr->action["to_load"] = "load_func_need";
 include($cmr->get_path("index") . "system/loader/loader_function.php");
 $cmr->action["to_load"] = "load_class_need";
 include($cmr->get_path("index") . "system/loader/loader_class.php");
-// ----------------            
+// ----------------
 
-// ----------------            
+// ----------------
 $cmr->language = $mod->load_lang($cmr->language, $cmr->page["language"], "generators.php");
 $cmr->config = $mod->load_conf("conf_generators.ini");
 $cmr->help = $mod->load_help("generators.php");
@@ -70,13 +70,13 @@ $cmr->action["to_load"] = "load_func_need";
 include($cmr->get_path("index") . "system/loader/loader_function.php");
 $cmr->action["to_load"] = "load_class_need";
 include($cmr->get_path("index") . "system/loader/loader_function.php");
-// ----------------            
+// ----------------
 
-// ----------------            
+// ----------------
 include($cmr->get_path("func") . "function/func_zip.php");
-// ----------------            
+// ----------------
 
-// ----------------            
+// ----------------
 $post = new class_imap();
 
 ////$post->set_cmr_prefix($cmr->get_conf("cmr_table_prefix"));
@@ -87,7 +87,7 @@ $post->set_class_imap($cmr->get_user("auth_imap"));
 
 ////$post->set_cmr_config($cmr->config);
 ////$post->set_cmr_user($cmr->user);
-// ----------------            
+// ----------------
 // =======================================================================
 include_once($cmr->get_path("class") . "class/class_imap.php");
 
@@ -98,7 +98,7 @@ $m->imap_port = $cmr->email["imap_port"];
 $m->imap_user_name = $cmr->email["imap_user_name"];
 $m->imap_password = $cmr->email["imap_password"];
 $m->imap_default_folder = $cmr->email["imap_default_folder"];
-        
+
 $cmr->email["imap_default_folder"] = $m->imap_default_folder;
 if($m->connect()){
 }
@@ -214,37 +214,37 @@ switch($export_type){
 	case "xml":
 	$model=cmr_look_file("export.xml", $cmr->get_path("index") . "export_model/xml/, " . $cmr->get_path("model") . "model/xml/");
 	break;
-	
+
 	case "tex":
 	$model=cmr_look_file("export.tex", $cmr->get_path("index") . "export_model/tex/, " . $cmr->get_path("model") . "model/tex/");
 	break;
-	
+
 	case "html":
 	$model=cmr_look_file("export.html", $cmr->get_path("index") . "export_model/html/, " . $cmr->get_path("model") . "model/html/");
 	break;
-	
+
 	case "word":
 	case "doc":
 	$model=cmr_look_file("export.doc", $cmr->get_path("index") . "export_model/doc/, " . $cmr->get_path("model") . "model/doc/");
 	break;
-	
+
 	case "pdf":
 	$model=cmr_look_file("export.pdf", $cmr->get_path("index") . "export_model/pdf/, " . $cmr->get_path("model") . "model/pdf/");
 	break;
-	
+
 	case "xls":
 	$model=cmr_look_file("export.xls", $cmr->get_path("index") . "export_model/xls/, " . $cmr->get_path("model") . "model/xls/");
 	break;
-	
+
 	case "text":
 	case "txt":
 	$model=cmr_look_file("export.txt", $cmr->get_path("index") . "export_model/txt/, " . $cmr->get_path("model") . "model/txt/");
 	break;
-	
+
 	case "cvs":
 	$model=cmr_look_file("export.cvs", $cmr->get_path("index") . "export_model/cvs/, " . $cmr->get_path("model") . "model/cvs/");
 	break;
-	
+
 	case "sql":
 	$model=cmr_look_file("export.sql", $cmr->get_path("index") . "export_model/sql/, " . $cmr->get_path("model") . "model/sql/");
 // -----------------------------------------------------
@@ -252,7 +252,7 @@ switch($export_type){
 //  $cmr->query[0]  = $post->query_export();
 // -----------------------------------------------------
 	break;
-	
+
 	default:
 		$cmr->query[0]  = "SELECT * INTO OUTFILE '" . cmr_escape($into_outfile) . "'";
 		$cmr->query[0] .= "FIELDS TERMINATED BY '" . cmr_escape($fields_terminated_by) . "' OPTIONALLY ENCLOSED BY '" . $optionally_enclosed_by . "'";
@@ -286,7 +286,7 @@ switch($export_type){
 	break;
 	default:
 	// ------------
-    $cmr->db["result"][0] = &$cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+    $cmr->db["result"][0] = $cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 	$export_data = file_get_contents($into_outfile);
 	// ------------
 	break;

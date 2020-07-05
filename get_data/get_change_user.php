@@ -149,7 +149,7 @@ $cmr->email["headers_bcc"] = "" ;//. $cmr->config["cmr_bcc_name"] . " <" . $cmr-
 	$qr->email = $user_object->email;
 	$sql_session = $qr->get_query("delete_session");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	$result_sql = &$cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_sql = $cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 	// *************************
 	// *************************
 	// $sql_session = "INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "session ( id, sessionid, sessionip, user_email, status, state,  time_out,  session_end, date_time ) ";
@@ -157,7 +157,7 @@ $cmr->email["headers_bcc"] = "" ;//. $cmr->config["cmr_bcc_name"] . " <" . $cmr-
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$sql_session = $qr->get_query("insert_session");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	$result_sql = &$cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_sql = $cmr->db_connection->query($sql_session) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 	    // *************************
 	// ======================================================================
 	// ======================================================================
@@ -181,7 +181,7 @@ $cmr->email["headers_bcc"] = "" ;//. $cmr->config["cmr_bcc_name"] . " <" . $cmr-
 	$sql_group = $qr->get_query("user_list_group");
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-	$result_group = &$cmr->db_connection->query($sql_group) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+	$result_group = $cmr->db_connection->query($sql_group) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 	// ---- Default value for all user authentificated --------
 	$cmr->user["auth_group"] = $cmr->get_conf("cmr_default_group");
 	$cmr->group["name"] = $cmr->user["auth_group"];

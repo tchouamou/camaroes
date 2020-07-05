@@ -193,17 +193,17 @@ $cmr->prints["match_label_init"] = $cmr->translate("Init");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\" ><big>" . $cmr->translate("Login") . "</big></a>";
-$cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\" ><big>" . $cmr->translate("logout") . "</big></a>";
+$cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\"  class=\"CmrButton\" >" . $cmr->translate("Login") . "</a>";
+$cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\"  class=\"CmrButton\" >" . $cmr->translate("logout") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_forget_account")))
-$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\" ><big>" . $cmr->translate("Forget Account") . "</big></a>";
+$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\"  class=\"CmrButton\" >" . $cmr->translate("Forget Account") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_inscription")))
-$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\" ><big>" . $cmr->translate("New account") . "</big></a>";
+$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\"  class=\"CmrButton\" >" . $cmr->translate("New account") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_validation")))
-$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" ><big>" . $cmr->translate("Account Validation") . "</big></a>";
+$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" class=\"CmrButton\" >" . $cmr->translate("Account Validation") . "</a>";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

@@ -31,7 +31,7 @@ template_install_end.php,  2011-Oct
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) ."/../control.php"); //to control access 
+include_once(dirname(__FILE__) ."/../control.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -61,7 +61,7 @@ $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -86,9 +86,9 @@ if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $file_list = array();
 $file_list[] = $cmr->get_path("template") . "templates/template_install_end" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_install_end" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_install_end" . $cmr->get_ext("template");
 $template_install_end_file = cmr_good_file($file_list);
-$template_install_end = file_get_contents($template_install_end_file);  
+$template_install_end = file_get_contents($template_install_end_file);
 $cmr->print_template("template1", $template_install_end);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ======================================================================
@@ -136,9 +136,9 @@ $cmr->prints["match_open_windows"] = $division->show_noclose();
 /*=================================================================*/
 $install_prints = "";
    $install_prints .= ("<fieldset class=\"bubble\"><legend>" . $cmr->translate("install database") . "</legend>");
-   
-   $install_prints .= (show_hide("install_db", "begin") . "<ul>"); 
-   
+
+   $install_prints .= (show_hide("install_db", "begin") . "<ul>");
+
    $run_install_query = run_install_query($sql_query_array, $cmr->db_connection);
    $total = $run_install_query[0];
    $install_prints .= $run_install_query[1];
@@ -149,9 +149,9 @@ $install_prints = "";
 //         }
 //         $install_prints .= ("<li>" . $sql_query . ";</li>");
 //     }
-    
-    
-   $install_prints .= ("</ul>" . show_hide("install_db", "end")); 
+
+
+   $install_prints .= ("</ul>" . show_hide("install_db", "end"));
    $install_prints .= ("</fieldset>");
 /*=================================================================*/
 /*=================================================================*/
@@ -166,14 +166,14 @@ $install_prints = "";
 		$list_user["tecnician"] = pw_encode($cmr_pw_tecnician);
 		$list_user["client"] = pw_encode($cmr_pw_client);
 		$list_user["demo"] = pw_encode($cmr_pw_demo);
-				
+
 		/*===============================*/
 		foreach($list_user as $key => $value){
 			$affected = cmr_update_pw($cmr->db_connection, $db_table_prefix . "user", $key, $value);
             ($affected) ? $total += $affected:$install_prints .= ("<li class=\"alert\">" . $cmr->translate("!!password not set for:") . $key . ";</li>");
 			}
 		/*===============================*/
-			
+
         $install_prints .= ("</ul></fieldset>");
 /*=================================================================*/
 /*=================================================================*/
@@ -184,7 +184,7 @@ $install_prints .= ("<fieldset class=\"bubble\"><legend>" . $cmr->translate("upd
 	/*=================================================================*/
     $good_config = true;
 	$install_prints .= ("<fieldset class=\"bubble\"><legend>" . $cmr->translate("backup") . "</legend>");
-    $install_prints .= (show_hide("backup", "begin") . "<ul>"); 
+    $install_prints .= (show_hide("backup", "begin") . "<ul>");
     foreach($list_config as $key => $value){
     if(file_exists($value)){
 	    if(rename($value, $value."_" . date("y_m_d_h_i") . ".bak")){
@@ -197,18 +197,18 @@ $install_prints .= ("<fieldset class=\"bubble\"><legend>" . $cmr->translate("upd
         $install_prints .= ("<li>" .  $cmr->translate("file ") . " [" . $value . "] " .  $cmr->translate("not exist backup not need .....") . "<li>");
 	    }
 	}
-   $install_prints .= ("</ul>" . show_hide("backup", "end")); 
+   $install_prints .= ("</ul>" . show_hide("backup", "end"));
    $install_prints .= ("</fieldset>");
 	/*=================================================================*/
-        
-    
-    
-    
+
+
+
+
 /*=================================================================*/
 /*=================================================================*/
     foreach($list_config as $key => $value){
         $install_prints .= ("<fieldset class=\"bubble\"><legend>" . $value . "</legend>");
-    	$install_prints .= (show_hide($key, "begin") . "<ul>"); 
+    	$install_prints .= (show_hide($key, "begin") . "<ul>");
         $chmod = @ chmod($value, 0775);
         if(!$chmod) $install_prints .= ("<li class=\"alert\"><br />" .  $cmr->translate("mode 0775 not set for file ") . " [" . $value . "] ??!!!! <br />");
         $fich = @ fopen($value, "w+");
@@ -222,13 +222,13 @@ $install_prints .= ("<fieldset class=\"bubble\"><legend>" . $cmr->translate("upd
     		$good_config = false;
         }
 //         fclose($value);
-   		$install_prints .= ("</ul>" . show_hide($key, "end")); 
+   		$install_prints .= ("</ul>" . show_hide($key, "end"));
         $install_prints .= ("</fieldset>");
      }
 /*=================================================================*/
         $install_prints .= ("</fieldset>");
 /*=================================================================*/
-    
+
     $good_database = ($total > 1);
 
 /*=================================================================*/
@@ -464,21 +464,22 @@ $cmr->prints["match_label_affected_rown"] = ($total);
 
 
 
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\" ><big>" . $cmr->translate("Login") . "</big></a>";
-$cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\" ><big>" . $cmr->translate("logout") . "</big></a>";
+$cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\"  class=\"CmrButton\" >" . $cmr->translate("Login") . "</a>";
+$cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\"  class=\"CmrButton\" >" . $cmr->translate("logout") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_forget_account")))
-$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\" ><big>" . $cmr->translate("Forget Account") . "</big></a>";
+$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\"  class=\"CmrButton\" >" . $cmr->translate("Forget Account") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_inscription")))
-$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\" ><big>" . $cmr->translate("New account") . "</big></a>";
+$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\"  class=\"CmrButton\" >" . $cmr->translate("New account") . "</a>";
 
 if(($cmr->get_conf("cmr_allow_validation")))
-$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" ><big>" . $cmr->translate("Account Validation") . "</big></a>";
+$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" class=\"CmrButton\" >" . $cmr->translate("Account Validation") . "</a>";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-$cmr->prints["match_close_windows"] = $division->close(); 
+$cmr->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

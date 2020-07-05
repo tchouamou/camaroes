@@ -68,7 +68,7 @@
 <option value="shortday">{match_period_shortday}</option>
 </select>
 </td>
-<td class="normal_text" colspan="2"> 
+<td class="normal_text" colspan="2">
 <label for="show_data">{match_label_show_data}</label><input class="submit" type="checkbox" value="yes" name="report_@_table_@_show_data" checked />
 <label for="data_number">{match_label_data_number}</label>
 <input type="text" value="20" name="report_@_table_@_limit" />
@@ -98,9 +98,9 @@ load_selected('report_@_table_@_column', 'report_@_table_@_order_by_column');
 load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 ">
 <option value="*" selected>*</option>
-£_foreach_column_£
+%_foreach_column_%
 <option value='@_column_@'>@_column_@</option>
-££_foreach_column_££
+%%_foreach_column_%%
 <option value="@_column1_@" selected>@_column1_@</option>
 </select>
 </td></tr>
@@ -178,9 +178,9 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 <label for="where">{match_label_where}</label></td><td class="normal_text">
 <select class="{match_class_select}" name="report_@_table_@_where_column" id="report_@_table_@_where_column">
 <option value="*" selected>*</option>
-£_foreach_column_£
+%_foreach_column_%
 <option value='@_column_@'>@_column_@</option>
-££_foreach_column_££
+%%_foreach_column_%%
 <option value="@_column1_@" selected>@_column1_@</option>
 
 </select>
@@ -201,9 +201,9 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 <select class="{match_class_select}" name="report_@_table_@_group_by_column" id="report_@_table_@_group_by_column">
 
 <option value="*" selected>*</option>
-£_foreach_column_£
+%_foreach_column_%
 <option value='@_column_@'>@_column_@</option>
-££_foreach_column_££
+%%_foreach_column_%%
 <option value="@_column1_@" selected>@_column1_@</option>
 </select>
 </td>
@@ -228,9 +228,9 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 <select class="{match_class_select}" name="report_@_table_@_having_column" id="report_@_table_@_having_column">
 <option value="*" selected>*</option>
 
-£_foreach_column_£
+%_foreach_column_%
 <option value='@_column_@'>@_column_@</option>
-££_foreach_column_££
+%%_foreach_column_%%
 <option value="@_column1_@" selected>@_column1_@</option>
 </select>
 </td><td class="normal_text">
@@ -249,9 +249,9 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 <td class="normal_text">
 <select class="{match_class_select}" name="report_@_table_@_order_by_column" id="report_@_table_@_order_by_column">
 <option value="*" selected>*</option>
-£_foreach_column_£
+%_foreach_column_%
 <option value='@_column_@'>@_column_@</option>
-££_foreach_column_££
+%%_foreach_column_%%
 <option value="@_column1_@" selected>@_column1_@</option>
 </select>
 </td>
@@ -376,9 +376,9 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 
 </td>
 </tr>
- 
- 
- 
+
+
+
 <tr>
 <td class="normal_text" align="center">
 
@@ -401,7 +401,7 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
       button      : "button_report_@_table_@_end"       // ID of the button
     }
   );
-</script>  
+</script>
 </td>
 </tr>
 <!--=======-->
@@ -440,12 +440,12 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 
 <p align="left">
 <ul class="{match_class_ul}">
-£_foreach_column_£
+%_foreach_column_%
 <li>
 <input class="submit" type='checkbox' value='@_column_@' name='report_@_table_@_@_column_@' checked />
 {match_link_report_@_table_@_@_column_@}
 </li>
-££_foreach_column_££
+%%_foreach_column_%%
 </ul>
 </p>
 <p align="center">
@@ -477,7 +477,7 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 <!--include ($cmr->get_conf("cmr_class_path") . "class/graph_class.php");-->
 <template5>
 <br />
- 
+
 <!--=======-->
 <!--=======-->
 <!--=======-->
@@ -493,7 +493,7 @@ load_selected('report_@_table_@_column', 'report_@_table_@_having_column');
 
 <!--=======-->
 </tr>
- 
+
 
 </table>
 

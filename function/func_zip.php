@@ -39,11 +39,8 @@ All rights reserved.
 
 
 
-func_zip.php,Ver 3.0  2011-Oct-Mon 15:23:08  
+func_zip.php,Ver 3.0  2011-Oct-Mon 15:23:08
 */
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /**
  * unzip()
  *
@@ -62,7 +59,7 @@ $zip_array = array();
             $dimension = zip_entry_filesize($zip_entry);
             $dim_compress = zip_entry_compressedsize($zip_entry);
             $method_compress = zip_entry_compressionmethod($zip_entry);
-            
+
 			$zip_array["name"][] = $name;
 			$zip_array["dimension"][] = $dimension;
 			$zip_array["dim_compress"][] = $dim_compress;

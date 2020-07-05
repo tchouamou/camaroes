@@ -39,10 +39,6 @@ func_imap.php,Ver 3.0  2011 05:48:43
  */
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
 /*=================================================================*/
 /*=================================================================*/
@@ -68,8 +64,8 @@ if(!(function_exists("imap_link"))){
 		        $image4 = cmr_get_path("www") . "images/icon/answered_icon.png";
 		        $image5 = cmr_get_path("www") . "images/icon/deleted_icon.png";
 		        $image6 = cmr_get_path("www") . "images/icon/draft_icon.png";
-		        
-		        
+
+
                 if($aval["Size"] > 10000) $imap_link .= "<img alt=\">\" src=\"" . $image0 . "\" border=\"0\"  title=\"" . cmr_translate("attach") . "\" />";
                 if($aval["Recent"]) $imap_link .= "<img alt=\"R\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("recent") . "\" />";
                 if($aval["Unseen"]) $imap_link .= "<img alt=\"U\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("unseen") . "\" />";
@@ -80,7 +76,7 @@ if(!(function_exists("imap_link"))){
             $imap_link .= htmlentities(trim(substr($aval[$cmr_config["column1_imap"]], 0, 200)));
             $imap_link .= ":";
             $imap_link .= htmlentities(trim(substr($aval[$cmr_config["column4_imap"]], 0, 200)));
-            
+
             $imap_link .= "<i><small>";
             $imap_link .= "[" . ($aval[$cmr_config["column_date_time1_imap"]]) . "] ";
             $imap_link .= "(" . htmlentities(trim(substr($aval[$cmr_config["column_text1_imap"]], 0, 200))) . ")";
@@ -91,7 +87,7 @@ if(!(function_exists("imap_link"))){
 	        if((isset($GLOBALS["current_imap_id"])) && ($id_t == cmr_get_global("current_imap_id"))){
 	            $imap_color .= " style=\"color:#EE00EE \" ";
 	        }
-            
+
             $imap_link .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/preview_imap.php?id_imap=" . $aval[$cmr_config["column_id_imap"]] . "&mailbox=" . $aval["mailbox"], "", $aval[$cmr_config["column2_imap"]], "", "", "", $imap_color);
             if($aval["Unseen"]) $imap_link .= "</b>";
 
@@ -133,8 +129,8 @@ if(!(function_exists("imap_tab_link"))){
 		        $image4 = cmr_get_path("www") . "images/icon/answered_icon.png";
 		        $image5 = cmr_get_path("www") . "images/icon/deleted_icon.png";
 		        $image6 = cmr_get_path("www") . "images/icon/draft_icon.png";
-		        
-		        
+
+
                 if($aval["Size"] > 10000) $imap_link .= "<img alt=\">\" src=\"" . $image0 . "\" border=\"0\"  title=\"" . cmr_translate("attach") . "\" />";
                 if($aval["Recent"]) $imap_link .= "<img alt=\"R\" src=\"" . $image1 . "\" border=\"0\"  title=\"" . cmr_translate("recent") . "\" />";
                 if($aval["Unseen"]) $imap_link .= "<img alt=\"U\" src=\"" . $image2 . "\" border=\"0\"  title=\"" . cmr_translate("unseen") . "\" />";

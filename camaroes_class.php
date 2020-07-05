@@ -642,7 +642,7 @@ function get_db($param = "")
 } // function to get the db  value of the key ($param).
 function get_user($param = "")
 {
-   return ($this->user[$param])?($this->user[$param]):"";
+   return isset($this->user[$param])?($this->user[$param]):"";
 } // function to get the user  value of the key ($param).
 function get_group($param = "")
 {

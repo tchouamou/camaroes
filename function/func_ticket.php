@@ -49,11 +49,6 @@ func_ticket.php,Ver 3.0  2011-Sep-Sun 15:51:09
 // function ticket_link($cmr_config = array(), $cmr_page = array(), $cmr_language = array(),  $val) // print_r($val);
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
 
 if(!(function_exists("ticket_link"))){
     // ==========

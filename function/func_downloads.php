@@ -1,4 +1,4 @@
-<?php  
+<?php
 defined("cmr_online") or die("hacking attempt, application is not online, click <a href=\"index.php?cmr_mode=login\" > Here </a>  to login before continue ");
 /********************************************************************
  *        func_download.php
@@ -7,52 +7,48 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
  * copyright   : Camaroes Ver 3.03 (C) 2004-2011 T.E.H
  * www     : http://sourceforge.net/projects/camaroes/
  *
- *********************************************************************/ 
- 
- 
+ *********************************************************************/
+
+
 /*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
 
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
-
- 
- 
-
- 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 
- 
 
 
-func_download.php,Ver 3.0  2011-Nov-Wed 22:18:12  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+func_download.php,Ver 3.0  2011-Nov-Wed 22:18:12
 */
 
 
 
 
 
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 /*=================================================================*/
 /**
@@ -69,7 +65,7 @@ function export($file_data = "", $type = "text", $file_name = "", $from_file = "
 {
     if($from_file){
         if(!file_exists($file_name)) return "";
-        
+
         if(is_dir($file_name)){
         $array_files_dirs_to_zip = cmr_getdir_all(array($file_name), "");
 		$file_data = cmr_zipfiles($array_files_dirs_to_zip, dirname($file_name), "UTF-8");
@@ -81,21 +77,21 @@ function export($file_data = "", $type = "text", $file_name = "", $from_file = "
         $file_data_len = @ (filesize($file_name));
     	}
 
-        
-        
+
+
     }else{
     	$file_data_len = strlen($file_data);
 	    }
 
     if(empty($file_data)) $file_data = "\n";
     if(empty($file_name)) $file_name = "cmr_export_" . date("y-m-d_h-i-s") . "." . $type;
-    
+
     $type = substr($file_name, strrpos($file_name, "."));
     $the_name = str_replace("\\", "/", $file_name);
     $the_name = substr($the_name, strrpos($the_name, "/"));
     $the_name = str_replace("/", "", $the_name);
-    
-	if(!($mime_array)){    
+
+	if(!($mime_array)){
 		$mime_array["mathml"] = "application/mathml+xml";
 		$mime_array["doc"] = "application/msword";
 		$mime_array["pdf"] = "application/pdf";
@@ -165,7 +161,7 @@ function export($file_data = "", $type = "text", $file_name = "", $from_file = "
 	$ctype = "application/force-download";
     if(array_key_exists($mime_key, $mime_array)) $ctype = $mime_array[$mime_key];
 
-    
+
     cmr_header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     cmr_header("Cache-Control: private", false);
     cmr_header("Pragma: public");
@@ -255,7 +251,7 @@ function mime_type_icon($extension = ".txt")
     return $image;
 }
 
-} 
+}
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("show_download"))){
@@ -292,7 +288,7 @@ function show_download($cmr_config, $cmr_db_connection, $file_path = "", $db_fil
             foreach($db_download as $key => $value){
                 $file = $value["file_name"];
                 if(($file != ".") && ($file != "..")){
-                    
+
                     $file_ext = strtolower(strrchr($file, "."));
                     $array_file_ext[] = $file_ext;
 //                     $array_file_ext[] = substr($file, strrpos($file, "."));
@@ -307,7 +303,7 @@ function show_download($cmr_config, $cmr_db_connection, $file_path = "", $db_fil
             }
             }
         }
-            
+
         if($array_file_name)
                 array_multisort(
                     $array_file_name, SORT_DESC, SORT_STRING,
@@ -317,13 +313,13 @@ function show_download($cmr_config, $cmr_db_connection, $file_path = "", $db_fil
                     $array_image, SORT_DESC, SORT_STRING,
                     $array_comment, SORT_DESC, SORT_STRING
                     );
-            
+
             ?>
-            
+
             <table border="1" width="100%" class="normal_text"  cellspacing="3" cellpadding="3" >
             <tr>
             <th colspan="6">
-            <?php 
+            <?php
 			if(cmr_get_user("authorisation") >= cmr_get_config("cmr_noc_type")){
             print(realpath($file_path));
         	}else{
@@ -332,7 +328,7 @@ function show_download($cmr_config, $cmr_db_connection, $file_path = "", $db_fil
             ?>
             </th>
             </tr>
-            
+
             <tr>
             <td><b></b></td>
             <td><b><?php echo cmr_translate("Name");?></b></td>
@@ -341,8 +337,8 @@ function show_download($cmr_config, $cmr_db_connection, $file_path = "", $db_fil
             <td><b><?php echo cmr_translate("Data");?></b></td>
             <td><b><?php echo cmr_translate("Comment");?></b></td>
             </tr>
-            
-            <?php 
+
+            <?php
             foreach ($array_file_name as $key => $value){
                     print("<tr>");
                     print("<td><img border=\"0\" alt=\"=>\" src=\"" . cmr_get_path("www") . "images/icon/" . $array_image[$key] . "\" /></td>");
@@ -357,7 +353,7 @@ function show_download($cmr_config, $cmr_db_connection, $file_path = "", $db_fil
     return true;
 }
 
-} 
+}
 /*=================================================================*/
 if(!(function_exists("download_link_default"))){
     /**
@@ -384,12 +380,12 @@ if(!(function_exists("download_link_default"))){
             $download_link .= "(" . trim(substr($val[$cmr_config["column_text1_download"]], 0, 20)) . ")";
             $download_link .= "</small></i>";
             $download_link .= "<br /><b>";
-            
+
             $download_color .= "";
             if((isset($GLOBALS["current_download_id"])) && ($id_t == cmr_get_global("current_download_id"))){
                 $download_color .= " style=\"color:#EE00EE \" ";
             }
-            
+
             $download_link .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/preview_download.php?id_download=" . $val[$cmr_config["column_id_download"]], "", $val[$cmr_config["column2_download"]], "", "", "", $download_color);
             $download_link .= "</b>";
 
@@ -428,14 +424,14 @@ if(!(function_exists("download_link_tab"))){
             $download_link .= "</td>";
 
         if(!in_array ($id_download, $GLOBALS["download_read"])) $download_style = "unreaded";
-	        
+
         if((isset($GLOBALS["current_download_id"])) && ($id_download == cmr_get_global("current_download_id"))){
            $download_style = "current";
         }
            $download_link .= "</td>";
 
-           
-           
+
+
             $i_col = 1;
             while ((isset($cmr_config["column" . $i_col . "_download"])) && ($i_col <= $cmr_page["__columns__"])){
                 $val_const = $val[$cmr_config["column" . $i_col . "_download"]];
@@ -452,18 +448,18 @@ if(!(function_exists("download_link_tab"))){
 
                 $i_col++;
             }
-            
-            
+
+
 
         	empty($val["the_date"]) ? $times = unix_timestamp(strval($val["date_time"])) : $times = $val["the_date"];
             $download_link .= "<td  class=\"" . $download_style . "\">" . conv_timestamp($times) . "</td>";
 
             $download_link .= "<td class=\"rown1\" >";
-            
+
                 $download_link .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/update_download.php?id_download=" . $id_download, "", "<b class=\"link\">[U]</b>");
                 $download_link .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/new_comment.php?id_download=" . $id_download, "", "<b class=\"link\">[C]</b>");
                 $download_link .= code_link($cmr_config, $cmr_page, $cmr_language, "modules/new_policy.php?id_download=" . $id_download, "", "<b class=\"link\">[P]</b>");
-            
+
             $download_link .= "</td>";
         }
         return $download_link . "</tr>";
@@ -483,10 +479,10 @@ if(!(function_exists("download_link_detail"))){
     function download_link_detail($cmr_config = array(), $cmr_page = array(), $cmr_language = array(), $val)
     {
         $download_link_d = "<fieldset class=\"bubble\"><legend>" . $cmr_page["__number__"] . "</legend>";
-        
+
         if(($cmr_config["column_image1_download"]) && ($val[$cmr_config["column_image1_download"]]))
         $download_link_d .= "<img alt=\"" . cmr_translate($cmr_config["column_image1_download"]) . "\" src=\"" . $val[$cmr_config["column_image1_download"]] . "\" class=\"cmr_image\" />";
-        
+
         $download_link_d .= download_link_default($cmr_config, $cmr_page, $cmr_language, $val);
         $download_link_d .= "<br />" . htmlentities(substr($val[$cmr_config["column_text1_download"]], 0, 400)) . "<br />";
         $download_link_d .= " [" . code_link($cmr_config, $cmr_page, $cmr_language, "modules/update_download.php?id_download=" . $val[$cmr_config["column_id_download"]], "", "<b class=\"link\">" . $cmr_language["update"] . "</b>");

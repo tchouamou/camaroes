@@ -39,24 +39,16 @@ All rights reserved.
 
 
 
-pdf_class.php, Ver 3.0 
+pdf_class.php, Ver 3.0
 */
 
 
 
 
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-
-
- 
 // -----------
 include_once($cmr->get_path("index") . "fpdf/fpdf.php");
 // -----------
- 
+
 
 if(!(class_exists("class_pdf"))){
 
@@ -74,12 +66,12 @@ var $col=0;
 var $y0;
 
 
-//00000000000000000000000000 
+//00000000000000000000000000
 function __construct($orientation = 'P', $unit = 'mm', $format = 'A4') // --constructor--
 {
    return $this->class_pdf($orientation, $unit, $format);
 }
-//00000000000000000000000000 
+//00000000000000000000000000
 function class_pdf($orientation = 'P', $unit = 'mm', $format = 'A4')
 {
 	//Call parent constructor
@@ -146,7 +138,7 @@ function ChapterBody($file,$txt="",$dim_col=0)
     fclose($f);
 	}
 	}
-	
+
     //Times 12
     $this->SetFont('Times','',12);
     //Output justified text

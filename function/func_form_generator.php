@@ -38,13 +38,8 @@ All rights reserved.
 
 
 
-func_generators.php, Ver 3.03 
+func_generators.php, Ver 3.03
 */
-
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // /**
@@ -58,7 +53,7 @@ include_once($cmr->get_path("index") . "control.php"); //to control access
 //     if(!empty($cmr_config["gen_model_array"])){
 //     return array_map("trim", explode(",", $cmr_config["gen_model_array"]));
 //     }
-// 
+//
 //     $a = array(
 //         "new",
 //         "update",
@@ -113,10 +108,10 @@ include_once($cmr->get_path("index") . "control.php"); //to control access
 //         "get_config",
 //         "button"
 //         );
-// 
+//
 //     return $a;
 // };
-// 
+//
 // }//  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // function move_to_auto($source="./", $dest="./auto", $file=""){
@@ -481,7 +476,7 @@ include_once($cmr->get_path("index") . "control.php"); //to control access
      **/
     function show_create_table($db_name, $cmr_prefix, $table_name = "")
     {
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
 	    if(empty($php_con_new)) $php_con_new = NULL;
 	     $data["limit"] = "";
 	     $data["order"] = "";
@@ -1067,7 +1062,7 @@ if(!function_exists("form_elmt_change")){
     function form_elmt_change($cmr_prefix="cmr_", $template, $columns, $table_name)
     {
     // ==========================
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         $list_column = name_column($columns);
 
         $to_2 =  "\" . htmlentities(\$val_u['" . $list_column . "']) . \"";
@@ -1084,7 +1079,7 @@ if(!function_exists("form_elmt_change")){
             case "@_form_box_html_search_@":
             return $form_elmt;
             break;
-            
+
             default:
             break;
         }
@@ -1108,10 +1103,10 @@ if(!function_exists("form_elmt_change")){
             case "enum":
                     $form_elmt1 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">\"";
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
-                    
+
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" .  $short_table_name . "\", \"" . $list_column . "\", \"type\")";
                     $form_elmt1 .= " . \"</select>\" . \$cmr->module_link(\"modules/change_type.php?table_name=" . $short_table_name . "&column_name=" . $list_column . "\", \"\", \"->\")";
-                    
+
                     $form_elmt2 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" .  $short_table_name . "\", \"" . $list_column . "\", \"type\")";
                     $form_elmt2 .= " . \"</select>\" . \$cmr->module_link(\"modules/change_type.php?table_name=" . $short_table_name . "&column_name=" . $list_column . "\", \"\", \"->\")";
             break;
@@ -1126,8 +1121,8 @@ if(!function_exists("form_elmt_change")){
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"date_time_" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
 
                     list($extern_table, $extern_column) = explode(".", table_extern_column($cmr_prefix, $columns));
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_extern_table . "\", \"" . $extern_column . "\", \"column\")";
                     $form_elmt2 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_extern_table . "\", \"" . $extern_column . "\", \"column\")";
                     $form_elmt1 .= " . \"</select>\" . \$cmr->module_link(\"modules/new_" . $extern_table . ".php" . "\", \"\", \"->\")";
@@ -1137,8 +1132,8 @@ if(!function_exists("form_elmt_change")){
                     $form_elmt2 = "\"<input type=\\\"text\\\" value=\\\"" . $to_2 . "\\\" id=\\\"date_time_" . $list_column . "\\\" name=\\\"" . $list_column . "\\\" onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\" /><button id=\\\"button_{match_base_name}" . $list_column . "\\\">...</button>\"";
                     $GLOBALS["array_calendar"][] = $list_column;
                 }
-                
-                
+
+
             break;
 
             default:
@@ -1147,11 +1142,11 @@ if(!function_exists("form_elmt_change")){
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
 
                     list($extern_table, $extern_column) = explode(".", table_extern_column($cmr_prefix, $columns));
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= " . \$cmr->print_select(\"" . $extern_table . "\", \"" . $extern_column . "\", \"column\")";
                     $form_elmt1 .= " . \"</select>\" . \$cmr->module_link(\"modules/new_" . $extern_table . ".php" . "\", \"\", \"->\")";
-                    
+
                     $form_elmt2 .= " . \$cmr->print_select(\"" . $extern_table . "\", \"" . $extern_column . "\", \"column\")";
                     $form_elmt2 .= " . \"</select>\" . \$cmr->module_link(\"modules/new_" . $extern_table . ".php" . "\", \"\", \"->\")";
                 }else{
@@ -1169,7 +1164,7 @@ if(!function_exists("form_elmt_change")){
 
         if(is_auto_increment_column($columns)) return  "\"\"";
         if(is_date_time_column($columns)) return "\"\"";
-        
+
     // ==========================
     // ==========================
 
@@ -1189,8 +1184,8 @@ if(!function_exists("form_elmt_change")){
                     $form_elmt1 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">\"";
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
                 list($extern_table, $extern_column) = explode(".", $cmr_prefix .  "groups.type");
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"groups\", \"type\", \"type\")";
                     $form_elmt1 .= " . \"</select>\" . \$cmr->module_link(\"modules/change_type.php?table_name=groups&column_name=type\", \"\", \"->\")";
                     $form_elmt2 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"groups\", \"type\", \"type\")";
@@ -1204,8 +1199,8 @@ if(!function_exists("form_elmt_change")){
                     $form_elmt1 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">\"";
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
                  list($extern_table, $extern_column) = explode(".", $cmr_prefix . "user.email");
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_extern_table . "\", \"" . $extern_column . "\", \"column\")";
                     $form_elmt1 .= " . \"</select>\" . \$cmr->module_link(\"modules/new_" . $short_extern_table . ".php" . "\", \"\", \"->\")";
                     $form_elmt2 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_extern_table . "\", \"" . $extern_column . "\", \"column\")";
@@ -1219,8 +1214,8 @@ if(!function_exists("form_elmt_change")){
                      $form_elmt1 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">\"";
                      $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
                 list($extern_table, $extern_column) = explode(".", $cmr_prefix . "groups.name");
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_extern_table . "\", \"" . $extern_column . "\", \"column\")";
                     $form_elmt1 .= " . \"</select>\" . \$cmr->module_link(\"modules/new_" . $short_extern_table . ".php" . "\", \"\", \"->\")";
                     $form_elmt2 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_extern_table . "\", \"" . $extern_column . "\", \"column\")";
@@ -1232,8 +1227,8 @@ if(!function_exists("form_elmt_change")){
         	break;
             case "my_master":
                 list($extern_table, $extern_column) = explode(".", $cmr_prefix . $short_table_name . "." . $list_column);
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table); 
-                        
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">\"";
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_table_name . "\", \"" . column_name($GLOBALS["array_columns"], 1) . "," . column_name($GLOBALS["array_columns"], 2) . "," . column_name($GLOBALS["array_columns"], 3) . "\", \"column\")";
@@ -1247,8 +1242,8 @@ if(!function_exists("form_elmt_change")){
         	break;
             case "my_slave":
                 list($extern_table, $extern_column) = explode(".", $cmr_prefix . $short_table_name . "." . $list_column);
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table); 
-                        
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">\"";
                     $form_elmt2 = "\"<select name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  onclick=\\\"large_id('" . $short_table_name . "," . $list_column . "')\\\">" . "<option selected value=\\\"" . $to_2 . "\\\">" . $to_2 . "</option>\"";
                     $form_elmt1 .= " . \$cmr->print_select(\$cmr->config[\"cmr_table_prefix\"] . \"" . $short_table_name . "\", \"" . column_name($GLOBALS["array_columns"], 1) . "," . column_name($GLOBALS["array_columns"], 2) . "," . column_name($GLOBALS["array_columns"], 3) . "\", \"column\")";
@@ -1277,7 +1272,7 @@ if(!function_exists("form_elmt_change")){
                     $form_elmt1 = "\"<input type=\\\"file\\\" name=\\\"" . $list_column . "\\\" id=\\\"" . $list_column . "\\\"  />\"";
                     $form_elmt2 = $form_elmt1;
         	break;
-                
+
             default:
 //              return $template;
         	break;
@@ -1320,20 +1315,20 @@ if(!function_exists("form_elmt_html")){
     function form_elmt_html($cmr_prefix="cmr_", $template, $columns, $table_name)
     {
     // ==========================
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         $list_column = name_column($columns);
 
         $to_2 =  "{match_value_" . $list_column . "}";
-        
+
         $label = "<label for=\"" . $list_column . "\"><b>{match_label_" . $list_column . "}:</b></label>";
         $form_elmt1 = "";
         $form_elmt2 = "";
         $form_elmt = "<input size=\"20\" type=\"text\" value=\"\"  id=\"" . $list_column . "\" name=\"" . $list_column . "\" onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
     // ==========================
     // ==========================
-        
-        
-        
+
+
+
         switch (type_column($columns)){
             case "tinytext":
             case "mediumtext":
@@ -1351,10 +1346,10 @@ if(!function_exists("form_elmt_html")){
             case "enum":
                     $form_elmt1 = "<select name=\"" . $list_column . "\" id=\"" . $list_column . "\"  onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
                     $form_elmt2 = "<select name=\"" . $list_column . "\" id=\"" . $list_column . "\"  onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
-                    
+
                     $form_elmt1 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt1 .= "{match_link_" . $list_column . "}";
-                    
+
                     $form_elmt2 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt2 .= "{match_link_" . $list_column . "}";
             break;
@@ -1369,11 +1364,11 @@ if(!function_exists("form_elmt_html")){
                     $form_elmt2 = "<select name=\"" . $list_column . "\" id=\"date_time_" . $list_column . "\"  onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
 
                     list($extern_table, $extern_column) = explode(".", table_extern_column($cmr_prefix, $columns));
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt1 .= "{match_link_" . $list_column . "}";
-                    
+
                     $form_elmt2 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt2 .= "{match_link_" . $list_column . "}";
                 }else{
@@ -1381,8 +1376,8 @@ if(!function_exists("form_elmt_html")){
                     $form_elmt2 = "<input type=\"text\" value=\"" . $to_2 . "\" id=\"date_time_" . $list_column . "\" name=\"" . $list_column . "\" onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\" onfocus=\"this.select()\" /><button id=\"button_{match_base_name}" . $list_column . "\">...</button>";
                     $GLOBALS["array_calendar"][] = $list_column;
                 }
-                
-                
+
+
             break;
 
             default:
@@ -1391,11 +1386,11 @@ if(!function_exists("form_elmt_html")){
                     $form_elmt2 = "<select name=\"" . $list_column . "\" id=\"" . $list_column . "\"  onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
 
                     list($extern_table, $extern_column) = explode(".", table_extern_column($cmr_prefix, $columns));
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);     
-                    
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt1 .= "{match_link_" . $list_column . "}";
-                    
+
                     $form_elmt2 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt2 .= "{match_link_" . $list_column . "}";
                 }else{
@@ -1413,7 +1408,7 @@ if(!function_exists("form_elmt_html")){
 
         if(is_auto_increment_column($columns)) return  "";
         if(is_date_time_column($columns)) return "";
-        
+
     // ==========================
     // ==========================
 
@@ -1429,14 +1424,14 @@ if(!function_exists("form_elmt_html")){
             case "my_md5":
             	return icall_my_md5($template);
         	break;
-            
+
             case "photo":
             case "image":
             case "picture":
               $form_elmt2 .= "<img alt=\"" . $list_column . "\" src=\"" . $to_2 . "\" class=\"cmr_image\" />";
 			break;
-            
-            
+
+
             case "allow_type":
 //              return icall_allow_type($template);
             case "allow_email":
@@ -1447,14 +1442,14 @@ if(!function_exists("form_elmt_html")){
 //              return icall_my_master($template);
             case "my_slave":
                 list($extern_table, $extern_column) = explode(".", $cmr_prefix . $short_table_name . "." . $list_column);
-                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table); 
-                        
+                    $short_extern_table = cmr_searchi_replace("^" . $cmr_prefix, "", $extern_table);
+
                     $form_elmt1 = "<select name=\"" . $list_column . "\" id=\"" . $list_column . "\"  onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
                     $form_elmt2 = "<select name=\"" . $list_column . "\" id=\"" . $list_column . "\"  onclick=\"large_id('" . $short_table_name . "," . $list_column . "')\">";
-                    
+
                     $form_elmt1 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt1 .= "{match_link_" . $list_column . "}";
-                    
+
                     $form_elmt2 .= $to_2 . "<option value=\"\"></option>";
                     $form_elmt2 .= "{match_link_" . $list_column . "}";
 
@@ -1463,7 +1458,7 @@ if(!function_exists("form_elmt_html")){
 
 //              return icall_my_slave($template);
         	break;
-            
+
             case "comment":
 //              return icall_comment($template);
             case "certificate":
@@ -1476,7 +1471,7 @@ if(!function_exists("form_elmt_html")){
                     $form_elmt1 = "<input type=\"file\" name=\"" . $list_column . "\" id=\"" . $list_column . "\"  />";
                     $form_elmt2 = $form_elmt1;
         	break;
-                
+
             default:
 //              return $template;
         	break;
@@ -1511,7 +1506,7 @@ if(!function_exists("form_elmt_html")){
 if(!function_exists("other_replace")){
     function other_replace($replace_match, $conn, $db_name, $form_name, $table_name, $cmr_prefix="cmr_", $list_column = "id", $where="1", $limit="0")
      {
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         return $replace_match;
     }
     }
@@ -1530,17 +1525,17 @@ if(!function_exists("other_replace")){
 if(!function_exists("replace_gen")){
     function replace_gen($replace_match, $db_name, $form_name, $table_name, $cmr_prefix="cmr_", $list_column = "id", $where="1", $limit="0")
     {
-    $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+    $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
     $str_replace = $replace_match;
-        
+
 //    $cmr_prefix=str_replace($short_table_name,"",$table_name);
-	
+
        $ta = cmr_get_global("array_tables");
        $table = $ta[$table_name];
 //    print_r($GLOBALS["array_tables"]);exit;
        $co= cmr_get_global("array_columns");
        $columns = $co[$list_column];
-       
+
 
        @ $db_privileges = $columns["Privileges"];
        @ $db_caracter_set = $table["Row_format"];
@@ -1657,7 +1652,7 @@ if(!function_exists("replace_gen")){
             case "@_column_field_@" : $str_replace = $columns["Field"];
             break;
             case "@_column_true_type_@" : $str_replace = $columns["Type"];
-            
+
             case "@_column_type_@" : $str_replace = type_column($columns);
             break;
             case "@_column_collation_@" : $str_replace = $columns["Collation"];
@@ -1782,7 +1777,7 @@ if(!function_exists("replace_gen")){
             $str_replace = cmrprint_select($GLOBALS["cmr_search_operator"], "func_" . $list_column, "");
 
             break;
-                
+
             default:
                 if(cmr_searchi("@_column[0-9]+_@", $replace_match)){
                     $str_replace = column_name($GLOBALS["array_columns"], intval(substr($replace_match, 8)));
@@ -1817,7 +1812,7 @@ if(!function_exists("replace_gen")){
 if(!function_exists("eval_cols_in_rown")){
     function eval_cols_in_rown($template, $db_name, $form_name = "form", $table_name, $cmr_prefix="cmr_", $list_column = "id", $where="1", $limit="0")
     {
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         $return_val = "";
         // print_r($GLOBALS["array_columns"]);exit;
 	    if(!empty($array_columns)){
@@ -1831,7 +1826,9 @@ if(!function_exists("eval_cols_in_rown")){
                 $val .= str_replace("@_rown_@", $rown_val, $template);
 
                 $list_column = $columns["Field"];
-                $val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                //$val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                $val = preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
+
                 $columns = next($array_columns);
             }
         }
@@ -1863,7 +1860,7 @@ if(!function_exists("eval_cols_in_rown")){
 if(!function_exists("eval_by_rown")){
     function eval_by_rown($template, $db_name, $form_name = "form", $table_name, $cmr_prefix="cmr_", $list_column = "id", $where="1", $limit="0")
     {
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         $return_val = "";
         $GLOBALS["array_columns"] = get_array_columns($cmr_prefix, $table_name, $list_column);
 
@@ -1891,10 +1888,13 @@ if(!function_exists("eval_by_rown")){
 
             $val = $template;
 
-            $val = preg_replace("/(£_foreach_cols_in_rown_£)(.*)(££_foreach_cols_in_rown_££)/seU", "eval_cols_in_rown('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            //$val = preg_replace("/(%_foreach_cols_in_rown_%)(.*)(%%_foreach_cols_in_rown_%%)/sU", "eval_cols_in_rown('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            $val = preg_replace_callback("/(%_foreach_cols_in_rown_%)(.*)(%%_foreach_cols_in_rown_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_cols_in_rown($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, ($val));
+
             $val = str_replace("@_rown_id_@", $key, $val);
             $val = str_replace("@_rown_@", $array_rown, $val);
-            $val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            //$val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            $val = preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, ($val));
 
             $return_val .= $val;
         }
@@ -1924,7 +1924,7 @@ if(!function_exists("eval_rowns_in_col")){
     {
         // =======================================
         if(empty($limit)) $limit = cmr_get_config("cmr_max_view");
-        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);     
+        $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
             // -----------
 	    $php_con_new = NULL;
             // -----------
@@ -1935,7 +1935,7 @@ if(!function_exists("eval_rowns_in_col")){
 	     $data["host"] = cmr_get_global("dbms_host");
 	     $data["user"] = cmr_get_global("dbms_user");
 	     $data["pw"] = cmr_get_global("dbms_pw");
-	     
+
         if(cmr_search(",", $list_column)){
          $all_rown_table = sql_run("array_assoc", $php_con_new, "select", "", $GLOBALS["dbms_name"], $cmr_prefix . $short_table_name, $list_column, $data);
 //          $sql_query = "SELECT " . $list_column . " FROM " . $cmr_prefix . $short_table_name . " WHERE " . $where . ";";
@@ -1961,8 +1961,10 @@ if(!function_exists("eval_rowns_in_col")){
             $GLOBALS["array_rown"] = $array_rown;
             $val = $template;
 
-            $val = preg_replace("/(£_foreach_comment_£)(.*)(££_foreach_comment_££)/seU", "", $val);
-            $val = preg_replace("/(£_foreach_column_£)(.*)(££_foreach_column_££)/seU", "eval_by_rown('\\2', $form_name, $table_name, $cmr_prefix, $list_column)", $val);
+            //$val = preg_replace("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", "", $val);
+            $val = preg_replace_callback("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", function ($m) {return "";}, $val);
+            //$val = preg_replace("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", "eval_by_rown('\\2', $form_name, $table_name, $cmr_prefix, $list_column)", $val);
+            $val = preg_replace_callback("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", function ($m) use ($form_name,$table_name,$cmr_prefix,$list_column) {return eval_by_rown($m[2],$form_name,$table_name,$cmr_prefix,$list_column);}, ($val));
             $val = str_replace("@_rown_id_@", $key, $val);
             $val = str_replace("@_rown_@", $array_rown[$list_column], $val);
             // -----------
@@ -2013,28 +2015,41 @@ if(!function_exists("eval_column")){
             }
             $val = $template;
             // ==========================================
-            $temp_str = stristr($val, "£_foreach_");
+            $temp_str = stristr($val, "%_foreach_");
             while ($temp_str){
                 $choose = substr($temp_str, 10, 2);
                 $temp_str = substr($temp_str, 1);
-                $temp_str = stristr($temp_str, "£_foreach_");
+                $temp_str = stristr($temp_str, "%_foreach_");
                 // print("<br />--".$choose."--<br />");
                 switch ($choose){
-                    case "ct" : $val = preg_replace("/(£_foreach_comment_£)(.*)(££_foreach_comment_££)/seU", "", $val);
+                    case "ct" :
+                    //$val = preg_replace("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", "", $val);
+                    $val = preg_replace_callback("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", function ($m) {return "";}, $val);
                     break;
-                    case "db" : $val = preg_replace("/(£_foreach_db_£)(.*)(££_foreach_db_££)/seU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $val);
+                    case "db" :
+                    //$val = preg_replace("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $val);
+                    $val = preg_replace_callback("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", function ($m) use ($cmr_prefix,$form_name) {return eval_db($m[2],$cmr_prefix,$form_name);}, $val);
                     break;
-                    case "ta" : $val = preg_replace("/(£_foreach_table_£)(.*)(££_foreach_table_££)/seU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $val);
+                    case "ta" :
+                    //$val = preg_replace("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $val);
+                    $val = preg_replace_callback("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", function ($m) use ($cmr_prefix,$db_name,$form_name) {return eval_table($m[2],$cmr_prefix,$db_name,$form_name);}, $val);
                     break;
-                    case "co" : $val = preg_replace("/(£_foreach_column_£)(.*)(££_foreach_column_££)/seU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    case "co" :
+                    //$val = preg_replace("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    $val = preg_replace_callback("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_column($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
                     break;
-                    case "ro" : $val = preg_replace("/(£_foreach_rown_£)(.*)(££_foreach_rown_££)/seU", "eval_rowns_in_col('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    case "ro" :
+                    //$val = preg_replace("/(%_foreach_rown_%)(.*)(%%_foreach_rown_%%)/sU", "eval_rowns_in_col('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    $val = preg_replace_callback("/(%_foreach_rown_%)(.*)(%%_foreach_rown_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_rowns_in_col($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
+
                     break;
                     default:break;
                 }
             }
             // ==========================================
-            $val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            //$val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            $val = preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
+
             // ==========================================
             $return_val .= $val;
                     }
@@ -2081,28 +2096,43 @@ if(!function_exists("eval_table")){
 
             $val = $template;
             // ==========================================
-            $temp_str = stristr($val, "£_foreach_");
+            $temp_str = stristr($val, "%_foreach_");
             while ($temp_str){
                 $choose = substr($temp_str, 10, 2);
                 $temp_str = substr($temp_str, 1);
-                $temp_str = stristr($temp_str, "£_foreach_");
+                $temp_str = stristr($temp_str, "%_foreach_");
                 // print("<br />--".$choose."--<br />");
                 switch ($choose){
-                    case "ct" : $val = preg_replace("/(£_foreach_comment_£)(.*)(££_foreach_comment_££)/seU", "", $val);
+                    case "ct" :
+                    //$val = preg_replace("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", "", $val);
+                    $val = preg_replace_callback("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", function ($m) {return "";}, $val);
                     break;
-                    case "db" : $val = preg_replace("/(£_foreach_db_£)(.*)(££_foreach_db_££)/seU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $val);
+                    case "db" :
+                    //$val = preg_replace("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $val);
+                    $val = preg_replace_callback("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", function ($m) use ($cmr_prefix,$form_name) {return eval_db($m[2],$cmr_prefix,$form_name);}, $val);
                     break;
-                    case "ta" : $val = preg_replace("/(£_foreach_table_£)(.*)(££_foreach_table_££)/seU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $val);
+                    case "ta" :
+                    //$val = preg_replace("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $val);
+                    $val = preg_replace_callback("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", function ($m) use ($cmr_prefix,$db_name,$form_name) {return eval_table($m[2],$cmr_prefix,$db_name,$form_name);}, $val);
                     break;
-                    case "co" : $val = preg_replace("/(£_foreach_column_£)(.*)(££_foreach_column_££)/seU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    case "co" :
+                    //$val = preg_replace("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    $val = preg_replace_callback("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_column($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
                     break;
-                    case "ro" : $val = preg_replace("/(£_foreach_rown_£)(.*)(££_foreach_rown_££)/seU", "eval_by_rown('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    case "ro" :
+                    //$val = preg_replace("/(%_foreach_rown_%)(.*)(%%_foreach_rown_%%)/sU", "eval_by_rown('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+                    $val = preg_replace_callback("/(%_foreach_rown_%)(.*)(%%_foreach_rown_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_rowns_in_col($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
                     break;
-                    default:break;
+                    default:
+                    break;
+
+
                 }
             }
             // ==========================================
-            $val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            //$val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            $val = preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
+
             // ==========================================
             $return_val .= $val;
         }
@@ -2138,26 +2168,37 @@ if(!function_exists("eval_db")){
             // $list_column=$columns["Field"];
             $val = $template;
             // ==========================================
-            $temp_str = stristr($val, "£_foreach_");
+            $temp_str = stristr($val, "%_foreach_");
             while ($temp_str){
                 $choose = substr($temp_str, 10, 2);
                 $temp_str = substr($temp_str, 1);
-                $temp_str = stristr($temp_str, "£_foreach_");
+                $temp_str = stristr($temp_str, "%_foreach_");
                 // print("<br />--".$choose."--<br />");
                 switch ($choose){
-                    case "ct" : $val = preg_replace("/(£_foreach_comment_£)(.*)(££_foreach_comment_££)/seU", "", $val);
+                    case "ct" :
+                    //$val = preg_replace("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", "", $val);
+                    $val = preg_replace_callback("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", function ($m) {return "";}, $val);
                     break;
-                    case "db" : $val = preg_replace("/(£_foreach_db_£)(.*)(££_foreach_db_££)/seU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $val);
+                    case "db" :
+                    //$val = preg_replace("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $val);
+                    $val = preg_replace_callback("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", function ($m) use ($cmr_prefix,$form_name) {return eval_db($m[2],$cmr_prefix,$form_name);}, $val);
                     break;
-                    case "ta" : $val = preg_replace("/(£_foreach_table_£)(.*)(££_foreach_table_££)/seU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $val);
+                    case "ta" :
+                    //$val = preg_replace("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $val);
+                    $val = preg_replace_callback("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", function ($m) use ($cmr_prefix,$db_name,$form_name) {return eval_table($m[2],$cmr_prefix,$db_name,$form_name);}, $val);
                     break;
-                    // case "co" : $val=preg_replace("/(£_foreach_column_£)(.*)(££_foreach_column_££)/seU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);break;
-                    // case "ro" : $val=preg_replace("/(£_foreach_rown_£)(.*)(££_foreach_rown_££)/seU", "eval_by_rown('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);break;
+                    // case "co" : $val=preg_replace("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);break;
+                    // case "ro" : $val=preg_replace("/(%_foreach_rown_%)(.*)(%%_foreach_rown_%%)/sU", "eval_by_rown('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);break;
                     default:break;
+
+
+
                 }
             }
             // ==========================================
-            $val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            //$val = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $val);
+            $val = preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $val);
+
             // ==========================================
             $return_val .= $val;
         }
@@ -2187,7 +2228,7 @@ if(!function_exists("gen_image_save")){
 		$cmr_config["cmr_button_model"] = $button_model;
 		$cmr_config["cmr_button_color"] = $col1 . "," . $col2 . "," . $col3;
 		$cmr_config["cmr_button_dim"] =  $font . "," . $x_pos . "," . $y_pos . "," . $size;
-		
+
 		}else{
 		$cmr_config = cmr_get_config();
 			if(($button_text==$button_data)&&(!empty($GLOBALS["destination"]))){
@@ -2196,14 +2237,14 @@ if(!function_exists("gen_image_save")){
 	        $images_path = cmr_get_path("image") . "images/button/" . $cmr_lang . "/auto/" . trim($button_data)  . ".png";
 				}
     	}
-    	
+
         if(image_save($cmr_config , trim($button_text),  $images_path)){
            print("<br /> ".cmr_translate("button ")." [" . realpath($images_path) . "] ".cmr_translate("successfully created").".......<br />");
         }else{
            print("<br /> ".cmr_translate("button ")." [" . realpath($images_path) . "] ".cmr_translate("not created!!!").".......<br />");
         };
-    	
-    	
+
+
         return false;
         }
     }

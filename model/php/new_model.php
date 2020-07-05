@@ -16,11 +16,11 @@ include_once("common_begin.php");
 $table_name = "@_table_@";
 $array_column = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-£_foreach_column_£
+%_foreach_column_%
 $array_column['@_column_@']['name'] = '@_column_@';
 $array_column['@_column_@']['type'] = '@_column_type_@';
 $array_column['@_column_@']['foreign'] = '@_is_extern_@';
-££_foreach_column_££
+%%_foreach_column_%%
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

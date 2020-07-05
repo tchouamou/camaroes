@@ -38,8 +38,8 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
 	$p1->config["PE_key"] = "cmr_mode";//-- optional var to be send (usefull for integration in Tstm)
 	$p1->config["PE_val"] = "explore";//-- optional var value to be send (usefull for integration in Tstm)
     if($p1->config["self_header"]){
-        $p1->img_by_text($p1->getpost("PE_imgtext"));
-        $p1->img_by_path($p1->getpost("PE_imgpath"));
+        //$p1->img_by_text($p1->getpost("PE_imgtext"));
+        //$p1->img_by_path($p1->getpost("PE_imgpath"));
     }
 
 

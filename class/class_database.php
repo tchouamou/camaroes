@@ -39,7 +39,6 @@ class_database.php,Ver 3.0  2011-July 10:36:59
  * @code_link() function who take in input a module name and create and html link to this module
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php");
 // !!!!!!!!!!!Security and authorisation!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(!(class_exists("class_database"))){
@@ -623,8 +622,8 @@ switch($action){
 	    $this->sql = "SELECT user_email FROM " . $this->prefix . "user_groups, " . $this->prefix . "groups where ";
 	    $this->sql .= " (" . $this->prefix . "user_groups.group_name='" . cmr_escape($this->group) . "') ";
 	    $this->sql .= " AND (" . $this->prefix . "user_groups.group_name=" . $this->prefix . "groups.name)";
-		$this->sql .= " AND ((" . $this->prefix . "user_groups.state='active') OR (" . $this->prefix . "user_groups.state='enable')) ";
-		$this->sql .= " AND ((" . $this->prefix . "groups.state='active') OR (" . $this->prefix . "groups.state='enable')) ";
+		  $this->sql .= " AND ((" . $this->prefix . "user_groups.state='active') OR (" . $this->prefix . "user_groups.state='enable')) ";
+		  $this->sql .= " AND ((" . $this->prefix . "groups.state='active') OR (" . $this->prefix . "groups.state='enable')) ";
 	    $this->sql .= " AND (user_email not like '%localhost')";
 	    $this->sql .= " AND (" . $this->prefix . "groups.type<='" . cmr_escape($this->cmr_user["authorisation"]) . "');";
 	// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

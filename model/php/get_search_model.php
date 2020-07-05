@@ -30,9 +30,9 @@ include($cmr->get_path("index") . "system/loader/loader_class.php");
 $post = new @_table_@_class($cmr->config, $cmr->user);
 $post->get_form_datas("post", $cmr->get_session("pre_match"));//Getting variables sended by form [search_@_table_@.php]
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-£_foreach_column_£
+@_foreach_column_@
 	$array_func['@_column_@']= get_post('func_@_column_@', 'post'); //Getting variable [$array_func['@_column_@']] sended by form search_@_table_@.php]
-££_foreach_column_££
+@@_foreach_column_@@
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

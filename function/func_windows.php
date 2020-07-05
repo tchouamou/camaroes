@@ -40,9 +40,6 @@ func_windows.php,Ver 3.0  2011-July 10:36:59
 // function remove_module($win_posx = "head", $win_posy = "1",  $cmr_page)
 // function permute_module($win_pos1 = "head1", $win_pos2 = "head2",  $cmr_page)
 // function insert_module($win_pos = "head1", $cmr_page, $where="")
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/../control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -60,15 +57,15 @@ function insert_module($win_pos = "head1", $cmr_page, $where = "")
 {
     $win_posy = cmr_searchi_replace("^head|^left|^middle|^right|^foot", "", $where);
     $win_posx = cmr_searchi_replace("$win_posy" . "\$", "", $where);
-	
-	// shift to create space 
+
+	// shift to create space
     $cmr_page[$win_posx . "_num_mod"]++;
     $x = $cmr_page[$win_posx . "_num_mod"];
 	while($x >= $win_posy){
 	if(!empty($cmr_page[$x-1])) $cmr_page[$x] = $cmr_page[$x-1];
 	$x--;
 	}
-	
+
 	$cmr_page[$where] = $cmr_page[$win_pos];
     return $cmr_page;
 }
@@ -114,7 +111,7 @@ function remove_module($win_posx = "head", $win_posy = "1",  $cmr_page)
 	$cmr_page[$win_posx . $win_posy] = $cmr_page[$win_posx . ($win_posy + 1)];
 	$win_posy++;
 	}
-	
+
 	unset($cmr_page[$win_posx . $win_posy]);
     return $cmr_page;
 }
@@ -123,7 +120,7 @@ function remove_module($win_posx = "head", $win_posy = "1",  $cmr_page)
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 if(!(function_exists("layers_init"))){
-    
+
 	function layers_init($cmr_page = array(), $code1 = "", $form = "")
 	    {
 // 		$cmr_page["story"] = $cmr_page["middle1"];
@@ -146,9 +143,9 @@ if(!(function_exists("layers_init"))){
 		    if(cmr_search("^foot[1-9]+", $key) && ($values)) $cmr_page["foot_num_mod"]++;
 		    // if(cmr_search("^task[0-9]+", $key)&&($values)) $numtask++;
 		}
-		
+
 		if((isset($cmr_page["task"])) && ($cmr_page["task"])) $cmr_page["foot_num_mod"] = 1 + $cmr_page["foot_num_mod"];
-		
+
         return $cmr_page;
 	   }
 }
@@ -167,7 +164,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 {
 	    $win_posy = cmr_searchi_replace("^head|^left|^middle|^right|^foot", "", $win_pos);
 	    $win_posx = cmr_searchi_replace("$win_posy" . "\$", "", $win_pos);
-	    
+
 		$max_head = $cmr_page["head_num_mod"];
 		$max_left = $cmr_page["left_num_mod"];
 		$max_middle = $cmr_page["middle_num_mod"];
@@ -182,28 +179,28 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = insert_module($win_pos, $cmr_page, "left1");
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "left":
 			                $cmr_page = insert_module($win_pos, $cmr_page, "right1");
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "middle":
 			                $cmr_page = insert_module($win_pos, $cmr_page, "left" . $max_left);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "right":
 			                $cmr_page = insert_module($win_pos, $cmr_page, "middle" . $max_middle);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "foot":
-		                
+
 			                $cmr_page = insert_module($win_pos, $cmr_page, "left" . $max_left);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
                 		default:
                 		break;
 		                }
@@ -215,28 +212,28 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = insert_module($win_pos, $cmr_page, "right1");
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "left":
 			                $cmr_page = insert_module($win_pos, $cmr_page, "middle" . $max_middle);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "middle":
 			                $cmr_page = insert_module($win_pos, $cmr_page, "right" . $max_right);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "right":
 			                $cmr_page = insert_module($win_pos, $cmr_page, "left" . $max_left);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
 		                case "foot":
-		                
+
 			                $cmr_page = insert_module($win_pos, $cmr_page, "right" . $max_right);
 			                $cmr_page = remove_module($win_posx, $win_posy, $cmr_page);
 		                break;
-		                
+
                 		default:
                 		break;
 		                }
@@ -252,7 +249,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy-1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "left":
 						if($win_posy==1){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "head" . $max_head);
@@ -261,7 +258,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy-1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "middle":
 						if($win_posy==1){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "head" . $max_head);
@@ -270,7 +267,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy-1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "right":
 						if($win_posy==1){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "head" . $max_head);
@@ -279,7 +276,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy-1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "foot":
 						if($win_posy==1){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "middle" . $max_middle);
@@ -288,7 +285,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy-1), $cmr_page);
 			                }
 		                break;
-		                
+
                 		default:
                 		break;
 		                }
@@ -304,7 +301,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy+1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "left":
 						if($win_posy==$max_left){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "page_footer");
@@ -313,7 +310,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy+1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "middle":
 						if($win_posy==$max_middle){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "page_footer");
@@ -322,7 +319,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy+1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "right":
 						if($win_posy==$max_right){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "page_footer");
@@ -331,7 +328,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy+1), $cmr_page);
 			                }
 		                break;
-		                
+
 		                case "foot":
 						if($win_posy==$max_foot){
 			                $cmr_page = insert_module($win_pos, $cmr_page, "head1");
@@ -340,7 +337,7 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
 			                $cmr_page = permute_module($win_pos, $win_posx . ($win_posy+1), $cmr_page);
 			                }
 		                break;
-		                
+
                 		default:
                 		break;
 		                }
@@ -364,13 +361,13 @@ function change_page($cmr_page = array(), $module = array(), $themes = array(), 
                 break;
             }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	    
-	    
-	    
+
+
+
         return $cmr_page;
-	} 
-	
-} 
+	}
+
+}
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -385,8 +382,8 @@ if(!(function_exists("open_box"))){
      **/
     function open_box($cmr_page = array(), $module = array(), $themes=array())
     {
-			if(empty($module["position"]))  $module["position"] = "head1";      
-			if(empty($module["base_name"]))  $module["base_name"] = "page";      
+			if(empty($module["position"]))  $module["position"] = "head1";
+			if(empty($module["base_name"]))  $module["base_name"] = "page";
 
             $win_link["left"] = "index.php?win_pos=" . $module["position"] . "&win_action=left";
             $win_link["up"] = "index.php?win_pos=" . $module["position"] . "&win_action=up";
@@ -397,16 +394,16 @@ if(!(function_exists("open_box"))){
             $win_link["zoom"] = "index.php?win_pos=" . $module["position"] . "&win_action=zoom";
             $win_link["close"] = "index.php?win_pos=" . $module["position"] . "&win_action=close";
 
-        $output = ""; 
+        $output = "";
         $mod_name = cmr_search_replace("[\.,:;]", "_", $module["base_name"]);
         $output .= "<div id=\"div_id_" . $mod_name . "\" class=\"div_win_table\" >";
         $output .= "<table class=\"cmr_win_table\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\"";
         if(($themes["width"]))  $output .= "style=\"width:" . $themes["width"] . ";\"";
         $output .= ">";
-        
+
 
         if($themes["header_visible"]){ // -- title bar of the windows --
-        
+
         	$output .= "<thead>";
             $output .= "<tr><td>";
             $output .= "<table class=\"win_header\"";
@@ -510,7 +507,7 @@ if(!(function_exists("open_box"))){
         $output .= "<div class=\"" . $themes["html_class"] . "\" id=\"div1_id_" . $mod_name . "\" title=\"" . str_replace("_php", "", $mod_name) . "\" >";
 //         $output .= $module["text"];
         return $output;
-    } 
+    }
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 }
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -535,7 +532,7 @@ if(!(function_exists("close_box"))){
         $output .= "</div>";
         $output .= "</td></tr></tbody></table></div>";
         return $output;
-    } 
+    }
     //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 }
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -572,7 +569,7 @@ $page_tabs = explode("|\n", $cmr_page["tab"]);
 //----------------------
 // 	    $array_tab=array_unique($array_tab);
         if(empty($cmr_page["current_tab"])) $cmr_page["current_tab"] = $array_path[0];
-	    
+
         $str="<div>";
 
         $str .= "<table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"2\" ><tr>";
@@ -584,7 +581,7 @@ $page_tabs = explode("|\n", $cmr_page["tab"]);
 //      $str .= "<td class=\"tab_space\" >&nbsp;</td>";
 	        if((($i+1) % 20) == 0){
 	            $str .= "</tr><tr>";
-	         if(((($i+1) / 10)) % 2==0){ 
+	         if(((($i+1) / 10)) % 2==0){
 	            $str .= "<td class=\"tab_space\" ></td>";
 	        	$i++;
 	         }
@@ -597,8 +594,8 @@ $page_tabs = explode("|\n", $cmr_page["tab"]);
             $str .= "<td class=\"tab_no_current\" >";
                 }
 
-            if(!empty($array_image[$i])) $str .= "<img src=\"" . cmr_get_path("www") . $array_image[$i] . "\" alt=\"+\" />";           
-			$array_link[$key] = "<a href=\"index.php?conf=com_tab&amp;current_tab=" . $array_path[$i] . "\" ><b>" . cmr_translate($array_tab[$i]) . "</b></a>";           
+            if(!empty($array_image[$i])) $str .= "<img src=\"" . cmr_get_path("www") . $array_image[$i] . "\" alt=\"+\" />";
+			$array_link[$key] = "<a href=\"index.php?conf=com_tab&amp;current_tab=" . $array_path[$i] . "\" ><b>" . cmr_translate($array_tab[$i]) . "</b></a>";
             $str .= $array_link[$key];
         	$str .= "</td><td class=\"tab_space\" >&nbsp;</td>";
 
@@ -608,9 +605,9 @@ $page_tabs = explode("|\n", $cmr_page["tab"]);
         $str .= "<td class=\"tab_space\" width=\"100\">&nbsp;</td>";
 
         $str .= "<td class=\"tab_no_current\" >";
-        $str .= "<a href=\"index.php?conf=com_tab&amp;current_tab=close&amp;tab_num=$j \" >";           
-        $str .= "<img src=\"" .cmr_get_path("www") ."images/icon/deleted_icon.png\" alt=\"X\" />";           
-        $str .= "</a>";           
+        $str .= "<a href=\"index.php?conf=com_tab&amp;current_tab=close&amp;tab_num=$j \" >";
+        $str .= "<img src=\"" .cmr_get_path("www") ."images/icon/deleted_icon.png\" alt=\"X\" />";
+        $str .= "</a>";
         $str .= "</td></tr></table>";
 
 
@@ -632,13 +629,13 @@ function open_module_tab($array_link = array(), $current = 1)
 {
         $str="<div>";
         $str .= "<table width=\"100%\" border=\"0\" cellspacing=\"1\" cellpadding=\"2\" ><tr>";
-        
+
 		$i=0;
 		$j=0;
         foreach($array_link as $key => $value){
 	        if((($i+1) % 20) == 0){
 	            $str .= "</tr><tr>";
-	         if(((($i+1) / 10)) % 2==0){ 
+	         if(((($i+1) / 10)) % 2==0){
 	            $str .= "<td class=\"tab_space\" >&nbsp;</td>";
 	        	$i++;
 	         }

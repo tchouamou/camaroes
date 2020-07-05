@@ -12,30 +12,30 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
 Copyright (c) 2011, Tchouamou Eric Herve <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
-
- 
- 
-
- 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 
- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 get_form_generator.php,Ver 3.0  2011-Sep 22:32:32
@@ -45,16 +45,16 @@ get_form_generator.php,Ver 3.0  2011-Sep 22:32:32
  * Information about
  * $cmr->query[0] Is used for keeping
  * the query string you will be run in the module run_result.php
- * 
+ *
  * $output_type Is used for keeping
  * the string value you will be see after running run_result.php
- * 
+ *
  * $cmr->email["subject"] Is used for keeping
  * the title off the message you will be send after running run_result.php
- * 
+ *
  * $cmr->email["message"] Is used for keeping
  * the text value off the message you will be send after running run_result.php
- */ 
+ */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 include_once("camaroes_class.php");
@@ -64,14 +64,14 @@ include_once("common_begin.php");
 if(empty($gen)) return;
 if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cmr->translate("Admin privilege needed, click ") . "<a href=\"index.php?cmr_mode=login\" >" .  $cmr->translate("Here") . "</a>" . $cmr->translate(" to login with [admin] account "));
 // // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// 
+//
 // if($cmr->post_var["cmr_get_data"] == "get_data/get_" . $mod->base_name . ".php")
 // include_once($cmr->get_path("index") . "system/loader/loader_get.php");
 // // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // case "form_generator":
-// 
+//
 
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -122,7 +122,7 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	if(empty($gen->dbms_name)||($model_source=="button_generator")){
 		$gen->connection = $cmr->db_connection;
-				
+
 		$gen->dbms_name = "";
 		$gen->table_name = "";
 		$gen->list_column = "";
@@ -137,7 +137,7 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
 	}else{
 //  !!!!!!!!!!!!!!!!!!!!!!!database connection---------------------------
 //     $gen->connection = cmrdb_connect($gen->dbms_host, $gen->dbms_user, $gen->dbms_pw) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	$gen->connection = NewADOConnection($gen->dbms_type);
+	//$gen->connection = NewADOConnection($gen->dbms_type);
 	$gen->connection->Connect($gen->dbms_host, $gen->dbms_user, $gen->dbms_pw, $gen->dbms_name);
 	if(!is_resource($gen->connection)) $gen->connection = $cmr->db_connection;
 //     cmrdb_select_db($gen->dbms_name, $gen->connection);
@@ -153,7 +153,7 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
 // 			$GLOBALS["cmr_lang"] = $gen->language;
 			$GLOBALS["limit"] = $gen->limit;
 			$GLOBALS["where"] = $gen->where;
-			
+
             $GLOBALS["cmr_new_function"] = $cmr->config["cmr_new_function"];
             $GLOBALS["cmr_update_function"] = $cmr->config["cmr_update_function"];
             $GLOBALS["cmr_report_function"] = $cmr->config["cmr_report_function"];
@@ -225,7 +225,7 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
 
                 if(($model_source!="text") && ($model_source!="button_generator") && (file_exists($model_dir . $source)))
                 $gen->models_text = file_get_contents($model_dir . $source);
-                
+
                 if(!empty($gen->models_text)){
 // 	                &&(in_array($gen->gen_type, $array_model_type)))
                     array_push ($search_model_array, $gen->gen_type . "_model." . $gen->write_extension);
@@ -250,7 +250,7 @@ if(($cmr->get_user("authorisation")) < $cmr->get_conf("cmr_admin_type")) die($cm
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 };
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- 
+
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // $sql_table_result->Close();
 // $sql_tables_result->Close();
@@ -284,14 +284,14 @@ if(!empty($check_extra_model)){
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     $array_model_source = array($model_source1, $model_source2, $model_source3);
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    
-    
+
+
     // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	$file_list[] = $cmr->get_path("module") . "modules/guest/";
 	if($cmr->get_user("authorisation") > $cmr->get_conf("cmr_guest_type")) $file_list[] = $cmr->get_path("module") ."modules/";
 	if($cmr->get_user("authorisation") > $cmr->get_conf("cmr_noc_type")) $file_list[] = $cmr->get_path("module") . "modules/admin/" ;
 	if($cmr->get_user("authorisation") > $cmr->get_conf("cmr_noc_type")) $file_list[] = $cmr->get_path("module") . "modules/database/";
-    
+
 	foreach($file_list as $key => $value){
 	while($file = readdir($value)){
     if(($file !=".") && ($file !="..") && (is_file($value . "/" . $file))){
@@ -312,7 +312,7 @@ if(!empty($check_extra_model)){
 	        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	        $gen->form_name = $gen->gen_type.$file_short_name;
 	        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	        
+
 	        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	        $gen->create_path = $gen->gen_path();
 	        $gen->models_text = $gen->generate();
@@ -410,7 +410,7 @@ if(!empty($check_extra_model)){
 //     save_cookie_status($cmr->config, "db_port", $cookie_action);
 //     save_cookie_status($cmr->config, "db_host", $cookie_action);
 //     save_cookie_status($cmr->config, "db_type", $cookie_action);
-//     
+//
 //     save_cookie_status($cmr->config, "cmr_model", $cookie_action);
 //     save_cookie_status($cmr->config, "save_cookies", $cookie_action);
 //     save_cookie_status($cmr->config, "cmr_theme", $cookie_action);
@@ -418,7 +418,7 @@ if(!empty($check_extra_model)){
 //     save_cookie_status($cmr->config, "button_col1", $cookie_action);
 //     save_cookie_status($cmr->config, "button_col2", $cookie_action);
 //     save_cookie_status($cmr->config, "button_col3", $cookie_action);
-		
+
 //     save_cookie_status($cmr->config, "button_dim1", $cookie_action);
 //     save_cookie_status($cmr->config, "button_dim2", $cookie_action);
 //     save_cookie_status($cmr->config, "button_dim3", $cookie_action);
@@ -508,7 +508,7 @@ if(!empty($check_extra_model)){
         $total = 0;
         foreach($sql_query_array as $sql_query){
             if($sql_query){
-                $result_query = &$cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
+                $result_query = $cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg() . "\n");
     			if($result_query) $total += $result_query->RecordCount();;
             }
             print("<hr />" . substr(0, 50, $sql_query) . "<hr />");
@@ -516,8 +516,8 @@ if(!empty($check_extra_model)){
     }
         print("\n <strong > " . $cmr->translate("end database creation and insertion ") .  "[".realpath($source)."]...... </b>\n");
         $good_install_db = ($total > 1);
-        
-        
+
+
         print("\n <strong > " . $cmr->translate("bigining working in the config file ") . "[" . realpath($gen->destination) . "config.inc.php]...... </b>\n");
 	    $conf_text1 = file_get_contents($cmr->get_path("index") . "config.inc.php");
 	    $conf_text1 = cmr_searchi_replace("\$cmr->config\[\"db_type\"\][ \t]*=[^\n]*[\n]", "\$cmr->config[\"db_type\"]=\"" . $gen->dbms_type . "\";\n", $conf_text1);
@@ -528,7 +528,7 @@ if(!empty($check_extra_model)){
 	    $conf_text1 = cmr_searchi_replace("\$cmr->config\[\"db_user\"\][ \t]*=[^\n]*[\n]", "\$cmr->config[\"db_user\"]=\"" . $gen->dbms_user . "\";\n", $conf_text1);
 	    $conf_text1 = cmr_searchi_replace("\$cmr->config\[\"db_pw\"\][ \t]*=[^\n]*[\n]", "\$cmr->config[\"db_pw\"]=\"" . $gen->dbms_pw . "\";\n", $conf_text1);
 	    $conf_text1 = cmr_searchi_replace("\$cmr->config\[\"cmr_table_prefix\"\][ \t]*=[^\n]*[\n]", "\$cmr->config[\"cmr_table_prefix\"]=\"" . $dbms_core_table_prefix . "\";\n", $conf_text1);
-    
+
         print("\n <strong > " . $cmr->translate("bigining working in the config file ") .  "[".realpath($cmr->get_path("index") . $cmr->get_conf("cmr_main_config")) ."]...... </b>\n");
         $conf_text2 = file_get_contents($cmr->get_path("index") . $cmr->get_conf("cmr_main_config") );
         $conf_text2 = cmr_searchi_replace("db_type[ \t]*=[^\n]*[\n]", "db_type=" . $gen->dbms_type . "\n", $conf_text2);
@@ -563,10 +563,10 @@ if(!empty($check_extra_model)){
             print("\n ".$cmr->translate("file") . " [" . realpath($cmr->get_conf("cmr_main_config")) . "] ".$cmr->translate("can not be created") . " ??!!!!\n");
         }
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        
-        
-        
+
+
+
+
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if(file_exists($gen->destination . $cmr->get_conf("cmr_main_config") )){
             $good_install_conf = rename($gen->destination . $cmr->get_conf("cmr_main_config") , $gen->destination . $cmr->get_conf("cmr_main_config") . ".old_" . date("y_m_d_h_i"));
@@ -586,9 +586,9 @@ if(!empty($check_extra_model)){
             print("\n ".$cmr->translate("file") . " [" . realpath($cmr->get_conf("cmr_main_config")) . "] ".$cmr->translate("can not be created") . " ??!!!!\n");
         }
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        
-        
-        
+
+
+
         print("\n <strong > " . $cmr->translate("ending work of the config file ") . "[" . realpath($gen->destination) . "config.inc.php]...... </b>\n");
         print("\n <strong > " . $cmr->translate("ending work of the config file ") . "[" . realpath($gen->destination) . $cmr->get_conf("cmr_main_config") . "]...... </b>\n");
         if(($good_install_db) && ($good_install_conf)){
@@ -613,7 +613,7 @@ if(!empty($check_extra_model)){
         case "download_zip":;
             print("\n <strong > ".$cmr->translate("bigining zip and download ") .  "[".realpath($gen->destination)."]...... </b>\n");
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-            
+
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             $array_files_dirs_to_zip = cmr_getdir_all($cmr->config, array($gen->destination), "");
             $zip_data = cmr_zipfiles($array_files_dirs_to_zip, dirname($gen->destination), "UTF-8");
@@ -630,7 +630,7 @@ if(!empty($check_extra_model)){
 				// 			 $cmr->down_file(realpath($zip_file));
 				// 			 export($cmr->config, "", "zip", $zip_file, "yes");
             // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        	} 
+        	}
             print("\n <strong > " . $cmr->translate("ending zip and download in ") . " [".realpath($gen->destination)."]...... </b>\n\n");
         break;
 

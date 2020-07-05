@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * graph.php
  * ---------
@@ -38,7 +38,7 @@ All rights reserved.
 
 
 
-graph.php, Ver 3.03 
+graph.php, Ver 3.03
 */
 
 /**
@@ -51,8 +51,6 @@ graph.php, Ver 3.03
  * @code_link() function  who take in input a module name and create and html link to this module
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if(!(function_exists("get_post"))){
@@ -112,8 +110,9 @@ $l1datay = explode(",", $grph_ydata1);
 $l2datay = explode(",", $grph_ydata2);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$jpgraph_src = $cmr->get_path("index") . "jpgraph/src/";
-if(phpversion() > "5") $jpgraph_src = $cmr->get_path("index") . "jpgraph/src5/";
+$jpgraph_src = dirname(__FILE__) . "/../../jpgraph/src/";
+if(phpversion() > "5") $jpgraph_src = dirname(__FILE__) . "jpgraph/src5/";
+if(phpversion() > "6") $jpgraph_src = dirname(__FILE__) . "jpgraph/src/";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 include_once ($jpgraph_src . "jpgraph.php");
@@ -128,11 +127,11 @@ switch($grph_type1){
 	include ($jpgraph_src . "jpgraph_pie.php");
 	include ($jpgraph_src . "jpgraph_pie3d.php");
 	break;
-	
+
 	case "barcode":
 // 	include ($jpgraph_src . "jpgraph_barcode.php");
 	break;
-	
+
 	case "bar":
 	case "line":
 	default:
@@ -151,17 +150,17 @@ case "barcode":
 			$barcode = BackendFactory ::Create('IMAGE', $symbology);
 			$barcode->Stroke($grph_ydata2);//'ABC123'..
 break;
-	
+
 case "pie":
 			// Create the Pie Graph.
 			$graph = new PieGraph($grph_width, $grph_height,"auto");
 break;
-	
+
 	case "bar":
 	case "line":
 	default:
 			// Create the graph.
-			$graph = new Graph($grph_width, $grph_height, "auto");  
+			$graph = new Graph($grph_width, $grph_height, "auto");
 	break;
 }
 
@@ -174,7 +173,7 @@ break;
 switch($grph_type1){
 	case "barcode":
 	break;
-	
+
 	case "pie":
 	case "bar":
 	case "line":
@@ -202,63 +201,63 @@ switch($grph_type1){
 switch($grph_type1){
 case "barcode":
 break;
-	
+
 case "pie":
 // 			$graph->legend->Pos(0.1,0.2);
-			
+
 			// Create 3D pie plot
 			(array_sum($l1datay)==0) ? $l1datay=array(1) : $l1datay= $l1datay;
 			$p1 = new PiePlot3d($l1datay);
 			$p1->SetTheme("sand");
 // 			$p1->SetCenter(0.4);
 // 			$p1->SetSize(80);
-			
+
 			// Adjust projection angle
 // 			$p1->SetAngle(45);
-			
+
 			// Adjsut angle for first slice
 // 			$p1->SetStartAngle(45);
-			
+
 			// As a shortcut you can easily explode one numbered slice with
 			$p1->ExplodeSlice(1);
-			
+
 			// Setup slice values
 		if(!empty($grph_font1))	$p1->value->SetFont(FF_ARIAL,FS_BOLD,11);
-		
+
 			$p1->value->SetColor($grph_color2);
-			
-			
+
+
 break;
-	
-	
+
+
 	default:
 			// .........................
 			$graph->SetMarginColor('white');
-			
+
 
 			switch($grph_scale){
 			case "text" : $graph->SetScale("textlin");break;
 			case "int" : $graph->SetScale("intlin");break;
 			default : $graph->SetScale("textlin");break;
 			}
-			
+
 			// Adjust the margin slightly so that we use the
 			// entire area (since we don't use a frame)
 			$graph->img->SetMargin(40,130,20,40);
 			// $graph->SetMargin(30,1,20,5);
-			
+
 			// Box around plotarea
 			$graph->SetBox();
-			
+
 			// No frame around the image
 			$graph->SetFrame(false);
-			
+
 			// Setup the tab title
 			$graph->tabtitle->Set($grph_tab_title);
 		if(!empty($grph_font1)){
 			$graph->tabtitle->SetFont(FF_ARIAL,FS_BOLD,10);
 			}
-			
+
 			// Setup the X and Y grid
 			$graph->ygrid->SetFill(true,'#DDDDDD@0.5','#BBBBBB@0.5');
 			$graph->ygrid->SetLineStyle('dashed');
@@ -266,11 +265,11 @@ break;
 			$graph->xgrid->Show();
 			$graph->xgrid->SetLineStyle('dashed');
 			$graph->xgrid->SetColor('gray');
-			
-			
-			
-			
-			
+
+
+
+
+
 			// Create the bar plot
 			$bplot = new BarPlot($l1datay);
 			// $bplot->SetFillColor($grph_fillcolor1);
@@ -278,34 +277,34 @@ break;
 			$bplot->SetWidth(0.6);
 			$fcol='#440000';
 			$tcol='#FF9090';
-			
+
 			$bplot->SetFillGradient($fcol,$tcol,GRAD_LEFT_REFLECTION);
-			
+
 			// Set line weigth to 0 so that there are no border
 			// around each bar
 			$bplot->SetWeight(0);
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 			// Create the linear error plot
 			$l1plot=new LinePlot($l2datay);
-			
+
 			$l1plot->SetLegend($grph_legend2);
-			
+
 			$l1plot->SetWeight(2);
 			$l1plot->SetFillColor($grph_fillcolor1);
 			$l1plot->SetColor($grph_color1);
 			// $l1plot->SetColor($grph_color2);
 			$l1plot->SetBarCenter();
-			
+
 			$l1plot->mark->SetType(MARK_SQUARE);
 			$l1plot->mark->SetColor($grph_color2);
 			$l1plot->mark->SetFillColor($grph_fillcolor2);
 			$l1plot->mark->SetSize(6);
-			
+
 	break;
 }
 
@@ -319,10 +318,10 @@ break;
 
 
 switch($grph_type1){
-	
+
 	case "barcode":
 	break;
-	
+
 	case "pie":
 	case "bar":
 	case "line":
@@ -351,15 +350,15 @@ switch($grph_type1){
 
 switch($grph_type1){
 	case "barcode":	break;
-	case "pie":	
+	case "pie":
 			$p1->SetLegends($datax);
 	break;
 	case "line":
 	case "bar":
 	default:
-			
+
 		foreach($datax as $key => $value) $datax[$key] = substr($value, 0, 4) . "..";
-		
+
 // 		   $_datax = $datax;
 // 		   $_l1datay = $l1datay;
 // 		   if(!empty($_datax)){
@@ -370,27 +369,27 @@ switch($grph_type1){
 // 		      }
 // 			$_datax = array_flip($_datax);
 // 			foreach($datax as $key => $value) $datax[$key] = $_datax[$value];
-			
-			
+
+
 				// Setup month as labels on the X-axis
 				$graph->xaxis->SetTickLabels($datax);
-				
-				
+
+
 				$graph->xaxis->title->Set($grph_xtitle);
 		if(!empty($grph_font1)){
 				$graph->xaxis->SetFont(FF_ARIAL,FS_NORMAL,8);
 			}
-			
+
 		if(!empty($grph_font1)){
 				$graph->xaxis->title->SetFont(FF_FONT1,FS_BOLD);
 				$graph->xaxis->SetLabelAngle(45);
 			}
-				
+
 				$graph->yaxis->title->Set($grph_ytitle);
 		if(!empty($grph_font1)){
 				$graph->yaxis->title->SetFont(FF_FONT1,FS_BOLD);
 			}
-	
+
 	break;
 }
 
@@ -424,8 +423,8 @@ default:break;
 switch($grph_type2){
 	case "bar":	$graph->Add($bplot);break;
 	case "line" : $graph->Add($l1plot);break;
-	
-	
+
+
 	case "barcode":
 	case "pie":
 	default:
@@ -437,10 +436,10 @@ switch($grph_type2){
 
 
 switch($grph_type2){
-	
+
 	case "barcode":break;
 	case "pie":break;
-	
+
 	case "line":
 	case "bar":
 	default:
@@ -449,7 +448,7 @@ switch($grph_type2){
 			}else{
 				$graph->Stroke($grph_path);
 				}
-//  $graph->Stroke($cmr->get_path("index") . "/tmp/myimage.png") 
+//  $graph->Stroke($cmr->get_path("index") . "/tmp/myimage.png")
 	break;
 }
 

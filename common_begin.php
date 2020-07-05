@@ -55,11 +55,11 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
         /*==================*/
             if(!($cmr->get_conf("cmr_path"))) $cmr->config["cmr_path"] = realpath("./");
             $cmr->config["cmr_path"] = realpath($cmr->get_conf("cmr_path"))  . "/";
-        /*==================*/
             $cmr->action["to_load"] = $cmr->get_conf("cmr_preload_func");
             include($cmr->get_path("index") . "system/loader/loader_function.php");
             $cmr->action["to_load"] = $cmr->get_conf("cmr_preload_class");
             include($cmr->get_path("index") . "system/loader/loader_class.php");
+        /*==================*/
 //         include_once($cmr->get_path("func") . "function/func_input.php");
 //         include_once($cmr->get_path("func") . "function/func_output.php");
 //         include_once($cmr->get_path("func") . "function/func_sessions.php");
@@ -103,12 +103,82 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
          cmr_init_mode($cmr->config, trim($cmr->translate("cmr_charset")));
         /*==================*/
         //$cmr->show();
-        /*==================*/
-        if(get_post("cmr_mode"))
-        include($cmr->get_path("index") . "system/select_mode.php");//login, logout, forget_account, inscription, install..etc
-        /*==================*/
+        //if(get_post("cmr_mode")) include($cmr->get_path("index") . "system/select_mode.php");//login, logout, forget_account, inscription, install..etc
 
 
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+        	switch(get_post1("cmr_mode")){
+        	case "login":
+        	include_once($cmr->get_path("index") . "login.php");
+        	exit;
+        	break;
+
+        	case "logout":
+        	include_once($cmr->get_path("index") . "logout.php");
+        	exit;
+        	break;
+
+        	case "forget_account":
+        	case "forget_account":
+        	if(($cmr->get_conf("cmr_allow_forget_account"))){
+        	include_once($cmr->get_path("index") . "forget_account.php");
+        	exit;
+        	}
+         	die("<br />forget id not allow !!, change the configuration file  or click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=login&force_login=yes\" > Here </a>  to login before continue ");
+        	break;
+
+        	case "inscription":
+        	if(($cmr->get_conf("cmr_allow_inscription"))){
+        	include_once($cmr->get_path("index") . "inscription.php");
+        	exit;
+        	}
+         	die("<br />Inscription not allow !!, change the configuration file  or click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=login&force_login=yes\" > Here </a>  to login before continue ");
+        	break;
+
+        	case "validation":
+        	if(($cmr->get_conf("cmr_allow_validation"))){
+        	include_once($cmr->get_path("index") . "validation.php");
+        	exit;
+        	}
+         	die("<br />Validation not allow !!, change the configuration file  or click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=login&force_login=yes\" > Here </a>  to login before continue ");
+        	break;
+
+
+        	case "install_db":
+        	case "install_need":
+        	include_once($cmr->get_path("index") . "install/install_need.php");
+        	exit;
+        	break;
+
+        	case "update":
+        	if(($cmr->get_conf("cmr_allow_update"))){
+        	include_once($cmr->get_path("index") . "install/update.php");
+        	exit;
+        	}
+         	die("<br />Update not allow !!, change the configuration file  or click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=login&force_login=yes\" > Here </a>  to login before continue ");
+        	break;
+
+        	case "install":
+        	case "install_all":
+        	if(($cmr->get_conf("cmr_allow_install"))){
+        	include_once($cmr->get_path("index") . "install/install.php");
+        	exit;
+        	}
+         	die("<br />Install not allow !!, change the configuration file or click <a href=\"" .  $_SERVER['PHP_SELF'] . "?cmr_mode=login&force_login=yes\" > Here </a>  to login before continue ");
+        	break;
+
+        	case "explore":
+        	include_once($cmr->get_path("module") . "modules/admin/explore.php");
+        	exit;
+        	break;
+
+        	case "normal":;
+        	default:;
+        	break;
+        }
         /*========main=======*/
         if($cmr->get_conf("cmr_output_buffering"))  ob_start(); // start output buffering//  ob_start('cmr_callback');
         /*==================*/
@@ -151,6 +221,9 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
         //$cmr->load_session();
         //}
         }
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        include($cmr->get_path("index") . "/system/loader/login_to.php");
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         /*==================*/
         if(isset($_POST["auth_user"])) $_SESSION = array();
         /*==================*/

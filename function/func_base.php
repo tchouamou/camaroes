@@ -41,9 +41,6 @@ All rights reserved.
 
 func_base.php,Ver 3.0  2011-July 10:36:59
 */
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/../control.php"); //to control access 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 /*=================================================================*/
@@ -130,7 +127,7 @@ if(file_exists($cmr_config["cmr_home_path"] . "home/groups/default/")){
 	    return cmr_dir_copy($cmr_config["cmr_home_path"] . "home/groups/default/", $cmr_config["cmr_home_path"] . "home/groups/" . $name);
 		}
 	    return cmr_dir_copy($cmr_config["cmr_home_path"] . "home/users/default/", $cmr_config["cmr_home_path"] . "home/users/" . $name);
-		
+
 	}
     //----------------------------
     if(!file_exists($cmr_config["cmr_path"] . "home/")){
@@ -158,7 +155,7 @@ if(file_exists($cmr_config["cmr_home_path"] . "home/groups/default/")){
 		}else{
 	        return ($cmr_config["cmr_path"] . "home/users/" . $name);
 	}
-	
+
 return ($cmr_config["cmr_path"] . "home/groups/" . $name);
 }
 }
@@ -178,9 +175,9 @@ function save_config($cmr_config = array(), $cmr_page = array(), $cmr_user = arr
     $text_f = "\n\n";
 
     if(empty($type)) $type = $type = "user";
-    
+
     if(empty($group)) $group = $cmr_user["auth_group"];
-    
+
     if(!file_exists($cmr_config["cmr_path"] . "home/groups/" . $cmr_user["auth_group"])){
         create_account_folder($cmr_config, "group", $cmr_user["auth_group"]);
     }
@@ -268,7 +265,7 @@ function save_config($cmr_config = array(), $cmr_page = array(), $cmr_user = arr
         $fich = fopen($cmr_config["cmr_home_path"] . "home/groups/" . $group . "/" . $cmr_config["cmr_page_filename"], "w");
         fputs($fich, $text_f);
         fclose($fich);
-        
+
 //         $sql_result = &$conn->Execute("update " . $cmr_config["cmr_table_prefix"] . "groups set login_script='" . (str_replace("cmr_array", "cmr->page", $text_f)) . "' where name='" . cmr_escape($group) . "'") or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
 		$sql_data["severity"] = "";
 		$sql_data["valid"] = 1;
@@ -285,7 +282,7 @@ function save_config($cmr_config = array(), $cmr_page = array(), $cmr_user = arr
         $fich = fopen($cmr_config["cmr_home_path"] . "home/users/" . $cmr_user["auth_uid"] . "/" . $cmr_config["cmr_page_filename"], "w");
         fputs($fich, $text_f);
         fclose($fich);
-        
+
 //         $sql_result = &$conn->Execute("update " . $cmr_config["cmr_table_prefix"] . "user set login_script='" . (str_replace("cmr_array", "cmr->page", $text_f)) . "' where email='" . cmr_escape($email) . "'") or db_die(__LINE__  . " - "  . __FILE__ . ": " . $conn->ErrorMsg());
 		$sql_data["severity"] = "";
 		$sql_data["valid"] = 1;
@@ -317,7 +314,7 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
 // $cmr_user = $cmr->get_user("auth_email");
 // $cmr_group = $cmr->get_user("auth_group");
 // $cmr_prefix = $cmr->get_conf("cmr_table_prefix");
-// 
+//
 // $array_code[] = "{{date_time}}";
 // $array_code[] = "{{date}}";
 // $array_code[] = "{{time}}";
@@ -372,7 +369,7 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
     if(empty($code)){
         return $code;
     }else{
-        
+
 		$sql_data["valid"] = 1;
 		$sql_data["order"] = "";
 		$sql_data["host"] = $hostname;
@@ -381,7 +378,7 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
 		$sql_data["sql_where"] = "code='" . ($code) . "'";
 		$obj_code = sql_run("array_assoc", $conn, "select", "", $database, $prefix . "code", "script", $sql_data);
 
-       
+
         if($obj_code){
             // =======================================
             $eval_result = "";
@@ -398,7 +395,7 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
 	      $param = substr($param, 0,-2);
 		  $sql_data["sql_where"] = "email='" . trim($user) . "'";
 		  $valuser = sql_run("array_assoc", $conn, "select", "", $database, $prefix . "user", "*", $sql_data);
-	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param)) 
+	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param))
           return $valuser[0][$param];
 //         } elseif(cmr_search("^{{user_", $code)){
 // 	      $param = substr($code, 7);
@@ -415,17 +412,17 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
         } elseif(cmr_search("^{{user_", $code)){
 	      $param = substr($code, 7);
 	      $param = substr($param, 0,-2);
-	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param)) 
+	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param))
             return cmr_get_user($param);
         } elseif(cmr_search("^{{groups_", $code)){
 	      $param = substr($code, 9);
 	      $param = substr($param, 0,-2);
-	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param)) 
+	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param))
             return cmr_get_group($param);
         } elseif(cmr_search("^{{conf_", $code)){
 	      $param = substr($code, 7);
 	      $param = substr($param, 0,-2);
-	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param)) 
+	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param))
             return cmr_get_config($param);
         } elseif(cmr_search("^{{lang_", $code)){
 	      $param = substr($code, 7);
@@ -438,7 +435,7 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
         } elseif(cmr_search("^{{glob_", $code)){
 	      $param = substr($code, 7);
 	      $param = substr($param, 0,-2);
-	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param)) 
+	      if(!cmr_searchi("^db_|^php_|_pw|password|_user_name|_uid|^imap_|^pop3_|^nntp_|certificate|_port|_code",$param))
             return $GLOBALS[$param];
         } elseif(cmr_search("^{{mod_", $code)){
 	      $param = substr($code, 6);
@@ -474,7 +471,7 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
 // 	      			$param=file_get_contents("http://iss.net/".get_post("title");
 //             		return $param;
                 break;
-                default: 
+                default:
                     return $code;
                 break;
             }
@@ -482,26 +479,26 @@ function run_code($code = "", $conn = "", $hostname = "localhost", $username = "
             // =======================================
     }
     return $code;
-} 
-} 
+}
+}
 /*=================================================================*/
 function add_option($option = "", $value = "", $text = "", $selected = "")
-    {	
+    {
    return "<option value=\"" . $value . "\" " . $selected . ">" . $text . "</option>";
     }
 /*=================================================================*/
 function add_line($value = "", $option = "")
-    {	
+    {
    return "<tr " . $option . ">" . $value . "</tr>";
     }
 /*=================================================================*/
 function add_cell($value = "", $option = "")
-    {	
+    {
    return "<td " . $option . ">" . $value . "</td>";
     }
 /*=================================================================*/
 function add_list($value = "", $option = "")
-    {	
+    {
    return "<li " . $option . ">" . $value . "</li>";
     }
 /*=================================================================*/
@@ -520,7 +517,7 @@ function show_hide($the_name="_", $action="begin", $columns=0)
 $value = "";
 
 if($action == "begin"){
-	
+
 if(!empty($columns)){
  	$value .= "<tr align=\"left\">";
 //  	$value .= "<td align=\"left\">" . $the_name . ":</td>";
@@ -528,7 +525,7 @@ if(!empty($columns)){
 }
  	$value .= "<input type=\"button\" value=\"+\" id=\"hide_" . $the_name . "\" onclick=\"show('extra_" . $the_name . "');show('hide_" . $the_name . "');hide('hide_" . $the_name . "');\">";
  	$value .= "<input class=\"hidded\" type=\"button\" value=\"-\" id=\"show_" . $the_name . "\" onclick=\"hide('extra_" . $the_name . "');show('hide_" . $the_name . "');hide('show_" . $the_name . "');\">";
- 	
+
 // $value .= "<div id=\"hide_" . $the_name . "\"><a onclick=\"show('extra_" . $the_name . "');hide('hide_" . $the_name . "');show('show_" . $the_name . "');\">+</a></div>";
 // $value .= "<div id=\"show_" . $the_name . "\" style=\"visibility:hidden; display:none\">";
 // $value .= "<a onclick=\"hide('extra_" . $the_name . "');hide('show_" . $the_name . "');show('hide_" . $the_name . "');\">";
@@ -578,7 +575,7 @@ if(!empty($cmr_string)&&($name!="func_id")&&($name!="func_date_time")){
  $select = "<span onclick=\"show('id_func_" . $name  . "')\">";
  $select .= "<select class=\"hidded\" name=\"" . $name . "\" id=\"id_func_" . $name . "\" " . $multiple . " >";
  $select .= "<option value=\"\"></option>";
- 
+
 	 foreach($partition as $key => $value){
 	 $select .= "<option value=\"".trim($value)."\">".trim($value)."</option>";
 	 }
@@ -603,7 +600,7 @@ function cmr_view_header($get_column = "", $module_column = "", $page_mode = "")
 {
 
 // 	if($page_mode == "link_print") return "<td> </td>";
-	
+
 	$return_val = "";
 	$return_val .= "<td onclick=\"show('" . $module_column . "')\" class=\"rown2\" align=\"center\">";
 	$return_val .= "<input ";
@@ -695,7 +692,7 @@ if(!(function_exists("select_order"))){
 	    foreach($alphabet as $caracter){
 
 		    $count = 0;
-		    
+
 		if(!empty($array_value2)){
 			reset($array_value2);
 		    foreach($array_value2 as $key => $value){
@@ -704,14 +701,14 @@ if(!(function_exists("select_order"))){
 			    $count++;
 			    $str_value .= "<optgroup label=\"- " . strtoupper($caracter) . " -\">";
 			    }
-			    
+
 			 if($translate){
 				 $str_value .= "<option value=\"" . $array_value1[$key] . "\">" .  substr(cmr_translate($value, "english", cmr_get_page("language")), 0, $width) . "</option>";
 			 }else{
 				 $str_value .= "<option value=\"" . $array_value1[$key] . "\">" . substr($value, 0, $width) . "</option>";
 				 }
-			
-			
+
+
 			$array_key[$key] = 1;
 		    }else{
 			if(empty($array_key[$key])) $array_key[$key]=0;
@@ -720,12 +717,12 @@ if(!(function_exists("select_order"))){
 	 	 }
 		    if($count > 0) $str_value .= "</optgroup>";
 	    }
-	    
-	    
-	    
+
+
+
 		    if(in_array(0, $array_key)){
 			if(in_array(1, $array_key)) $str_value .= "<optgroup label=\"- " .  cmr_translate("others", "english", cmr_get_page("language")) . " -\">";
-			
+
 			foreach($array_key as $key => $value){
 			if($value==0){
 			 if($translate){
@@ -735,8 +732,8 @@ if(!(function_exists("select_order"))){
 				 }
 			 }
 			}
-			
-			
+
+
 			if(in_array(1, $array_key)) $str_value .= "</optgroup>";
 			}
 
@@ -745,7 +742,7 @@ if(!(function_exists("select_order"))){
 
         return $str_value;
     }
-}		
+}
 /*=================================================================*/
 /*=================================================================*/
 if(!(function_exists("show_column"))){
@@ -768,9 +765,9 @@ if(!(function_exists("show_column"))){
 		    case "pwd":
 		    case "passwd":
 		    case "password":
-		    $to_return = "***"; 
+		    $to_return = "***";
 		    break;
-		    
+
 		    case "email":
 		    case "allow_email":
 		    case "user_email":
@@ -780,31 +777,31 @@ if(!(function_exists("show_column"))){
 		    case "mail_bcc":
         	$to_return = list_user_link(cmr_get_config(), cmr_get_page(), cmr_get_language(), $text);
 		    break;
-		    
+
 		    case "file":
         	$to_return = list_file_link(cmr_get_config(), cmr_get_page(), cmr_get_language(), $text);
 		    break;
-		    
+
 		    case "group":
 		    case "groups":
 		    case "group_name":
 		    case "allow_groups":
         	$to_return = list_group_link(cmr_get_config(), cmr_get_page(), cmr_get_language(), $text);
 		    break;
-		    
+
 		    case "attach":
 		    case "attachment":
 		    case "allegato":
         	$to_return = list_attach_link(cmr_get_config(), cmr_get_page(), cmr_get_language(), $text);
 		    break;
-		    
+
 		    case "date_time":
 		    case "date":
 		    case "time":
 		    case "timestamp":
         	$to_return = date_link(cmr_get_config(), cmr_get_page(), cmr_get_language(), $text);
 		    break;
-		    
+
 		    case "allow_type":
         	$to_return = list_type_link(cmr_get_config(), cmr_get_page(), cmr_get_language(), $text);
 		    break;
@@ -821,23 +818,23 @@ if(!(function_exists("show_column"))){
         	$to_return .= "<br /> <input type=\"submit\" value=\"" . cmr_translate("add comment") . "\" />";
         	$to_return .= "</form></p>";
 		    break;
-		    
-		    
+
+
 		    case "image":
 		    case "picture":
 		    case "photo":
-		    $to_return = $text . "<br /><img class=\"cmr_image\" src=\"" . $text . "\" /><br />"; 
+		    $to_return = $text . "<br /><img class=\"cmr_image\" src=\"" . $text . "\" /><br />";
 		    break;
-		    
+
 		    case "certificate":
 		    case "my_md5":
 		    case "my_master":
 		    case "my_slave":
-		    $to_return = $text; 
+		    $to_return = $text;
 		    break;
-		    
-		    default: 
-		    $to_return = htmlentities($text); 
+
+		    default:
+		    $to_return = htmlentities($text);
 		    break;
 		    }
         return $to_return;

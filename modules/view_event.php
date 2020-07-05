@@ -139,7 +139,7 @@ $cmr->query["cron_message2"] = $qr->get_query("cron_message2");
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 		// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		$result_message = $cmr->db_connection->query($cmr->query["cron_message2"]) /*, $cmr->db_connection)*/  or print($cmr->db_connection->ErrorMsg());
+		$result_message = $cmr->db_connection->query($cmr->query["cron_message2"]) /*, $cmr->db_connection)*/  or print($cmr->db_connection->error);
 		// ========================Cleaning=======================
 }
 }
@@ -225,9 +225,9 @@ $cmr->query["num_ticket"] = $qr->get_query("num_ticket");
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 if($cmr->db_connection)
-$result_message = $cmr->db_connection->query($cmr->query["num_message"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$result_message = $cmr->db_connection->query($cmr->query["num_message"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 if($cmr->db_connection)
-$result_ticket = $cmr->db_connection->query($cmr->query["num_ticket"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$result_ticket = $cmr->db_connection->query($cmr->query["num_ticket"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 // ------------------------
 if($result_message)
  if(!($division->prints["match_value_num_message"] = $result_message->field_count)) $division->prints["match_value_num_message"] = 0;

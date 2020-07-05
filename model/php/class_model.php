@@ -17,41 +17,38 @@ All rights reserved.
 class_@_table_@.php, Ver 3.03, @_date_time_@
 */
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // !!!!!!!!!!!Security and authorisation!!!!!!!!!!!!!!!
-// ==============================================        
+// ==============================================
     // ==========
     // ==========
     $GLOBALS["@_table_@_read"] = $cmr->readed_line("@_table_@");
     // ==========
     // ==========
-// ==============================================        
+// ==============================================
 if(!(class_exists("@_table_@_class"))){
     class @_table_@_class{
-        £_foreach_column_£
+        %_foreach_column_%
         /**
          * @_column_name_@ @_column_type_@
          *
          * @var
          */
         var $@_column_@;
-        ££_foreach_column_££
+        %%_foreach_column_%%
 
          /**
          *
          * @var int
          */
         var $cmr_id;
-         
-         
-        
-        
-        
-                 
+
+
+
+
+
+
         /**
          *
          * @var array
@@ -131,26 +128,26 @@ if(!(class_exists("@_table_@_class"))){
         /**
          * Constructor
          **/
-    //00000000000000000000000000 
+    //00000000000000000000000000
 	function __construct($cmr_config = array(), $cmr_user = array()) // --constructor--
 	{
 	   return $this->@_table_@_class($cmr_config, $cmr_user);
 	}
-    //00000000000000000000000000 
+    //00000000000000000000000000
         function @_table_@_class($cmr_config = array(), $cmr_user = array())
         {
 	     if(empty($cmr_config)) $cmr_config = cmr_get_config();
 	     if(empty($cmr_user)) $cmr_user = cmr_get_user();
-	     
+
 	     if(($cmr_config)) $this->cmr_config = $cmr_config;
 	     if(($cmr_user)) $this->cmr_user = $cmr_user;
-	     
-	     
+
+
 	     $this->cmr_prefix = $this->cmr_config["cmr_table_prefix"];
 	     $this->cmr_email = $this->cmr_user["auth_email"];
 	     $this->cmr_group = $this->cmr_user["auth_group"];
 	     $this->cmr_list_group = $this->cmr_user["auth_list_group"];
-	     $this->cmr_type = $this->cmr_user["authorisation"];          
+	     $this->cmr_type = $this->cmr_user["authorisation"];
         return $this;
         }
 
@@ -160,10 +157,10 @@ if(!(class_exists("@_table_@_class"))){
          **/
         function get_array_datas($value = "")
         {
-            £_foreach_column_£
+            %_foreach_column_%
             (empty($value)) ? $this->cmr_array_column['@_column_@'] = $this->@_column_@ : $this->cmr_array_column['@_column_@'] = $value;
-            ££_foreach_column_££
-            
+            %%_foreach_column_%%
+
             return $this->cmr_array_column;
         }
          /**
@@ -172,13 +169,13 @@ if(!(class_exists("@_table_@_class"))){
          **/
         function get_form_datas($action = "post", $pre_match = "")
         {
-            £_foreach_column_£
+            %_foreach_column_%
             $this->@_column_@ = '';
             if(get_post('@_column_@')) $this->@_column_@ = get_post('@_column_@', $action, $pre_match);
-            ££_foreach_column_££
-            
+            %%_foreach_column_%%
+
             $this->cmr_array_column = $this->get_array_datas();
-            
+
             return true;
         }
 
@@ -239,7 +236,7 @@ if(!(class_exists("@_table_@_class"))){
 //          $this->cmr_query["view"] = "SELECT * FROM " . $this->cmr_prefix . "@_table_@ WHERE " . $this->accept("select") . "";
             return $this->cmr_query["view"];
         }
-        
+
         /**
          *query_import
          **/
@@ -251,11 +248,11 @@ if(!(class_exists("@_table_@_class"))){
 			$data["separator"] = "\\\n";
 		    $this->cmr_query["import"] = sql_run("query", "", "load_data", "", $this->cmr_config["db_name"], $this->cmr_prefix . $this->cmr_table, "", "", "", "", "", "", $data);
 //          $this->cmr_query["import"] = "LAOD DATA LOCAL INFILE " . $file_name . " into table " . $this->cmr_prefix . "@_table_@ field terminate by '\\\n';";
-            
+
             return $this->cmr_query["import"];
         }
-        
-        
+
+
         /**
          *query_export
          **/
@@ -269,7 +266,7 @@ if(!(class_exists("@_table_@_class"))){
 //          $this->cmr_query["export"] = "SELECT * FROM " . $this->cmr_prefix . "@_table_@ into outfile " . $file_name . " field terminate by '\\\n'";
             return $this->cmr_query["export"];
         }
-        
+
         /**
          *
          **/
@@ -281,7 +278,7 @@ if(!(class_exists("@_table_@_class"))){
 //          $this->cmr_query["report"] = "SELECT COUNT * FROM " . $this->cmr_prefix . "@_table_@ WHERE " . $this->accept("select") . " and " . $where; //." LIMIT " . $this->cmr_limit;
             return $this->cmr_query["report"];
         }
-        
+
         /**
          *
          **/
@@ -291,7 +288,7 @@ if(!(class_exists("@_table_@_class"))){
 	        $this->cmr_query["search"] = cmr_query_search($this->cmr_array_column, $array_func, $this->cmr_prefix . $this->cmr_table, $this->accept("select"), get_post("search_text"));
             return $this->cmr_query["search"];
         }
-        
+
 
 
         /**
@@ -303,10 +300,10 @@ if(!(class_exists("@_table_@_class"))){
         {
             if(isset($this->@_column_date_time1_@) && empty($this->@_column_date_time1_@)) $this->@_column_date_time1_@ = date("Y-m-d H:i:s");
             if(isset($this->date_time) && empty($this->date_time)) $this->date_time = date("Y-m-d H:i:s");
-            
+
             $this->@_column_id_@ = $col_id;
 			$this->cmr_array_column = $this->get_array_datas();
-            
+
             $this->cmr_query["insert"] = cmr_query_insert($this->cmr_array_column, $this->cmr_prefix . $this->cmr_table, $this->accept("insert"));
             return $this->cmr_query["insert"];
         	}
@@ -334,7 +331,7 @@ if(!(class_exists("@_table_@_class"))){
         function query_delete($col_id = NULL)
         {
 // 		$this->cmr_query["delete"]  = "DELETE FROM " . $this->cmr_prefix . "@_table_@ WHERE " . $this->accept("delete");
-// 		
+//
 // 		$list_id = "";
 // 		if(is_array($val_id)){
 // 				foreach($val_id as $key => $value){
@@ -344,7 +341,7 @@ if(!(class_exists("@_table_@_class"))){
 // 		}else{
 // 		$list_id = "'" . cmr_escape($val_id) . "'";
 // 		}
-// 				
+//
 // 		$this->cmr_query["delete"] .= " AND @_column_id_@ IN " . sprintf("(%s);", $list_id);
 		empty($col_id) ? $val_id = $this->@_column_id_@ : $val_id = $col_id;
 			$this->cmr_id = $this->@_column_id_@;
@@ -362,7 +359,7 @@ if(!(class_exists("@_table_@_class"))){
 	        if(is_resource($this->cmr_connection)) return $this->cmr_connection;
             return cmr_get_db_connection();
         }
-        
+
         /**
          * run query
          *
@@ -374,7 +371,7 @@ if(!(class_exists("@_table_@_class"))){
             $this->affect_rown = $result_query->RecordCount();
             return $result_query;
         }
-        
+
         /**
          * data_query()
          *
@@ -384,12 +381,12 @@ if(!(class_exists("@_table_@_class"))){
         {
             return sql_run("array", $this->connect(), "sql", $query);
         }
-// ==============================================        
-// ==============================================        
-// ==============================================        
-// ==============================================        
+// ==============================================
+// ==============================================
+// ==============================================
+// ==============================================
         /**
-         * close 
+         * close
          **/
         function close()
         {
@@ -405,6 +402,6 @@ if(!(class_exists("@_table_@_class"))){
         }
     }
 }
-// ==============================================        
-// ==============================================        
+// ==============================================
+// ==============================================
 ?>

@@ -3,20 +3,20 @@
 -- Version TSTM: 2.0.3
 -- Version MySQL: 4.0.24
 -- Version PHP: 4.3.10-16
--- 
+--
 -->
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!-- Database @_database_@ -->
 <@_database_@>
-    £_foreach_table_£
+    %_foreach_table_%
 <!--Begin table @_table_@ -->
-          £_foreach_rown_£
+          %_foreach_rown_%
         <@_table_@>
-            £_foreach_cols_in_rown_£
+            %_foreach_cols_in_rown_%
                 <@_column_@>@_rown_@</@_column_@>
-            ££_foreach_cols_in_rown_££
+            %%_foreach_cols_in_rown_%%
         </@_table_@>
-        ££_foreach_rown_££
+        %%_foreach_rown_%%
 <!--End table @_table_@ -->
-    ££_foreach_table_££
+    %%_foreach_table_%%
 </@_database_@>

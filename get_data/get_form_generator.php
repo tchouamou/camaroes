@@ -263,7 +263,7 @@ switch($gen->db_source){
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //  !!!!!!!!!!!!!!!!!!!!!!!database connection---------------------------
-	$cmr->db_connection = NewADOConnection($cmr->get_conf("db_type"));
+	//$cmr->db_connection = NewADOConnection($cmr->get_conf("db_type"));
     $gen->connection = $cmr->db_connection->Connect($gen->dbms_host, $gen->dbms_user, $gen->dbms_pw, $cmr->config["db_name"]);
 	if(!is_resource($gen->connection)) $gen->connection = $cmr->db_connection;
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -271,11 +271,11 @@ if(($db_source!="server")||($db_source=="text")){
     if((file_exists($db_source_file))||(!empty($dbms_sql_text))){
 	    if(!empty($dbms_sql_text)){
 		$sql_query="CREATE DATABASE IF NOT EXISTS " . $gen->dbms_name . ";";
-        $result_query = &$cmr->db_connection->query($sql_query, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error . "\n");
+        $result_query =  $cmr->db_connection->query($sql_query, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error . "\n");
     	$gen->connection = $cmr->db_connection->Connect($gen->dbms_host, $gen->dbms_user, $gen->dbms_pw, $gen->dbms_name);
     	}
 
-        $result_query = &$cmr->db_connection->query($dbms_sql_text, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error . "\n");
+        $result_query = $cmr->db_connection->query($dbms_sql_text, $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error . "\n");
 
         $dbms_sql_text = cmr_searchi_replace("^\s*--[^\n]*[\n]", " ", $dbms_sql_text);
         $sql_query_array = cmr_split(";\s*\n", $dbms_sql_text);
@@ -289,7 +289,7 @@ if(($db_source!="server")||($db_source=="text")){
         $total = 0;
         foreach($sql_query_array as $sql_query){
             if($sql_query){
-                $result_query = &$cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error. "\n");
+                $result_query = $cmr->db_connection->query($sql_query . ";", $gen->connection) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error. "\n");
                 $total += $result_query->num_rows;
             }
             $cmr->output[0] .= ("<hr />" . substr(0, 50, $sql_query) . "<hr />");
@@ -373,7 +373,7 @@ switch($model_source){
 		if(empty($text_size)) $text_size = $size;
 
         $gen->models_text = get_post("models_text");
-        $gen->models_text = "�_button_�" . str_replace("\n", "��_button_�� �_button_�", $gen->models_text) . "��_button_��";
+        $gen->models_text = "%_button_%" . str_replace("\n", "%%_button_%% %_button_%", $gen->models_text) . "%%_button_%%";
 		$gen->button_model = $button_model;
 		$gen->button_color = implode(",", array($button_col1,$button_col2,$button_col3));
 		$gen->button_dim = implode(",", array($text_font,$button_x_pos,$button_y_pos,$text_size));

@@ -24,8 +24,8 @@ All rights reserved.
 inscription.php, 2011-Oct
 */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- 
- 
+
+
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //-----database connection------
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -41,7 +41,7 @@ inscription.php, 2011-Oct
 $cmr->session["cmr_img_code"] = $cmr->gener_code("Camaroes");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
 $cmr->post_var["class_module"] = get_post("class_module");
 
@@ -69,7 +69,7 @@ $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine"))) 
+if(($cmr->get_conf("cmr_clock_engine")))
 $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
 
 $cmr->prints["match_ajax_engine"] = ";";
@@ -94,9 +94,9 @@ if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
 $file_list = array();
 $file_list[] = $cmr->config["template_inscription"];
 $file_list[] = $cmr->get_path("template") . "templates/template_inscription" . $cmr->get_ext("template");
-$file_list[] = $cmr->get_path("template") . "templates/origin/template_inscription" . $cmr->get_ext("template"); 
+$file_list[] = $cmr->get_path("template") . "templates/origin/template_inscription" . $cmr->get_ext("template");
 $template_inscription_file = cmr_good_file($file_list);
-$template_inscription = file_get_contents($template_inscription_file);  
+$template_inscription = file_get_contents($template_inscription_file);
 $cmr->print_template("template1", $template_inscription);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -490,7 +490,7 @@ $cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr->prints["match_close_windows"] = $division->close(); 
+$cmr->prints["match_close_windows"] = $division->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

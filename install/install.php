@@ -56,6 +56,30 @@ install.php,  2011-Oct
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /*=====================*/
+// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+/*==================*/
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_main_config"), $cmr->config, "var");
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_database_config"), $cmr->config, "var");
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_smtp_config"), $cmr->config, "var");
+		$cmr->config = $cmr->include_conf($cmr->get_conf("cmr_compagny_config"), $cmr->config, "var");
+		$cmr->config = $cmr->preload_config($cmr->get_conf("cmr_preload_conf"));
+//          $cmr->config = $cmr->include_conf("conf.d/conf_login.ini", $cmr->config, "var");
+//          $cmr->config = $cmr->include_conf("conf.d/conf_security.ini", $cmr->config, "var");
+/*==================*/
+		if(!($cmr->get_conf("cmr_path"))) $cmr->config["cmr_path"] = realpath("./");
+		$cmr->config["cmr_path"] = realpath($cmr->get_conf("cmr_path"))  . "/";
+		$cmr->action["to_load"] = $cmr->get_conf("cmr_preload_func");
+		include($cmr->get_path("index") . "system/loader/loader_function.php");
+		$cmr->action["to_load"] = $cmr->get_conf("cmr_preload_class");
+		include($cmr->get_path("index") . "system/loader/loader_class.php");
+/*==================*/
+        $cmr->language = auto_language($cmr->config, $cmr->language, $cmr->db_connection); //__automatic create language traduction
+        $cmr->language = $cmr->include_conf($cmr->get_conf("cmr_begin_lang_file"), $cmr->language, "var");
+        $cmr->page = $cmr->include_conf($cmr->get_conf("cmr_begin_pager_file"), $cmr->page, "var");// =========== default config ==================
+        $cmr->themes = $cmr->include_conf($cmr->get_conf("cmr_begin_theme_file"), $cmr->themes, "var");
+		    $cmr->themes = $cmr->include_conf($cmr->get_path("theme") . $cmr->get_page("cmr_themes"), $cmr->themes, "var");
+/*==================*/
+
 /*=====================*/
 /*==================LOAD LICENCE===================================*/
 /*=================================================================*/

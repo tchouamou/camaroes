@@ -38,7 +38,7 @@ All rights reserved.
 
 
 
-get_inscription.php,Ver 3.0  2011-Sep 17:42:03  
+get_inscription.php,Ver 3.0  2011-Sep 17:42:03
 */
 
 /**
@@ -66,7 +66,7 @@ include_once("common_begin.php");
 			$cmr->language = $mod->load_lang($cmr->language, $cmr->page["language"], "user.php");
 			$cmr->config = $mod->load_conf("conf_inscription.php");
 			$cmr->help = $mod->load_help("user.php");
-			
+
 			$cmr->action["module_name"] = "user.php";
 			$cmr->action["to_load"] = "load_func_need";
 			include($cmr->get_path("index") . "system/loader/loader_function.php");
@@ -77,7 +77,7 @@ include_once("common_begin.php");
         $cmr->db_connection = $cmr->connect();//or $cmr->config["cmr_guest_mode"] = 0; //-----database connection------
         $cmr->db_connection = $cmr->db_connection;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			
+
 			$cmr->user["auth_email"] = "guest";
 			$cmr->user["auth_group"] = "guest";
 			$cmr->user["auth_type"] = "1";
@@ -85,18 +85,18 @@ include_once("common_begin.php");
 			$cmr->user["authorisation"] = "1";
 			// -----------------------------------------------------
 			$post = new user_class();
-			
-			
+
+
 			////$post->set_cmr_prefix($cmr->get_conf("cmr_table_prefix"));
 			////$post->set_cmr_email($cmr->get_user("auth_email"));
 			////$post->set_cmr_group($cmr->get_user("auth_group"));
 			////$post->set_cmr_type($cmr->get_user("auth_type"));
 			////$post->set_cmr_list_group($cmr->get_user("auth_list_group"));
-			
+
 			////$post->set_cmr_config($cmr->config);
 			////$post->set_cmr_user($cmr->user);
 			// -----------------------------------------------------
-			
+
     //######################################################
 	// ----------------------------
 	$post->type = "0_guest";
@@ -112,23 +112,23 @@ include_once("common_begin.php");
 	$post->get_form_datas("post", $cmr->get_session("pre_match"));//Getting variables sended by form [inscription.php]
     $post->home=create_account_folder($cmr->config, "user", $post->uid);
     //######################################################
-		
+
 		// -----------------------------------------------------
 		$post->set_state("locked"); //Getting variable [$post->state] sended by form [inscription.php]
 		$pw=md5(get_post("pw", "post"));
 		$post->set_pw($pw); //Getting variable [$post->pw] sended by form [inscription.php]
 		$code = md5("cmr_".$pw);
 		// -----------------------------------------------------
-		
+
 		// -----------------------------------------------------
 		/*
 		Creating the appropriate SQL string for  new_in user
 		*/
 		// -----------------------------------------------------
-		
+
 		// -----------------------------------------------------
 		$cmr->query[0] = $post->query_insert();
-		$cmr->db["result"][0] = &$cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+		$cmr->db["result"][0] = $cmr->db_connection->query($cmr->query[0]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
 		$cmr->prints["title2"] .=$cmr->translate("End inscription ");
         // ================================================
         $cmr->email["headers_from"] =  $cmr->config["cmr_from_email"];
@@ -139,7 +139,7 @@ include_once("common_begin.php");
         // ----------------------------
         $cmr->email["recipient"] = "" . $cmr->config["cmr_from_email"] . "";
         $cmr->email["subject"] = "" . $cmr->translate("uid and password sended to you") . "";
-        
+
         $cmr->email["message"] = "" . $cmr->translate("Like requested uid and new password  was sended to user ") . " :\n\nemail :" . $post->email . " \n";
         $cmr->email["message"] .= "\n " . $cmr->translate("thanks") . "  \n";
         $cmr->email["message"] .= "--\r\n"; // dlimiteur de signature
@@ -153,13 +153,13 @@ include_once("common_begin.php");
 //         $cmr->email["headersbcc"] .= "Cc: " . $cmr->config["cmr_cc_name"] . " <" . $cmr->config["cmr_cc_email"] . ">\r\n";
 //         $cmr->email["headersbcc"] .= "Bcc:  " . $cmr->config["cmr_bcc_name"] . " <" . $cmr->config["cmr_bcc_email"] . ">\r\n";
         // ================================================
-			
+
 			/*
 			Creating the appropriate notification Message to be send to the administrator group
 			*/
 			$file_list = array();
 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/notify_inscription1" . $cmr->get_ext("notify");
-			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_inscription1" . $cmr->get_ext("notify"); 
+			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_inscription1" . $cmr->get_ext("notify");
 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/notify_inscription1" . $cmr->get_ext("notify");
 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/auto/notify_inscription1" . $cmr->get_ext("notify");
 			$templates_notify=cmr_good_file($file_list);
@@ -172,16 +172,16 @@ include_once("common_begin.php");
 			// if(($cmr->get_conf("log_to_rss_inscription")));
 			// if(($cmr->get_conf("log_to_other_inscription")));
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
   			// -----------------------------------------------------
         include($cmr->get_path("index") . "email.php");
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
 			$file_list = array();
 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/notify_inscription2" . $cmr->get_ext("notify");
-			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_inscription2" . $cmr->get_ext("notify"); 
+			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_inscription2" . $cmr->get_ext("notify");
 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/notify_inscription2" . $cmr->get_ext("notify");
 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/auto/notify_inscription2" . $cmr->get_ext("notify");
 			$templates_notify=cmr_good_file($file_list);
@@ -195,19 +195,19 @@ include_once("common_begin.php");
 			// if(($cmr->get_conf("log_to_rss_inscription")));
 			// if(($cmr->get_conf("log_to_other_inscription")));
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
         include($cmr->get_path("index") . "email.php");
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
     		$cmr->prints["title2"] .="<pre>" . html_control(wordwrap(substr($cmr->output[0], 0, 10000), 100, "<br />\n")) . "</pre>";
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
 	        $cmr->event_log("Script=" . __FILE__ . " :  " . substr($cmr->output[1], 0, 80));
 			// -----------------------------------------------------
-			
+
 			// -----------------------------------------------------
 
 			// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

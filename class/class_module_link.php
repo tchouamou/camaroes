@@ -35,10 +35,6 @@ class_windows.php,Ver 3.0  2011-July 10:36:59
  */
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 
 
 
@@ -54,21 +50,21 @@ if(!(class_exists("class_module_link"))){
  * @version $Id$
  * @access public
  **/
-    
+
  class class_module_link {
-    
+
     var $config = array();
     var $page = array();
     var $language = array();
     var $array_link =  array();
     // ------------
     // ------------
-    //00000000000000000000000000 
+    //00000000000000000000000000
 	function __construct($config = array(), $page = array(), $language = array()) // --constructor--
 	{
 	   return $this->class_module_link($config, $page, $language);
 	}
-    //00000000000000000000000000 
+    //00000000000000000000000000
     /**
      * module_link::module_link()
      *
@@ -78,7 +74,7 @@ if(!(class_exists("class_module_link"))){
     $this->config = $config;
     $this->page = $page;
     $this->language = $language;
-    
+
     // ------------
     }
 
@@ -120,7 +116,7 @@ if(!(class_exists("class_module_link"))){
     {
      return open_module_tab($this->array_link, $current);
     }
-    
+
     function open_module_tab($current = 1) // ----
     {
      return open_module_tab($this->array_link, $current);
@@ -136,7 +132,7 @@ if(!(class_exists("class_module_link"))){
     {
      return close_tab();
     }
-    
+
     function tab_close() // ----
     {
      return close_tab();

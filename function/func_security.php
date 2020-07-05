@@ -41,8 +41,7 @@ func_security.php,  2011-Oct
 // function pw_encode($pass)
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/../control.php"); //to control access 
-include_once(dirname(__FILE__) . "/../function.php"); //to control access 
+include_once(dirname(__FILE__) . "/../function.php"); //to control access
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
@@ -83,7 +82,7 @@ function control_len($data, $length = 254)
 {
 	if(is_array($data))
 	foreach($data as $key => $value)  $data[$key] = control_len($value, $length);
-	
+
     $data = substr($data, 0, $length);
     return $data;
 }
@@ -98,10 +97,10 @@ function control_magic_quote($val, $mode = "")
     // Stripslashes
     if(get_magic_quotes_gpc()) $val = stripslashes($val);
     // Protection if not numeric
-    if(!is_numeric($val)) 
+    if(!is_numeric($val))
         if(($mode == "mysql")&&(function_exists("cmr_escape"))){
             $val = cmr_escape($val);
-        } 
+        }
 //         else {
 //             $val = addslashes($val);
 //         }
@@ -117,7 +116,7 @@ function html_control($doc_html, $type = 1)
 {
 	if(is_array($doc_html))
 	foreach($doc_html as $key => $value)  $doc_html[$key] = html_control($value, $type);
-	
+
     if($type){
         $doc_html = cmr_searchi_replace("<script", "<(script)", $doc_html);
         $doc_html = cmr_searchi_replace("<iframe", "<(iframe)", $doc_html);
@@ -327,9 +326,9 @@ if(((isset($cmr_post_var["values"]) && isset($cmr_post_var["encode"]) && isset($
        @ $array_key = explode($cmr_config["cmr_url_separator"], $cmr_post_var["keys"]);
     }
         // ===============================================================
-    
-    
-    
+
+
+
 // cod=0&keys=page_title::middle1&vals=new_ticket::modules/new_ticket.php?&cmr_sid=65f777de4c69f137247b2c5d6cff8474
 // 		print_r($array_key);
 // 		print("<hr />");
@@ -399,10 +398,10 @@ if(empty($secure_mode)) $secure_mode = cmr_get_config("cmr_secure_mode");
 if(empty($secure_mode)) return $param;
 // echo "\$param=".htmlentities($param).";<br />";
 	$param = trim($param);
-	
+
 	$type = substr(stristr($param, " type="),6,10);
 // 	echo "\$type=".htmlentities($type).";<br />";
-	
+
 	$param = preg_replace('/([^\\\])"(.*[^\\\])(")/sU', "cmr_var_name('\\1', '\\2', '\\3')", $param);
 	$param = preg_replace("/([^\\\])'(.*[^\\\])(')/sU", "cmr_var_name('\\1', '\\2', '\\3')", $param);
 // 	$param = cmr_search_replace("/[[:space:]]+/eU", " ", $param);
@@ -413,26 +412,26 @@ if(empty($secure_mode)) return $param;
 	$param = cmr_search_replace(" =|= | = ", "=", $param);
 	$param = cmr_search_replace("\"|'", "", $param);
 // echo "\$param=".htmlentities($param).";<br />";
-	
+
 	$name = substr(stristr($param, " name="),6);
 // echo "\$name=".htmlentities($name).";<br />";
 	$name = substr($name, 0, strpos($name, "_@")+2);
 // echo "\$name=".htmlentities($name).";<br />";
-	
-	
+
+
 	$value = substr(stristr($param, " value="),7);
 // echo "\$value=".htmlentities($value).";<br />";
 	$value = substr($value, 0, strpos($value, "_@")+2);
 // echo "\$value=".htmlentities($value).";<br />";
-	
-	
+
+
 
 if(empty($GLOBALS["match_" . cmr_search_replace("@_|_@", "", $name)]))  $GLOBALS["match_" . cmr_search_replace("@_|_@", "", $name)] = "";
 if(empty($GLOBALS["match_" . cmr_search_replace("@_|_@", "", $value)]))  $GLOBALS["match_" . cmr_search_replace("@_|_@", "", $value)] = "";
 
 $name1 = $GLOBALS["match_" . cmr_search_replace("@_|_@", "", $name)];
 $value1 = $GLOBALS["match_" . cmr_search_replace("@_|_@", "", $value)];
- 	
+
    return  cmr_input_hidden($name1, $value1, $type);
 }
 }
@@ -453,11 +452,11 @@ function cmr_input_hidden($name, $value = "", $type = "hidden") // decode with f
 	$_SESSION[$name1][$value1] = $value;
 // echo "\$name1=".htmlentities($name1).";<br />";
 // echo "\$value1=".htmlentities($value1).";";exit;
-	
+
 	if(cmr_search("checkbox", $type)) return "<input type=\"checkbox\" name=\"" . $name1 . "\" value=\"" . $value1 . "\" />";
 	if(cmr_search("hidden", $type)) return "<input type=\"hidden\" name=\"" . $name1 . "\" value=\"" . $value1 . "\" />";
 
- 	
+
    return  "<input type=\"hidden\" name=\"" . $name1 . "\" value=\"" . $value1 . "\" />";
 }
 }
@@ -484,20 +483,20 @@ if(!(function_exists("cmr_where_query"))){
     if(empty($cmr_user["auth_list_group"])) $cmr_user["auth_list_group"] = "'guest'";
     if(empty($cmr_user["auth_email"])) $cmr_user["auth_email"] = "guest@localhost";
     if(intval($cmr_user["authorisation"]) > intval($cmr_config["cmr_admin_type"])) return " (1) ";
-    
+
     $cmr_action["table_name"] = trim($cmr_action["table_name"]);
     $cmr_action["action"] = trim(strtolower($cmr_action["action"]));
-    
+
     if(empty($cmr_action["table_name"])) return " (1) ";
-    
+
     $where_query[0] = " (0) ";//all negated
     $where_query[1] = " (1) ";//all accepted
     $where_query[2] = " (1) ";//all accept
-    
+
     $cmr_action["table_name"] = cmr_searchi_replace("^" . $cmr_config["cmr_table_prefix"], "", $cmr_action["table_name"]);
-    
+
 	if(!($cmr_action["column"]) && ($cmr_config["cmr_secure_mode"])){
-		
+
 		if($cmr_config["cmr_column_control"]){
 		$array_table = explode(";", $cmr_config["cmr_column_control"]);
 		foreach($array_table as $key => $value){
@@ -525,15 +524,15 @@ if(!(function_exists("cmr_where_query"))){
 			$arra_control["user_groups"] = "user_email,group_name";
 			$arra_control["va"] = "group_name";
 			}
-			
-			
-			
+
+
+
 		if(!empty($arra_control[trim($cmr_action["table_name"])])) $cmr_action["column"] = $arra_control[trim($cmr_action["table_name"])];
-		
-		
+
+
 	}
 
-    
+
 	if(!empty($cmr_action["column"])){
 	$a = 2;
 	$cmr_column = trim($cmr_action["column"]);
@@ -551,9 +550,9 @@ if(!(function_exists("cmr_where_query"))){
 	    $where_query[2] .= " OR (" . $cmr_config["cmr_table_prefix"] . $cmr_action["table_name"] . "." . $cmr_column . "='" . $cmr_user["auth_email"] . "')) ";
 	}
 	}
-    
-    
-    
+
+
+
 	if(($conn) && ($a != 2)){
 	$a = 2;
 	cmr_db_policy($cmr_config, $cmr_user, $cmr_action, $conn) ? $where_query[2] = " (1) " : $where_query[2] = " (0) ";
@@ -576,7 +575,7 @@ if(!(function_exists("cmr_where_query"))){
 	  }
 	}
 //     echo("<br />\$authorisation=" . $cmr_user["authorisation"] . ";\$where_query=[" . $where_query[$a] . "]");
- 
+
     return $where_query[$a] ;
  }
 }
@@ -593,8 +592,8 @@ if(!(function_exists("cmr_policy"))){
      **/
  function cmr_policy($cmr_config = array(), $mod = "", $policy = "", $type)
  {
-	 
-	
+
+
 	$db_policy = 1;
 	if(empty($cmr_config["cmr_secure_mode"])) return $db_policy;
 	if(is_resource(cmr_get_db_connection())){
@@ -606,25 +605,25 @@ if(!(function_exists("cmr_policy"))){
 		$cmr_action["table_name"] = $mod;
 		$db_policy = cmr_db_policy($cmr_config, $cmr_user, $cmr_action, cmr_get_db_connection());
 	}
-	
+
     if(intval($type) >= intval($cmr_config["cmr_admin_type"])) return (1 && $db_policy);
     if(empty($mod) || empty($policy) || empty($cmr_config)) return (1 && $db_policy);
     if(intval($type) >= intval($cmr_config["cmr_admin_type"])) return (1 && $db_policy);
-    
+
 	$policy = strtolower(trim(str_replace(" ", "", $policy)));
 	$policy = "'" . (str_replace(",", "','", $policy)) . "'";
-    
+
 	if((stristr($policy, "'+" . $mod))) return (1 && $db_policy);
 	if((stristr($policy, "'" . $mod))) return (1 && $db_policy);
 	if((stristr($policy, "'-" . $mod))) return (0 || $db_policy);
-	
+
 	if(stristr($policy, "'*'")) return (1 && $db_policy);
 	if(stristr($policy, "'+all'")) return (1 && $db_policy);
 	if(stristr($policy, "'-all'")) return (0 || $db_policy);
 
-        
+
    return (1 && $db_policy);
-    
+
  }/*=================================================================*/
 }/*=================================================================*/
 /*=================================================================*/
@@ -645,8 +644,8 @@ return  (
         (!empty($login)) ||
         (!empty($cmr_mode))
         );
-        
-        
+
+
 
 //         (empty($cmr_user["object"]))
 // //         (defined("cmr_no_user") && (cmr_no_user) && (!isset($cmr_user["auth_user_send"]))) ||

@@ -18,9 +18,9 @@ $table_name = "@_table_@";
 $column_id = "@_column_id_@";
 $array_column = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-£_foreach_column_£
+%_foreach_column_%
 $array_column['@_column_@'] = '@_column_@';
-££_foreach_column_££
+%%_foreach_column_%%
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

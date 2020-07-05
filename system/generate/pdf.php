@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-pdf.php, Ver 3.03 
+pdf.php, Ver 3.03
 */
 
 
@@ -54,16 +54,8 @@ pdf.php, Ver 3.03
  * @code_link() function who take in input a module name and create and html link to this module
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
- 
-// ----------------------
-include_once($cmr->get_path("func") . "function/func_pdf.php");
-// ----------------------
-// ----------------------
-include_once($cmr->get_path("class") . "class/class_pdf.php");
-// ----------------------
- 
+
+
 
 (strlen(get_post("title")) > 0) ? $title= get_post("title") : $title="PDF";
 (strlen(get_post("author")) > 0) ? $author= get_post("author") : $author="";
@@ -137,7 +129,7 @@ $pdf->SetFont('');
 // ----------------------
 // ----------------------
 foreach($array_doc as $key => $value){
-	
+
 	$header = explode(",", $value["header"]);
 	if(empty($value["data"])){
 		$value["data"] = "No data sended";
@@ -145,14 +137,14 @@ foreach($array_doc as $key => $value){
 		}
 	if(empty($value["data_type"]))$value["data_type"] = "text";
 	if(empty($value["dim_col"]))$value["dim_col"] = 0;
-	
+
 // Other page
 	$pdf->AddPage();
 	if(!empty($links))$pdf->SetLink($array_doc[$key]["link"]);
 // 	$pdf->SetLeftMargin(45);
 	$pdf->SetFontSize(14);
-	
-	
+
+
 	switch($value["data_type"]){
 		case "html":
 		$pdf->AddPage();
@@ -165,8 +157,8 @@ foreach($array_doc as $key => $value){
 		$pdf->AddPage();
 		}
 		break;
-		
-		
+
+
 		case "image":
 		$pdf->AddPage();
 		if(empty($header[0]))$header[0]=10;
@@ -177,25 +169,25 @@ foreach($array_doc as $key => $value){
 		if(empty($header[5]))$header[5]="index.php?cmr_mode=pdf";
 		$pdf->Image($value["data"],$header[0],$header[1],$header[2],$header[3],$header[4],$header[5]);
 		break;
-		
+
 		case "text":
 		if(empty($header[0]))$header[0] = $key;
 		if(empty($header[1]))$header[1] = $value["data_type"];
 		$i=0;
-		
+
 		$line_array = explode("\n", $value["data"]);
 		$nume_line=0;
-		$text_line="";	
+		$text_line="";
 		foreach($line_array as $num=>$line){
 			$nume_line++;
-			$text_line.="\n" . $line;	
+			$text_line.="\n" . $line;
 				if(($nume_line % 35)==0){
 					$pdf->PrintChapter($header[0],$header[1],"",$text_line,$value["dim_col"]);
-					$text_line="";	
+					$text_line="";
 					$pdf->AddPage();
 				}
 		}
-		
+
 // 		while($i < strlen($value["data"]) + 999){
 // 		$pdf->PrintChapter($header[0],$header[1],"",substr($value["data"],$i,1000),$value["dim_col"]);
 // 		$i+=1000;
@@ -203,32 +195,32 @@ foreach($array_doc as $key => $value){
 // // 		$pdf->SetAutoPageBreak(false,(28.35/(72/25.4)));
 // 		}
 		break;
-		
+
 		case "file":
 		if(empty($header[0]))$header[0] = $key;
 		if(empty($header[1]))$header[1] = $value["data_type"];
 		$pdf->PrintChapter($header[0],$header[1],$value["data"],"",$value["dim_col"]);
 		break;
-		
+
 		case "table1":
 		if(empty($header[0]))$header[0]="column1";
 		if(empty($header[1]))$header[1]="column2";
 		$pdf->BasicTable($header,$value["data"]);
 		break;
-		
+
 		case "table2":
 		if(empty($header[0]))$header[0]="column1";
 		if(empty($header[1]))$header[1]="column2";
 		$pdf->ImprovedTable($header,$value["data"]);
 		break;
-		
+
 		case "table":
 		case "table3":
 		if(empty($header[0]))$header[0]="column1";
 		if(empty($header[1]))$header[1]="column2";
 		$pdf->FancyTable($header,$value["data"]);
 		break;
-		
+
 		case "table_file":
 		//Data loading
 		$text= $pdf->LoadData($value["data"]);
@@ -237,7 +229,7 @@ foreach($array_doc as $key => $value){
 		if(empty($header[1]))$header[1]="column2";
 		$pdf->FancyTable($header, $text);
 		break;
-		
+
 		default:
 // 		if(empty($header[0]))$header[0] = $key;
 // 		if(empty($header[1]))$header[1] = $value["data_type"];
@@ -267,7 +259,7 @@ $pdf->Output();
 
 getpdf($file);
 //Reindirizzamento JavaScript
-print("<html><script>document.location='$file';</script></html>"); 
+print("<html><script>document.location='$file';</script></html>");
 }
 // ----------------------
 // ----------------------

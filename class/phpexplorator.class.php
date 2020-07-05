@@ -18,12 +18,12 @@
 * Copyright (c) 2020, Tchouamou Eric Herve  <tchouamou@gmail.com>
 * All rights reserved.
 *
-* 
-* 
-* 
-* 
 *
-* 
+*
+*
+*
+*
+*
 *
 * phpexplorator.php,Ver 3.0 08-06-2020 12:40:00
 */
@@ -43,7 +43,7 @@ function PE_load_other_config($conf_type = "")
 //  ( (__(  O )/    / ) _)  )(( (_ \) \/ ( )   //    \ )(   )((  O )/    /
 //   \___)\__/ \_)__)(__)  (__)\___/\____/(__\_)\_/\_/(__) (__)\__/ \_)__)
 /**
-* 
+*
 * This will be ingnore if file [config.php] is loaded
 */
     if(!defined("config_load")){
@@ -55,26 +55,26 @@ function PE_load_other_config($conf_type = "")
         $PE_config["path_limit"] = "all"; //--(all, www, begin_path)--1 to phpexplorator path limt
         $PE_config["user_policy"] = "admin"; //--(guest, admin) phpexplorator can write files
         $PE_config["cookie_alive"] = 3600; // time you want session to be mantain
-        
+
         $PE_config["images_url"] = "images/icons/"; //--url to icon
         $PE_config["images_path"] = $PE_config["images_url"]; //--url to icon
         $PE_config["style_file"] = "style.css"; //--folder of icon
-        
+
         $PE_config["lang_path"] = "./lang/"; //--folder of languages files
         $PE_config["self_header"] = "0"; //-- activate or disactivate phpexplorator  sending http image header
         $PE_config["PE_key"] = "cmr_mode";//-- optional var to be send (usefull when integrated in other application)
         $PE_config["PE_val"] = "explore";//-- optional var value to be send (usefull when integrated in other application)
-        
-        
-        
-        $PE_config["current_language"] = "default"; //--(italian, english, french, default)
-        
+
+
+
+        $PE_config["PE_current_language"] = "default"; //--(italian, english, french, default)
+
         $PE_config["show_error"] = "0"; //--(0,1)--1 to show phpexplorator error
         $PE_config["date_format"] = "d-m-Y, H:i"; //--("Y-m-d, H:i:s")  phpexplorator date format
         $PE_config["max_num_files"] = 10000; //-- phpexplorator max num files to be elaborated
         $PE_config["personal_header"] = ""; //--phpexplorator personal header
         $PE_config["personal_footer"] = "  All rights reserved."; //-- phpexplorator personal footer
-        
+
         $PE_config["show_title"] = "0"; //--(0,1)--1 to show phpexplorator title
         $PE_config["show_command_1"] = "1"; //--(0,1)--1 to show phpexplorator command_1
         $PE_config["show_command_2"] = "1"; //--(0,1)--1 to show phpexplorator command_2
@@ -89,7 +89,7 @@ function PE_load_other_config($conf_type = "")
         $PE_config["show_dir_list"] = "1"; //--(0,1)--1 to show phpexplorator dir_list
         $PE_config["show_footer"] = "1"; //--(0,1)--1 to show phpexplorator footer
         $PE_config["show_action"] = "1"; //--(0,1)--1 to run phpexplorator action
-        
+
         $PE_config["beautifull_name"] = "0"; //--(0,1)--1 to show phpexplorator file name beautifully
         $PE_config["show_col_name"] = "1"; //--(0,1)--1 to show phpexplorator column name
         $PE_config["show_col_num"] = "1"; //--(0,1)--1 to show phpexplorator column num
@@ -102,7 +102,7 @@ function PE_load_other_config($conf_type = "")
         $PE_config["show_col_owner"] = "1"; //--(0,1)--1 to show phpexplorator column owner
         $PE_config["show_col_group"] = "1"; //--(0,1)--1 to show phpexplorator column group
         $PE_config["show_col_date_time"] = "1"; //--(0,1)--1 to show phpexplorator column date_time
-        
+
         $PE_config["use_extend_editor"] = "0"; //--(0,1)--good editor but slow
         $PE_config["editor_compression"] = "0"; //--(0,1)--good to be fast but don't work all time
         $PE_config["editor_compression_language"] = "php"; //--(php, jsp, aspx, cfm)
@@ -149,9 +149,9 @@ function PE_load_other_config($conf_type = "")
             'SHIFT_JIS'
             );
     }
-    
+
     if(file_exists("config.php")) include("config.php"); //--configuration file
-    
+
     return $PE_config;
 }
 //  ____  _  _  __ _   ___  ____  __  __   __ _  ____
@@ -176,7 +176,8 @@ function PE_translate($text)
 * @return
 */
 function PE_getpost($PE_var = "")
-{print_r($_GET);
+{
+  //print_r($_GET);
     $PE_return = null;
     $PE_return = isset($_POST[$PE_var]) ? $_POST[$PE_var]: $PE_return;
     $PE_return = isset($_GET[$PE_var]) ? urldecode($_GET[$PE_var]): $PE_return;
@@ -263,7 +264,7 @@ function PE_img_by_text($PE_imgtext = "")
                 break;
             case "down" : $imgtext = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1QsKDTgPGbLEcAAAAIx0RVh0Q29tbWVudABNZW51LXNpemVkIGljb24KPT09PT09PT09PQoKKGMpIDIwMDMgSmFrdWIgJ2ppbW1hYycgU3RlaW5lciwgCmh0dHA6Ly9qaW1tYWMubXVzaWNoYWxsLmN6CgpjcmVhdGVkIHdpdGggdGhlIEdJTVAsCmh0dHA6Ly93d3cuZ2ltcC5vcmdnisdHAAACV0lEQVQ4y52ST0iTYRzHP+/b/DNz8s7ha1q2iZpIHSI0tgQND2mQROEhhMQiqFiNeepgYR4MIQPxIEWHpCCEFQVF3SKhg2Z5KLKDmmhZhuRwbqXb3vfXYbYSLcjP6XmeL8+H7/PjUc51XLg4Fc5X5+ajC0ABUAfsTFFl2Zb+/VtWWrSvv/NKK39BqfH3NLl2lLmcufrk7sIcv9Nu3ROJG4x+WeT10IA59nGWUvub7b3td2fWFXjbOntjobmzcVGZNTR+pOWwyZJCY+0+ivKz6b7/AuPTCK7U+fXut+Nt8cn05wkREZmYGpWh0Qnx3Xgi7tNXJTA8LT1P30rDpZvybnJG/iQcDovP7xVLmsVga66LYDCIlpmLqixglSgAI+Oz6JkWvs4v8n7iA1uyrKAACKmpqQBY4jEQUzBMk/rWW2s6Dk0GicUNugKDdAUGAXjccQIkkasAppiYhknPGQ8AzceO4HGXs7QUIc+mUumuoKmhHoDjNcWYhomI/BaICHa7Rn6Oi2unyunrf0CpqwAVBRUFd5mT2/ce0VhdyOHKCjI2Z6wWAITDYXRdx5lXkpR4dhVR4tpG952HNFYXcrTKja7rRKPR5BMtAKZpEolEANB1HV3X6T1vpeV6gOWYwcnaMpoPHUBVVUKhEJFIBJvNlvgHPr9XKsr3IqwM+D8YfvUy0cDjrgSRFYOSmLAiIMrKNqEvKS5mfHwMQUH5U+BwOHg+8CwZCLKmzf6qGgCyHQ4QJZlbADRNIz3d+s+6ml0DwK7ZV51bfi3qag+yERSf33sZaGNjtP8Elb70qz97tp0AAAAASUVORK5CYII=";
                 break;
-            case "tar":    
+            case "tar":
             case "compressed" : $imgtext = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH1QYQEhgJtRvS4AAAAalJREFUOMutkjFoVEEQhr/Z2913d8k9YgxBrhARBJEgSSOKTcTGUgkoh41YKJYRCzuvSCkepBGUFLEJaBUsBEUPtRT0mohibIyYIipRouFd3tuxeDkVI3hRp5nZgf+b2ZmBfzQBaNTMMPBsk9qR8ZnQkkbNNIHRs1cX9P38YxVbNqAAGCO5F0g+L2JKAxlpIi+e3jNzD6cB6hbg9OVWliy/MbOTp8Q7B8DaWhsfRQiCcw5TcPi4Wjh28Q5Lb5+z+8AYr1v3Ry2wQ4yYkKViCp405P1FvQMAVPqrIAaA6q59tFfeEShQ2bINDdmwBfqSlQ+8fHKbkxemQLMNn1UFUAht0o+vSFY/4YoxABYoPro5IYePnoP0C2SroAHVDEKKash9WAdrYM/e/TyYvQ5o0QJ+cPuQYozgK0Dlx3pQJK+9/qYzX4ZGDrIw14ykUTOXgPpfnkG9cwd65MR5luebXaninYe4e+sK4zNBbCfpozI98dauAM5H3+OfACWI+7sCmKi4EeBKPdguAan7XQdxleB7/yDN9xGC/AKw5WvTE8fPbGb8XxO9wf+wb+DSh8wTKaW0AAAAAElFTkSuQmCC";
                 break;
             case "compress" : $imgtext = "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH1QYVFCkaxKsYDAAAADV0RVh0Q29tbWVudAAoYykgMjAwNCBKYWt1YiBTdGVpbmVyCgpDcmVhdGVkIHdpdGggVGhlIEdJTVCQ2YtvAAACtUlEQVQ4y22TS2xMcRTGf/97p2aq8+yMRxGtpl5FBEG8FoQFkdDUW7ASgkTYCAsJiW0tiJUFKxLEIyLeYqEhilb6Ho/U0Kmaaaczc++duXfu/dtQfTirk3PO9+X7Ts4R/CfO71TmA41DSlFg67FrTtPIWTECuBHYA2LbvkOnCQQjAAykEly9dKYA1B275pwYilH/JnU7xGYhxN3dJ29O94+x1PIFmxDF48ATwTU2TLTljbLh8JUls5WXZ9dUZZseNdM+qKBuh1gnhHh89MIH6GvmS8sr0jlBZPJMAOJdrYR9Liqrl2GHF3HxSDVSys3Hr8u7CoAQonbtkVuQ+ADmAJXT51JVMRlFj6HoMSomRaisqgZzAPXXa1YdvIkQYheA64+DAzMrJoDlgqwOgNcXxOsLjlqwLPIyKVgEsA3Y/pcA6+d7FO84xPilCEsD/Qfk+0F1g2ssBfcEcgWFns8NdEffDhK6/lEXsN+dQ114CuEvh5IpFDxlWEYWI5Ogr+kG3S1PyGoGoVnrRxNoep5gcRhsE5n6BLH7GKZA03Okkz/IasYgKFtwD+YKQL1TQ6tWga36IfMZ0h2AROb6cIzksB30WQFisop6p2a4gpRuczm+mpUix+ySLqRTRIZSkrZFwpLEjCI6UyXEUzaLC+poC46UuMe4ac9G0ELL0Qs6/U4/yXySTC5DOp9GczJABinlcAsAHo/HLg2H0TSNRCKBbdv/exMCgQABb7Ez7JQ9btftru/dh+ZVz5FTp5YLBDiOg2maGIaBaZoEgyHKJpYRDgXkw2fPlWh7296en78+qgDxeG+vW7UfdPcm9ndGO5kzY5oTDJUKr8+Pz+fDNk1yer/d1NyqtHV0iHdv6mvaOr4+BQwxQqF/xcpltWGf2OL2l20Y2tCS3+71pKwX7xsa7wBxIA/wG8WmJi24cShhAAAAAElFTkSuQmCC";
@@ -541,9 +542,9 @@ function PE_upload($PE_config, $PE_thevar, $PE_language = array())
                 foreach($_FILES as $key => $val){
                     if((isset($_FILES[$key]["name"]) && ($_FILES[$key]["error"] == UPLOAD_ERR_OK))){
                         $f_size = filesize($_FILES[$key]["tmp_name"]) + 1;
-                        move_uploaded_file($_FILES[$key]["tmp_name"], ($PE_thevar["current_dir"] . "/" . basename($_FILES[$key]["name"])));
-                        $PE_upload[] = ($PE_thevar["current_dir"] . "/" . basename($_FILES[$key]["name"]));
-                        print("<br />" . PE_translate("transf_file") . $_FILES[$key]["tmp_name"] . "==> " . ($PE_thevar["current_dir"] . "/" . basename($_FILES[$key]["name"])) . "<br />");
+                        move_uploaded_file($_FILES[$key]["tmp_name"], ($PE_thevar["PE_current_dir"] . "/" . basename($_FILES[$key]["name"])));
+                        $PE_upload[] = ($PE_thevar["PE_current_dir"] . "/" . basename($_FILES[$key]["name"]));
+                        print("<br />" . PE_translate("transf_file") . $_FILES[$key]["tmp_name"] . "==> " . ($PE_thevar["PE_current_dir"] . "/" . basename($_FILES[$key]["name"])) . "<br />");
                     }
                 }
     return $PE_upload;
@@ -563,12 +564,12 @@ function PE_unzip($PE_config, $PE_thevar, $PE_language = array())
                 $destination = $PE_thevar["the_value"];
 				$PE_unzip = "";
                 if(!$destination){
-                    $destination = "." . $PE_thevar["current_dir"];
+                    $destination = "." . $PE_thevar["PE_current_dir"];
                 }
 
                 if(!is_dir($destination)) mkdir($destination);
-                
-                
+
+
 				$file_upload = PE_upload($PE_config, $PE_thevar, $PE_language);
                 if(empty($file_upload)) print($message_not_ok);
                 /**
@@ -588,10 +589,10 @@ function PE_unzip($PE_config, $PE_thevar, $PE_language = array())
                         if(zip_entry_open($zip, $zip_entry, "r")){
                             print("Unzip " . PE_translate("file") . " : $name ....<br />");
                             $buf = zip_entry_read($zip_entry, zip_entry_filesize($zip_entry));
-                            $fich = @ fopen($PE_thevar["current_stream"] . $destination . PE_path_separator() . $name, "w+");
+                            $fich = @ fopen($PE_thevar["PE_current_stream"] . $destination . PE_path_separator() . $name, "w+");
                             if(@ fwrite($fich, $buf)){
                                 print("<br /> File [$name] " . PE_translate("succ_create") . ".......<br />");
-								$PE_unzip = $PE_thevar["current_stream"] . $destination . PE_path_separator() . $name;
+								$PE_unzip = $PE_thevar["PE_current_stream"] . $destination . PE_path_separator() . $name;
                             }else{
                                 print("<br /> " . PE_translate("File") . "[" . $name . "] " . PE_translate("cant_run") . ".......<br />");
                             }
@@ -607,9 +608,9 @@ function PE_unzip($PE_config, $PE_thevar, $PE_language = array())
     return $PE_unzip;
 }
 
-                
-                
-                
+
+
+
 
 /**
 * PE_load_lang()
@@ -622,12 +623,12 @@ function PE_load_lang($PE_config = array())
 {
     session_start();
     $_SESSION["PE_time1"] = microtime();
-    
-    
+
+
     $PE_language["encoding"] = "utf-8"; //--(encoding)
     $PE_language["language_code"] = "en"; //--(header lang)
-    $PE_language["current_language"] = "english"; //--(italian, english, french, default)
-    
+    $PE_language["PE_current_language"] = "english"; //--(italian, english, french, default)
+
     $PE_language["exit_now"] = "You Have exit Now !!!!";
     $PE_language["insert_pw"] = " insert the good account information in the Url ";
     $PE_language["property"] = "Property";
@@ -693,13 +694,13 @@ function PE_load_lang($PE_config = array())
 
     $PE_language["total_space"] = "Disk Total Space";
     $PE_language["free_space"] = "Disk Free Space";
-    
-    
+
+
     $PE_language["go_to"] = "Goto=> ";
     $PE_language["shell"] = "Shell ";
-    $PE_language["extend_command"] = "Extend Command "; 
-    $PE_language["upload"] = "Upload "; 
-    $PE_language["command1"] = "Command1 "; 
+    $PE_language["extend_command"] = "Extend Command ";
+    $PE_language["upload"] = "Upload ";
+    $PE_language["command1"] = "Command1 ";
     $PE_language["command2"] = "Command2 ";
     $PE_language["addslashes_file"] = "Addslashes in file";
     $PE_language["apache_request_headers"] = "Apache Request Headers ";
@@ -751,13 +752,13 @@ function PE_load_lang($PE_config = array())
     $PE_language["only_shell"] = "shell";
     $PE_language["only_replace"] = "replace";
     $PE_language["paste_all"] = "Paste";
-    
+
     $PE_language["exec_file_file"] = "Command exec file";
     $PE_language["shell_exec_file"] = "Shell execution file";
     $PE_language["system_file"] = "System file";
     $PE_language["run_code_file"] = "Run PHP code file";
-    
-    
+
+
     $PE_language["php_credit"] = "PHP Credit";
     $PE_language["php_credit"] = "Php Credit";
     $PE_language["php_info"] = "PHP Info";
@@ -791,15 +792,15 @@ function PE_load_lang($PE_config = array())
     $PE_language["var_export"] = "PHP Export a Var ";
     $PE_language["zip"] = "Zip file";
     $PE_language["zip_all"] = "Zip";
-    
+
     $PE_language["dir"] = "Dir";
     $PE_language["other"] = "Other";
 
-    $PE_language["total_size"] = "Total Size"; 
-    $PE_language["total_object"] = "Total object"; 
-    $PE_language["total_dir"] = "Total Directories"; 
-    $PE_language["total_files"] = "Total Files"; 
-    $PE_language["stream"] = "Stream";     
+    $PE_language["total_size"] = "Total Size";
+    $PE_language["total_object"] = "Total object";
+    $PE_language["total_dir"] = "Total Directories";
+    $PE_language["total_files"] = "Total Files";
+    $PE_language["stream"] = "Stream";
     $PE_language["js_message1"] = "!!! CLOSE YOUR BROWSER to cancel the ";
     $PE_language["js_message2"] = " action or click [OK] to continue !!!";
 
@@ -843,21 +844,21 @@ function PE_load_lang($PE_config = array())
     $PE_language["reset_form"] = "confirm that you want to empty this form";
     $PE_language["submit"] = "Searh/Replace";
     $PE_language["submit_java"] = "confirm that you want to Run";
-    
-    
-    $_SESSION["current_lang"] = PE_getpost("PE_select_lang");
-//     $PE_language["encoding"] = PE_getpost("PE_select_encoding");
-    $_SESSION["current_encoding"] = PE_translate("encoding");
-    
 
-    
-    if((!empty($_SESSION["current_lang"])) && file_exists($PE_config["lang_path"] . "/" . $_SESSION["current_lang"] . "/language.php")){
-        include($PE_config["default_stream"] . $PE_config["lang_path"] . "/" . $_SESSION["current_lang"] . "/language.php"); //--language file
-        $_SESSION["current_language"] = $_SESSION["current_lang"];
-    } elseif(!empty($_SESSION["current_language"]) && (file_exists($PE_config["lang_path"] . "/" . $_SESSION["current_language"] . "/language.php"))){
-        include($PE_config["default_stream"] . $PE_config["lang_path"] . "/" . $_SESSION["current_language"] . "/language.php"); //--language file
-    } elseif(file_exists($PE_config["lang_path"] . "/" . $PE_config["current_language"] . "/language.php")){
-        include($PE_config["default_stream"] . $PE_config["lang_path"] . "/" . $PE_config["current_language"] . "/language.php"); //--language file
+
+    $_SESSION["PE_current_lang"] = PE_getpost("PE_select_lang");
+//     $PE_language["encoding"] = PE_getpost("PE_select_encoding");
+    $_SESSION["PE_current_encoding"] = PE_translate("encoding");
+
+
+
+    if((!empty($_SESSION["PE_current_lang"])) && file_exists($PE_config["lang_path"] . "/" . $_SESSION["PE_current_lang"] . "/language.php")){
+        include($PE_config["default_stream"] . $PE_config["lang_path"] . "/" . $_SESSION["PE_current_lang"] . "/language.php"); //--language file
+        $_SESSION["PE_current_language"] = $_SESSION["PE_current_lang"];
+    } elseif(!empty($_SESSION["PE_current_language"]) && (file_exists($PE_config["lang_path"] . "/" . $_SESSION["PE_current_language"] . "/language.php"))){
+        include($PE_config["default_stream"] . $PE_config["lang_path"] . "/" . $_SESSION["PE_current_language"] . "/language.php"); //--language file
+    } elseif(file_exists($PE_config["lang_path"] . "/" . $PE_config["PE_current_language"] . "/language.php")){
+        include($PE_config["default_stream"] . $PE_config["lang_path"] . "/" . $PE_config["PE_current_language"] . "/language.php"); //--language file
     }
 
     return $PE_language;
@@ -1611,7 +1612,7 @@ function PE_get_files($PE_config, $PE_thevar, $input_data , $input_type = "one_f
             switch ($input_type){
                 case "one_file":
                     $input_data = realpath($input_data);
-                    $stream_data = PE_zipfiles(array($input_data), realpath($PE_thevar["current_dir"] . "/"), "UTF-8");
+                    $stream_data = PE_zipfiles(array($input_data), realpath($PE_thevar["PE_current_dir"] . "/"), "UTF-8");
                     $final_name = basename($input_data) . ".zip";
                     PE_export($stream_data, $final_name, "zip");
                     break;
@@ -1625,8 +1626,8 @@ function PE_get_files($PE_config, $PE_thevar, $input_data , $input_type = "one_f
 
                 case "files_folders":
                     $array_files = PE_getdir_all($PE_config, $input_data);
-                    $stream_data = PE_zipfiles($array_files, realpath($PE_thevar["current_dir"] . "/../"), "UTF-8");
-                    $final_name = basename($PE_thevar["current_dir"]) . ".zip";
+                    $stream_data = PE_zipfiles($array_files, realpath($PE_thevar["PE_current_dir"] . "/../"), "UTF-8");
+                    $final_name = basename($PE_thevar["PE_current_dir"]) . ".zip";
                     PE_export($stream_data, $final_name, "zip");
                     break;
                 case "base64":
@@ -1645,7 +1646,7 @@ function PE_get_files($PE_config, $PE_thevar, $input_data , $input_type = "one_f
         default:
             switch ($input_type){
                 case "one_file":
-                    $stream_data = file_get_contents($PE_thevar["current_stream"] . $input_data);
+                    $stream_data = file_get_contents($PE_thevar["PE_current_stream"] . $input_data);
                     $data_info = pathinfo($input_data);
                     $final_name = basename($input_data);
                     PE_export($stream_data, $final_name, $data_info["extension"]);
@@ -1849,11 +1850,11 @@ function PE_form($PE_config = array(), $val_submit = "Go", $val_type1 = "text", 
 */
 function PE_stream_select($PE_config = array(), $PE_thevar = array())
 {
-?> 
+?>
   <select name="PE_stream" >
          <optgroup label="--">
-         <option value="<?php print($PE_thevar["current_stream"]);
-            ?>" selected><?php print($PE_thevar["current_stream"]);?></option>
+         <option value="<?php print($PE_thevar["PE_current_stream"]);
+            ?>" selected><?php print($PE_thevar["PE_current_stream"]);?></option>
          <option value="">default</option>
          <option value=""></option>
          <option value="file://">file://</option>
@@ -1915,7 +1916,7 @@ function PE_stream_select($PE_config = array(), $PE_thevar = array())
 	        }
 	    }
 	    closedir($dir);
-	
+
 	    ?>
          </optgroup>
  </select>
@@ -1988,19 +1989,19 @@ function PE_footer($PE_config, $PE_language = array())
     }
 
     ?>
- <fieldset class="bubble"><legend><?php print("©");?></legend>
+ <fieldset class="bubble"><legend><?php print("ï¿½");?></legend>
  <table align="center" border="0">
  <td align="center">
  <h6>
- <br /> Powered by phpexplorator  
+ <br /> Powered by phpexplorator
  <?php print("(" . (microtime() - $_SESSION["PE_time1"]) . ") s");?>
- <br /> Copyright © 2004-2011 
+ <br /> Copyright ï¿½ 2004-2011
  <?php if(empty($PE_config["personal_footer"])){
 		print("tchouamou@gmail.com  " . PE_translate("All rights reserved") . ". <br /> " . PE_translate("Adress") . ": Via Dora baltea 25, Verolengo, Torino.");
     }else{
         print($PE_config["personal_footer"]);
 	}
- ?> 
+ ?>
  </h6>
 
   </td>
@@ -2039,7 +2040,7 @@ function PE_footer($PE_config, $PE_language = array())
  <img src="<?php print($PE_config["images_url"]);
 
     ?>w3c.bmp" alt="|Valid CSS 1.0!|" border="0" height="32" width="88" /></a>
-    
+
 <a href="http://tinymce.moxiecode.com?id=powered_by_tinymce"><img src="http://tinymce.sourceforge.net/buttons/powered_by_tinymce.png" border="0" width="88" height="32" alt="Powered by TinyMCE" /></a>
  </td>
  </tr-->
@@ -2272,20 +2273,20 @@ function PE_get_var($PE_config)
 {
 
     session_start();
-    $PE_thevar = array(); 
+    $PE_thevar = array();
     /**
     * send value
     */
     $PE_thevar["the_file"] = PE_getpost('PE_the_file');
     $PE_thevar["the_value"] = PE_getpost('PE_the_value');
     $PE_thevar["send_type"] = PE_getpost('PE_send_type');
-    $PE_thevar["select_order"] = PE_getpost('PE_select_order');
+    $PE_thevar["PE_select_order"] = PE_getpost('PE1_select_order');
     $PE_thevar["select_action"] = PE_getpost('PE_select_action');
-    
-    $PE_thevar["current_stream"] = PE_getpost('PE_stream');
-    $_SESSION["current_stream"] = (empty($_SESSION["current_stream"])) ? $PE_config["default_stream"] : $_SESSION["current_stream"];
-    $PE_thevar["current_stream"] = (!isset($PE_thevar["current_stream"]))?($_SESSION["current_stream"]) : $PE_thevar["current_stream"];
-    $_SESSION["current_stream"] = $PE_thevar["current_stream"];
+
+    $PE_thevar["PE_current_stream"] = PE_getpost('PE_stream');
+    $_SESSION["PE_current_stream"] = (empty($_SESSION["PE_current_stream"])) ? $PE_config["default_stream"] : $_SESSION["PE_current_stream"];
+    $PE_thevar["PE_current_stream"] = (!isset($PE_thevar["PE_current_stream"]))?($_SESSION["PE_current_stream"]) : $PE_thevar["PE_current_stream"];
+    $_SESSION["PE_current_stream"] = $PE_thevar["PE_current_stream"];
 
     /**
     * path limit
@@ -2318,8 +2319,8 @@ function PE_get_var($PE_config)
                 break;
         }
     };
-    
-    
+
+
     /**
     * path limit
     */
@@ -2329,32 +2330,32 @@ function PE_get_var($PE_config)
     if(file_exists($PE_thevar["the_file"])){
         $PE_thevar["the_file"] = realpath($PE_thevar["the_file"]); ;
     }
-    $_SESSION["current_dir"] = (empty($_SESSION["current_dir"]))?"" : $_SESSION["current_dir"];
-    $_SESSION["current_file"] = (empty($_SESSION["current_file"]))?"" : $_SESSION["current_file"];
+    $_SESSION["PE_current_dir"] = (empty($_SESSION["PE_current_dir"]))?"" : $_SESSION["PE_current_dir"];
+    $_SESSION["PE_current_file"] = (empty($_SESSION["PE_current_file"]))?"" : $_SESSION["PE_current_file"];
 
-    
+
     if(is_dir($PE_thevar["the_file"])){
         $info_dir = pathinfo($PE_thevar["the_file"] . "/.");
-        $PE_thevar["current_dir"] = realPath($info_dir["dirname"]) . PE_path_separator();
-        $PE_thevar["current_file"] = realPath($info_dir["dirname"]);
-    } elseif(is_file($PE_thevar["current_stream"] . $PE_thevar["the_file"])){
+        $PE_thevar["PE_current_dir"] = realPath($info_dir["dirname"]) . PE_path_separator();
+        $PE_thevar["PE_current_file"] = realPath($info_dir["dirname"]);
+    } elseif(is_file($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])){
         $info_dir = pathinfo($PE_thevar["the_file"]);
-        $PE_thevar["current_dir"] = realPath($info_dir["dirname"]) . PE_path_separator();
-        $PE_thevar["current_file"] = $PE_thevar["current_dir"] . $info_dir["basename"];
+        $PE_thevar["PE_current_dir"] = realPath($info_dir["dirname"]) . PE_path_separator();
+        $PE_thevar["PE_current_file"] = $PE_thevar["PE_current_dir"] . $info_dir["basename"];
     } elseif(is_link($PE_thevar["the_file"])){
         $info_dir = pathinfo($PE_thevar["the_file"]);
-        $PE_thevar["current_dir"] = realPath($info_dir["dirname"]) . PE_path_separator();
-        $PE_thevar["current_file"] = $PE_thevar["current_dir"] . $info_dir["basename"];
+        $PE_thevar["PE_current_dir"] = realPath($info_dir["dirname"]) . PE_path_separator();
+        $PE_thevar["PE_current_file"] = $PE_thevar["PE_current_dir"] . $info_dir["basename"];
     }else{
-        $PE_thevar["current_dir"] = $_SESSION["current_dir"];
-        $PE_thevar["current_file"] = $_SESSION["current_file"];
+        $PE_thevar["PE_current_dir"] = $_SESSION["PE_current_dir"];
+        $PE_thevar["PE_current_file"] = $_SESSION["PE_current_file"];
     }
 
-    $PE_thevar["current_file"] = ($PE_thevar["current_file"]);
-    $PE_thevar["current_dir"] = ($PE_thevar["current_dir"]);
+    $PE_thevar["PE_current_file"] = ($PE_thevar["PE_current_file"]);
+    $PE_thevar["PE_current_dir"] = ($PE_thevar["PE_current_dir"]);
 
-    $PE_thevar["current_dir"] = (empty($PE_thevar["current_dir"]))?($PE_config["begin_path"]) : $PE_thevar["current_dir"];
-    $PE_thevar["current_file"] = (empty($PE_thevar["current_file"]))?($PE_thevar["current_dir"]) : $PE_thevar["current_file"];
+    $PE_thevar["PE_current_dir"] = (empty($PE_thevar["PE_current_dir"]))?($PE_config["begin_path"]) : $PE_thevar["PE_current_dir"];
+    $PE_thevar["PE_current_file"] = (empty($PE_thevar["PE_current_file"]))?($PE_thevar["PE_current_dir"]) : $PE_thevar["PE_current_file"];
     /**
     * send type
     */
@@ -2362,24 +2363,24 @@ function PE_get_var($PE_config)
     /**
     * select order
     */
-    $_SESSION["select_order"] = (empty($_SESSION["select_order"]))?"" : $_SESSION["select_order"];
-    $_SESSION["order_asc_desc"] = (empty($_SESSION["order_asc_desc"]))?SORT_ASC : $_SESSION["order_asc_desc"];
-    $PE_thevar["order_asc_desc"] = $_SESSION["order_asc_desc"];
+    $_SESSION["PE_select_order"] = (empty($_SESSION["PE_select_order"]))?"" : $_SESSION["PE_select_order"];
+    $_SESSION["PE_order_asc_desc"] = (empty($_SESSION["PE_order_asc_desc"]))?SORT_ASC : $_SESSION["PE_order_asc_desc"];
+    $PE_thevar["PE_order_asc_desc"] = $_SESSION["PE_order_asc_desc"];
 
-    if(!empty($PE_thevar["select_order"])){
-        if($_SESSION["select_order"] == $PE_thevar["select_order"]){
-            $PE_thevar["order_asc_desc"] = ($PE_thevar["order_asc_desc"] == SORT_ASC)?SORT_DESC:SORT_ASC;
-            $_SESSION["order_asc_desc"] = $PE_thevar["order_asc_desc"];
+    if(!empty($PE_thevar["PE_select_order"])){
+        if($_SESSION["PE_select_order"] == $PE_thevar["PE_select_order"]){
+            $PE_thevar["PE_order_asc_desc"] = ($PE_thevar["PE_order_asc_desc"] == SORT_ASC)?SORT_DESC:SORT_ASC;
+            $_SESSION["PE_order_asc_desc"] = $PE_thevar["PE_order_asc_desc"];
         }else{
-            $_SESSION["select_order"] = $PE_thevar["select_order"];
+            $_SESSION["PE_select_order"] = $PE_thevar["PE_select_order"];
         }
     }
 
-    $PE_thevar["select_order"] = (empty($PE_thevar["select_order"]))?($_SESSION["select_order"]) : $PE_thevar["select_order"];
+    $PE_thevar["PE_select_order"] = (empty($PE_thevar["PE_select_order"]))?($_SESSION["PE_select_order"]) : $PE_thevar["PE_select_order"];
 
-    $_SESSION["current_language"] = (empty($_SESSION["current_language"])) ? $PE_config["current_language"] : $_SESSION["current_language"];
-    
-    
+    $_SESSION["PE_current_language"] = (empty($_SESSION["PE_current_language"])) ? $PE_config["PE_current_language"] : $_SESSION["PE_current_language"];
+
+
     return $PE_thevar;
 }
 /**
@@ -2412,7 +2413,7 @@ function PE_command_1($PE_config, $PE_thevar, $PE_language = array())
  <tr>
  <tr>
  <td>
- <?php print(PE_form($PE_config, PE_translate("property"), "text", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "property", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("property"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "property", "", "", ""));
 
     ?>
  </td>
@@ -2424,8 +2425,8 @@ function PE_command_1($PE_config, $PE_thevar, $PE_language = array())
  </td>
 
  <td>
- 
- <?php print(PE_form($PE_config, PE_translate("edit_file"), "text", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "edit", "", "", ""));
+
+ <?php print(PE_form($PE_config, PE_translate("edit_file"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "edit", "", "", ""));
 
     ?>
  </td>
@@ -2433,19 +2434,19 @@ function PE_command_1($PE_config, $PE_thevar, $PE_language = array())
 
  <tr>
  <td>
- <?php print(PE_form($PE_config, PE_translate("download"), "text", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "download", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("download"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "download", "", "", ""));
 
     ?>
  </td>
 
  <td>
- <?php print(PE_form($PE_config, PE_translate("del_file"), "text", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "delete", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("del_file"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "delete", "", "", ""));
 
     ?>
  </td>
 
  <td>
- <?php print(PE_form($PE_config, PE_translate("del_folder"), "text", "PE_the_file", $PE_thevar["current_dir"], "hidden", "PE_select_action", "rm_dir", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("del_folder"), "text", "PE_the_file", $PE_thevar["PE_current_dir"], "hidden", "PE_select_action", "rm_dir", "", "", ""));
 
     ?>
  </td>
@@ -2453,19 +2454,19 @@ function PE_command_1($PE_config, $PE_thevar, $PE_language = array())
 
  <tr>
  <td>
- <?php print(PE_form($PE_config, PE_translate("explore"), "text", "PE_the_file", $PE_thevar["current_dir"], "hidden", "PE_select_action", "list", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("explore"), "text", "PE_the_file", $PE_thevar["PE_current_dir"], "hidden", "PE_select_action", "list", "", "", ""));
 
     ?>
  </td>
 
  <td>
- <?php print(PE_form($PE_config, PE_translate("create_file"), "text", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "new_file", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("create_file"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "new_file", "", "", ""));
 
     ?>
  </td>
 
  <td>
- <?php print(PE_form($PE_config, PE_translate("create_folder"), "text", "PE_the_file", $PE_thevar["current_dir"], "hidden", "PE_select_action", "new_dir", "", "", ""));
+ <?php print(PE_form($PE_config, PE_translate("create_folder"), "text", "PE_the_file", $PE_thevar["PE_current_dir"], "hidden", "PE_select_action", "new_dir", "", "", ""));
 
     ?>
  </td>
@@ -2502,13 +2503,13 @@ function PE_command_2($PE_config, $PE_thevar, $PE_language = array())
  <table class="num3"  width="100%">
  <tr>
  <td>
- <?php print(PE_form($PE_config, PE_translate("new_link"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", $PE_thevar["current_file"], "hidden", "PE_select_action", "new_link"));
+ <?php print(PE_form($PE_config, PE_translate("new_link"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "new_link"));
 
     ?>
  </td>
 
  <td>
- <?php print(PE_form($PE_config, PE_translate("touch"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", date("Y-m-d H:i:s"), "hidden", "PE_select_action", "set_touch"));
+ <?php print(PE_form($PE_config, PE_translate("touch"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", date("Y-m-d H:i:s"), "hidden", "PE_select_action", "set_touch"));
 
     ?>
  </td>
@@ -2516,27 +2517,13 @@ function PE_command_2($PE_config, $PE_thevar, $PE_language = array())
 
 
  <tr><td>
- <?php print(PE_form($PE_config, PE_translate("rename_file"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", $PE_thevar["current_file"], "hidden", "PE_select_action", "rename"));
+ <?php print(PE_form($PE_config, PE_translate("rename_file"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "rename"));
 
     ?>
  </td>
 
  <td>
- <?php print(PE_form($PE_config, PE_translate("copy_file"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", $PE_thevar["current_file"], "hidden", "PE_select_action", "copy"));
-
-    ?>
- </td>
- </tr>
-
- <tr>
- <td>
- <?php print(PE_form($PE_config, PE_translate("change_group"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", "user", "hidden", "PE_select_action", "set_group"));
-
-    ?>
- </td>
-
- <td>
- <?php print(PE_form($PE_config, PE_translate("change_owner"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", "root", "hidden", "PE_select_action", "set_owner"));
+ <?php print(PE_form($PE_config, PE_translate("copy_file"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "copy"));
 
     ?>
  </td>
@@ -2544,7 +2531,21 @@ function PE_command_2($PE_config, $PE_thevar, $PE_language = array())
 
  <tr>
  <td>
- <?php print(PE_form($PE_config, PE_translate("set_perm"), "text", "PE_the_file", $PE_thevar["current_file"], "text", "PE_the_value", "0744", "hidden", "PE_select_action", "set_mode"));
+ <?php print(PE_form($PE_config, PE_translate("change_group"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", "user", "hidden", "PE_select_action", "set_group"));
+
+    ?>
+ </td>
+
+ <td>
+ <?php print(PE_form($PE_config, PE_translate("change_owner"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", "root", "hidden", "PE_select_action", "set_owner"));
+
+    ?>
+ </td>
+ </tr>
+
+ <tr>
+ <td>
+ <?php print(PE_form($PE_config, PE_translate("set_perm"), "text", "PE_the_file", $PE_thevar["PE_current_file"], "text", "PE_the_value", "0744", "hidden", "PE_select_action", "set_mode"));
 
     ?>
  </td>
@@ -2553,7 +2554,7 @@ function PE_command_2($PE_config, $PE_thevar, $PE_language = array())
  <form method="post" action="<?php print($_SERVER["PHP_SELF"]);
 
     ?>" enctype="multipart/form-data">
- <input type="text" name="PE_the_file"  value="<?php print($PE_thevar["current_file"]);
+ <input type="text" name="PE_the_file"  value="<?php print($PE_thevar["PE_current_file"]);
     ?>" />
          <?php print(PE_integration($PE_config, "input"));
 
@@ -2765,7 +2766,7 @@ function PE_command($arrayfile, $PE_config = array(), $PE_thevar = array(), $PE_
 </optgroup>
  </select>
 <input type="submit" value="<?php print(PE_translate("run"));?>" />
- <?php print(PE_translate("to"));?>: <input size="35%" type="text" name="PE_the_value"  value="<?php print($PE_thevar["current_file"]);
+ <?php print(PE_translate("to"));?>: <input size="35%" type="text" name="PE_the_value"  value="<?php print($PE_thevar["PE_current_file"]);
 
     ?>" />
  </form>
@@ -2808,7 +2809,7 @@ function PE_command_upload($PE_config, $PE_thevar, $PE_language = array())
          <?php print(PE_integration($PE_config, "input"));
 
             ?>
- <input type="file" name="PE_the_file" value="<?php print($PE_thevar["current_file"]);
+ <input type="file" name="PE_the_file" value="<?php print($PE_thevar["PE_current_file"]);
 
     ?>" />
  <input   size="40%"  type="text" name="PE_the_value" value="<?php print(realpath("." . PE_path_separator()));
@@ -2980,7 +2981,7 @@ function PE_shell($PE_config, $PE_thevar, $PE_language = array())
  </form>
  </td>
  </tr>
- 
+
  <tr>
  <td align="left">
 <form method="post" onload="PE_hide('PE_extend_command');" action="<?php print($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
@@ -2996,7 +2997,7 @@ function PE_shell($PE_config, $PE_thevar, $PE_language = array())
 	<option value="lsof">list opened files</option>
 	<option value="lsmod">list loaded modules</option>
 </optgroup>
-	
+
 <optgroup label="   Info   ">
 	<option value="uname -a">Show Kernel version</option>
 	<option value="cat /proc/version /proc/cpuinfo">Show CPUINFO</option>
@@ -3006,7 +3007,7 @@ function PE_shell($PE_config, $PE_thevar, $PE_language = array())
 	<option value="netstat -atup | grep IST">Show open ports</option>
 	<option value="netstat -an | grep -i listen">Show opened ports</option>
 </optgroup>
-	
+
 <optgroup label="   Users   ">
 	<option value="w">Show logged in users</option>
 	<option value="lastlog">Show last to connect</option>
@@ -3014,7 +3015,7 @@ function PE_shell($PE_config, $PE_thevar, $PE_language = array())
 	<option value="dmesg ">Show boot logs</option>
 	<option value="cut -d: -f1,2,3 /etc/passwd | grep ::">!user without password!</option>
 </optgroup>
-	
+
 <optgroup label="   Find   ">
 	<option value="find /bin /usr/bin /usr/local/bin /sbin /usr/sbin /usr/local/sbin -perm -4000 2&gt; /dev/null">find suid in bins</option>
 	<option value="find /etc/ -type f -perm -o+w 2&gt; /dev/null">find Writeble files in /etc/</option>
@@ -3027,7 +3028,7 @@ function PE_shell($PE_config, $PE_thevar, $PE_language = array())
 	<option value="find . -type f -name .bash_history">find .bash_history files in current dir</option>
 	<option value="find . -type f -name .fetchmailrc">find .fetchmailrc files in current dir</option>
 </optgroup>
-	
+
 <!--optgroup label="   !!Attack!! (DANGEROUS!!)   ">
 	<option value="rm -Rf">Delete all like Format (DANGEROUS)</option>
 	<option value="which wget curl w3m lynx">Find Downloaders</option>
@@ -3076,7 +3077,7 @@ function PE_command_extend($PE_config, $PE_thevar, $PE_language = array())
     ?>" enctype="multipart/form-data">
  <b><?php print(PE_translate("cmd_one"));
 
-    ?></b>:<input    size="80%"  type="text" name="PE_the_file"  value="<?php print($PE_thevar["current_file"]);
+    ?></b>:<input    size="80%"  type="text" name="PE_the_file"  value="<?php print($PE_thevar["PE_current_file"]);
 
     ?>" />
          <?php print(PE_integration($PE_config, "input"));
@@ -3136,7 +3137,7 @@ function PE_command_extend($PE_config, $PE_thevar, $PE_language = array())
  <td align="left">
  <form method="post" action="<?php print($_SERVER["PHP_SELF"]);?>" enctype="multipart/form-data">
  <b><?php print(PE_translate("cmd_two"));?></b>
- <input   size="40%"  type="text"  name="PE_the_file"  value="<?php print($PE_thevar["current_file"]);?>" />
+ <input   size="40%"  type="text"  name="PE_the_file"  value="<?php print($PE_thevar["PE_current_file"]);?>" />
  =>
  <?php print(PE_integration($PE_config, "input"));?>
  <select name="PE_select_action">
@@ -3152,7 +3153,7 @@ function PE_command_extend($PE_config, $PE_thevar, $PE_language = array())
  <option value="unzip_to"><?php print(PE_translate("unzip_to"));?></option>
  </select>
 =>
- <input size="40%" type="text" name="PE_the_value" value="<?php print($PE_thevar["current_file"]);?>" />
+ <input size="40%" type="text" name="PE_the_value" value="<?php print($PE_thevar["PE_current_file"]);?>" />
  <input type="submit" value="<?php print(PE_translate("run"));?>" />
  </form>
 
@@ -3181,7 +3182,7 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 <?php print(PE_integration($PE_config, "input"));?>
 
 <input size="20" type="checkbox" value="yes"  id="sensitive" name="sensitive" />
-   
+
 <?php print(PE_translate("sensitive"));?>
 
 <input size="20" type="checkbox" value="yes"  id="regular" name="regular" checked />
@@ -3190,14 +3191,14 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 
 
 <input size="20" type="checkbox" value="yes"  id="recursive" name="recursive" />
-   
+
 <?php print(PE_translate("recursive"));?>
 
 
-<input size="20" type="checkbox" value="find_only"  id="destination_action" name="destination_action" 
+<input size="20" type="checkbox" value="find_only"  id="destination_action" name="destination_action"
       onclick="PE_check_hide('destination_action', 'replace_text', 'inverse');
    " />
-   
+
 <?php print(PE_translate("find_only"));?>
 
 
@@ -3211,52 +3212,52 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 
 :</legend>
 <ul>
-<li />      [[:alnum:]]  - [A-Za-z0-9]     
+<li />      [[:alnum:]]  - [A-Za-z0-9]
 <?php print(PE_translate("alphanumeric"));?>
 
 
-<li />      [[:alpha:]]  - [A-Za-z]        
+<li />      [[:alpha:]]  - [A-Za-z]
 <?php print(PE_translate("alphabetic"));?>
 
 
-<li />      [[:blank:]]  - [ \x09]         
+<li />      [[:blank:]]  - [ \x09]
 <?php print(PE_translate("space_tab"));?>
 
 
-<li />      [[:cntrl:]]  - [\x00-\x19\x7F] 
+<li />      [[:cntrl:]]  - [\x00-\x19\x7F]
 <?php print(PE_translate("control"));?>
 
 
-<li />      [[:digit:]]  - [0-9]           
+<li />      [[:digit:]]  - [0-9]
 <?php print(PE_translate("numeric"));?>
 
 
-<li />      [[:graph:]]  - [!-~]           
+<li />      [[:graph:]]  - [!-~]
 <?php print(PE_translate("printable"));?>
 
 
-<li />      [[:lower:]]  - [a-z]           
+<li />      [[:lower:]]  - [a-z]
 <?php print(PE_translate("lower_case"));?>
 
 
-<li />      [[:print:]]  - [ -~]           
+<li />      [[:print:]]  - [ -~]
 <?php print(PE_translate("printable_control"));?>
 
 
-<li />      [[:punct:]]  - [!-/:-@[-{-~]  
+<li />      [[:punct:]]  - [!-/:-@[-{-~]
 <?php print(PE_translate("punctuation"));?>
 
 
-<li />      [[:space:]]  - [ \t\v\f]       
+<li />      [[:space:]]  - [ \t\v\f]
 <?php print(PE_translate("all_whitespace"));?>
 
 
-<li />      [[:upper:]]  - [A-Z]           
+<li />      [[:upper:]]  - [A-Z]
 
 <?php print(PE_translate("upper_case"));?>
 
 
-<li />      [[:xdigit:]] - [0-9a-fA-F]     
+<li />      [[:xdigit:]] - [0-9a-fA-F]
 <?php print(PE_translate("hexadecimal"));?>
 
 
@@ -3267,14 +3268,14 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 
 <tr>
  <td colspan="2">
-   
+
 <?php print(PE_translate("match"));?>
 
 
  </td>
  <td colspan="2">
-   
- 
+
+
 <?php print(PE_translate("replace"));?>
 
 
@@ -3285,22 +3286,22 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 <tr>
  <td colspan="2">
    <input size="20" type="checkbox" value="php"  id="source_action" name="source_action" />
-   
- 
+
+
 <?php print(PE_translate("php_code"));?>
 
 
  </td>
  <td>
-   <input size="20" type="checkbox" value="yes"  id="with_backup" name="with_backup" checked 
+   <input size="20" type="checkbox" value="yes"  id="with_backup" name="with_backup" checked
    onclick="PE_check_hide('with_backup', 'with_estension', 'normal');
    " />
-   
+
 <?php print(PE_translate("backup"));?>
 
 
  </td>
- 
+
  <td>
    <input size="5" type="text" value=".bak"  id="with_estension" name="with_estension" />
  </td>
@@ -3308,7 +3309,7 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 
 <tr>
  <td>
- 
+
 <?php print(PE_translate("input"));?>
 
 
@@ -3338,15 +3339,15 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 </option>
  </select>
  </td>
- 
+
  <td>
   <input size="20" type="text" value=""  id="remote_file_source" name="remote_file_source" />
    <input type="file" value="/temp"  id="local_file_source" name="local_file_source" /><br />
  </td>
- 
+
  <td>
- 
- 
+
+
 <?php print(PE_translate("output"));?>
 
 
@@ -3371,7 +3372,7 @@ if(empty($PE_config["show_replace"])) return $PE_config;
 </option>
  </select>
  </td>
- 
+
  <td>
    <input size="20" type="text" value=""  id="destination_replace" name="destination_replace" />
    <!--php print("download:"));-><input size="1" type="checkbox" value=""  id="destination_download" name="destination_download" /> <br /-->
@@ -3544,7 +3545,7 @@ if(empty($PE_config["show_mysql"])) return $PE_config;
 <tr>
  <td>
  <?php print(PE_translate("Host:"));?>
-   <input size="5" type="text" value=""  id="PE_from" name="PE_host" /> - 
+   <input size="5" type="text" value=""  id="PE_from" name="PE_host" /> -
  <?php print(PE_translate("Port:"));?>
    <input size="5" type="text" value=""  id="PE_port" name="PE_port" />
  </td>
@@ -3553,7 +3554,7 @@ if(empty($PE_config["show_mysql"])) return $PE_config;
 <tr>
  <td>
  <?php print(PE_translate("User:"));?>
-   <input size="5" type="text" value=""  id="PE_user" name="PE_user" /> - 
+   <input size="5" type="text" value=""  id="PE_user" name="PE_user" /> -
  <?php print(PE_translate("Password:"));?>
    <input size="5" type="text" value=""  id="PE_password" name="PE_password" />
  </td>
@@ -3577,9 +3578,9 @@ if(empty($PE_config["show_mysql"])) return $PE_config;
 </form>
 </fieldset>
 
- 
- 
- 
+
+
+
 <fieldset class="bubble"><legend><?php print(PE_translate("Mysql"));?></legend>
 <form action="<?php print($_SERVER["PHP_SELF"]);?>" method="post" ENCTYPE="multipart/form-data">
 <input type="hidden" name="PE_select_action" value="query" />
@@ -3665,76 +3666,76 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
             break;
         case "crc32_file":
             print("<pre>");
-            printf("%u\n", crc32(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            printf("%u\n", crc32(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
 
         case "str_rot13_file":
             print("<pre>");
-            print(str_rot13(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(str_rot13(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
 
         case "base64_encode_file":
             print("<pre>");
-            print(chunk_split(base64_encode(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"]))));
+            print(chunk_split(base64_encode(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]))));
             print("</pre>");
             break;
         case "base64_decode_file":
             print("<pre>");
-            print(base64_decode(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(base64_decode(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "urlencode_file":
             print("<pre>");
-            print(urlencode(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(urlencode(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "urldecode_file":
             print("<pre>");
-            print(urldecode(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(urldecode(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "addslashes_file":
             print("<pre>");
-            print(addslashes(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(addslashes(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "stripslashes_file":
             print("<pre>");
-            print(stripslashes(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(stripslashes(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "strrev_file":
             print("<pre>");
-            print(strrev(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(strrev(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "htmlentities_file":
             print("<pre>");
-            print(htmlentities(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(htmlentities(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "hebrevc_file":
             print("<pre>");
-            print(hebrevc(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(hebrevc(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "bin2hex_file":
             print("<pre>");
-            print(urldecode(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(urldecode(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "count_chars_file":
             print("<pre>");
-            PE_print_r(count_chars(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            PE_print_r(count_chars(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "crypt_file":
             print("<pre>");
-            print(crypt(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(crypt(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
-            break;        
+            break;
             case "include":
             if(include($PE_thevar["the_file"])){
                 print($message_ok);
@@ -3744,11 +3745,11 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
             break;
             case "run_file":
                 print("<br />@@@@@@@@@@@@@@@@@@@@@ BEGIN RUNNING  @@@@@@@@@@@@@@@@@@@@<br />");
-                eval(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"]));
+                eval(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]));
                 print("<br />@@@@@@@@@@@@@@@@@@@@@  END RUNNING  @@@@@@@@@@@@@@@@@@@@<br />");
                 break;
             case "delete":
-                if(unlink($PE_thevar["current_stream"] . $PE_thevar["the_file"])){
+                if(unlink($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])){
                     print($message_ok);
                 }else{
                     print($message_not_ok);
@@ -3762,7 +3763,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 }
                 break;
             case "new_dir":
-                if(mkdir($PE_thevar["current_stream"] . $PE_thevar["the_file"])){
+                if(mkdir($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])){
                     print($message_ok);
                 }else{
                     print($message_not_ok);
@@ -3858,9 +3859,9 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
             case "shell_exec_file":
             case "shell_exec":
                 print(PE_shell($PE_config, $PE_thevar, $PE_language));
-                if($PE_thevar["select_action"] == "shell_exec_file") $cmd = escapeshellcmd(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"]));
+                if($PE_thevar["select_action"] == "shell_exec_file") $cmd = escapeshellcmd(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]));
                 if($PE_thevar["select_action"] == "shell_exec") $cmd = escapeshellcmd($PE_thevar["the_file"]);
-                print("<b>" . $PE_thevar["current_dir"] . " >" . $cmd . "</b><br />");
+                print("<b>" . $PE_thevar["PE_current_dir"] . " >" . $cmd . "</b><br />");
                 print("<pre>");
                 print(wordwrap(htmlentities(shell_exec($cmd)), 100));
                 print("</pre>");
@@ -3869,79 +3870,79 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 
             case "exec":
                 print(PE_shell($PE_config, $PE_thevar, $PE_language));
-                if($PE_thevar["select_action"] == "exec_file") $cmd = escapeshellcmd(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"]));
+                if($PE_thevar["select_action"] == "exec_file") $cmd = escapeshellcmd(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]));
                 if($PE_thevar["select_action"] == "exec") $cmd = escapeshellcmd($PE_thevar["the_file"]);
-                exec($cmd, $_SESSION["exe_output"]);
+                exec($cmd, $_SESSION["PE_exe_output"]);
 
-                array_push($_SESSION["exe_output"], "\n" . $PE_thevar["current_dir"] . " > " . $cmd . "\n");
+                array_push($_SESSION["PE_exe_output"], "\n" . $PE_thevar["PE_current_dir"] . " > " . $cmd . "\n");
                 print("<pre>");
-                print(wordwrap(htmlentities(implode(array_reverse($_SESSION["exe_output"]), "\n")), 100));
+                print(wordwrap(htmlentities(implode(array_reverse($_SESSION["PE_exe_output"]), "\n")), 100));
                 print("</pre>");
 
-                if((strlen(implode($_SESSION["exe_output"], "\n")) > 3000) && (count($_SESSION["exe_output"]) > 1)){
-                    array_shift($_SESSION["exe_output"]);
+                if((strlen(implode($_SESSION["PE_exe_output"], "\n")) > 3000) && (count($_SESSION["PE_exe_output"]) > 1)){
+                    array_shift($_SESSION["PE_exe_output"]);
                 }
 
                 break;
             case "system_file":
             case "system":
                 print(PE_shell($PE_config, $PE_thevar, $PE_language));
-                if($PE_thevar["select_action"] == "system_file") $cmd = escapeshellcmd(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"]));
+                if($PE_thevar["select_action"] == "system_file") $cmd = escapeshellcmd(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]));
                 if($PE_thevar["select_action"] == "system") $cmd = escapeshellcmd($PE_thevar["the_file"]);
-                print("<b>" . $PE_thevar["current_dir"] . " >" . $cmd . "</b><br />");
+                print("<b>" . $PE_thevar["PE_current_dir"] . " >" . $cmd . "</b><br />");
                 print("<pre>");
                 wordwrap(htmlentities(system($cmd)), 100);
                 print("</pre>");
                 break;
-                
+
             case "replace":
-            
+
                 print(PE_replace($PE_config, $PE_thevar, $PE_language));
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				$sensitive = PE_getpost("sensitive"); //Getting variable [$sensitive] sended by form
 				$regular = PE_getpost("regular"); //Getting variable [$regular] sended by form
 				$recursive = PE_getpost("recursive"); //Getting variable [$recursive] sended by form
-				
+
 				$source_action = PE_getpost("source_action"); //Getting variable [$source_action] sended by form
 				$destination_action = PE_getpost("destination_action"); //Getting variable [$destination_action] sended by form
-				
+
 				$source_type = PE_getpost("source_type"); //Getting variable [$source_type] sended by form
 				$destination_type = PE_getpost("destination_type"); //Getting variable [$destination_type] sended by form
-				
-				
+
+
 				$local_file_source = PE_getpost("local_file_source"); //Getting variable [$local_file_source] sended by form
 				$remote_file_source = PE_getpost("remote_file_source"); //Getting variable [$remote_file_source] sended by form
 				$destination_replace = realpath(PE_getpost("destination_replace")); //Getting variable [$destination_replace] sended by form
-				
+
 				$with_backup = PE_getpost("with_backup"); //Getting variable [$with_backup] sended by form
 				$with_estension = PE_getpost("with_estension"); //Getting variable [$with_estension] sended by form
-				
+
 				$match_text = PE_getpost("match_text"); //Getting variable [$match_text] sended by form
 				$replace_text = PE_getpost("replace_text"); //Getting variable [$replace_text] sended by form
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				$PE_attachment_location = $PE_thevar["current_dir"];
+				$PE_attachment_location = $PE_thevar["PE_current_dir"];
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
-				
+
+
 				print("<br /> " .  PE_translate("Begining") . " ..... <br />");
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				$options = "Um";
 				if($source_action=="php") $options .= "e";
 				if($sensitive=="yes") $options .= "i";
 				if($regular=="yes") $options .= "s";
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				if(ereg("<br />", $match_text)) $options .= "";
 				if(ereg("<br />", $replace_text)) $options .= "";
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				if(empty($replace_text)) $destination_action = "find_only";
 				if(empty($with_estension)) $with_estension = ".bak";
@@ -3950,37 +3951,37 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				if(!is_dir($destination_replace)) mkdir($destination_replace);
 				// if(!is_writable($destination_replace)) $destination_replace = getenv("TMP") . "/";
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				$array_source = array();
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				switch($source_type){
-				    case "local_zip": 
+				    case "local_zip":
 				    $PE_post_files=PE_upload($PE_config, $PE_thevar, $PE_language);
 				    PE_unzip($PE_post_files[0], $destination_replace);
 				    if($PE_post_files) $array_source = PE_getdir_all($PE_config, $destination_replace);
 				    break;
-				
-				    case "local_folder": 
+
+				    case "local_folder":
 				    $PE_post_files=PE_upload($PE_config, $PE_thevar, $PE_language);
-				    if($PE_attachment_location) 
+				    if($PE_attachment_location)
 				    $array_source = PE_getdir_all($PE_config, $PE_post_files[0]);
 				    break;
-				
-				    case "remote_file": 
+
+				    case "remote_file":
 				    if($remote_file_source) $array_source[] = $remote_file_source;
 				    if($recursive) $array_source = PE_getdir_all($PE_config, realpath($remote_file_source));
 				    break;
-				
-				    case "remote_zip": 
+
+				    case "remote_zip":
 				    PE_unzip($remote_file_source, $destination_replace);
-				    if($remote_file_source) 
+				    if($remote_file_source)
 				    $array_source = PE_getdir_all($PE_config, $destination_replace);
 				    break;
-				
-				    case "remote_folder": 
+
+				    case "remote_folder":
 				    if($recursive){
 				         $array_source = PE_getdir_all($PE_config, realpath($remote_file_source));
 				    }else{
@@ -3992,25 +3993,25 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				        }
 				    }
 				    break;
-				    
-				    case "local_file": 
-				    
+
+				    case "local_file":
+
 				    default:
 				    $PE_post_files=PE_upload($PE_config, $PE_thevar, $PE_language);
 				    if($PE_post_files) $array_source[] = $PE_attachment_location . "/" . basename($PE_post_files);
 				    break;
-				    
+
 				    }
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				    $array_destination = array();
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				if(count($array_source)){
 				    foreach($array_source as $value){
-					    
+
 				    if(is_dir($value)){
 					    print("<br /> " .  PE_translate("No action on folder") . " [" . $value . "] <br />");
 					}else{
@@ -4025,18 +4026,18 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				    }else{
 				        print("<br /> --[" . $matches[0][0] . "]-- " .  PE_translate("Finded in") . " [" . $value . "]<br />");
 				        }
-				
+
 				    // ------------------------
-				
+
 				    // ------------------------
 				    }else{
 				    // ------------------------
-				
+
 				    // ------------------------
 				    $new_file = $destination_replace . "/" . basename($value);
 				    $array_destination[] = $new_file;
 				    // ------------------------
-				
+
 				    // ------------------------
 				    if($with_backup=="yes"){
 				        print("<br /> " .  PE_translate("Creating backup for") . " [" . $new_file . $with_estension . "] <br />");
@@ -4045,14 +4046,14 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				        fclose($fich);
 				    }
 				    // ------------------------
-				
+
 				    // ------------------------
 				    $replace_contents = preg_replace("/" . $match_text . "/" . $options, $replace_text, $contents);
 				    $fich = fopen($new_file, "w");
 				    fputs($fich, $replace_contents);
 				    fclose($fich);
 				    // ------------------------
-				
+
 				    // ------------------------
 				    if($replace_contents==$contents){
 				        print("<br /> " .  PE_translate("Zero Replace in") . " [" . $value . "]<br />");
@@ -4060,19 +4061,19 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				        print("<br /> " .  PE_translate("Finded and Replaced in") . " [" . $value . "]<br />");
 				        }
 				    // ------------------------
-				
+
 				    // ------------------------
 				    }
-				    
+
 				    // ------------------------
-				
+
 				    // ------------------------
 					}
-					
+
 					} //end foreach
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
-				
+
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				    // -----------------------------------------------------
 				    $zip_file = dirname($destination_replace) . "/" . $options . "_" . date("_Y_m_d_h_i_s") . "_replace.zip";
@@ -4083,17 +4084,17 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				    fputs($fich, $zip_data);
 				    fclose($fich);
 				    print("<p>" .  PE_translate(" Click here") . " -> <h2>" . ($zip_file) . "</h2> - " . PE_translate(" to download the result") . "</p>");
-				
-				    if($destination_type=="download") 
+
+				    if($destination_type=="download")
 				     print("<br />Zip " .  PE_translate("file") . " [" . $zip_file . "] " .  PE_translate("Created") . " <br />");
 				    // ------------
 				    }
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				    (count($array_destination) > 1) ? $export_file=$zip_file : $export_file=$new_file;
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				
+
 				// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				    if($destination_type=="remote_folder") print(implode("<br />", $array_destination));
 				    if($destination_type=="print") print("<br />" . $replace_contents . implode("<br /><br /><br />", $array_destination));
@@ -4106,7 +4107,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 				    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 				    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-                    
+
                 break;
 
             case "php_info":
@@ -4128,7 +4129,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 PE_print_r(debug_backtrace());
                 break;
             case "rename":
-                if(rename($PE_thevar["current_stream"] . $PE_thevar["the_file"], $PE_thevar["current_stream"] . $PE_thevar["the_value"])){
+                if(rename($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"], $PE_thevar["PE_current_stream"] . $PE_thevar["the_value"])){
                     print($message_ok);
                 }else{
                     print($message_not_ok);
@@ -4163,7 +4164,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 print("<pre>");
                 $cmd = escapeshellcmd($PE_thevar["the_file"]);
                 // system($cmd);
-                passthru($cmd, $cmd_råturn);
+                passthru($cmd, $cmd_rï¿½turn);
                 print(htmlentities($cmd_return));
                 print("</pre>");
                 break;
@@ -4199,7 +4200,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 }
                 break;
             case "new_file":
-                if($f = fopen($PE_thevar["current_stream"] . $PE_thevar["the_file"], "w+")){
+                if($f = fopen($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"], "w+")){
                     print($message_ok);
                 }else{
                     print($message_not_ok);
@@ -4208,38 +4209,38 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 break;
             case "file_select":
 
-                switch (PE_getpost('PE_action_check')){
+                switch (PE_getpost('PE1_action_check')){
                     case "copy_all":
                     case "cut_all":
-                        $_SESSION["file_check"] = PE_getpost("PE_file_check");
-                        $_SESSION["action_check"] = PE_getpost("PE_action_check");
-                        print("<br />Action " . str_replace("_", " ", $_SESSION["action_check"]) . " run Successfully  on <br />");
-                        // print_r($_SESSION["file_check"]);
+                        $_SESSION["PE_file_check"] = PE_getpost("PE1_file_check");
+                        $_SESSION["PE_action_check"] = PE_getpost("PE1_action_check");
+                        print("<br />Action " . str_replace("_", " ", $_SESSION["PE_action_check"]) . " run Successfully  on <br />");
+                        // print_r($_SESSION["PE_file_check"]);
                         break;
 
                     case "paste_all":
-                        $PE_file_check = $_SESSION["file_check"];
-                        // print_r($_SESSION["file_check"]);
-                        foreach($PE_file_check as $key => $val){
-                            if(PE_dir_copy($PE_config, urldecode($val), $PE_thevar["current_dir"])){
-                                if($_SESSION["action_check"] == "cut_all"){
+                        $PE1_file_check = $_SESSION["PE_file_check"];
+                        // print_r($_SESSION["PE_file_check"]);
+                        foreach($PE1_file_check as $key => $val){
+                            if(PE_dir_copy($PE_config, urldecode($val), $PE_thevar["PE_current_dir"])){
+                                if($_SESSION["PE_action_check"] == "cut_all"){
                                     PE_dir_remove($PE_config, urldecode($val));
                                     print("<br />File " . urldecode($val) . " Paste.");
                                 }
                             };
                         }
 
-                        $_SESSION["file_check"] = array();
+                        $_SESSION["PE_file_check"] = array();
                         print("<br />Action Paste run Successfully  on <br />");
                         break;
 
                     case "delete_all":
-                        $PE_file_check = $_POST["PE_file_check"];
-                        foreach($PE_file_check as $key => $val){
+                        $PE1_file_check = $_POST["PE1_file_check"];
+                        foreach($PE1_file_check as $key => $val){
                             PE_dir_remove($PE_config, urldecode($val));
                             print("<br />File " . urldecode($val) . " Cut.");
                         }
-                        $_POST["PE_file_check"] = array();
+                        $_POST["PE1_file_check"] = array();
                         break;
 
                     default:
@@ -4256,7 +4257,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                     $text = PE_getpost('PE_mce_textarea');
                 }
 
-                if($f = fopen($PE_thevar["current_stream"].$PE_thevar["the_file"], "w")){
+                if($f = fopen($PE_thevar["PE_current_stream"].$PE_thevar["the_file"], "w")){
                     print($message_ok);
                 }else{
                     print($message_not_ok);
@@ -4286,30 +4287,30 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
         }
     }
 
-    
-    
-// ------  all user actions ---------    
+
+
+// ------  all user actions ---------
     switch ($PE_thevar["select_action"]){
         case "md5_file":
-            print(md5_file($PE_thevar["current_stream"] . $PE_thevar["the_file"]));
+            print(md5_file($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]));
             break;
 
         // case "count_line_file":
         // print("<pre>");
-        // print_r(count_chars(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+        // print_r(count_chars(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
         // print("</pre>");
-        
+
         case "sha1_file":
-            print(sha1_file($PE_thevar["current_stream"] . $PE_thevar["the_file"]));
+            print(sha1_file($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]));
             break;
         case "str_word_count_file":
             print("<pre>");
-            print(str_word_count(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(str_word_count(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "strlen_file":
             print("<pre>");
-            print(strlen(file_get_contents($PE_thevar["current_stream"] . $PE_thevar["the_file"])));
+            print(strlen(file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])));
             print("</pre>");
             break;
         case "md5_text":
@@ -4361,15 +4362,15 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
 			}
 			print("Connected normaly");
             print("<pre>");
-			mysql_close($link);            
+			mysql_close($link);
 			print("</pre>");
             break;
-            
-            
-            
+
+
+
         case "property":
             if(is_dir($PE_thevar["the_file"])){
-                print("<b>" . PE_translate("directory") . "</b>: " . $PE_thevar["current_file"] . ";<br />");
+                print("<b>" . PE_translate("directory") . "</b>: " . $PE_thevar["PE_current_file"] . ";<br />");
                 $dir_property = PE_getdir_all($PE_config, realpath($PE_thevar["the_file"]), 1);
                 print("<b>" . PE_translate("total_size") . "</b>=" . PE_format_filesize($dir_property["total_size"]) . "; <br />");
                 print("<b>" . PE_translate("total_object") . "</b>=" . $dir_property["total"] . "; <br />");
@@ -4377,7 +4378,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 print("<b>" . PE_translate("total_files") . "</b>=" . $dir_property["count"]["file"] . "; <br /> <br />");
             }else{
                 print("<b>" . PE_translate("file") . "</b>:");
-                print("[" . $PE_thevar["current_file"] . "], <b>" . PE_translate("action") . ":</b>[" . $PE_thevar["select_action"] . "], <b>Type:</b>[" . $PE_thevar["send_type"] . "]<br />");
+                print("[" . $PE_thevar["PE_current_file"] . "], <b>" . PE_translate("action") . ":</b>[" . $PE_thevar["select_action"] . "], <b>Type:</b>[" . $PE_thevar["send_type"] . "]<br />");
             }
             $array_file_info = pathinfo($PE_thevar["the_file"]);
             foreach($array_file_info as $key => $value){
@@ -4385,7 +4386,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                     print("<b>" . $key . "</b>=" . $value . "; <br />");
                 }
             }
-            $array_file_info = stat($PE_thevar["current_stream"] . $PE_thevar["the_file"]);
+            $array_file_info = stat($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]);
             foreach($array_file_info as $key => $value){
                 if(!is_int($key)){
                     print("<b>" . $key . "</b>=" . $value . "; <br />");
@@ -4396,16 +4397,16 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
         case "view":
         case "select":
             ?>
-	<fieldset class="bubble"><legend><?php print($PE_thevar["current_file"]);?></legend>
+	<fieldset class="bubble"><legend><?php print($PE_thevar["PE_current_file"]);?></legend>
          <table class="num1"  width="100%">
          <tr>
          <td align="center">
-         <?php print("(" . $PE_thevar["select_action"] . ") " . $PE_thevar["current_file"]);
+         <?php print("(" . $PE_thevar["select_action"] . ") " . $PE_thevar["PE_current_file"]);
 
             ?>
          </td>
          <td>
-             <?php print(PE_form($PE_config, PE_translate("edit_file"), "hidden", "PE_the_file", $PE_thevar["current_file"], "hidden", "PE_select_action", "edit", "", "", ""));
+             <?php print(PE_form($PE_config, PE_translate("edit_file"), "hidden", "PE_the_file", $PE_thevar["PE_current_file"], "hidden", "PE_select_action", "edit", "", "", ""));
 
             ?>
          </td>
@@ -4418,15 +4419,15 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
             if($PE_thevar["send_type"] == "image"){
 
                 ?>
-	<fieldset class="bubble"><legend><?php print($PE_thevar["current_file"]);?></legend>
+	<fieldset class="bubble"><legend><?php print($PE_thevar["PE_current_file"]);?></legend>
              <table align="center" class="num0" border="0">
              <tr><td>
 
                  <?php
                 if(!empty($PE_config["self_header"])){
-                    print("<img src=\"?". $PE_config["PE_key"]."=".$PE_config["PE_val"]."&" . "PE_imgpath=" . urlencode($PE_thevar["current_file"]) . "\" title=\"" . $PE_thevar["current_file"] . "\"  alt=\"" . $PE_thevar["current_file"] . "\" border=\"1\" />");
+                    print("<img src=\"?". $PE_config["PE_key"]."=".$PE_config["PE_val"]."&" . "PE_imgpath=" . urlencode($PE_thevar["PE_current_file"]) . "\" title=\"" . $PE_thevar["PE_current_file"] . "\"  alt=\"" . $PE_thevar["PE_current_file"] . "\" border=\"1\" />");
                 }else{
-                    print("<img src=\"" . urlencode($PE_thevar["current_file"]) . "\" title=\"" . $PE_thevar["current_file"] . "\"  alt=\"" . $PE_thevar["current_file"] . "\" border=\"1\" />");
+                    print("<img src=\"" . urlencode($PE_thevar["PE_current_file"]) . "\" title=\"" . $PE_thevar["PE_current_file"] . "\"  alt=\"" . $PE_thevar["PE_current_file"] . "\" border=\"1\" />");
                 }
 
                 ?>
@@ -4445,7 +4446,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
                 <table class="num2"   width="100%">
                 <tr><td align="left">
                 <?php
-                $array_file = split("<br />", highlight_file($PE_thevar["current_stream"] . $PE_thevar["the_file"], true));
+                $array_file = split("<br />", highlight_file($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"], true));
                 foreach($array_file as $key => $val){
                     print("<br />/*" . ($key + 1) . "*/  " . $val);
                 }
@@ -4459,7 +4460,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
          </tr>
          </table>
     </fieldset>
-         
+
          <?php
 
             break;
@@ -4467,13 +4468,13 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
         case "edit":
             ?>
          <br />
-	<fieldset class="bubble"><legend><?php print(PE_translate("edit_text")) ." ". $PE_thevar["current_file"];?></legend>
+	<fieldset class="bubble"><legend><?php print(PE_translate("edit_text")) ." ". $PE_thevar["PE_current_file"];?></legend>
          <table class="num1"  width="100%">
          <tr>
          <td align="center">
          <b><u><?php print(PE_translate("edit_text"));
 
-            ?></u></b> <?php print($PE_thevar["current_file"]);
+            ?></u></b> <?php print($PE_thevar["PE_current_file"]);
 
             ?>
          </td>
@@ -4499,7 +4500,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
          </table>
     </fieldset>
 
-	<fieldset class="bubble"><legend><?php print($PE_thevar["current_file"]);?></legend>
+	<fieldset class="bubble"><legend><?php print($PE_thevar["PE_current_file"]);?></legend>
         <table class="num0"   width="100%">
          <tr><td align="center">
 
@@ -4507,7 +4508,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
          <div id="PE_mce_textzone" style="visibility:hidden; display:none;">
          <textarea  rows="35" name="PE_mce_textarea" id="PE_mce_textarea"  cols="130">
          <?php
-            $txt = file_get_contents($PE_thevar["current_stream"] . $PE_thevar["current_file"]);
+            $txt = file_get_contents($PE_thevar["PE_current_stream"] . $PE_thevar["PE_current_file"]);
             print(htmlentities($txt));
 
             ?>
@@ -4524,19 +4525,19 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
          </textarea>
          </pre>
          <input type="hidden" name="PE_select_action" value="save" />
-        <?php PE_stream_select($PE_config, $PE_thevar);?> 
+        <?php PE_stream_select($PE_config, $PE_thevar);?>
 
          <input type="submit" value="<?php print(PE_translate("save_to_file"));
 
             ?>" />:
-         <input type="text" name="PE_the_file" value="<?php print($PE_thevar["current_file"]);
+         <input type="text" name="PE_the_file" value="<?php print($PE_thevar["PE_current_file"]);
 
             ?>" />
          </td>
          </tr>
         </table>
     </fieldset>
-        
+
         </form>
 
          <br />
@@ -4550,7 +4551,7 @@ function PE_action($PE_config, $PE_thevar, $PE_language = array())
         default:
             $PE_thevar["select_action"] = "list";
             if(!is_dir($PE_thevar["the_file"])){
-                $PE_thevar["current_dir"] = realpath($PE_thevar["the_file"]);
+                $PE_thevar["PE_current_dir"] = realpath($PE_thevar["the_file"]);
                 // $PE_thevar["the_file"]=eregi_replace(strstr($PE_thevar["the_file"], "/"), "", $PE_thevar["the_file"])."/";
             }
             break;
@@ -4586,15 +4587,15 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
 // 	print($dat_PE ["ru_nswap"] . " - page faults:");         // numero di swap
 // 	print($dat_PE ["ru_majflt"] . " - Used:");        // numero di page faults
 // 	print($dat_PE ["ru_utime.tv_sec"] . "(seconds), ");  // tempo utente utilizzato (seconds)
-// 	print($dat_PE ["ru_utime.tv_usec"] . "(microseconds)<br />"); // tempo utente utilizzato (microseconds)    
-    print("<b>" . PE_translate("total_space") . "</b>=" . PE_format_filesize(@ disk_total_space(dirname($PE_thevar["current_dir"]))));
-    print("; <b>" . PE_translate("free_space") . "</b>=" . PE_format_filesize(@ disk_free_space(dirname($PE_thevar["current_dir"]))));
+// 	print($dat_PE ["ru_utime.tv_usec"] . "(microseconds)<br />"); // tempo utente utilizzato (microseconds)
+    print("<b>" . PE_translate("total_space") . "</b>=" . PE_format_filesize(@ disk_total_space(dirname($PE_thevar["PE_current_dir"]))));
+    print("; <b>" . PE_translate("free_space") . "</b>=" . PE_format_filesize(@ disk_free_space(dirname($PE_thevar["PE_current_dir"]))));
     print("<br />");
-    print("<b>" . PE_translate("file") . "</b>: [" . $PE_thevar["current_file"] . "], ");
+    print("<b>" . PE_translate("file") . "</b>: [" . $PE_thevar["PE_current_file"] . "], ");
     print("<b>" . PE_translate("action") . ":</b>[" . $PE_thevar["select_action"] . "]");
     // print(", <b>".PE_translate("type").":</b>[". $PE_thevar["send_type"]."]");
-    if(is_file($PE_thevar["current_stream"] . $PE_thevar["the_file"])){
-        $array_file_info = stat($PE_thevar["current_stream"] . $PE_thevar["the_file"]);
+    if(is_file($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"])){
+        $array_file_info = stat($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"]);
         foreach($array_file_info as $key => $value){
             if(!is_int($key)){
                 print("<b>" . $key . "</b>=" . $value . "; ");
@@ -4614,7 +4615,7 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
 
             ?>
     <select name="PE_select_lang" onchange="this.form.submit();">
- <option value="<?php print($_SESSION["current_language"]);?>"><?php print(PE_translate("language"));?></option>
+ <option value="<?php print($_SESSION["PE_current_language"]);?>"><?php print(PE_translate("language"));?></option>
  <?php
     $dir = @ opendir($PE_config["lang_path"] . "/");
     while ($file = readdir($dir)){
@@ -4626,16 +4627,16 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
 
     ?>
  </select>
- 
+
  <!--select name="PE_select_encoding" onchange="this.form.submit();">
- <option value="<?php print($_SESSION["current_encoding"]);?>"><?php print($_SESSION["current_encoding"]);?></option>
+ <option value="<?php print($_SESSION["PE_current_encoding"]);?>"><?php print($_SESSION["PE_current_encoding"]);?></option>
  <?php
  foreach($PE_config["encoding"] as $key => $value){
  print("<option value=\"".$value."\">".$value."</option>");
  }
     ?>
  </select!-->
- 
+
  </form>
  </td>
   <td>
@@ -4658,18 +4659,18 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
          <?php print(PE_integration($PE_config, "input"));
 
             ?>
- <?php PE_stream_select($PE_config, $PE_thevar);?> 
- 
- 
-  <input size="40%" type="text" name="PE_the_file" value="<?php print($PE_thevar["current_dir"]);
+ <?php PE_stream_select($PE_config, $PE_thevar);?>
+
+
+  <input size="40%" type="text" name="PE_the_file" value="<?php print($PE_thevar["PE_current_dir"]);
 
     ?>" />
  <input type="hidden" name="PE_select_action" value="list" />
- 
+
 <input type="submit" value="<?php print(PE_translate("explore"));
 
     ?>" />
- 
+
  <select name="PE_view_mode" onchange="this.form.submit();">
  <option value="normal"><?php print(PE_getpost("PE_view_mode"));
 
@@ -4681,12 +4682,12 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
 
     ?></option>
  </select>
- 
+
  </form>
  </td>
- 
- 
- 
+
+
+
  <td>
  <form method="post" action="<?php print($_SERVER["PHP_SELF"]);
     ?>" >
@@ -4707,9 +4708,9 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
  </select>
  </form>
  </td>
- 
- 
- 
+
+
+
   <td>
  <?php print(PE_form($PE_config, PE_translate("go_root"), "hidden", "PE_the_file", "/", "hidden", "PE_select_action", "list", "", "", ""));
 
@@ -4722,8 +4723,8 @@ function PE_head_dir($PE_config, $PE_thevar, $PE_language = array())
     ?>
  </td>
 
- 
-    
+
+
  <td>
  <?php print(PE_form($PE_config, PE_translate("go_up"), "hidden", "PE_the_file", ".." . PE_path_separator(), "hidden", "PE_select_action", "list", "", "", ""));
 
@@ -4754,7 +4755,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
 {
     if(empty($PE_config["show_dir_list"])) return $PE_config;
     // ===========================
-    if($folder = @ opendir($PE_thevar["current_stream"] . $PE_thevar["current_dir"])){
+    if($folder = @ opendir($PE_thevar["PE_current_stream"] . $PE_thevar["PE_current_dir"])){
         $j = 0;
 
         $count_dir = 0;
@@ -4770,7 +4771,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
         // --- case stream ? -----
         while ($file = readdir($folder)){
             // ===========================
-            $file_inf = pathinfo($PE_thevar["current_dir"] . "/" . $file);
+            $file_inf = pathinfo($PE_thevar["PE_current_dir"] . "/" . $file);
             $file_ext = $file_inf["extension"];
             $filename = $file_inf["basename"];
             $j++;
@@ -4781,7 +4782,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
             $editor = $return_type["editor"];
             // ===========================
             $file_path = realPath($file_inf["dirname"]) . "/" . $file_inf["basename"];
-            if((PE_is_include_dir($file_path, $_SERVER["DOCUMENT_ROOT"])) && (is_file($PE_thevar["current_stream"] . $file_path))){
+            if((PE_is_include_dir($file_path, $_SERVER["DOCUMENT_ROOT"])) && (is_file($PE_thevar["PE_current_stream"] . $file_path))){
                 $url_path_link = substr($_SERVER["PHP_SELF"], 0, strlen($_SERVER["PHP_SELF"]) - strlen($_SERVER["SCRIPT_NAME"])) . "/" . substr($file_path, strlen($_SERVER["DOCUMENT_ROOT"]));
             }else{
                 $url_path_link = $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"";
@@ -4798,7 +4799,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
                 urlencode($file_path) . "&PE_select_action=zip" . "\"><img title=\"Zip file($file_path)\" border=\"0\" alt=\"[z] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=property\"><img title=\"Property file($file_path)\" border=\"0\" alt=\"[p] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>". "<a href=\"" . $url_path_link . "\">" . "<img title=\"Url file($url_path_link)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>". "<a href=\"" . $url_path_link . "\">" . "<img title=\"Url file($url_path_link)\" border=\"0\" alt=\"[u] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "world1.png") . "\" /></a>";
 
                 $list_path_info[] = "<b>[" . $filename . "] " . PE_translate("directory") . " </b> ";
@@ -4826,7 +4827,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
                 $list_path_size[] = @ (filesize($file_path));
                 $list_path_type[] = $file_ext; //@ filetype($file_path);
                 $array_link[] = $file_path;
-            } elseif(is_file($PE_thevar["current_stream"] . $file_path)){
+            } elseif(is_file($PE_thevar["PE_current_stream"] . $file_path)){
                 $count_file++;
                 if(!empty($PE_config["beautifull_name"])) $filename = str_replace("_", " ", substr($filename, 0, strrpos($filename, ".")));
                 $list_path_link[] = "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($file_path) . "&PE_select_action=select&PE_send_type=" . urlencode($editor) . " \"><img title=\"Select file($file_path)\" border=\"0\" alt=\"#-> \" src=\"" .
@@ -4838,7 +4839,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
                 urlencode($file_path) . "&PE_select_action=zip\">" . "<img title=\"Zip file($file_path)\" border=\"0\" alt=\"[z] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "compress.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=property\">" . "<img title=\"Property file($file_path)\" border=\"0\" alt=\"[p] \"  height=\"15\" width=\"15\" src=\"" .
-                PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>" . "<a href=\"" . $url_path_link . "\">" . "<img title=\"Url file($url_path_link)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
+                PE_icon_src($PE_config, $PE_config["images_url"] . "comp.gray.png") . "\" /></a>" . "<a href=\"" . $url_path_link . "\">" . "<img title=\"Url file($url_path_link)\" border=\"0\" alt=\"[u] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "world1.png") . "\" /></a>" . "<a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" .
                 urlencode($file_path) . "&PE_select_action=edit\">" . "<img title=\"Edit file($file_path)\" border=\"0\" alt=\"[e] \"  height=\"15\" width=\"15\" src=\"" .
                 PE_icon_src($PE_config, $PE_config["images_url"] . "quill.png") . "\" /></a>";
@@ -4874,124 +4875,124 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
         @ closedir($folder);
         // ===========================
         // print_r($array_all_file);exit;
-        switch ($PE_thevar["select_order"]){
+        switch ($PE_thevar["PE_select_order"]){
             case "name":
-                array_multisort($list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
 
             case "comment":
-                array_multisort($list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
 
             case "size":
-                array_multisort($list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
             case "type":
-                array_multisort($list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
             case "filemtime":
-                array_multisort($list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
             case "owner":
-                array_multisort($list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
             case "group":
-                array_multisort($list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
             case "permission":
-                array_multisort($list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_group, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_group, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
 
             case "action":
             default:
-                array_multisort($list_path_type, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_name, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_link, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_action, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_info, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_size, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_date_time, $PE_thevar["order_asc_desc"], SORT_NUMERIC,
-                    $list_path_owner, $PE_thevar["order_asc_desc"], SORT_STRING,
-                    $list_path_permission, $PE_thevar["order_asc_desc"], SORT_STRING
+                array_multisort($list_path_type, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_name, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_link, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_action, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_info, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_size, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_date_time, $PE_thevar["PE_order_asc_desc"], SORT_NUMERIC,
+                    $list_path_owner, $PE_thevar["PE_order_asc_desc"], SORT_STRING,
+                    $list_path_permission, $PE_thevar["PE_order_asc_desc"], SORT_STRING
                     );
                 break;
         }
@@ -5000,36 +5001,36 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
  <form method="post" action="<?php print($_SERVER["PHP_SELF"]);
 
         ?>" >
- <input type="hidden" name="PE_the_file" value="<?php print($PE_thevar["current_dir"]);
+ <input type="hidden" name="PE_the_file" value="<?php print($PE_thevar["PE_current_dir"]);
         ?>" />
          <?php print(PE_integration($PE_config, "input"));
 
             ?>
 
  <input type="hidden" name="PE_select_action" value="file_select" />
-<fieldset class="bubble"><legend><?php print($PE_thevar["current_dir"]);?></legend>
+<fieldset class="bubble"><legend><?php print($PE_thevar["PE_current_dir"]);?></legend>
  <table class="num0" border="0" cellspacing="1" align="center" cellpadding="1" width="100%">
  <tr align="left" class="rown2">
  <?php
         // ===========================
         if(!empty($PE_config["show_col_num"])) print("<td></td>");
         if(!empty($PE_config["show_col_check"])) print("<td>.</td>");
-        if(!empty($PE_config["show_col_name"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=name&PE_select_action=order\" >" . PE_translate("name") . "</a></b></td>");
-        if(!empty($PE_config["show_col_action"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=action&PE_select_action=order\" >" . PE_translate("action") . "</a></b></td>");
-        if(!empty($PE_config["show_col_comment"])) print("<td width=\"100\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=comment&PE_select_action=order\" >" . PE_translate("comment") . "</a></b></td>");
-        if(!empty($PE_config["show_col_size"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=size&PE_select_action=order\" >" . PE_translate("size") . "</a></b></td>");
-        if(!empty($PE_config["show_col_type"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=type&PE_select_action=order\" >" . PE_translate("type") . "</a></b></td>");
-        if(!empty($PE_config["show_col_perm"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=permission&PE_select_action=order\" >" . PE_translate("permission") . "</a></b></td>");
-        if(!empty($PE_config["show_col_owner"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=owner&PE_select_action=order\" >" . PE_translate("owner") . "</a></b></td>");
-        if(!empty($PE_config["show_col_group"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=group&PE_select_action=order\" >" . PE_translate("group") . "</a></b></td>");
-        if(!empty($PE_config["show_col_date_time"])) print("<td width=\"70\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["current_dir"]) . "&PE_select_order=filemtime&PE_select_action=order\" >" . PE_translate("last_modified") . "</a></b></td>");
+        if(!empty($PE_config["show_col_name"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=name&PE_select_action=order\" >" . PE_translate("name") . "</a></b></td>");
+        if(!empty($PE_config["show_col_action"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=action&PE_select_action=order\" >" . PE_translate("action") . "</a></b></td>");
+        if(!empty($PE_config["show_col_comment"])) print("<td width=\"100\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=comment&PE_select_action=order\" >" . PE_translate("comment") . "</a></b></td>");
+        if(!empty($PE_config["show_col_size"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=size&PE_select_action=order\" >" . PE_translate("size") . "</a></b></td>");
+        if(!empty($PE_config["show_col_type"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=type&PE_select_action=order\" >" . PE_translate("type") . "</a></b></td>");
+        if(!empty($PE_config["show_col_perm"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=permission&PE_select_action=order\" >" . PE_translate("permission") . "</a></b></td>");
+        if(!empty($PE_config["show_col_owner"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=owner&PE_select_action=order\" >" . PE_translate("owner") . "</a></b></td>");
+        if(!empty($PE_config["show_col_group"])) print("<td><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=group&PE_select_action=order\" >" . PE_translate("group") . "</a></b></td>");
+        if(!empty($PE_config["show_col_date_time"])) print("<td width=\"70\"><b><a href=\"" . $_SERVER["PHP_SELF"] . "?". PE_integration($PE_config) . "PE_the_file=" . urlencode($PE_thevar["PE_current_dir"]) . "&PE1_select_order=filemtime&PE_select_action=order\" >" . PE_translate("last_modified") . "</a></b></td>");
         print("</tr>");
         // ===========================
         foreach($list_path_name as $key1 => $value){
             if(PE_getpost("PE_view_mode") != "preview"){
                 print("<tr class=\"row" . ($key1 % 2) . "\" align=\"left\" >");
                 if(!empty($PE_config["show_col_num"])) print("<td> " . ($key1 + 1) . "</td>");
-                if(!empty($PE_config["show_col_check"])) print("<td> " . "<input type=\"checkbox\" name=\"PE_file_check[$key1]\" value=\"" . urlencode($list_path_name[$key1]) . "\" />" . "</td>");
+                if(!empty($PE_config["show_col_check"])) print("<td> " . "<input type=\"checkbox\" name=\"PE1_file_check[$key1]\" value=\"" . urlencode($list_path_name[$key1]) . "\" />" . "</td>");
                 if(!empty($PE_config["show_col_name"])) print("<td> " . $list_path_link[$key1] . "</td>");
                 if(!empty($PE_config["show_col_action"])) print("<td> " . $list_path_action[$key1] . "</td>");
                 if(!empty($PE_config["show_col_comment"])) print("<td> " . $list_path_info[$key1] . "</td>");
@@ -5050,7 +5051,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
                     print("<tr align=\"left\" >");
                 }
                 print("<td  height=\"200\" width=\"150\"  class=\"num" . ($key1 % 2) . "\" colspan=\"2\"> " . ($key1 + 1) . "-");
-                if(!empty($PE_config["show_col_check"])) print("  " . "<input type=\"checkbox\" name=\"PE_file_check[$key1]\" value=\"" . urlencode($list_path_name[$key1]) . "\" />" . " ");
+                if(!empty($PE_config["show_col_check"])) print("  " . "<input type=\"checkbox\" name=\"PE1_file_check[$key1]\" value=\"" . urlencode($list_path_name[$key1]) . "\" />" . " ");
                 if(!empty($PE_config["show_col_name"])) print("" . $list_path_link[$key1] . "<br />");
                 $mime_type = PE_mime_type($list_path_type[$key1]);
 
@@ -5063,7 +5064,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
                 }
 
                 if($mime_type["editor"] == "text"){
-                    $f = fopen($PE_thevar["current_stream"] . $list_path_name[$key1], "r");
+                    $f = fopen($PE_thevar["PE_current_stream"] . $list_path_name[$key1], "r");
                     $f_text = fread($f, 120);
                     print("<p class=\"num0\" >" . nl2br(wordwrap($f_text, 15)) . "</p>");
                     fclose($f);
@@ -5100,7 +5101,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
 
             ?> </b>
 
-         <select name="PE_action_check">
+         <select name="PE1_action_check">
 <optgroup label="   -   ">
          <option value="copy_all"><?php print(PE_translate("copy_all"));?></option>
          <option value="cut_all"><?php print(PE_translate("cut_all"));?></option>
@@ -5128,12 +5129,12 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
  <td align="right"> - <td>
 <?php
             print("</td><td>" . PE_form($PE_config, PE_translate("go_home"), "hidden", "PE_the_file", "." . PE_path_separator(), "hidden", "PE_select_action", "list", "", "", ""));
-            print("</td><td>" . PE_form($PE_config, PE_translate("shell"), "hidden", "PE_the_file", $PE_config["current_dir"], "hidden", "PE_select_action", "only_shell", "", "", ""));
-            print("</td><td>" . PE_form($PE_config, PE_translate("replace"), "hidden", "PE_the_file", $PE_config["current_dir"], "hidden", "PE_select_action", "only_replace", "", "", ""));
-            print("</td><td>" . PE_form($PE_config, PE_translate("extend_command"), "hidden", "PE_the_file", $PE_config["current_dir"], "hidden", "PE_select_action", "cmd_shell", "", "", ""));
-            print("</td><td>" . PE_form($PE_config, PE_translate("upload"), "hidden", "PE_the_file", $PE_config["current_dir"], "hidden", "PE_select_action", "cmd_upload", "", "", ""));
-            print("</td><td>" . PE_form($PE_config, PE_translate("command1"), "hidden", "PE_the_file", $PE_config["current_dir"], "hidden", "PE_select_action", "cmd_1", "", "", ""));
-            print("</td><td>" . PE_form($PE_config, PE_translate("command2"), "hidden", "PE_the_file", $PE_config["current_dir"], "hidden", "PE_select_action", "cmd_2", "", "", ""));
+            print("</td><td>" . PE_form($PE_config, PE_translate("shell"), "hidden", "PE_the_file", $PE_config["PE_current_dir"], "hidden", "PE_select_action", "only_shell", "", "", ""));
+            print("</td><td>" . PE_form($PE_config, PE_translate("replace"), "hidden", "PE_the_file", $PE_config["PE_current_dir"], "hidden", "PE_select_action", "only_replace", "", "", ""));
+            print("</td><td>" . PE_form($PE_config, PE_translate("extend_command"), "hidden", "PE_the_file", $PE_config["PE_current_dir"], "hidden", "PE_select_action", "cmd_shell", "", "", ""));
+            print("</td><td>" . PE_form($PE_config, PE_translate("upload"), "hidden", "PE_the_file", $PE_config["PE_current_dir"], "hidden", "PE_select_action", "cmd_upload", "", "", ""));
+            print("</td><td>" . PE_form($PE_config, PE_translate("command1"), "hidden", "PE_the_file", $PE_config["PE_current_dir"], "hidden", "PE_select_action", "cmd_1", "", "", ""));
+            print("</td><td>" . PE_form($PE_config, PE_translate("command2"), "hidden", "PE_the_file", $PE_config["PE_current_dir"], "hidden", "PE_select_action", "cmd_2", "", "", ""));
             print("</td></tr>");
             print("</table>");
         }
@@ -5161,15 +5162,15 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
                 <table class="num2"   width="100%">
                 <tr><td align="left">
                 <?php
-                $array_file = split("<br />", highlight_file($PE_thevar["current_stream"] . $PE_thevar["the_file"], true));
+                $array_file = split("<br />", highlight_file($PE_thevar["PE_current_stream"] . $PE_thevar["the_file"], true));
                 foreach($array_file as $key => $val){
                     print("<br />/*" . ($key + 1) . "*/  " . $val);
                 }
 
             ?>
                     </td></tr></table>
-                    
-                    
+
+
          <form method="post" action="<?php print($_SERVER["PHP_SELF"]);
 
             ?>" >
@@ -5177,7 +5178,7 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
 
             ?>
 
- <fieldset class="bubble"><legend><?php print($PE_thevar["current_file"]);?></legend>
+ <fieldset class="bubble"><legend><?php print($PE_thevar["PE_current_file"]);?></legend>
         <table class="num0"   width="100%">
          <tr><td align="center">
 
@@ -5185,12 +5186,12 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
          </textarea>
          <br />
          <input type="hidden" name="PE_select_action" value="save" />
-        <?php PE_stream_select($PE_config, $PE_thevar);?> 
+        <?php PE_stream_select($PE_config, $PE_thevar);?>
 
          <input type="submit" value="<?php print(PE_translate("save_to_file"));
 
             ?>" />:
-         <input type="text" name="PE_the_file" value="<?php print($PE_thevar["current_file"]);
+         <input type="text" name="PE_the_file" value="<?php print($PE_thevar["PE_current_file"]);
 
             ?>" />
          </td>
@@ -5199,15 +5200,15 @@ function PE_dir_list($PE_config, $PE_thevar, $PE_language = array())
         </fieldset>
         </form>
 
-                    
+
             <?php
-        
+
         }
-    
-    
-    
-    
-    
+
+
+
+
+
     return $PE_config;
 }
 /**
@@ -5405,11 +5406,11 @@ var js_message2 = '<?php print(PE_translate("js_message2"));?>';
  function PE_confirm(act, js_message1, js_message2){
     return(confirm(js_message1 + act + js_message2));
  }
- 
- 
- 
- 
- 
+
+
+
+
+
 /* BEGIN SCRIPT*/
 function PE_hide(elt_id){
 try{
@@ -5432,9 +5433,9 @@ document.getElementById(elt_id).style.display = "block";
 return(false);
 }
 /* END SCRIPT */
- 
- 
- 
+
+
+
  /* BEGIN SCRIPT*/
 function PE_hide_group_value(elt_id, val, id_true, id_false){
 select_val = document.getElementById(elt_id).options[document.getElementById(elt_id).selectedIndex].value;
@@ -5467,10 +5468,10 @@ return(false);
 }
 /* END SCRIPT */
 
- 
+
 /* BEGIN SCRIPT*/
 function PE_check_hide(check_id, elt_id, action_type){
-	
+
 var to_do=(document.getElementById(check_id).checked==1);
 
 if(action_type=="inverse") to_do=!(to_do);
@@ -5481,13 +5482,13 @@ if(to_do){
 }else{
 	hide(elt_id);
 	}
-	
-	
+
+
 	return(false);
 }
 /* END SCRIPT */
- 
- 
+
+
 </script>
  <?php
     return $PE_config;
@@ -5566,7 +5567,7 @@ function PE_header_body($PE_config, $PE_thevar, $PE_language = array())
  table.num2 {color:#000000; background-color: #EEEEEE;}
  table.num3 {color:#000000; background-color: #DEDEDE;}
  table.num4 {color:#000000; background-color: #EFEFEF;}
- 
+
  p.num0 {color:#000000; border: solid #555555 1px; background-color: #FFFFFF;}
  input,textarea, select {font: normal 12x Verdana, Arial, Helvetica, sans-serif;}
  </style>
@@ -5663,18 +5664,18 @@ function PE_header_extra($PE_config, $PE_thevar, $PE_language = array())
             exit;
             break;
         case "file_select":
-            switch (PE_getpost('PE_action_check')){
+            switch (PE_getpost('PE1_action_check')){
                 case "zip_all":
-                    PE_get_files($PE_config, $PE_thevar, $_POST["PE_file_check"] , "files_folders", "zip");
+                    PE_get_files($PE_config, $PE_thevar, $_POST["PE1_file_check"] , "files_folders", "zip");
                     break;
                 case "gzip_all":
-                    PE_get_files($PE_config, $PE_thevar, $_POST["PE_file_check"] , "files_folders", "gz");
+                    PE_get_files($PE_config, $PE_thevar, $_POST["PE1_file_check"] , "files_folders", "gz");
                     break;
                 case "bz2_all":
-                    PE_get_files($PE_config, $PE_thevar, $_POST["PE_file_check"] , "files_folders", "bz2");
+                    PE_get_files($PE_config, $PE_thevar, $_POST["PE1_file_check"] , "files_folders", "bz2");
                     break;
                 case "download_all":
-                    PE_get_files($PE_config, $PE_thevar, $_POST["PE_file_check"] , "files_folders", "zip");
+                    PE_get_files($PE_config, $PE_thevar, $_POST["PE1_file_check"] , "files_folders", "zip");
                     break;
                 default:
                     break;
@@ -5723,12 +5724,12 @@ class phpexplorator {
     * phpexplorator::phpexplorator()
     * Constructor of the class, load some default var value
     */
-//00000000000000000000000000 
+//00000000000000000000000000
 function __construct() // --constructor--
 {
    return $this->phpexplorator();
 }
-//00000000000000000000000000 
+//00000000000000000000000000
     function phpexplorator()
     {
         $this->config = $this->load_other_config();
@@ -6219,7 +6220,7 @@ function __construct() // --constructor--
     {
         return PE_replace($this->config, $this->the_var, $this->language);
     }
-    
+
     /**
     * email()
     * Simplely call the function PE_email() and return his value.
@@ -6230,7 +6231,7 @@ function __construct() // --constructor--
     {
         return PE_email($this->config, $this->the_var, $this->language);
     }
-    
+
     /**
     * mysql()
     * Simplely call the function PE_mysql() and return his value.
@@ -6241,7 +6242,7 @@ function __construct() // --constructor--
     {
         return PE_mysql($this->config, $this->the_var, $this->language);
     }
-    
+
     /**
     * shell()
     * Simplely call the function PE_shell() and return his value.
@@ -6252,16 +6253,16 @@ function __construct() // --constructor--
     {
         return PE_shell($this->config, $this->the_var, $this->language);
     }
-    
-    
-    
+
+
+
     /**
     * title()
     * Simplely call the function PE_title()
     *
     * @return
     */
-   
+
     function title()
     {
         return PE_title($this->config, $this->language);
@@ -6274,7 +6275,7 @@ function __construct() // --constructor--
     */
     function load_stream()
     {
-        return PE_load_stream($this->config, $_SESSION["current_stream"]);
+        return PE_load_stream($this->config, $_SESSION["PE_current_stream"]);
     }
     /**
     * zipfiles()
@@ -6295,14 +6296,14 @@ function __construct() // --constructor--
     *
     * @return
     */
-    
-	    
+
+
     /**
     *
     * @return
     */
 	function get_config($param="")
-	{ 
+	{
 		return $this->config[$param];
 	} // function to get the config  value of the key ($param).
     /**
@@ -6310,7 +6311,7 @@ function __construct() // --constructor--
     * @return
     */
 	function get_the_var($param="")
-	{ 
+	{
 		return $this->the_var[$param];
 	} // function to get the the_var  value of the key ($param).
     /**
@@ -6318,7 +6319,7 @@ function __construct() // --constructor--
     * @return
     */
 	function get_mce_conf()
-	{ 
+	{
 		return $this->mce_conf;
 	} // function to get the mce_conf  value .
     /**
@@ -6326,18 +6327,18 @@ function __construct() // --constructor--
     * @return
     */
 	function get_language($param="")
-	{ 
+	{
 		return $this->language[$param];
 	} // function to get the language  value of the key ($param).
-	
-	
-	
+
+
+
     /**
     *
     * @return
     */
 	function set_config($param, $value="")
-	{ 
+	{
 		return ($this->config[$param] = $value);
 	} // function to set $this->config[$param] with the value ($value).
     /**
@@ -6345,7 +6346,7 @@ function __construct() // --constructor--
     * @return
     */
 	function set_the_var($param, $value="")
-	{ 
+	{
 		return ($this->the_var[$param] = $value);
 	} // function to set $this->the_var[$param] with the value ($value).
     /**
@@ -6353,7 +6354,7 @@ function __construct() // --constructor--
     * @return
     */
 	function set_mce_conf($value="")
-	{ 
+	{
 		return ($this->mce_conf=$value);
 	} // function to set $this->mce_conf with the value ($value).
     /**
@@ -6361,21 +6362,21 @@ function __construct() // --constructor--
     * @return
     */
 	function set_language($param, $value="")
-	{ 
+	{
 		return ($this->language[$param] = $value);
 	} // function to set $this->language[$param] with the value ($value).
-	    
+
 
     function show()
     {
-    
+
         if($this->config["self_header"]){
             $this->img_by_text($this->getpost("PE_imgtext"));
             $this->img_by_path($this->getpost("PE_imgpath"));
         }
 
 
-            
+
         if($this->login()){
             $this->language = $this->load_lang($this->config);
             $this->config = $this->load_stream();
@@ -6412,14 +6413,14 @@ function __construct() // --constructor--
 }
 
 
-// 
+//
 //  _  _   __   __  __ _
 // ( \/ ) / _\ (  )(  ( \
 // / \/ \/    \ )( /    /
 // \_)(_/\_/\_/(__)\_)__)
-// 
+//
 //  Main phpexplorator
-// 
+//
 
 // set_magic_quotes_runtime(0);
 // $p1 = new phpexplorator();

@@ -28,9 +28,6 @@ func_message.php,Ver 3.0  2011-Nov-Wed 22:18:53
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // function module_message($cmr_config = array(), $conn, $module = "", $user = "", $group = "")
 // function user_message($cmr_config = array(), $conn, $user = "", $group = "")

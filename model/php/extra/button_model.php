@@ -10,9 +10,9 @@
 //  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL
 // Copyright (c) 2006, Tchouamou Eric Herve <tchouamou@gmail.com>
 // All rights reserved.
-// 
-// 
-// lang_@_table_@.php,v 1.5 _date_time_@  
+//
+//
+// lang_@_table_@.php,v 1.5 _date_time_@
 /*--dont change this line, need for security reason-- */ $str_conf = "
 
 //this is the default language configuration file ./language.php
@@ -44,21 +44,21 @@
  //!!!!!!!!!!!!!!!!!!!! button_@_table_@.php !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-£_button_£ @_table_@ ££_button_££
+%_button_% @_table_@ %%_button_%%
 
-£_button_£ New_@_table_@ ££_button_££
+%_button_% New_@_table_@ %%_button_%%
 
-£_button_£ Update_@_table_@ ££_button_££
+%_button_% Update_@_table_@ %%_button_%%
 
-£_button_£ Search_@_table_@ ££_button_££
+%_button_% Search_@_table_@ %%_button_%%
 
-£_button_£ Delete_@_table_@ ££_button_££
+%_button_% Delete_@_table_@ %%_button_%%
 
-£_button_£ Report_@_table_@ ££_button_££
+%_button_% Report_@_table_@ %%_button_%%
 
-£_button_£ View_@_table_@ ££_button_££
+%_button_% View_@_table_@ %%_button_%%
 
-£_button_£ Preview_@_table_@ ££_button_££
+%_button_% Preview_@_table_@ %%_button_%%
 
 
 

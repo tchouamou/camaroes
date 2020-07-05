@@ -34,10 +34,6 @@ function_output.php,Ver 3.0  2011-Nov-Wed 22:19:05
 
 
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/../control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-/*=================================================================*/
 /*=================================================================*/
 /**
 * cmr_print_token()
@@ -201,6 +197,18 @@ function cmr_win_die($comment){
 }
 }
 // ======================================================
+// ======================================================
+if(!(function_exists("cmr_win_write"))){
+function cmr_win_write($comment){
+	print("<table border=\"1\"><tr><th>");
+	print("!! EVENT !!");
+	print("</th></tr><tr><td>");
+	print(str_replace("!!? (control session.cache_limiter, session.cache_expire) !,", "", $comment));
+	print("</td></tr></table>");
+  return  true;
+}
+}
+// ======================================================
 
 /*=================================================================*/
 if(!(function_exists("cmr_get_data_event"))){
@@ -228,8 +236,8 @@ function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_
 		    case "wrong_ip_account":
 		    case "wrong_account":
 				    //echo "<script language=\"javascript\">alert('" . $msg1 . "');</script>";
-					//cmr_win_die($cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . $cmr_event["data"] . "\" > Here </a>  to login before continue ");
-			    cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
+					cmr_win_die($cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . $cmr_event["data"] . "\" > Here </a>  to login before continue ");
+			    //cmr_header("Location: " .  $_SERVER['PHP_SELF'] . $cmr_event["data"]);
 		    break;
 
 		    case "wrong_account_object":
@@ -255,6 +263,8 @@ function cmr_get_data_event($cmr_config = array(), $cmr_session = array(), $cmr_
 		    case "login_form":
 		    case "logout":
 		    default:
+				//cmr_win_write($cmr_event["comment"]."!, click <a href=\"" .  $_SERVER['PHP_SELF'] . $cmr_event["data"] . "\" > Here </a>  to login ");
+
 		    break;
 		}
 

@@ -133,15 +133,12 @@ class_generators.php, Ver 3.03
 // {@_table[0-9]+_@}
 // {@_rown[0-9]+_@}
 
-// (�_foreach_comment_�)(.*)(��_foreach_comment_��)
-// (�_foreach_db_�)(.*)(��_foreach_db_��)
-// (�_foreach_table_�)(.*)(��_foreach_table_��)
-// (�_foreach_column_�)(.*)(��_foreach_column_��)
-// (�_foreach_rown_�)(.*)(��_foreach_rown_��)
+// (%_foreach_comment_%)(.*)(%%_foreach_comment_%%)
+// (%_foreach_db_%)(.*)(%%_foreach_db_%%)
+// (%_foreach_table_%)(.*)(%%_foreach_table_%%)
+// (%_foreach_column_%)(.*)(%%_foreach_column_%%)
+// (%_foreach_rown_%)(.*)(%%_foreach_rown_%%)
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     /**
@@ -389,7 +386,9 @@ function write_gen_file()
     if($this->write_extension=="png"){
 		$button_data = cmr_get_path("image") . "," . $this->button_dest . "," . $this->button_model . "," . $this->button_color . "," . $this->button_dim;
 // 		$button_data .= "," . $this->button_text_font . "," . $this->button_text_size;
-        preg_replace("/(�_button_�)(.*)(��_button_��)/seU", "gen_image_save('\\2', '$button_data')", $this->models_text);
+        //preg_replace("/(%_button_%)(.*)(%%_button_%%)/seU", "gen_image_save('\\2', '$button_data')", $this->models_text);
+				preg_replace_callback("/(%_button_%)(.*)(%%_button_%%)/sU", function ($m) use ($button_data) {return gen_image_save($m[2],$button_data);}, $this->models_text);
+
         return true;
 	}
 
@@ -661,13 +660,15 @@ function write_gen_file()
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			if(empty($this->dbms_name)) return preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->models_text);
+			if(empty($this->dbms_name))
+			return preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $this->models_text );
+			//return preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->models_text);
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // 			$this->short_table_name=cmr_searchi_replace("^" . $this->prefix, "", $this->table_name);
 	        $this->work_model = $this->models_text;
-	        $temp_str = stristr($this->work_model, "�_foreach_");
+	        $temp_str = stristr($this->work_model, "%_foreach_");
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 //  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -675,32 +676,42 @@ function write_gen_file()
 	        while ($temp_str){
 	            $choose = substr($temp_str, 10, 2);
 	            $temp_str = substr($temp_str, 1);
-	            $temp_str = stristr($temp_str, "�_foreach_");
+	            $temp_str = stristr($temp_str, "%_foreach_");
 	            // $output .= ("<br />--" . $choose . "--<br />");
 	            switch ($choose){
-                case "ct" : $this->work_model = preg_replace("/(�_foreach_comment_�)(.*)(��_foreach_comment_��)/seU", "", $this->work_model);
-                    break;
-                case "db" : $this->work_model = preg_replace("/(�_foreach_db_�)(.*)(��_foreach_db_��)/seU", "eval_db('\\2', '$cmr_prefix', '$form_name')", $this->work_model);
-                    break;
-                case "ta" : $this->work_model = preg_replace("/(�_foreach_table_�)(.*)(��_foreach_table_��)/seU", "eval_table('\\2', '$cmr_prefix', '$db_name',  '$form_name')", $this->work_model);
-                    break;
-                case "co" : $this->work_model = preg_replace("/(�_foreach_column_�)(.*)(��_foreach_column_��)/seU", "eval_column('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
-                    break;
-                case "ro" : $this->work_model = preg_replace("/(�_foreach_rown_�)(.*)(��_foreach_rown_��)/seU", "eval_rowns_in_col('\\2', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
-	                    break;
+													case "ct" :
+													$this->work_model  = preg_replace_callback("/(%_foreach_comment_%)(.*)(%%_foreach_comment_%%)/sU", function ($m) {return "";}, $val);
+													break;
+													case "db" :
+													$this->work_model  = preg_replace_callback("/(%_foreach_db_%)(.*)(%%_foreach_db_%%)/sU", function ($m) use ($cmr_prefix,$form_name) {return eval_db($m[2],$cmr_prefix,$form_name);}, $this->work_model );
+													break;
+													case "ta" :
+													$this->work_model  = preg_replace_callback("/(%_foreach_table_%)(.*)(%%_foreach_table_%%)/sU", function ($m) use ($cmr_prefix,$db_name,$form_name) {return eval_table($m[2],$cmr_prefix,$db_name,$form_name);}, $this->work_model );
+													break;
+													case "co" :
+													$this->work_model  = preg_replace_callback("/(%_foreach_column_%)(.*)(%%_foreach_column_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_column($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $this->work_model );
+													break;
+													case "ro" :
+													$this->work_model  = preg_replace_callback("/(%_foreach_rown_%)(.*)(%%_foreach_rown_%%)/sU", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return eval_rowns_in_col($m[2],$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $this->work_model );
+													break;
 	                default:break;
+
+
 	            }
 	        }
 	        }
 
-	        $this->work_model = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
-        	preg_replace("/(�_button_�)(.*)(��_button_��)/seU", "gen_image_save('\\2', '\\2')", $this->work_model);
-// 			preg_replace("/(�_link_�)(.*)(��_link_��)/seU", "gen_link('\\2', '\\2')", $this->work_model);
+	        //$this->work_model = preg_replace("/(@_)([^@]*)(_@)/e", "replace_gen('@_\\2_@', '$db_name', '$form_name', '$table_name', '$cmr_prefix', '$list_column', '$where', '$limit')", $this->work_model);
+					$this->work_model = preg_replace_callback("/(@_)([^@]*)(_@)/i", function ($m) use ($db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit) {return replace_gen("@_" . $m[2] . "_@",$db_name,$form_name,$table_name,$cmr_prefix,$list_column,$where,$limit);}, $this->work_model);
+        	//preg_replace("/(%_button_%)(.*)(%%_button_%%)/seU", "gen_image_save('\\2', '\\2')", $this->work_model);
+					preg_replace_callback("/(%_button_%)(.*)(%%_button_%%)/sU", function ($m) {return gen_image_save($m[2],$m[2]);}, $this->work_model);
+// 			preg_replace("/(@_link_@)(.*)(@@_link_%%)/seU", "gen_link('\\2', '\\2')", $this->work_model);
 	        // ========== correction ====================
 	        $this->work_model = $this->gen_correction();
 	        // ========== language ====================
 	        if((!empty($this->config["cmr_generate_defaul_lang"])) && cmr_searchi("^lang_", $this->form_name))
-	        $this->work_model = preg_replace("/([a-zA-Z][^ ]+)=([^\n]*)\n/eisU", "eval_lang('\\1', '\\2', '$language')", $this->work_model);
+					$this->work_model = preg_replace_callback("/([a-zA-Z][^ ]+)=([^\n]*)\n/isU", function ($m) use ($language) {return eval_lang($m[1], $m[2],$language);}, $this->work_model);
+	        //$this->work_model = preg_replace("/([a-zA-Z][^ ]+)=([^\n]*)\n/eisU", "eval_lang('\\1', '\\2', '$language')", $this->work_model);
 	        // ==========================================
 	        // $output .= ("<br />******<br />".htmlentities($this->work_model)."<br />--<br />");
 	        if(empty($this->work_model)) return $this->models_text;

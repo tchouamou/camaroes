@@ -19,10 +19,6 @@ All rights reserved.
 
 func_database.php, Ver 3.03
 */
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once(dirname(__FILE__) . "/../control.php"); //to control access in the module
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // function cmr_query_log($cmr_config = array(), $c = null, $type = "")
 // function calcul_tree_group($cmr_config, $conn, $str_list)
 // function list_choose($cmr_query = array(), $cmr_label = array(), $conn)
@@ -1224,10 +1220,11 @@ if(!(function_exists("run_install_query"))){
     {
     $total = 0;
     $install_prints = "";
+
+if($conn)
     foreach($sql_query_array as $sql_query){
-        if($sql_query){
-		if($conn)
-		$result_query = sql_run("result", $conn, "", $sql_query . ";");
+    if($sql_query){
+		$result_query = sql_run("result", $conn, "", $sql_query . ";") or $install_prints .= ("<li><b><p>!!! " . $conn->error . " !!!?</p></b><li>");;
 //             $result_query = $conn->Execute($sql_query . ";")  or $install_prints .= ("<li><b><p>!!! " . $conn->ErrorMsg() . " !!!?</p></b><li>");
             if(!($result_query)) $install_prints .= ("<li class=\"alert\">" . $sql_query . ";</li>");
             if($result_query) $total += $result_query->num_rows;/*, $db_con)*/
@@ -2342,12 +2339,13 @@ if(!function_exists("get_all_columns")){
 if(!function_exists("get_array_columns")){
     function get_array_columns($cmr_prefix, $table_name, $list_column = "")
     {
+      //print_r($GLOBALS["dbms_host"]);exit;
 		$array_columns = array();
         $short_table_name = cmr_searchi_replace("^" . $cmr_prefix, "", $table_name);
         // ======database connection==============
         //$conn = NewADOConnection($GLOBALS["dbms_type"]);
         //$conn->Connect($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
-        $conn = mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
+        $conn = new mysqli($GLOBALS["dbms_host"], $GLOBALS["dbms_user"], $GLOBALS["dbms_pw"], $GLOBALS["dbms_name"]);
         // =======================================
 	 if($conn) //$conn->SetFetchMode(ADODB_FETCH_ASSOC);
 		if($conn)

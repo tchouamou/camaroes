@@ -44,31 +44,31 @@
  //!!!!!!!!!!!!!!!!!!!! button_@_table_@.php !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
-£_button_£ @_table_@ ££_button_££
+%_button_% @_table_@ %%_button_%%
 
-£_button_£ New_@_table_@ ££_button_££
+%_button_% New_@_table_@ %%_button_%%
 
-£_button_£ Update_@_table_@ ££_button_££
+%_button_% Update_@_table_@ %%_button_%%
 
-£_button_£ Search_@_table_@ ££_button_££
+%_button_% Search_@_table_@ %%_button_%%
 
-£_button_£ Delete_@_table_@ ££_button_££
+%_button_% Delete_@_table_@ %%_button_%%
 
-£_button_£ Report_@_table_@ ££_button_££
+%_button_% Report_@_table_@ %%_button_%%
 
-£_button_£ Import_@_table_@ ££_button_££
+%_button_% Import_@_table_@ %%_button_%%
 
-£_button_£ Export_@_table_@ ££_button_££
+%_button_% Export_@_table_@ %%_button_%%
 
-£_button_£ Config_@_table_@ ££_button_££
+%_button_% Config_@_table_@ %%_button_%%
 
-£_button_£ View_@_table_@ ££_button_££
+%_button_% View_@_table_@ %%_button_%%
 
-£_button_£ View_all_@_table_@ ££_button_££
+%_button_% View_all_@_table_@ %%_button_%%
 
-£_button_£ View_info_@_table_@ ££_button_££
+%_button_% View_info_@_table_@ %%_button_%%
 
-£_button_£ Preview_@_table_@ ££_button_££
+%_button_% Preview_@_table_@ %%_button_%%
 
 
 

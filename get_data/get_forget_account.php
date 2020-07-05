@@ -38,7 +38,7 @@ All rights reserved.
 
 
 
-get_forget_account.php,Ver 3.0  2011-Sep 17:42:03  
+get_forget_account.php,Ver 3.0  2011-Sep 17:42:03
 */
 
 /**
@@ -69,8 +69,8 @@ include_once("common_begin.php");
         $cmr->db_connection = $cmr->db_connection;
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     // -----------
-    $email1 = get_post("email1"); 
-    $email2 = get_post("email2"); 
+    $email1 = get_post("email1");
+    $email2 = get_post("email2");
     // -----------
     if($email1 != $email2){
         $cmr->prints["match_title2"] .= "<hr />" . $cmr->translate("Insert the same email") . "!!" . $cmr->translate("o contattare ") . " " . $cmr->get_conf("cmr_company_name");
@@ -81,7 +81,7 @@ include_once("common_begin.php");
     // -----------
     // -----------
     $sql_f = "SELECT uid , pw FROM " . $cmr->get_conf("cmr_table_prefix") . "user WHERE email = '" . cmr_escape($email1) . "'  ;";
-    $result_f = &$cmr->db_connection->query($sql_f, $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
+    $result_f = $cmr->db_connection->query($sql_f, $cmr->db_connection) or print($cmr->db_connection->error);
     // -----------
     if(!($vf = $result_f->FetchRow())){
         $cmr->prints["match_title2"] .= "<hr />" . $cmr->translate("Email unknown contact") . " " . $cmr->get_conf("cmr_company_name");
@@ -89,7 +89,7 @@ include_once("common_begin.php");
         $cmr->prints["match_title2"] .= "<br />   <br />";
         $cmr->prints["match_title2"] .= "" . $cmr->translate("or to request an demo account") . "";
         $cmr->prints["match_title2"] .= "<br /><hr />";
-    }else{	
+    }else{
         // -----------
         $cmr->connect();
         $new_pw = substr(md5(strval(rand()) . date('h-i-s, j-m-y, it is w Day z ')), 2, 6);
@@ -100,11 +100,11 @@ include_once("common_begin.php");
         $query .= " WHERE (" . $cmr->get_conf("cmr_table_prefix") . "user.email='" . cmr_escape($email1) . "') ";
 
                 // -----------
-        $sql_tmp = &$cmr->db_connection->query($query, $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
+        $sql_tmp = $cmr->db_connection->query($query, $cmr->db_connection) or print($cmr->db_connection->error);
         // -----------
         $cmr->email["recipient"] = $email1;
         $cmr->email["subject"] = "" . $cmr->translate("user information sended") . "";
-        
+
         $cmr->email["message"] = "" . $cmr->translate("") . "Su . \n\r" . $cmr->translate("It will be possible to change it after the login") . ".\n\r\n\r ";
         $cmr->email["message"] .= "User id :" . ($vf[0]) . ";\n\r";
         $cmr->email["message"] .= "password :" . $new_pw . ";\n\r";
@@ -119,7 +119,7 @@ include_once("common_begin.php");
         // ================================================
 // 			$file_list = array();
 // 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/notify_forget_account" . $cmr->get_ext("notify");
-// 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_forget_account" . $cmr->get_ext("notify"); 
+// 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_forget_account" . $cmr->get_ext("notify");
 // 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/notify_forget_account" . $cmr->get_ext("notify");
 // 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/auto/notify_forget_account" . $cmr->get_ext("notify");
 // 			$templates_notify=cmr_good_file($file_list);
@@ -152,7 +152,7 @@ include_once("common_begin.php");
         // ----------------------------
         $cmr->email["recipient"] = "" . $cmr->config["cmr_from_email"] . "";
         $cmr->email["subject"] = "" . $cmr->translate("uid and password sended to you") . "";
-        
+
         $cmr->email["message"] = "" . $cmr->translate("Like requested uid and new password  was sended to user ") . " :\n\nemail  : $email1 \n";
         $cmr->email["message"] .= "\n " . $cmr->translate("thanks") . "  \n";
         $cmr->email["message"] .= "--\r\n"; // dlimiteur de signature
@@ -168,7 +168,7 @@ include_once("common_begin.php");
         // ================================================
 // 			$file_list = array();
 // 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/notify_forget_account" . $cmr->get_ext("notify");
-// 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_forget_account" . $cmr->get_ext("notify"); 
+// 			$file_list[] = $cmr->get_path("notify") . "templates/notify/" . $cmr->get_page("language") . "/auto/notify_forget_account" . $cmr->get_ext("notify");
 // 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/notify_forget_account" . $cmr->get_ext("notify");
 // 			$file_list[] = $cmr->get_path("notify")  ."templates/notify/auto/notify_forget_account" . $cmr->get_ext("notify");
 // 			$templates_notify=cmr_good_file($file_list);

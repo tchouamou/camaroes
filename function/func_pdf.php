@@ -38,12 +38,8 @@ All rights reserved.
 
 
 
-func_pdf.php,Ver 3.0  2011-Sep 22:32:38  
+func_pdf.php,Ver 3.0  2011-Sep 22:32:38
 */
-
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // ----------------------
@@ -72,7 +68,7 @@ function CleanFiles($dir)
 if(!(function_exists("getpdf"))){
 function getpdf($f)
 {
- 
+
 // $f=$HTTP_GET_VARS['f'];
 if(substr($f,0,3)!='tmp' or strpos($f,'/') or strpos($f,'\\'))
     die('Incorrect file name');
@@ -95,7 +91,7 @@ readfile($f);
 //Cancella il file
 unlink($f);
 CleanFiles(dirname($f));
-exit; 
+exit;
 }
 }
 // ----------------------

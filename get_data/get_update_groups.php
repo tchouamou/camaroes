@@ -7,39 +7,39 @@ defined("cmr_online") or die("hacking attempt, application is not online, click 
  * copyright   : Camaroes Ver 3.03 (C) 2004-2011 T.E.H
  * www     : http://sourceforge.net/projects/camaroes/
  *
- **************************************************************************/ 
+ **************************************************************************/
 /*  @license http://www.gnu.org/copyleft/gpl.html GNU/GPL */
 /*
 Copyright (c) 2011, Tchouamou Eric Herve  <tchouamou@gmail.com>
 All rights reserved.
 
- 
- 
 
 
- 
-
- 
- 
-
- 
 
 
- 
- 
- 
- 
- 
- 
- 
- 
- 
 
 
- 
 
 
-get_update_groups.php,Ver 3.0  2011-Sep-Fri 21:50:26  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+get_update_groups.php,Ver 3.0  2011-Sep-Fri 21:50:26
 */
 
 
@@ -174,7 +174,7 @@ if($post->type > $cmr->user["authorisation"]) $post->type = $cmr->user["authoris
 Creating the appropriate SQL string for  update in_group
 */
 // $cmr->query[0] = $post->query_update($post->id);
-// name = '" . cmr_escape($group_name) . "',  
+// name = '" . cmr_escape($group_name) . "',
 // ----------------------------
 // $cmr_accept=cmr_where_query($cmr->get_conf("cmr_table_prefix") . "groups", $cmr->user["auth_email"], $cmr->user["auth_group"], $cmr->user["auth_type"], $cmr->user["auth_list_group"], $cmr->db_connection);
 $cmr->action["table_name"] = "groups";
@@ -251,7 +251,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "user_grou
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND user_email NOT IN (" . $user_email_set . ") ";
 $query_delete .= " AND group_name = '" . cmr_escape($group_name) . "';";
-$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = $cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "user_groups", $cmr_accept);
@@ -266,7 +266,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "father_gr
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND group_child NOT IN (" . $group_child_set . ") ";
 $query_delete .= " AND group_father = '" . cmr_escape($group_name) . "';";
-$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = $cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "father_groups", $cmr_accept);
@@ -281,7 +281,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "father_gr
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND group_father NOT IN (" . $group_father_set . ") ";
 $query_delete .= " AND group_child = '" . cmr_escape($group_name) . "';";
-$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$sql_delete = $cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "father_groups", $cmr_accept);
@@ -360,10 +360,10 @@ $cmr_accept = $cmr->where_query();
 $array_column = array();
 // ----------------------------
 // ----------------------------
-//     group_name ='" . cmr_escape($group_name) . "',   
-// $cmr->query[] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "user_groups SET    
-// state = '" . cmr_escape($post->state) . "', 
-// date_time = NOW() 
+//     group_name ='" . cmr_escape($group_name) . "',
+// $cmr->query[] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "user_groups SET
+// state = '" . cmr_escape($post->state) . "',
+// date_time = NOW()
 // WHERE " . $cmr_accept . " and group_name = '" . cmr_escape($group_name) . "';";
 $array_column["state"] = $post->state;
 $array_column["date_time"] = date("Y-m-d h:i:s");
@@ -382,10 +382,10 @@ $cmr_accept = $cmr->where_query();
 $array_column = array();
 // ----------------------------
 // ----------------------------
-//     group_father ='" . cmr_escape($group_name) . "',   
-// $cmr->query[] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "father_groups SET    
-// state = '" . cmr_escape($post->state) . "', 
-// date_time = NOW() 
+//     group_father ='" . cmr_escape($group_name) . "',
+// $cmr->query[] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "father_groups SET
+// state = '" . cmr_escape($post->state) . "',
+// date_time = NOW()
 // WHERE " . $cmr_accept . " and group_father = '" . cmr_escape($group_name) . "';";
 //----------------------------
 $array_column["state"] = $post->state;
@@ -397,10 +397,10 @@ $array_id["value"] = $group_name;
 $cmr->query[] = cmr_query_update($array_column, $array_id, "", $cmr->get_conf("cmr_table_prefix") ."father_groups", $cmr_accept);
 // ===========
 // ===========
-//     group_child ='" . cmr_escape($group_name) . "',   
-// $cmr->query[] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "father_groups SET    
-// state = '" . cmr_escape($post->state) . "', 
-// date_time = NOW() 
+//     group_child ='" . cmr_escape($group_name) . "',
+// $cmr->query[] = "UPDATE " . $cmr->get_conf("cmr_table_prefix") . "father_groups SET
+// state = '" . cmr_escape($post->state) . "',
+// date_time = NOW()
 // WHERE " . $cmr_accept . " and group_child = '" . cmr_escape($group_name) . "';";
 
 
@@ -442,10 +442,10 @@ $cmr->email["message"] .= "\n" . $cmr->translate("comment: ") . $post->comment;
 //  $cmr->email["message"] .= "\n" . $cmr->translate("date_time: ") . $date_time . "\n";
 $cmr->email["message"] .= "\n" . $cmr->translate("thanks") . "  --\n";
 $cmr->email["message"] .= "\n" . $cmr->get_user("auth_sign") . "\n";
- 
- 
+
+
 /*
-Creating the appropriate Message to be view for confirmation 
+Creating the appropriate Message to be view for confirmation
 */
 $cmr->output[0]="<p><b>" . $cmr->translate("group") . "</b>  ".$cmr->translate("update_success")."  </b><br />";
 $cmr->output[0] .= "<b>" . $cmr->translate("name")  . " :</b>" . $group_name . "<br />";

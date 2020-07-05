@@ -33,11 +33,6 @@ class_imap.php,  2011-Oct
  * @open _windows Class use to make module windows
  * @code_link() function  who take in input a module name and create and html link to this module
  */
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-/*$need_type= $this->config["cmr_guest_type"];*/
-include_once($cmr->get_path("index") . "control.php"); //to control access in the module
-// !!!!!!!!!!!Security and authorisation!!!!!!!!!!!!!!!
-
 
 if(!(class_exists("class_imap")))
 if(function_exists("imap_open")){

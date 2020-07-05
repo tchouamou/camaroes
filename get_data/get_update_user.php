@@ -225,7 +225,7 @@ $query_delete = "DELETE FROM " . $cmr->get_conf("cmr_table_prefix") . "user_grou
 $query_delete .= " WHERE " . $cmr_accept;
 $query_delete .= " AND group_name NOT IN (" . $group_name_set . ") ";
 $query_delete .= " AND user_email = '" . cmr_escape($user_email) . "';";
-$sql_delete = &$cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
+$sql_delete = $cmr->db_connection->query($query_delete) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 }
 // ===========
 // $query_delete = cmr_query_delete($array_id, "", $cmr->get_conf("cmr_table_prefix") . "user_groups", $cmr_accept);

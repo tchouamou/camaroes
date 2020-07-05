@@ -24,7 +24,7 @@ All rights reserved.
 
 
 
-function_language.php,Ver 3.0  2011-Nov-Wed 22:19:05  
+function_language.php,Ver 3.0  2011-Nov-Wed 22:19:05
 */
 
 // function remote_tranlator($word_list, $from_language, $to_language){
@@ -34,7 +34,6 @@ function_language.php,Ver 3.0  2011-Nov-Wed 22:19:05
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /*=================================================================*/
 /*=================================================================*/
@@ -57,17 +56,18 @@ function cmr_global_translate($text, $next = "", $from_language = "english", $to
 if(!(function_exists("cmr_translate"))){
 function cmr_translate($text, $from_language = "english", $to_language = "", $cmr_language=array())
     {
-	    if(empty($cmr_language)) $cmr_language = cmr_get_language();
-	    if(empty($to_language)) $to_language = "italian";
+	    if(!($cmr_language)) $cmr_language = cmr_get_language();
+	    if(!($to_language)) $to_language = "italian";
 	    if((cmr_get_page("language"))) $to_language = cmr_get_page("language");
 		$cut_text = str_replace(" ", "_", strtolower(trim(substr($text,0,25))));
 	 	if(isset($cmr_language[$cut_text])) $r_text = $cmr_language[$cut_text];
-	 	
-	 	if(empty($r_text)) return $text;
-	 	
+
+	 	//if(empty($r_text)) return $text;
+
 	 	if(empty($r_text)){
-			    $r_text = preg_replace("/([a-z]+)([^a-z])/siU", "cmr_global_translate('\\1','\\2','$from_language','$to_language')", str_replace("_", " ", $text) . " ");
-		    }else{
+      //$r_text = preg_replace("/([a-z]+)([^a-z])/siU", "cmr_global_translate('\\1','\\2','$from_language','$to_language')", str_replace("_", " ", $text) . " ");
+      $r_text = preg_replace_callback("/([a-z]+)([^a-z])/siU", function ($m) use ($from_language,$to_language) {return cmr_global_translate($m[1],$m[2],$from_language, $to_language);}, (str_replace("_", " ", $text) . " "));
+	  }else{
 // 			    	 	echo "[" . str_replace(" ", "_", strtolower(trim(substr($text,0,25)))) . "]=[$r_text]";
 			    }
    return $r_text;
@@ -112,8 +112,8 @@ function auto_language($cmr_config = array(), $cmr_language = array(), $cmr_db_c
             }
             closedir($dir);
         }
-        
-        
+
+
         if($dir = @ opendir(cmr_get_path("module") . "modules/auto/")){
             while ($file = readdir($dir)){
                 $file_name = strtolower(substr($file, 0, strrpos($file, ".")));

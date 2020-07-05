@@ -38,7 +38,7 @@ All rights reserved.
 
 
 
-image.php, Ver 3.03 
+image.php, Ver 3.03
 */
 
 /**
@@ -52,11 +52,10 @@ image.php, Ver 3.03
  */
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-include_once($cmr->get_path("index") . "control.php"); //to control access 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ----------------------
-include_once($cmr->get_path("func") . "function/func_image.php");
+include_once(dirname(__FILE__) . "/../../function/func_image.php");
 // ----------------------
 /**
 * @param mixed $cmr_var
@@ -83,7 +82,7 @@ function get_post($cmr_var = "")
 /**
 *
 * Main image
-* 
+*
 */
 $imgtext= get_post("cmr_imgtext");
 $imgpath= get_post("cmr_imgpath");
@@ -91,25 +90,25 @@ $imgpath= get_post("cmr_imgpath");
 if(!empty($imgtext)){
 	cmr_img_by_text($imgtext);
 	};
-	
-	
+
+
 if(!empty($imgpath)){
 	cmr_img_by_path($imgpath);
 	};
-	
+
 // $image_text= get_post("image_text");
 // if(!empty($image_text)){
-// echo "<img src=\"image.php?cmr_imgpath=0&image_text=salut\" alt=\"ciao\" />";           
+// echo "<img src=\"image.php?cmr_imgpath=0&image_text=salut\" alt=\"ciao\" />";
 // 	};
 /**
 *
 *
 */
-            
-            
-            
-            
-            
+
+
+
+
+
 // // Antispam example using a random string
 // include_once "jpgraph/src/jpgraph_antispam.php";
 

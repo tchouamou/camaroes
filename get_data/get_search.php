@@ -93,7 +93,7 @@ if(($cmr->post_var["sql_table"] != "all") && (!cmr_search(",", $cmr->post_var["s
 		$cmr->action["action"] = "select";
 		$cmr->action["where"] = cmr_where_query($cmr->config, $cmr->user, $cmr->action, $cmr->db_connection);
 //----------------------------
-        
+
 		$cmr->post_var["sql"] = "SELECT * FROM " . $cmr->post_var["sql_table"];
         $cmr->post_var["sql"] .= " WHERE (( 0 ";
 
@@ -102,8 +102,8 @@ if(($cmr->post_var["sql_table"] != "all") && (!cmr_search(",", $cmr->post_var["s
             $cmr->post_var["sql"] .= ") AND " . $cmr->action["where"].") "; //call_log_group  in ($sg)) ";
         // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     }else{ // --- column equal all----
-    
-    
+
+
 
         // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         $cmr->post_var["sql"] = "SELECT * FROM " . $cmr->post_var["sql_table"];
@@ -120,7 +120,7 @@ if(($cmr->post_var["sql_table"] != "all") && (!cmr_search(",", $cmr->post_var["s
 			// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 			if(empty($cmr->db_connection)) $cmr->db_connection = NewADOConnection($cmr->db["db_type"]);
 			if(!empty($cmr->db["db_name"])){
-				$cmr->db_connection->Connect($cmr->db["db_host"], $cmr->db["db_user"], $cmr->db["db_pw"], $cmr->db["db_name"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+				$cmr->db_connection->Connect($cmr->db["db_host"], $cmr->db["db_user"], $cmr->db["db_pw"], $cmr->db["db_name"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 				if(1){ //(!cmrdb_select_db($cmr->db["db_name"], $cmr->db_connection))
 					// cmrdb_select_db($cmr->get_conf("db_name"), $cmr->db_connection) or print($cmr->db_connection->ErrorMsg());
 				}
@@ -130,7 +130,7 @@ if(($cmr->post_var["sql_table"] != "all") && (!cmr_search(",", $cmr->post_var["s
         $colums = sql_run("array", $cmr->db_connection, "show_columns", "", $cmr->post_var["current_database"], $cmr->post_var["current_table"]);
         }else{
         $colums = sql_run("array", $cmr->db_connection, "show_columns", "", $cmr->get_conf("db_name"), $cmr->post_var["sql_table"]);
-        } 
+        }
 // //----------------------------
 // //----------------------------
 // //----------------------------
@@ -145,12 +145,12 @@ if(($cmr->post_var["sql_table"] != "all") && (!cmr_search(",", $cmr->post_var["s
     }
 }else{ // --table equal all  ----
     // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    if(cmr_search(",", $cmr->post_var["sql_table"])){ 
+    if(cmr_search(",", $cmr->post_var["sql_table"])){
 	    $tables[0] = explode(",", $cmr->post_var["sql_table"]);
     }else{
     	$tables = sql_run("array", $cmr->db_connection, "show_tables", "", $cmr->get_conf("db_name"));
 	}
-	
+
 	if($tables[0])
     foreach($tables[0] as $tab){
 	    $tab = trim($tab);

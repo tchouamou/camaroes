@@ -498,8 +498,7 @@ $cmr->post_var["next_tab"] = "";
     if($cmr->get_conf("cmr_lang_filename"))
     $cmr->language = $cmr->include_conf($cmr->get_path("lang") . "languages/" . $cmr->get_user("auth_lang") . "/" . $cmr->get_conf("cmr_lang_filename"), $cmr->language, "var");
 	if(($cmr->get_session("login_to"))) $cmr->page = cmr_include_conf($cmr->config, $cmr->get_path("tab") . "tab/" . $cmr->post_var["next_tab"] . "/page" . $cmr->get_ext("page"), $cmr->page, "var");
-// include(dirname(__FILE__) . "/system/loader/login_to.php");
-// ======================================================================
+  // ======================================================================
 //cmr_save_session($cmr->config, $cmr->themes, $cmr->page, $cmr->language, $cmr->db, $cmr->imap, $cmr->user, $cmr->group, $cmr->post_var, $cmr->session);
 // ======================================================================
 	$cmr->update_mess(); //Update ripetitive Message
