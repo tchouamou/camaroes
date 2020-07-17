@@ -39,46 +39,47 @@ $cmr->prints["match_module_message"] = "";
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
-	include_once($cmr->get_path("func") . "function/func_database.php");
+    //include_once($cmr->get_path("index") . "adodb/adodb.inc.php");
+    include_once($cmr->get_path("func") . "function/func_database.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ========================Cleaning=======================
-if(($cmr->get_conf("cmr_cleaning_at_logout")))
-if($cmr->db_connection = $cmr->connect()){
-$cmr->db_connection->query("delete from " . $cmr->get_conf("cmr_table_prefix") . "history where ((user_email='".$user_email."') and (type <> 'ticket_close') (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
-$cmr->db_connection->query("delete from " . $cmr->get_conf("cmr_table_prefix") . "session where ((user_email='".$user_email."') and (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
-// ========================Cleaning=======================
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+if (($cmr->get_conf("cmr_cleaning_at_logout"))) {
+    if ($cmr->db_connection = $cmr->connect()) {
+        $cmr->db_connection->query("delete from " . $cmr->get_conf("cmr_table_prefix") . "history where ((user_email='".$user_email."') and (type <> 'ticket_close') (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
+        $cmr->db_connection->query("delete from " . $cmr->get_conf("cmr_table_prefix") . "session where ((user_email='".$user_email."') and (date_sub(CURRENT_TIMESTAMP,interval ". $cmr->get_conf("db_interval_log_rotate").") >= date_time));", $cmr->db_connection);
+        // ========================Cleaning=======================
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$status = "disconnect";
-$state = "disable";
-$sessionip = $_SERVER['REMOTE_ADDR'];
-$time_out = $cmr->get_conf("cmr_session_time_out");
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        $status = "disconnect";
+        $state = "disable";
+        $sessionip = $_SERVER['REMOTE_ADDR'];
+        $time_out = $cmr->get_conf("cmr_session_time_out");
 
-$sql_session = "update " . $cmr->get_conf("cmr_table_prefix") . "session set ";
-$sql_session .= "status  =  '$status',  state  =  '$state' ,  session_end  =  NOW() ";
-$sql_session .= "where (((status =  'connect') and (sessionid =  '".$sessionid."') and (sessionip  =  '".$sessionip."')) ";
-$sql_session .= " or ((status =  'connect')   and  (date_sub(curdate(),interval " . $time_out . ") >  date_time ))) ;";
-// $cmr->prints[""] .=$sql_session ;
-$result_session = &$cmr->db_connection->query($sql_session)  or print($cmr->db_connection->ErrorMsg());
+        $sql_session = "update " . $cmr->get_conf("cmr_table_prefix") . "session set ";
+        $sql_session .= "status  =  '$status',  state  =  '$state' ,  session_end  =  NOW() ";
+        $sql_session .= "where (((status =  'connect') and (sessionid =  '".$sessionid."') and (sessionip  =  '".$sessionip."')) ";
+        $sql_session .= " or ((status =  'connect')   and  (date_sub(curdate(),interval " . $time_out . ") >  date_time ))) ;";
+        // $cmr->prints[""] .=$sql_session ;
+        $result_session = &$cmr->db_connection->query($sql_session)  or print($cmr->db_connection->ErrorMsg());
+    }
 }
 // ========================Cleaning=======================
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
  ($cmr->get_user("auth_email")) ? $user_email = $cmr->get_user("auth_email") : $user_email = "guest";
-	    $cmr->event["id"] = "10";
-	    $cmr->event["name"] = "logout";
-	    $cmr->event["line"]=__LINE__;
-	    $cmr->event["script"]=__FILE__;
-	    $cmr->event["data"] = "";
-	    $cmr->event["comment"] = "". $cmr->translate("Logout for user") . ":".$user_email." ". $cmr->translate("clean") . " [ticket_read, message_read and cmr_session] session=".session_id();
-	    $cmr->run_event();
+        $cmr->event["id"] = "10";
+        $cmr->event["name"] = "logout";
+        $cmr->event["line"]=__LINE__;
+        $cmr->event["script"]=__FILE__;
+        $cmr->event["data"] = "";
+        $cmr->event["comment"] = "". $cmr->translate("Logout for user") . ":".$user_email." ". $cmr->translate("clean") . " [ticket_read, message_read and cmr_session] session=".session_id();
+        $cmr->run_event();
 // $cmr->event_log("Script=" . __FILE__ . "  Line=" . __LINE__ . " : " . "Logout cleaning table ticket_read, message_read and cmr_session id=$sessionid");
 // ========================Cleaning=======================
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -108,26 +109,31 @@ $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_j
 
 $cmr->prints["match_legend_link"] = "";
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine")))
-$cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
+if (($cmr->get_conf("cmr_clock_engine"))) {
+    $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
+}
 
 $cmr->prints["match_ajax_engine"] = ";";
-if(($cmr->get_conf("cmr_ajax_engine"))) $cmr->prints["match_ajax_engine"] = "ajax_event('". $cmr->get_page("cmr_ajax_engine")."')";
+if (($cmr->get_conf("cmr_ajax_engine"))) {
+    $cmr->prints["match_ajax_engine"] = "ajax_event('". $cmr->get_page("cmr_ajax_engine")."')";
+}
 
 $cmr->prints["match_onload"] = ";";
 $cmr->prints["match_noscript"] = $cmr->translate("!!! Need java script to run well !!!");
 $cmr->prints["match_sound"] = 0;
-if($cmr->get_conf('cmr_exec_sound')) $cmr->prints["match_sound"] = "";
+if ($cmr->get_conf('cmr_exec_sound')) {
+    $cmr->prints["match_sound"] = "";
+}
 // // print("<embed src=\"". $cmr->get_conf("cmr_audio_sound") ."\" hidden=\"true\" height=\"60\" width=\"135\" autostart=\"true\" loop=\"false\" playcount=\"1\" volume=\"10\" starttime=\"00:11\" endtime=\"00:16\"/>");
 // // print("<noembed>";style=\"visibility :hidden); display:none\"
 // print("<bgsound src=\"". $cmr->get_conf("cmr_audio_sound") ."\"  loop=\"1\" />");
 // // print("</noembed>");
 $cmr->page["middle1"] = "logout";
-if(($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)){
-	$cmr->prints["match_title"] = ucfirst(cmr_search_replace("_", " ", $cmr->get_page("page_title")))." (" . $cmr->config["cmr_company_name3"] . ") " . $cmr->get_conf("cmr_version");
-	}else{
-	$cmr->prints["match_title"] = "(" . $cmr->config["cmr_company_name3"] . ") " . ucfirst(cmr_search_replace("_", " ", substr($cmr->get_page("middle1"), 0, strrpos($cmr->get_page("middle1"), ".")))) . " - Ver. " . $cmr->get_conf("cmr_version");
-	}
+if (($cmr->get_page("page_title"))&&(strlen($cmr->page["page_title"])>2)) {
+    $cmr->prints["match_title"] = ucfirst(cmr_search_replace("_", " ", $cmr->get_page("page_title")))." (" . $cmr->config["cmr_company_name3"] . ") " . $cmr->get_conf("cmr_version");
+} else {
+    $cmr->prints["match_title"] = "(" . $cmr->config["cmr_company_name3"] . ") " . ucfirst(cmr_search_replace("_", " ", substr($cmr->get_page("middle1"), 0, strrpos($cmr->get_page("middle1"), ".")))) . " - Ver. " . $cmr->get_conf("cmr_version");
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -150,7 +156,9 @@ $mod->col_position = "1";
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(cmr_match_include($template_logout, "match_include1")) include_once($cmr->get_path("module") . "modules/guest/page_header.php");
+if (cmr_match_include($template_logout, "match_include1")) {
+    include_once($cmr->get_path("module") . "modules/guest/page_header.php");
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -196,14 +204,17 @@ $cmr->prints["match_label_init"] = $cmr->translate("Init");
 $cmr->prints["match_link_login"] ="<a href=\"index.php?cmr_mode=login&force_login=yes\"  class=\"CmrButton\" >" . $cmr->translate("Login") . "</a>";
 $cmr->prints["match_link_logout"] ="<a href=\"index.php?cmr_mode=logout\"  class=\"CmrButton\" >" . $cmr->translate("logout") . "</a>";
 
-if(($cmr->get_conf("cmr_allow_forget_account")))
-$cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\"  class=\"CmrButton\" >" . $cmr->translate("Forget Account") . "</a>";
+if (($cmr->get_conf("cmr_allow_forget_account"))) {
+    $cmr->prints["match_link_forget_account"] = "<a href=\"index.php?cmr_mode=forget_account\"  class=\"CmrButton\" >" . $cmr->translate("Forget Account") . "</a>";
+}
 
-if(($cmr->get_conf("cmr_allow_inscription")))
-$cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\"  class=\"CmrButton\" >" . $cmr->translate("New account") . "</a>";
+if (($cmr->get_conf("cmr_allow_inscription"))) {
+    $cmr->prints["match_link_inscription"] = "<a href=\"index.php?cmr_mode=inscription\"  class=\"CmrButton\" >" . $cmr->translate("New account") . "</a>";
+}
 
-if(($cmr->get_conf("cmr_allow_validation")))
-$cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" class=\"CmrButton\" >" . $cmr->translate("Account Validation") . "</a>";
+if (($cmr->get_conf("cmr_allow_validation"))) {
+    $cmr->prints["match_link_validation"] = "<a href=\"index.php?cmr_mode=validation\" class=\"CmrButton\" >" . $cmr->translate("Account Validation") . "</a>";
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -224,7 +235,9 @@ $mod->col_position = "1";
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(cmr_match_include($template_logout, "match_include2")) include($cmr->get_path("module") . "modules/guest/page_footer.php");
+if (cmr_match_include($template_logout, "match_include2")) {
+    include($cmr->get_path("module") . "modules/guest/page_footer.php");
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -235,8 +248,7 @@ $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr = NULL;
+$cmr = null;
 $_SESSION = array();
-@ session_destroy()
+@ session_destroy();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-?>

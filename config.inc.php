@@ -2,21 +2,21 @@
 #
 #this is the first Configuration file ./config.inc.php
 #
-	#the first configuration file is ./config.inc.php
-	#the general dynamic configuration files are ./conf.d/conf.ini, ./config.inc.php
-	#the group configuration file is ./home/groups/{group_name}/config.ini
-	#the user configuration file is ./home/groups/{user_name}/config.ini
+    #the first configuration file is ./config.inc.php
+    #the general dynamic configuration files are ./conf.d/conf.ini, ./config.inc.php
+    #the group configuration file is ./home/groups/{group_name}/config.ini
+    #the user configuration file is ./home/groups/{user_name}/config.ini
 
 
-	#to configure the interface (module windows position) for all user, see ./page/page.ini or ./themes/themes.ini or ./css/camaroes.css
-	#to configure the interface (module windows position) for a group, see ./home/{group_name}/page.ini or ./home/{user_name}/page.ini
+    #to configure the interface (module windows position) for all user, see ./page/page.ini or ./themes/themes.ini or ./css/camaroes.css
+    #to configure the interface (module windows position) for a group, see ./home/{group_name}/page.ini or ./home/{user_name}/page.ini
 
-	#the language file is ./language.ini or ./language/lang_to_use/language.ini
-	#the default windows themes configuration file ./themes/themes.ini or ./themes/{themes_folder}/themes.ini
+    #the language file is ./language.ini or ./language/lang_to_use/language.ini
+    #the default windows themes configuration file ./themes/themes.ini or ./themes/{themes_folder}/themes.ini
 
-	#the database connection configuation can_be ./conf.d/conf.ini or ./config.inc.php or ./conf.d/conf.ini or ./home/{group_name}/login_rc.php  or ./home/{group_name}/config.ini  or ./home/{user_name}/config.ini (the default one is in ./conf.d/conf.ini )
+    #the database connection configuation can_be ./conf.d/conf.ini or ./config.inc.php or ./conf.d/conf.ini or ./home/{group_name}/login_rc.php  or ./home/{group_name}/config.ini  or ./home/{user_name}/config.ini (the default one is in ./conf.d/conf.ini )
 
-	# the database connection configuation is in ./home/{group}/connect.php (the default one is in config.inc.php, ./conf.d/conf.ini )
+    # the database connection configuation is in ./home/{group}/connect.php (the default one is in config.inc.php, ./conf.d/conf.ini )
 
 //####################################################
 define("cmr_version", "3.0");
@@ -77,7 +77,3 @@ $cmr->config["cmr_gd_font_path"] = dirname(__FILE__) . "/fonts/";// es: /usr/sha
 $cmr->config["cmr_session_path"] = dirname(__FILE__) . "/temp/";// es: /temp/
 $cmr->config["cmr_temp_path"] = dirname(__FILE__) . "/temp/";// es: /temp/
 //---------[Database Settings]-------------
-
-
-
-?>

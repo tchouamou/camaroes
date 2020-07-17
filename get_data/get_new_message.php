@@ -65,22 +65,22 @@ include_once("common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // case "@_form_@"://When Working in data send by  form [new_message.php]
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 $cmr->language = $mod->load_lang($cmr->language, $cmr->page["language"], "message" . $cmr->get_ext("lang"));
 $cmr->config = $mod->load_conf("conf_message" . $cmr->get_ext("conf"));
-			
+
 $cmr->action["module_name"] = "message.php";
 $cmr->action["to_load"] = "load_func_need";
 include($cmr->get_path("index") . "system/loader/loader_function.php");
 $cmr->action["to_load"] = "load_class_need";
 include($cmr->get_path("index") . "system/loader/loader_class.php");
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 $post = new message_class();
 
@@ -117,8 +117,8 @@ if(get_post("text")){
 
 $post->intervale = $post->intervale . " " . $intervale_type;
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 	if(!empty($post->sender)){
 	$user_uid = $cmr->get_column($cmr->get_conf("cmr_table_prefix") . "user", "uid", "email", $post->sender);
@@ -129,9 +129,9 @@ $post->intervale = $post->intervale . " " . $intervale_type;
 	$cmr->post_files = get_post_files($cmr->config, $cmr->post_files);
 	if(!empty($cmr->post_files["attachment"])) $post->attach = $cmr->post_files["attachment"];
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 // =============================================
@@ -150,19 +150,18 @@ $cmr_prefix = $cmr->get_conf("cmr_table_prefix");
 
 
 if(($action != "new_model") && ($action != "update_model")){
-    $post->title = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$cmr_hostname', '$cmr_username', '$cmr_password', '$cmr_database', '$cmr_prefix', '$cmr_user', '$cmr_group')", $post->title);
+    $post->title = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($cmr_hostname,$cmr_username,$cmr_password,$cmr_database,$cmr_prefix,$cmr_user,$cmr_group) {return run_code("{{". $m[2] . "}}",0,$cmr_hostname,$cmr_username,$cmr_password,$cmr_database,$cmr_prefix,$cmr_user,$cmr_group);}, $post->title);
+    //$post->title = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$cmr_hostname', '$cmr_username', '$cmr_password', '$cmr_database', '$cmr_prefix', '$cmr_user', '$cmr_group')", $post->title);
+    $post->comment = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($cmr_hostname,$cmr_username,$cmr_password,$cmr_database,$cmr_prefix,$cmr_user,$cmr_group) {return run_code("{{". $m[2] . "}}",0,$cmr_hostname,$cmr_username,$cmr_password,$cmr_database,$cmr_prefix,$cmr_user,$cmr_group);}, $post->comment);
+    //$post->comment = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$cmr_hostname', '$cmr_username', '$cmr_password', '$cmr_database', '$cmr_prefix', '$cmr_user', '$cmr_group')", $post->comment);
+    $post->text = preg_replace_callback("/(\{\{)([^}{]*)(\}\})/i", function ($m) use ($cmr_hostname,$cmr_username,$cmr_password,$cmr_database,$cmr_prefix,$cmr_user,$cmr_group) {return run_code("{{". $m[2] . "}}",0,$cmr_hostname,$cmr_username,$cmr_password,$cmr_database,$cmr_prefix,$cmr_user,$cmr_group);}, $post->text);
+    //$post->text = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$cmr_hostname', '$cmr_username', '$cmr_password', '$cmr_database', '$cmr_prefix', '$cmr_user', '$cmr_group')", $post->text);
 
 
-    $post->comment = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$cmr_hostname', '$cmr_username', '$cmr_password', '$cmr_database', '$cmr_prefix', '$cmr_user', '$cmr_group')", $post->comment);
-    $post->text = preg_replace("/(\{\{)([^}{]*)(\}\})/e", "run_code('{{\\2}}', 0, '$cmr_hostname', '$cmr_username', '$cmr_password', '$cmr_database', '$cmr_prefix', '$cmr_user', '$cmr_group')", $post->text);
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 
-    
-    
-    // §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
-    
-    
-    
+
     // ----List Client Email ---
     if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_noc_type")){
 //         $post->mail_to.=", ".$list_bcc;
@@ -170,17 +169,17 @@ if(($action != "new_model") && ($action != "update_model")){
 //         $post->mail_cc .= ", " . $list_bcc;
     }
     // //--------------
-    // §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     $post->mail_to = string_unique($post->mail_to, "[,;:]");
     $post->mail_cc = string_unique($post->mail_cc, "[,;:]");
     $post->mail_bcc = string_unique($post->mail_bcc, "[,;:]");
-    // §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     $post->mail_to = cmr_search_replace("^[,][ ]", "", $post->mail_to); //--rimossione vigola all'inizio--
     $post->mail_cc = cmr_search_replace(",, ", ", ", $post->mail_cc); //--rimossione vigole doppie--
     $post->mail_cc = cmr_search_replace("^[,][ ]", "", $post->mail_cc); //--rimossione vigola all'inizio--
     $post->mail_bcc = cmr_search_replace("^[,][ ]", "", $post->mail_bcc); //--rimossione vigola all'inizio--
     // -- uload file in load_form_data.php --
-    // §§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§§
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     //
     $post->text = stripslashes($post->text); //remove slashes from text
     $post->title = stripslashes($post->title); //remove slashes from title
@@ -208,7 +207,7 @@ if(($action != "new_model") && ($action != "update_model")){
         $cmr->email["headers_cc"] = $post->mail_cc . "\r\n";
         $cmr->email["headers_bcc"] = $post->mail_bcc . "\r\n";
         $cmr->output[0] = "<b> " . $cmr->translate(" Email message sended is  ")  . "  " . $cmr->translate("created with success") . " </b><br /><br />" . $post->title . "<br /><pre>" . wordwrap($post->text, 80) . "</pre> <br />";
-    } 
+    }
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 
@@ -223,7 +222,7 @@ if(($action != "new_model") && ($action != "update_model")){
     $cmr->post_var["title"] = $post->title;
     $cmr->post_var["text"] = $post->text;
     $cmr->post_var["comment"] = $post->comment;
-    
+
 
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
         // ************************************
@@ -231,8 +230,8 @@ if(($cmr->get_conf("message_save_email")) && ($cmr->conf["message_save_email"] .
 $cmr->query[2] = "INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "email (
 id, encoding, lang, header, mail_title, mail_from, mail_to, mail_cc, mail_bcc, attach, text, my_master, allow_type, allow_email, allow_groups, comment, date_time
 ) VALUES (
-'', '', '" . cmr_escape($post->type) . "', '', '" . cmr_escape($post->title) . "', '" . cmr_escape($post->sender) . "', '" . cmr_escape($post->mail_to) . "', '" . cmr_escape($post->mail_cc) . "', '" . cmr_escape($post->mail_bcc) . "', '" . $cmr->post_files["attachment"] . "', '" . cmr_escape($post->text) . "', '" . cmr_escape($post->my_master) . "', '" . cmr_escape($post->allow_type) . "', '" . cmr_escape($post->allow_email) . "', '" . cmr_escape($post->allow_groups) . "', '" . cmr_escape($post->comment) . "',  NOW() 
-)"; 
+'', '', '" . cmr_escape($post->type) . "', '', '" . cmr_escape($post->title) . "', '" . cmr_escape($post->sender) . "', '" . cmr_escape($post->mail_to) . "', '" . cmr_escape($post->mail_cc) . "', '" . cmr_escape($post->mail_bcc) . "', '" . $cmr->post_files["attachment"] . "', '" . cmr_escape($post->text) . "', '" . cmr_escape($post->my_master) . "', '" . cmr_escape($post->allow_type) . "', '" . cmr_escape($post->allow_email) . "', '" . cmr_escape($post->allow_groups) . "', '" . cmr_escape($post->comment) . "',  NOW()
+)";
 }
 // ----------------------------
 // ----------------------------
@@ -242,7 +241,7 @@ if(($cmr->get_conf("message_save_attachment")) && strlen($post->attach) > 6){
 $cmr->query[3] = "INSERT INTO " . $cmr->get_conf("cmr_table_prefix") . "download (
 id, url, path, file_name, file_type, file_size, state, allow_type, allow_email, allow_groups, comment, date_time
 ) VALUES (
-'', '" . cmr_escape($post->id) . "', '" . cmr_escape($post->id) . "," . $cmr->post_files["attachment"] . "', '" . $cmr->post_files["attachment"] . "', '?', '?', 'active', '" . cmr_escape($post->allow_type) . "', '" . cmr_escape($post->allow_email) . "', '" . cmr_escape($post->allow_groups) . "', '" . cmr_escape($post->comment) . "',  NOW() 
+'', '" . cmr_escape($post->id) . "', '" . cmr_escape($post->id) . "," . $cmr->post_files["attachment"] . "', '" . $cmr->post_files["attachment"] . "', '?', '?', 'active', '" . cmr_escape($post->allow_type) . "', '" . cmr_escape($post->allow_email) . "', '" . cmr_escape($post->allow_groups) . "', '" . cmr_escape($post->comment) . "',  NOW()
 )";
  }
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -281,18 +280,18 @@ id, url, path, file_name, file_type, file_size, state, allow_type, allow_email, 
 		$cmr->email["headers_bcc"] = "";
     }
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
     // Creating the appropriate SQL string for new_message
 $cmr->query[1]  = $post->query_insert();
     // Creating the appropriate Message to be send to the administrator
 }
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 if($action == "new_model"){
     // -------------------
@@ -308,17 +307,17 @@ if($action == "new_model"){
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->log_to_db("'" . $cmr->get_user("auth_email") . "', '" . $cmr->get_conf("cmr_table_prefix") . "message', '" . $post->id . "' ,'new'");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-    
-    
-    
+
+
+
 // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 

@@ -41,28 +41,43 @@ $cmr->prints["match_logo_icon"] = $cmr->get_conf("cmr_logo_icon");
 $cmr->prints["match_style"] = $cmr->get_path("www") . $cmr->get_theme("cmr_style");
 $cmr->prints["match_javascript"] = $cmr->get_path("www") . $cmr->get_page("cmr_jscrip");
 $cmr->prints["match_clock_engine"] = ";";
-if(($cmr->get_conf("cmr_clock_engine")))
-$cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
+if (($cmr->get_conf("cmr_clock_engine"))) {
+    $cmr->prints["match_clock_engine"] = $cmr->get_page("cmr_clock_engine")."; ";
+}
 
 $cmr->prints["match_ajax_engine"] = ";";
-if(($cmr->get_conf("cmr_ajax_engine"))) $cmr->prints["match_ajax_engine"] = "ajax_event('". $cmr->get_page("cmr_ajax_engine")."')";
+if (($cmr->get_conf("cmr_ajax_engine"))) {
+    $cmr->prints["match_ajax_engine"] = "ajax_event('". $cmr->get_page("cmr_ajax_engine")."')";
+}
 
 $cmr->prints["match_sound"] = "";
 $cmr->prints["match_onload"] = ";";
 $cmr->prints["match_noscript"] = "";//$cmr->translate("!!! Need java script to run well !!!");
-if(!($cmr->get_conf("cmr_exec_sound"))) $cmr->prints["match_sound"] = "";
-if(!($cmr->get_page("tab_mode")))  $cmr->page["tab_mode"] = "";
+if (!($cmr->get_conf("cmr_exec_sound"))) {
+    $cmr->prints["match_sound"] = "";
+}
+if (!($cmr->get_page("tab_mode"))) {
+    $cmr->page["tab_mode"] = "";
+}
 
 //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-if($cmr->page["middle1"]) $title = parse_module($cmr->page["middle1"]);// parse_url()
-if($cmr->post_var["middle1"]) $title = parse_module($cmr->post_var["middle1"]);// parse_url()
-if(get_post("page_title")) $title["title"] = get_post("page_title");
-if(empty($title["title"])) $title["title"] = $cmr->page["page_title"];
+if ($cmr->page["middle1"]) {
+    $title = parse_module($cmr->page["middle1"]);
+}// parse_url()
+if ($cmr->post_var["middle1"]) {
+    $title = parse_module($cmr->post_var["middle1"]);
+}// parse_url()
+if (get_post("page_title")) {
+    $title["title"] = get_post("page_title");
+}
+if (empty($title["title"])) {
+    $title["title"] = $cmr->page["page_title"];
+}
 
-if($title["title"]){
-	$cmr->prints["match_title"] = ucfirst($cmr->translate($title["title"])) . " (" . $cmr->config["cmr_company_name3"] . ") " . $cmr->get_conf("cmr_version");
-}else{
-	$cmr->prints["match_title"] = "(" . $cmr->config["cmr_company_name3"] . ") " . ucfirst($cmr->translate($title["title"])) . " - Ver. " . $cmr->get_conf("cmr_version");
+if ($title["title"]) {
+    $cmr->prints["match_title"] = ucfirst($cmr->translate($title["title"])) . " (" . $cmr->config["cmr_company_name3"] . ") " . $cmr->get_conf("cmr_version");
+} else {
+    $cmr->prints["match_title"] = "(" . $cmr->config["cmr_company_name3"] . ") " . ucfirst($cmr->translate($title["title"])) . " - Ver. " . $cmr->get_conf("cmr_version");
 }
 //  @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
@@ -87,14 +102,17 @@ $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    $cmr->page["layer"] = "head";
-   if(cmr_match_include($template_front_page, "match_include1")) include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   if (cmr_match_include($template_front_page, "match_include1")) {
+       include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // end head page -->
 // begin main page -->
 $cmr->prints["match_open_tab"] = "";
-if(($cmr->get_page("tab_mode")))
-$cmr->prints["match_open_tab"] = open_tab($cmr->config, $cmr->page, $cmr->user["authorisation"]);
+if (($cmr->get_page("tab_mode"))) {
+    $cmr->prints["match_open_tab"] = open_tab($cmr->config, $cmr->page, $cmr->user["authorisation"]);
+}
 // begin left page -->
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -103,7 +121,9 @@ $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    $cmr->page["layer"] = "left";
-   if(cmr_match_include($template_front_page, "match_include2")) include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   if (cmr_match_include($template_front_page, "match_include2")) {
+       include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // end left page -->
@@ -116,8 +136,10 @@ $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!! show all messages !!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(($cmr->get_conf("cmr_show_event"))){
-      if(cmr_match_include($template_front_page, "match_include3")) include($cmr->get_path("module") . "modules/" . "view_event.php");
+if (($cmr->get_conf("cmr_show_event"))) {
+    if (cmr_match_include($template_front_page, "match_include3")) {
+        include($cmr->get_path("module") . "modules/" . "view_event.php");
+    }
 }
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -126,7 +148,9 @@ if(($cmr->get_conf("cmr_show_event"))){
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    $cmr->page["layer"] = "middle";
-   if(cmr_match_include($template_front_page, "match_include4")) include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   if (cmr_match_include($template_front_page, "match_include4")) {
+       include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // end middle page -->
@@ -137,13 +161,16 @@ $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
    $cmr->page["layer"] = "right";
-   if(cmr_match_include($template_front_page, "match_include5")) include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   if (cmr_match_include($template_front_page, "match_include5")) {
+       include($cmr->get_path("index") . "system/loader/loader_layer.php");
+   }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->prints["match_close_tab"] = "";
-if(($cmr->get_page("tab_mode")))
-$cmr->prints["match_close_tab"] = close_tab();
+if (($cmr->get_page("tab_mode"))) {
+    $cmr->prints["match_close_tab"] = close_tab();
+}
  // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->print_template("template5", $template_front_page);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -151,23 +178,27 @@ $cmr->print_template("template5", $template_front_page);
 $cmr->prints = array();
 $cmr->page["layer"] = "foot";
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(($cmr->get_page("task"))){
-$cmr->page[$cmr->page["layer"] . $cmr->page["count2"]] = $cmr->get_path("module") . "modules/" . "task_bar.php";
-$cmr->page["path"] = $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]];
-$cmr->page["count3"] = $cmr->page["count1"];
-$cmr->page["count4"] = $cmr->page["count2"];
+if (($cmr->get_page("task"))) {
+    $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]] = $cmr->get_path("module") . "modules/" . "task_bar.php";
+    $cmr->page["path"] = $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]];
+    $cmr->page["count3"] = $cmr->page["count1"];
+    $cmr->page["count4"] = $cmr->page["count2"];
 
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if(cmr_match_include($template_front_page, "match_include6")) include($cmr->get_path("index") ."system/loader/loader_module.php");
-// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-$cmr->page[$cmr->page["layer"] . $cmr->page["count2"]] = "";
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    if (cmr_match_include($template_front_page, "match_include6")) {
+        include($cmr->get_path("index") ."system/loader/loader_module.php");
+    }
+    // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    $cmr->page[$cmr->page["layer"] . $cmr->page["count2"]] = "";
 }
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->prints = array();
 $cmr->page["layer"] = "foot";
-if(cmr_match_include($template_front_page, "match_include7")) include($cmr->get_path("index") . "system/loader/loader_layer.php");
+if (cmr_match_include($template_front_page, "match_include7")) {
+    include($cmr->get_path("index") . "system/loader/loader_layer.php");
+}
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -175,30 +206,29 @@ if(cmr_match_include($template_front_page, "match_include7")) include($cmr->get_
 $cmr->prints = array();
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	$cmr->prints["match_www_path"] = $cmr->get_path("www");
+    $cmr->prints["match_www_path"] = $cmr->get_path("www");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-	$cmr->prints["match_label_home"] = $cmr->translate(" Go Home");
-	$cmr->prints["match_label_mode_expert"] = $cmr->translate("Mode Expert");
-	$cmr->prints["match_label_forget_account"] = $cmr->translate(" Forget Account");
-	$cmr->prints["match_label_login_again"] = $cmr->translate(" Login Again");
-	$cmr->prints["match_label_logout"] = $cmr->translate(" Logout");
-	$cmr->prints["match_windows_close"] = $cmr->translate("Close Windows");
-	$cmr->prints["match_label_sure_save"] = $cmr->translate("Sure to save actual user front page to user");
-	$cmr->prints["match_save_conf_user"] = $cmr->translate("Save config for user");
-	$cmr->prints["match_save_conf_group_sure"] = $cmr->translate("Sure to save actual user front page to group");
-	$cmr->prints["match_save_conf_group"] = $cmr->translate("Save config for group");
-	$cmr->prints["match_save_to_user_sure"] = $cmr->translate("Sure to save actual user front page to default");
-	$cmr->prints["match_save_to_user"] = $cmr->translate("Save config for default");
-	$cmr->prints["match_load_user_sure"] = $cmr->translate("Sure to Load actual user front page");
-	$cmr->prints["match_load_user"] = $cmr->translate("Load config for user");
-	$cmr->prints["match_load_group_sure"] = $cmr->translate("Sure to Load actual group front page");
-	$cmr->prints["match_load_group"] = $cmr->translate("Load config for group");
-	$cmr->prints["match_load_default_sure"] = $cmr->translate("Sure to Load actual default front page");
-	$cmr->prints["match_load_default"] = $cmr->translate("Load config for default");
+    $cmr->prints["match_label_home"] = $cmr->translate(" Go Home");
+    $cmr->prints["match_label_mode_expert"] = $cmr->translate("Mode Expert");
+    $cmr->prints["match_label_forget_account"] = $cmr->translate(" Forget Account");
+    $cmr->prints["match_label_login_again"] = $cmr->translate(" Login Again");
+    $cmr->prints["match_label_logout"] = $cmr->translate(" Logout");
+    $cmr->prints["match_windows_close"] = $cmr->translate("Close Windows");
+    $cmr->prints["match_label_sure_save"] = $cmr->translate("Sure to save actual user front page to user");
+    $cmr->prints["match_save_conf_user"] = $cmr->translate("Save config for user");
+    $cmr->prints["match_save_conf_group_sure"] = $cmr->translate("Sure to save actual user front page to group");
+    $cmr->prints["match_save_conf_group"] = $cmr->translate("Save config for group");
+    $cmr->prints["match_save_to_user_sure"] = $cmr->translate("Sure to save actual user front page to default");
+    $cmr->prints["match_save_to_user"] = $cmr->translate("Save config for default");
+    $cmr->prints["match_load_user_sure"] = $cmr->translate("Sure to Load actual user front page");
+    $cmr->prints["match_load_user"] = $cmr->translate("Load config for user");
+    $cmr->prints["match_load_group_sure"] = $cmr->translate("Sure to Load actual group front page");
+    $cmr->prints["match_load_group"] = $cmr->translate("Load config for group");
+    $cmr->prints["match_load_default_sure"] = $cmr->translate("Sure to Load actual default front page");
+    $cmr->prints["match_load_default"] = $cmr->translate("Load config for default");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr->print_template("template6", $template_front_page);
 $cmr->prints = array();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-?>

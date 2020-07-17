@@ -459,6 +459,8 @@ function write_gen_file()
      **/
     function gen_path()
     {
+			if(empty($this->destination)) $this->destination = dirname(__FILE__);
+
             if(!file_exists($this->destination) && ($this->save_mode))  mkdir($this->destination);
             $this->gen_type = $this->gen_type . "_";
 //         switch (substr($this->gen_type, 0, 3))

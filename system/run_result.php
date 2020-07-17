@@ -78,13 +78,12 @@ while(isset($cmr->query[$count])){
 		 }else{
 //     $division->prints["match_execute_query"] .= "("<br /><b>".$cmr->translate("query")."(".$count."):</b>" . substr($cmr->query[$count], 0, 25) . "   ....<br />");
     $result_query = sql_run("result", $cmr->db_connection, "sql", $cmr->query[$count]);
-    print_r($result_query);
+    //print_r($result_query);
 //     $result_query = &$cmr->db_connection->query($cmr->query[$count]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg()); // or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-	    if($result_query)
-	    {
+	    if($result_query){
 		    $cmr->db["affected_row"][$count] = $result_query->affected_rows;
 		    $cmr->action["affected_rows"] += $cmr->db["affected_row"][$count];
-		}
+		   }
 	}
 
 }

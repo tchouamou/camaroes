@@ -36,48 +36,47 @@ select_mode.php,  2011-Oct
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 $cmr_mode = isset($_GET["cmr_mode"])?($_GET["cmr_mode"]):($_POST["cmr_mode"]);
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-if($cmr_mode)
-switch($cmr_mode){
-	  case "image":
-	  include_once(dirname(__FILE__) . "/function/func_input.php");
-	  include_once(dirname(__FILE__) . "/function/func_image.php");
-	  include_once(dirname(__FILE__) . "/system/generate/image.php");
-	  exit;
-	  break;
+if ($cmr_mode) {
+    switch ($cmr_mode) {
+      case "image":
+      include_once(dirname(__FILE__) . "/function/func_input.php");
+      include_once(dirname(__FILE__) . "/function/func_image.php");
+      include_once(dirname(__FILE__) . "/system/generate/image.php");
+      exit;
+      break;
 
-		case "pdf":
-		include_once(dirname(__FILE__) . "/function/func_input.php");
-		include_once(dirname(__FILE__) . "/function/func_pdf.php");
-		include_once(dirname(__FILE__) . "/class/class_pdf.php");
-		include_once(dirname(__FILE__) . "/system/generate/pdf.php");
-		exit;
-		break;
+        case "pdf":
+        include_once(dirname(__FILE__) . "/function/func_input.php");
+        include_once(dirname(__FILE__) . "/function/func_pdf.php");
+        include_once(dirname(__FILE__) . "/class/class_pdf.php");
+        include_once(dirname(__FILE__) . "/system/generate/pdf.php");
+        exit;
+        break;
 
-		case "tips":
-		include_once(dirname(__FILE__) . "/system/generate/tips.php");
-		exit;
-		break;
+        case "tips":
+        include_once(dirname(__FILE__) . "/system/generate/tips.php");
+        exit;
+        break;
 
-		case "graph":
-		include_once(dirname(__FILE__) . "/function/func_input.php");
-		include_once(dirname(__FILE__) . "/class/class_graph.php");
-		include_once(dirname(__FILE__) . "/system/generate/graph.php");
-		exit;
-		break;
+        case "graph":
+        include_once(dirname(__FILE__) . "/function/func_input.php");
+        include_once(dirname(__FILE__) . "/class/class_graph.php");
+        include_once(dirname(__FILE__) . "/system/generate/graph.php");
+        exit;
+        break;
 
-		case "ajax":
-		exit;
-		break;
+        case "ajax":
+        exit;
+        break;
 
-		case "download":
-		exit;
-		break;
+        case "download":
+        exit;
+        break;
 
 
-		case "barcode":
-		exit;
-		break;
+        case "barcode":
+        exit;
+        break;
 
 }
-
-?>
+}

@@ -1,4 +1,4 @@
-<template><!-- By <tchouamou@gmail.com> (C) 2010 Licence GNU/GPL-->
+<template><!-- By <tchouamou@gmail.com> (C) 2011 Licence GNU/GPL-->
 <template1>
 {match_open_windows}
 {match_open_tab}
@@ -22,51 +22,7 @@
 
 <ul class="normal_text" >
     
-    <li><b><label for=\"id\">{match_label_id}</label></b>{match_value_id}</li>
-    
-    <li><b><label for=\"serial\">{match_label_serial}</label></b>{match_value_serial}</li>
-    
-    <li><b><label for=\"user_email\">{match_label_user_email}</label></b>{match_value_user_email}</li>
-    
-    <li><b><label for=\"version\">{match_label_version}</label></b>{match_value_version}</li>
-    
-    <li><b><label for=\"to_cn\">{match_label_to_cn}</label></b>{match_value_to_cn}</li>
-    
-    <li><b><label for=\"to_o\">{match_label_to_o}</label></b>{match_value_to_o}</li>
-    
-    <li><b><label for=\"to_ou\">{match_label_to_ou}</label></b>{match_value_to_ou}</li>
-    
-    <li><b><label for=\"from_cn\">{match_label_from_cn}</label></b>{match_value_from_cn}</li>
-    
-    <li><b><label for=\"from_o\">{match_label_from_o}</label></b>{match_value_from_o}</li>
-    
-    <li><b><label for=\"from_ou\">{match_label_from_ou}</label></b>{match_value_from_ou}</li>
-    
-    <li><b><label for=\"valid_from\">{match_label_valid_from}</label></b>{match_value_valid_from}</li>
-    
-    <li><b><label for=\"valid_to\">{match_label_valid_to}</label></b>{match_value_valid_to}</li>
-    
-    <li><b><label for=\"state\">{match_label_state}</label></b>{match_value_state}</li>
-    
-    <li><b><label for=\"cert_pkcs\">{match_label_cert_pkcs}</label></b>{match_value_cert_pkcs}</li>
-    
-    <li><b><label for=\"pub_key_pkcs\">{match_label_pub_key_pkcs}</label></b>{match_value_pub_key_pkcs}</li>
-    
-    <li><b><label for=\"status\">{match_label_status}</label></b>{match_value_status}</li>
-    
-    <li><b><label for=\"type\">{match_label_type}</label></b>{match_value_type}</li>
-    
-    <li><b><label for=\"login_script\">{match_label_login_script}</label></b>{match_value_login_script}</li>
-    
-    <li><b><label for=\"public_key\">{match_label_public_key}</label></b>{match_value_public_key}</li>
-    
-    <li><b><label for=\"private_key\">{match_label_private_key}</label></b>{match_value_private_key}</li>
-    
-    <li><b><label for=\"pass_phrase\">{match_label_pass_phrase}</label></b>{match_value_pass_phrase}</li>
-    
-    <li><b><label for=\"my_master\">{match_label_my_master}</label></b>{match_value_my_master}</li>
-    
-    <li><b><label for=\"date_time\">{match_label_date_time}</label></b>{match_value_date_time}</li>
+    <li><b><label for="id">{match_label_id}</label></b>{match_value_id}</li>
     
 </ul>
 
@@ -113,8 +69,8 @@
 {match_close_windows}
 </template1>
 {match_include1}
-<!--include($cmr->get_conf("cmr_modules_path") ."modules/view_comment.php");-->
+<!--include($cmr->get_conf("class_modules_path") ."modules/view_comment.php");-->
 {match_include2}
-<!--include($cmr->get_conf("cmr_modules_path") ."modules/view_policy.php");-->
+<!--include($cmr->get_conf("class_modules_path") ."modules/view_policy.php");-->
 
 </template>

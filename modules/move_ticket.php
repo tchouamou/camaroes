@@ -39,7 +39,7 @@ All rights reserved.
 
 
 
-move_ticket.php, Ver 3.03   
+move_ticket.php, Ver 3.03
 */
 
 /**
@@ -66,7 +66,7 @@ if(empty($cmr->post_var["id_ticket"])){
 	print($cmr->module_link("modules/view_ticket.php?conf_name=conf_ticket" . $cmr->get_ext("conf") . "&id_ticket=", 1));
 	print($cmr->translate(" to select one."));
     return;
-} 
+}
 
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -157,8 +157,8 @@ $cmr->query["user"] .= ") ";
 $cmr->query["user"] .= " AND " . $cmr->action["where"];
 //$cmr->query["user"] .= "limit " . $cmr->get_conf("cmr_max_view") . ";";
 
-$result_query1 = &$cmr->db_connection->query($cmr->query["groups"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
-$result_query2 = &$cmr->db_connection->query($cmr->query["user"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->ErrorMsg());
+$result_query1 = $cmr->db_connection->query($cmr->query["groups"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
+$result_query2 = $cmr->db_connection->query($cmr->query["user"]) or db_die(__LINE__  . " - "  . __FILE__ . ": " . $cmr->db_connection->error);
 // -----------
 ?>
 
@@ -166,7 +166,7 @@ $result_query2 = &$cmr->db_connection->query($cmr->query["user"]) or db_die(__LI
 <?php print(input_hidden("<input type=\"hidden\" value=\"get_data/get_move_ticket.php\" name=\"cmr_get_data\" />"));?>
 <?php print(input_hidden("<input type=\"hidden\" value=\"" . __FILE__ . "\" name=\"middle1\" />"));?>
 <?php print(input_hidden("<input type=\"hidden\" value=\"" . $cmr->post_var["id_ticket"] . "\" name=\"id_ticket\" />"));?>
-<?php 
+<?php
 // print(input_hidden("<input type=\"hidden\" value=\"get_data/get_comment\" name=\"comment\"  id=\"comment1\" />"));
 ?>
 <br />
@@ -212,7 +212,7 @@ if($cmr->user["authorisation"] >= $cmr->get_conf("cmr_noc_type")){
 
 </form>
 </div>
-<?php  
+<?php
 print($lk->close_module_tab());
 print($division->close());
 ?>

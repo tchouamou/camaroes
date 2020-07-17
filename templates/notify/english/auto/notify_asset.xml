@@ -19,7 +19,7 @@
 <message>
 {{lang_The record}}({{get_id_asset}}){{lang_asset was deleted by}}: {{user_auth_email}}
 
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -34,7 +34,7 @@
 <br />
 {{lang_The record}}({{get_id_asset}}){{lang_asset was deleted}}
 <br />
-{{lang_thanks}} 
+{{lang_thanks}}
 --
 <br />
 </p>
@@ -82,50 +82,8 @@
 
 {{lang_id}}:{{get_id}}
 
-{{lang_serial}}:{{get_serial}}
 
-{{lang_mac_adress}}:{{get_mac_adress}}
-
-{{lang_name}}:{{get_name}}
-
-{{lang_location}}:{{get_location}}
-
-{{lang_ip}}:{{get_ip}}
-
-{{lang_nat_ip}}:{{get_nat_ip}}
-
-{{lang_mask}}:{{get_mask}}
-
-{{lang_gateway}}:{{get_gateway}}
-
-{{lang_dns1}}:{{get_dns1}}
-
-{{lang_dns2}}:{{get_dns2}}
-
-{{lang_type}}:{{get_type}}
-
-{{lang_os}}:{{get_os}}
-
-{{lang_state}}:{{get_state}}
-
-{{lang_login_id}}:{{get_login_id}}
-
-{{lang_login_pw}}:{{get_login_pw}}
-
-{{lang_check_command}}:{{get_check_command}}
-
-{{lang_certificate}}:{{get_certificate}}
-
-{{lang_my_master}}:{{get_my_master}}
-
-{{lang_my_software}}:{{get_my_software}}
-
-{{lang_my_service}}:{{get_my_service}}
-
-{{lang_date_time}}:{{get_date_time}}
-
-
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -142,48 +100,6 @@
 
 
 <b>{{lang_id}}:</b>{{get_id}}<br />
-
-<b>{{lang_serial}}:</b>{{get_serial}}<br />
-
-<b>{{lang_mac_adress}}:</b>{{get_mac_adress}}<br />
-
-<b>{{lang_name}}:</b>{{get_name}}<br />
-
-<b>{{lang_location}}:</b>{{get_location}}<br />
-
-<b>{{lang_ip}}:</b>{{get_ip}}<br />
-
-<b>{{lang_nat_ip}}:</b>{{get_nat_ip}}<br />
-
-<b>{{lang_mask}}:</b>{{get_mask}}<br />
-
-<b>{{lang_gateway}}:</b>{{get_gateway}}<br />
-
-<b>{{lang_dns1}}:</b>{{get_dns1}}<br />
-
-<b>{{lang_dns2}}:</b>{{get_dns2}}<br />
-
-<b>{{lang_type}}:</b>{{get_type}}<br />
-
-<b>{{lang_os}}:</b>{{get_os}}<br />
-
-<b>{{lang_state}}:</b>{{get_state}}<br />
-
-<b>{{lang_login_id}}:</b>{{get_login_id}}<br />
-
-<b>{{lang_login_pw}}:</b>{{get_login_pw}}<br />
-
-<b>{{lang_check_command}}:</b>{{get_check_command}}<br />
-
-<b>{{lang_certificate}}:</b>{{get_certificate}}<br />
-
-<b>{{lang_my_master}}:</b>{{get_my_master}}<br />
-
-<b>{{lang_my_software}}:</b>{{get_my_software}}<br />
-
-<b>{{lang_my_service}}:</b>{{get_my_service}}<br />
-
-<b>{{lang_date_time}}:</b>{{get_date_time}}<br />
 
 <br />
 {{lang_thanks}}
@@ -232,50 +148,8 @@
 
 {{lang_id}}:{{get_id}}
 
-{{lang_serial}}:{{get_serial}}
 
-{{lang_mac_adress}}:{{get_mac_adress}}
-
-{{lang_name}}:{{get_name}}
-
-{{lang_location}}:{{get_location}}
-
-{{lang_ip}}:{{get_ip}}
-
-{{lang_nat_ip}}:{{get_nat_ip}}
-
-{{lang_mask}}:{{get_mask}}
-
-{{lang_gateway}}:{{get_gateway}}
-
-{{lang_dns1}}:{{get_dns1}}
-
-{{lang_dns2}}:{{get_dns2}}
-
-{{lang_type}}:{{get_type}}
-
-{{lang_os}}:{{get_os}}
-
-{{lang_state}}:{{get_state}}
-
-{{lang_login_id}}:{{get_login_id}}
-
-{{lang_login_pw}}:{{get_login_pw}}
-
-{{lang_check_command}}:{{get_check_command}}
-
-{{lang_certificate}}:{{get_certificate}}
-
-{{lang_my_master}}:{{get_my_master}}
-
-{{lang_my_software}}:{{get_my_software}}
-
-{{lang_my_service}}:{{get_my_service}}
-
-{{lang_date_time}}:{{get_date_time}}
-
-
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -293,50 +167,8 @@
 
 <b>{{lang_id}}:</b>{{get_id}}<br />
 
-<b>{{lang_serial}}:</b>{{get_serial}}<br />
-
-<b>{{lang_mac_adress}}:</b>{{get_mac_adress}}<br />
-
-<b>{{lang_name}}:</b>{{get_name}}<br />
-
-<b>{{lang_location}}:</b>{{get_location}}<br />
-
-<b>{{lang_ip}}:</b>{{get_ip}}<br />
-
-<b>{{lang_nat_ip}}:</b>{{get_nat_ip}}<br />
-
-<b>{{lang_mask}}:</b>{{get_mask}}<br />
-
-<b>{{lang_gateway}}:</b>{{get_gateway}}<br />
-
-<b>{{lang_dns1}}:</b>{{get_dns1}}<br />
-
-<b>{{lang_dns2}}:</b>{{get_dns2}}<br />
-
-<b>{{lang_type}}:</b>{{get_type}}<br />
-
-<b>{{lang_os}}:</b>{{get_os}}<br />
-
-<b>{{lang_state}}:</b>{{get_state}}<br />
-
-<b>{{lang_login_id}}:</b>{{get_login_id}}<br />
-
-<b>{{lang_login_pw}}:</b>{{get_login_pw}}<br />
-
-<b>{{lang_check_command}}:</b>{{get_check_command}}<br />
-
-<b>{{lang_certificate}}:</b>{{get_certificate}}<br />
-
-<b>{{lang_my_master}}:</b>{{get_my_master}}<br />
-
-<b>{{lang_my_software}}:</b>{{get_my_software}}<br />
-
-<b>{{lang_my_service}}:</b>{{get_my_service}}<br />
-
-<b>{{lang_date_time}}:</b>{{get_date_time}}<br />
-
 <br />
-{{lang_thanks}} 
+{{lang_thanks}}
 --
 <br />
 </p>
@@ -414,7 +246,7 @@
 <message>
 {{lang_The action}} {{get_check_action}} {{lang_was run on asset}} ({{glob_list_check}}) by:{{user_auth_email}}
 
-{{lang_thanks}}  
+{{lang_thanks}}
 --
 
 </message>
@@ -430,7 +262,7 @@
 <br />
 {{lang_The action}} {{get_check_action}} {{lang_was run on asset}} ({{glob_list_check}}) by:{{user_auth_email}}
 <br />
-{{lang_thanks}}  
+{{lang_thanks}}
 --<br />
 </p>
 </to_page>
@@ -498,8 +330,8 @@
 
 
 <author>Tchouamou Eric Herve</author>
-<creationDate>2010-Sep-Mon 10:59:07</creationDate>
-<copyright>(C) 2004-2010 Open Source . All rights reserved.</copyright>
+<creationDate>2020-Jul-Sun 17:44:47</creationDate>
+<copyright>(C) 2004-2011 Open Source . All rights reserved.</copyright>
 <license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
 <authorEmail>tchouamou@gmail.com</authorEmail>
 <authorUrl>http://sourceforge.net/users/tchouamoueric/</authorUrl>

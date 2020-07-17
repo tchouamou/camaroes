@@ -402,8 +402,10 @@ if(empty($secure_mode)) return $param;
 	$type = substr(stristr($param, " type="),6,10);
 // 	echo "\$type=".htmlentities($type).";<br />";
 
-	$param = preg_replace('/([^\\\])"(.*[^\\\])(")/sU', "cmr_var_name('\\1', '\\2', '\\3')", $param);
-	$param = preg_replace("/([^\\\])'(.*[^\\\])(')/sU", "cmr_var_name('\\1', '\\2', '\\3')", $param);
+	//$param = preg_replace('/([^\\\])"(.*[^\\\])(")/sU', "cmr_var_name('\\1', '\\2', '\\3')", $param);
+  $param = preg_replace_callback('/([^\\\])"(.*[^\\\])(")/sU', function ($m) {return cmr_var_name($m[1],$m[2],$m[3]);}, $param);
+	//$param = preg_replace("/([^\\\])'(.*[^\\\])(')/sU", "cmr_var_name('\\1', '\\2', '\\3')", $param);
+
 // 	$param = cmr_search_replace("/[[:space:]]+/eU", " ", $param);
 // echo "\$param=".htmlentities($param).";<br />";
 	$param = preg_replace("/[\\n\\t\\f]+/U", " ", $param);

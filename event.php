@@ -46,10 +46,11 @@ $cmr->config["cmr_main_config"] = dirname(__FILE__) . "/conf.d/conf.ini"; // con
 include_once(dirname(__FILE__) . "/common_begin.php");
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 /*==================*/
-if($cmr->exist_mess("event.php")) print($cmr->module_mess("event.php"));
+if ($cmr->exist_mess("event.php")) {
+    print($cmr->module_mess("event.php"));
+}
 /*==================*/
 
 // $cmr->debug_print();exit;
 $cmr->close();
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-?>
